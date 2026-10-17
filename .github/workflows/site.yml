@@ -28,18 +28,34 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Fetch live data (never fails the build)
         run: python fetch.py
-      - name: Save data history
-        run: |
-          git config user.name "surinamebusiness-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data/live
-          if ! git diff --cached --quiet; then
-            git commit -m "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)" -q
-            git pull --rebase -q || true
-            git push -q || echo "push skipped"
-          fi
       - name: Build site
         run: python build.py
+      - name: Save data history (never conflicts, never fails the deploy)
+        run: |
+          set +e
+          git config user.name "surinamebusiness-bot"
+          git config user.email "actions@users.noreply.github.com"
+          cp -r data/live /tmp/live_new
+          git fetch -q origin main && git reset -q --hard origin/main
+          python - <<'PY'
+          import json, os, shutil
+          src, dst = "/tmp/live_new", "data/live"
+          os.makedirs(dst, exist_ok=True)
+          for f in os.listdir(src):
+              if f == "rate_history.json" and os.path.exists(os.path.join(dst, f)):
+                  try:
+                      old = json.load(open(os.path.join(dst, f)))
+                      new = json.load(open(os.path.join(src, f)))
+                      old.setdefault("days", {}).update(new.get("days", {}))
+                      json.dump(old, open(os.path.join(dst, f), "w"), ensure_ascii=False, indent=1, sort_keys=True)
+                      continue
+                  except Exception:
+                      pass
+              shutil.copy(os.path.join(src, f), os.path.join(dst, f))
+          PY
+          git add data/live
+          git diff --cached --quiet || { git commit -qm "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)"; git push -q origin HEAD:main || echo "push skipped"; }
+          exit 0
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
