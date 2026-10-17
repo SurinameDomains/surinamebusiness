@@ -1,6 +1,86 @@
 {
- "fetched_at": "2026-10-17T19:33:40+00:00",
+ "fetched_at": "2026-10-17T20:08:51+00:00",
  "items": [
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45088",
+   "location": "Paramaribo",
+   "published": "2026-10-16",
+   "source": "Newmont",
+   "title": "Advisor, People Case Management",
+   "url": "https://jobs.newmont.com/us/en/job/45088"
+  },
+  {
+   "deadline": "2026-10-28",
+   "employer": "UNDP Suriname",
+   "id": "undp-37455",
+   "location": "Paramaribo, Suriname",
+   "published": "2026-10-14",
+   "source": "UNDP",
+   "title": "Programme Analyst [Open to Tier 0, 1 & 2 applicants]",
+   "url": "https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/job/37455"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45141",
+   "location": "Paramaribo",
+   "published": "2026-10-13",
+   "source": "Newmont",
+   "title": "Team Lead, Networks",
+   "url": "https://jobs.newmont.com/us/en/job/45141"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-44412",
+   "location": "Paramaribo",
+   "published": "2026-10-13",
+   "source": "Newmont",
+   "title": "Intern, Assay Lab",
+   "url": "https://jobs.newmont.com/us/en/job/44412"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45061",
+   "location": "Paramaribo",
+   "published": "2026-10-06",
+   "source": "Newmont",
+   "title": "Graduate Trainee",
+   "url": "https://jobs.newmont.com/us/en/job/45061"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45062",
+   "location": "Paramaribo",
+   "published": "2026-10-06",
+   "source": "Newmont",
+   "title": "Graduate Trainee",
+   "url": "https://jobs.newmont.com/us/en/job/45062"
+  },
+  {
+   "deadline": "2026-10-20",
+   "employer": "UNDP Suriname",
+   "id": "undp-37253",
+   "location": "Paramaribo, Suriname",
+   "published": "2026-10-05",
+   "source": "UNDP",
+   "title": "Communications Associate (Office Based) [Open to Internal and External applicants]",
+   "url": "https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/job/37253"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-84745",
+   "location": "Suriname",
+   "published": "2026-10-01",
+   "source": "TotalEnergies",
+   "title": "Social Performance project Lead H/F",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/Social-Performance-project-Lead-H-F/84745"
+  },
   {
    "employer": "Ministerie van Natuurlijke Hulpbronnen",
    "id": "gov-161900",
@@ -8,6 +88,36 @@
    "source": "gov.sr",
    "title": "Energy Awareness Consultant",
    "url": "https://gov.sr/vacature/energy-consultant/"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-83653",
+   "location": "Suriname",
+   "published": "2026-08-28",
+   "source": "TotalEnergies",
+   "title": "Drilling & Wells Engineer",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/Drilling-Wells-Engineer/83653"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-83484",
+   "location": "Suriname",
+   "published": "2026-08-20",
+   "source": "TotalEnergies",
+   "title": "GIS Data Analyst",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/GIS-Data-Analyst/83484"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-83294",
+   "location": "Suriname",
+   "published": "2026-08-12",
+   "source": "TotalEnergies",
+   "title": "Junior Reservoir Engineer",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/Junior-Reservoir-Engineer/83294"
   },
   {
    "employer": "Ministerie van Natuurlijke Hulpbronnen",
@@ -24,7 +134,59 @@
    "source": "gov.sr",
    "title": "Vacature Inspecteurs IBO, IVOJ en IVOS",
    "url": "https://gov.sr/vacature/vacature-inspecteurs-ibo-ivoj-en-ivos/"
+  },
+  {
+   "deadline": "2026-10-23",
+   "employer": "UNICEF",
+   "id": "unicef-76138600",
+   "location": "Belize, Guyana, Suriname, Barbados, Trinidad and Tobago",
+   "published": null,
+   "source": "UNICEF",
+   "title": "Finance Associate, GS6, FT, #138600, Duty Station within the Caribbean Multi-Country Office (excluding Kingston, Jamaica)",
+   "url": "https://jobs.unicef.org/en-us/job/595337/finance-associate-gs6-ft-138600-duty-station-within-the-caribbean-multicountry-office-excluding-kingston-jamaica"
+  },
+  {
+   "deadline": "2026-10-23",
+   "employer": "UNICEF",
+   "id": "unicef-17138565",
+   "location": "Suriname",
+   "published": null,
+   "source": "UNICEF",
+   "title": "Senior Planning Associate, GS7, FT, #138565, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
+   "url": "https://jobs.unicef.org/en-us/job/595281/senior-planning-associate-gs7-ft-138565-paramaribo-suriname-multicountry-office-for-the-caribbean"
   }
  ],
- "ok": true
+ "ok": true,
+ "sources": {
+  "Newmont": {
+   "count": 5,
+   "fetched_at": "2026-10-17T20:08:39+00:00",
+   "ok": true
+  },
+  "TotalEnergies": {
+   "count": 4,
+   "fetched_at": "2026-10-17T20:08:44+00:00",
+   "ok": true
+  },
+  "UN Careers": {
+   "count": 0,
+   "fetched_at": "2026-10-17T20:08:51+00:00",
+   "ok": true
+  },
+  "UNDP": {
+   "count": 2,
+   "fetched_at": "2026-10-17T20:08:47+00:00",
+   "ok": true
+  },
+  "UNICEF": {
+   "count": 2,
+   "fetched_at": "2026-10-17T20:08:49+00:00",
+   "ok": true
+  },
+  "US Embassy": {
+   "count": 0,
+   "fetched_at": "2026-10-17T20:08:50+00:00",
+   "ok": true
+  }
+ }
 }
