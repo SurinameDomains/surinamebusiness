@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-17T21:23:00+00:00",
+   "source": "Starnieuws",
+   "title": "Man met illegale revolver aangehouden in goudnederzetting 21 Pasi",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94419"
+  },
+  {
+   "econ": false,
    "published": "2026-10-17T19:02:00+00:00",
    "source": "Starnieuws",
    "title": "SBV: Tien banken maken gezamenlijke afspraken over cyberbeveiliging; sectorbreed protocol",
@@ -183,7 +190,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-17T20:49:40+00:00",
+ "fetched_at": "2026-10-17T21:43:44+00:00",
  "oil": [
   {
    "econ": true,
@@ -203,32 +210,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-17T20:49:38+00:00",
+   "fetched_at": "2026-10-17T21:43:42+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 13,
-   "fetched_at": "2026-10-17T20:49:36+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-17T21:43:40+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-17T20:49:38+00:00",
+   "fetched_at": "2026-10-17T21:43:41+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T20:49:39+00:00",
+   "fetched_at": "2026-10-17T21:43:43+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-17T20:49:38+00:00",
+   "fetched_at": "2026-10-17T21:43:41+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T20:49:40+00:00",
+   "fetched_at": "2026-10-17T21:43:44+00:00",
    "ok": true
   }
  }
