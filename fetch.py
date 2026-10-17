@@ -368,7 +368,8 @@ def parse_feed(name, url):
 
 def fetch_news():
     prev = load("news.json", {"business": [], "oil": [], "sources": {}})
-    status = prev.get("sources", {})
+    current = {n + (" economie" if u in ECONOMY_FEEDS else "") for n, u in FEEDS}
+    status = {k: v for k, v in prev.get("sources", {}).items() if k in current}
     allitems = []
     for name, url in FEEDS:
         try:
