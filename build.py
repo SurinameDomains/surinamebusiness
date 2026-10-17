@@ -14,6 +14,7 @@ import sys
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import facts
+import extras
 from site_config import (DYNAMIC, CONTACT_EMAIL, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
                          file_for, url_for)
 
@@ -243,7 +244,9 @@ def spark_points(series, w=300, h=56):
     if len(vals) < 3:
         return ""
     lo, hi = min(vals), max(vals)
-    rng = (hi - lo) or 1
+    if hi - lo < 0.01:
+        return ""  # a flat line tells nothing
+    rng = hi - lo
     pts = []
     for i, v in enumerate(vals):
         x = i * (w / (len(vals) - 1))
@@ -376,6 +379,36 @@ def companies_view():
             "count": len(recs), "pages": sum(1 for r in recs if r["page"])}
 
 
+def _town_pages(render, lang, U, co):
+    import companies as C
+    nl = lang == "nl"
+    for gr in co["groups"]:
+        if gr["key"] == "other":
+            continue
+        by = {}
+        for r in gr["items"]:
+            if r["place"]:
+                by.setdefault(r["place"], []).append(r)
+        towns = []
+        for town, items in sorted(by.items(), key=lambda x: -len(x[1])):
+            if len(items) < 8:
+                continue
+            ts = C.slugify(town)
+            towns.append((town, ts, len(items)))
+            label = gr["nl"] if nl else gr["en"]
+            t = f"{label} in {town} ({len(items)})"
+            d = (f"{len(items)} adressen voor {label.lower()} in {town}, met adres, telefoon en openingstijden waar bekend."
+                 if nl else f"{len(items)} listings for {label.lower()} in {town}, with address, phone and opening hours where known.")
+            crumbs = [{"label": "Home", "url": U("home")},
+                      {"label": "Bedrijven" if nl else "Companies", "url": "/bedrijven/" if nl else "/en/companies/"},
+                      {"label": label, "url": f"/bedrijven/{gr['nl_slug']}" if nl else f"/en/companies/{gr['en_slug']}"},
+                      {"label": town}]
+            sub = dict(gr, items=items, count=len(items))
+            render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}-{ts}",
+                   f"/en/companies/{gr['en_slug']}-{ts}", crumbs, extra={"gr": sub, "town": town, "parent": gr})
+        gr["towns"] = towns
+
+
 def build_salary_pages(render, lang, U, L):
     for i, g in enumerate(SALARY_AMOUNTS):
         r = py_salary(g)
@@ -400,6 +433,7 @@ def build_salary_pages(render, lang, U, L):
 def build_company_pages(render, lang, U, L, co):
     if not co["recs"]:
         return
+    _town_pages(render, lang, U, co)
     nl = lang == "nl"
     title = ("Bedrijvengids Suriname: " if nl else "Suriname business directory: ") + \
             (f"{co['count']} bedrijven per categorie" if nl else f"{co['count']} businesses by category")
@@ -473,11 +507,13 @@ def main():
     jobs = jobs_view()
     news = news_view()
     co = companies_view()
+    buyers = extras.tender_buyers(tenders)
     sitemap = []
 
     for lang in ("nl", "en"):
         li = 0 if lang == "nl" else 1
         hol = holidays_view(lang)
+        nl_lang = lang == "nl"
         U = lambda k, _l=lang: url_for(k, _l)
         L = lambda k, _li=li: LABELS[k][_li]
         env.globals.update({})
@@ -485,9 +521,8 @@ def main():
         if rates and not rates["stale"]:
             ticker.append({"label": "USD", "value": fmt_num(rates["usd"]["sell"], lang), "url": U("rates")})
             ticker.append({"label": "EUR", "value": fmt_num(rates["eur"]["sell"], lang), "url": U("rates")})
-        ticker.append({"label": "Minimumloon" if lang == "nl" else "Minimum wage",
-                       "value": fmt_srd(facts.MIN_WAGE["hour"], lang, 2) + ("/uur" if lang == "nl" else "/h"),
-                       "url": U("minwage")})
+        ticker.append({"label": "Vacatures" if lang == "nl" else "Jobs", "value": str(len(jobs["items"])),
+                       "url": U("jobs")})
         ticker.append({"label": "Belastingvrij" if lang == "nl" else "Tax-free",
                        "value": fmt_srd(facts.TAX["free_month"], lang) + ("/mnd" if lang == "nl" else "/mo"),
                        "url": U("tax")})
@@ -542,7 +577,23 @@ def main():
                 continue
             title, desc = META[key][li]
             crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
-            render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs)
+            faq = extras.faqs(key, lang, py_salary)
+            graph = schema_for(key, lang, title, desc, SITE_URL + U(key))
+            if faq:
+                graph.append(extras.faq_schema(faq))
+            render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs,
+                   extra={"faq": faq, "buyers": buyers}, graph=graph)
+
+        for b in buyers:
+            if len(b["items"]) < 2:
+                continue
+            t = (f"Aanbestedingen {b['name']}: {len(b['items'])} open" if nl_lang else
+                 f"{b['name']} tenders: {len(b['items'])} open")
+            d = (f"Alle open aanbestedingen van {b['name']} in Suriname, met publicatie- en sluitingsdatum. Dagelijks bijgewerkt."
+                 if nl_lang else f"All open tenders from {b['name']} in Suriname, with publication and closing dates. Updated daily.")
+            crumbs = [{"label": "Home", "url": U("home")}, {"label": L("tenders"), "url": U("tenders")}, {"label": b["name"]}]
+            render("tender_buyer.html", "tenders", t, d, f"/aanbesteder/{b['slug']}", f"/en/tender-buyer/{b['slug']}",
+                   crumbs, extra={"b": b})
 
         build_salary_pages(render, lang, U, L)
         build_company_pages(render, lang, U, L, co)
@@ -551,6 +602,9 @@ def main():
     tpl = env.get_template("404.html")
     with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as f:
         f.write(tpl.render(site_url=SITE_URL))
+
+    extras.write_feeds(OUT, SITE_URL, tenders, jobs)
+    extras.write_ics(OUT)
 
     # rate history CSV
     if rates:

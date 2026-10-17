@@ -18,6 +18,7 @@
 {% else %}<li class="empty">{{ 'Op dit moment geen open vacatures gevonden.' if nl else 'No open vacancies found right now.' }}</li>{% endfor %}
 </ul>
 </div>
+<div class="card" style="margin-top:20px"><h3>{{ 'Meer vacatures op andere vacaturesites' if nl else 'More vacancies on other job sites' }}</h3><p>{{ 'Lokale bedrijven plaatsen veel vacatures op deze sites:' if nl else 'Local companies post many vacancies on these sites:' }} <a href="https://vacaturebank.sr/" rel="noopener" target="_blank">vacaturebank.sr</a> &middot; <a href="https://jobs.sr/" rel="noopener" target="_blank">jobs.sr</a> &middot; <a href="https://gov.sr/vacatures/" rel="noopener" target="_blank">gov.sr/vacatures</a>. <a href="/feeds/vacatures.xml">RSS</a></p></div>
 <div class="grid g2" style="margin-top:20px">
  <div class="card"><h3>{{ 'Vacature plaatsen?' if nl else 'Post a vacancy?' }}</h3><p>{{ 'Werkgevers kunnen gratis een vacature aanmelden. Stuur de functie, sluitingsdatum en een link of PDF naar' if nl else 'Employers can submit a vacancy for free. Send the job title, closing date and a link or PDF to' }} <a href="mailto:{{ contact_email }}?subject=Vacature">{{ contact_email }}</a>.</p></div>
  <div class="card"><h3>{{ 'Wat verdien je netto?' if nl else 'What will you take home?' }}</h3><p>{{ 'Reken een aangeboden salaris om naar netto met de loonbelasting van 2026.' if nl else 'Convert an offered salary to net pay with the 2026 wage tax.' }}</p><a href="{{ U('salary') }}">{{ L('salary') }} &rarr;</a></div>

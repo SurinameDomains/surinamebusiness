@@ -3,7 +3,7 @@
 {% block hero %}
 <section class="hero">
  <div class="wrap">
-  <h1>{{ 'Alles voor werken en zakendoen in Suriname' if nl else 'Everything for working and doing business in Suriname' }}</h1>
+  <h1>{% if nl %}Werken en zakendoen in Suriname, <em>in cijfers</em>{% else %}Working and doing business in Suriname, <em>by the numbers</em>{% endif %}</h1>
   <p class="lead">{{ 'Bereken je netto salaris, vind elke open aanbesteding en volg de koers. Actuele cijfers met bron, gratis.' if nl else 'Work out your net salary, find every open tender and follow the exchange rate. Current figures with sources, free.' }}</p>
   <div class="grid g4 tools">
    <a class="card tool" href="{{ U('salary') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span><b>{{ 'Netto salaris' if nl else 'Net salary' }}</b><span>{{ 'Bruto naar netto met de tarieven van 2026' if nl else 'Gross to net with 2026 tax rates' }}</span></a>
@@ -15,7 +15,10 @@
 </section>
 {% endblock %}
 {% block content %}
-<div class="cols" style="margin-top:28px">
+<div class="today" aria-label="{{ 'Vandaag' if nl else 'Today' }}">
+{% for t in ticker %}<a href="{{ t.url }}"><span class="k">{{ t.label }}</span><span class="v">{{ t.value }}</span></a>{% endfor %}
+</div>
+<div class="cols" style="margin-top:22px">
  <div>
   <section class="card">
    <div class="eyebrow">{{ 'Nieuwste aanbestedingen' if nl else 'Latest tenders' }}</div>
@@ -55,7 +58,7 @@
     <div class="rate-row"><span>USD {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.usd.buy) }}</b></div>
     <div class="rate-row"><span>EUR {{ 'verkoop' if nl else 'sell' }}</span><b class="tnum">{{ num(rates.eur.sell) }}</b></div>
     <div class="rate-row"><span>EUR {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.eur.buy) }}</b></div>
-    {% set pts = spark(rates.series) %}{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#0e6b51" stroke-width="2"/></svg>{% endif %}
+    {% set pts = spark(rates.series) %}{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2"/></svg>{% endif %}
     <div class="foot"><span>{% if rates.stale %}<span class="pill">{{ 'Laatst bekend' if nl else 'Last known' }}</span> {% endif %}CME, {{ date(rates.business_date, year=False) }}</span><a href="{{ U('rates') }}">{{ 'Historie' if nl else 'History' }} &rarr;</a></div>
    {% else %}<p class="empty">{{ 'Koers tijdelijk niet beschikbaar.' if nl else 'Rates temporarily unavailable.' }}</p>{% endif %}
   </section>

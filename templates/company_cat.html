@@ -2,8 +2,9 @@
 {% set nl = lang == 'nl' %}
 {% set label = gr.nl if nl else gr.en %}
 {% block content %}
-<h1>{{ label }} {{ 'in Suriname' }}</h1>
-<p class="lead">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}. {{ 'Gesorteerd op naam; filter op plaats of zoek op naam.' if nl else 'Sorted by name; filter by place or search by name.' }}</p>
+<h1>{{ label }} {{ 'in' }} {{ town or 'Suriname' }}</h1>
+{% if gr.towns and not town %}<div class="filters">{% for tname, ts, n in gr.towns %}<a class="chip" href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}-{{ ts }}">{{ tname }} ({{ n }})</a>{% endfor %}</div>{% endif %}
+<p class="lead">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}{% if town %} {{ 'in' }} {{ town }}{% endif %}. {{ 'Gesorteerd op naam; filter op plaats of zoek op naam.' if nl else 'Sorted by name; filter by place or search by name.' }}</p>
 <div class="filters" data-filter-list="cat-list">
  <input type="search" placeholder="{{ 'Zoek op naam, straat of plaats' if nl else 'Search by name, street or place' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alle plaatsen' if nl else 'All places' }}</button>
@@ -15,6 +16,6 @@
  <div class="meta">{% if r.street %}<span>{{ r.street }}</span>{% endif %}{% if r.place %}<span>{{ r.place }}</span>{% endif %}{% if r.phone %}<span><a href="tel:{{ r.phone|replace(' ','') }}">{{ r.phone }}</a></span>{% endif %}{% if r.hours %}<span class="pill">{{ 'Openingstijden bekend' if nl else 'Opening hours known' }}</span>{% endif %}</div></li>
 {% endfor %}
 </ul></div>
-<p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. <a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Alle categorieën' if nl else 'All categories' }}</a></p>
+<p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. {% if town %}<a href="{{ '/bedrijven/' ~ parent.nl_slug if nl else '/en/companies/' ~ parent.en_slug }}">{{ 'Heel Suriname' if nl else 'All of Suriname' }}</a> &middot; {% endif %}<a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Alle categorieën' if nl else 'All categories' }}</a></p>
 {% endblock %}
 {% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

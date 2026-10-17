@@ -18,13 +18,14 @@
 <meta property="og:image" content="{{ site_url }}/assets/og.png">
 <meta property="og:locale" content="{{ 'nl_SR' if lang=='nl' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b4f3c">
+<meta name="theme-color" content="#1f2251">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,650&family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/style.css?v={{ build_id }}">
+{% if key in ("tenders","jobs") %}<link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/{{ "aanbestedingen" if key=="tenders" else "vacatures" }}.xml">{% endif %}
 <script type="application/ld+json">{{ schema|safe }}</script>
 </head>
 <body>
@@ -32,7 +33,7 @@
 <header class="top">
  <div class="wrap">
   <a class="logo" href="{{ home_url }}" aria-label="Suriname Business, home">
-   <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#c9902a"/><rect x="7" y="18" width="5" height="9" rx="1.5" fill="#0b4f3c"/><rect x="14.5" y="12" width="5" height="15" rx="1.5" fill="#0b4f3c"/><rect x="22" y="7" width="5" height="20" rx="1.5" fill="#0b4f3c"/></svg>
+   <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f2251"/><rect x="7.5" y="18" width="5" height="9" rx="1.5" fill="#c9cbeb"/><rect x="14.5" y="13" width="5" height="14" rx="1.5" fill="#c9cbeb"/><rect x="21.5" y="7" width="5" height="20" rx="1.5" fill="#e4572e"/></svg>
    <span>Suriname Business<small>{{ 'Werken, handelen, investeren' if lang=='nl' else 'Work, trade, invest' }}</small></span>
   </a>
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">{{ 'Menu' }}</button>
@@ -42,12 +43,12 @@
   </nav>
  </div>
 </header>
-{% if ticker %}<div class="ticker" aria-label="{{ 'Vandaag' if lang=='nl' else 'Today' }}"><div class="wrap">{% for t in ticker %}<span>{% if t.url %}<a href="{{ t.url }}">{% endif %}{{ t.label }} <b class="tnum">{{ t.value }}</b>{% if t.url %}</a>{% endif %}</span>{% endfor %}</div></div>{% endif %}
 <main id="main">
 {% block hero %}{% endblock %}
 <div class="wrap">
 {% if crumbs %}<div class="crumbs">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</div>{% endif %}
 {% block content %}{% endblock %}
+{% if faq %}<section class="prose" style="margin-top:28px"><h2>{{ 'Veelgestelde vragen' if lang=='nl' else 'Frequently asked questions' }}</h2>{% for q, a in faq %}<h3>{{ q }}</h3><p>{{ a }}</p>{% endfor %}</section>{% endif %}
 </div>
 </main>
 <footer class="site-foot">

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Aanbestedingen' if nl else 'Tenders' }}: {{ b.name }}</h1>
+<p class="lead"><b>{{ b['items']|length }}</b> {{ 'open aanbestedingen van' if nl else 'open tenders from' }} {{ b.name }}. {{ 'Elke 30 minuten bijgewerkt.' if nl else 'Updated every 30 minutes.' }}</p>
+<div class="card"><ul class="list">
+{% for t in b['items'] %}
+ <li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
+ <div class="meta">{% if t.kind %}<span>{{ t.kind }}</span>{% endif %}<span>{{ 'Gepubliceerd' if nl else 'Published' }} {{ date(t.published) }}</span>{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}</span>{% endif %}</div></li>
+{% endfor %}
+</ul></div>
+<p style="margin-top:16px"><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a> &middot; <a href="/feeds/aanbestedingen.xml">RSS</a> &middot; <a href="{{ U('start') }}">{{ 'Inschrijven als bedrijf' if nl else 'Register your company' }}</a></p>
+{% endblock %}

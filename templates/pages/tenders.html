@@ -8,6 +8,7 @@
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }}</button>
  {% for s in ['gov.sr', 'Staatsolie', 'IDB', 'World Bank'] %}<button class="chip" data-v="{{ s }}" aria-pressed="false">{{ ('Overheid' if nl else 'Government') if s == 'gov.sr' else (('Wereldbank' if nl else 'World Bank') if s == 'World Bank' else s) }}</button>{% endfor %}
 </div>
+<p class="sub">{{ 'Per aanbesteder:' if nl else 'By buyer:' }} {% for b in buyers if b['items']|length >= 2 %}<a href="{{ '/aanbesteder/' if nl else '/en/tender-buyer/' }}{{ b.slug }}">{{ b.name|replace('Ministerie van ','') }} ({{ b['items']|length }})</a>{% if not loop.last %} &middot; {% endif %}{% endfor %} &middot; <a href="/feeds/aanbestedingen.xml">RSS</a></p>
 <div class="card">
 <ul class="list" id="t-list">
 {% for t in tenders['items'] %}

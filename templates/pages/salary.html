@@ -35,7 +35,7 @@
 
 <h2>{{ 'Netto salaris tabel 2026' if nl else 'Net salary table 2026' }}</h2>
 <p>{{ 'Netto per maand bij een bruto maandloon, zonder pensioenpremie, met 4% AOV.' if nl else 'Net per month for a given gross monthly wage, without pension premium, with 4% AOV.' }}</p>
-<div class="scroll"><table class="tbl">
+<div><table class="tbl">
  <thead><tr><th>{{ 'Bruto' if nl else 'Gross' }} (SRD)</th><th class="r">{{ 'Belasting' if nl else 'Tax' }}</th><th class="r">AOV</th><th class="r">{{ 'Netto' if nl else 'Net' }}</th></tr></thead>
  <tbody>
  {% for g in [8000, 10000, 12000, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}

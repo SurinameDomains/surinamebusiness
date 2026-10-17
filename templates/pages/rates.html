@@ -17,13 +17,23 @@
   <div class="rate-row"><span>{{ 'U koopt euro\'s' if nl else 'You buy euros' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.eur.sell) }}</span></div>
  </div>
 </div>
+<form class="card calc" id="fx-form" onsubmit="return false" style="margin-bottom:16px">
+ <div class="eyebrow">{{ 'Omrekenen' if nl else 'Convert' }}</div>
+ <div class="grid g3">
+  <div><label for="fx-a">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="fx-a" name="a" inputmode="decimal" value="100"></div>
+  <div><label for="fx-f">{{ 'Van' if nl else 'From' }}</label><select id="fx-f" name="f"><option>USD</option><option>EUR</option><option>SRD</option></select></div>
+  <div><label for="fx-t">{{ 'Naar' if nl else 'To' }}</label><select id="fx-t" name="t"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+ </div>
+ <div class="big tnum" id="fx-out" style="margin-top:14px"></div>
+ <div class="sub" id="fx-how"></div>
+</form>
 {% set pts = spark(rates.series, 700, 120) %}
-{% if pts %}<div class="card"><div class="eyebrow">{{ 'USD verkoopkoers, laatste' if nl else 'USD sell rate, last' }} {{ rates.series|length }} {{ 'dagen' if nl else 'days' }}</div><svg viewBox="0 0 700 120" preserveAspectRatio="none" style="width:100%;height:120px" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#0e6b51" stroke-width="2.5"/></svg><div class="foot"><span>{{ date(rates.series[0][0]) }}: {{ num(rates.series[0][1]) }}</span><span>{{ date(rates.series[-1][0]) }}: {{ num(rates.series[-1][1]) }}</span></div></div>{% endif %}
+{% if pts %}<div class="card"><div class="eyebrow">{{ 'USD verkoopkoers, laatste' if nl else 'USD sell rate, last' }} {{ rates.series|length }} {{ 'dagen' if nl else 'days' }}</div><svg viewBox="0 0 700 120" preserveAspectRatio="none" style="width:100%;height:120px" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2.5"/></svg><div class="foot"><span>{{ date(rates.series[0][0]) }}: {{ num(rates.series[0][1]) }}</span><span>{{ date(rates.series[-1][0]) }}: {{ num(rates.series[-1][1]) }}</span></div></div>{% endif %}
 
 <h2>{{ 'Koershistorie' if nl else 'Rate history' }}</h2>
 <p>{{ 'We bewaren elke werkdag de koers. Download de volledige reeks als' if nl else 'We store the rate every business day. Download the full series as' }} <a href="/assets/koers-historie.csv" download>CSV</a>.</p>
-<div class="scroll"><table class="tbl"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
-{% for d, v in rates.history[:30] %}<tr><td>{{ date(d) }}</td><td class="r">{{ num(v.usd[0]) if v.usd[0] else '-' }}</td><td class="r">{{ num(v.usd[1]) }}</td><td class="r">{{ num(v.eur[0]) if v.eur[0] else '-' }}</td><td class="r">{{ num(v.eur[1]) }}</td></tr>{% endfor %}
+<div><table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
+{% for d, v in rates.history[:30] %}<tr><td>{{ date(d) }}</td><td class="r" data-l="USD {{ 'aankoop' if nl else 'buy' }}">{{ num(v.usd[0]) if v.usd[0] else '-' }}</td><td class="r" data-l="USD {{ 'verkoop' if nl else 'sell' }}">{{ num(v.usd[1]) }}</td><td class="r" data-l="EUR {{ 'aankoop' if nl else 'buy' }}">{{ num(v.eur[0]) if v.eur[0] else '-' }}</td><td class="r" data-l="EUR {{ 'verkoop' if nl else 'sell' }}">{{ num(v.eur[1]) }}</td></tr>{% endfor %}
 </tbody></table></div>
 {% else %}
 <p class="note">{{ 'De koers is tijdelijk niet beschikbaar. Probeer het later opnieuw.' if nl else 'Rates are temporarily unavailable. Please try again later.' }}</p>
@@ -34,3 +44,13 @@
 <p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="https://www.cme.sr/" rel="noopener">Central Money Exchange</a>. {{ 'Elke 30 minuten opgehaald. Geen advies; vraag altijd de actuele koers bij je cambio of bank.' if nl else 'Fetched every 30 minutes. Not advice; always confirm the current rate with your cambio or bank.' }}</p>
 </div>
 {% endblock %}
+{% block scripts %}{% if rates %}<script>
+(function(){var R={USD:{b:{{ rates.usd.buy }},s:{{ rates.usd.sell }}},EUR:{b:{{ rates.eur.buy }},s:{{ rates.eur.sell }}}};var f=document.getElementById('fx-form');var nf=new Intl.NumberFormat('{{ 'nl-NL' if nl else 'en-US' }}',{minimumFractionDigits:2,maximumFractionDigits:2});
+function n(v){v=String(v||'').replace(/\s/g,'');if(/,\d{1,2}$/.test(v))v=v.replace(/\./g,'').replace(',','.');else v=v.replace(/,/g,'');return parseFloat(v)||0}
+function go(){var a=n(f.a.value),fr=f.f.value,to=f.t.value,srd,out,how;
+ srd=fr==='SRD'?a:a*R[fr].b; out=to==='SRD'?srd:srd/R[to].s;
+ how=(fr==='SRD'?'':'{{ 'aankoopkoers' if nl else 'buy rate' }} '+fr+' '+nf.format(R[fr].b))+(fr!=='SRD'&&to!=='SRD'?' · ':'')+(to==='SRD'?'':'{{ 'verkoopkoers' if nl else 'sell rate' }} '+to+' '+nf.format(R[to].s));
+ if(fr===to){out=a;how=''}
+ document.getElementById('fx-out').textContent=to+' '+nf.format(out);document.getElementById('fx-how').textContent=how?('CME, '+how):''}
+f.addEventListener('input',go);f.addEventListener('change',go);go()})();
+</script>{% endif %}{% endblock %}
