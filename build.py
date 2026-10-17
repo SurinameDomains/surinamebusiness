@@ -365,7 +365,8 @@ def main():
         ticker.append({"label": "Open tenders", "value": str(tenders["count"]), "url": U("tenders")})
         if hol["next"]:
             ticker.append({"label": "Volgende vrije dag" if lang == "nl" else "Next holiday",
-                           "value": f'{hol["next"]["name"]}, {fmt_date(hol["next"]["date"], lang, year=False)}',
+                           "value": f'{hol["next"]["name"]}, {fmt_date(hol["next"]["date"], lang, year=False)}'
+                                    + ((" (verwacht)" if lang == "nl" else " (expected)") if hol["next"]["status"] == "expected" else ""),
                            "url": U("holidays")})
 
         for key, (nl_slug, en_slug, section) in PAGES.items():
