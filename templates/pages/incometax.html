@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Inkomstenbelasting in Suriname' if nl else 'Income tax in Suriname' }}</h1>
+<p class="lead">{{ 'Je doet voor 15 april een voorlopige aangifte en betaalt in vier termijnen. De definitieve aangifte volgt binnen 4 maanden na het jaar. Aangifte gaat online via het portaal van de Belastingdienst.' if nl else 'You file a provisional return by 15 April and pay in four instalments. The final return follows within 4 months after the year. Returns are filed online through the tax office portal.' }}</p>
+<h2>{{ 'Belangrijke datums' if nl else 'Key dates' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Wanneer' if nl else 'When' }}</th><th>{{ 'Wat' if nl else 'What' }}</th></tr></thead><tbody>
+ <tr><td>15 {{ 'februari' if nl else 'February' }}</td><td>{{ 'Uiterste datum om verlaging van de voorlopige aanslag te vragen' if nl else 'Last day to request a lower provisional assessment' }}</td></tr>
+ <tr><td>15 {{ 'april' if nl else 'April' }}</td><td>{{ 'Voorlopige aangifte en eerste termijn' if nl else 'Provisional return and first instalment' }}</td></tr>
+ <tr><td>30 {{ 'april' if nl else 'April' }}</td><td>{{ 'Definitieve aangifte particulieren over het vorige jaar' if nl else 'Final return for individuals over the previous year' }}</td></tr>
+ <tr><td>30 {{ 'juni' if nl else 'June' }}</td><td>{{ 'Definitieve aangifte bedrijven (6 maanden na boekjaar)' if nl else 'Final return for companies (6 months after the financial year)' }}</td></tr>
+ <tr><td>15 {{ 'juli' if nl else 'July' }}, 15 {{ 'oktober' if nl else 'October' }}, 31 {{ 'december' if nl else 'December' }}</td><td>{{ 'Tweede, derde en vierde termijn' if nl else 'Second, third and fourth instalment' }}</td></tr>
+ <tr><td>{{ 'Elke maand' if nl else 'Every month' }}</td><td>{{ 'Loonbelasting en AOV (26e tot 10e), BTW (voor de 16e)' if nl else 'Wage tax and AOV (26th to 10th), VAT (by the 16th)' }}</td></tr>
+</tbody></table>
+<h2>{{ 'Tarieven particulieren' if nl else 'Rates for individuals' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Belastbaar inkomen per jaar' if nl else 'Taxable income per year' }}</th><th class="r">{{ 'Tarief' if nl else 'Rate' }}</th></tr></thead><tbody>
+ <tr><td>{{ 'Tot' if nl else 'Up to' }} {{ srd(108000) }}</td><td class="r">0%</td></tr>
+ <tr><td>{{ srd(108000) }} {{ 'tot' if nl else 'to' }} {{ srd(150000) }}</td><td class="r">8%</td></tr>
+ <tr><td>{{ srd(150000) }} {{ 'tot' if nl else 'to' }} {{ srd(192000) }}</td><td class="r">18%</td></tr>
+ <tr><td>{{ srd(192000) }} {{ 'tot' if nl else 'to' }} {{ srd(234000) }}</td><td class="r">28%</td></tr>
+ <tr><td>{{ 'Boven' if nl else 'Above' }} {{ srd(234000) }}</td><td class="r">38%</td></tr>
+</tbody></table>
+<p>{{ 'Dit zijn dezelfde schijven als de loonbelasting, maar per jaar. Werknemers met alleen loon hebben hun belasting meestal al via de werkgever betaald.' if nl else 'These are the same brackets as wage tax, but per year. Employees with only a salary have usually paid their tax through the employer already.' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
+<h2>{{ 'Bedrijven en dividend' if nl else 'Companies and dividends' }}</h2>
+<ul>
+ <li>{{ 'NV\'s, stichtingen en coöperaties: 36% over de winst.' if nl else 'NVs, foundations and cooperatives: 36% on profit.' }}</li>
+ <li>{{ 'Dividendbelasting: 25%.' if nl else 'Dividend withholding tax: 25%.' }}</li>
+ <li>{{ 'Hypotheekrente is aftrekbaar tot een schuld van SRD 871.500 (sinds 2025).' if nl else 'Mortgage interest is deductible up to a debt of SRD 871,500 (since 2025).' }}</li>
+</ul>
+<h2>{{ 'Zo doe je aangifte' if nl else 'How to file' }}</h2>
+<ol>
+ <li>{{ 'Zorg voor een FIN nummer en een account op het portaal van de Belastingdienst.' if nl else 'Get a FIN number and an account on the tax office portal.' }}</li>
+ <li>{{ 'Vul de voorlopige aangifte in voor 15 april; de voorlopige belasting is minstens de laatste definitieve aanslag.' if nl else 'Fill in the provisional return by 15 April; the provisional tax is at least your last final assessment.' }}</li>
+ <li>{{ 'Betaal in vier gelijke termijnen.' if nl else 'Pay in four equal instalments.' }}</li>
+ <li>{{ 'Dien na afloop van het jaar de definitieve aangifte in.' if nl else 'File the final return after the year ends.' }}</li>
+</ol>
+<p><a href="{{ U('tax') }}">{{ L('tax') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="/assets/feestdagen-suriname.ics">{{ 'Feestdagen in je agenda' if nl else 'Holidays in your calendar' }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Inkomstenbelasting.pdf" rel="noopener">Wet Inkomstenbelasting 1922 (bijgewerkt tot S.B. 2024 no. 3)</a></li>
+ <li><a href="https://belastingdienst.sr/belastingen/inkomstenbelasting/" rel="noopener">Belastingdienst: inkomstenbelasting</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Dividendbelasting.pdf" rel="noopener">Wet Dividendbelasting</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/11/S.B.-2025-no.-130-STAATSBESLUIT-ter-uitvoering-van-artikel-52-h-van-de-Inkomstenbelasting-1922.pdf" rel="noopener">S.B. 2025 no. 130, hypotheekrente</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+</div>
+{% endblock %}

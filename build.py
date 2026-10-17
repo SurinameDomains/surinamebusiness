@@ -55,11 +55,16 @@ LABELS = {
     "vatguide": ("BTW in Suriname", "VAT in Suriname"),
     "labour": ("Arbeidsrecht: de basis", "Labour law basics"),
     "guides": ("Alle gidsen", "All guides"),
+    "workpermit": ("Werkvergunning en verblijf", "Work and residence permits"),
+    "import": ("Goederen importeren", "Importing goods"),
+    "incometax": ("Inkomstenbelasting en aangifte", "Income tax and returns"),
+    "land": ("Grond en huis kopen", "Buying land and property"),
     "about": ("Over ons", "About us"),
     "sources": ("Bronnen en methode", "Sources and method"),
     "contact": ("Contact", "Contact"),
     "privacy": ("Privacy", "Privacy"),
     "companies": ("Bedrijvengids", "Business directory"),
+    "search": ("Zoeken", "Search"),
 }
 
 META = {
@@ -135,6 +140,24 @@ META = {
                 "Praktische gidsen over een bedrijf starten, BTW, arbeidsrecht en leveren aan de olie en gas sector."),
                ("Guides for doing business in Suriname",
                 "Practical guides on starting a business, VAT, labour law and supplying the oil and gas sector.")),
+    "workpermit": (("Werkvergunning Suriname: aanvragen, kosten en vrijstellingen",
+                    "Zo vraag je een werkvergunning en verblijfsvergunning aan in Suriname: wie aanvraagt, documenten, USD 100 leges, 30 dagen beslistermijn en wie is vrijgesteld (PSA, CARICOM)."),
+                   ("Suriname work permit: how to apply, fees and exemptions",
+                    "How to get a work permit and residence permit in Suriname: who applies, documents, USD 100 fee, 30-day decision and who is exempt (PSA, CARICOM).")),
+    "import": (("Importeren in Suriname: douane, invoerrechten en BTW",
+                "Goederen importeren in Suriname: ASYCUDA, FIN nummer, douane-expediteur, CARICOM invoerrechten, 10% BTW, vergunningen en de regels voor gebruikte auto's."),
+               ("Importing into Suriname: customs, duties and VAT",
+                "Importing goods into Suriname: ASYCUDA, FIN number, customs broker, CARICOM duties, 10% VAT, licences and the rules for used cars.")),
+    "incometax": (("Inkomstenbelasting Suriname: aangifte, termijnen en tarieven",
+                   "Voorlopige aangifte voor 15 april, definitieve aangifte binnen 4 maanden, tarieven 8% tot 38%, 36% voor NV's en 25% dividendbelasting. Online via de Belastingdienst."),
+                  ("Suriname income tax: returns, deadlines and rates",
+                   "Provisional return by 15 April, final return within 4 months, rates 8% to 38%, 36% for companies and 25% dividend tax. Filed online with the tax office.")),
+    "land": (("Grond kopen in Suriname: grondhuur, eigendom en overdrachtsbelasting",
+              "Domeingrond, grondhuur of eigendom, conversie van grondhuur naar eigendom, 4% overdrachtsbelasting, notaris en kadaster. Ook voor wie uit het buitenland koopt."),
+             ("Buying land in Suriname: lease, ownership and transfer tax",
+              "State land, land lease or freehold, converting lease to ownership, 4% transfer tax, notary and land registry. Also for buyers from abroad.")),
+    "search": (("Zoeken op Suriname Business", "Zoek in alle rekentools, gidsen, aanbestedingen, vacatures en bedrijven."),
+               ("Search Suriname Business", "Search all calculators, guides, tenders, jobs and companies.")),
     "about": (("Over Suriname Business", "Wie we zijn en hoe deze site werkt."),
               ("About Suriname Business", "Who we are and how this site works.")),
     "sources": (("Bronnen en methode", "Waar onze cijfers vandaan komen en hoe vaak we ze bijwerken."),
@@ -509,6 +532,7 @@ def main():
     co = companies_view()
     buyers = extras.tender_buyers(tenders)
     sitemap = []
+    search_index = {"nl": [], "en": []}
 
     for lang in ("nl", "en"):
         li = 0 if lang == "nl" else 1
@@ -571,6 +595,9 @@ def main():
                 f.write(html_out)
             if in_sitemap and not robots:
                 sitemap.append((canonical, SITE_URL + path_nl, SITE_URL + path_en))
+            kind = tpl_name.split("/")[-1][:-5]
+            search_index[_lang].append([title.split(":")[0] if kind == "company" else title,
+                                        (path_nl if _lang == "nl" else path_en), kind])
 
         for key in PAGES:
             if key in DYNAMIC:
@@ -582,7 +609,8 @@ def main():
             if faq:
                 graph.append(extras.faq_schema(faq))
             render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs,
-                   extra={"faq": faq, "buyers": buyers}, graph=graph)
+                   extra={"faq": faq, "buyers": buyers}, graph=graph,
+                   robots="noindex,follow" if key == "search" else None)
 
         for b in buyers:
             if len(b["items"]) < 2:
@@ -603,6 +631,15 @@ def main():
     with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as f:
         f.write(tpl.render(site_url=SITE_URL))
 
+    kind_rank = {"salary_amount": 3, "company": 4, "company_cat": 2, "tender_buyer": 2}
+    for lg, rows in search_index.items():
+        rows.sort(key=lambda r: kind_rank.get(r[2], 0))
+        for t in tenders["items"]:
+            rows.append([t["title"], t["url"], "tender"])
+        for j in jobs["items"]:
+            rows.append([j["title"] + " (" + (j.get("employer") or "") + ")", j["url"], "job"])
+        with open(os.path.join(OUT, "assets", f"search-{lg}.json"), "w", encoding="utf-8") as f:
+            json.dump(rows, f, ensure_ascii=False, separators=(",", ":"))
     extras.write_feeds(OUT, SITE_URL, tenders, jobs)
     extras.write_ics(OUT)
 

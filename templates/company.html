@@ -12,7 +12,7 @@
 {% if r.phone %}<tr><td>{{ 'Telefoon' if nl else 'Phone' }}</td><td><a href="tel:{{ r.phone|replace(' ','') }}">{{ r.phone }}</a></td></tr>{% endif %}
 {% if r.website %}<tr><td>Website</td><td><a href="{{ r.website }}" rel="noopener nofollow" target="_blank">{{ r.website|replace('https://','')|replace('http://','')|truncate(40) }}</a></td></tr>{% endif %}
 {% if r.email %}<tr><td>E-mail</td><td><a href="mailto:{{ r.email }}">{{ r.email }}</a></td></tr>{% endif %}
-{% if r.hours %}<tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td><code>{{ r.hours }}</code></td></tr>{% endif %}
+{% if r.hours %}<tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td><span class="open-now" id="open-now" data-h="{{ r.hours }}"></span><div class="sub" id="hours-txt">{{ r.hours }}</div></td></tr>{% endif %}
 {% if r.operator and r.operator != r.name %}<tr><td>{{ 'Uitbater' if nl else 'Operator' }}</td><td>{{ r.operator }}</td></tr>{% endif %}
 </tbody></table>
 {% if r.lat %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ r.lat }},{{ r.lon }}" rel="noopener nofollow" target="_blank">{{ 'Route in Google Maps' if nl else 'Directions in Google Maps' }}</a><a href="{{ r.osm }}" rel="noopener">{{ 'Bekijk of bewerk op OpenStreetMap' if nl else 'View or edit on OpenStreetMap' }}</a></div>{% endif %}
@@ -27,3 +27,15 @@
 </div>
 <p class="asof">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL.</p>
 {% endblock %}
+{% block scripts %}{% if r.hours %}<script>
+(function(){var el=document.getElementById('open-now');var h=el.getAttribute('data-h').trim();var D=['Su','Mo','Tu','We','Th','Fr','Sa'];
+var NL={Mo:'ma',Tu:'di',We:'wo',Th:'do',Fr:'vr',Sa:'za',Su:'zo'};
+var now=new Date(Date.now()-3*3600e3),day=now.getUTCDay(),mins=now.getUTCHours()*60+now.getUTCMinutes();
+function dayset(spec){var set={};spec.split(',').forEach(function(p){var m=p.split('-');var a=D.indexOf(m[0]),b=D.indexOf(m[1]||m[0]);if(a<0||b<0)throw 0;for(var i=a;;i=(i+1)%7){set[i]=1;if(i===b)break}});return set}
+function t2m(t){var x=t.split(':');return +x[0]*60+ +x[1]}
+try{var open=null;if(h==='24/7'){open=true}else{open=false;var any=false;h.split(';').forEach(function(rule){rule=rule.trim();if(!rule)return;var m=rule.match(/^([A-Za-z,\-]+)\s+(.+)$/);if(!m)throw 0;var ds=dayset(m[1]);any=true;if(m[2]==='off'){if(ds[day])open=false;return}
+ if(ds[day]){m[2].split(',').forEach(function(r){var q=r.split('-');if(q.length!==2)throw 0;var a=t2m(q[0]),b=t2m(q[1]);if(b<=a)b+=1440;if(mins>=a&&mins<b)open=true})}});if(!any)throw 0}
+ el.textContent=open?'{{ 'Nu open' if nl else 'Open now' }}':'{{ 'Nu gesloten' if nl else 'Closed now' }}';el.className='open-now '+(open?'yes':'no');
+ {% if nl %}document.getElementById('hours-txt').textContent=h.replace(/Mo|Tu|We|Th|Fr|Sa|Su/g,function(x){return NL[x]}).replace(/off/g,'gesloten');{% endif %}
+}catch(e){el.remove()}})();
+</script>{% endif %}{% endblock %}

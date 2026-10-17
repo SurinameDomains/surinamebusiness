@@ -181,3 +181,8 @@ a.card.tool{display:flex}
 
 @media (prefers-reduced-motion:reduce){a.card{transition:none}a.card:hover{transform:none}}
 @media print{.top,.site-foot,.menu-btn{display:none}}
+
+.sr-only-mobile{display:none}
+@media (max-width:960px){.sr-only-mobile{display:inline}}
+.open-now{font-weight:700}
+.open-now.yes{color:var(--up)}.open-now.no{color:var(--down)}

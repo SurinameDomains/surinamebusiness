@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Zoeken' if nl else 'Search' }}</h1>
+<div class="filters"><input type="search" id="q" autofocus placeholder="{{ 'Bijvoorbeeld: netto 20000, Staatsolie, apotheek Nickerie, werkvergunning' if nl else 'For example: net 20000, Staatsolie, pharmacy Nickerie, work permit' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}"></div>
+<div class="card"><ul class="list" id="res"><li class="empty">{{ 'Typ minstens 2 letters.' if nl else 'Type at least 2 letters.' }}</li></ul></div>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var L={tender:'{{ 'Aanbesteding' if nl else 'Tender' }}',job:'{{ 'Vacature' if nl else 'Job' }}',company:'{{ 'Bedrijf' if nl else 'Company' }}',company_cat:'{{ 'Categorie' if nl else 'Category' }}',salary_amount:'{{ 'Salaris' if nl else 'Salary' }}',tender_buyer:'{{ 'Aanbesteder' if nl else 'Buyer' }}'};
+var D=null,q=document.getElementById('q'),ul=document.getElementById('res');
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/(\d)[.,](?=\d{3})/g,'$1')}
+function run(){var v=norm(q.value.trim());if(v.length<2||!D){return}var words=v.split(/\s+/),out=[];
+for(var i=0;i<D.length&&out.length<50;i++){var t=D[i][3];if(words.every(function(w){return t.indexOf(w)>=0}))out.push(D[i])}
+ul.innerHTML=out.length?out.map(function(r){var ext=r[1].indexOf('http')===0;return '<li><a href="'+r[1]+'"'+(ext?' rel="noopener nofollow" target="_blank"':'')+'>'+r[0].replace(/</g,'&lt;')+'</a><div class="meta"><span>'+(L[r[2]]||'{{ 'Pagina' if nl else 'Page' }}')+'</span></div></li>'}).join(''):'<li class="empty">{{ 'Niets gevonden.' if nl else 'Nothing found.' }}</li>';
+try{history.replaceState(null,'','?q='+encodeURIComponent(q.value))}catch(e){}}
+fetch('/assets/search-{{ lang }}.json?v={{ build_id }}').then(function(r){return r.json()}).then(function(d){D=d.map(function(r){return [r[0],r[1],r[2],norm(r[0])]});var p=new URLSearchParams(location.search).get('q');if(p){q.value=p}run()});
+q.addEventListener('input',run)})();
+</script>
+{% endblock %}

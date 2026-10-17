@@ -32,11 +32,16 @@ PAGES = {
     "vatguide": ("btw-suriname", "en/vat-in-suriname", "guides"),
     "labour": ("arbeidsrecht", "en/labour-law-basics", "guides"),
     "guides": ("gidsen", "en/guides", "guides"),
+    "workpermit": ("werkvergunning-suriname", "en/work-permit-suriname", "guides"),
+    "import": ("importeren-suriname", "en/importing-into-suriname", "guides"),
+    "incometax": ("inkomstenbelasting-suriname", "en/income-tax-return-suriname", "guides"),
+    "land": ("grond-kopen-suriname", "en/buying-land-suriname", "guides"),
     "about": ("over-ons", "en/about", "trust"),
     "sources": ("bronnen", "en/sources", "trust"),
     "contact": ("contact", "en/contact", "trust"),
     "privacy": ("privacy", "en/privacy", "trust"),
-    "companies": ("bedrijven/", "en/companies/", "companies"),  # rendered by build_company_pages
+    "companies": ("bedrijven/", "en/companies/", "companies"),
+    "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
 }
 DYNAMIC = {"companies"}
 
@@ -54,7 +59,7 @@ NAV = [
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates"]),
     ("Werk & handel", "Work & trade", ["tenders", "jobs", "companies", "news", "holidays", "workdays"]),
-    ("Gidsen", "Guides", ["start", "vatguide", "labour", "oilgas", "supplier"]),
+    ("Gidsen", "Guides", ["start", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),
 ]
 

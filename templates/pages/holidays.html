@@ -17,6 +17,7 @@
 <h2>{{ 'Herdenkingsdagen' if nl else 'Commemoration days' }}</h2>
 <p>{{ '5 juni (Hindoestaanse immigratie), 8 augustus (Javaanse immigratie) en 20 oktober (Chinese immigratie) zijn herdenkingsdagen, geen vaste vrije dagen. De regering kan een dag eenmalig vrij verklaren, zoals Javaans Nieuwjaar in sommige jaren.' if nl else '5 June (Hindustani immigration), 8 August (Javanese immigration) and 20 October (Chinese immigration) are commemoration days, not standing days off. The government can declare a one-off day off, as with Javanese New Year in some years.' }}</p>
 <p><a href="/assets/feestdagen-suriname.ics" download><b>{{ 'Zet alle feestdagen in je agenda (.ics)' if nl else 'Add all holidays to your calendar (.ics)' }}</b></a></p>
+<p>{{ 'Wat is er te doen tijdens de feestdagen?' if nl else 'What is on during the holidays?' }} <a href="https://exploresuriname.com/events.html" rel="noopener">{{ 'Evenementen op Explore Suriname' if nl else 'Events on Explore Suriname' }}</a></p>
 <p><a href="{{ U('workdays') }}"><b>{{ 'Werkdagen tellen tussen twee datums' if nl else 'Count working days between two dates' }} &rarr;</b></a></p>
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>{% for name, url in F.HOLIDAY_SOURCES %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Grond en huis kopen in Suriname' if nl else 'Buying land and property in Suriname' }}</h1>
+<p class="lead">{{ 'Veel grond in Suriname is domeingrond van de staat, uitgegeven in grondhuur. Je kunt ook eigendomsgrond kopen. Bij overdracht betaal je 4% overdrachtsbelasting en gaat alles via de notaris.' if nl else 'Much land in Suriname is state land, issued on land lease (grondhuur). You can also buy freehold land. On transfer you pay 4% transfer tax and everything goes through a notary.' }}</p>
+<h2>{{ 'Grondhuur of eigendom?' if nl else 'Land lease or freehold?' }}</h2>
+<table class="tbl"><thead><tr><th></th><th>{{ 'Grondhuur (domeingrond)' if nl else 'Land lease (state land)' }}</th><th>{{ 'Eigendom' if nl else 'Freehold' }}</th></tr></thead><tbody>
+ <tr><td>{{ 'Duur' if nl else 'Term' }}</td><td>{{ '15 tot 40 jaar, met jaarlijkse canon' if nl else '15 to 40 years, with an annual fee (canon)' }}</td><td>{{ 'Onbeperkt' if nl else 'Unlimited' }}</td></tr>
+ <tr><td>{{ 'Wie' if nl else 'Who' }}</td><td>{{ 'Surinamers in Suriname en Surinaamse rechtspersonen; anderen alleen met toestemming van de Raad van Ministers' if nl else 'Surinamese citizens living in Suriname and Surinamese legal entities; others only with Council of Ministers consent' }}</td><td>{{ 'Via aankoop van een eigenaar' if nl else 'Bought from an owner' }}</td></tr>
+ <tr><td>{{ 'Doorverkopen' if nl else 'Reselling' }}</td><td>{{ 'Met toestemming van de minister, niet binnen 2 jaar' if nl else 'With ministerial consent, not within 2 years' }}</td><td>{{ 'Vrij, via de notaris' if nl else 'Free, through a notary' }}</td></tr>
+</tbody></table>
+<h2>{{ 'Grondhuur omzetten naar eigendom' if nl else 'Converting lease to freehold' }}</h2>
+<p>{{ 'Met het Besluit Grondconversie 2023 kun je grondhuur voor wonen of tuinbouw omzetten in eigendom, tot 2.500 m². De prijs was SRD 25 per m² in het eerste jaar en kan jaarlijks worden aangepast. De notariskosten liggen tussen SRD 2.000 en 5.000, afhankelijk van de oppervlakte. Sinds mei 2025 kunnen ook houders van verlopen grondhuur met een lopende verlenging meedoen. Aanvragen bij de Conversie Unit; besluit binnen 2 maanden.' if nl else 'Under the 2023 Land Conversion Decree you can convert a housing or horticulture lease into freehold, up to 2,500 m². The price was SRD 25 per m² in the first year and can be adjusted yearly. Notary fees range from SRD 2,000 to 5,000 depending on the area. Since May 2025 holders of expired leases with a pending renewal can also apply. Apply at the Conversion Unit; decision within 2 months.' }}</p>
+<h2>{{ 'Kosten bij aankoop' if nl else 'Costs when buying' }}</h2>
+<ul>
+ <li>{{ 'Overdrachtsbelasting: 4% van de waarde (sinds oktober 2022 verlaagd van 7%). 0,5% bij overdracht aan familie tot de tweede graad.' if nl else 'Transfer tax: 4% of the value (reduced from 7% in October 2022). 0.5% for transfers to relatives up to the second degree.' }}</li>
+ <li>{{ 'Notariskosten en inschrijving in het kadaster.' if nl else 'Notary fees and registration in the land registry.' }}</li>
+ <li>{{ 'Een eventuele hypotheek: rente is aftrekbaar voor de inkomstenbelasting tot een schuld van SRD 871.500.' if nl else 'A mortgage if any: interest is deductible for income tax up to a debt of SRD 871,500.' }} <a href="{{ U('incometax') }}">{{ L('incometax') }}</a></li>
+</ul>
+<h2>{{ 'Controleer voor je koopt' if nl else 'Check before you buy' }}</h2>
+<ol>
+ <li>{{ 'Vraag een uittreksel uit het hypotheekregister bij MI-GLIS (kadaster): wie is eigenaar, rusten er hypotheken of beslagen op?' if nl else 'Get an extract from the mortgage register at MI-GLIS (land registry): who owns it, are there mortgages or seizures on it?' }}</li>
+ <li>{{ 'Bij grondhuur: is de canon betaald en loopt de termijn nog?' if nl else 'For a lease: is the fee paid and is the term still running?' }}</li>
+ <li>{{ 'Laat de grenzen meten en vergelijk met de kadastrale kaart.' if nl else 'Have the boundaries measured and compare with the cadastral map.' }}</li>
+ <li>{{ 'Betaal nooit aan de verkoper zonder notaris.' if nl else 'Never pay the seller without a notary.' }}</li>
+</ol>
+<p><a href="{{ U('rates') }}">{{ 'Bedragen omrekenen van euro of dollar' if nl else 'Convert amounts from euro or dollar' }}</a> &middot; <a href="{{ U('workpermit') }}">{{ 'Wonen en werken in Suriname' if nl else 'Living and working in Suriname' }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/02/decreet_uitgifte_domeingrond.pdf" rel="noopener">Decreet Uitgifte Domeingrond</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/11/S.B.-2023-no.-159-Besluit-Grondconversie-2023.pdf" rel="noopener">Besluit Grondconversie 2023 (S.B. 2023 no. 159)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/07/S.B.-2025-no.-74-STAATSBESLUIT-van-22-mei-2025-houdende-nadere-wijziging-van-het-Besluit-Grondconversie-2023.pdf" rel="noopener">Wijziging Besluit Grondconversie (S.B. 2025 no. 74)</a></li>
+ <li><a href="https://www.dna.sr/media/c1sewtux/sb_2022___119.pdf" rel="noopener">S.B. 2022 no. 119, overdrachtsbelasting 4%</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies. Raadpleeg een notaris.' if nl else 'General information, not legal advice. Consult a notary.' }}</p>
+</div>
+{% endblock %}

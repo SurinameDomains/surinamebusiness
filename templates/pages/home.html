@@ -20,6 +20,11 @@
 </div>
 <div class="cols" style="margin-top:22px">
  <div>
+  {% set closing = tenders['items']|selectattr('days_left','ne',none)|selectattr('days_left','le',7)|sort(attribute='days_left')|list %}
+  {% if closing %}<section class="card" style="margin-bottom:16px;border-left:4px solid var(--accent)">
+   <div class="eyebrow">{{ 'Sluit binnen 7 dagen' if nl else 'Closing within 7 days' }}</div>
+   <ul class="list">{% for t in closing[:5] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta"><span>{{ t.buyer }}</span><span class="pill red">{% if t.days_left == 0 %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ 'nog' if nl else '' }} {{ t.days_left }} {{ 'dagen' if nl else 'days left' }}{% endif %}</span></div></li>{% endfor %}</ul>
+  </section>{% endif %}
   <section class="card">
    <div class="eyebrow">{{ 'Nieuwste aanbestedingen' if nl else 'Latest tenders' }}</div>
    <ul class="list">
@@ -44,7 +49,7 @@
   <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
   <div class="grid g2">
    <a class="card" href="{{ '/bedrijven/' if nl else '/en/companies/' }}"><b>{{ 'Bedrijvengids' if nl else 'Business directory' }}</b><div class="sub">{{ co.count }} {{ 'bedrijven per categorie, met adres en telefoon' if nl else 'businesses by category, with address and phone' }}</div></a>
-   {% for k in ['start','vatguide','labour','supplier'] %}
+   {% for k in ['start','incometax','import','workpermit','land'] %}
    <a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] if META_SUB is defined else '' }}</div></a>
    {% endfor %}
   </div>

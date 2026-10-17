@@ -31,6 +31,7 @@
 {% else %}<li class="empty">{{ 'Geen open tenders gevonden.' if nl else 'No open tenders found.' }}</li>{% endfor %}
 </ul>
 <p><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></p>
+<p>{{ 'Meer achtergrond: ' if nl else 'More background: ' }}<a href="https://exploresuriname.com/suriname-oil-blocks.html" rel="noopener">{{ 'olieblokken' if nl else 'oil blocks' }}</a> &middot; <a href="https://exploresuriname.com/suriname-oil-timeline.html" rel="noopener">{{ 'tijdlijn' if nl else 'timeline' }}</a> {{ 'op Explore Suriname' if nl else 'on Explore Suriname' }}</p>
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>{% for name, url in G.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
 <p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>

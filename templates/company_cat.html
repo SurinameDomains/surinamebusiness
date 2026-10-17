@@ -16,6 +16,8 @@
  <div class="meta">{% if r.street %}<span>{{ r.street }}</span>{% endif %}{% if r.place %}<span>{{ r.place }}</span>{% endif %}{% if r.phone %}<span><a href="tel:{{ r.phone|replace(' ','') }}">{{ r.phone }}</a></span>{% endif %}{% if r.hours %}<span class="pill">{{ 'Openingstijden bekend' if nl else 'Opening hours known' }}</span>{% endif %}</div></li>
 {% endfor %}
 </ul></div>
+{% set ex = {'travel': ('https://exploresuriname.com/hotels.html', 'Hotels en verblijf op Explore Suriname', 'Hotels and places to stay on Explore Suriname'), 'finance': ('https://exploresuriname.com/atms.html', 'Geldautomaten kaart op Explore Suriname', 'ATM map on Explore Suriname'), 'food': ('https://exploresuriname.com/restaurants.html', 'Restaurants op Explore Suriname', 'Restaurants on Explore Suriname'), 'supermarkets': ('https://exploresuriname.com/shopping.html', 'Winkelen op Explore Suriname', 'Shopping on Explore Suriname')} %}
+{% if gr.key in ex %}<p style="margin-top:14px"><a href="{{ ex[gr.key][0] }}" rel="noopener">{{ ex[gr.key][1] if nl else ex[gr.key][2] }} &rarr;</a></p>{% endif %}
 <p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. {% if town %}<a href="{{ '/bedrijven/' ~ parent.nl_slug if nl else '/en/companies/' ~ parent.en_slug }}">{{ 'Heel Suriname' if nl else 'All of Suriname' }}</a> &middot; {% endif %}<a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Alle categorieën' if nl else 'All categories' }}</a></p>
 {% endblock %}
 {% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

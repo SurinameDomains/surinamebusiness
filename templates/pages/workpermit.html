@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Werkvergunning en verblijf in Suriname' if nl else 'Work and residence permits in Suriname' }}</h1>
+<p class="lead">{{ 'Een buitenlander mag in Suriname alleen werken met een werkvergunning, en de werkgever vraagt die aan. Je hebt daarvoor eerst een verblijfsvergunning nodig, of het bewijs dat je die hebt aangevraagd.' if nl else 'A foreigner may only work in Suriname with a work permit, and the employer applies for it. You first need a residence permit, or proof that you applied for one.' }}</p>
+
+<h2>{{ 'Wie heeft geen werkvergunning nodig?' if nl else 'Who does not need a work permit?' }}</h2>
+<ul>
+ <li>{{ 'Houders van een PSA kaart (Personen van Surinaamse Afkomst)' if nl else 'Holders of a PSA card (Persons of Surinamese Origin)' }}</li>
+ <li>{{ 'Remigranten van Surinaamse afkomst' if nl else 'Returning migrants of Surinamese origin' }}</li>
+ <li>{{ 'Buitenlanders getrouwd met een Surinamer' if nl else 'Foreigners married to a Surinamese citizen' }}</li>
+ <li>{{ 'CARICOM skilled nationals (met een CARICOM Skills Certificate)' if nl else 'CARICOM skilled nationals (with a CARICOM Skills Certificate)' }}</li>
+ <li>{{ 'Vluchtelingen en landsdienaren' if nl else 'Refugees and civil servants' }}</li>
+</ul>
+<p>{{ 'Let op: een Nederlands paspoort alleen geeft geen vrijstelling. Dat lukt alleen via PSA status of Surinaamse afkomst.' if nl else 'Note: a Dutch passport alone does not exempt you. Only PSA status or Surinamese origin does.' }}</p>
+
+<h2>{{ 'Werkvergunning aanvragen' if nl else 'Applying for a work permit' }}</h2>
+<table class="tbl"><tbody>
+ <tr><td>{{ 'Waar' if nl else 'Where' }}</td><td>{{ 'Ministerie van Arbeid, Werkgelegenheid en Jeugdzaken, afdeling Werkvergunning Vreemdelingen, Lalla Rookhweg 25, Paramaribo (tel. 463543)' if nl else 'Ministry of Labour, Employment and Youth Affairs, Foreign Work Permits department, Lalla Rookhweg 25, Paramaribo (tel. 463543)' }}</td></tr>
+ <tr><td>{{ 'Wie vraagt aan' if nl else 'Who applies' }}</td><td>{{ 'De werkgever of een gemachtigde. Werkgever en werknemer ondertekenen samen.' if nl else 'The employer or an authorised representative. Employer and employee both sign.' }}</td></tr>
+ <tr><td>{{ 'Kosten' if nl else 'Fee' }}</td><td>{{ 'USD 100 per aanvraag of verlenging (in SRD). Goud, olie en hout: USD 500. Sinds 2 januari 2023.' if nl else 'USD 100 per application or extension (paid in SRD). Gold, oil and timber sectors: USD 500. Since 2 January 2023.' }}</td></tr>
+ <tr><td>{{ 'Beslistermijn' if nl else 'Decision' }}</td><td>{{ 'Binnen 30 dagen, eenmaal te verlengen met 30 dagen' if nl else 'Within 30 days, extendable once by 30 days' }}</td></tr>
+ <tr><td>{{ 'Bezwaar' if nl else 'Appeal' }}</td><td>{{ 'Bij de minister, binnen 30 dagen' if nl else 'To the Minister, within 30 days' }}</td></tr>
+</tbody></table>
+<h3>{{ 'Documenten' if nl else 'Documents' }}</h3>
+<ol>
+ <li>{{ 'Ingevuld en ondertekend aanvraagformulier met pasfoto' if nl else 'Completed and signed application form with passport photo' }}</li>
+ <li>{{ 'Betalingsbewijs van de leges' if nl else 'Proof of fee payment' }}</li>
+ <li>{{ 'Geldige verblijfsvergunning (nog minstens 2 maanden) of bewijs van aanvraag' if nl else 'Valid residence permit (at least 2 months left) or proof of application' }}</li>
+ <li>{{ 'Kopie paspoort, nog minstens 4 maanden geldig' if nl else 'Passport copy, valid for at least 4 more months' }}</li>
+ <li>{{ 'Verklaring van de werkgever: functie, uren, startdatum en waarom een buitenlander nodig is' if nl else 'Employer statement: job, hours, start date and why a foreigner is needed' }}</li>
+ <li>{{ 'Bewijs dat het bedrijf legaal actief is: KKF uittreksel en vergunning' if nl else 'Proof the company operates legally: KKF extract and licence' }}</li>
+ <li>{{ 'Diploma\'s en CV in het Nederlands of Engels, vertalingen gelegaliseerd' if nl else 'Diplomas and CV in Dutch or English, translations legalised' }}</li>
+</ol>
+<p>{{ 'Werken zonder vergunning is strafbaar voor de werkgever: tot 6 maanden hechtenis of een boete.' if nl else 'Employing someone without a permit is an offence for the employer: up to 6 months detention or a fine.' }}</p>
+
+<h2>{{ 'Verblijfsvergunning' if nl else 'Residence permit' }}</h2>
+<ul>
+ <li>{{ 'Aanvragen bij de Hoofdafdeling Vreemdelingenzaken van het Ministerie van Justitie en Politie, mr. J. Lachmonstraat 166-168, Paramaribo. In Nickerie via het Districtscommissariaat.' if nl else 'Apply at the Aliens Affairs department of the Ministry of Justice and Police, mr. J. Lachmonstraat 166-168, Paramaribo. In Nickerie through the District Commissariat.' }}</li>
+ <li>{{ 'Nodig: verzoekbrief aan de minister, plakzegel van SRD 1,50, kopie van het paspoort, bewijs van middelen van bestaan en betalingsbewijs.' if nl else 'Needed: request letter to the Minister, SRD 1.50 stamp, passport copy, proof of means of support and proof of payment.' }}</li>
+ <li>{{ 'Tijdelijke vergunning voor maximaal 2 jaar, verlengbaar. Vraag verlenging minstens 3 maanden voor het verlopen aan.' if nl else 'Temporary permit for up to 2 years, renewable. Apply for renewal at least 3 months before it expires.' }}</li>
+ <li>{{ 'Visumplichtige buitenlanders die langer dan 3 maanden blijven, hebben vooraf een Machtiging Kort Verblijf (MKV) nodig via een ambassade of consulaat.' if nl else 'Visa-required foreigners staying longer than 3 months need an Authorisation for Temporary Stay (MKV) from an embassy or consulate before arrival.' }}</li>
+</ul>
+
+<h2>{{ 'PSA: voor mensen van Surinaamse afkomst' if nl else 'PSA: for people of Surinamese origin' }}</h2>
+<p>{{ 'Ben je in Suriname geboren, of is een ouder of grootouder dat? Dan kun je de PSA status aanvragen. Die geeft visumvrije toegang, recht op verblijf en het recht om te werken zonder werkvergunning. De kaart is 5 jaar geldig en verlengbaar. Aanvragen via psa.gov.sr.' if nl else 'Were you born in Suriname, or was a parent or grandparent? Then you can apply for PSA status. It gives visa-free entry, the right to reside and the right to work without a work permit. The card is valid for 5 years and renewable. Apply at psa.gov.sr.' }}</p>
+
+<div class="note">{{ 'Regels en tarieven veranderen. Controleer altijd bij het ministerie voordat je indient.' if nl else 'Rules and fees change. Always check with the ministry before you file.' }}</div>
+<p style="margin-top:16px">{{ 'Na je aankomst:' if nl else 'After you arrive:' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a> &middot; <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('jobs') }}">{{ L('jobs') }}</a> &middot; {{ 'Wonen en rondkijken:' if nl else 'Living and getting around:' }} <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.dna.sr/media/c0higvnc/werkvergunning_vreemdelingen.pdf" rel="noopener">Wet Werkvergunning Vreemdelingen (DNA)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/03/WV-folder-Nederlandse-versie-2024pdf.pdf" rel="noopener">Ministerie AWJ: folder werkvergunning 2024</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/12/Bekendmaking-WV-vastelling-aangepast-tarief-met-rek-nummers-291222.pdf" rel="noopener">Ministerie AWJ: tarieven werkvergunning 2023</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/10/Verblijfsvergunningen.pdf" rel="noopener">Ministerie JusPol: verblijfsvergunningen</a></li>
+ <li><a href="https://www.doingbusinessdutchcaribbean.com/suriname/immigration-sur/foreign-nationals-sur/" rel="noopener">Doing Business Dutch Caribbean: foreign nationals</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

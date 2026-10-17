@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Goederen importeren in Suriname' if nl else 'Importing goods into Suriname' }}</h1>
+<p class="lead">{{ 'Zakelijke import loopt via de Douane in het systeem ASYCUDA. Je hebt een FIN nummer nodig, een douane-expediteur doet de aangifte, en je betaalt invoerrechten plus 10% BTW.' if nl else 'Commercial imports go through Customs in the ASYCUDA system. You need a FIN tax number, a customs broker files the declaration, and you pay import duty plus 10% VAT.' }}</p>
+<h2>{{ 'Stap voor stap' if nl else 'Step by step' }}</h2>
+<ol>
+ <li><b>{{ 'FIN nummer.' if nl else 'FIN number.' }}</b> {{ 'Sinds 1 januari 2025 verplicht voor zakelijke importeurs en exporteurs. Aanvragen via het portaal van de Belastingdienst.' if nl else 'Mandatory for commercial importers and exporters since 1 January 2025. Apply through the tax office portal.' }}</li>
+ <li><b>{{ 'Registratie in ASYCUDA.' if nl else 'Register in ASYCUDA.' }}</b> {{ 'Eenmalig, bij de Douane.' if nl else 'Once, with Customs.' }}</li>
+ <li><b>{{ 'Douane-expediteur.' if nl else 'Customs broker.' }}</b> {{ 'Die dient de aangifte in met HS code, oorsprong, waarde, factuur en vrachtbrief (B/L).' if nl else 'The broker files the declaration with HS code, origin, value, invoice and bill of lading.' }}</li>
+ <li><b>{{ 'Betalen.' if nl else 'Pay.' }}</b> {{ 'ASYCUDA berekent de rechten; je betaalt per bank aan de Ontvanger der Invoerrechten en Accijnzen.' if nl else 'ASYCUDA calculates the duties; you pay by bank transfer to the Receiver of Import Duties and Excise.' }}</li>
+ <li><b>{{ 'Controle en vrijgave.' if nl else 'Inspection and release.' }}</b> {{ 'ASYCUDA kiest een spoor: rood (fysieke controle), geel (documenten), blauw (controle achteraf) of groen (direct vrij).' if nl else 'ASYCUDA picks a lane: red (physical check), yellow (documents), blue (post-clearance audit) or green (released).' }}</li>
+</ol>
+<h2>{{ 'Wat betaal je?' if nl else 'What do you pay?' }}</h2>
+<table class="tbl"><tbody>
+ <tr><td>{{ 'Invoerrechten' if nl else 'Import duty' }}</td><td>{{ 'Volgens het gemeenschappelijk CARICOM tarief, meestal 0% tot 50% afhankelijk van het product. Grondstoffen laag, eindproducten hoger; alcohol, tabak en sommige voedingsmiddelen tot 40% of 50%.' if nl else 'Based on the CARICOM common external tariff, usually 0% to 50% depending on the product. Raw materials low, finished goods higher; alcohol, tobacco and some foods up to 40% or 50%.' }}</td></tr>
+ <tr><td>BTW</td><td>{{ '10% algemeen, ook bij invoer; 5% op brandstof, 25% op luxe goederen zoals grote auto\'s.' if nl else '10% standard, also on imports; 5% on fuel, 25% on luxury goods such as large cars.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></td></tr>
+ <tr><td>{{ 'Overige heffingen' if nl else 'Other levies' }}</td><td>{{ 'Statistiekrecht en consentrecht over de CIF waarde, en accijns op alcohol en tabak. Vraag de actuele percentages aan je expediteur.' if nl else 'Statistical fee and consent fee on the CIF value, and excise on alcohol and tobacco. Ask your broker for the current percentages.' }}</td></tr>
+</tbody></table>
+<h2>{{ 'Vergunningen en verboden' if nl else 'Licences and bans' }}</h2>
+<ul>
+ <li>{{ 'Vergunningplichtige goederen vraag je aan bij de Dienst Invoer-, Uitvoer- en Deviezencontrole van het ministerie van Economische Zaken.' if nl else 'Licensed goods are applied for at the Import, Export and Foreign Exchange Control service of the Ministry of Economic Affairs.' }}</li>
+ <li>{{ 'Medicijnen, dierenartsmiddelen en planten of dierlijke producten hebben een certificaat nodig van Volksgezondheid of LVV.' if nl else 'Medicines, veterinary drugs and plant or animal products need a certificate from Health or Agriculture.' }}</li>
+ <li>{{ 'Gebruikte auto\'s ouder dan 8 jaar en bussen ouder dan 15 jaar mogen niet worden ingevoerd. Uitzondering: een auto van een remigrant die minstens 2 jaar tot de verhuisboedel hoort, en klassiekers ouder dan 25 jaar.' if nl else 'Used cars older than 8 years and buses older than 15 years may not be imported. Exception: a returning migrant\'s car that has been part of the household goods for at least 2 years, and classics over 25 years.' }}</li>
+ <li>{{ 'Verhuisboedel van remigranten kan vrijgesteld zijn van invoerrechten. Vraag de voorwaarden vooraf bij de Douane.' if nl else 'Household goods of returning migrants can be exempt from import duty. Check the conditions with Customs in advance.' }}</li>
+</ul>
+<p>{{ 'Douane informatie: telefoon 402626.' if nl else 'Customs information: phone 402626.' }} {{ 'Leveren aan de overheid of olie en gas?' if nl else 'Supplying the government or oil and gas?' }} <a href="{{ U('tenders') }}">{{ L('tenders') }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Algemene-Procedure-in-en-uitvoer.pdf" rel="noopener">Belastingdienst: algemene procedure in- en uitvoer (2026)</a></li>
+ <li><a href="https://belastingdienst.sr/douane-suriname/" rel="noopener">Douane Suriname</a></li>
+ <li><a href="https://trade.gov/country-commercial-guides/suriname-trade-barriers" rel="noopener">trade.gov: Suriname trade barriers</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/11/Import-van-voertuigen.pdf" rel="noopener">EZOTI: import van voertuigen (2025)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+</div>
+{% endblock %}

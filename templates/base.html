@@ -39,6 +39,7 @@
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">{{ 'Menu' }}</button>
   <nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
    {% for item in nav %}<a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+   <a href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"{% if key == 'search' %} aria-current="page"{% endif %}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-3px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr-only-mobile"> {{ 'Zoeken' if lang=='nl' else 'Search' }}</span></a>
    {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
   </nav>
  </div>
