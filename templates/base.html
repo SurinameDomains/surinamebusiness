@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="{{ 'nl-SR' if lang=='nl' else 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ canonical }}">
+{% if alt_nl %}<link rel="alternate" hreflang="nl" href="{{ alt_nl }}">{% endif %}
+{% if alt_en %}<link rel="alternate" hreflang="en" href="{{ alt_en }}">{% endif %}
+{% if alt_nl %}<link rel="alternate" hreflang="x-default" href="{{ alt_nl }}">{% endif %}
+<meta name="robots" content="{{ robots or 'index,follow,max-image-preview:large' }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Suriname Business">
+<meta property="og:title" content="{{ og_title or title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ site_url }}/assets/og.png">
+<meta property="og:locale" content="{{ 'nl_SR' if lang=='nl' else 'en_US' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b4f3c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/style.css?v={{ build_id }}">
+<script type="application/ld+json">{{ schema|safe }}</script>
+</head>
+<body>
+<a class="skip" href="#main">{{ 'Naar inhoud' if lang=='nl' else 'Skip to content' }}</a>
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="{{ home_url }}" aria-label="Suriname Business, home">
+   <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="#c9902a"/><rect x="7" y="18" width="5" height="9" rx="1.5" fill="#0b4f3c"/><rect x="14.5" y="12" width="5" height="15" rx="1.5" fill="#0b4f3c"/><rect x="22" y="7" width="5" height="20" rx="1.5" fill="#0b4f3c"/></svg>
+   <span>Suriname Business<small>{{ 'Werken, handelen, investeren' if lang=='nl' else 'Work, trade, invest' }}</small></span>
+  </a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">{{ 'Menu' }}</button>
+  <nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
+   {% for item in nav %}<a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+   {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
+  </nav>
+ </div>
+</header>
+{% if ticker %}<div class="ticker" aria-label="{{ 'Vandaag' if lang=='nl' else 'Today' }}"><div class="wrap">{% for t in ticker %}<span>{% if t.url %}<a href="{{ t.url }}">{% endif %}{{ t.label }} <b class="tnum">{{ t.value }}</b>{% if t.url %}</a>{% endif %}</span>{% endfor %}</div></div>{% endif %}
+<main id="main">
+{% block hero %}{% endblock %}
+<div class="wrap">
+{% if crumbs %}<div class="crumbs">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</div>{% endif %}
+{% block content %}{% endblock %}
+</div>
+</main>
+<footer class="site-foot">
+ <div class="wrap">
+  <div class="grid g4">
+  {% for g in footer %}
+   <div><h3>{{ g.label }}</h3><ul>{% for l in g.links %}<li><a href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
+  {% endfor %}
+  </div>
+  <div class="group">
+   <span>&copy; {{ year }} Suriname Business. {{ 'Onderdeel van de' if lang=='nl' else 'Part of the' }} Explore group &middot; <a href="https://exploresuriname.com" rel="noopener">Explore Suriname</a></span>
+   <span>{{ 'Laatst bijgewerkt' if lang=='nl' else 'Last updated' }} <span class="tnum">{{ built_sr }}</span> SRT</span>
+  </div>
+ </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

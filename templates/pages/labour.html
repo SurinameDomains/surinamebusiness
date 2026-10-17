@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set A = F.LABOUR %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Arbeidsrecht in Suriname: de basis' if nl else 'Suriname labour law basics' }}</h1>
+<p class="lead">{{ 'De belangrijkste regels voor werkgevers en werknemers: werktijden, overwerk, vakantie en het minimumloon.' if nl else 'The key rules for employers and employees: working hours, overtime, annual leave and the minimum wage.' }}</p>
+<table class="tbl"><tbody>
+<tr><td>{{ 'Maximale werktijd' if nl else 'Maximum working time' }}</td><td>{{ num(A.max_day,1) }} {{ 'uur per dag, 48 uur per week' if nl else 'hours a day, 48 hours a week' }}</td></tr>
+<tr><td>{{ 'Pauze' if nl else 'Break' }}</td><td>{{ 'Minstens 30 minuten na 5 uur werk, bij werkdagen langer dan 6 uur' if nl else 'At least 30 minutes after 5 hours, on workdays longer than 6 hours' }}</td></tr>
+<tr><td>{{ 'Overwerk op werkdagen' if nl else 'Overtime on workdays' }}</td><td>{{ 'Minimaal 150% van het uurloon' if nl else 'At least 150% of hourly pay' }}</td></tr>
+<tr><td>{{ 'Werk op rustdagen' if nl else 'Work on rest days' }}</td><td>{{ 'Minimaal 200%' if nl else 'At least 200%' }}</td></tr>
+<tr><td>{{ 'Werk op zon- en feestdagen' if nl else 'Sunday and holiday work' }}</td><td>{{ 'Minimaal 200%, of 300% zonder vervangende rustdag' if nl else 'At least 200%, or 300% without a replacement rest day' }}</td></tr>
+<tr><td>{{ 'Overwerkvergunning' if nl else 'Overtime permit' }}</td><td>{{ 'Nodig van de Arbeidsinspectie, maximaal 64 uur per week' if nl else 'Required from the Labour Inspectorate, max 64 hours a week' }}</td></tr>
+<tr><td>{{ 'Vakantiedagen' if nl else 'Annual leave' }}</td><td>{{ A.vacation_days_first }} {{ 'werkdagen na een jaar dienst, +2 per extra jaar, wettelijk maximaal' if nl else 'working days after one year of service, +2 per extra year, statutory maximum' }} {{ A.vacation_days_max }}</td></tr>
+<tr><td>{{ 'Minimumloon' if nl else 'Minimum wage' }}</td><td><a href="{{ U('minwage') }}">{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur' if nl else 'per hour' }}</a></td></tr>
+<tr><td>{{ 'Doorbetaalde feestdagen' if nl else 'Paid public holidays' }}</td><td>{{ 'Niet gewerkte feestdagen worden doorbetaald' if nl else 'Holidays not worked are paid' }} (<a href="{{ U('holidays') }}">{{ L('holidays') }}</a>)</td></tr>
+</tbody></table>
+<h2>{{ 'Ontslag' if nl else 'Dismissal' }}</h2>
+<p>{{ 'Een werkgever heeft voor ontslag in de regel een vergunning nodig op grond van de Ontslagwet. De opzegtermijn hangt af van de duur van het dienstverband. Sinds het nieuwe Burgerlijk Wetboek van 1 mei 2025 kunnen regels zijn gewijzigd; laat je bij twijfel adviseren.' if nl else 'An employer generally needs a permit under the Dismissal Act to dismiss an employee. The notice period depends on the length of service. Rules may have changed with the new Civil Code of 1 May 2025; seek advice if in doubt.' }}</p>
+<p><a href="{{ U('overtime') }}">{{ L('overtime') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in A.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

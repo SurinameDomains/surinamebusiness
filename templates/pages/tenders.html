@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Aanbestedingen in Suriname' if nl else 'Tenders in Suriname' }}</h1>
+<p class="lead"><b id="t-count">{{ tenders.count }}</b> {{ 'open aanbestedingen van de overheid, Staatsolie, de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'open tenders from the government, Staatsolie, the IDB and the World Bank. Updated every 30 minutes.' }}</p>
+<div class="filters" data-filter-list="t-list" data-count="t-count">
+ <input type="search" placeholder="{{ 'Zoek, bijvoorbeeld wegen, IT, Nickerie' if nl else 'Search, for example roads, IT, Nickerie' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
+ <button class="chip" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }}</button>
+ {% for s in ['gov.sr', 'Staatsolie', 'IDB', 'World Bank'] %}<button class="chip" data-v="{{ s }}" aria-pressed="false">{{ ('Overheid' if nl else 'Government') if s == 'gov.sr' else (('Wereldbank' if nl else 'World Bank') if s == 'World Bank' else s) }}</button>{% endfor %}
+</div>
+<div class="card">
+<ul class="list" id="t-list">
+{% for t in tenders['items'] %}
+ <li data-src="{{ t.source }}"><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
+  <div class="meta"><span>{{ t.buyer }}</span>{% if t.kind %}<span>{{ t.kind }}</span>{% endif %}<span>{{ 'Gepubliceerd' if nl else 'Published' }} {{ date(t.published) }}</span>
+  {% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}{% if t.days_left is not none %} ({{ t.days_left }} {{ 'd' }}){% endif %}</span>{% else %}<span class="pill">{{ 'Sluitingsdatum in document' if nl else 'Deadline in document' }}</span>{% endif %}</div></li>
+{% else %}<li class="empty">{{ 'Nog geen gegevens.' if nl else 'No data yet.' }}</li>{% endfor %}
+</ul>
+</div>
+<div class="prose">
+<h2>{{ 'Zo werkt het' if nl else 'How it works' }}</h2>
+<ul>
+ <li>{{ 'We halen de aanbestedingen op van' if nl else 'We collect tenders from' }} <a href="{{ F.PORTALS.gov_tenders }}" rel="noopener">gov.sr</a>, <a href="{{ F.PORTALS.staatsolie_tenders }}" rel="noopener">Staatsolie</a>, <a href="https://data.iadb.org/dataset/project-procurement-bidding-notices-and-notification-of-contract-awards" rel="noopener">IDB</a> {{ 'en de' if nl else 'and the' }} <a href="https://projects.worldbank.org/en/projects-operations/procurement" rel="noopener">{{ 'Wereldbank' if nl else 'World Bank' }}</a>.</li>
+ <li>{{ 'De titel linkt naar de originele publicatie. Daar vind je de documenten, voorwaarden en de exacte sluitingsdatum.' if nl else 'The title links to the original notice, where you find the documents, conditions and exact deadline.' }}</li>
+ <li>{{ 'Overheidsaanbestedingen zonder bekende sluitingsdatum tonen we 75 dagen na publicatie. Gegunde opdrachten tonen we niet.' if nl else 'Government tenders without a known deadline are shown for 75 days after publication. Awarded contracts are not shown.' }}</li>
+ <li>{{ 'Om mee te doen heb je meestal een inschrijving bij de KKF en een geldige vergunning nodig.' if nl else 'To bid you usually need a KKF registration and a valid business licence.' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+</ul>
+<p class="asof">{% for name, st in tenders.sources.items() %}{{ name }}: {% if st.ok %}{{ st.count }} {{ 'opgehaald' if nl else 'fetched' }} {{ ago(st.fetched_at) }}{% else %}{{ 'niet bereikbaar, laatst bekende gegevens' if nl else 'unreachable, showing last known data' }}{% endif %}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'BTW in Suriname' if nl else 'VAT in Suriname' }}</h1>
+<p class="lead">{{ 'Suriname heeft sinds 1 januari 2023 BTW. Het algemene tarief is 10%. Registratie is verplicht boven SRD 1 miljoen omzet per jaar en je doet maandelijks aangifte.' if nl else 'Suriname has had VAT since 1 January 2023. The standard rate is 10%. Registration is mandatory above SRD 1 million turnover a year and you file monthly.' }}</p>
+<h2>{{ 'Tarieven' if nl else 'Rates' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Tarief' if nl else 'Rate' }}</th><th>{{ 'Geldt voor' if nl else 'Applies to' }}</th></tr></thead><tbody>
+<tr><td><b>10%</b></td><td>{{ 'Algemeen tarief: goederen, invoer en diensten' if nl else 'Standard rate: goods, imports and services' }}</td></tr>
+<tr><td><b>5%</b></td><td>{{ 'Motorbrandstof (benzine, diesel) en internationale ziektekostenverzekering' if nl else 'Motor fuel (gasoline, diesel) and international health insurance' }}</td></tr>
+<tr><td><b>25%</b></td><td>{{ 'Auto\'s boven 2.500 cc of met een CIF waarde vanaf USD 40.000, motoren boven 125 cc, plezierboten, jetski\'s, kleine vliegtuigen, wapens en vuurwerk' if nl else 'Cars over 2,500 cc or with a CIF value from USD 40,000, motorcycles over 125 cc, pleasure boats, jet skis, small aircraft, weapons and fireworks' }}</td></tr>
+<tr><td><b>0%</b></td><td>{{ 'Onder meer water, elektriciteit en kookgas voor huishoudens, huur van een hoofdwoning, binnenlands vervoer, medische zorg en medicijnen, onderwijs, kinderopvang, financiële diensten, een basispakket voedsel en hygiëne, en export' if nl else 'Among others household water, electricity and cooking gas, rent of a main residence, domestic transport, medical care and medicines, education, childcare, financial services, a basic food and hygiene basket, and exports' }}</td></tr>
+</tbody></table>
+<h2>{{ 'Registratie en aangifte' if nl else 'Registration and filing' }}</h2>
+<ul>
+ <li>{{ 'Verplicht registreren bij een belastbare omzet boven SRD 1.000.000 per kalenderjaar, exclusief BTW.' if nl else 'Registration is mandatory above SRD 1,000,000 taxable turnover per calendar year, excluding VAT.' }}</li>
+ <li>{{ 'Aangifte en betaling per maand, tussen de 1e en de 15e van de volgende maand.' if nl else 'File and pay monthly, between the 1st and the 15th of the following month.' }}</li>
+ <li>{{ 'Registreren gaat via de E-Services van de Belastingdienst.' if nl else 'Register through the tax office E-Services.' }} <a href="{{ F.PORTALS.belastingdienst }}" rel="noopener">belastingdienst.sr</a></li>
+</ul>
+<p><a href="{{ U('vatcalc') }}"><b>{{ L('vatcalc') }} &rarr;</b></a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.VAT.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+</div>
+{% endblock %}

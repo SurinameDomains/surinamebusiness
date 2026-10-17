@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Vacatures in Suriname' if nl else 'Jobs in Suriname' }}</h1>
+<p class="lead">{{ 'Vacatures bij de overheid en consultancy opdrachten van de IDB en de Wereldbank, op één plek. Elke 30 minuten bijgewerkt.' if nl else 'Government vacancies and consultancy assignments from the IDB and the World Bank in one place. Updated every 30 minutes.' }}</p>
+<div class="filters" data-filter-list="j-list" data-count="j-count">
+ <input type="search" placeholder="{{ 'Zoek functie of werkgever' if nl else 'Search job title or employer' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
+ <button class="chip" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }} (<span id="j-count">{{ jobs['items']|length }}</span>)</button>
+ <button class="chip" data-v="gov.sr" aria-pressed="false">{{ 'Overheid' if nl else 'Government' }}</button>
+ <button class="chip" data-v="IDB" aria-pressed="false">IDB</button>
+ <button class="chip" data-v="World Bank" aria-pressed="false">{{ 'Wereldbank' if nl else 'World Bank' }}</button>
+</div>
+<div class="card">
+<ul class="list" id="j-list">
+{% for j in jobs['items'] %}
+ <li data-src="{{ j.source }}"><a href="{{ j.url }}" rel="noopener nofollow" target="_blank">{{ j.title }}</a>
+ <div class="meta"><span>{{ j.employer }}</span>{% if j.kind == 'consultancy' %}<span class="pill">consultancy</span>{% endif %}<span>{{ date(j.published) }}</span>{% if j.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(j.deadline) }}</span>{% endif %}</div></li>
+{% else %}<li class="empty">{{ 'Op dit moment geen open vacatures gevonden.' if nl else 'No open vacancies found right now.' }}</li>{% endfor %}
+</ul>
+</div>
+<div class="grid g2" style="margin-top:20px">
+ <div class="card"><h3>{{ 'Vacature plaatsen?' if nl else 'Post a vacancy?' }}</h3><p>{{ 'Werkgevers kunnen gratis een vacature aanmelden. Stuur de functie, sluitingsdatum en een link of PDF naar' if nl else 'Employers can submit a vacancy for free. Send the job title, closing date and a link or PDF to' }} <a href="mailto:{{ contact_email }}?subject=Vacature">{{ contact_email }}</a>.</p></div>
+ <div class="card"><h3>{{ 'Wat verdien je netto?' if nl else 'What will you take home?' }}</h3><p>{{ 'Reken een aangeboden salaris om naar netto met de loonbelasting van 2026.' if nl else 'Convert an offered salary to net pay with the 2026 wage tax.' }}</p><a href="{{ U('salary') }}">{{ L('salary') }} &rarr;</a></div>
+</div>
+<p class="asof" style="margin-top:16px">{{ 'Bronnen' if nl else 'Sources' }}: <a href="{{ F.PORTALS.gov_jobs }}" rel="noopener">gov.sr/vacatures</a>, IDB, {{ 'Wereldbank' if nl else 'World Bank' }}. {{ 'Solliciteer altijd via de originele publicatie.' if nl else 'Always apply through the original notice.' }}{% if jobs.fetched_at %} {{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(jobs.fetched_at) }}.{% endif %}</p>
+{% endblock %}
+{% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

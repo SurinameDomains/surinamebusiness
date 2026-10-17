@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Een bedrijf starten in Suriname' if nl else 'How to start a business in Suriname' }}</h1>
+<p class="lead">{{ 'In vijf stappen: kies een rechtsvorm, schrijf in bij de KKF, regel een vergunning als dat nodig is, meld je aan bij de Belastingdienst en open een zakelijke rekening.' if nl else 'In five steps: choose a legal form, register at the KKF, get a licence if needed, register with the tax office and open a business account.' }}</p>
+<h2>1. {{ 'Kies een rechtsvorm' if nl else 'Choose a legal form' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Vorm' if nl else 'Form' }}</th><th>{{ 'Voor wie' if nl else 'For whom' }}</th><th>{{ 'Aansprakelijkheid' if nl else 'Liability' }}</th></tr></thead><tbody>
+<tr><td>{{ 'Eenmanszaak' if nl else 'Sole trader (eenmanszaak)' }}</td><td>{{ 'Eén eigenaar, snel en goedkoop te starten' if nl else 'One owner, quick and cheap to start' }}</td><td>{{ 'Persoonlijk, met privévermogen' if nl else 'Personal, including private assets' }}</td></tr>
+<tr><td>VOF</td><td>{{ 'Twee of meer partners' if nl else 'Two or more partners' }}</td><td>{{ 'Elke vennoot hoofdelijk' if nl else 'Each partner jointly and severally' }}</td></tr>
+<tr><td>NV</td><td>{{ 'Groei, investeerders, grotere contracten' if nl else 'Growth, investors, larger contracts' }}</td><td>{{ 'Beperkt tot het kapitaal' if nl else 'Limited to the capital' }}</td></tr>
+<tr><td>{{ 'Stichting' if nl else 'Foundation (stichting)' }}</td><td>{{ 'Ideëel doel, geen winstuitkering' if nl else 'Non-profit purpose, no profit distribution' }}</td><td>{{ 'Beperkt' if nl else 'Limited' }}</td></tr>
+</tbody></table>
+<p>{{ 'Sinds 1 mei 2025 geldt een nieuw Burgerlijk Wetboek. Een NV of stichting kan nu worden opgericht met een standaardakte van de overheid, waarbij de handtekeningen bij de KKF worden gelegaliseerd. Een notaris is alleen nodig voor afwijkende statuten. Er is ook een nieuwe aandeelhouderbestuurde NV, geschikt voor een bedrijf met één eigenaar. Een BV bestaat in Suriname niet.' if nl else 'A new Civil Code applies since 1 May 2025. An NV or foundation can now be set up with a government standard deed, with signatures legalised at the KKF. A notary is only needed for custom articles. There is also a new shareholder-managed NV, suitable for a one-owner company. Suriname has no BV.' }}</p>
+<h2>2. {{ 'Inschrijven bij de KKF' if nl else 'Register at the KKF' }}</h2>
+<p>{{ 'Inschrijving in het Handelsregister van de Kamer van Koophandel en Fabrieken is verplicht, binnen een week na de start. Neem mee: je ID, het ingevulde formulier, een huur- of eigendomsbewijs van het bedrijfspand en, bij een NV, de akte. De KKF biedt ook E-Services aan.' if nl else 'Registration in the trade register of the Chamber of Commerce (KKF) is mandatory, within one week of starting. Bring your ID, the completed form, proof of lease or ownership of the premises and, for an NV, the deed. The KKF also offers E-Services.' }}</p>
+<p class="note">{{ 'De tarieven van de KKF wijzigen regelmatig. Controleer de actuele kosten op de site van de KKF voordat je gaat.' if nl else 'KKF fees change regularly. Check the current fees on the KKF website before you go.' }} <a href="{{ F.PORTALS.kkf }}" rel="noopener">surinamechamber.com</a></p>
+<h2>3. {{ 'Vergunning, als je activiteit die vereist' if nl else 'A licence, if your activity requires one' }}</h2>
+<p>{{ 'Alleen activiteiten op de lijst van vergunningsplichtige bedrijven en beroepen hebben een vergunning nodig van het ministerie van Economische Zaken (soms via de districtscommissaris). Import en export zijn niet vergunningsplichtig.' if nl else 'Only activities on the list of licensed businesses and professions need a licence from the Ministry of Economic Affairs (sometimes via the district commissioner). Importing and exporting do not require one.' }}</p>
+<h2>4. {{ 'Belastingdienst' if nl else 'Tax office' }}</h2>
+<p>{{ 'Meld je bedrijf aan voor een FIN nummer. Heb je personeel, dan draag je maandelijks loonbelasting en AOV af. Boven SRD 1 miljoen omzet per jaar moet je je registreren voor de BTW.' if nl else 'Register your business for a FIN number. With staff you remit wage tax and AOV monthly. Above SRD 1 million turnover a year you must register for VAT.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
+<h2>5. {{ 'Zakelijke rekening' if nl else 'Business bank account' }}</h2>
+<p>{{ 'Met je KKF uittreksel en ID open je een zakelijke rekening bij een bank naar keuze. Vraag vooraf welke documenten de bank verlangt.' if nl else 'With your KKF extract and ID you open a business account at a bank of your choice. Ask in advance which documents the bank requires.' }}</p>
+<h2>{{ 'Personeel aannemen' if nl else 'Hiring staff' }}</h2>
+<p><a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="{{ F.PORTALS.handelsregisterbesluit }}" rel="noopener">Handelsregisterbesluit, S.B. 2025 no. 46</a></li>
+ <li><a href="{{ F.PORTALS.frielink_bw }}" rel="noopener">Frielink: nieuw Boek 2 BW Suriname</a></li>
+ <li><a href="{{ F.PORTALS.rvo_start }}" rel="noopener">RVO: zo start u een bedrijf in Suriname</a></li>
+ <li><a href="{{ F.PORTALS.license }}" rel="noopener">Doing Business Dutch Caribbean: business licence</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Dit is algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

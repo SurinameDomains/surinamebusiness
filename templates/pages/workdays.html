@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Werkdagen berekenen' if nl else 'Working days calculator' }}</h1>
+<p class="lead">{{ 'Tel de werkdagen tussen twee datums. Weekenden en Surinaamse feestdagen worden overgeslagen. Handig voor deadlines, levertijden en loonadministratie.' if nl else 'Count the working days between two dates. Weekends and Suriname public holidays are skipped. Useful for deadlines, delivery times and payroll.' }}</p>
+<div class="cols">
+ <form class="card calc" id="wd-form" onsubmit="return false">
+  <label for="from">{{ 'Van' if nl else 'From' }}</label><input type="date" id="from" name="from" value="{{ today }}">
+  <label for="to">{{ 'Tot en met' if nl else 'Up to and including' }}</label><input type="date" id="to" name="to" value="{{ today[:4] }}-12-31">
+  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="sat" style="width:auto"> {{ 'Zaterdag is een werkdag' if nl else 'Saturday is a working day' }}</label>
+ </form>
+ <div class="result" id="wd-out" aria-live="polite"></div>
+</div>
+<p class="asof">{{ 'Feestdagen zoals op' if nl else 'Holidays as listed on' }} <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+{% endblock %}
+{% block scripts %}
+<script>window.SB={holidays:{{ holidays_json|safe }},t:{{ ({'result': 'Werkdagen' if nl else 'Working days', 'total': 'Kalenderdagen' if nl else 'Calendar days', 'weekend': 'Weekenddagen' if nl else 'Weekend days', 'hol': 'Feestdagen op een werkdag' if nl else 'Holidays on a weekday'})|tojson }}};</script>
+<script src="/assets/calc.js?v={{ build_id }}" defer></script>
+{% endblock %}

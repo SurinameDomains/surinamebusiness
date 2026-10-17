@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Over Suriname Business' if nl else 'About Suriname Business' }}</h1>
+<p class="lead">{{ 'Suriname Business is een gratis werkinstrument voor iedereen die in of met Suriname werkt: werknemers, ondernemers, investeerders uit de diaspora en buitenlandse bedrijven.' if nl else 'Suriname Business is a free working tool for anyone who works in or with Suriname: employees, entrepreneurs, diaspora investors and foreign companies.' }}</p>
+<h2>{{ 'Wat we doen' if nl else 'What we do' }}</h2>
+<ul>
+ <li>{{ 'Rekentools met de actuele tarieven: netto salaris, overwerk, BTW en werkdagen.' if nl else 'Calculators with current rates: net salary, overtime, VAT and working days.' }}</li>
+ <li>{{ 'Alle open aanbestedingen en vacatures uit openbare bronnen op één plek.' if nl else 'All open tenders and vacancies from public sources in one place.' }}</li>
+ <li>{{ 'Koersen, feestdagen en zakennieuws, elke 30 minuten bijgewerkt.' if nl else 'Exchange rates, holidays and business news, updated every 30 minutes.' }}</li>
+ <li>{{ 'Gidsen met de officiële bron bij elk feit en een controledatum.' if nl else 'Guides with the official source for every fact and a check date.' }}</li>
+</ul>
+<h2>{{ 'Onze regels' if nl else 'Our rules' }}</h2>
+<ul>
+ <li>{{ 'Elk cijfer heeft een bron en een datum. Is een bron niet bereikbaar, dan tonen we dat in plaats van oude cijfers als nieuw te presenteren.' if nl else 'Every number has a source and a date. If a source is down we say so instead of passing off old numbers as new.' }}</li>
+ <li>{{ 'We nemen geen artikelen over; we tonen koppen en linken naar de uitgever.' if nl else 'We do not copy articles; we show headlines and link to the publisher.' }}</li>
+ <li>{{ 'We zijn onafhankelijk van banken, cambio\'s en overheid. Er zijn geen betaalde plaatsingen in de lijsten.' if nl else 'We are independent of banks, cambios and the government. There are no paid placements in the lists.' }}</li>
+</ul>
+<p>{{ 'Suriname Business is onderdeel van de Explore group, de makers van' if nl else 'Suriname Business is part of the Explore group, the makers of' }} <a href="{{ explore_url }}" rel="noopener">Explore Suriname</a>.</p>
+<p><a href="{{ U('sources') }}">{{ L('sources') }}</a> &middot; <a href="{{ U('contact') }}">{{ L('contact') }}</a></p>
+</div>
+{% endblock %}

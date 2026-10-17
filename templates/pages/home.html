@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block hero %}
+<section class="hero">
+ <div class="wrap">
+  <h1>{{ 'Alles voor werken en zakendoen in Suriname' if nl else 'Everything for working and doing business in Suriname' }}</h1>
+  <p class="lead">{{ 'Bereken je netto salaris, vind elke open aanbesteding en volg de koers. Actuele cijfers met bron, gratis.' if nl else 'Work out your net salary, find every open tender and follow the exchange rate. Current figures with sources, free.' }}</p>
+  <div class="grid g4 tools">
+   <a class="card tool" href="{{ U('salary') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span><b>{{ 'Netto salaris' if nl else 'Net salary' }}</b><span>{{ 'Bruto naar netto met de tarieven van 2026' if nl else 'Gross to net with 2026 tax rates' }}</span></a>
+   <a class="card tool" href="{{ U('tenders') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><b>{{ tenders.count }} {{ 'open aanbestedingen' if nl else 'open tenders' }}</b><span>{{ 'Overheid, Staatsolie, IDB en Wereldbank' if nl else 'Government, Staatsolie, IDB and World Bank' }}</span></a>
+   <a class="card tool" href="{{ U('rates') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><b>{% if rates and not rates.stale %}USD {{ num(rates.usd.sell) }}{% else %}{{ 'Wisselkoers' if nl else 'Exchange rate' }}{% endif %}</b><span>{{ 'Dollar en euro in SRD, met historie' if nl else 'Dollar and euro in SRD, with history' }}</span></a>
+   <a class="card tool" href="{{ U('minwage') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur' if nl else 'per hour' }}</b><span>{{ 'Minimumloon sinds 1 juli 2026' if nl else 'Minimum wage since 1 July 2026' }}</span></a>
+  </div>
+ </div>
+</section>
+{% endblock %}
+{% block content %}
+<div class="cols" style="margin-top:28px">
+ <div>
+  <section class="card">
+   <div class="eyebrow">{{ 'Nieuwste aanbestedingen' if nl else 'Latest tenders' }}</div>
+   <ul class="list">
+   {% for t in tenders['items'][:7] %}
+    <li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
+     <div class="meta"><span>{{ t.buyer }}</span><span>{{ date(t.published) }}</span>{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline, year=False) }}</span>{% endif %}</div></li>
+   {% else %}<li class="empty">{{ 'Nog geen gegevens.' if nl else 'No data yet.' }}</li>{% endfor %}
+   </ul>
+   <div class="foot"><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} {{ 'open aanbestedingen' if nl else 'open tenders' }} &rarr;</a>{% if tenders.fetched_at %}<span>{{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(tenders.fetched_at) }}</span>{% endif %}</div>
+  </section>
+
+  <section class="card" style="margin-top:16px">
+   <div class="eyebrow">{{ 'Zakennieuws' if nl else 'Business news' }}</div>
+   <ul class="list">
+   {% for n in news.business[:6] %}
+    <li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
+   {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
+   </ul>
+   <div class="foot"><a href="{{ U('news') }}">{{ 'Meer zakennieuws' if nl else 'More business news' }} &rarr;</a></div>
+  </section>
+
+  <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
+  <div class="grid g2">
+   {% for k in ['start','vatguide','labour','supplier'] %}
+   <a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] if META_SUB is defined else '' }}</div></a>
+   {% endfor %}
+  </div>
+ </div>
+
+ <aside>
+  <section class="card">
+   <div class="eyebrow">{{ 'Wisselkoers vandaag' if nl else 'Exchange rate today' }}</div>
+   {% if rates %}
+    <div class="rate-row"><span>USD {{ 'verkoop' if nl else 'sell' }}</span><span class="big tnum" style="font-size:1.7rem">{{ num(rates.usd.sell) }}</span></div>
+    <div class="rate-row"><span>USD {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.usd.buy) }}</b></div>
+    <div class="rate-row"><span>EUR {{ 'verkoop' if nl else 'sell' }}</span><b class="tnum">{{ num(rates.eur.sell) }}</b></div>
+    <div class="rate-row"><span>EUR {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.eur.buy) }}</b></div>
+    {% set pts = spark(rates.series) %}{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#0e6b51" stroke-width="2"/></svg>{% endif %}
+    <div class="foot"><span>{% if rates.stale %}<span class="pill">{{ 'Laatst bekend' if nl else 'Last known' }}</span> {% endif %}CME, {{ date(rates.business_date, year=False) }}</span><a href="{{ U('rates') }}">{{ 'Historie' if nl else 'History' }} &rarr;</a></div>
+   {% else %}<p class="empty">{{ 'Koers tijdelijk niet beschikbaar.' if nl else 'Rates temporarily unavailable.' }}</p>{% endif %}
+  </section>
+
+  {% if hol.next %}
+  <section class="card" style="margin-top:16px">
+   <div class="eyebrow">{{ 'Volgende vrije dag' if nl else 'Next public holiday' }}</div>
+   <div style="font-size:1.25rem;font-weight:700">{{ hol.next.name }}</div>
+   <div class="sub">{{ date(hol.next.date, weekday=True) }}{% if hol.next.days == 0 %}, {{ 'vandaag' if nl else 'today' }}{% elif hol.next.days == 1 %}, {{ 'morgen' if nl else 'tomorrow' }}{% else %}, {{ 'over' if nl else 'in' }} {{ hol.next.days }} {{ 'dagen' if nl else 'days' }}{% endif %}{% if hol.next.status == 'expected' %} ({{ 'verwacht' if nl else 'expected' }}){% endif %}</div>
+   <div class="foot"><a href="{{ U('holidays') }}">{{ 'Alle feestdagen' if nl else 'All holidays' }} &rarr;</a><a href="{{ U('workdays') }}">{{ 'Werkdagen tellen' if nl else 'Count working days' }}</a></div>
+  </section>
+  {% endif %}
+
+  <section class="card" style="margin-top:16px">
+   <div class="eyebrow">{{ 'Olie en gas' if nl else 'Oil and gas' }}</div>
+   <div style="font-weight:700;font-size:1.1rem">GranMorgu</div>
+   <div class="rate-row"><span>{{ 'Investering' if nl else 'Investment' }}</span><b>USD {{ num(F.GRANMORGU.investment_bn_usd,1) }} {{ 'mld' if nl else 'bn' }}</b></div>
+   <div class="rate-row"><span>{{ 'Capaciteit' if nl else 'Capacity' }}</span><b>{{ num(F.GRANMORGU.capacity_bpd,0) }} {{ 'vaten/dag' if nl else 'bbl/day' }}</b></div>
+   <div class="rate-row"><span>{{ 'Eerste olie' if nl else 'First oil' }}</span><b>{{ F.GRANMORGU.first_oil }}</b></div>
+   <div class="foot"><a href="{{ U('oilgas') }}">{{ 'Feiten, tenders en nieuws' if nl else 'Facts, tenders and news' }} &rarr;</a></div>
+  </section>
+
+  <section class="card" style="margin-top:16px">
+   <div class="eyebrow">{{ 'Vacatures' if nl else 'Jobs' }}</div>
+   <ul class="list">
+   {% for j in jobs['items'][:4] %}<li><a href="{{ j.url }}" rel="noopener nofollow" target="_blank">{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span></div></li>
+   {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
+   </ul>
+   <div class="foot"><a href="{{ U('jobs') }}">{{ 'Alle vacatures' if nl else 'All jobs' }} &rarr;</a></div>
+  </section>
+ </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Gidsen' if nl else 'Guides' }}</h1>
+<p class="lead">{{ 'Praktische uitleg met bronnen, voor ondernemers, werknemers en investeerders.' if nl else 'Practical explainers with sources, for entrepreneurs, employees and investors.' }}</p>
+<h2>{{ 'Ondernemen' if nl else 'Running a business' }}</h2>
+<div class="grid g2">{% for k in ['start','vatguide','labour','supplier','oilgas'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] }}</div></a>{% endfor %}</div>
+<h2>{{ 'Tools' }}</h2>
+<div class="grid g3">{% for k in ['salary','tax','overtime','minwage','vatcalc','workdays','holidays','rates'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b></a>{% endfor %}</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Privacy' }}</h1>
+<p class="lead">{{ 'Suriname Business verzamelt geen persoonsgegevens via de website.' if nl else 'Suriname Business does not collect personal data through the website.' }}</p>
+<ul>
+ <li>{{ 'Wat je in de rekentools invult, blijft in je browser en wordt niet naar ons verstuurd.' if nl else 'What you enter in the calculators stays in your browser and is not sent to us.' }}</li>
+ <li>{{ 'We gebruiken geen tracking cookies en geen advertentienetwerken.' if nl else 'We use no tracking cookies and no ad networks.' }}</li>
+ <li>{{ 'Lettertypes worden geladen via Google Fonts; de site wordt gehost via GitHub Pages en Cloudflare, die technische serverlogs bijhouden.' if nl else 'Fonts load from Google Fonts; the site is hosted on GitHub Pages and Cloudflare, which keep technical server logs.' }}</li>
+ <li>{{ 'Mail je ons, dan gebruiken we je adres alleen om te antwoorden.' if nl else 'If you email us, we only use your address to reply.' }}</li>
+</ul>
+<p class="asof">{{ 'Bijgewerkt op' if nl else 'Updated on' }} {{ date(F.CHECKED) }}. {{ 'Wijzigt dit beleid, dan staat dat hier.' if nl else 'If this policy changes, it will be shown here.' }}</p>
+</div>
+{% endblock %}

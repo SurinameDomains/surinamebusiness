@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Loonbelasting Suriname 2026' if nl else 'Suriname income tax (wage tax) 2026' }}</h1>
+<p class="lead">{{ 'De belastingvrije som is' if nl else 'The tax-free amount is' }} {{ srd(F.TAX.free_month) }} {{ 'per maand' if nl else 'per month' }} ({{ srd(F.TAX.free_month*12) }} {{ 'per jaar' if nl else 'per year' }}). {{ 'Daarboven betaal je 8%, 18%, 28% of 38%. Deze tarieven gelden sinds 1 januari 2024 en zijn ongewijzigd in 2026.' if nl else 'Above it you pay 8%, 18%, 28% or 38%. These rates apply since 1 January 2024 and are unchanged in 2026.' }}</p>
+
+<h2>{{ 'Tarieven per maand' if nl else 'Monthly brackets' }}</h2>
+<p>{{ 'Over het belastbaar loon na aftrek van de belastingvrije som:' if nl else 'On taxable wage after deducting the tax-free amount:' }}</p>
+<table class="tbl">
+ <thead><tr><th>{{ 'Schijf' if nl else 'Bracket' }}</th><th>{{ 'Belastbaar loon per maand' if nl else 'Taxable wage per month' }}</th><th class="r">{{ 'Tarief' if nl else 'Rate' }}</th></tr></thead>
+ <tbody>
+  <tr><td>1</td><td>SRD 0 {{ 'tot' if nl else 'to' }} {{ srd(3500) }}</td><td class="r">8%</td></tr>
+  <tr><td>2</td><td>{{ srd(3500) }} {{ 'tot' if nl else 'to' }} {{ srd(7000) }}</td><td class="r">18%</td></tr>
+  <tr><td>3</td><td>{{ srd(7000) }} {{ 'tot' if nl else 'to' }} {{ srd(10500) }}</td><td class="r">28%</td></tr>
+  <tr><td>4</td><td>{{ 'boven' if nl else 'above' }} {{ srd(10500) }}</td><td class="r">38%</td></tr>
+ </tbody>
+</table>
+<p>{{ 'Per jaar zijn de grenzen' if nl else 'Per year the bands are' }} {{ srd(42000) }}, {{ srd(84000) }} {{ 'en' if nl else 'and' }} {{ srd(126000) }}.</p>
+
+<h2>{{ 'Aftrek en vrijstellingen' if nl else 'Deductions and exemptions' }}</h2>
+<table class="tbl">
+ <tbody>
+  <tr><td>{{ 'Belastingvrije som' if nl else 'Tax-free amount' }}</td><td class="r">{{ srd(F.TAX.free_month) }} / {{ 'maand' if nl else 'month' }}</td></tr>
+  <tr><td>{{ 'Forfaitaire aftrek beroepskosten' if nl else 'Flat work-expense deduction' }}</td><td class="r">4%, max {{ srd(F.TAX.forfait_max_month) }} / {{ 'maand' if nl else 'month' }}</td></tr>
+  <tr><td>{{ 'Vakantietoelage, vrijgesteld tot' if nl else 'Holiday allowance, exempt up to' }}</td><td class="r">{{ srd(F.TAX.holiday_allowance_exempt_year) }} / {{ 'jaar' if nl else 'year' }}</td></tr>
+  <tr><td>{{ 'Gratificatie of bonus, vrijgesteld tot' if nl else 'Bonus (gratificatie), exempt up to' }}</td><td class="r">{{ srd(F.TAX.bonus_exempt_year) }} / {{ 'jaar' if nl else 'year' }}</td></tr>
+ </tbody>
+</table>
+<p>{{ 'De vrijstelling voor vakantietoelage en gratificatie is verhoogd van SRD 10.016 naar SRD 19.500 per jaar, met terugwerkende kracht tot 1 januari 2025. De heffingskorting bestaat sinds 2022 niet meer; die is opgegaan in de hogere belastingvrije som.' if nl else 'The holiday allowance and bonus exemption went up from SRD 10,016 to SRD 19,500 per year, retroactive to 1 January 2025. The tax credit (heffingskorting) no longer exists since 2022; it was replaced by the higher tax-free amount.' }}</p>
+
+<h2>{{ 'Overwerk en bijzondere beloningen' if nl else 'Overtime and special payments' }}</h2>
+<p>{{ 'Overwerkloon heeft sinds 1 juli 2025 een eigen tabel per maand:' if nl else 'Overtime pay has its own monthly table since 1 July 2025:' }}</p>
+<table class="tbl">
+ <tbody>
+  <tr><td>{{ 'Tot' if nl else 'Up to' }} {{ srd(2500) }}</td><td class="r">5%</td></tr>
+  <tr><td>{{ srd(2500) }} {{ 'tot' if nl else 'to' }} {{ srd(7500) }}</td><td class="r">15%</td></tr>
+  <tr><td>{{ 'Boven' if nl else 'Above' }} {{ srd(7500) }}</td><td class="r">25%</td></tr>
+ </tbody>
+</table>
+<p>{{ 'Bijzondere beloningen die in één keer worden uitbetaald kunnen op verzoek worden belast tegen 5%, 15%, 25% en 35% in dezelfde schijven als het gewone loon.' if nl else 'Lump-sum special payments can, on request, be taxed at 5%, 15%, 25% and 35% in the same bands as regular wages.' }}</p>
+<p><a href="{{ U('salary') }}"><b>{{ 'Bereken je netto salaris' if nl else 'Calculate your net salary' }} &rarr;</b></a> &nbsp; <a href="{{ U('overtime') }}">{{ L('overtime') }} &rarr;</a></p>
+
+<h2>{{ 'Voorbeeld' if nl else 'Example' }}</h2>
+{% set r = salary_py(20000) %}
+<p>{{ 'Bruto' if nl else 'Gross' }} {{ srd(20000) }}: {{ 'forfaitaire aftrek' if nl else 'flat deduction' }} {{ srd(400) }}, {{ 'zuiver loon' if nl else 'net taxable wage' }} {{ srd(19600) }}, {{ 'na belastingvrije som' if nl else 'after the tax-free amount' }} {{ srd(10600) }}. {{ 'Loonbelasting' if nl else 'Wage tax' }}: 8% {{ 'over' if nl else 'on' }} 3.500 + 18% {{ 'over' if nl else 'on' }} 3.500 + 28% {{ 'over' if nl else 'on' }} 3.500 + 38% {{ 'over' if nl else 'on' }} 100 = <b>{{ srd(r.tax, 2) }}</b>. AOV 4% = {{ srd(r.aov, 2) }}. {{ 'Netto' if nl else 'Net' }} <b>{{ srd(r.net, 2) }}</b>.</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.TAX.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Let op: de themapagina loonbelasting op gov.sr toont nog cijfers uit 2022.' if nl else 'Note: the wage tax theme page on gov.sr still shows 2022 figures.' }}</p>
+</div>
+{% endblock %}

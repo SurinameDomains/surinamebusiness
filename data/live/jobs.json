@@ -1,0 +1,30 @@
+{
+ "fetched_at": "2026-10-17T18:59:25+00:00",
+ "items": [
+  {
+   "employer": "Ministerie van Natuurlijke Hulpbronnen",
+   "id": "gov-161900",
+   "published": "2026-09-07",
+   "source": "gov.sr",
+   "title": "Energy Awareness Consultant",
+   "url": "https://gov.sr/vacature/energy-consultant/"
+  },
+  {
+   "employer": "Ministerie van Natuurlijke Hulpbronnen",
+   "id": "gov-159823",
+   "published": "2026-07-30",
+   "source": "gov.sr",
+   "title": "Technical Assistant (TA) planetGOLD",
+   "url": "https://gov.sr/vacature/technical-assistant-ta-planetgold/"
+  },
+  {
+   "employer": "Ministerie van Onderwijs, Wetenschap en Cultuur",
+   "id": "gov-159540",
+   "published": "2026-07-24",
+   "source": "gov.sr",
+   "title": "Vacature Inspecteurs IBO, IVOJ en IVOS",
+   "url": "https://gov.sr/vacature/vacature-inspecteurs-ibo-ivoj-en-ivos/"
+  }
+ ],
+ "ok": true
+}

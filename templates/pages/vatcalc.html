@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'BTW berekenen' if nl else 'VAT calculator Suriname' }}</h1>
+<p class="lead">{{ 'Het algemene BTW tarief in Suriname is 10%. Brandstof valt onder 5%, luxe goederen zoals grote auto\'s onder 25%.' if nl else 'Suriname\'s standard VAT rate is 10%. Fuel is taxed at 5%, luxury goods such as large cars at 25%.' }}</p>
+<div class="cols">
+ <form class="card calc" id="vat-form" onsubmit="return false">
+  <label for="amount">{{ 'Bedrag (SRD)' if nl else 'Amount (SRD)' }}</label>
+  <input id="amount" name="amount" inputmode="decimal" value="1000">
+  <label for="dir">{{ 'Dit bedrag is' if nl else 'This amount is' }}</label>
+  <select id="dir" name="dir"><option value="excl">{{ 'exclusief BTW' if nl else 'excluding VAT' }}</option><option value="incl">{{ 'inclusief BTW' if nl else 'including VAT' }}</option></select>
+  <label for="rate">{{ 'Tarief' if nl else 'Rate' }}</label>
+  <select id="rate" name="rate"><option value="10">10% {{ 'algemeen' if nl else 'standard' }}</option><option value="5">5% {{ 'brandstof' if nl else 'fuel' }}</option><option value="25">25% {{ 'luxe goederen' if nl else 'luxury goods' }}</option><option value="0">0%</option></select>
+ </form>
+ <div class="result" id="vat-out" aria-live="polite"></div>
+</div>
+<div class="prose">
+<p><a href="{{ U('vatguide') }}"><b>{{ 'Alles over BTW in Suriname: tarieven, registratie en aangifte' if nl else 'Everything about VAT in Suriname: rates, registration and filing' }} &rarr;</b></a></p>
+<p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="{{ F.VAT.sources[0][1] }}" rel="noopener">{{ F.VAT.sources[0][0] }}</a>. {{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>window.SB={t:{{ ({'ex': 'Exclusief BTW' if nl else 'Excluding VAT', 'inc': 'Inclusief BTW' if nl else 'Including VAT', 'vat': 'BTW' if nl else 'VAT', 'exLabel': 'Bedrag zonder BTW' if nl else 'Amount without VAT', 'incLabel': 'Bedrag met BTW' if nl else 'Amount with VAT'})|tojson }}};</script>
+<script src="/assets/calc.js?v={{ build_id }}" defer></script>
+{% endblock %}

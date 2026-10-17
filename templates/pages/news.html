@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Zakennieuws Suriname' if nl else 'Suriname business news' }}</h1>
+<p class="lead">{{ 'De laatste koppen over economie, handel, banken en energie uit Surinaamse media. Klik door naar het originele artikel.' if nl else 'The latest headlines on the economy, trade, banking and energy from Surinamese media. Click through to the original article.' }}</p>
+<div class="filters" data-filter-list="n-list">
+ <input type="search" placeholder="{{ 'Zoek in koppen' if nl else 'Search headlines' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
+ <button class="chip" data-v="all" aria-pressed="true">{{ 'Alle bronnen' if nl else 'All sources' }}</button>
+ {% for s in ['Starnieuws', 'de Ware Tijd', 'Suriname Herald', 'Dagblad Suriname'] %}<button class="chip" data-v="{{ s }}" aria-pressed="false">{{ s }}</button>{% endfor %}
+</div>
+<div class="card"><ul class="list" id="n-list">
+{% for n in news.business %}<li data-src="{{ n.source }}"><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
+{% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
+</ul></div>
+<p class="asof" style="margin-top:14px">{{ 'We tonen alleen de kop, de bron en de tijd, met een link naar de uitgever. De artikelen zijn van de betreffende media.' if nl else 'We show only the headline, source and time, linking to the publisher. Articles belong to the respective media.' }}</p>
+{% endblock %}
+{% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

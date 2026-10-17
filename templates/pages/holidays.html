@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Feestdagen Suriname 2026 en 2027' if nl else 'Suriname public holidays 2026 and 2027' }}</h1>
+<p class="lead">{{ 'Suriname heeft 15 officiële vrije dagen (Besluit Rustdagen). Islamitische, Hindoestaanse en Chinese feestdagen volgen de maan en worden jaarlijks bekendgemaakt.' if nl else 'Suriname has 15 official days off (Besluit Rustdagen). Islamic, Hindu and Chinese holidays follow the lunar calendar and are announced each year.' }}</p>
+{% if hol.next %}<div class="card" style="margin:16px 0"><div class="eyebrow">{{ 'Volgende vrije dag' if nl else 'Next holiday' }}</div><b style="font-size:1.2rem">{{ hol.next.name }}</b><div class="sub">{{ date(hol.next.date, weekday=True) }}, {{ 'over' if nl else 'in' }} {{ hol.next.days }} {{ 'dagen' if nl else 'days' }}</div></div>{% endif %}
+{% for yr in ['2026', '2027'] %}
+<h2>{{ 'Feestdagen' if nl else 'Holidays' }} {{ yr }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Feestdag' if nl else 'Holiday' }}</th><th></th></tr></thead><tbody>
+{% for h in hol.all if h.date.startswith(yr) %}
+<tr{% if h.days is not none and h.days < 0 %} style="color:var(--muted)"{% endif %}><td>{{ date(h.date, weekday=True, year=False) }}</td><td>{{ h.name }}</td><td>{% if h.status == 'expected' %}<span class="pill gold">{{ 'verwacht' if nl else 'expected' }}</span>{% endif %}{% if h.weekend %} <span class="pill">{{ 'weekend' }}</span>{% endif %}</td></tr>
+{% endfor %}
+</tbody></table>
+{% if yr == '2027' %}<p class="sub">{{ 'Holi Phagwa, Ied ul Fitr, Ied ul Adha en Divali voor 2027 zijn nog niet bekendgemaakt en worden toegevoegd zodra de datums officieel zijn.' if nl else 'Holi Phagwa, Eid al-Fitr, Eid al-Adha and Divali for 2027 are not announced yet and will be added once the dates are official.' }}</p>{% endif %}
+{% endfor %}
+<h2>{{ 'Herdenkingsdagen' if nl else 'Commemoration days' }}</h2>
+<p>{{ '5 juni (Hindoestaanse immigratie), 8 augustus (Javaanse immigratie) en 20 oktober (Chinese immigratie) zijn herdenkingsdagen, geen vaste vrije dagen. De regering kan een dag eenmalig vrij verklaren, zoals Javaans Nieuwjaar in sommige jaren.' if nl else '5 June (Hindustani immigration), 8 August (Javanese immigration) and 20 October (Chinese immigration) are commemoration days, not standing days off. The government can declare a one-off day off, as with Javanese New Year in some years.' }}</p>
+<p><a href="{{ U('workdays') }}"><b>{{ 'Werkdagen tellen tussen twee datums' if nl else 'Count working days between two dates' }} &rarr;</b></a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.HOLIDAY_SOURCES %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+{% endblock %}

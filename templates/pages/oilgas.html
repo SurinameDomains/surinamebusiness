@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set G = F.GRANMORGU %}
+{% block content %}
+<h1>{{ 'Olie en gas in Suriname: GranMorgu' if nl else 'Oil and gas in Suriname: GranMorgu' }}</h1>
+<p class="lead">{{ 'GranMorgu is het eerste offshore olieproject van Suriname. De investering is circa USD 10,5 miljard; de eerste olie wordt verwacht in 2028.' if nl else 'GranMorgu is Suriname\'s first offshore oil development. The investment is about USD 10.5 billion; first oil is expected in 2028.' }}</p>
+<div class="grid g4" style="margin:18px 0">
+ <div class="card"><div class="eyebrow">{{ 'Investering' if nl else 'Investment' }}</div><div class="big">USD {{ num(G.investment_bn_usd,1) }} {{ 'mld' if nl else 'bn' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Productie' if nl else 'Capacity' }}</div><div class="big tnum">{{ num(G.capacity_bpd,0) }}</div><div class="sub">{{ 'vaten per dag' if nl else 'barrels per day' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste olie' if nl else 'First oil' }}</div><div class="big">{{ G.first_oil }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Lokale inhoud' if nl else 'Local content' }}</div><div class="big">USD {{ G.local_content_usd_bn }}+ {{ 'mld' if nl else 'bn' }}</div><div class="sub">{{ num(G.jobs,0) }}+ {{ 'banen' if nl else 'jobs' }}</div></div>
+</div>
+<div class="cols">
+<div class="prose">
+<h2>{{ 'De feiten' if nl else 'Key facts' }}</h2>
+<table class="tbl"><tbody>
+ <tr><td>{{ 'Gebied' if nl else 'Area' }}</td><td>{{ G.block }}, {{ 'circa' if nl else 'about' }} {{ G.distance_km }} km {{ 'uit de kust' if nl else 'offshore' }}</td></tr>
+ <tr><td>{{ 'Velden' if nl else 'Fields' }}</td><td>{{ G.fields }}</td></tr>
+ <tr><td>{{ 'Winbare reserves' if nl else 'Recoverable reserves' }}</td><td>{{ 'meer dan' if nl else 'more than' }} {{ G.reserves_mbbl }} {{ 'miljoen vaten' if nl else 'million barrels' }}</td></tr>
+ <tr><td>{{ 'Investeringsbesluit (FID)' if nl else 'Final investment decision' }}</td><td>{{ date(G.fid) }}</td></tr>
+ <tr><td>{{ 'Partners' if nl else 'Partners' }}</td><td>{% for n, s in G.shares %}{{ n }} {{ s }}%{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
+ <tr><td>{{ 'Voortgang eind 2025' if nl else 'Progress end of 2025' }}</td><td>{{ 'circa' if nl else 'about' }} {{ G.progress_end_2025 }}%</td></tr>
+ <tr><td>{{ 'Productie-installatie' if nl else 'Production unit' }}</td><td>{{ 'Volledig elektrisch FPSO, zonder routinematig affakkelen' if nl else 'All-electric FPSO, no routine flaring' }}</td></tr>
+</tbody></table>
+<h2>{{ 'Kansen voor lokale bedrijven' if nl else 'Opportunities for local companies' }}</h2>
+<p>{{ 'In 2025 besteedde Staatsolie USD' if nl else 'In 2025 Staatsolie spent USD' }} {{ G.staatsolie_local_2025_musd }} {{ 'miljoen bij lokale leveranciers en de offshore partners nog eens circa USD' if nl else 'million with local suppliers and the offshore partners about another USD' }} {{ G.partners_local_2025_musd }} {{ 'miljoen. Er registreerden zich' if nl else 'million. A total of' }} {{ G.new_suppliers_2025 }} {{ 'nieuwe leveranciers in het portaal.' if nl else 'new suppliers registered in the portal.' }}</p>
+<p><a href="{{ U('supplier') }}"><b>{{ 'Zo word je leverancier in olie en gas' if nl else 'How to become an oil and gas supplier' }} &rarr;</b></a></p>
+<h2>{{ 'Open Staatsolie tenders' if nl else 'Open Staatsolie tenders' }}</h2>
+<ul class="list">
+{% for t in tenders['items'] if t.source == 'Staatsolie' %}{% if loop.index <= 10 %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta">{% if t.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}</span>{% endif %}</div></li>{% endif %}
+{% else %}<li class="empty">{{ 'Geen open tenders gevonden.' if nl else 'No open tenders found.' }}</li>{% endfor %}
+</ul>
+<p><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in G.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+<aside class="card"><div class="eyebrow">{{ 'Energienieuws' if nl else 'Energy news' }}</div><ul class="list">
+{% for n in news.oil[:10] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
+{% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
+</ul></aside>
+</div>
+{% endblock %}

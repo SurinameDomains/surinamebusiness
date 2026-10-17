@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Leverancier worden in de olie en gas sector' if nl else 'Become a supplier to Suriname\'s oil and gas sector' }}</h1>
+<p class="lead">{{ 'Er zijn twee registraties. Het Suriname Supplier Registration Portal (SSRP) is voor alle offshore operators en is gratis. SAP Ariba is alleen voor leveringen aan Staatsolie zelf.' if nl else 'There are two registrations. The Suriname Supplier Registration Portal (SSRP) serves all offshore operators and is free. SAP Ariba is only for supplying Staatsolie itself.' }}</p>
+<h2>{{ 'Stap voor stap' if nl else 'Step by step' }}</h2>
+<ol>
+ <li><b>{{ 'Zorg dat je bedrijf op orde is.' if nl else 'Get your company in order.' }}</b> {{ 'Inschrijving bij de KKF, een FIN nummer van de Belastingdienst en waar nodig een bedrijfsvergunning.' if nl else 'KKF registration, a tax (FIN) number and a business licence where required.' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>{{ 'Registreer in het SSRP.' if nl else 'Register in the SSRP.' }}</b> {{ 'Via het portaal krijg je toegang tot tenders, RFI\'s en andere inkoop van alle bedrijven die offshore actief zijn.' if nl else 'The portal gives access to tenders, RFIs and other procurement by all companies active offshore.' }} <a href="{{ F.PORTALS.ssrp }}" rel="noopener">{{ 'Naar het SSRP' if nl else 'Go to the SSRP' }}</a></li>
+ <li><b>{{ 'Wil je aan Staatsolie leveren? Registreer ook in SAP Ariba.' if nl else 'Supplying Staatsolie? Also register in SAP Ariba.' }}</b> <a href="{{ F.PORTALS.ariba }}" rel="noopener">{{ 'Ariba registratie' if nl else 'Ariba registration' }}</a></li>
+ <li><b>{{ 'Volg de open tenders.' if nl else 'Watch open tenders.' }}</b> {{ 'Staatsolie publiceert verzoeken om interesse (EOI) met een sluitingsdatum, vaak binnen twee tot drie weken.' if nl else 'Staatsolie publishes expressions of interest (EOI) with a deadline, often within two to three weeks.' }} <a href="{{ U('tenders') }}">{{ 'Bekijk de lijst' if nl else 'See the list' }}</a></li>
+ <li><b>{{ 'Bouw aan je kwalificaties.' if nl else 'Build your qualifications.' }}</b> {{ 'Operators letten op HSE (veiligheid), kwaliteitssystemen en referenties. Het Blue Wave programma van Staatsolie helpt lokale leveranciers zich te ontwikkelen.' if nl else 'Operators look at HSE (safety), quality systems and references. Staatsolie\'s Blue Wave programme helps local suppliers develop.' }}</li>
+</ol>
+<h2>{{ 'Waar is vraag naar?' if nl else 'Where is the demand?' }}</h2>
+<p>{{ 'Naast gespecialiseerde diensten (FPSO, EPC, putdiensten) zoeken operators vooral algemene ondersteuning: catering, beveiliging, transport, logistiek en douane-afhandeling, uitzendkrachten, onderhoud en reparatie.' if nl else 'Besides specialised services (FPSO, EPC, well services), operators mostly need general support: catering, security, transport, logistics and customs clearance, temporary labour, maintenance and repair.' }}</p>
+<p><a href="{{ U('oilgas') }}">{{ 'GranMorgu in feiten' if nl else 'GranMorgu in facts' }} &rarr;</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul><li><a href="https://www.staatsolie.com/en/local-content" rel="noopener">Staatsolie: opportunities for local suppliers</a></li><li><a href="{{ F.PORTALS.staatsolie_tenders }}" rel="noopener">Staatsolie procurement opportunities</a></li></ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+{% endblock %}

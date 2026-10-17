@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Wisselkoers vandaag: dollar en euro in SRD' if nl else 'Exchange rate today: dollar and euro in SRD' }}</h1>
+{% if rates %}
+<p class="lead">{{ 'Cash koersen van Central Money Exchange (CME) van' if nl else 'Cash rates from Central Money Exchange (CME) for' }} {{ date(rates.business_date, weekday=True) }}{% if rates.updated_time %}, {{ rates.updated_time }}{% endif %}.{% if rates.stale %} <span class="pill">{{ 'Laatst bekende koers' if nl else 'Last known rate' }}</span>{% endif %}</p>
+<div class="grid g2" style="margin:18px 0">
+ <div class="card">
+  <div class="eyebrow">USD &rarr; SRD</div>
+  <div class="rate-row"><span>{{ 'U verkoopt dollars (cambio koopt)' if nl else 'You sell dollars (cambio buys)' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.usd.buy) }}</span></div>
+  <div class="rate-row"><span>{{ 'U koopt dollars (cambio verkoopt)' if nl else 'You buy dollars (cambio sells)' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.usd.sell) }}</span></div>
+  {% if rates.change is not none %}<div class="sub">{{ 'Verkoopkoers t.o.v. vorige dag' if nl else 'Sell rate vs previous day' }}: <b class="tnum">{{ '+' if rates.change > 0 else '' }}{{ num(rates.change) }}</b></div>{% endif %}
+ </div>
+ <div class="card">
+  <div class="eyebrow">EUR &rarr; SRD</div>
+  <div class="rate-row"><span>{{ 'U verkoopt euro\'s' if nl else 'You sell euros' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.eur.buy) }}</span></div>
+  <div class="rate-row"><span>{{ 'U koopt euro\'s' if nl else 'You buy euros' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.eur.sell) }}</span></div>
+ </div>
+</div>
+{% set pts = spark(rates.series, 700, 120) %}
+{% if pts %}<div class="card"><div class="eyebrow">{{ 'USD verkoopkoers, laatste' if nl else 'USD sell rate, last' }} {{ rates.series|length }} {{ 'dagen' if nl else 'days' }}</div><svg viewBox="0 0 700 120" preserveAspectRatio="none" style="width:100%;height:120px" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#0e6b51" stroke-width="2.5"/></svg><div class="foot"><span>{{ date(rates.series[0][0]) }}: {{ num(rates.series[0][1]) }}</span><span>{{ date(rates.series[-1][0]) }}: {{ num(rates.series[-1][1]) }}</span></div></div>{% endif %}
+
+<h2>{{ 'Koershistorie' if nl else 'Rate history' }}</h2>
+<p>{{ 'We bewaren elke werkdag de koers. Download de volledige reeks als' if nl else 'We store the rate every business day. Download the full series as' }} <a href="/assets/koers-historie.csv" download>CSV</a>.</p>
+<div class="scroll"><table class="tbl"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
+{% for d, v in rates.history[:30] %}<tr><td>{{ date(d) }}</td><td class="r">{{ num(v.usd[0]) if v.usd[0] else '-' }}</td><td class="r">{{ num(v.usd[1]) }}</td><td class="r">{{ num(v.eur[0]) if v.eur[0] else '-' }}</td><td class="r">{{ num(v.eur[1]) }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}
+<p class="note">{{ 'De koers is tijdelijk niet beschikbaar. Probeer het later opnieuw.' if nl else 'Rates are temporarily unavailable. Please try again later.' }}</p>
+{% endif %}
+<div class="prose">
+<h2>{{ 'Uitleg' if nl else 'Explained' }}</h2>
+<p>{{ 'Een cambio heeft twee koersen. De aankoopkoers krijg je als je dollars of euro\'s inlevert. De verkoopkoers betaal je als je ze koopt. Banken en de Centrale Bank (CBvS) publiceren eigen koersen die kunnen afwijken.' if nl else 'A cambio quotes two rates. The buy rate is what you get when you hand in dollars or euros. The sell rate is what you pay to buy them. Banks and the Central Bank (CBvS) publish their own rates, which can differ.' }}</p>
+<p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="https://www.cme.sr/" rel="noopener">Central Money Exchange</a>. {{ 'Elke 30 minuten opgehaald. Geen advies; vraag altijd de actuele koers bij je cambio of bank.' if nl else 'Fetched every 30 minutes. Not advice; always confirm the current rate with your cambio or bank.' }}</p>
+</div>
+{% endblock %}

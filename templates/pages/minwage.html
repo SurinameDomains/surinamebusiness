@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set h = F.MIN_WAGE.hour %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Minimumloon Suriname 2026' if nl else 'Suriname minimum wage 2026' }}</h1>
+<p class="lead">{{ 'Het minimumuurloon is' if nl else 'The minimum hourly wage is' }} <b>{{ srd(h, 2) }}</b> {{ 'sinds' if nl else 'since' }} {{ date(F.MIN_WAGE.effective) }}. {{ 'Daarvoor was het' if nl else 'Before that it was' }} {{ srd(F.MIN_WAGE.previous_hour, 2) }} ({{ 'sinds' if nl else 'since' }} {{ date(F.MIN_WAGE.previous_effective) }}), {{ 'een stijging van' if nl else 'an increase of' }} {{ num((h / F.MIN_WAGE.previous_hour - 1) * 100, 1) }}%.</p>
+<div class="grid g3" style="margin:20px 0">
+ <div class="card"><div class="eyebrow">{{ 'Per dag (8 uur)' if nl else 'Per day (8 hours)' }}</div><div class="big tnum">{{ srd(h*8, 2) }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Per week (40 uur)' if nl else 'Per week (40 hours)' }}</div><div class="big tnum">{{ srd(h*40, 2) }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Per maand (173,3 uur)' if nl else 'Per month (173.3 hours)' }}</div><div class="big tnum">{{ srd(h*40*52/12, 0) }}</div></div>
+</div>
+{% set m = h*40*52/12 %}{% set r = salary_py(m) %}
+<p>{{ 'Bij een volle werkweek van 40 uur is het minimum per maand ongeveer' if nl else 'For a full 40-hour week the monthly minimum is about' }} {{ srd(m) }}. {{ 'Dat ligt onder de belastingvrije som van' if nl else 'That is below the tax-free amount of' }} {{ srd(F.TAX.free_month) }}, {{ 'dus je betaalt geen loonbelasting, alleen 4% AOV. Netto ongeveer' if nl else 'so no wage tax is due, only 4% AOV. Net roughly' }} <b>{{ srd(r.net) }}</b>.</p>
+<h2>{{ 'Ontwikkeling' if nl else 'History' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Ingangsdatum' if nl else 'Effective' }}</th><th class="r">{{ 'Per uur' if nl else 'Per hour' }}</th></tr></thead>
+<tbody><tr><td>{{ date(F.MIN_WAGE.effective) }}</td><td class="r"><b>{{ srd(h, 2) }}</b></td></tr><tr><td>{{ date(F.MIN_WAGE.previous_effective) }}</td><td class="r">{{ srd(F.MIN_WAGE.previous_hour, 2) }}</td></tr></tbody></table>
+<h2>{{ 'Goed om te weten' if nl else 'Good to know' }}</h2>
+<ul>
+ <li>{{ 'Het minimumuurloon geldt voor alle werknemers en wordt vastgesteld door de minister van Arbeid.' if nl else 'The minimum hourly wage applies to all employees and is set by the Minister of Labour.' }}</li>
+ <li>{{ 'Overuren worden daarbovenop betaald tegen minstens 150%.' if nl else 'Overtime is paid on top at a minimum of 150%.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+ <li><a href="{{ U('salary') }}">{{ 'Netto salaris berekenen voor elk ander loon' if nl else 'Calculate the net salary for any other wage' }}</a></li>
+</ul>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.MIN_WAGE.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+{% endblock %}

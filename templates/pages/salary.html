@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Netto salaris berekenen 2026' if nl else 'Net salary calculator Suriname 2026' }}</h1>
+<p class="lead">{{ 'Vul je bruto maandloon in en zie direct je netto loon, de loonbelasting en de AOV premie. Met de tarieven die gelden voor 2026.' if nl else 'Enter your gross monthly wage and see your net pay, wage tax and AOV premium straight away. Using the rates that apply in 2026.' }}</p>
+
+<div class="cols">
+ <form class="card calc" id="salary-form" onsubmit="return false">
+  <div class="seg" role="group" aria-label="{{ 'Richting' if nl else 'Direction' }}">
+   <button data-mode="g2n" aria-pressed="true">{{ 'Bruto naar netto' if nl else 'Gross to net' }}</button>
+   <button data-mode="n2g" aria-pressed="false">{{ 'Netto naar bruto' if nl else 'Net to gross' }}</button>
+  </div>
+  <label for="amount" id="amount-label">{{ 'Bruto loon per maand (SRD)' if nl else 'Gross wage per month (SRD)' }}</label>
+  <input id="amount" name="amount" inputmode="decimal" value="15000" autocomplete="off">
+  <label for="pension">{{ 'Pensioenpremie werknemer (% van bruto)' if nl else 'Employee pension premium (% of gross)' }}</label>
+  <input id="pension" name="pension" inputmode="decimal" value="0">
+  <div class="hint">{{ 'Staat op je loonstrook. Laat 0 als je het niet weet.' if nl else 'Shown on your payslip. Leave 0 if you do not know.' }}</div>
+  <label for="allow">{{ 'Belastingvrije toelagen per maand (SRD)' if nl else 'Tax-free allowances per month (SRD)' }}</label>
+  <input id="allow" name="allow" inputmode="decimal" value="0">
+  <div class="hint">{{ 'Bijvoorbeeld kinderbijslag van de werkgever.' if nl else 'For example child allowance paid by the employer.' }}</div>
+  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV premie inhouden (jonger dan 60)' if nl else 'Deduct AOV premium (under 60)' }}</label>
+ </form>
+ <div class="result" id="salary-out" aria-live="polite"></div>
+</div>
+
+<div class="prose">
+<h2>{{ 'Zo wordt je netto loon berekend' if nl else 'How your net pay is calculated' }}</h2>
+<ol>
+ <li>{{ 'Van je bruto loon gaat de forfaitaire aftrek af: 4%, maximaal' if nl else 'The flat work-expense deduction comes off your gross wage: 4%, at most' }} {{ srd(F.TAX.forfait_max_month) }} {{ 'per maand.' if nl else 'per month.' }}</li>
+ <li>{{ 'Ook je eigen pensioenpremie gaat eraf. Wat overblijft is het zuiver loon.' if nl else 'Your own pension premium is deducted as well. What remains is the net taxable wage (zuiver loon).' }}</li>
+ <li>{{ 'De eerste' if nl else 'The first' }} {{ srd(F.TAX.free_month) }} {{ 'per maand is belastingvrij (belastingvrije som).' if nl else 'per month is tax-free (the tax-free amount).' }}</li>
+ <li>{{ 'Over de rest betaal je loonbelasting in vier schijven: 8%, 18%, 28% en 38%.' if nl else 'The rest is taxed in four brackets: 8%, 18%, 28% and 38%.' }} <a href="{{ U('tax') }}">{{ 'Zie de tarieventabel.' if nl else 'See the bracket table.' }}</a></li>
+ <li>{{ 'De AOV premie is 4% van het zuiver loon en wordt ingehouden op je loon.' if nl else 'The AOV (state pension) premium is 4% of the net taxable wage and is withheld from your pay.' }}</li>
+</ol>
+
+<h2>{{ 'Netto salaris tabel 2026' if nl else 'Net salary table 2026' }}</h2>
+<p>{{ 'Netto per maand bij een bruto maandloon, zonder pensioenpremie, met 4% AOV.' if nl else 'Net per month for a given gross monthly wage, without pension premium, with 4% AOV.' }}</p>
+<div class="scroll"><table class="tbl">
+ <thead><tr><th>{{ 'Bruto' if nl else 'Gross' }} (SRD)</th><th class="r">{{ 'Belasting' if nl else 'Tax' }}</th><th class="r">AOV</th><th class="r">{{ 'Netto' if nl else 'Net' }}</th></tr></thead>
+ <tbody>
+ {% for g in [8000, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}
+  <tr><td><a href="{{ U('salary') }}?{{ 'bruto' if nl else 'gross' }}={{ g }}">{{ num(g, 0) }}</a></td><td class="r">{{ num(r.tax, 0) }}</td><td class="r">{{ num(r.aov, 0) }}</td><td class="r"><b>{{ num(r.net, 0) }}</b></td></tr>
+ {% endfor %}
+ </tbody>
+</table></div>
+
+<div class="note" style="margin-top:20px">{{ 'Indicatie. Je echte loonstrook kan afwijken door bijvoorbeeld een pensioenfonds, ziektekostenpremie, bijtellingen of de vrijstelling voor vakantietoelage en gratificatie. Overuren hebben een eigen tabel:' if nl else 'Indicative. Your real payslip can differ because of a pension fund, health insurance premium, benefits in kind or the holiday allowance and bonus exemption. Overtime has its own table:' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>.</div>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.TAX.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Fout gezien?' if nl else 'Spotted an error?' }} <a href="{{ U('contact') }}">{{ 'Laat het ons weten' if nl else 'Let us know' }}</a>.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>window.SB={tax:{{ tax_params|safe }},t:{{ ({
+ 'gross': 'Bruto loon' if nl else 'Gross wage', 'pension': 'Pensioenpremie' if nl else 'Pension premium',
+ 'tax': 'Loonbelasting' if nl else 'Wage tax', 'allow': 'Belastingvrije toelagen' if nl else 'Tax-free allowances',
+ 'net': 'Netto loon' if nl else 'Net pay', 'forfait': 'Forfaitaire aftrek' if nl else 'Flat deduction',
+ 'zuiver': 'Zuiver loon' if nl else 'Net taxable wage', 'free': 'Belastingvrije som' if nl else 'Tax-free amount',
+ 'taxable': 'Belastbaar na vrije som' if nl else 'Taxable after free amount', 'over': 'over' if nl else 'on',
+ 'netLabel': 'Netto per maand' if nl else 'Net per month', 'grossLabel': 'Benodigd bruto per maand' if nl else 'Required gross per month',
+ 'perMonth': 'per maand' if nl else 'per month', 'eff': 'belasting + AOV' if nl else 'tax + AOV',
+ 'how': 'Hoe is dit berekend?' if nl else 'How was this calculated?',
+ 'inGross': 'Bruto loon per maand (SRD)' if nl else 'Gross wage per month (SRD)',
+ 'inNet': 'Gewenst netto per maand (SRD)' if nl else 'Desired net per month (SRD)'})|tojson }}};</script>
+<script src="/assets/calc.js?v={{ build_id }}" defer></script>
+{% endblock %}

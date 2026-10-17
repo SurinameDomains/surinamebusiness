@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Overuren berekenen' if nl else 'Overtime calculator' }}</h1>
+<p class="lead">{{ 'Overwerk wordt betaald tegen minstens 150% op gewone dagen en 200% op rustdagen en feestdagen. Sinds juli 2025 geldt voor overwerkloon een lager belastingtarief.' if nl else 'Overtime is paid at least 150% on normal days and 200% on rest days and public holidays. Since July 2025 overtime pay has a lower wage tax table.' }}</p>
+<div class="cols">
+ <form class="card calc" id="ot-form" onsubmit="return false">
+  <label for="hourly">{{ 'Uurloon (SRD)' if nl else 'Hourly wage (SRD)' }}</label>
+  <input id="hourly" name="hourly" inputmode="decimal" value="100">
+  <div class="hint">{{ 'Maandloon gedeeld door je uren per maand. Minimum is' if nl else 'Monthly wage divided by your hours per month. Minimum is' }} {{ srd(F.MIN_WAGE.hour, 2) }}.</div>
+  <label for="h150">{{ 'Uren tegen 150% (gewone werkdag)' if nl else 'Hours at 150% (normal workday)' }}</label>
+  <input id="h150" name="h150" inputmode="decimal" value="10">
+  <label for="h200">{{ 'Uren tegen 200% (rustdag, zon- of feestdag)' if nl else 'Hours at 200% (rest day, Sunday or holiday)' }}</label>
+  <input id="h200" name="h200" inputmode="decimal" value="0">
+  <label for="h300">{{ 'Uren tegen 300% (feestdag zonder vervangende rustdag)' if nl else 'Hours at 300% (holiday without replacement rest day)' }}</label>
+  <input id="h300" name="h300" inputmode="decimal" value="0">
+  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV premie 4% inhouden' if nl else 'Deduct 4% AOV premium' }}</label>
+ </form>
+ <div class="result" id="ot-out" aria-live="polite"></div>
+</div>
+<div class="prose">
+<h2>{{ 'Regels voor overwerk' if nl else 'Overtime rules' }}</h2>
+<ul>
+ <li>{{ 'Maximaal 8,5 uur per dag en 48 uur per week normale arbeid (Arbeidswet artikel 3).' if nl else 'Normal work is at most 8.5 hours a day and 48 hours a week (Labour Act article 3).' }}</li>
+ <li>{{ 'Overwerk mag alleen met vergunning van de Arbeidsinspectie, tot maximaal 64 uur per week.' if nl else 'Overtime needs a permit from the Labour Inspectorate, up to 64 hours a week.' }}</li>
+ <li>{{ 'Toeslag: minimaal 150% op gewone dagen, 200% op rustdagen (artikel 12). Werk op zon- en feestdagen minimaal 200%, of 300% als er geen vervangende rustdag is (artikel 13).' if nl else 'Premium: at least 150% on normal days, 200% on rest days (article 12). Sunday and holiday work at least 200%, or 300% without a replacement rest day (article 13).' }}</li>
+ <li>{{ 'Loonbelasting op overwerk: 5% tot SRD 2.500, 15% tot SRD 7.500 en 25% daarboven, per maand (S.B. 2025 no. 129).' if nl else 'Wage tax on overtime: 5% up to SRD 2,500, 15% up to SRD 7,500 and 25% above, per month (S.B. 2025 no. 129).' }}</li>
+</ul>
+<p><a href="{{ U('labour') }}">{{ L('labour') }} &rarr;</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in F.LABOUR.sources[:1] + F.TAX.sources[1:2] %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Indicatie, gecontroleerd op' if nl else 'Indicative, checked on' }} {{ date(F.CHECKED) }}.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>window.SB={tax:{{ tax_params|safe }},t:{{ ({'hours': 'uur' if nl else 'hours', 'gross': 'Bruto overwerkloon' if nl else 'Gross overtime pay', 'tax': 'Loonbelasting' if nl else 'Wage tax', 'over': 'over' if nl else 'on', 'net': 'Netto overwerkloon' if nl else 'Net overtime pay', 'netLabel': 'Netto overwerk deze maand' if nl else 'Net overtime this month'})|tojson }}};</script>
+<script src="/assets/calc.js?v={{ build_id }}" defer></script>
+{% endblock %}
