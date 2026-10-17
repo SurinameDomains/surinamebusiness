@@ -40,6 +40,7 @@
 
   <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
   <div class="grid g2">
+   <a class="card" href="{{ '/bedrijven/' if nl else '/en/companies/' }}"><b>{{ 'Bedrijvengids' if nl else 'Business directory' }}</b><div class="sub">{{ co.count }} {{ 'bedrijven per categorie, met adres en telefoon' if nl else 'businesses by category, with address and phone' }}</div></a>
    {% for k in ['start','vatguide','labour','supplier'] %}
    <a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] if META_SUB is defined else '' }}</div></a>
    {% endfor %}

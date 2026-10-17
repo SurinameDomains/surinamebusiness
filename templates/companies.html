@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Bedrijvengids Suriname' if nl else 'Suriname business directory' }}</h1>
+<p class="lead">{{ co.count }} {{ 'bedrijven, winkels en kantoren in' if nl else 'businesses, shops and offices in' }} {{ co.groups|length }} {{ 'categorieën, met adres, telefoon en openingstijden waar bekend.' if nl else 'categories, with address, phone and opening hours where known.' }}</p>
+<div class="filters"><input type="search" id="co-q" placeholder="{{ 'Zoek een bedrijf of categorie' if nl else 'Search a business or category' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}"></div>
+<div class="grid g3" id="co-groups">
+{% for gr in co.groups %}<a class="card" href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}"><b>{{ gr.nl if nl else gr.en }}</b><div class="sub">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}</div></a>{% endfor %}
+</div>
+<div class="card" id="co-results" hidden style="margin-top:16px"><ul class="list" id="co-list"></ul></div>
+<div class="grid g2" style="margin-top:24px">
+ <div class="card"><h3>{{ 'Staat jouw bedrijf er niet bij of klopt iets niet?' if nl else 'Missing or wrong details?' }}</h3><p>{{ 'De gegevens komen uit OpenStreetMap, de open kaart die iedereen kan bijwerken. Pas je bedrijf daar aan, of mail ons de juiste gegevens.' if nl else 'The data comes from OpenStreetMap, the open map anyone can edit. Update your business there, or email us the correct details.' }}</p><p><a href="https://www.openstreetmap.org/" rel="noopener">OpenStreetMap</a> &middot; <a href="mailto:{{ contact_email }}?subject=Bedrijfsgegevens">{{ contact_email }}</a></p></div>
+ <div class="card"><h3>{{ 'Zaken doen met de overheid of Staatsolie?' if nl else 'Selling to government or Staatsolie?' }}</h3><p><a href="{{ U('tenders') }}">{{ L('tenders') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a></p></div>
+</div>
+<p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. {{ 'Wekelijks bijgewerkt' if nl else 'Updated weekly' }}{% if co.fetched_at %}, {{ 'laatst' if nl else 'last' }} {{ date(co.fetched_at[:10]) }}{% endif %}.</p>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var D={{ co.search_json|safe }};var q=document.getElementById('co-q'),box=document.getElementById('co-results'),ul=document.getElementById('co-list'),g=document.getElementById('co-groups');
+q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();if(v.length<2){box.hidden=true;g.hidden=false;return}var out=[];for(var i=0;i<D.length&&out.length<60;i++){if(D[i][3].indexOf(v)>=0)out.push(D[i])}
+ul.innerHTML=out.length?out.map(function(r){return '<li><a href="'+r[2]+'">'+r[0].replace(/</g,'&lt;')+'</a><div class="meta"><span>'+r[1].replace(/</g,'&lt;')+'</span></div></li>'}).join(''):'<li class="empty">{{ 'Niets gevonden.' if nl else 'Nothing found.' }}</li>';box.hidden=false;g.hidden=true})})();
+</script>
+{% endblock %}

@@ -302,6 +302,23 @@ def fetch_jobs():
                 "published": it["date"][:10],
                 "url": it["link"],
             })
+        # employers and international organisations with public job pages
+        import jobs_sources
+        status = {}
+        for name, fn in jobs_sources.SOURCES:
+            try:
+                got = fn(get)
+                items.extend(got)
+                status[name] = {"ok": True, "count": len(got), "fetched_at": now_iso()}
+            except Exception as e:
+                old = [x for x in prev.get("items", []) if x.get("source") == name]
+                items.extend(old)  # last known good
+                status[name] = {"ok": False, "error": str(e)[:160], "failed_at": now_iso(), "count": len(old)}
+                print(f"  jobs {name} FAILED: {e}")
+        # drop closed jobs and very old ones without a deadline
+        today = today_sr().isoformat()
+        items = [x for x in items if not (x.get("deadline") and x["deadline"] < today)
+                 and not (not x.get("deadline") and x.get("published") and x["published"] < horizon)]
         # individual consultancy notices from the development banks are jobs too
         for t in load("tenders.json", {"items": []}).get("items", []):
             kind = (t.get("kind") or "") + " " + t.get("title", "")
@@ -312,7 +329,14 @@ def fetch_jobs():
                     "url": t["url"], "kind": "consultancy",
                 })
         items.sort(key=lambda x: x.get("published") or "", reverse=True)
-        save("jobs.json", {"items": items, "ok": True, "fetched_at": now_iso()})
+        seen, uniq = set(), []
+        for x in items:
+            if x["id"] in seen:
+                continue
+            seen.add(x["id"])
+            uniq.append(x)
+        items = uniq
+        save("jobs.json", {"items": items, "ok": True, "fetched_at": now_iso(), "sources": status})
         return f"{len(items)} jobs"
     except Exception as e:
         prev.update({"ok": False, "error": str(e)[:200], "failed_at": now_iso()})
@@ -407,7 +431,11 @@ def fetch_news():
 
 def main():
     ok = True
-    for name, fn in [("rates", fetch_rates), ("tenders", fetch_tenders), ("jobs", fetch_jobs), ("news", fetch_news)]:
+    import companies
+    def fetch_companies():
+        return companies.fetch_companies(LIVE, UA, now_iso)
+    for name, fn in [("rates", fetch_rates), ("tenders", fetch_tenders), ("jobs", fetch_jobs), ("news", fetch_news),
+                     ("companies", fetch_companies)]:
         try:
             print(f"{name}: {fn()}")
         except Exception as e:

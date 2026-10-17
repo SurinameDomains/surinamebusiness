@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set mw = F.MIN_WAGE.hour * 40 * 52 / 12 %}
+{% block content %}
+<h1>{{ 'Netto salaris bij' if nl else 'Net salary for' }} {{ srd(g) }} {{ 'bruto per maand' if nl else 'gross per month' }}</h1>
+<p class="lead">{{ 'Bij een bruto maandloon van' if nl else 'On a gross monthly wage of' }} {{ srd(g) }} {{ 'hou je in 2026 netto' if nl else 'you take home' }} <b>{{ srd(r.net, 2) }}</b> {{ 'over.' if nl else 'in 2026.' }} {{ 'Je betaalt' if nl else 'You pay' }} {{ srd(r.tax, 2) }} {{ 'loonbelasting en' if nl else 'wage tax and' }} {{ srd(r.aov, 2) }} AOV.</p>
+
+<div class="grid g3" style="margin:18px 0">
+ <div class="card"><div class="eyebrow">{{ 'Netto per maand' if nl else 'Net per month' }}</div><div class="big tnum">{{ srd(r.net) }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Netto per jaar' if nl else 'Net per year' }}</div><div class="big tnum">{{ srd(r.net*12) }}</div><div class="sub">{{ 'zonder vakantietoelage of bonus' if nl else 'excluding holiday allowance or bonus' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Belasting + AOV' if nl else 'Tax + AOV' }}</div><div class="big tnum">{{ num((r.tax + r.aov) / g * 100, 1) }}%</div><div class="sub">{{ 'van je bruto loon' if nl else 'of your gross wage' }}</div></div>
+</div>
+
+<div class="cols">
+<div class="prose">
+<h2>{{ 'Berekening' if nl else 'Calculation' }}</h2>
+{% set forfait = [g * F.TAX.forfait_pct, F.TAX.forfait_max_month]|min %}
+{% set zuiver = g - forfait %}
+{% set taxable = [zuiver - F.TAX.free_month, 0]|max %}
+<table class="tbl"><tbody>
+<tr><td>{{ 'Bruto loon' if nl else 'Gross wage' }}</td><td class="r">{{ srd(g, 2) }}</td></tr>
+<tr><td>{{ 'Forfaitaire aftrek (4%, max 400)' if nl else 'Flat deduction (4%, max 400)' }}</td><td class="r">- {{ srd(forfait, 2) }}</td></tr>
+<tr><td>{{ 'Zuiver loon' if nl else 'Net taxable wage' }}</td><td class="r">{{ srd(zuiver, 2) }}</td></tr>
+<tr><td>{{ 'Belastingvrije som' if nl else 'Tax-free amount' }}</td><td class="r">- {{ srd(F.TAX.free_month, 2) }}</td></tr>
+<tr><td>{{ 'Belastbaar' if nl else 'Taxable' }}</td><td class="r">{{ srd(taxable, 2) }}</td></tr>
+{% set lower = namespace(v=0) %}
+{% for upper, rate in F.TAX.brackets_month %}{% set top = upper if upper is not none else 10**12 %}{% set part = [[taxable, top]|min - lower.v, 0]|max %}{% if part > 0 %}<tr><td>{{ (rate*100)|round|int }}% {{ 'over' if nl else 'on' }} {{ srd(part, 2) }}</td><td class="r">{{ srd(part*rate, 2) }}</td></tr>{% endif %}{% set lower.v = top %}{% endfor %}
+<tr><td><b>{{ 'Loonbelasting' if nl else 'Wage tax' }}</b></td><td class="r"><b>- {{ srd(r.tax, 2) }}</b></td></tr>
+<tr><td><b>AOV 4% {{ 'van zuiver loon' if nl else 'of net taxable wage' }}</b></td><td class="r"><b>- {{ srd(r.aov, 2) }}</b></td></tr>
+<tr><td><b>{{ 'Netto' if nl else 'Net' }}</b></td><td class="r"><b>{{ srd(r.net, 2) }}</b></td></tr>
+</tbody></table>
+
+<h2>{{ 'Met 5% pensioenpremie' if nl else 'With a 5% pension premium' }}</h2>
+<p>{{ 'Betaal je zelf 5% pensioenpremie, dan daalt je belastbaar loon. Netto hou je dan' if nl else 'If you pay a 5% pension premium yourself, your taxable wage goes down. Your net pay is then' }} <b>{{ srd(r5.net, 2) }}</b>, {{ 'waarvan' if nl else 'with' }} {{ srd(g*0.05, 2) }} {{ 'naar je pensioen gaat.' if nl else 'going to your pension.' }}</p>
+
+<h2>{{ 'In verhouding' if nl else 'In context' }}</h2>
+<ul>
+ <li>{{ 'Uurloon bij 40 uur per week:' if nl else 'Hourly rate at 40 hours a week:' }} {{ srd(g / (40*52/12), 2) }} {{ 'bruto' if nl else 'gross' }}.</li>
+ <li>{{ 'Dat is' if nl else 'That is' }} {{ num(g / mw, 1) }}&times; {{ 'het minimumloon voor een volle werkweek' if nl else 'the minimum wage for a full working week' }} ({{ srd(mw) }}).</li>
+ <li>{% if taxable <= 0 %}{{ 'Je zit onder de belastingvrije som, dus je betaalt geen loonbelasting.' if nl else 'You are below the tax-free amount, so no wage tax is due.' }}{% else %}{{ 'Je hoogste schijf is' if nl else 'Your top bracket is' }} {% if taxable > 10500 %}38%{% elif taxable > 7000 %}28%{% elif taxable > 3500 %}18%{% else %}8%{% endif %}. {{ 'Elke extra SRD 100 bruto levert je netto ongeveer' if nl else 'Each extra SRD 100 gross adds roughly' }} {{ srd(100 - 100*(0.38 if taxable > 10500 else 0.28 if taxable > 7000 else 0.18 if taxable > 3500 else 0.08) - 4, 0) }} {{ 'op.' if nl else 'net.' }}{% endif %}</li>
+</ul>
+<p class="note">{{ 'Indicatie voor 2026, zonder bijtellingen, vakantietoelage of bonus. Overuren hebben een eigen tarief.' if nl else 'Indicative for 2026, excluding benefits in kind, holiday allowance or bonus. Overtime has its own rate.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></p>
+</div>
+<aside>
+ <div class="card"><div class="eyebrow">{{ 'Ander bedrag' if nl else 'Another amount' }}</div>
+  <p><a href="{{ U('salary') }}?{{ 'bruto' if nl else 'gross' }}={{ g }}"><b>{{ 'Open de rekentool' if nl else 'Open the calculator' }} &rarr;</b></a></p>
+  <ul class="list">
+  {% if prev_g %}<li><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ prev_g }}">&larr; {{ srd(prev_g) }}</a></li>{% endif %}
+  {% if next_g %}<li><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ next_g }}">{{ srd(next_g) }} &rarr;</a></li>{% endif %}
+  </ul>
+  <div class="foot"><a href="{{ U('tax') }}">{{ L('tax') }}</a></div>
+ </div>
+</aside>
+</div>
+<p class="asof">{{ 'Bron: Staatsbesluit loonbelasting S.B. 2024 no. 2 en Wet AOV. Gecontroleerd op' if nl else 'Source: wage tax decree S.B. 2024 no. 2 and AOV Act. Checked on' }} {{ date(F.CHECKED) }}.</p>
+{% endblock %}

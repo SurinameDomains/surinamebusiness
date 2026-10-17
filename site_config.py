@@ -36,13 +36,16 @@ PAGES = {
     "sources": ("bronnen", "en/sources", "trust"),
     "contact": ("contact", "en/contact", "trust"),
     "privacy": ("privacy", "en/privacy", "trust"),
+    "companies": ("bedrijven/", "en/companies/", "companies"),  # rendered by build_company_pages
 }
+DYNAMIC = {"companies"}
 
 NAV = [
     # (label_nl, label_en, page_key)
     ("Salaris", "Salary", "salary"),
     ("Aanbestedingen", "Tenders", "tenders"),
     ("Vacatures", "Jobs", "jobs"),
+    ("Bedrijven", "Companies", "companies"),
     ("Koers", "Rates", "rates"),
     ("Olie & gas", "Oil & gas", "oilgas"),
     ("Gidsen", "Guides", "guides"),
@@ -50,7 +53,7 @@ NAV = [
 
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "news", "holidays", "workdays"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "companies", "news", "holidays", "workdays"]),
     ("Gidsen", "Guides", ["start", "vatguide", "labour", "oilgas", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),
 ]

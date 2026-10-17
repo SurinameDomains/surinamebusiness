@@ -14,7 +14,7 @@ import sys
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import facts
-from site_config import (CONTACT_EMAIL, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
+from site_config import (DYNAMIC, CONTACT_EMAIL, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -58,6 +58,7 @@ LABELS = {
     "sources": ("Bronnen en methode", "Sources and method"),
     "contact": ("Contact", "Contact"),
     "privacy": ("Privacy", "Privacy"),
+    "companies": ("Bedrijvengids", "Business directory"),
 }
 
 META = {
@@ -329,6 +330,133 @@ def schema_for(key, lang, meta_title, desc, canonical):
     return graph
 
 
+
+# ---------------------------------------------------------------- programmatic pages
+CF_BEACON = "14f5303c07304c89bef2bbe3a980e6fe"
+SALARY_AMOUNTS = (list(range(6000, 20001, 1000)) + list(range(22500, 50001, 2500))
+                  + [60000, 75000, 100000, 125000, 150000])
+
+TOWNS = [("Paramaribo", 5.852, -55.203), ("Lelydorp", 5.700, -55.233), ("Nieuw Nickerie", 5.927, -56.973),
+         ("Moengo", 5.617, -54.400), ("Albina", 5.497, -54.054), ("Wageningen", 5.766, -56.689),
+         ("Totness", 5.883, -56.317), ("Groningen", 5.797, -55.484), ("Onverwacht", 5.590, -55.193),
+         ("Brokopondo", 5.057, -54.981), ("Domburg", 5.703, -55.083), ("Meerzorg", 5.812, -55.150),
+         ("Zanderij", 5.453, -55.187), ("Paranam", 5.613, -55.100), ("Nieuw Amsterdam", 5.884, -55.087),
+         ("Apoera", 5.188, -57.183), ("Brownsweg", 5.012, -55.170)]
+
+
+def nearest_town(lat, lon):
+    if lat is None or lon is None:
+        return ""
+    best, bd = "", 1e9
+    for n, a, b in TOWNS:
+        d = (lat - a) ** 2 + ((lon - b) * 0.995) ** 2
+        if d < bd:
+            best, bd = n, d
+    return best if bd ** 0.5 * 111 < 18 else ""
+
+
+def companies_view():
+    import companies as C
+    try:
+        raw = json.load(open(os.path.join(LIVE, "companies_raw.json"), encoding="utf-8"))
+    except Exception:
+        return {"recs": [], "groups": [], "fetched_at": None}
+    recs = C.normalise(raw)
+    for r in recs:
+        if not r["place"]:
+            r["place"] = nearest_town(r["lat"], r["lon"])
+    groups = []
+    for g, (nls, nll, ens, enl) in C.GROUPS.items():
+        items = [r for r in recs if r["group"] == g]
+        if items:
+            groups.append({"key": g, "nl_slug": nls, "nl": nll, "en_slug": ens, "en": enl, "items": items,
+                           "count": len(items), "pages": sum(1 for r in items if r["page"])})
+    groups.sort(key=lambda x: -x["count"])
+    return {"recs": recs, "groups": groups, "fetched_at": raw.get("fetched_at"),
+            "count": len(recs), "pages": sum(1 for r in recs if r["page"])}
+
+
+def build_salary_pages(render, lang, U, L):
+    for i, g in enumerate(SALARY_AMOUNTS):
+        r = py_salary(g)
+        r5 = py_salary(g, 5)
+        nl_path, en_path = f"/netto-salaris/{g}", f"/en/net-salary/{g}"
+        if lang == "nl":
+            title = f"Netto salaris bij SRD {fmt_num(g, 'nl', 0)} bruto per maand (2026)"
+            desc = (f"SRD {fmt_num(g, 'nl', 0)} bruto is netto SRD {fmt_num(r['net'], 'nl', 2)} per maand in 2026: "
+                    f"loonbelasting SRD {fmt_num(r['tax'], 'nl', 2)} en AOV SRD {fmt_num(r['aov'], 'nl', 2)}.")
+        else:
+            title = f"Net salary for SRD {fmt_num(g, 'en', 0)} gross per month in Suriname (2026)"
+            desc = (f"SRD {fmt_num(g, 'en', 0)} gross is SRD {fmt_num(r['net'], 'en', 2)} net per month in 2026: "
+                    f"wage tax SRD {fmt_num(r['tax'], 'en', 2)} and AOV SRD {fmt_num(r['aov'], 'en', 2)}.")
+        prev_g = SALARY_AMOUNTS[i - 1] if i else None
+        next_g = SALARY_AMOUNTS[i + 1] if i + 1 < len(SALARY_AMOUNTS) else None
+        crumbs = [{"label": "Home", "url": U("home")}, {"label": L("salary"), "url": U("salary")},
+                  {"label": f"SRD {fmt_num(g, lang, 0)}"}]
+        render("salary_amount.html", "salary", title, desc, nl_path, en_path, crumbs,
+               extra={"g": g, "r": r, "r5": r5, "prev_g": prev_g, "next_g": next_g})
+
+
+def build_company_pages(render, lang, U, L, co):
+    if not co["recs"]:
+        return
+    nl = lang == "nl"
+    title = ("Bedrijvengids Suriname: " if nl else "Suriname business directory: ") + \
+            (f"{co['count']} bedrijven per categorie" if nl else f"{co['count']} businesses by category")
+    desc = ("Zoek bedrijven in Suriname op categorie: supermarkten, autoonderdelen, banken, apotheken, "
+            "bouwmaterialen en meer, met adres, telefoon en openingstijden." if nl else
+            "Find businesses in Suriname by category: supermarkets, car parts, banks, pharmacies, building "
+            "materials and more, with address, phone and opening hours.")
+    crumbs = [{"label": "Home", "url": U("home")}, {"label": "Bedrijven" if nl else "Companies"}]
+    lab = {g["key"]: (g["nl"] if nl else g["en"]) for g in co["groups"]}
+    cat_url = {g["key"]: ("/bedrijven/" + g["nl_slug"] if nl else "/en/companies/" + g["en_slug"]) for g in co["groups"]}
+    search = []
+    for r in co["recs"]:
+        url = (("/bedrijf/" if nl else "/en/company/") + r["slug"]) if r["page"] else cat_url[r["group"]]
+        meta = " · ".join(x for x in [lab[r["group"]], r["street"], r["place"]] if x)
+        search.append([r["name"], meta, url, (r["name"] + " " + meta).lower()])
+    for g in co["groups"]:
+        search.append([lab[g["key"]], f'{g["count"]}', cat_url[g["key"]], lab[g["key"]].lower()])
+    render("companies.html", "companies", title, desc, "/bedrijven/", "/en/companies/", crumbs,
+           extra={"co": dict(co, search_json=json.dumps(search, ensure_ascii=False).replace("</", "<\\/"))})
+    for gr in co["groups"]:
+        label = gr["nl"] if nl else gr["en"]
+        t = f"{label} in Suriname ({gr['count']})"
+        d = (f"{gr['count']} adressen in de categorie {label.lower()} in Suriname, met telefoon, adres en "
+             "openingstijden waar bekend." if nl else
+             f"{gr['count']} listings for {label.lower()} in Suriname, with phone, address and opening hours where known.")
+        crumbs = [{"label": "Home", "url": U("home")}, {"label": "Bedrijven" if nl else "Companies",
+                   "url": "/bedrijven/" if nl else "/en/companies/"}, {"label": label}]
+        render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}", f"/en/companies/{gr['en_slug']}",
+               crumbs, extra={"gr": gr})
+        for r in gr["items"]:
+            if not r["page"]:
+                continue
+            place = f", {r['place']}" if r["place"] else ""
+            t = f"{r['name']}{place}: " + ("adres, telefoon en openingstijden" if nl else "address, phone and opening hours")
+            bits = [x for x in [r["street"], r["place"], r["phone"]] if x]
+            d = f"{r['name']} ({label.lower()}){place}. " + " · ".join(bits)
+            crumbs = [{"label": "Home", "url": U("home")},
+                      {"label": "Bedrijven" if nl else "Companies", "url": "/bedrijven/" if nl else "/en/companies/"},
+                      {"label": label, "url": f"/bedrijven/{gr['nl_slug']}" if nl else f"/en/companies/{gr['en_slug']}"},
+                      {"label": r["name"]}]
+            canonical = SITE_URL + (f"/bedrijf/{r['slug']}" if nl else f"/en/company/{r['slug']}")
+            lb = {"@type": "LocalBusiness", "name": r["name"], "url": canonical}
+            if r["phone"]:
+                lb["telephone"] = r["phone"]
+            if r["street"] or r["place"]:
+                lb["address"] = {"@type": "PostalAddress", "streetAddress": r["street"] or None,
+                                 "addressLocality": r["place"] or None, "addressCountry": "SR"}
+            if r["lat"]:
+                lb["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lon"]}
+            if r["website"]:
+                lb["sameAs"] = [r["website"]]
+            if r["hours"]:
+                lb["openingHours"] = r["hours"]
+            graph = [{"@type": "WebPage", "url": canonical, "name": t, "inLanguage": lang}, lb]
+            render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
+                   extra={"r": r, "gr": gr}, graph=graph)
+
 # ---------------------------------------------------------------- render
 def main():
     build_id = NOW.strftime("%Y%m%d%H%M")
@@ -344,6 +472,7 @@ def main():
     tenders = tenders_view()
     jobs = jobs_view()
     news = news_view()
+    co = companies_view()
     sitemap = []
 
     for lang in ("nl", "en"):
@@ -369,39 +498,54 @@ def main():
                                     + ((" (verwacht)" if lang == "nl" else " (expected)") if hol["next"]["status"] == "expected" else ""),
                            "url": U("holidays")})
 
-        for key, (nl_slug, en_slug, section) in PAGES.items():
-            title, desc = META[key][li]
-            canonical = SITE_URL + U(key)
-            tpl = env.get_template(f"pages/{key}.html")
-            nav = [{"label": (a if lang == "nl" else b), "url": U(k), "current": k == key} for a, b, k in NAV]
-            footer = [{"label": (a if lang == "nl" else b), "links": [{"label": L(k), "url": U(k)} for k in keys]}
-                      for a, b, keys in FOOTER_GROUPS]
-            crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
-            ctx = dict(
-                lang=lang, key=key, title=title, description=desc, canonical=canonical,
-                alt_nl=SITE_URL + url_for(key, "nl"), alt_en=SITE_URL + url_for(key, "en"),
-                lang_switch=url_for(key, "en" if lang == "nl" else "nl"),
-                site_url=SITE_URL, home_url=U("home"), nav=nav, footer=footer, crumbs=crumbs,
-                ticker=ticker, year=TODAY.year, build_id=build_id,
-                built_sr=NOW_SR.strftime("%d-%m-%Y %H:%M"),
-                schema=json.dumps({"@context": "https://schema.org", "@graph": schema_for(key, lang, title, desc, canonical)},
-                                  ensure_ascii=False),
-                U=U, L=L, num=lambda x, d=2: fmt_num(x, lang, d), srd=lambda x, d=0: fmt_srd(x, lang, d),
-                date=lambda s, weekday=False, year=True: fmt_date(s, lang, weekday, year),
-                ago=lambda s: fmt_ago(s, lang),
-                F=facts, rates=rates, tenders=tenders, jobs=jobs, news=news, hol=hol,
-                spark=spark_points, today=TODAY.isoformat(), contact_email=CONTACT_EMAIL,
-                explore_url=EXPLORE_URL, tax_json=json.dumps(facts.TAX["brackets_month"]),
-                holidays_json=json.dumps([h[0] for h in facts.HOLIDAYS]),
-                tax_params=json.dumps(facts.TAX_JS), salary_py=py_salary,
-                META_SUB={k: META[k][li][1] for k in META},
-            )
-            html_out = tpl.render(**ctx)
-            path = os.path.join(OUT, file_for(key, lang))
+        footer = [{"label": (a if lang == "nl" else b), "links": [{"label": L(k), "url": U(k)} for k in keys]}
+                  for a, b, keys in FOOTER_GROUPS]
+        common = dict(
+            lang=lang, site_url=SITE_URL, home_url=U("home"), footer=footer, ticker=ticker, year=TODAY.year,
+            build_id=build_id, built_sr=NOW_SR.strftime("%d-%m-%Y %H:%M"),
+            U=U, L=L, num=lambda x, d=2, _l=lang: fmt_num(x, _l, d), srd=lambda x, d=0, _l=lang: fmt_srd(x, _l, d),
+            date=lambda s, weekday=False, year=True, _l=lang: fmt_date(s, _l, weekday, year),
+            ago=lambda s, _l=lang: fmt_ago(s, _l),
+            F=facts, rates=rates, tenders=tenders, jobs=jobs, news=news, hol=hol, co=co,
+            spark=spark_points, today=TODAY.isoformat(), contact_email=CONTACT_EMAIL,
+            explore_url=EXPLORE_URL, holidays_json=json.dumps([h[0] for h in facts.HOLIDAYS]),
+            tax_params=json.dumps(facts.TAX_JS), salary_py=py_salary, salary_amounts=SALARY_AMOUNTS,
+            META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON,
+        )
+
+        def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
+                   robots=None, in_sitemap=True, _lang=lang, _common=common):
+            canonical = SITE_URL + (path_nl if _lang == "nl" else path_en)
+            nav = [{"label": (a if _lang == "nl" else b), "url": url_for(k, _lang), "current": k == nav_key}
+                   for a, b, k in NAV]
+            ctx = dict(_common)
+            ctx.update(key=nav_key, title=title, description=desc, canonical=canonical,
+                       alt_nl=SITE_URL + path_nl, alt_en=SITE_URL + path_en,
+                       lang_switch=path_en if _lang == "nl" else path_nl, nav=nav, crumbs=crumbs, robots=robots,
+                       schema=json.dumps({"@context": "https://schema.org",
+                                          "@graph": graph or schema_for(nav_key, _lang, title, desc, canonical)},
+                                         ensure_ascii=False))
+            if extra:
+                ctx.update(extra)
+            html_out = env.get_template(tpl_name).render(**ctx)
+            rel = (path_nl if _lang == "nl" else path_en).lstrip("/")
+            rel = "index.html" if rel == "" else (rel + "index.html" if rel.endswith("/") else rel + ".html")
+            path = os.path.join(OUT, rel)
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
                 f.write(html_out)
-            sitemap.append((canonical, SITE_URL + url_for(key, "nl"), SITE_URL + url_for(key, "en")))
+            if in_sitemap and not robots:
+                sitemap.append((canonical, SITE_URL + path_nl, SITE_URL + path_en))
+
+        for key in PAGES:
+            if key in DYNAMIC:
+                continue
+            title, desc = META[key][li]
+            crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
+            render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs)
+
+        build_salary_pages(render, lang, U, L)
+        build_company_pages(render, lang, U, L, co)
 
     # 404
     tpl = env.get_template("404.html")

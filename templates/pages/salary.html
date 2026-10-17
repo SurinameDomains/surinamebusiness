@@ -38,12 +38,13 @@
 <div class="scroll"><table class="tbl">
  <thead><tr><th>{{ 'Bruto' if nl else 'Gross' }} (SRD)</th><th class="r">{{ 'Belasting' if nl else 'Tax' }}</th><th class="r">AOV</th><th class="r">{{ 'Netto' if nl else 'Net' }}</th></tr></thead>
  <tbody>
- {% for g in [8000, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}
-  <tr><td><a href="{{ U('salary') }}?{{ 'bruto' if nl else 'gross' }}={{ g }}">{{ num(g, 0) }}</a></td><td class="r">{{ num(r.tax, 0) }}</td><td class="r">{{ num(r.aov, 0) }}</td><td class="r"><b>{{ num(r.net, 0) }}</b></td></tr>
+ {% for g in [8000, 10000, 12000, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}
+  <tr><td><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ g }}">{{ num(g, 0) }}</a></td><td class="r">{{ num(r.tax, 0) }}</td><td class="r">{{ num(r.aov, 0) }}</td><td class="r"><b>{{ num(r.net, 0) }}</b></td></tr>
  {% endfor %}
  </tbody>
 </table></div>
 
+<p class="sub">{{ 'Meer bedragen:' if nl else 'More amounts:' }} {% for g in salary_amounts %}<a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ g }}">{{ num(g, 0) }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
 <div class="note" style="margin-top:20px">{{ 'Indicatie. Je echte loonstrook kan afwijken door bijvoorbeeld een pensioenfonds, ziektekostenpremie, bijtellingen of de vrijstelling voor vakantietoelage en gratificatie. Overuren hebben een eigen tabel:' if nl else 'Indicative. Your real payslip can differ because of a pension fund, health insurance premium, benefits in kind or the holiday allowance and bonus exemption. Overtime has its own table:' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>.</div>
 
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
