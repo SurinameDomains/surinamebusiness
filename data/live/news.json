@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-17T19:02:00+00:00",
+   "source": "Starnieuws",
+   "title": "SBV: Tien banken maken gezamenlijke afspraken over cyberbeveiliging; sectorbreed protocol",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94418"
+  },
+  {
+   "econ": false,
    "published": "2026-10-17T14:11:20+00:00",
    "source": "Dagblad Suriname",
    "title": "Suriname en Vietnam zetten in op versterken economische samenwerking",
@@ -176,7 +183,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-17T18:59:29+00:00",
+ "fetched_at": "2026-10-17T19:23:32+00:00",
  "oil": [
   {
    "econ": true,
@@ -196,7 +203,7 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-17T18:59:28+00:00",
+   "fetched_at": "2026-10-17T19:23:31+00:00",
    "ok": true
   },
   "OilNOW": {
@@ -205,28 +212,28 @@
    "ok": true
   },
   "Starnieuws": {
-   "count": 13,
-   "fetched_at": "2026-10-17T18:59:25+00:00",
+   "count": 14,
+   "fetched_at": "2026-10-17T19:23:29+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-17T18:59:27+00:00",
+   "fetched_at": "2026-10-17T19:23:30+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T18:59:28+00:00",
+   "fetched_at": "2026-10-17T19:23:31+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-17T18:59:27+00:00",
+   "fetched_at": "2026-10-17T19:23:30+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T18:59:29+00:00",
+   "fetched_at": "2026-10-17T19:23:32+00:00",
    "ok": true
   }
  }
