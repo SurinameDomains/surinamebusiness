@@ -5,13 +5,13 @@
   var go = document.getElementById('pdf-go'), msg = document.getElementById('pdf-msg');
   if (!inp) return;
   var mode = 'merge', files = [];
-  var single = { pages: 1, rotate: 1, num: 1 };
+  var single = { pages: 1, rotate: 1, num: 1, sign: 1, toimg: 1 };
 
   function status(t, ok) { msg.textContent = t; msg.className = 'form-status ' + (t ? (ok ? 'ok' : 'err') : ''); }
   function setMode(m) {
     mode = m; files = []; status('');
     S.$$('#pdf-modes .chip').forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-m') === m); });
-    ['pages', 'rotate', 'img', 'num'].forEach(function (k) { document.getElementById('opt-' + k).hidden = k !== m; });
+    ['pages', 'rotate', 'img', 'num', 'sign', 'toimg'].forEach(function (k) { document.getElementById('opt-' + k).hidden = k !== m; });
     inp.accept = m === 'img' ? 'image/*' : 'application/pdf';
     inp.multiple = !single[m];
     document.getElementById('drop-t').textContent = m === 'img' ? T('Kies foto\'s of sleep ze hierheen', 'Choose photos or drag them here') :
@@ -83,8 +83,43 @@
     });
   }
 
+  // signature pad
+  var pad = document.getElementById('sig-pad'), px = pad.getContext('2d'), drawing = false, inked = false;
+  px.lineWidth = 3.2; px.lineCap = 'round'; px.lineJoin = 'round'; px.strokeStyle = '#13235b';
+  function pos(e) { var r = pad.getBoundingClientRect(); return [(e.clientX - r.left) * pad.width / r.width, (e.clientY - r.top) * pad.height / r.height]; }
+  pad.addEventListener('pointerdown', function (e) { drawing = true; inked = true; pad.setPointerCapture(e.pointerId); var p = pos(e); px.beginPath(); px.moveTo(p[0], p[1]); });
+  pad.addEventListener('pointermove', function (e) { if (!drawing) return; var p = pos(e); px.lineTo(p[0], p[1]); px.stroke(); });
+  pad.addEventListener('pointerup', function () { drawing = false; });
+  document.getElementById('sig-clear').onclick = function () { px.clearRect(0, 0, pad.width, pad.height); inked = false; };
+  function sigPng() {
+    var name = document.getElementById('sig-name').value.trim();
+    var c = document.createElement('canvas'); c.width = 600; c.height = 200;
+    var x = c.getContext('2d');
+    if (name) { x.fillStyle = '#13235b'; x.font = 'italic 64px "Brush Script MT", "Segoe Script", cursive'; x.textBaseline = 'middle'; x.fillText(name, 10, 100, 580); }
+    else if (inked) x.drawImage(pad, 0, 0);
+    else return null;
+    return new Promise(function (res) { c.toBlob(function (b) { b.arrayBuffer().then(res); }, 'image/png'); });
+  }
+  // pdf.js (Mozilla, Apache-2.0) is loaded only when PDF to images is used
+  var PDFJS = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/';
+  function loadPdfjs() {
+    if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+    return new Promise(function (res, rej) {
+      var sc = document.createElement('script');
+      sc.src = PDFJS + 'pdf.min.js'; sc.crossOrigin = 'anonymous';
+      sc.integrity = 'sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e';
+      sc.onload = function () {
+        fetch(PDFJS + 'pdf.worker.min.js', { integrity: 'sha384-SnzOobpRMLXZ52iJvZm/C0fYw0OQemTXzTjIsdsfMcrCtCEe9qgzxTd3RSklO5x2' })
+          .then(function (r) { return r.blob(); })
+          .then(function (b) { window.pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(b); res(window.pdfjsLib); }, rej);
+      };
+      sc.onerror = function () { rej(new Error(T('De PDF-lezer kon niet laden. Controleer je internet.', 'The PDF reader could not load. Check your internet.'))); };
+      document.head.appendChild(sc);
+    });
+  }
+
   go.addEventListener('click', function () {
-    if (!window.PDFLib) { status(T('Even geduld, de PDF-module laadt nog.', 'One moment, the PDF module is still loading.'), false); return; }
+    if (mode !== 'toimg' && !window.PDFLib) { status(T('Even geduld, de PDF-module laadt nog.', 'One moment, the PDF module is still loading.'), false); return; }
     go.disabled = true; status(T('Bezig...', 'Working...'), true);
     var L = PDFLib, job;
     if (mode === 'merge') {
@@ -140,6 +175,43 @@
             p.drawText(t, { x: x, y: y, size: sz, font: font, color: L.rgb(0.2, 0.2, 0.25) });
           });
           return save(doc, base(files[0]) + T('-genummerd.pdf', '-numbered.pdf'));
+        });
+      });
+    }
+    else if (mode === 'sign') {
+      var sp = sigPng();
+      if (!sp) { status(T('Teken eerst je handtekening of typ je naam.', 'Draw your signature or type your name first.'), false); go.disabled = false; return; }
+      job = Promise.all([buf(files[0]).then(load), sp]).then(function (r) {
+        var doc = r[0];
+        return Promise.all([doc.embedPng(r[1]), doc.embedFont(L.StandardFonts.Helvetica)]).then(function (e2) {
+          var img = e2[0], font = e2[1], n = doc.getPageCount();
+          var pi = Math.min(n, Math.max(1, Math.round(S.num(document.getElementById('sig-page').value)) || n)) - 1;
+          var page = doc.getPage(pi), ps = page.getSize(), w = Math.min(170, ps.width * 0.3), h = w / 3, m = 40;
+          var where = document.getElementById('sig-pos').value;
+          var x = where === 'bl' ? m : where === 'bc' ? (ps.width - w) / 2 : ps.width - w - m, y = m + 14;
+          page.drawImage(img, { x: x, y: y, width: w, height: h });
+          if (document.getElementById('sig-date').checked) page.drawText(S.dateLong(S.today()), { x: x + 4, y: y - 12, size: 9, font: font, color: L.rgb(0.2, 0.2, 0.25) });
+          return save(doc, base(files[0]) + T('-ondertekend.pdf', '-signed.pdf'));
+        });
+      });
+    } else if (mode === 'toimg') {
+      var fmt = document.getElementById('img-fmt').value, scale = +document.getElementById('img-scale').value, ext = fmt === 'image/png' ? 'png' : 'jpg';
+      job = Promise.all([loadPdfjs(), buf(files[0])]).then(function (r) {
+        return r[0].getDocument({ data: new Uint8Array(r[1]) }).promise.then(function (pdf) {
+          var n = Math.min(pdf.numPages, 40), chain = Promise.resolve();
+          for (var i = 1; i <= n; i++) (function (i) {
+            chain = chain.then(function () {
+              return pdf.getPage(i).then(function (pg) {
+                var vp = pg.getViewport({ scale: scale }), c = document.createElement('canvas');
+                c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+                var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+                return pg.render({ canvasContext: x, viewport: vp }).promise.then(function () {
+                  return new Promise(function (res) { c.toBlob(function (b) { S.download(b, base(files[0]) + '-' + i + '.' + ext); setTimeout(res, 300); }, fmt, 0.9); });
+                });
+              });
+            });
+          })(i);
+          return chain.then(function () { status(T(n + ' afbeeldingen gedownload.', n + ' images downloaded.') + (pdf.numPages > 40 ? T(' (maximaal 40 pagina\'s)', ' (max 40 pages)') : ''), true); });
         });
       });
     }

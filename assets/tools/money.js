@@ -225,3 +225,40 @@
     document.getElementById('dp-table').innerHTML = tbl([T('Jaar', 'Year'), T('Afschrijving', 'Depreciation'), T('Boekwaarde', 'Book value')], rows, true);
   });
 })();
+
+/* ROI / payback and trip cost */
+(function () {
+  var S = window.SBT, T = S.T;
+  var on = function (f, fn) { f.addEventListener('input', fn); f.addEventListener('change', fn); fn(); };
+  var ro = document.getElementById('ro');
+  if (ro) on(ro, function () {
+    var e = ro.elements, cur = e.cur.value, inv = S.num(e.inv.value), net = S.num(e.gain.value) - S.num(e.cost.value);
+    var life = Math.max(0.1, S.num(e.life.value)), rest = S.num(e.rest.value), out = document.getElementById('ro-out');
+    if (net <= 0) { out.innerHTML = '<div class="big">' + T('Verdient zich niet terug', 'Does not pay back') + '</div><p class="sub">' + T('De maandelijkse opbrengst moet hoger zijn dan de extra kosten.', 'The monthly gain must exceed the extra costs.') + '</p>'; return; }
+    var months = inv / net, total = net * 12 * life + rest - inv, roi = total / inv / life * 100;
+    out.innerHTML = '<div class="sub">' + T('Terugverdiend na', 'Paid back after') + '</div><div class="big tnum">' + S.fmt(months, 1) + ' ' + T('maanden', 'months') + '</div><table>' +
+      '<tr><td>' + T('Netto per maand', 'Net per month') + '</td><td class="r">' + S.money(net, cur) + '</td></tr>' +
+      '<tr><td>' + T('Netto per jaar', 'Net per year') + '</td><td class="r">' + S.money(net * 12, cur) + '</td></tr>' +
+      '<tr><td>' + T('Totale winst over de levensduur', 'Total profit over its life') + '</td><td class="r">' + S.money(total, cur) + '</td></tr>' +
+      '<tr class="tot"><td>' + T('Rendement per jaar', 'Return per year') + '</td><td class="r">' + S.fmt(roi, 1) + '%</td></tr></table>' +
+      (months > life * 12 ? '<p class="sub" style="margin-top:10px;color:#ffd3c4">' + T('Langer dan de levensduur: dit verdient zich niet terug.', 'Longer than its useful life: this does not pay back.') + '</p>' : '');
+  });
+  var tc = document.getElementById('tc');
+  if (tc) {
+    tc.elements.fuel.value = S.store.get('tc:fuel', '');
+    on(tc, function () {
+      var e = tc.elements, km = S.num(e.km.value) * +e.ret.value, use = Math.max(0.1, S.num(e.use.value)), fuelP = S.num(e.fuel.value);
+      S.store.set('tc:fuel', e.fuel.value);
+      var fuel = km / use * fuelP, wear = km * S.num(e.wear.value), labour = S.num(e.time.value) / 60 * S.num(e.wage.value);
+      var tot = fuel + wear + labour, trips = S.num(e.trips.value);
+      document.getElementById('tc-out').innerHTML = '<div class="sub">' + T('Kosten per rit', 'Cost per trip') + '</div><div class="big tnum">' + S.money(tot) + '</div><table>' +
+        '<tr><td>' + T('Brandstof', 'Fuel') + ' (' + S.fmt(km / use, 1) + ' l)</td><td class="r">' + S.money(fuel) + '</td></tr>' +
+        '<tr><td>' + T('Slijtage en onderhoud', 'Wear and maintenance') + '</td><td class="r">' + S.money(wear) + '</td></tr>' +
+        '<tr><td>' + T('Arbeidstijd', 'Labour') + '</td><td class="r">' + S.money(labour) + '</td></tr>' +
+        '<tr><td>' + T('Per kilometer', 'Per kilometre') + '</td><td class="r">' + S.money(km ? tot / km : 0) + '</td></tr>' +
+        '<tr><td>' + T('Per maand', 'Per month') + ' (' + S.fmt(trips, 0) + ' ' + T('ritten', 'trips') + ')</td><td class="r">' + S.money(tot * trips) + '</td></tr>' +
+        '<tr class="tot"><td>' + T('Bezorgtarief met 25% marge', 'Delivery fee with 25% margin') + '</td><td class="r">' + S.money(Math.ceil(tot / 0.75 / 5) * 5) + '</td></tr></table>' +
+        (fuelP ? '' : '<p class="sub" style="margin-top:10px">' + T('Vul de brandstofprijs in voor een volledige berekening.', 'Enter the fuel price for a complete calculation.') + '</p>');
+    });
+  }
+})();
