@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-18T18:29:11+00:00",
+   "source": "Suriname Herald",
+   "title": "Ramautarsing signaleert grote loonverschillen tussen kabinetten",
+   "url": "https://www.srherald.com/suriname/2026/10/18/ramautarsing-signaleert-grote-loonverschillen-tussen-kabinetten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-18T17:52:00+00:00",
+   "source": "Starnieuws",
+   "title": "China vergroot goudvoorraad om financiële risico’s te beperken",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94422"
+  },
+  {
+   "econ": false,
    "published": "2026-10-18T16:08:00+00:00",
    "source": "de Ware Tijd",
    "title": "IMF luidt alarmklok over toenemende risico’s wereldeconomie",
@@ -288,7 +302,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-18T16:52:51+00:00",
+ "fetched_at": "2026-10-18T18:58:37+00:00",
  "oil": [
   {
    "econ": true,
@@ -308,32 +322,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-18T16:52:49+00:00",
+   "fetched_at": "2026-10-18T18:58:36+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-10-18T16:52:47+00:00",
+   "fetched_at": "2026-10-18T18:58:35+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-18T16:52:49+00:00",
+   "fetched_at": "2026-10-18T18:58:36+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T16:52:50+00:00",
+   "fetched_at": "2026-10-18T18:58:36+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-18T16:52:48+00:00",
+   "fetched_at": "2026-10-18T18:58:35+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T16:52:51+00:00",
+   "fetched_at": "2026-10-18T18:58:37+00:00",
    "ok": true
   }
  }
