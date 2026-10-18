@@ -152,8 +152,18 @@ def _web(t):
     return w
 
 
+REDIRECTS = {}  # duplicate OSM entries: slug -> slug of the record we keep
+
+
+def _same_place(a, b):
+    if a["lat"] and b["lat"]:
+        return abs(a["lat"] - b["lat"]) < 0.003 and abs(a["lon"] - b["lon"]) < 0.003
+    return True
+
+
 def normalise(raw):
-    recs, used = [], set()
+    recs, used, kept = [], set(), {}
+    REDIRECTS.clear()
     for e in raw.get("elements", []):
         t = e["tags"]
         name = (t.get("name") or "").strip()
@@ -182,6 +192,15 @@ def normalise(raw):
                 slug, i = f"{base}-{i}", i + 1
             used.add(slug)
             r["slug"] = slug
+            # OSM often has the same shop twice (a node and a building). Keep the first one; the
+            # slug of the duplicate stays reserved so later slugs never shift, and gets a redirect.
+            dup = next((k for k in kept.get(name.lower(), []) if _same_place(k, r) and (
+                (r["phone"] and k["phone"] and r["phone"].replace(" ", "") == k["phone"].replace(" ", ""))
+                or (r["street"] and r["street"] == k["street"]))), None)
+            if dup:
+                REDIRECTS[slug] = dup["slug"]
+                continue
+            kept.setdefault(name.lower(), []).append(r)
         recs.append(r)
     recs.sort(key=lambda x: x["name"].lower())
     return recs

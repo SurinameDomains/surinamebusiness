@@ -40,3 +40,10 @@ python fetch.py && python build.py
 - Minimum wage (`facts.MIN_WAGE`)
 - Holidays incl. lunar dates (`facts.HOLIDAYS`)
 - Bump `facts.CHECKED`
+
+## SEO
+
+- Every page gets one JSON-LD graph: Organization, WebSite, WebPage and a BreadcrumbList built in `render()` from the same `crumbs` the visitor sees, plus page types (WebApplication, FAQPage, LocalBusiness, JobPosting). Never add a BreadcrumbList by hand.
+- `lastmod` in the sitemap and `dateModified` are the day the page content last changed (hash per URL in `data/live/page_dates.json`), not the build day. Timestamps that change every build are stripped before hashing (`PAGE_VOLATILE_PATTERNS`).
+- IndexNow: `build.py` writes the URLs that changed today to `data/live/indexnow_queue.json` (each URL at most once a day) and the key file `/<INDEXNOW_KEY>.txt`; the `indexnow` job posts them after the deploy (Bing, Yandex, Seznam, Naver). Google reads the sitemap in Search Console.
+- Duplicate OpenStreetMap listings (same name, phone or street, within ~300 m) are merged in `companies.normalise`; the old URL becomes a meta-refresh page to the kept listing.

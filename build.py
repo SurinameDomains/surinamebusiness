@@ -6,6 +6,7 @@ renders templates/pages/<key>.html in Dutch (root) and English (/en/).
 Self-contained: no data or files from any other site are used.
 """
 import datetime as dt
+import hashlib
 import json
 import os
 import re
@@ -17,7 +18,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import tools_meta as TM
-from site_config import (DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
+from site_config import (INDEXNOW_KEY, DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -171,14 +172,14 @@ META = {
               "State land, land lease or freehold, converting lease to ownership, 4% transfer tax, notary and land registry. Also for buyers from abroad.")),
     "search": (("Zoeken op Suriname Business", "Zoek in alle rekentools, gidsen, aanbestedingen, vacatures en bedrijven."),
                ("Search Suriname Business", "Search all calculators, guides, tenders, jobs and companies.")),
-    "about": (("Over Suriname Business", "Wie we zijn en hoe deze site werkt."),
-              ("About Suriname Business", "Who we are and how this site works.")),
-    "sources": (("Bronnen en methode", "Waar onze cijfers vandaan komen en hoe vaak we ze bijwerken."),
-                ("Sources and method", "Where our numbers come from and how often we update them.")),
-    "contact": (("Contact", "Neem contact op met Suriname Business."),
-                ("Contact", "Get in touch with Suriname Business.")),
-    "privacy": (("Privacy", "Hoe Suriname Business met gegevens omgaat."),
-                ("Privacy", "How Suriname Business handles data.")),
+    "about": (("Over Suriname Business", "Wie achter Suriname Business zit, hoe we onze cijfers controleren en waarom alle tools gratis zijn voor ondernemers in Suriname."),
+              ("About Suriname Business", "Who is behind Suriname Business, how we check our numbers and why all tools are free for businesses in Suriname.")),
+    "sources": (("Bronnen en methode", "Waar onze cijfers vandaan komen: CBvS, CME, Belastingdienst, gov.sr en meer, met hoe vaak we elke bron bijwerken en controleren."),
+                ("Sources and method", "Where our numbers come from: CBvS, CME, the tax office, gov.sr and more, with how often we update and check each source.")),
+    "contact": (("Contact Suriname Business", "Neem contact op met Suriname Business voor vragen, correcties, bedrijfsgegevens, vacatures of samenwerking. We reageren per e-mail."),
+                ("Contact Suriname Business", "Get in touch with Suriname Business for questions, corrections, business listings, vacancies or partnerships. We reply by email.")),
+    "privacy": (("Privacyverklaring Suriname Business", "Hoe Suriname Business met gegevens omgaat: tools werken in je browser, wat een account opslaat en welke cookies en statistieken we gebruiken."),
+                ("Privacy policy Suriname Business", "How Suriname Business handles data: tools run in your browser, what an account stores and which cookies and statistics we use.")),
     "terms": (("Gebruiksvoorwaarden", "De voorwaarden voor het gebruik van Suriname Business, de tools en een account."),
               ("Terms of use", "The terms for using Suriname Business, the tools and an account.")),
     "account": (("Mijn account", "Je documenten, klanten, bedrijfsgegevens en vacatures op Suriname Business."),
@@ -518,22 +519,70 @@ def py_salary(gross, pension_pct=0.0, aov=True):
 def schema_for(key, lang, meta_title, desc, canonical):
     org = {"@type": "Organization", "@id": SITE_URL + "/#org", "name": "Suriname Business",
            "url": SITE_URL + "/", "logo": SITE_URL + "/assets/apple-touch-icon.png",
+           "email": CONTACT_EMAIL_SCHEMA,
            "parentOrganization": {"@type": "Organization", "name": "Explore group"}}
     page = {"@type": "WebPage", "@id": canonical + "#page", "url": canonical, "name": meta_title,
             "description": desc, "inLanguage": "nl" if lang == "nl" else "en",
-            "isPartOf": {"@id": SITE_URL + "/#site"}, "dateModified": NOW.date().isoformat()}
+            "isPartOf": {"@id": SITE_URL + "/#site"}, "dateModified": LASTMOD_TOKEN}
     graph = [org, {"@type": "WebSite", "@id": SITE_URL + "/#site", "url": SITE_URL + "/",
                    "name": "Suriname Business", "publisher": {"@id": SITE_URL + "/#org"}}, page]
     if key in ("salary", "overtime", "vatcalc", "workdays") or key in TOOL_KEYS:
         graph.append({"@type": "WebApplication", "name": LABELS[key][0 if lang == "nl" else 1],
                       "applicationCategory": "BusinessApplication" if key in TOOL_KEYS else "FinanceApplication", "operatingSystem": "Any",
                       "url": canonical, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}})
-    if key != "home":
-        graph.append({"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Suriname Business",
-             "item": SITE_URL + url_for("home", lang)},
-            {"@type": "ListItem", "position": 2, "name": LABELS[key][0 if lang == "nl" else 1], "item": canonical}]})
+    # BreadcrumbList is added in render(), from the same crumbs the visitor sees
     return graph
+
+
+PAGE_VOLATILE_PATTERNS = [r"\?v=\d{8,}", r"<span class=\"tnum\">[^<]*</span> SRT"]
+LASTMOD_TOKEN = "@@LASTMOD@@"
+PAGE_DATES_FILE = os.path.join(LIVE, "page_dates.json")
+try:
+    PAGE_DATES = json.load(open(PAGE_DATES_FILE, encoding="utf-8"))
+except Exception:
+    PAGE_DATES = {}
+PAGE_DATES_NEW = {}
+VOLATILE = [re.compile(p) for p in PAGE_VOLATILE_PATTERNS]
+
+
+def page_lastmod(url, html_out):
+    """lastmod = the day the page content last changed, not the build day. Google ignores lastmod
+    on sites where it changes on every build, so it has to be honest to be useful."""
+    norm = html_out
+    for rx in VOLATILE:
+        norm = rx.sub("", norm)
+    h = hashlib.sha1(norm.encode("utf-8")).hexdigest()[:16]
+    old = PAGE_DATES.get(url)
+    day = old[1] if old and old[0] == h else TODAY.isoformat()
+    PAGE_DATES_NEW[url] = [h, day]
+    return day
+CONTACT_EMAIL_SCHEMA = CONTACT_EMAIL
+
+
+def breadcrumb_schema(crumbs, canonical):
+    """BreadcrumbList built from the visible breadcrumb, so the two never disagree."""
+    items = []
+    for i, c in enumerate(crumbs):
+        items.append({"@type": "ListItem", "position": i + 1,
+                      "name": "Suriname Business" if i == 0 else c["label"],
+                      "item": (SITE_URL + c["url"]) if c.get("url") and i < len(crumbs) - 1 else canonical})
+    return {"@type": "BreadcrumbList", "itemListElement": items}
+
+
+def complete_graph(graph, lang, title, desc, canonical):
+    """Every page gets the site Organization and WebSite, a full WebPage node and one BreadcrumbList."""
+    base = schema_for("_", lang, title, desc, canonical)  # org, website, webpage
+    types = [g.get("@type") for g in graph]
+    out = [g for g in graph if g.get("@type") != "BreadcrumbList"]
+    if "Organization" not in types:
+        out.insert(0, base[0])
+    if "WebSite" not in types:
+        out.insert(1, base[1])
+    for g in out:
+        if g.get("@type") == "WebPage":
+            for k, v in base[2].items():
+                g.setdefault(k, v)
+    return out
 
 
 
@@ -664,13 +713,18 @@ def build_company_pages(render, lang, U, L, co):
              f"{gr['count']} listings for {label.lower()} in Suriname, with phone, address and opening hours where known.")
         crumbs = [{"label": "Home", "url": U("home")}, {"label": "Bedrijven" if nl else "Companies",
                    "url": "/bedrijven/" if nl else "/en/companies/"}, {"label": label}]
+        namecount = {}
+        for r in gr["items"]:
+            if r["page"]:
+                namecount[(r["name"].lower(), r["place"])] = namecount.get((r["name"].lower(), r["place"]), 0) + 1
         render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}", f"/en/companies/{gr['en_slug']}",
                crumbs, extra={"gr": gr})
         for r in gr["items"]:
             if not r["page"]:
                 continue
             place = f", {r['place']}" if r["place"] else ""
-            t = f"{r['name']}{place}: " + ("adres, telefoon en openingstijden" if nl else "address, phone and opening hours")
+            where = (f", {r['street']}" if r["street"] and namecount[(r["name"].lower(), r["place"])] > 1 else "") + place
+            t = f"{r['name']}{where}: " + ("adres, telefoon en openingstijden" if nl else "address, phone and opening hours")
             bits = [x for x in [r["street"], r["place"], r["phone"]] if x]
             d = f"{r['name']} ({label.lower()}){place}. " + " · ".join(bits)
             crumbs = [{"label": "Home", "url": U("home")},
@@ -678,19 +732,20 @@ def build_company_pages(render, lang, U, L, co):
                       {"label": label, "url": f"/bedrijven/{gr['nl_slug']}" if nl else f"/en/companies/{gr['en_slug']}"},
                       {"label": r["name"]}]
             canonical = SITE_URL + (f"/bedrijf/{r['slug']}" if nl else f"/en/company/{r['slug']}")
-            lb = {"@type": "LocalBusiness", "name": r["name"], "url": canonical}
+            lb = {"@type": "LocalBusiness", "@id": canonical + "#business", "name": r["name"], "url": canonical}
             if r["phone"]:
                 lb["telephone"] = r["phone"]
             if r["street"] or r["place"]:
-                lb["address"] = {"@type": "PostalAddress", "streetAddress": r["street"] or None,
-                                 "addressLocality": r["place"] or None, "addressCountry": "SR"}
+                lb["address"] = {k: v for k, v in {"@type": "PostalAddress", "streetAddress": r["street"],
+                                 "addressLocality": r["place"], "addressCountry": "SR"}.items() if v}
             if r["lat"]:
                 lb["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lon"]}
             if r["website"]:
                 lb["sameAs"] = [r["website"]]
             if r["hours"]:
                 lb["openingHours"] = r["hours"]
-            graph = [{"@type": "WebPage", "url": canonical, "name": t, "inLanguage": lang}, lb]
+            graph = [{"@type": "WebPage", "url": canonical, "name": t, "inLanguage": lang,
+                      "mainEntity": {"@id": canonical + "#business"}}, lb]
             render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
                    extra={"r": r, "gr": gr}, graph=graph)
 
@@ -898,15 +953,19 @@ def main():
             ctx = dict(_common)
             ctx.update(key=nav_key, title=title, description=desc, canonical=canonical,
                        alt_nl=SITE_URL + path_nl, alt_en=SITE_URL + path_en,
-                       lang_switch=path_en if _lang == "nl" else path_nl, nav=nav, crumbs=crumbs, robots=robots,
-                       schema=json.dumps({"@context": "https://schema.org",
-                                          "@graph": graph or schema_for(nav_key, _lang, title, desc, canonical)},
-                                         ensure_ascii=False).replace("<", "\\u003c"))
+                       lang_switch=path_en if _lang == "nl" else path_nl, nav=nav, crumbs=crumbs, robots=robots)
+            g = complete_graph(graph or schema_for(nav_key, _lang, title, desc, canonical), _lang, title, desc, canonical)
+            if crumbs:
+                g.append(breadcrumb_schema(crumbs, canonical))
+            ctx["schema"] = json.dumps({"@context": "https://schema.org", "@graph": g},
+                                       ensure_ascii=False).replace("<", "\\u003c")
             if single:
                 ctx.update(alt_nl=None, alt_en=None)
             if extra:
                 ctx.update(extra)
             html_out = env.get_template(tpl_name).render(**ctx)
+            lastmod = page_lastmod(canonical, html_out)
+            html_out = html_out.replace(LASTMOD_TOKEN, lastmod)
             rel = (path_nl if _lang == "nl" else path_en).lstrip("/")
             rel = "index.html" if rel == "" else (rel + "index.html" if rel.endswith("/") else rel + ".html")
             path = os.path.join(OUT, rel)
@@ -914,7 +973,8 @@ def main():
             with open(path, "w", encoding="utf-8") as f:
                 f.write(html_out)
             if in_sitemap and not robots:
-                sitemap.append((canonical, None, None) if single else (canonical, SITE_URL + path_nl, SITE_URL + path_en))
+                sitemap.append((canonical, None, None, lastmod) if single else
+                               (canonical, SITE_URL + path_nl, SITE_URL + path_en, lastmod))
             kind = tpl_name.split("/")[-1][:-5]
             if nav_key in PRIVATE_PAGES:
                 return
@@ -948,6 +1008,17 @@ def main():
         build_salary_pages(render, lang, U, L)
         build_job_pages(render, lang, U, L, jobs)
         build_company_pages(render, lang, U, L, co)
+        # merged duplicate listings: old URL forwards to the listing we kept (GitHub Pages has no 301)
+        import companies as C
+        for dup, keep in C.REDIRECTS.items():
+            pre = "/bedrijf/" if lang == "nl" else "/en/company/"
+            target = SITE_URL + pre + keep
+            os.makedirs(os.path.join(OUT, pre.strip("/")), exist_ok=True)
+            with open(os.path.join(OUT, pre.strip("/"), dup + ".html"), "w", encoding="utf-8") as f:
+                f.write(f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><title>Redirect</title>'
+                        f'<link rel="canonical" href="{target}">'
+                        f'<meta http-equiv="refresh" content="0; url={target}"></head>'
+                        f'<body><a href="{target}">{target}</a></body></html>')
 
     # 404
     tpl = env.get_template("404.html")
@@ -976,16 +1047,27 @@ def main():
     # sitemap
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    for loc, nl, en in sitemap:
+    for loc, nl, en, lm in sitemap:
         if nl is None:
-            lines.append(f"<url><loc>{loc}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
+            lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod></url>")
             continue
-        lines.append(f"<url><loc>{loc}</loc><lastmod>{TODAY.isoformat()}</lastmod>"
+        lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod>"
                      f'<xhtml:link rel="alternate" hreflang="nl" href="{nl}"/>'
                      f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/></url>')
     lines.append("</urlset>")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
+    # IndexNow: pages whose content changed into today (each URL at most once a day). The first
+    # build without page_dates.json queues every page. indexnow.py posts the list after deploy.
+    queue = [loc for loc, _nl, _en, lm in sitemap
+             if lm == TODAY.isoformat() and (PAGE_DATES.get(loc) or [None, None])[1] != lm]
+    with open(os.path.join(LIVE, "indexnow_queue.json"), "w", encoding="utf-8") as f:
+        json.dump({"built_at": NOW.replace(microsecond=0).isoformat(), "urls": queue}, f, indent=0)
+    with open(os.path.join(OUT, INDEXNOW_KEY + ".txt"), "w") as f:
+        f.write(INDEXNOW_KEY)
+    with open(PAGE_DATES_FILE + ".tmp", "w", encoding="utf-8") as f:
+        json.dump(PAGE_DATES_NEW, f, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    os.replace(PAGE_DATES_FILE + ".tmp", PAGE_DATES_FILE)
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
     with open(os.path.join(OUT, "CNAME"), "w") as f:

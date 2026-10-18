@@ -114,3 +114,6 @@ def file_for(key: str, lang: str) -> str:
     if slug.endswith("/"):
         return slug + "index.html"
     return slug + ".html"
+
+# IndexNow (Bing, Yandex, Seznam, Naver): key file is written to /<key>.txt by build.py
+INDEXNOW_KEY = "b2603bae1b367670f9961792516457fb"
