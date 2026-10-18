@@ -1,0 +1,43 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Zie in één oogopslag wie je nog moet betalen, hoeveel en hoe lang al. Markeer betalingen, en stuur met één klik een herinnering via WhatsApp. Je lijst blijft op je eigen toestel.' if nl else 'See at a glance who still owes you money, how much and for how long. Mark payments and send a WhatsApp reminder in one click. Your list stays on your own device.' }}{% endblock %}
+{% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Je gegevens blijven op dit toestel, in deze browser. Maak af en toe een back-up.' if nl else 'Your data stays on this device, in this browser. Make a backup now and then.' }}</p>{% endblock %}
+{% block tool %}
+<div class="cols">
+ <div>
+  <form class="card calc" id="rv" onsubmit="return false" autocomplete="off">
+   <div class="eyebrow">{{ 'Factuur toevoegen' if nl else 'Add an invoice' }}</div>
+   <div class="two">
+    <div><label for="cust">{{ 'Klant' if nl else 'Customer' }}</label><input id="cust" name="cust" required></div>
+    <div><label for="phone">{{ 'WhatsApp klant (optioneel)' if nl else 'Customer WhatsApp (optional)' }}</label><input id="phone" name="phone" inputmode="tel"></div>
+   </div>
+   <div class="three">
+    <div><label for="no">{{ 'Factuurnummer' if nl else 'Invoice number' }}</label><input id="no" name="no"></div>
+    <div><label for="amount">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="amount" name="amount" inputmode="decimal" required></div>
+    <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+   </div>
+   <div class="two">
+    <div><label for="date">{{ 'Factuurdatum' if nl else 'Invoice date' }}</label><input id="date" name="date" type="date"></div>
+    <div><label for="due">{{ 'Vervaldatum' if nl else 'Due date' }}</label><input id="due" name="due" type="date"></div>
+   </div>
+   <button class="btn" type="submit" style="margin-top:14px;width:100%">{{ 'Toevoegen' if nl else 'Add' }}</button>
+  </form>
+  <div class="card" style="margin-top:16px">
+   <div class="filters" style="margin:0 0 6px" id="rv-f">
+    <button class="chip" type="button" data-v="open" aria-pressed="true">{{ 'Open' }}</button>
+    <button class="chip" type="button" data-v="late" aria-pressed="false">{{ 'Te laat' if nl else 'Overdue' }}</button>
+    <button class="chip" type="button" data-v="paid" aria-pressed="false">{{ 'Betaald' if nl else 'Paid' }}</button>
+    <button class="chip" type="button" data-v="all" aria-pressed="false">{{ 'Alles' if nl else 'All' }}</button>
+   </div>
+   <ul class="list" id="rv-list"></ul>
+   <div class="btns">
+    <button type="button" class="btn alt sm" id="rv-csv">{{ 'Naar CSV (Excel)' if nl else 'To CSV (Excel)' }}</button>
+    <button type="button" class="btn alt sm" id="rv-backup">{{ 'Back-up downloaden' if nl else 'Download backup' }}</button>
+    <label class="btn alt sm" style="display:inline-block;cursor:pointer">{{ 'Back-up terugzetten' if nl else 'Restore backup' }}<input type="file" id="rv-restore" accept=".json,application/json" hidden></label>
+   </div>
+  </div>
+ </div>
+ <aside class="result sticky" id="rv-sum" aria-live="polite"></aside>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><h2>{{ 'Sneller betaald krijgen' if nl else 'Get paid faster' }}</h2><ul><li>{{ 'Spreek vooraf een betaaltermijn af en zet die op de factuur.' if nl else 'Agree on payment terms upfront and put them on the invoice.' }}</li><li>{{ 'Stuur een vriendelijke herinnering op de dag na de vervaldatum, niet weken later.' if nl else 'Send a friendly reminder the day after the due date, not weeks later.' }}</li><li>{{ 'Vraag bij grote opdrachten een aanbetaling, bijvoorbeeld met een' if nl else 'Ask for a deposit on large jobs, for example with a' }} <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li></ul></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/admin.js?v={{ build_id }}" defer></script>{% endblock %}

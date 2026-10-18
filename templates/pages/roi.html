@@ -1,0 +1,23 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een generator, zonnepanelen, een nieuwe machine of een tweede auto: wat levert het per maand op of wat bespaar je, en na hoeveel maanden heb je de investering terugverdiend?' if nl else 'A generator, solar panels, a new machine or a second vehicle: what does it earn or save each month, and after how many months has it paid for itself?' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="ro" onsubmit="return false">
+  <div class="two">
+   <div><label for="inv">{{ 'Investering' if nl else 'Investment' }}</label><input id="inv" name="inv" inputmode="decimal" value="180000"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+  </div>
+  <div class="two">
+   <div><label for="gain">{{ 'Extra winst of besparing per maand' if nl else 'Extra profit or saving per month' }}</label><input id="gain" name="gain" inputmode="decimal" value="9000"></div>
+   <div><label for="cost">{{ 'Extra kosten per maand (onderhoud, brandstof)' if nl else 'Extra cost per month (maintenance, fuel)' }}</label><input id="cost" name="cost" inputmode="decimal" value="1500"></div>
+  </div>
+  <div class="two">
+   <div><label for="life">{{ 'Levensduur (jaren)' if nl else 'Useful life (years)' }}</label><input id="life" name="life" inputmode="decimal" value="5"></div>
+   <div><label for="rest">{{ 'Restwaarde aan het eind' if nl else 'Residual value at the end' }}</label><input id="rest" name="rest" inputmode="decimal" value="20000"></div>
+  </div>
+ </form>
+ <div class="result" id="ro-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Vuistregel voor een klein bedrijf: verdient een investering zich binnen 2 tot 3 jaar terug, dan is het meestal een goede. Leen je ervoor, reken dan ook de rente mee:' if nl else 'Rule of thumb for a small business: an investment that pays for itself within 2 to 3 years is usually a good one. If you borrow for it, include the interest:' }} <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

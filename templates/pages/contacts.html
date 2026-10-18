@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Overheidsinstanties voor ondernemers' if nl else 'Government offices for businesses' }}</h1>
+<p class="lead">{{ 'Waar je naartoe moet voor belasting, douane, je inschrijving en vergunningen: adressen, telefoonnummers en de online portalen.' if nl else 'Where to go for tax, customs, registration and licences: addresses, phone numbers and online portals.' }}</p>
+<p class="note">{{ 'Het centrale nummer van de Belastingdienst en de douane is 1960; vraag naar het toestelnummer. Openingstijden Belastingdienst:' if nl else 'The central number of the tax office and customs is 1960; ask for the extension. Tax office opening hours:' }} {{ F.TAX_OFFICE_HOURS[i] }}.</p>
+</div>
+{% for g, gnl, gen in [('tax','Belastingdienst','Tax office'),('customs','Douane','Customs'),('business','Inschrijving, vergunningen en ondersteuning','Registration, licences and support')] %}
+<h2>{{ gnl if nl else gen }}</h2>
+<div class="grid g2">
+{% for c in F.CONTACTS if c.group == g %}
+<div class="card"><b>{{ c.name[i] }}</b>
+<div class="meta" style="margin-top:6px;display:block"><div>{{ c.addr }}</div><div>{{ 'Telefoon' if nl else 'Phone' }}: {{ c.phone }}</div>{% if c.web %}<div><a href="{{ c.web }}" rel="noopener">{{ c.web.replace('https://','').rstrip('/') }}</a></div>{% endif %}</div></div>
+{% endfor %}
+</div>
+{% endfor %}
+<div class="prose">
+<h2>{{ 'Online regelen' if nl else 'Online services' }}</h2>
+<ul>
+<li>{{ 'Aangifte BTW, loonbelasting, AOV en inkomstenbelasting: het online portaal van de Belastingdienst, via' if nl else 'VAT, wage tax, AOV and income tax returns: the tax office online portal, via' }} <a href="https://belastingdienst.sr/" rel="noopener">belastingdienst.sr</a>.</li>
+<li>{{ 'Invoer en uitvoer: aangifte gaat via ASYCUDA, meestal door een douane-expediteur.' if nl else 'Import and export: declarations go through ASYCUDA, usually via a customs broker.' }} <a href="{{ U('import') }}">{{ L('import') }}</a></li>
+<li>{{ 'Inschrijving in het handelsregister: bij de KKF.' if nl else 'Registration in the trade register: at the KKF.' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+</ul>
+<p><a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for n, u in F.CONTACT_SOURCES %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CONTACTS_CHECKED) }}. {{ 'Klopt er iets niet meer? Mail ons op' if nl else 'Something out of date? E-mail us at' }} <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+</div>
+{% endblock %}

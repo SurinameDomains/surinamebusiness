@@ -1,0 +1,26 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Wat kost een rit je echt? Vul de afstand, het verbruik en de brandstofprijs in. Je ziet de kosten per rit en per kilometer, en welk bezorgtarief je moet rekenen om er iets aan over te houden.' if nl else 'What does a trip really cost? Enter distance, consumption and fuel price. You see the cost per trip and per kilometre, and the delivery fee to charge to make something on it.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="tc" onsubmit="return false">
+  <div class="two">
+   <div><label for="km">{{ 'Afstand enkele reis (km)' if nl else 'One-way distance (km)' }}</label><input id="km" name="km" inputmode="decimal" value="12"></div>
+   <div><label for="ret">{{ 'Rit' if nl else 'Trip' }}</label><select id="ret" name="ret"><option value="2">{{ 'heen en terug' if nl else 'return' }}</option><option value="1">{{ 'enkele reis' if nl else 'one way' }}</option></select></div>
+  </div>
+  <div class="two">
+   <div><label for="use">{{ 'Verbruik (km per liter)' if nl else 'Consumption (km per litre)' }}</label><input id="use" name="use" inputmode="decimal" value="12"><div class="hint">{{ 'Bromfiets ca. 35, kleine auto 14, pick-up 8' if nl else 'Scooter about 35, small car 14, pick-up 8' }}</div></div>
+   <div><label for="fuel">{{ 'Brandstofprijs per liter (SRD)' if nl else 'Fuel price per litre (SRD)' }}</label><input id="fuel" name="fuel" inputmode="decimal" placeholder="{{ 'prijs aan de pomp' if nl else 'price at the pump' }}"></div>
+  </div>
+  <div class="two">
+   <div><label for="wear">{{ 'Slijtage en onderhoud per km (SRD)' if nl else 'Wear and maintenance per km (SRD)' }}</label><input id="wear" name="wear" inputmode="decimal" value="2"></div>
+   <div><label for="time">{{ 'Tijd per rit (minuten)' if nl else 'Time per trip (minutes)' }}</label><input id="time" name="time" inputmode="decimal" value="40"></div>
+  </div>
+  <div class="two">
+   <div><label for="wage">{{ 'Uurloon bezorger (SRD)' if nl else 'Driver hourly wage (SRD)' }}</label><input id="wage" name="wage" inputmode="decimal" value="{{ num(F.MIN_WAGE.hour, 2) }}"></div>
+   <div><label for="trips">{{ 'Ritten per maand' if nl else 'Trips per month' }}</label><input id="trips" name="trips" inputmode="decimal" value="60"></div>
+  </div>
+ </form>
+ <div class="result" id="tc-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

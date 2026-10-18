@@ -1,0 +1,17 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Verkoop cadeaubonnen in je zaak: voor een bedrag of een dienst, met een unieke code en een vervaldatum. Noteer de codes, dan weet je bij inleveren dat de bon echt is.' if nl else 'Sell gift vouchers in your business: for an amount or a service, with a unique code and an expiry date. Keep a list of the codes so you know a voucher is genuine when it is redeemed.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="vo" onsubmit="return false" autocomplete="off">
+  <label for="biz">{{ 'Naam zaak' if nl else 'Business name' }}</label><input id="biz" name="biz" value="Salon Glow">
+  <div class="two"><div><label for="val">{{ 'Waarde of dienst' if nl else 'Value or service' }}</label><input id="val" name="val" value="SRD 500"></div><div><label for="to">{{ 'Voor (optioneel)' if nl else 'For (optional)' }}</label><input id="to" name="to"></div></div>
+  <div class="two"><div><label for="exp">{{ 'Geldig tot' if nl else 'Valid until' }}</label><input id="exp" name="exp" type="date"></div><div><label for="code">{{ 'Code' if nl else 'Code' }}</label><input id="code" name="code"></div></div>
+  <label for="msg">{{ 'Tekst' if nl else 'Text' }}</label><input id="msg" name="msg" value="{{ 'Een cadeau om van te genieten!' if nl else 'A gift to enjoy!' }}">
+  <label for="small">{{ 'Kleine lettertjes' if nl else 'Small print' }}</label><input id="small" name="small" value="{{ 'Niet inwisselbaar voor geld. Eén keer te gebruiken.' if nl else 'Not exchangeable for cash. Single use.' }}">
+  <div class="three"><div><label for="c1">{{ 'Kleur' if nl else 'Colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div><div><label for="c2">Accent</label><input id="c2" name="c2" type="color" value="#f2b134"></div><div><label for="n">{{ 'Aantal bonnen' if nl else 'Number of vouchers' }}</label><select id="n" name="n"><option value="1">1</option><option value="4">{{ '4 (vel A4)' if nl else '4 (A4 sheet)' }}</option></select></div></div>
+  <button type="button" class="btn alt sm" id="newcode" style="margin-top:12px">{{ 'Nieuwe codes' if nl else 'New codes' }}</button>
+ </form>
+ <div><div class="print-area" id="vo-out"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Print / PDF' }}</button><button type="button" class="btn alt" id="vo-codes">{{ 'Codes kopiëren' if nl else 'Copy codes' }}</button></div></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/docs.js?v={{ build_id }}" defer></script>{% endblock %}

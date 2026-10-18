@@ -1,0 +1,38 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een eenvoudig voorraadsysteem voor je winkel of magazijn: artikelen met inkoopprijs en verkoopprijs, voorraad in en uit, een minimum per artikel en een bestellijst van alles wat bijna op is.' if nl else 'A simple stock system for your shop or storeroom: items with cost and selling price, stock in and out, a minimum per item and a reorder list of everything running low.' }}{% endblock %}
+{% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Je gegevens blijven op dit toestel, in deze browser. Maak af en toe een back-up.' if nl else 'Your data stays on this device, in this browser. Make a backup now and then.' }}</p>{% endblock %}
+{% block tool %}
+<div class="cols">
+ <div>
+  <form class="card calc" id="sk" onsubmit="return false" autocomplete="off">
+   <div class="eyebrow">{{ 'Artikel toevoegen' if nl else 'Add an item' }}</div>
+   <div class="two">
+    <div><label for="name">{{ 'Artikel' if nl else 'Item' }}</label><input id="name" name="name" required></div>
+    <div><label for="code">{{ 'Code (optioneel)' if nl else 'Code (optional)' }}</label><input id="code" name="code"></div>
+   </div>
+   <div class="three">
+    <div><label for="qty">{{ 'Voorraad nu' if nl else 'Stock now' }}</label><input id="qty" name="qty" inputmode="decimal" value="0"></div>
+    <div><label for="min">{{ 'Minimum' if nl else 'Minimum' }}</label><input id="min" name="min" inputmode="decimal" value="5"></div>
+    <div><label for="unit">{{ 'Eenheid' if nl else 'Unit' }}</label><input id="unit" name="unit" placeholder="{{ 'stuks' if nl else 'pcs' }}"></div>
+   </div>
+   <div class="two">
+    <div><label for="cost">{{ 'Inkoopprijs (SRD)' if nl else 'Cost price (SRD)' }}</label><input id="cost" name="cost" inputmode="decimal"></div>
+    <div><label for="price">{{ 'Verkoopprijs (SRD)' if nl else 'Selling price (SRD)' }}</label><input id="price" name="price" inputmode="decimal"></div>
+   </div>
+   <button class="btn" type="submit" style="margin-top:14px;width:100%">{{ 'Toevoegen' if nl else 'Add' }}</button>
+  </form>
+  <div class="card" style="margin-top:16px">
+   <div class="filters" style="margin:0 0 6px"><input id="sk-q" type="search" placeholder="{{ 'Zoek artikel of code' if nl else 'Search item or code' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}"><button class="chip" type="button" id="sk-low" aria-pressed="false">{{ 'Bijna op' if nl else 'Running low' }}</button></div>
+   <ul class="list" id="sk-list"></ul>
+   <div class="btns">
+    <button type="button" class="btn alt sm" id="sk-csv">{{ 'Naar CSV (Excel)' if nl else 'To CSV (Excel)' }}</button>
+    <button type="button" class="btn alt sm" id="sk-order">{{ 'Bestellijst naar inkooporder' if nl else 'Reorder list to purchase order' }}</button>
+    <button type="button" class="btn alt sm" id="sk-backup">{{ 'Back-up downloaden' if nl else 'Download backup' }}</button>
+    <label class="btn alt sm" style="display:inline-block;cursor:pointer">{{ 'Back-up terugzetten' if nl else 'Restore backup' }}<input type="file" id="sk-restore" accept=".json,application/json" hidden></label>
+   </div>
+  </div>
+ </div>
+ <aside class="result sticky" id="sk-sum" aria-live="polite"></aside>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/admin.js?v={{ build_id }}" defer></script>{% endblock %}

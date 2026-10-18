@@ -50,12 +50,12 @@
   <div class="grid g3 tools-mini">
    {% for k in ['invoice','quote','payslip','pricing','importcost','loan','btwregister','qrcode','pdftools'] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
   </div>
-  <p style="margin-top:12px"><a href="{{ U('tools') }}"><b>{{ 'Alle' if nl else 'All' }} {{ TM.TOOLS|length + 7 }} {{ 'gratis tools' if nl else 'free tools' }} &rarr;</b></a></p>
+  <p style="margin-top:12px"><a href="{{ U('tools') }}"><b>{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} {{ 'gratis tools' if nl else 'free tools' }} &rarr;</b></a></p>
 
   <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
   <div class="grid g2">
    <a class="card" href="{{ '/bedrijven/' if nl else '/en/companies/' }}"><b>{{ 'Bedrijvengids' if nl else 'Business directory' }}</b><div class="sub">{{ co.count }} {{ 'bedrijven per categorie, met adres en telefoon' if nl else 'businesses by category, with address and phone' }}</div></a>
-   {% for k in ['start','incometax','import','workpermit','land'] %}
+   {% for k in ['start','hiring','bankaccount','incometax','import','contacts'] %}
    <a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] if META_SUB is defined else '' }}</div></a>
    {% endfor %}
   </div>

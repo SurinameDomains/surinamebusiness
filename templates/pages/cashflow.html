@@ -1,0 +1,19 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Winst is niet hetzelfde als geld op de bank. Vul per maand je verwachte inkomsten en uitgaven in en zie of je saldo ergens onder nul zakt, zodat je op tijd kunt bijsturen of financiering kunt regelen.' if nl else 'Profit is not the same as money in the bank. Enter expected income and expenses per month and see whether your balance drops below zero, so you can adjust in time or arrange financing.' }}{% endblock %}
+{% block tool %}
+<div class="card calc" id="cf">
+ <div class="two">
+  <div><label for="start">{{ 'Saldo nu (SRD)' if nl else 'Balance now (SRD)' }}</label><input id="start" name="start" inputmode="decimal" value="25000"></div>
+  <div><label for="m0">{{ 'Eerste maand' if nl else 'First month' }}</label><input id="m0" name="m0" type="month"></div>
+ </div>
+ <label>{{ 'Inkomsten en uitgaven' if nl else 'Income and expenses' }}</label>
+ <div id="cf-rows"></div>
+ <div class="btns"><button type="button" class="btn alt sm" id="cf-add">+ {{ 'Regel toevoegen' if nl else 'Add row' }}</button><button type="button" class="btn alt sm" id="cf-csv">{{ 'Naar CSV (Excel)' if nl else 'To CSV (Excel)' }}</button><button type="button" class="btn alt sm" id="cf-reset">{{ 'Voorbeeld terugzetten' if nl else 'Reset example' }}</button></div>
+</div>
+<div class="cols" style="margin-top:18px">
+ <div class="card" id="cf-table"></div>
+ <aside class="result" id="cf-out" aria-live="polite"></aside>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Tip: reken inkomsten pas in de maand waarin klanten echt betalen, niet wanneer je factureert. Vergeet de BTW-afdracht, loonbelasting, verzekeringen en jaarlijkse kosten niet.' if nl else 'Tip: count income in the month customers actually pay, not when you invoice. Do not forget VAT payments, wage tax, insurance and yearly costs.' }} <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> &middot; <a href="{{ U('loan') }}">{{ L('loan') }}</a></p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/admin.js?v={{ build_id }}" defer></script>{% endblock %}

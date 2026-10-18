@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Personeel aannemen in Suriname' if nl else 'Hiring staff in Suriname' }}</h1>
+<p class="lead">{{ 'Je eerste werknemer aannemen? Dit moet je als werkgever regelen, met de rekentools om het goed te doen.' if nl else 'Hiring your first employee? This is what you have to arrange as an employer, with the calculators to do it right.' }}</p>
+<h2>{{ '1. Vacature en contract' if nl else '1. Vacancy and contract' }}</h2>
+<p>{{ 'Plaats je vacature gratis op onze vacaturebank. Leg daarna afspraken vast in een schriftelijke arbeidsovereenkomst: functie, loon, werktijden, proeftijd, vakantie en opzegging.' if nl else 'Post your vacancy for free on our job board. Then put the agreements in a written employment contract: job, pay, working hours, probation, leave and notice.' }} <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>. {{ 'Komt je werknemer uit het buitenland, dan is vaak een werkvergunning nodig:' if nl else 'If your employee comes from abroad, a work permit is often required:' }} <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<h2>{{ '2. Inschrijven als werkgever' if nl else '2. Register as an employer' }}</h2>
+<p>{{ 'Wie loon betaalt, moet loonbelasting en AOV-premie inhouden en afdragen. Regel je registratie en toegang tot het online portaal bij de Belastingdienst, voordat je het eerste loon betaalt.' if nl else 'Anyone who pays wages must withhold and pay wage tax and the AOV premium. Arrange your registration and access to the online portal with the tax office before paying the first wage.' }} <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+<h2>{{ '3. Elke maand' if nl else '3. Every month' }}</h2>
+<table class="tbl"><tbody>
+<tr><td>{{ 'Loonbelasting' if nl else 'Wage tax' }}</td><td>{{ 'Inhouden op het loon met de tarieven van' if nl else 'Withheld from pay at the' }} {{ F.TAX.year }}{{ '.' if nl else ' rates.' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a></td></tr>
+<tr><td>AOV</td><td>{{ '4% van het zuiver loon, ingehouden bij werknemers jonger dan 60.' if nl else '4% of the net taxable wage, withheld from employees under 60.' }}</td></tr>
+<tr><td>{{ 'Aangifte' if nl else 'Return' }}</td><td>{{ 'Loonbelasting en AOV per maand via het portaal; het portaal neemt aangiftes aan van de 26e tot en met de 10e.' if nl else 'Wage tax and AOV monthly through the portal; it accepts returns from the 26th up to and including the 10th.' }} <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></td></tr>
+<tr><td>{{ 'Loonstrook' if nl else 'Payslip' }}</td><td><a href="{{ U('payslip') }}">{{ L('payslip') }}</a></td></tr>
+<tr><td>{{ 'Pensioen' if nl else 'Pension' }}</td><td>{{ 'Werknemers vallen onder de Wet Algemeen Pensioen (APF). Vraag het APF naar de actuele premie, de verdeling werkgever/werknemer en de termijnen.' if nl else 'Employees fall under the General Pension Act (APF). Ask the APF for the current premium, the employer/employee split and the deadlines.' }}</td></tr>
+<tr><td>{{ 'Zorgverzekering' if nl else 'Health insurance' }}</td><td>{{ 'Iedereen moet een basiszorgverzekering hebben (Wet Nationale Basiszorgverzekering). Bespreek met je verzekeraar of het SZF hoe je als werkgever bijdraagt.' if nl else 'Everyone must have basic health insurance (National Basic Health Insurance Act). Discuss with your insurer or the SZF how you contribute as an employer.' }}</td></tr>
+</tbody></table>
+<h2>{{ '4. Regels voor werktijd, loon en vakantie' if nl else '4. Rules on hours, pay and leave' }}</h2>
+<ul>
+<li>{{ 'Minimumloon:' if nl else 'Minimum wage:' }} {{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur sinds 1 juli 2026.' if nl else 'per hour since 1 July 2026.' }} <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></li>
+<li>{{ 'Maximaal' if nl else 'Maximum' }} {{ num(F.LABOUR.max_day, 1) }} {{ 'uur per dag en 48 uur per week; overwerk minimaal 150%, op rustdagen 200%.' if nl else 'hours a day and 48 hours a week; overtime at least 150%, 200% on rest days.' }} <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a> &middot; <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+<li>{{ '12 vakantiedagen na een vol kalenderjaar, oplopend tot 18, plus een vakantietoelage van een halve dag loon per vakantiedag.' if nl else '12 leave days after a full calendar year, rising to 18, plus a leave allowance of half a day\'s pay per leave day.' }} <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
+<li>{{ 'Officiële feestdagen zijn vrij met behoud van loon.' if nl else 'Official public holidays are paid days off.' }} <a href="{{ U('holidays') }}">{{ L('holidays') }}</a></li>
+</ul>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for n, u in F.TAX.sources[:1] + F.LEAVE.sources + F.LABOUR.sources[:1] + F.MIN_WAGE.sources[:1] %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}<li><a href="https://www.dna.sr/media/edbanrlx/wet_algemeen_pensioen_2014.pdf" rel="noopener">Wet Algemeen Pensioen 2014</a></li></ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }} <a href="{{ U('labour') }}">{{ L('labour') }}</a></p>
+</div>
+{% endblock %}

@@ -7,6 +7,8 @@
  <button class="chip" type="button" data-m="rotate" aria-pressed="false">{{ 'Pagina\'s draaien' if nl else 'Rotate pages' }}</button>
  <button class="chip" type="button" data-m="img" aria-pressed="false">{{ 'Foto\'s naar PDF' if nl else 'Photos to PDF' }}</button>
  <button class="chip" type="button" data-m="num" aria-pressed="false">{{ 'Paginanummers' if nl else 'Page numbers' }}</button>
+ <button class="chip" type="button" data-m="sign" aria-pressed="false">{{ 'Ondertekenen' if nl else 'Sign' }}</button>
+ <button class="chip" type="button" data-m="toimg" aria-pressed="false">{{ 'PDF naar afbeeldingen' if nl else 'PDF to images' }}</button>
 </div>
 <div class="cols">
  <div class="card calc">
@@ -17,6 +19,18 @@
   <div id="opt-rotate" hidden><label for="rrange">{{ 'Welke pagina\'s? (leeg = alle)' if nl else 'Which pages? (empty = all)' }}</label><input id="rrange" placeholder="1-3, 5"><label for="deg">{{ 'Draaien' if nl else 'Rotate' }}</label><select id="deg"><option value="90">{{ '90° rechtsom' if nl else '90° clockwise' }}</option><option value="180">180°</option><option value="270">{{ '90° linksom' if nl else '90° anticlockwise' }}</option></select></div>
   <div id="opt-img" hidden><label for="psize">{{ 'Paginaformaat' if nl else 'Page size' }}</label><select id="psize"><option value="a4">A4</option><option value="letter">Letter</option><option value="fit">{{ 'Zelfde als foto' if nl else 'Same as photo' }}</option></select><label class="check"><input type="checkbox" id="margin" checked> {{ 'Witte rand rond elke foto' if nl else 'White margin around each photo' }}</label></div>
   <div id="opt-num" hidden><label for="npos">{{ 'Positie' if nl else 'Position' }}</label><select id="npos"><option value="bc">{{ 'Onder, midden' if nl else 'Bottom centre' }}</option><option value="br">{{ 'Onder, rechts' if nl else 'Bottom right' }}</option><option value="tr">{{ 'Boven, rechts' if nl else 'Top right' }}</option></select><label for="nfmt">{{ 'Tekst' if nl else 'Text' }}</label><select id="nfmt"><option value="n">1, 2, 3</option><option value="nn">{{ 'Pagina 1 van 9' if nl else 'Page 1 of 9' }}</option></select><label for="nstart">{{ 'Begin bij' if nl else 'Start at' }}</label><input id="nstart" inputmode="numeric" value="1"></div>
+  <div id="opt-sign" hidden>
+   <label>{{ 'Je handtekening (teken met muis of vinger)' if nl else 'Your signature (draw with mouse or finger)' }}</label>
+   <canvas id="sig-pad" width="600" height="200" style="width:100%;height:auto;border:1px dashed #cfcbe0;border-radius:8px;background:#fff;touch-action:none;cursor:crosshair"></canvas>
+   <div class="btns" style="margin-top:6px"><button type="button" class="btn alt sm" id="sig-clear">{{ 'Wissen' if nl else 'Clear' }}</button></div>
+   <label for="sig-name">{{ 'Of typ je naam' if nl else 'Or type your name' }}</label><input id="sig-name" placeholder="{{ 'Laat leeg als je tekent' if nl else 'Leave empty if you draw' }}">
+   <div class="two">
+    <div><label for="sig-page">{{ 'Pagina (leeg = laatste)' if nl else 'Page (empty = last)' }}</label><input id="sig-page" inputmode="numeric"></div>
+    <div><label for="sig-pos">{{ 'Positie' if nl else 'Position' }}</label><select id="sig-pos"><option value="br">{{ 'Onder, rechts' if nl else 'Bottom right' }}</option><option value="bl">{{ 'Onder, links' if nl else 'Bottom left' }}</option><option value="bc">{{ 'Onder, midden' if nl else 'Bottom centre' }}</option></select></div>
+   </div>
+   <label class="check"><input type="checkbox" id="sig-date" checked> {{ 'Datum van vandaag eronder' if nl else 'Today\'s date below' }}</label>
+  </div>
+  <div id="opt-toimg" hidden><div class="two"><div><label for="img-fmt">{{ 'Formaat' if nl else 'Format' }}</label><select id="img-fmt"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select></div><div><label for="img-scale">{{ 'Scherpte' if nl else 'Sharpness' }}</label><select id="img-scale"><option value="1.5">{{ 'Normaal' if nl else 'Normal' }}</option><option value="2.5">{{ 'Hoog' if nl else 'High' }}</option></select></div></div></div>
   <button type="button" class="btn" id="pdf-go" style="margin-top:16px;width:100%" disabled>{{ 'Maak en download' if nl else 'Create and download' }}</button>
   <p class="form-status" id="pdf-msg" role="status"></p>
  </div>

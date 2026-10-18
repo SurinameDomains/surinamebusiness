@@ -1,9 +1,18 @@
 {% extends "tool_base.html" %}
-{% set q = key == 'quote' %}
-{% block lead %}{% if q %}{{ 'Maak een professionele offerte in SRD, USD of EUR, met BTW, geldigheid en voorwaarden. Je ziet de offerte direct naast het formulier en downloadt hem als PDF.' if nl else 'Make a professional quote in SRD, USD or EUR, with VAT, validity and terms. You see the quote right next to the form and download it as a PDF.' }}{% else %}{{ 'Vul je gegevens en regels in en je ziet de factuur direct ernaast, met BTW per tarief en alle gegevens die op een factuur horen. Download als PDF of stuur een samenvatting via WhatsApp.' if nl else 'Fill in your details and lines and the invoice appears right next to it, with VAT per rate and every detail an invoice needs. Download as PDF or send a summary by WhatsApp.' }}{% endif %}{% endblock %}
+{% set D = {
+ 'invoice': {'t': ('Factuur','Invoice'), 'lead': ('Vul je gegevens en regels in en je ziet de factuur direct ernaast, met BTW per tarief en alle gegevens die op een factuur horen. Download als PDF of stuur een samenvatting via WhatsApp.', 'Fill in your details and lines and the invoice appears right next to it, with VAT per rate and every detail an invoice needs. Download as PDF or send a summary by WhatsApp.'), 'due': ('Vervaldatum','Due date'), 'party': ('Klant','Customer'), 'notes': ('Gelieve te betalen voor de vervaldatum onder vermelding van het factuurnummer. Bedankt voor uw vertrouwen.','Please pay before the due date, quoting the invoice number. Thank you for your business.')},
+ 'quote': {'t': ('Offerte','Quote'), 'lead': ('Maak een professionele offerte in SRD, USD of EUR, met BTW, geldigheid en voorwaarden. Je ziet de offerte direct naast het formulier en downloadt hem als PDF.','Make a professional quote in SRD, USD or EUR, with VAT, validity and terms. You see the quote right next to the form and download it as a PDF.'), 'due': ('Geldig tot','Valid until'), 'party': ('Klant','Customer'), 'notes': ('Deze offerte is geldig tot de genoemde datum. Prijzen onder voorbehoud van wijziging van de wisselkoers.','This quote is valid until the date shown. Prices subject to exchange rate changes.')},
+ 'proforma': {'t': ('Proforma factuur','Proforma invoice'), 'lead': ('Een proforma factuur is een voorlopige factuur: voor een aanbetaling, een invoervergunning, de douane of de bank. Het is geen definitieve factuur en telt niet mee voor je BTW aangifte.','A proforma invoice is a preliminary invoice: for a deposit, an import permit, customs or the bank. It is not a final invoice and does not count for your VAT return.'), 'due': ('Geldig tot','Valid until'), 'party': ('Klant','Customer'), 'notes': ('Dit is een proforma factuur en geen definitieve factuur. Na betaling ontvangt u de definitieve factuur.','This is a proforma invoice, not a final invoice. You will receive the final invoice after payment.')},
+ 'creditnote': {'t': ('Creditnota','Credit note'), 'lead': ('Met een creditnota corrigeer je een factuur: een retour, een vergissing of korting achteraf. Je verwijst naar de oorspronkelijke factuur en crediteert het bedrag inclusief BTW.','A credit note corrects an invoice: a return, a mistake or a discount afterwards. You refer to the original invoice and credit the amount including VAT.'), 'due': ('',''), 'party': ('Klant','Customer'), 'notes': ('Het bedrag van deze creditnota wordt verrekend met de genoemde factuur of aan u terugbetaald.','The amount of this credit note will be offset against the invoice named or refunded to you.')},
+ 'purchaseorder': {'t': ('Inkooporder','Purchase order'), 'lead': ('Bestel bij je leverancier met een duidelijke inkooporder: wat je bestelt, tegen welke prijs, wanneer en waar het geleverd moet worden. Zo voorkom je discussie bij levering en factuur.','Order from your supplier with a clear purchase order: what you order, at what price, when and where it must be delivered. That prevents disputes at delivery and invoicing.'), 'due': ('Gewenste leverdatum','Requested delivery date'), 'party': ('Leverancier','Supplier'), 'notes': ('Graag de inkoopordernummer vermelden op pakbon en factuur.','Please quote the purchase order number on the delivery note and invoice.')},
+ 'deliverynote': {'t': ('Pakbon','Delivery note'), 'lead': ('Een pakbon of afleverbon gaat mee met de levering. De ontvanger controleert de artikelen en tekent voor ontvangst; jij houdt een getekende kopie als bewijs.','A delivery note goes with the delivery. The recipient checks the items and signs for receipt; you keep a signed copy as proof.'), 'due': ('',''), 'party': ('Afleveren aan','Deliver to'), 'notes': ('Graag bij ontvangst controleren en tekenen. Klachten over de levering binnen 2 werkdagen melden.','Please check and sign on receipt. Report any issue with the delivery within 2 working days.')},
+} %}
+{% set d = D[key] %}
+{% set i = 0 if lang == 'nl' else 1 %}
+{% block lead %}{{ d.lead[i] }}{% endblock %}
 {% block tool %}
 <div class="wide-cols">
- <form class="card calc" id="inv" data-doc="{{ 'quote' if q else 'invoice' }}" onsubmit="return false" autocomplete="off">
+ <form class="card calc" id="inv" data-doc="{{ key }}" onsubmit="return false" autocomplete="off">
   <fieldset><legend>{{ 'Je bedrijf' if nl else 'Your business' }}</legend>
    <label for="s_name">{{ 'Bedrijfsnaam' if nl else 'Business name' }}</label><input id="s_name" name="s_name" placeholder="{{ 'Bijv. Bakkerij De Waag NV' if nl else 'E.g. Waag Bakery NV' }}">
    <label for="s_addr">{{ 'Adres' if nl else 'Address' }}</label><input id="s_addr" name="s_addr" placeholder="{{ 'Straat 12, Paramaribo' if nl else 'Street 12, Paramaribo' }}">
@@ -21,27 +30,33 @@
     <div><label for="color">{{ 'Kleur' if nl else 'Colour' }}</label><input id="color" name="color" type="color" value="#1f2251"></div>
    </div>
   </fieldset>
-  <fieldset><legend>{{ 'Klant' if nl else 'Customer' }}</legend>
-   <label for="c_name">{{ 'Naam klant' if nl else 'Customer name' }}</label><input id="c_name" name="c_name">
-   <label for="c_addr">{{ 'Adres klant' if nl else 'Customer address' }}</label><input id="c_addr" name="c_addr">
-   <label for="c_fin">{{ 'FIN / BTW nummer klant (optioneel)' if nl else 'Customer FIN / VAT number (optional)' }}</label><input id="c_fin" name="c_fin">
+  <fieldset><legend>{{ d.party[i] }}</legend>
+   <label for="c_name">{{ 'Naam' if nl else 'Name' }}</label><input id="c_name" name="c_name">
+   <label for="c_addr">{{ 'Adres' if nl else 'Address' }}</label><input id="c_addr" name="c_addr">
+   <label for="c_fin">{{ 'FIN / BTW nummer (optioneel)' if nl else 'FIN / VAT number (optional)' }}</label><input id="c_fin" name="c_fin">
+   {% if key == 'purchaseorder' %}<label for="ship">{{ 'Afleveradres' if nl else 'Delivery address' }}</label><input id="ship" name="ship" placeholder="{{ 'Laat leeg als het je bedrijfsadres is' if nl else 'Leave empty if it is your business address' }}">{% endif %}
   </fieldset>
-  <fieldset><legend>{{ 'Offerte' if q and nl else ('Quote' if q else ('Factuur' if nl else 'Invoice')) }}</legend>
+  <fieldset><legend>{{ d.t[i] }}</legend>
    <div class="three">
     <div><label for="no">{{ 'Nummer' if nl else 'Number' }}</label><input id="no" name="no"></div>
     <div><label for="date">{{ 'Datum' if nl else 'Date' }}</label><input id="date" name="date" type="date"></div>
-    <div><label for="due">{{ ('Geldig tot' if nl else 'Valid until') if q else ('Vervaldatum' if nl else 'Due date') }}</label><input id="due" name="due" type="date"></div>
+    {% if d.due[0] %}<div><label for="due">{{ d.due[i] }}</label><input id="due" name="due" type="date"></div>{% endif %}
    </div>
+   {% if key in ('creditnote', 'deliverynote', 'purchaseorder') %}
+   <label for="ref">{% if key == 'creditnote' %}{{ 'Op factuur nummer' if nl else 'For invoice number' }}{% elif key == 'deliverynote' %}{{ 'Order- of factuurnummer (optioneel)' if nl else 'Order or invoice number (optional)' }}{% else %}{{ 'Je referentie (optioneel)' if nl else 'Your reference (optional)' }}{% endif %}</label><input id="ref" name="ref">
+   {% endif %}
+   {% if key != 'deliverynote' %}
    <div class="two">
     <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
     <div><label for="pricemode">{{ 'Prijzen zijn' if nl else 'Prices are' }}</label><select id="pricemode" name="pricemode"><option value="excl">{{ 'exclusief BTW' if nl else 'excluding VAT' }}</option><option value="incl">{{ 'inclusief BTW' if nl else 'including VAT' }}</option></select></div>
    </div>
+   {% endif %}
    <label>{{ 'Regels' if nl else 'Lines' }}</label>
-   <table class="lines"><thead><tr><th>{{ 'Omschrijving' if nl else 'Description' }}</th><th>{{ 'Aantal' if nl else 'Qty' }}</th><th>{{ 'Prijs' if nl else 'Price' }}</th><th>{{ 'BTW' if nl else 'VAT' }}</th><th class="r">{{ 'Totaal' if nl else 'Total' }}</th><th></th></tr></thead><tbody id="lines"></tbody></table>
+   <table class="lines"><tbody id="lines"></tbody></table>
    <button type="button" class="btn alt sm" id="add-line" style="margin-top:8px">+ {{ 'Regel toevoegen' if nl else 'Add line' }}</button>
    <label for="notes">{{ 'Opmerkingen en voorwaarden' if nl else 'Notes and terms' }}</label>
-   <textarea id="notes" name="notes" rows="3">{{ ('Deze offerte is geldig tot de genoemde datum. Prijzen onder voorbehoud van wijziging van de wisselkoers.' if nl else 'This quote is valid until the date shown. Prices subject to exchange rate changes.') if q else ('Gelieve te betalen voor de vervaldatum onder vermelding van het factuurnummer. Bedankt voor uw vertrouwen.' if nl else 'Please pay before the due date, quoting the invoice number. Thank you for your business.') }}</textarea>
-   <label class="check"><input type="checkbox" name="words" checked> {{ 'Totaalbedrag ook in woorden' if nl else 'Also show the total in words' }}</label>
+   <textarea id="notes" name="notes" rows="3">{{ d.notes[i] }}</textarea>
+   {% if key != 'deliverynote' %}<label class="check"><input type="checkbox" name="words"{% if key in ('invoice','proforma','creditnote') %} checked{% endif %}> {{ 'Totaalbedrag ook in woorden' if nl else 'Also show the total in words' }}</label>{% endif %}
   </fieldset>
  </form>
  <div class="sticky">
@@ -49,20 +64,18 @@
   <div class="btns">
    <button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button>
    <button type="button" class="btn alt" id="wa">WhatsApp</button>
-   <button type="button" class="btn alt" id="next">{{ ('Nieuwe offerte' if nl else 'New quote') if q else ('Nieuwe factuur' if nl else 'New invoice') }}</button>
-   {% if q %}<a class="btn alt" href="{{ U('invoice') }}" id="to-invoice">{{ 'Maak hier een factuur van' if nl else 'Turn into an invoice' }}</a>{% endif %}
+   <button type="button" class="btn alt" id="next">{{ 'Nieuw document' if nl else 'New document' }}</button>
+   {% if key in ('quote', 'proforma') %}<a class="btn alt" href="{{ U('invoice') }}" data-carry>{{ 'Maak hier een factuur van' if nl else 'Turn into an invoice' }}</a>{% endif %}
+   {% if key == 'invoice' %}<a class="btn alt" href="{{ U('deliverynote') }}" data-carry>{{ 'Maak een pakbon' if nl else 'Make a delivery note' }}</a>{% endif %}
   </div>
   <p class="hint asof" style="margin-top:8px">{{ 'PDF: kies in het printvenster "Opslaan als PDF". Je bedrijfsgegevens en het volgende nummer worden op dit toestel onthouden.' if nl else 'PDF: choose "Save as PDF" in the print dialog. Your business details and the next number are remembered on this device.' }}</p>
  </div>
 </div>
+<p class="sub" style="margin-top:16px">{{ 'Andere documenten' if nl else 'Other documents' }}: {% for k in ['invoice','quote','proforma','creditnote','purchaseorder','deliverynote','receipt'] if k != key %}<a href="{{ U(k) }}">{{ L(k) }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
 {% endblock %}
 {% block info %}
 <section class="prose" style="margin-top:28px">
-{% if q %}
-<h2>{{ 'Wat zet je in een offerte?' if nl else 'What goes in a quote?' }}</h2>
-<p>{{ 'Een duidelijke omschrijving van het werk of de producten, de prijs per eenheid, of de prijs inclusief of exclusief BTW is, hoe lang de offerte geldig is en de betalingsvoorwaarden. Bij prijzen in SRD die afhangen van de dollar is het verstandig de geldigheid kort te houden.' if nl else 'A clear description of the work or goods, the unit price, whether prices include VAT, how long the quote is valid and the payment terms. When SRD prices depend on the dollar, keep the validity short.' }}</p>
-<p>{{ 'Akkoord? Met de knop "Maak hier een factuur van" neem je klant en regels mee naar de factuur.' if nl else 'Accepted? The "Turn into an invoice" button carries the customer and lines over to the invoice.' }}</p>
-{% else %}
+{% if key == 'invoice' %}
 <h2>{{ 'Wat moet er op een factuur?' if nl else 'What must be on an invoice?' }}</h2>
 <ul>
  <li>{{ 'Je naam of bedrijfsnaam, adres en je FIN of BTW nummer als je BTW-plichtig bent' if nl else 'Your name or business name, address and your FIN or VAT number if you are VAT registered' }}</li>
@@ -72,6 +85,21 @@
  <li>{{ 'Bedrag zonder BTW, het BTW tarief, het BTW bedrag en het totaal' if nl else 'Amount excluding VAT, the VAT rate, the VAT amount and the total' }}</li>
 </ul>
 <p>{{ 'De BTW tarieven zijn 10% (algemeen), 5% (o.a. brandstof), 25% (luxe goederen) en 0%. Meer in' if nl else 'VAT rates are 10% (standard), 5% (e.g. fuel), 25% (luxury goods) and 0%. More in' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+{% elif key == 'quote' %}
+<h2>{{ 'Wat zet je in een offerte?' if nl else 'What goes in a quote?' }}</h2>
+<p>{{ 'Een duidelijke omschrijving van het werk of de producten, de prijs per eenheid, of de prijs inclusief of exclusief BTW is, hoe lang de offerte geldig is en de betalingsvoorwaarden. Bij prijzen in SRD die afhangen van de dollar is het verstandig de geldigheid kort te houden.' if nl else 'A clear description of the work or goods, the unit price, whether prices include VAT, how long the quote is valid and the payment terms. When SRD prices depend on the dollar, keep the validity short.' }}</p>
+{% elif key == 'creditnote' %}
+<h2>{{ 'Wanneer een creditnota?' if nl else 'When a credit note?' }}</h2>
+<p>{{ 'Een verstuurde factuur pas je niet aan en gooi je niet weg. Klopt er iets niet, of brengt de klant iets terug, dan maak je een creditnota met een eigen nummer die verwijst naar de oorspronkelijke factuur. Daarna maak je zo nodig een nieuwe, juiste factuur. De BTW op de creditnota verlaagt de af te dragen BTW in die maand.' if nl else 'You do not change or delete an invoice once sent. If something is wrong or the customer returns goods, you issue a credit note with its own number that refers to the original invoice. Then issue a new, correct invoice if needed. The VAT on the credit note reduces the VAT you owe that month.' }} <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a></p>
+{% elif key == 'proforma' %}
+<h2>{{ 'Proforma of gewone factuur?' if nl else 'Proforma or regular invoice?' }}</h2>
+<p>{{ 'Een proforma factuur is een aanbod met de exacte bedragen, vaak gevraagd voor een vooruitbetaling, een invoer- of deviezenaanvraag of een bankkrediet. Pas na levering of betaling maak je de echte factuur, met een nummer uit je gewone reeks. Met de knop "Maak hier een factuur van" neem je klant en regels mee.' if nl else 'A proforma invoice is an offer with exact amounts, often requested for prepayment, an import or foreign exchange application or bank credit. Only after delivery or payment do you issue the real invoice, numbered in your regular series. The "Turn into an invoice" button carries the customer and lines over.' }} <a href="{{ U('import') }}">{{ L('import') }}</a></p>
+{% elif key == 'purchaseorder' %}
+<h2>{{ 'Waarom een inkooporder?' if nl else 'Why a purchase order?' }}</h2>
+<p>{{ 'Een inkooporder legt vast wat je hebt besteld. Vergelijk bij levering de pakbon met je order, en bij de factuur de prijzen. Grote bedrijven en de overheid werken altijd zo; voor een kleine zaak voorkomt het fouten en discussie.' if nl else 'A purchase order records what you ordered. At delivery compare the delivery note with your order, and at invoicing the prices. Large companies and government always work this way; for a small business it prevents mistakes and disputes.' }} <a href="{{ U('stock') }}">{{ L('stock') }}</a></p>
+{% else %}
+<h2>{{ 'Tips voor levering' if nl else 'Delivery tips' }}</h2>
+<p>{{ 'Print de pakbon twee keer: één voor de klant, één die getekend terugkomt. Noteer afwijkingen (beschadigd, te weinig) direct op de bon voordat iemand tekent.' if nl else 'Print the delivery note twice: one for the customer, one that comes back signed. Note any differences (damaged, short) on the note before anyone signs.' }}</p>
 {% endif %}
 </section>
 {% endblock %}

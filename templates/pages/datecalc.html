@@ -1,0 +1,23 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Wanneer vervalt een factuur van 30 dagen? Wat is de datum over 10 werkdagen? Hoeveel dagen zitten er tussen twee datums? Weekenden en Surinaamse feestdagen worden meegenomen.' if nl else 'When is an invoice with 30-day terms due? What is the date 10 working days from now? How many days lie between two dates? Weekends and Suriname public holidays are taken into account.' }}{% endblock %}
+{% block tool %}
+<div class="grid g2">
+ <form class="card calc" id="dc1" onsubmit="return false">
+  <div class="eyebrow">{{ 'Datum plus of min' if nl else 'Date plus or minus' }}</div>
+  <label for="d1">{{ 'Startdatum' if nl else 'Start date' }}</label><input id="d1" name="d" type="date">
+  <div class="three">
+   <div><label for="op">{{ 'Plus/min' if nl else 'Plus/minus' }}</label><select id="op" name="op"><option value="1">+</option><option value="-1">-</option></select></div>
+   <div><label for="n">{{ 'Aantal' if nl else 'Number' }}</label><input id="n" name="n" inputmode="numeric" value="30"></div>
+   <div><label for="u">{{ 'Eenheid' if nl else 'Unit' }}</label><select id="u" name="u"><option value="d">{{ 'dagen' if nl else 'days' }}</option><option value="w">{{ 'werkdagen' if nl else 'working days' }}</option><option value="k">{{ 'weken' if nl else 'weeks' }}</option><option value="m">{{ 'maanden' if nl else 'months' }}</option></select></div>
+  </div>
+  <div class="result" style="margin-top:16px" id="dc1-out"></div>
+ </form>
+ <form class="card calc" id="dc2" onsubmit="return false">
+  <div class="eyebrow">{{ 'Tussen twee datums' if nl else 'Between two dates' }}</div>
+  <div class="two"><div><label for="a">{{ 'Van' if nl else 'From' }}</label><input id="a" name="a" type="date"></div><div><label for="b">{{ 'Tot' if nl else 'To' }}</label><input id="b" name="b" type="date"></div></div>
+  <div class="result" style="margin-top:16px" id="dc2-out"></div>
+ </form>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Werkdagen zijn maandag tot en met vrijdag, zonder de officiële feestdagen. Feestdagen die nog niet officieel zijn bevestigd staan als verwacht op' if nl else 'Working days are Monday to Friday, excluding official public holidays. Holidays not yet officially confirmed are listed as expected on' }} <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/docs.js?v={{ build_id }}" defer></script>{% endblock %}

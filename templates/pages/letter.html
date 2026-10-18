@@ -1,0 +1,25 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een nette zakelijke brief met je eigen briefhoofd en logo. Kies een voorbeeld, pas de tekst aan en print of bewaar als PDF. Je bedrijfsgegevens van de factuurtool worden overgenomen.' if nl else 'A clean business letter with your own letterhead and logo. Pick a template, adjust the text and print or save as PDF. Your business details from the invoice tool are reused.' }}{% endblock %}
+{% block tool %}
+<div class="wide-cols">
+ <form class="card calc" id="lt" onsubmit="return false" autocomplete="off">
+  <fieldset><legend>{{ 'Afzender' if nl else 'Sender' }}</legend>
+   <label for="s_name">{{ 'Bedrijfsnaam' if nl else 'Business name' }}</label><input id="s_name" name="s_name">
+   <div class="two"><div><label for="s_addr">{{ 'Adres' if nl else 'Address' }}</label><input id="s_addr" name="s_addr"></div><div><label for="s_phone">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="s_phone" name="s_phone"></div></div>
+   <div class="two"><div><label for="s_email">E-mail</label><input id="s_email" name="s_email"></div><div><label for="color">{{ 'Kleur' if nl else 'Colour' }}</label><input id="color" name="color" type="color" value="#1f2251"></div></div>
+  </fieldset>
+  <fieldset><legend>{{ 'Brief' if nl else 'Letter' }}</legend>
+   <label for="tpl">{{ 'Voorbeeld' if nl else 'Template' }}</label>
+   <select id="tpl" name="tpl"><option value="free">{{ 'Eigen tekst' if nl else 'Own text' }}</option><option value="rfq">{{ 'Offerte aanvragen' if nl else 'Request for quotation' }}</option><option value="cancel">{{ 'Opzegging contract of huur' if nl else 'Cancelling a contract or lease' }}</option><option value="complaint">{{ 'Klacht' if nl else 'Complaint' }}</option><option value="confirm">{{ 'Bevestiging van een afspraak of order' if nl else 'Confirmation of an agreement or order' }}</option><option value="ref">{{ 'Werkgeversverklaring' if nl else 'Employment reference' }}</option><option value="price">{{ 'Prijsaanpassing aan klanten' if nl else 'Price change notice' }}</option></select>
+   <label for="to">{{ 'Aan (naam en adres)' if nl else 'To (name and address)' }}</label><textarea id="to" name="to" rows="3"></textarea>
+   <div class="two"><div><label for="place">{{ 'Plaats' if nl else 'Place' }}</label><input id="place" name="place" value="Paramaribo"></div><div><label for="date">{{ 'Datum' if nl else 'Date' }}</label><input id="date" name="date" type="date"></div></div>
+   <label for="ref">{{ 'Uw kenmerk / ons kenmerk (optioneel)' if nl else 'Your ref / our ref (optional)' }}</label><input id="ref" name="ref">
+   <label for="subj">{{ 'Onderwerp' if nl else 'Subject' }}</label><input id="subj" name="subj">
+   <label for="body">{{ 'Tekst' if nl else 'Text' }}</label><textarea id="body" name="body" rows="12"></textarea>
+   <div class="two"><div><label for="sig">{{ 'Naam ondertekenaar' if nl else 'Signatory name' }}</label><input id="sig" name="sig"></div><div><label for="fn">{{ 'Functie' if nl else 'Title' }}</label><input id="fn" name="fn"></div></div>
+  </fieldset>
+ </form>
+ <div class="sticky"><div class="paper print-area" id="lt-out"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button><button type="button" class="btn alt" data-copy="#body">{{ 'Kopieer tekst' if nl else 'Copy text' }}</button></div></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/docs.js?v={{ build_id }}" defer></script>{% endblock %}

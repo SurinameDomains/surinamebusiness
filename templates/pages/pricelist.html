@@ -1,0 +1,21 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Typ je producten en prijzen, en je krijgt een nette prijslijst of menukaart om op te hangen, uit te delen of als PDF te delen via WhatsApp. Met categorieën, je logo en een QR code naar je WhatsApp of website.' if nl else 'Type your products and prices and get a clean price list or menu to put up, hand out or share as PDF on WhatsApp. With categories, your logo and a QR code to your WhatsApp or website.' }}{% endblock %}
+{% block tool %}
+<div class="wide-cols">
+ <form class="card calc" id="pl" onsubmit="return false" autocomplete="off">
+  <div class="two"><div><label for="title">{{ 'Naam zaak' if nl else 'Business name' }}</label><input id="title" name="title" value="Snackbar De Hoek"></div><div><label for="sub">{{ 'Ondertitel' if nl else 'Subtitle' }}</label><input id="sub" name="sub" value="{{ 'Menukaart' if nl else 'Menu' }}"></div></div>
+  <label for="items">{{ 'Producten en prijzen' if nl else 'Products and prices' }}</label>
+  <textarea id="items" name="items" rows="12" style="font-family:ui-monospace,Consolas,monospace;font-size:.92rem"></textarea>
+  <p class="hint">{{ 'Eén product per regel: naam ; prijs ; omschrijving (optioneel). Een regel die begint met # is een categorie.' if nl else 'One product per line: name ; price ; description (optional). A line starting with # is a category.' }}</p>
+  <div class="three">
+   <div><label for="cols">{{ 'Kolommen' if nl else 'Columns' }}</label><select id="cols" name="cols"><option value="1">1</option><option value="2" selected>2</option></select></div>
+   <div><label for="c1">{{ 'Kleur' if nl else 'Colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+  </div>
+  <div class="two"><div><label for="qrl">{{ 'QR code naar (link of WhatsApp nummer)' if nl else 'QR code to (link or WhatsApp number)' }}</label><input id="qrl" name="qrl" placeholder="8xx xxxx {{ 'of' if nl else 'or' }} https://..."></div><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div></div>
+  <label for="foot">{{ 'Onderschrift' if nl else 'Footer' }}</label><input id="foot" name="foot" value="{{ 'Prijzen inclusief BTW. Bestellen via WhatsApp.' if nl else 'Prices include VAT. Order via WhatsApp.' }}">
+ </form>
+ <div class="sticky"><div class="paper print-area" id="pl-out"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button></div></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" integrity="sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k" crossorigin="anonymous" defer></script><script src="/assets/tools/codes.js?v={{ build_id }}" defer></script><script src="/assets/tools/docs.js?v={{ build_id }}" defer></script>{% endblock %}

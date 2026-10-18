@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Zakelijke bankrekening openen in Suriname' if nl else 'Opening a business bank account in Suriname' }}</h1>
+<p class="lead">{{ 'Met een aparte zakelijke rekening houd je privé en zaak gescheiden, krijg je makkelijker krediet en kun je betalingen van bedrijven en de overheid ontvangen. Dit heb je meestal nodig.' if nl else 'A separate business account keeps private and business money apart, makes credit easier and lets you receive payments from companies and government. This is what you usually need.' }}</p>
+<h2>{{ 'Eerst geregeld' if nl else 'Arranged first' }}</h2>
+<ol>
+<li>{{ 'Inschrijving bij de KKF (handelsregister).' if nl else 'Registration with the KKF (trade register).' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+<li>{{ 'Een bedrijfsvergunning, als je activiteit er een nodig heeft.' if nl else 'A business licence, if your activity requires one.' }}</li>
+<li>{{ 'Registratie bij de Belastingdienst; boven SRD 1 miljoen omzet per jaar ook voor de BTW.' if nl else 'Registration with the tax office; above SRD 1 million turnover a year also for VAT.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></li>
+</ol>
+<h2>{{ 'Documenten die banken vragen' if nl else 'Documents banks ask for' }}</h2>
+<ul>
+<li>{{ 'Recent uittreksel uit het handelsregister van de KKF' if nl else 'Recent extract from the KKF trade register' }}</li>
+<li>{{ 'Geldig identiteitsbewijs (ID-kaart, rijbewijs of paspoort; voor buitenlanders een paspoort) van de eigenaar, bestuurders en tekenbevoegden' if nl else 'Valid ID (ID card, driving licence or passport; a passport for foreigners) of the owner, directors and signatories' }}</li>
+<li>{{ 'UBO-verklaring: wie de uiteindelijke eigenaar is' if nl else 'UBO declaration: who the ultimate owner is' }}</li>
+<li>{{ 'Bedrijfsvergunning, als je activiteit er een nodig heeft' if nl else 'Business licence, if your activity requires one' }}</li>
+<li>{{ 'Voor een NV of stichting: de statuten, en voor een NV de publicatie in de Staatscourant' if nl else 'For an NV or foundation: the articles, and for an NV the publication in the Official Gazette' }}</li>
+<li>{{ 'Vaak ook: bewijs van adres van de zaak (huurcontract of eigendomsbewijs)' if nl else 'Often also: proof of the business address (lease or title deed)' }}</li>
+</ul>
+<p>{{ 'Elke bank heeft eigen formulieren en kan om meer vragen, bijvoorbeeld een ondernemingsplan, verwachte omzet of de herkomst van het startkapitaal. Banken moeten dat vragen onder de regels tegen witwassen. Bel vooraf en vraag naar de actuele lijst en kosten.' if nl else 'Each bank has its own forms and may ask for more, such as a business plan, expected turnover or the source of the starting capital. Banks must ask this under anti money laundering rules. Call ahead and ask for the current list and fees.' }}</p>
+<h2>{{ 'Kiezen' if nl else 'Choosing' }}</h2>
+<ul>
+<li>{{ 'Kosten: maandelijkse rekeningkosten, kosten per overboeking en voor een betaalautomaat (POS).' if nl else 'Costs: monthly account fees, fees per transfer and for a card terminal (POS).' }}</li>
+<li>{{ 'Internetbankieren en een app voor bedrijven, met meerdere gebruikers.' if nl else 'Internet banking and a business app, with multiple users.' }}</li>
+<li>{{ 'Rekeningen in SRD, USD en EUR als je importeert of exporteert.' if nl else 'Accounts in SRD, USD and EUR if you import or export.' }}</li>
+<li>{{ 'Mobiel betalen en betaallinks, zodat klanten makkelijk kunnen betalen.' if nl else 'Mobile payments and payment links, so customers can pay easily.' }}</li>
+</ul>
+<p><a href="{{ U('loan') }}">{{ L('loan') }}</a> &middot; <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+<li><a href="https://www.finabanknv.com/media/150052/Rekening_openen_Rechtspersonen_en_Surinaamse_ondernemingen.pdf" rel="noopener">Finabank: {{ 'rekening openen voor rechtspersonen en Surinaamse ondernemingen' if nl else 'opening an account for legal entities and Surinamese businesses' }}</a></li>
+<li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/zo-start-u-een-bedrijf-suriname" rel="noopener">RVO: {{ 'zo start u een bedrijf in Suriname' if nl else 'how to start a business in Suriname' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}. {{ 'Algemene informatie; de bank bepaalt welke documenten nodig zijn.' if nl else 'General information; the bank decides which documents are needed.' }}</p>
+</div>
+{% endblock %}

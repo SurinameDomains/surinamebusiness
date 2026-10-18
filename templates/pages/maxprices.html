@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Maximumprijzen basisgoederen' if nl else 'Maximum prices of basic goods' }}</h1>
+<p class="lead">{{ 'Het ministerie van Economische Zaken (EZOTI) publiceert ongeveer elke twee weken de maximumprijzen van basisgoederen per importeur: de hoogste prijs voor de winkelier (groothandel) en voor de consument. Hier doorzoekbaar, elke dag gecontroleerd.' if nl else 'The Ministry of Economic Affairs (EZOTI) publishes the maximum prices of basic goods per importer about every two weeks: the highest wholesale price for shops and the highest consumer price. Searchable here, checked daily.' }}</p>
+{% if maxp %}
+<div class="today t3">
+ <div><span class="k">{{ 'Geldig' if nl else 'Valid' }}</span><span class="v">{% if maxp.start %}{{ date(maxp.start, year=False) }} - {{ date(maxp.end) }}{% else %}{{ maxp.period }}{% endif %}</span></div>
+ <div><span class="k">{{ 'Producten' if nl else 'Products' }}</span><span class="v">{{ maxp.count }}</span></div>
+ <div><span class="k">{{ 'Gecontroleerd' if nl else 'Checked' }}</span><span class="v">{{ ago(maxp.checked_at or maxp.fetched_at) }}</span></div>
+</div>
+{% if not maxp.current %}<p class="note" style="margin-top:14px">{{ 'Dit is de laatst gepubliceerde lijst. De geldigheid is verlopen; zolang er geen nieuwe lijst is, gebruiken winkels en controleurs meestal deze prijzen. Controleer bij twijfel bij EZOTI.' if nl else 'This is the latest published list. Its validity has ended; until a new list appears, shops and inspectors usually go by these prices. Check with EZOTI if in doubt.' }}</p>{% endif %}
+<div class="filters" style="margin-top:18px"><input id="mp-q" type="search" placeholder="{{ 'Zoek product, merk of importeur, bijvoorbeeld suiker of Nutrilon' if nl else 'Search product, brand or importer, e.g. sugar or Nutrilon' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}"></div>
+<p class="sub"><span id="mp-n">{{ maxp.count }}</span> {{ 'regels' if nl else 'rows' }}</p>
+<div id="mp-list">
+{% for name, rows in maxp.groups %}
+<section class="card mp-g" style="margin-bottom:12px">
+ <h2 style="margin:0 0 8px;font-size:1.2rem">{{ name }}</h2>
+ <table class="tbl stack"><thead><tr><th>{{ 'Product' }}</th><th>{{ 'Importeur' if nl else 'Importer' }}</th><th>{{ 'Consument' if nl else 'Consumer' }}</th><th class="r">{{ 'Max. prijs' if nl else 'Max. price' }}</th><th>{{ 'Groothandel' if nl else 'Wholesale' }}</th><th class="r">{{ 'Max. prijs' if nl else 'Max. price' }}</th></tr></thead><tbody>
+ {% for r in rows %}<tr class="mp-r"><td data-l="">{{ r.product }}</td><td data-l="{{ 'Importeur' if nl else 'Importer' }}">{{ r.importer }}</td><td data-l="{{ 'Verpakking' if nl else 'Pack' }}">{{ r.r_pack }}</td><td class="r" data-l="{{ 'Max. consumentenprijs' if nl else 'Max. consumer price' }}"><b>{{ srd(r.r_price, 2) }}</b></td><td data-l="{{ 'Groothandel' if nl else 'Wholesale' }}">{{ r.w_pack }}</td><td class="r" data-l="{{ 'Max. groothandelsprijs' if nl else 'Max. wholesale price' }}">{{ srd(r.w_price, 2) }}</td></tr>{% endfor %}
+ </tbody></table>
+</section>
+{% endfor %}
+</div>
+<p class="empty" id="mp-none" hidden>{{ 'Niets gevonden. Alleen de basisgoederen op de officiële lijst staan hier.' if nl else 'Nothing found. Only the basic goods on the official list are shown here.' }}</p>
+{% else %}
+<p class="note">{{ 'De prijslijst is op dit moment niet beschikbaar. Bekijk de lijst op gov.sr.' if nl else 'The price list is not available right now. See the list on gov.sr.' }}</p>
+{% endif %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Wat betekenen deze prijzen?' if nl else 'What do these prices mean?' }}</h2>
+<p>{{ 'De lijst geeft per product en importeur de hoogste prijs die een winkel mag betalen aan de groothandel, en de hoogste prijs die jij als consument mag betalen. Betaal je meer, dan kun je dat melden bij het ministerie (de contactgegevens staan onderaan elke officiële lijst).' if nl else 'The list gives, per product and importer, the highest price a shop may pay the wholesaler and the highest price you as a consumer may pay. If you pay more, you can report it to the ministry (contact details are at the bottom of every official list).' }}</p>
+<p>{{ 'Ben je winkelier? Reken je marge op deze producten met' if nl else 'Shopkeeper? Work out your margin on these products with' }} <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</p>
+{% if maxp %}<p class="asof">{{ 'Bron' if nl else 'Source' }}: {{ 'Ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie' if nl else 'Ministry of Economic Affairs, Entrepreneurship and Technological Innovation' }}, <a href="{{ maxp.pdf }}" rel="noopener">{{ 'officiële lijst (PDF)' if nl else 'official list (PDF)' }}</a>, <a href="{{ maxp.source }}" rel="noopener">{{ 'alle lijsten op gov.sr' if nl else 'all lists on gov.sr' }}</a>. {{ 'Overgenomen zoals gepubliceerd; bij verschil geldt de officiële lijst.' if nl else 'Copied as published; in case of difference the official list prevails.' }}</p>{% endif %}
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var q=document.getElementById('mp-q');if(!q)return;var n=document.getElementById('mp-n'),none=document.getElementById('mp-none');
+q.addEventListener('input',function(){var v=q.value.toLowerCase().trim(),c=0;document.querySelectorAll('.mp-g').forEach(function(g){var k=0;var hd=g.querySelector('h2').textContent.toLowerCase();g.querySelectorAll('.mp-r').forEach(function(r){var ok=!v||hd.indexOf(v)>=0||r.textContent.toLowerCase().indexOf(v)>=0;r.hidden=!ok;if(ok)k++;});g.hidden=!k;c+=k;});n.textContent=c;none.hidden=!!c;});})();
+</script>
+{% endblock %}
