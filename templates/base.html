@@ -63,7 +63,7 @@
 <div class="wrap">
 {% for n in notices if (n.data or {}).get('page') in (key, 'all') %}<div class="note site-notice">{% if n.title %}<b>{{ ctext(n) }}</b> {% endif %}{{ ctext(n, 'body') or '' }}{% if n.url %} <a href="{{ n.url }}">{{ 'Meer' if lang=='nl' else 'More' }} &rarr;</a>{% endif %}</div>
 {% endfor %}
-{% if crumbs %}<div class="crumbs">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</div>{% endif %}
+{% if crumbs %}<nav class="crumbs" aria-label="{{ 'Kruimelpad' if lang=='nl' else 'Breadcrumb' }}">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url and not loop.last %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}{% endfor %}</nav>{% endif %}
 {% block content %}{% endblock %}
 {% if faq %}<section class="prose" style="margin-top:28px"><h2>{{ 'Veelgestelde vragen' if lang=='nl' else 'Frequently asked questions' }}</h2>{% for q, a in faq %}<h3>{{ q }}</h3><p>{{ a }}</p>{% endfor %}</section>{% endif %}
 </div>
