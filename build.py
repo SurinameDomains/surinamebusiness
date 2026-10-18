@@ -15,6 +15,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import facts
 import extras
+import tools_meta as TM
 from site_config import (DYNAMIC, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
                          file_for, url_for)
 
@@ -175,6 +176,17 @@ META = {
     "privacy": (("Privacy", "Hoe Suriname Business met gegevens omgaat."),
                 ("Privacy", "How Suriname Business handles data.")),
 }
+
+
+LABELS["tools"] = ("Gratis zakelijke tools", "Free business tools")
+META["tools"] = (("Gratis zakelijke tools voor Suriname: factuur, offerte, loonstrook en meer",
+                  "Meer dan 30 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR code, PDF samenvoegen. Zonder account."),
+                 ("Free business tools for Suriname: invoice, quote, payslip and more",
+                  "Over 30 free tools for doing business in Suriname: invoice and quote generator, payslip, VAT register, import cost, loan, QR code, PDF merge. No account needed."))
+for _t in TM.TOOLS:
+    LABELS[_t["key"]] = _t["label"]
+    META[_t["key"]] = (_t["meta_nl"], _t["meta_en"])
+TOOL_KEYS = {t["key"] for t in TM.TOOLS}
 
 
 def load(name, default):
@@ -354,9 +366,9 @@ def schema_for(key, lang, meta_title, desc, canonical):
             "isPartOf": {"@id": SITE_URL + "/#site"}, "dateModified": NOW.date().isoformat()}
     graph = [org, {"@type": "WebSite", "@id": SITE_URL + "/#site", "url": SITE_URL + "/",
                    "name": "Suriname Business", "publisher": {"@id": SITE_URL + "/#org"}}, page]
-    if key in ("salary", "overtime", "vatcalc", "workdays"):
+    if key in ("salary", "overtime", "vatcalc", "workdays") or key in TOOL_KEYS:
         graph.append({"@type": "WebApplication", "name": LABELS[key][0 if lang == "nl" else 1],
-                      "applicationCategory": "FinanceApplication", "operatingSystem": "Any",
+                      "applicationCategory": "BusinessApplication" if key in TOOL_KEYS else "FinanceApplication", "operatingSystem": "Any",
                       "url": canonical, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}})
     if key != "home":
         graph.append({"@type": "BreadcrumbList", "itemListElement": [
@@ -674,6 +686,8 @@ def main():
             jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
+            TM=TM, tool_icon=TM.icon, labour_json=json.dumps(facts.LABOUR_JS),
+            rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
         )
 
         def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
@@ -710,12 +724,12 @@ def main():
                 continue
             title, desc = META[key][li]
             crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
-            faq = extras.faqs(key, lang, py_salary)
+            faq = extras.faqs(key, lang, py_salary) or TM.faqs(key, lang)
             graph = schema_for(key, lang, title, desc, SITE_URL + U(key))
             if faq:
                 graph.append(extras.faq_schema(faq))
             render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs,
-                   extra={"faq": faq, "buyers": buyers}, graph=graph,
+                   extra={"faq": faq, "buyers": buyers, "tool": TM.BY_KEY.get(key)}, graph=graph,
                    robots="noindex,follow" if key == "search" else None)
 
         for b in buyers:

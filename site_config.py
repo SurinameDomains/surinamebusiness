@@ -48,11 +48,18 @@ PAGES = {
     "privacy": ("privacy", "en/privacy", "trust"),
     "companies": ("bedrijven/", "en/companies/", "companies"),
     "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
+    "tools": ("tools", "en/tools", "tools"),
 }
+
+# free business tools (see tools_meta.py), one page per tool in both languages
+from tools_meta import TOOLS as _TOOLS  # noqa: E402
+for _t in _TOOLS:
+    PAGES[_t["key"]] = (_t["nl"], _t["en"], "tools")
 DYNAMIC = {"companies"}
 
 NAV = [
     # (label_nl, label_en, page_key)
+    ("Tools", "Tools", "tools"),
     ("Salaris", "Salary", "salary"),
     ("Aanbestedingen", "Tenders", "tenders"),
     ("Vacatures", "Jobs", "jobs"),
@@ -63,7 +70,8 @@ NAV = [
 ]
 
 FOOTER_GROUPS = [
-    ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates"]),
+    ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
+    ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "qrcode", "pdftools"]),
     ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "news", "holidays", "workdays"]),
     ("Gidsen", "Guides", ["start", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),

@@ -11,6 +11,10 @@ Fully independent site: own repo, own data pipeline, own Cloudflare account. It 
 - `build.py` renders `templates/pages/*.html` in both languages into `_site/` with sitemap, robots, schema and hreflang.
 - `.github/workflows/site.yml` runs fetch + build every 30 minutes and on every push, and deploys to GitHub Pages.
 
+## Free tools (tools_meta.py)
+
+`tools_meta.py` registers the free business tools (invoice, quote, receipt, payslip, VAT register, pricing, import cost, loan, PDF and image tools, QR and barcodes, and more). Each tool is `templates/pages/<key>.html` (extends `templates/tool_base.html`) with its script in `assets/tools/`. `site_config.py` adds them to `PAGES`; the hub is `/tools` (`/en/tools`). Everything runs in the browser: nothing is uploaded, and per-visitor conveniences (business details, invoice number, VAT register) live in the visitor's local storage only. Two libraries load from jsDelivr with a pinned version and SRI hash: pdf-lib 1.17.1 (MIT) on the PDF tools page and qrcode-generator 1.4.4 (MIT) on the QR, WhatsApp link and business card pages. Leave-law values live in `facts.LEAVE`, cash denominations in `facts.CASH`.
+
 ## Vacancy board (worker/)
 
 Employers post vacancies themselves at `/vacature-plaatsen` (`/en/post-a-job`). The backend is the Cloudflare Worker `sb-jobs` on the **Suriname Business** Cloudflare account (never the Explore account), with D1 (`sb-jobs`), KV (`sb-jobs-files`, PDFs) and Turnstile.

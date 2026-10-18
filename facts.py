@@ -153,6 +153,27 @@ PORTALS = {
 }
 
 
+# Vacantiewet 1975 (annual leave and leave allowance), checked 2026-10-18
+LEAVE = {
+    "first_year_days": 12,      # art. 7(1): after one full calendar year
+    "extra_per_year": 2,        # art. 7(1): each further uninterrupted year
+    "max_days": 18,             # art. 7(1)
+    "per_month_first_year": 1,  # art. 7(3): incomplete first year, 1 day per full month
+    "allowance_pct": 0.5,       # art. 10(1): half the wage during leave
+    "sources": [("Vacantiewet 1975 (De Nationale Assemblee)", "https://www.dna.sr/media/egnb5dhm/vakantiewet.pdf")],
+}
+
+# Suriname cash in circulation (CBvS): notes incl. SRD 200 and 500 since March 2024, coins in cents
+CASH = {
+    "notes": [500, 200, 100, 50, 20, 10, 5],
+    "coins": [2.5, 1, 0.25, 0.10, 0.05, 0.01],
+    "sources": [("CBvS introduceert coupures van SRD 200 en SRD 500 (Keynews)", "https://keynews.sr/cbvs-introduceert-nieuwe-coupures-van-srd-200-en-srd-500")],
+}
+
+LABOUR_JS = {"max_day": LABOUR["max_day"], "max_week": LABOUR["max_week"], "ot_normal": LABOUR["ot_normal"],
+             "ot_rest": LABOUR["ot_rest"], "min_hour": MIN_WAGE["hour"], **{k: LEAVE[k] for k in (
+                 "first_year_days", "extra_per_year", "max_days", "per_month_first_year", "allowance_pct")}}
+
 # subset handed to the browser calculators
 TAX_JS = {k: TAX[k] for k in ("free_month", "forfait_pct", "forfait_max_month", "brackets_month",
                               "overtime_brackets_month", "aov_pct")}
