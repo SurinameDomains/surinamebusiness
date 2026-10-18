@@ -36,10 +36,21 @@
    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f2251"/><rect x="7.5" y="18" width="5" height="9" rx="1.5" fill="#c9cbeb"/><rect x="14.5" y="13" width="5" height="14" rx="1.5" fill="#c9cbeb"/><rect x="21.5" y="7" width="5" height="20" rx="1.5" fill="#e4572e"/></svg>
    <span>Suriname Business<small>{{ 'Werken, handelen, investeren' if lang=='nl' else 'Work, trade, invest' }}</small></span>
   </a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="var n=document.getElementById('nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">{{ 'Menu' }}</button>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" id="menu-btn">{{ 'Menu' }}</button>
   <nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
-   {% for item in nav %}<a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
-   <a href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"{% if key == 'search' %} aria-current="page"{% endif %}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-3px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr-only-mobile"> {{ 'Zoeken' if lang=='nl' else 'Search' }}</span></a>
+   {% for m in nav %}
+   <div class="dd{% if m.current %} cur{% endif %}{% if m.key == 'tools' %} mega-dd{% endif %}">
+    <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-{{ m.key }}">{{ m.label }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <div class="dd-panel{% if m.key == 'tools' %} mega{% endif %}" id="dd-{{ m.key }}">
+     <div class="dd-cols">
+     {% for c in m.cols %}<div class="dd-col"><div class="dd-h">{{ c.label }}</div><ul>{% for l in c.links %}<li><a href="{{ l.url }}"{% if l.current %} aria-current="page"{% endif %}>{{ l.label }}</a></li>{% endfor %}</ul></div>{% endfor %}
+     </div>
+     {% if m.all %}<a class="dd-all" href="{{ m.all.url }}">{{ m.all.label }} &rarr;</a>{% endif %}
+    </div>
+   </div>
+   {% endfor %}
+   {% if rates and not rates.stale %}<a class="rate-chip" href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}" title="{{ 'Verkoopkoers CME' if lang=='nl' else 'CME selling rate' }}"><span>USD</span> {{ num(rates.usd.sell) }}</a>{% endif %}
+   <a class="nav-search" href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"{% if key == 'search' %} aria-current="page"{% endif %}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-3px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr-only-mobile"> {{ 'Zoeken' if lang=='nl' else 'Search' }}</span></a>
    {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
   </nav>
  </div>
@@ -65,6 +76,15 @@
   </div>
  </div>
 </footer>
+<script>
+(function(){var nav=document.getElementById('nav'),mb=document.getElementById('menu-btn'),dds=[].slice.call(nav.querySelectorAll('.dd'));
+function close(except){dds.forEach(function(d){if(d!==except){d.classList.remove('open');d.querySelector('.dd-btn').setAttribute('aria-expanded','false');}});}
+dds.forEach(function(d){var b=d.querySelector('.dd-btn');b.addEventListener('click',function(e){e.stopPropagation();var o=!d.classList.contains('open');close(d);d.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});});
+document.addEventListener('click',function(e){if(!nav.contains(e.target))close();});
+dds.forEach(function(d){d.addEventListener('mouseenter',function(){if(window.innerWidth>1000)close(d);});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();}});
+mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);});})();
+</script>
 {% block scripts %}{% endblock %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
 </body>
