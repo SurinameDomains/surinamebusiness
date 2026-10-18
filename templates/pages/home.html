@@ -89,7 +89,7 @@
   <section class="card" style="margin-top:16px">
    <div class="eyebrow">{{ 'Vacatures' if nl else 'Jobs' }}</div>
    <ul class="list">
-   {% for j in jobs['items'][:4] %}<li><a href="{{ j.url }}" rel="noopener nofollow" target="_blank">{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span></div></li>
+   {% for j in jobs['items'][:4] %}<li><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span></div></li>
    {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
    </ul>
    <div class="foot"><a href="{{ U('jobs') }}">{{ 'Alle vacatures' if nl else 'All jobs' }} &rarr;</a></div>

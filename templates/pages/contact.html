@@ -7,7 +7,8 @@
 <p class="big" style="font-size:1.4rem"><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
 <ul>
  <li>{{ 'Fout in een cijfer: noem de pagina en de bron die het juiste cijfer geeft.' if nl else 'Wrong number: mention the page and the source with the correct figure.' }}</li>
- <li>{{ 'Vacature of aanbesteding: stuur de titel, de organisatie, de sluitingsdatum en een link of PDF.' if nl else 'Vacancy or tender: send the title, organisation, closing date and a link or PDF.' }}</li>
+ <li>{{ 'Vacature plaatsen? Dat kan zelf en gratis via' if nl else 'Posting a vacancy? Do it yourself, for free, at' }} <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>.</li>
+ <li>{{ 'Aanbesteding aanmelden: stuur de titel, de organisatie, de sluitingsdatum en een link of PDF.' if nl else 'Tender to submit: send the title, organisation, closing date and a link or PDF.' }}</li>
 </ul>
 </div>
 {% endblock %}

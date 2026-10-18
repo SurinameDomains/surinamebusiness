@@ -2,10 +2,12 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'Vacatures in Suriname' if nl else 'Jobs in Suriname' }}</h1>
-<p class="lead">{{ 'Vacatures bij de overheid, grote werkgevers zoals Newmont en TotalEnergies, de VN, de Amerikaanse ambassade en consultancy opdrachten van de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'Vacancies at the government, large employers such as Newmont and TotalEnergies, the UN, the US Embassy and consultancy assignments from the IDB and the World Bank. Updated every 30 minutes.' }}</p>
+<p class="lead">{{ 'Vacatures die werkgevers direct bij ons plaatsen, plus vacatures bij de overheid, grote werkgevers zoals Newmont en TotalEnergies, de VN, de Amerikaanse ambassade en consultancy opdrachten van de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'Vacancies employers post directly with us, plus vacancies at the government, large employers such as Newmont and TotalEnergies, the UN, the US Embassy and consultancy assignments from the IDB and the World Bank. Updated every 30 minutes.' }}</p>
+<p><a class="btn inline" href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job for free' }}</a></p>
 <div class="filters" data-filter-list="j-list" data-count="j-count">
  <input type="search" placeholder="{{ 'Zoek functie of werkgever' if nl else 'Search job title or employer' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }} (<span id="j-count">{{ jobs['items']|length }}</span>)</button>
+ {% if jobs['items']|selectattr('posted')|list %}<button class="chip" data-v="sb" aria-pressed="false">{{ 'Direct geplaatst' if nl else 'Posted here' }}</button>{% endif %}
  <button class="chip" data-v="gov" aria-pressed="false">{{ 'Overheid' if nl else 'Government' }}</button>
  <button class="chip" data-v="biz" aria-pressed="false">{{ 'Bedrijven' if nl else 'Companies' }}</button>
  <button class="chip" data-v="intl" aria-pressed="false">{{ 'Internationaal' if nl else 'International' }}</button>
@@ -13,16 +15,16 @@
 <div class="card">
 <ul class="list" id="j-list">
 {% for j in jobs['items'] %}
- <li data-src="{{ 'gov' if j.source == 'gov.sr' else ('biz' if j.source in ['Newmont','TotalEnergies'] else 'intl') }}"><a href="{{ j.url }}" rel="noopener nofollow" target="_blank">{{ j.title }}</a>
- <div class="meta"><span>{{ j.employer }}</span>{% if j.kind == 'consultancy' %}<span class="pill">consultancy</span>{% endif %}<span>{{ date(j.published) }}</span>{% if j.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(j.deadline) }}</span>{% endif %}</div></li>
+ <li data-src="{{ 'sb' if j.posted else ('gov' if j.source == 'gov.sr' else ('biz' if j.source in ['Newmont','TotalEnergies'] else 'intl')) }}"><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a>
+ <div class="meta"><span>{{ j.employer }}</span>{% if j.posted %}<span>{{ {'Remote': ('Op afstand' if nl else 'Remote')}.get(j.location, j.location) }}</span><span class="pill brand">{{ 'Direct bij werkgever' if nl else 'Direct from employer' }}</span>{% endif %}{% if j.kind == 'consultancy' %}<span class="pill">consultancy</span>{% endif %}<span>{{ date(j.published) }}</span>{% if j.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(j.deadline) }}</span>{% endif %}</div></li>
 {% else %}<li class="empty">{{ 'Op dit moment geen open vacatures gevonden.' if nl else 'No open vacancies found right now.' }}</li>{% endfor %}
 </ul>
 </div>
-<div class="card" style="margin-top:20px"><h3>{{ 'Meer vacatures op andere vacaturesites' if nl else 'More vacancies on other job sites' }}</h3><p>{{ 'Lokale bedrijven plaatsen veel vacatures op deze sites:' if nl else 'Local companies post many vacancies on these sites:' }} <a href="https://vacaturebank.sr/" rel="noopener" target="_blank">vacaturebank.sr</a> &middot; <a href="https://jobs.sr/" rel="noopener" target="_blank">jobs.sr</a> &middot; <a href="https://gov.sr/vacatures/" rel="noopener" target="_blank">gov.sr/vacatures</a>. <a href="/feeds/vacatures.xml">RSS</a></p></div>
+<p class="sub" style="margin-top:12px">{{ 'Alle overheidsvacatures staan ook op' if nl else 'All government vacancies are also on' }} <a href="https://gov.sr/vacatures/" rel="noopener" target="_blank">gov.sr/vacatures</a>. {{ 'Nieuwe vacatures volgen?' if nl else 'Follow new vacancies?' }} <a href="/feeds/vacatures.xml">RSS</a></p>
 <div class="grid g2" style="margin-top:20px">
- <div class="card"><h3>{{ 'Vacature plaatsen?' if nl else 'Post a vacancy?' }}</h3><p>{{ 'Werkgevers kunnen gratis een vacature aanmelden. Stuur de functie, sluitingsdatum en een link of PDF naar' if nl else 'Employers can submit a vacancy for free. Send the job title, closing date and a link or PDF to' }} <a href="mailto:{{ contact_email }}?subject=Vacature">{{ contact_email }}</a>.</p></div>
+ <div class="card"><h3>{{ 'Vacature plaatsen?' if nl else 'Hiring?' }}</h3><p>{{ 'Plaats gratis een vacature. Hij staat hier en in Google Jobs, en kandidaten solliciteren direct bij jou.' if nl else 'Post a vacancy for free. It shows here and in Google Jobs, and candidates apply directly with you.' }}</p><a href="{{ U('postjob') }}">{{ L('postjob') }} &rarr;</a></div>
  <div class="card"><h3>{{ 'Wat verdien je netto?' if nl else 'What will you take home?' }}</h3><p>{{ 'Reken een aangeboden salaris om naar netto met de loonbelasting van 2026.' if nl else 'Convert an offered salary to net pay with the 2026 wage tax.' }}</p><a href="{{ U('salary') }}">{{ L('salary') }} &rarr;</a></div>
 </div>
-<p class="asof" style="margin-top:16px">{{ 'Bronnen' if nl else 'Sources' }}: <a href="{{ F.PORTALS.gov_jobs }}" rel="noopener">gov.sr</a>, Newmont, TotalEnergies, UNDP, UNICEF, UN Careers, {{ 'Amerikaanse ambassade' if nl else 'US Embassy' }}, IDB, {{ 'Wereldbank' if nl else 'World Bank' }}. {{ 'Solliciteer altijd via de originele publicatie.' if nl else 'Always apply through the original notice.' }}{% if jobs.fetched_at %} {{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(jobs.fetched_at) }}.{% endif %}</p>
+<p class="asof" style="margin-top:16px">{{ 'Bronnen' if nl else 'Sources' }}: {{ 'werkgevers die direct plaatsen' if nl else 'employers posting directly' }}, <a href="{{ F.PORTALS.gov_jobs }}" rel="noopener">gov.sr</a>, Newmont, TotalEnergies, UNDP, UNICEF, UN Careers, {{ 'Amerikaanse ambassade' if nl else 'US Embassy' }}, IDB, {{ 'Wereldbank' if nl else 'World Bank' }}. {{ 'Bij vacatures van andere bronnen solliciteer je via de originele publicatie.' if nl else 'For vacancies from other sources, apply through the original notice.' }}{% if jobs.fetched_at %} {{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(jobs.fetched_at) }}.{% endif %}</p>
 {% endblock %}
 {% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}

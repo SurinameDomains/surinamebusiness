@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="cols">
+<div>
+<h1>{{ 'Gratis een vacature plaatsen' if nl else 'Post a job for free' }}</h1>
+<p class="lead">{{ 'Je vacature komt op Suriname Business en in Google Jobs. Kandidaten solliciteren rechtstreeks bij jou, per e-mail of via je eigen website.' if nl else 'Your vacancy goes on Suriname Business and into Google Jobs. Candidates apply directly with you, by email or through your own website.' }}</p>
+
+<form class="card calc pj" id="pj" novalidate>
+ <input type="hidden" name="ui" value="{{ lang }}">
+ <div class="hp" aria-hidden="true"><label>Website 2<input name="website2" tabindex="-1" autocomplete="off"></label></div>
+
+ <fieldset>
+  <legend>{{ 'De functie' if nl else 'The job' }}</legend>
+  <div data-f="title"><label for="f-title">{{ 'Functietitel' if nl else 'Job title' }}</label>
+   <input id="f-title" name="title" maxlength="120" required placeholder="{{ 'Bijv. Boekhouder' if nl else 'E.g. Accountant' }}">
+   <div class="msg">{{ 'Vul een functietitel in.' if nl else 'Enter a job title.' }}</div></div>
+  <div class="two">
+   <div data-f="location"><label for="f-loc">{{ 'Werklocatie' if nl else 'Location' }}</label>
+    <select id="f-loc" name="location" required>
+     {% for d in ['Paramaribo','Wanica','Nickerie','Commewijne','Para','Saramacca','Marowijne','Coronie','Brokopondo','Sipaliwini'] %}<option value="{{ d }}">{{ d }}</option>{% endfor %}
+     <option value="Remote">{{ 'Op afstand (remote)' if nl else 'Remote' }}</option>
+    </select><div class="msg">{{ 'Kies een locatie.' if nl else 'Choose a location.' }}</div></div>
+   <div data-f="employment_type"><label for="f-type">{{ 'Dienstverband' if nl else 'Employment type' }}</label>
+    <select id="f-type" name="employment_type" required>
+     <option value="FULL_TIME">{{ 'Fulltime' if nl else 'Full-time' }}</option>
+     <option value="PART_TIME">{{ 'Parttime' if nl else 'Part-time' }}</option>
+     <option value="TEMPORARY">{{ 'Tijdelijk' if nl else 'Temporary' }}</option>
+     <option value="CONTRACTOR">{{ 'Freelance / opdracht' if nl else 'Freelance / contract' }}</option>
+     <option value="INTERN">{{ 'Stage' if nl else 'Internship' }}</option>
+    </select><div class="msg">{{ 'Kies een dienstverband.' if nl else 'Choose a type.' }}</div></div>
+  </div>
+  <div data-f="description"><label for="f-desc">{{ 'Omschrijving' if nl else 'Description' }}</label>
+   <textarea id="f-desc" name="description" maxlength="10000" required placeholder="{{ 'Wat ga je doen, wat vragen we, wat bieden we. Begin een regel met - voor een opsomming.' if nl else 'What the job involves, what you ask, what you offer. Start a line with - for a bullet list.' }}"></textarea>
+   <div class="hint"><span id="desc-n">0</span> {{ 'tekens, minimaal 150' if nl else 'characters, at least 150' }}</div>
+   <div class="msg">{{ 'Schrijf minimaal 150 tekens: taken, eisen en wat je biedt.' if nl else 'Write at least 150 characters: duties, requirements and what you offer.' }}</div></div>
+  <div class="two">
+   <div data-f="lang"><label for="f-lang">{{ 'Taal van de vacature' if nl else 'Language of the vacancy' }}</label>
+    <select id="f-lang" name="lang"><option value="nl"{% if nl %} selected{% endif %}>Nederlands</option><option value="en"{% if not nl %} selected{% endif %}>English</option></select></div>
+   <div data-f="deadline"><label for="f-dl">{{ 'Sluitingsdatum' if nl else 'Closing date' }}</label>
+    <input id="f-dl" name="deadline" type="date" min="{{ min_deadline }}" max="{{ max_deadline }}" value="{{ default_deadline }}" required>
+    <div class="hint">{{ 'Maximaal 60 dagen vooruit.' if nl else 'Up to 60 days ahead.' }}</div>
+    <div class="msg">{{ 'Kies een datum vanaf morgen, maximaal 60 dagen vooruit.' if nl else 'Choose a date from tomorrow, up to 60 days ahead.' }}</div></div>
+  </div>
+  <div class="three">
+   <div data-f="salary_min"><label for="f-smin">{{ 'Salaris vanaf (optioneel)' if nl else 'Salary from (optional)' }}</label><input id="f-smin" name="salary_min" inputmode="decimal"><div class="msg">{{ 'Ongeldig bedrag.' if nl else 'Invalid amount.' }}</div></div>
+   <div data-f="salary_max"><label for="f-smax">{{ 'Tot (optioneel)' if nl else 'To (optional)' }}</label><input id="f-smax" name="salary_max" inputmode="decimal"><div class="msg">{{ 'Moet hoger zijn dan het vanaf-bedrag.' if nl else 'Must be higher than the from amount.' }}</div></div>
+   <div><label for="f-scur">{{ 'Valuta en periode' if nl else 'Currency and period' }}</label>
+    <div style="display:flex;gap:6px"><select id="f-scur" name="salary_currency"><option>SRD</option><option>USD</option><option>EUR</option></select>
+    <select name="salary_period" aria-label="{{ 'Periode' if nl else 'Period' }}"><option value="MONTH">{{ '/mnd' if nl else '/mo' }}</option><option value="HOUR">{{ '/uur' if nl else '/hr' }}</option><option value="YEAR">{{ '/jaar' if nl else '/yr' }}</option></select></div></div>
+  </div>
+  <div class="hint">{{ 'Vacatures met salaris krijgen meer reacties en scoren beter in Google.' if nl else 'Vacancies with a salary get more responses and rank better in Google.' }}</div>
+  <div data-f="pdf"><label for="f-pdf">{{ 'Vacature als PDF (optioneel, max 3 MB)' if nl else 'Vacancy as PDF (optional, max 3 MB)' }}</label><input id="f-pdf" name="pdf" type="file" accept="application/pdf,.pdf"><div class="msg">{{ 'Alleen PDF tot 3 MB.' if nl else 'PDF only, up to 3 MB.' }}</div></div>
+ </fieldset>
+
+ <fieldset>
+  <legend>{{ 'De werkgever' if nl else 'The employer' }}</legend>
+  <div class="two">
+   <div data-f="employer"><label for="f-emp">{{ 'Bedrijfsnaam' if nl else 'Company name' }}</label><input id="f-emp" name="employer" maxlength="120" required autocomplete="organization"><div class="msg">{{ 'Vul de naam van het bedrijf in.' if nl else 'Enter the company name.' }}</div></div>
+   <div data-f="employer_url"><label for="f-web">{{ 'Website (optioneel)' if nl else 'Website (optional)' }}</label><input id="f-web" name="employer_url" type="url" placeholder="https://" autocomplete="url"><div class="msg">{{ 'Begin met https://' if nl else 'Start with https://' }}</div></div>
+  </div>
+ </fieldset>
+
+ <fieldset>
+  <legend>{{ 'Hoe solliciteren kandidaten?' if nl else 'How do candidates apply?' }}</legend>
+  <div class="two">
+   <div data-f="apply_email"><label for="f-ae">{{ 'Sollicitatie e-mail' if nl else 'Application email' }}</label><input id="f-ae" name="apply_email" type="email" placeholder="hr@{{ 'bedrijf' if nl else 'company' }}.sr"><div class="msg">{{ 'Ongeldig e-mailadres.' if nl else 'Invalid email address.' }}</div></div>
+   <div data-f="apply_url"><label for="f-au">{{ 'Of sollicitatielink' if nl else 'Or application link' }}</label><input id="f-au" name="apply_url" type="url" placeholder="https://"><div class="msg">{{ 'Begin met https://' if nl else 'Start with https://' }}</div></div>
+  </div>
+  <div data-f="apply"><div class="msg">{{ 'Vul een e-mailadres of een link in.' if nl else 'Enter an email address or a link.' }}</div></div>
+  <div class="hint">{{ 'Dit wordt openbaar getoond. Kandidaten sturen hun CV rechtstreeks naar jou.' if nl else 'This is shown publicly. Candidates send their CV directly to you.' }}</div>
+ </fieldset>
+
+ <fieldset>
+  <legend>{{ 'Jouw gegevens (niet openbaar)' if nl else 'Your details (not public)' }}</legend>
+  <div class="three">
+   <div data-f="contact_name"><label for="f-cn">{{ 'Naam' if nl else 'Name' }}</label><input id="f-cn" name="contact_name" maxlength="100" required autocomplete="name"><div class="msg">{{ 'Vul je naam in.' if nl else 'Enter your name.' }}</div></div>
+   <div data-f="contact_email"><label for="f-ce">{{ 'E-mail' if nl else 'Email' }}</label><input id="f-ce" name="contact_email" type="email" required autocomplete="email"><div class="msg">{{ 'Vul een geldig e-mailadres in.' if nl else 'Enter a valid email address.' }}</div></div>
+   <div data-f="contact_phone"><label for="f-cp">{{ 'Telefoon (optioneel)' if nl else 'Phone (optional)' }}</label><input id="f-cp" name="contact_phone" type="tel" maxlength="40" autocomplete="tel"></div>
+  </div>
+  <div class="hint">{{ 'Alleen voor contact over deze vacature.' if nl else 'Only used to contact you about this vacancy.' }}</div>
+ </fieldset>
+
+ <div data-f="rules" style="margin-top:16px"><label class="check"><input type="checkbox" name="rules" value="yes" required> <span>{{ 'Dit is een echte vacature bij deze werkgever en kandidaten betalen niets om te solliciteren. Ik ga akkoord met de regels hiernaast.' if nl else 'This is a real vacancy at this employer and candidates pay nothing to apply. I agree to the rules on this page.' }}</span></label><div class="msg">{{ 'Vink dit aan om door te gaan.' if nl else 'Tick this box to continue.' }}</div></div>
+ <div data-f="captcha" style="margin-top:14px"><div id="ts"></div><div class="msg">{{ 'De controle is mislukt. Probeer het opnieuw.' if nl else 'The check failed. Please try again.' }}</div></div>
+ <button class="btn inline" type="submit" id="pj-btn" style="margin-top:14px">{{ 'Vacature indienen' if nl else 'Submit vacancy' }}</button>
+ <div class="form-status" id="pj-status" role="status" aria-live="polite"></div>
+</form>
+</div>
+
+<aside>
+ <div class="card"><div class="eyebrow">{{ 'Zo werkt het' if nl else 'How it works' }}</div>
+  <ol style="padding-left:1.2em;margin:0">
+   <li>{{ 'Vul het formulier in.' if nl else 'Fill in the form.' }}</li>
+      <li>{{ 'We controleren de vacature, meestal binnen één werkdag.' if nl else 'We check the vacancy, usually within one working day.' }}</li>
+   <li>{{ 'Je vacature staat online tot de sluitingsdatum. Eerder vervuld? Sluit hem met je beheerlink.' if nl else 'Your vacancy stays online until the closing date. Filled earlier? Close it with your manage link.' }}</li>
+  </ol>
+ </div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">{{ 'Regels' if nl else 'Rules' }}</div>
+  <ul style="padding-left:1.2em;margin:0">
+   <li>{{ 'Eén functie per vacature, bij een echte werkgever.' if nl else 'One position per vacancy, at a real employer.' }}</li>
+   <li>{{ 'Werk in Suriname, of op afstand voor een Surinaamse werkgever.' if nl else 'Work in Suriname, or remote for a Suriname employer.' }}</li>
+   <li>{{ 'Geen kosten voor kandidaten, geen piramide- of netwerkverkoop, geen "verdien snel geld".' if nl else 'No fees for candidates, no pyramid or network marketing, no "earn quick money".' }}</li>
+   <li>{{ 'Geen discriminatie op afkomst, geloof, geslacht of leeftijd.' if nl else 'No discrimination on origin, religion, gender or age.' }}</li>
+   <li>{{ 'We mogen een vacature weigeren of offline halen.' if nl else 'We may refuse or remove a vacancy.' }}</li>
+  </ul>
+ </div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">{{ 'Kosten' if nl else 'Cost' }}</div><p style="margin:0">{{ 'Plaatsen is gratis.' if nl else 'Posting is free.' }}</p></div>
+</aside>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=sbTs" async defer></script>
+<script>
+(function(){
+ var API={{ jobs_api|tojson }}, KEY={{ turnstile_sitekey|tojson }}, NL={{ 'true' if nl else 'false' }};
+ var form=document.getElementById('pj'), btn=document.getElementById('pj-btn'), st=document.getElementById('pj-status');
+ var desc=document.getElementById('f-desc'), dn=document.getElementById('desc-n'), tsId=null;
+ window.sbTs=function(){ tsId=turnstile.render('#ts',{sitekey:KEY,language:NL?'nl':'en'}); };
+ desc.addEventListener('input',function(){dn.textContent=desc.value.trim().length});
+ function mark(f){ var el=form.querySelector('[data-f="'+f+'"]'); if(el){el.classList.add('bad'); var i=el.querySelector('input,textarea,select'); if(i)i.focus(); el.scrollIntoView({block:'center',behavior:'smooth'});} }
+ function clear(){ form.querySelectorAll('.bad').forEach(function(e){e.classList.remove('bad')}); st.className='form-status'; st.textContent=''; }
+ function say(cls,msg){ st.className='form-status '+cls; st.textContent=msg; }
+ function isUrl(s){ return /^https?:\/\/[^\s.]+\.[^\s]+$/i.test(s) }
+ function isMail(s){ return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(s) }
+ function check(){
+  var v=function(n){var e=form.elements[n];return e?String(e.value||'').trim():''};
+  if(v('title').length<3) return 'title';
+  if(v('description').length<150) return 'description';
+  var d=v('deadline'); if(!d||d<form.elements.deadline.min||d>form.elements.deadline.max) return 'deadline';
+  var a=+v('salary_min').replace(/[^\d.]/g,''), b=+v('salary_max').replace(/[^\d.]/g,''); if(a&&b&&b<a) return 'salary_max';
+  var pdf=form.elements.pdf.files[0]; if(pdf&&(pdf.size>3*1024*1024||!/\.pdf$/i.test(pdf.name))) return 'pdf';
+  if(v('employer').length<2) return 'employer';
+  if(v('employer_url')&&!isUrl(v('employer_url'))) return 'employer_url';
+  if(!v('apply_email')&&!v('apply_url')) return 'apply';
+  if(v('apply_email')&&!isMail(v('apply_email'))) return 'apply_email';
+  if(v('apply_url')&&!isUrl(v('apply_url'))) return 'apply_url';
+  if(v('contact_name').length<2) return 'contact_name';
+  if(!isMail(v('contact_email'))) return 'contact_email';
+  if(!form.elements.rules.checked) return 'rules';
+  return null;
+ }
+ form.addEventListener('submit',function(e){
+  e.preventDefault(); clear();
+  var bad=check(); if(bad){mark(bad);return}
+  var fd=new FormData(form);
+  if(!fd.get('cf-turnstile-response')){ mark('captcha'); return }
+  btn.disabled=true; say('ok', NL?'Bezig met versturen...':'Sending...');
+  fetch(API.replace(/\/$/,'')+'/api/jobs',{method:'POST',body:fd}).then(function(r){return r.json().catch(function(){return {ok:false,error:'server'}})}).then(function(d){
+   btn.disabled=false;
+   if(d.ok){
+    form.querySelectorAll('fieldset,[data-f],#pj-btn').forEach(function(x){x.style.display='none'});
+    say('ok', d.needs_verify ? (NL?'Bijna klaar. We hebben een e-mail gestuurd naar '+fd.get('contact_email')+'. Klik op de link in die e-mail om je vacature in te dienen. Niets ontvangen? Kijk in je spam.':'Almost done. We sent an email to '+fd.get('contact_email')+'. Click the link in that email to submit your vacancy. Nothing received? Check your spam folder.')
+                             : (NL?'Bedankt, je vacature is ingediend. We controleren hem meestal binnen één werkdag en dan staat hij binnen een half uur online.':'Thanks, your vacancy has been submitted. We usually review it within one working day, and it goes live within half an hour after that.'));
+    if(d.manage_url){ var p=document.createElement('p'); p.style.marginTop='10px'; p.textContent=NL?'Bewaar deze link. Daarmee zie je de status en kun je de vacature sluiten als hij vervuld is: ':'Save this link. It shows the status and lets you close the vacancy once it is filled: ';
+     var a=document.createElement('a'); a.href=d.manage_url; a.textContent=NL?'Mijn vacature beheren':'Manage my vacancy'; a.target='_blank'; a.rel='noopener'; p.appendChild(a); st.appendChild(p); }
+    st.scrollIntoView({block:'center',behavior:'smooth'});
+    return;
+   }
+   if(window.turnstile&&tsId!==null) turnstile.reset(tsId);
+   if(d.error==='invalid'&&d.field){ mark(d.field); say('err', NL?'Controleer het gemarkeerde veld.':'Please check the highlighted field.'); return }
+   if(d.error==='captcha'){ mark('captcha'); return }
+   if(d.error==='rate'){ say('err', NL?'Je hebt vandaag al meerdere vacatures ingediend. Probeer het morgen opnieuw of mail ons.':'You have already submitted several vacancies today. Try again tomorrow or email us.'); return }
+   say('err', NL?'Er ging iets mis. Probeer het opnieuw of mail {{ contact_email }}.':'Something went wrong. Try again or email {{ contact_email }}.');
+  }).catch(function(){ btn.disabled=false; if(window.turnstile&&tsId!==null) turnstile.reset(tsId); say('err', NL?'Geen verbinding. Probeer het opnieuw.':'No connection. Please try again.'); });
+ });
+})();
+</script>
+{% endblock %}
