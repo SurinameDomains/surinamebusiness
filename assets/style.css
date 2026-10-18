@@ -15,6 +15,7 @@
   --max:1140px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--font);overflow-wrap:break-word;overflow-x:hidden}
 a{color:var(--brand-2);text-underline-offset:2px;text-decoration-thickness:1px}
