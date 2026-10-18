@@ -2,6 +2,41 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-18T04:04:00+00:00",
+   "source": "Starnieuws",
+   "title": "President roept banken op meer te investeren in productieve sectoren",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94421"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-18T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Simons wil waterbeschermingswet en investeringen om drinkwatervoorziening veilig te stellen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94415"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-18T01:44:42+00:00",
+   "source": "Dagblad Suriname",
+   "title": "President Simons: “Vertrouwen in onze sterkste valuta”",
+   "url": "https://www.dbsuriname.com/2026/10/17/president-simons-vertrouwen-in-onze-sterkste-valuta/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-18T01:30:53+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Guyana verbiedt import e-sigaretten voor recreatief gebruik",
+   "url": "https://www.dbsuriname.com/2026/10/17/guyana-verbiedt-import-e-sigaretten-voor-recreatief-gebruik/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-18T01:08:54+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Goudzoekers in Masonia-gebied aangezegd te ontruimen uiterlijk vrijdag 23 oktober",
+   "url": "https://www.dbsuriname.com/2026/10/17/goudzoekers-in-masonia-gebied-aangezegd-te-ontruimen-uiterlijk-vrijdag-23-oktober/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-17T23:49:16+00:00",
    "source": "Suriname Herald",
    "title": "Simons wil banken meer laten investeren in Surinaamse economie",
@@ -211,7 +246,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-18T00:00:51+00:00",
+ "fetched_at": "2026-10-18T04:23:30+00:00",
  "oil": [
   {
    "econ": true,
@@ -231,32 +266,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-18T00:00:49+00:00",
+   "fetched_at": "2026-10-18T04:23:28+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-18T00:00:47+00:00",
+   "count": 14,
+   "fetched_at": "2026-10-18T04:23:27+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-18T00:00:49+00:00",
+   "fetched_at": "2026-10-18T04:23:28+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T00:00:50+00:00",
+   "fetched_at": "2026-10-18T04:23:29+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-18T00:00:48+00:00",
+   "fetched_at": "2026-10-18T04:23:28+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T00:00:51+00:00",
+   "fetched_at": "2026-10-18T04:23:30+00:00",
    "ok": true
   }
  }
