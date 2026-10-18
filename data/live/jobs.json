@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-18T15:27:31+00:00",
+ "fetched_at": "2026-10-18T15:30:07+00:00",
  "items": [
   {
    "deadline": null,
@@ -160,32 +160,32 @@
  "sources": {
   "Newmont": {
    "count": 5,
-   "fetched_at": "2026-10-18T15:27:21+00:00",
+   "fetched_at": "2026-10-18T15:29:54+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 4,
-   "fetched_at": "2026-10-18T15:27:26+00:00",
+   "fetched_at": "2026-10-18T15:29:59+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-18T15:27:31+00:00",
+   "fetched_at": "2026-10-18T15:30:07+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 2,
-   "fetched_at": "2026-10-18T15:27:29+00:00",
+   "fetched_at": "2026-10-18T15:30:02+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 2,
-   "fetched_at": "2026-10-18T15:27:29+00:00",
+   "fetched_at": "2026-10-18T15:30:03+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-18T15:27:30+00:00",
+   "fetched_at": "2026-10-18T15:30:04+00:00",
    "ok": true
   }
  }
