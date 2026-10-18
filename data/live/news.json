@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-18T15:03:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Negentig binnenlandbewoners op landbouwopleiding",
+   "url": "https://dwtonline.com/negentig-binnenlandbewoners-op-landbouwopleiding/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-18T13:00:00+00:00",
    "source": "de Ware Tijd",
    "title": "Scheidende Vietnamese ambassadeur: Economische handel met Suriname verder versterken",
@@ -274,7 +281,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-18T13:14:41+00:00",
+ "fetched_at": "2026-10-18T15:27:35+00:00",
  "oil": [
   {
    "econ": true,
@@ -294,32 +301,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-18T13:14:40+00:00",
+   "fetched_at": "2026-10-18T15:27:34+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-10-18T13:14:37+00:00",
+   "fetched_at": "2026-10-18T15:27:31+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-18T13:14:39+00:00",
+   "fetched_at": "2026-10-18T15:27:33+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T13:14:40+00:00",
+   "fetched_at": "2026-10-18T15:27:34+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-18T13:14:39+00:00",
+   "fetched_at": "2026-10-18T15:27:33+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T13:14:41+00:00",
+   "fetched_at": "2026-10-18T15:27:35+00:00",
    "ok": true
   }
  }
