@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="cols">
+<div>
+<h1>{{ j.title }}</h1>
+<p class="lead">{{ j.employer }} &middot; {{ loc }} &middot; {{ etype(j.employment_type) }}</p>
+<article class="card job-body">
+{{ body|safe }}
+{% if j.pdf_url %}<p style="margin-top:14px"><a href="{{ j.pdf_url }}" rel="noopener nofollow" target="_blank">{{ 'Volledige vacature (PDF)' if nl else 'Full vacancy (PDF)' }}</a></p>{% endif %}
+</article>
+<p class="sub" style="margin-top:14px">{{ 'Deze vacature is direct door de werkgever op Suriname Business geplaatst en door ons gecontroleerd. Je solliciteert rechtstreeks bij de werkgever; wij ontvangen geen sollicitaties.' if nl else 'This vacancy was posted directly on Suriname Business by the employer and checked by us. You apply directly with the employer; we do not receive applications.' }}</p>
+</div>
+<aside>
+ <div class="card">
+  <table class="tbl"><tbody>
+   <tr><td>{{ 'Werkgever' if nl else 'Employer' }}</td><td>{% if j.employer_url %}<a href="{{ j.employer_url }}" rel="noopener nofollow" target="_blank">{{ j.employer }}</a>{% else %}{{ j.employer }}{% endif %}</td></tr>
+   <tr><td>{{ 'Locatie' if nl else 'Location' }}</td><td>{{ loc }}</td></tr>
+   <tr><td>{{ 'Dienstverband' if nl else 'Type' }}</td><td>{{ etype(j.employment_type) }}</td></tr>
+   {% if j.salary_min or j.salary_max %}<tr><td>{{ 'Salaris' if nl else 'Salary' }}</td><td>{{ j.salary_currency }} {% if j.salary_min %}{{ num(j.salary_min, 0) }}{% endif %}{% if j.salary_min and j.salary_max %} - {% endif %}{% if j.salary_max %}{{ num(j.salary_max, 0) }}{% endif %} {{ {'MONTH': ('per maand' if nl else 'per month'), 'HOUR': ('per uur' if nl else 'per hour'), 'YEAR': ('per jaar' if nl else 'per year')}[j.salary_period] }}</td></tr>{% endif %}
+   <tr><td>{{ 'Solliciteer voor' if nl else 'Apply by' }}</td><td><b>{{ date(j.deadline) }}</b>{% if j.days_left is not none and j.days_left <= 7 %} <span class="pill gold">{{ ('nog ' ~ j.days_left ~ ' dagen') if nl else (j.days_left ~ ' days left') }}</span>{% endif %}</td></tr>
+   <tr><td>{{ 'Geplaatst' if nl else 'Posted' }}</td><td>{{ date(j.published) }}</td></tr>
+  </tbody></table>
+  <div style="margin-top:14px;display:grid;gap:8px">
+  {% if j.apply_url %}<a class="btn" href="{{ j.apply_url }}" rel="noopener nofollow" target="_blank">{{ 'Solliciteren' if nl else 'Apply now' }}</a>{% endif %}
+  {% if j.apply_email %}<a class="btn{{ ' alt' if j.apply_url }}" href="mailto:{{ j.apply_email }}?subject={{ ('Sollicitatie ' if nl else 'Application ') ~ j.title|urlencode }}">{{ ('Solliciteer per e-mail' if nl else 'Apply by email') }}</a>
+  <div class="sub">{{ j.apply_email }}</div>{% endif %}
+  </div>
+ </div>
+ <div class="note" style="margin-top:14px">{{ 'Betaal nooit geld om te solliciteren of voor een "training". Klopt iets niet aan deze vacature? Meld het via' if nl else 'Never pay money to apply or for "training". Something wrong with this vacancy? Report it to' }} <a href="mailto:{{ contact_email }}?subject={{ ('Melding vacature ' ~ j.sbid)|urlencode }}">{{ contact_email }}</a>.</div>
+ <div class="card" style="margin-top:14px"><div class="eyebrow">{{ 'Werkgever?' if nl else 'Hiring?' }}</div><p style="margin:0 0 8px">{{ 'Plaats je vacature gratis op Suriname Business.' if nl else 'Post your vacancy for free on Suriname Business.' }}</p><a href="{{ U('postjob') }}">{{ L('postjob') }} &rarr;</a></div>
+</aside>
+</div>
+{% if similar %}<h2>{{ 'Meer vacatures' if nl else 'More jobs' }}</h2>
+<div class="card"><ul class="list">
+{% for o in similar %}<li><a href="{{ o.url }}"{% if o.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ o.title }}</a><div class="meta"><span>{{ o.employer }}</span>{% if o.deadline %}<span>{{ 'Sluit' if nl else 'Closes' }} {{ date(o.deadline) }}</span>{% endif %}</div></li>{% endfor %}
+</ul><div class="foot"><a href="{{ U('jobs') }}">{{ 'Alle vacatures' if nl else 'All jobs' }} &rarr;</a></div></div>{% endif %}
+{% endblock %}
