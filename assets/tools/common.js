@@ -32,10 +32,26 @@
   function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
   // per-visitor storage on this device only; never required for the tools to work
+  // kept on this device; when signed in, /assets/account.js also syncs every change to the account
+  function touched(k) {
+    try { var m = JSON.parse(localStorage.getItem('sbt:__m') || '{}') || {}; m[k] = Date.now(); localStorage.setItem('sbt:__m', JSON.stringify(m)); } catch (e) { /* ignore */ }
+    try { window.dispatchEvent(new CustomEvent('sbt:set', { detail: k })); } catch (e) { /* ignore */ }
+  }
   var store = {
     get: function (k, d) { try { var v = localStorage.getItem('sbt:' + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
-    set: function (k, v) { try { localStorage.setItem('sbt:' + k, JSON.stringify(v)); return true; } catch (e) { return false; } },
-    del: function (k) { try { localStorage.removeItem('sbt:' + k); } catch (e) { /* ignore */ } }
+    set: function (k, v) {
+      try {
+        var s = JSON.stringify(v);
+        if (localStorage.getItem('sbt:' + k) === s) return true;
+        localStorage.setItem('sbt:' + k, s); touched(k); return true;
+      } catch (e) { return false; }
+    },
+    del: function (k) { try { if (localStorage.getItem('sbt:' + k) === null) return; localStorage.removeItem('sbt:' + k); touched(k); } catch (e) { /* ignore */ } },
+    keys: function (pre) {
+      var out = [];
+      try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf('sbt:' + (pre || '')) === 0 && k !== 'sbt:__m') out.push(k.slice(4)); } } catch (e) { /* ignore */ }
+      return out;
+    }
   };
 
   function flash(btn, text) {

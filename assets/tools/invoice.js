@@ -173,5 +173,79 @@
         lines: lines().map(function (l) { return { d: l.d, q: l.q, p: l.p, v: l.v, u: l.u }; }) });
     });
   });
+  // ---- saved documents and customers (this device; with an account also on other devices)
+  var FIELDS = ['no', 'date', 'due', 'c_name', 'c_addr', 'c_fin', 'cur', 'pricemode', 'ref', 'ship', 'notes', 'words'];
+  var curId = null, arch = document.getElementById('arch');
+  function snap() {
+    var o = {};
+    FIELDS.forEach(function (n) { if (E[n]) o[n] = E[n].type === 'checkbox' ? E[n].checked : E[n].value; });
+    return o;
+  }
+  function docs() {
+    return S.store.keys('doc:').map(function (k) { return S.store.get(k, null); })
+      .filter(function (d) { return d && d.doc === doc; })
+      .sort(function (a, b) { return a.saved < b.saved ? 1 : -1; });
+  }
+  function listDocs() {
+    if (!arch) return;
+    var all = docs(), tb = document.getElementById('arch-list');
+    arch.hidden = !all.length;
+    document.getElementById('arch-n').textContent = all.length ? '(' + all.length + ')' : '';
+    tb.innerHTML = all.slice(0, 60).map(function (d) {
+      return '<tr' + (d.id === curId ? ' class="cur"' : '') + '><td><b>' + S.esc(d.no) + '</b><div class="sub">' + S.esc(S.dateLong(d.date)) + '</div></td><td>' +
+        S.esc(d.c_name || '-') + '</td><td class="r tnum">' + (d.total == null ? '' : S.esc(S.money(d.total, d.cur))) +
+        '</td><td class="r"><button type="button" class="btn alt sm" data-open="' + S.esc(d.id) + '">' + T('Openen', 'Open') +
+        '</button> <button type="button" class="x" data-del="' + S.esc(d.id) + '" aria-label="' + T('Verwijderen', 'Delete') + '">&times;</button></td></tr>';
+    }).join('');
+    var acct = document.getElementById('arch-acct');
+    var u = window.SBA && SBA.user();
+    acct.innerHTML = u ? T('Opgeslagen in je account (' + S.esc(u.email) + ').', 'Saved in your account (' + S.esc(u.email) + ').')
+      : T('Staat alleen op dit apparaat. <a href="#" data-sba-login>Log in</a> om je documenten overal te hebben.', 'Only on this device. <a href="#" data-sba-login>Sign in</a> to have your documents everywhere.');
+    var li = acct.querySelector('[data-sba-login]');
+    if (li) li.onclick = function (e) { e.preventDefault(); if (window.SBA) SBA.login(); };
+  }
+  function openDoc(id) {
+    var d = S.store.get('doc:' + id, null);
+    if (!d || d.doc !== doc) return false;
+    FIELDS.forEach(function (n) { if (E[n] && d.f && d.f[n] !== undefined) { if (E[n].type === 'checkbox') E[n].checked = !!d.f[n]; else E[n].value = d.f[n]; } });
+    tbody.innerHTML = ''; (d.lines || []).forEach(addLine); if (!tbody.children.length) addLine();
+    curId = d.id; render(); listDocs();
+    return true;
+  }
+  function clients() { return S.store.get('clients', []); }
+  function fillClients() {
+    var dl = document.getElementById('clients-dl');
+    if (dl) dl.innerHTML = clients().map(function (c) { return '<option value="' + S.esc(c.name) + '">'; }).join('');
+  }
+  E.c_name.addEventListener('change', function () {
+    var c = clients().filter(function (x) { return x.name === E.c_name.value; })[0];
+    if (c) { if (!E.c_addr.value) E.c_addr.value = c.addr || ''; if (E.c_fin && !E.c_fin.value) E.c_fin.value = c.fin || ''; render(); }
+  });
+  document.getElementById('save-doc').onclick = function () {
+    var c = calc(), id = curId || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+    var rec = { id: id, doc: doc, no: E.no.value, date: val('date'), c_name: E.c_name.value.trim(),
+      total: CFG.noprice ? null : (CFG.credit ? -1 : 1) * c.total, cur: val('cur') || 'SRD', saved: new Date().toISOString(),
+      f: snap(), lines: lines().map(function (l) { return { d: l.d, q: l.q, p: l.p, v: l.v, u: l.u }; }) };
+    if (!S.store.set('doc:' + id, rec)) { S.flash(this, T('Opslaan mislukt (geheugen vol)', 'Save failed (storage full)')); return; }
+    curId = id;
+    if (rec.c_name) {
+      var cl = clients().filter(function (x) { return x.name !== rec.c_name; });
+      cl.unshift({ name: rec.c_name, addr: E.c_addr.value, fin: E.c_fin ? E.c_fin.value : '' });
+      S.store.set('clients', cl.slice(0, 300)); fillClients();
+    }
+    listDocs();
+    S.flash(this, T('Opgeslagen', 'Saved'));
+  };
+  if (arch) arch.addEventListener('click', function (e) {
+    var o = e.target.getAttribute('data-open'), d = e.target.getAttribute('data-del');
+    if (o && openDoc(o)) window.scrollTo({ top: f.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    if (d && confirm(T('Dit opgeslagen document verwijderen?', 'Delete this saved document?'))) { S.store.del('doc:' + d); if (curId === d) curId = null; listDocs(); }
+  });
+  document.getElementById('next').addEventListener('click', function () { curId = null; listDocs(); });
+  window.addEventListener('sba:user', listDocs);
+  fillClients();
   render();
+  var want = (location.search.match(/[?&]open=([a-z0-9]+)/) || [])[1];
+  if (want) openDoc(want);
+  listDocs();
 })();
