@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set D = mkt.douane %}
+{% block content %}
+<h1>{{ 'Douanekoers' if nl else 'Customs exchange rate' }}</h1>
+<p class="lead">{{ 'Met de douanekoers rekent de douane de waarde van ingevoerde goederen om naar SRD. De Centrale Bank stelt hem elke twee weken vast. Hier de actuele lijst van alle 22 valuta.' if nl else 'Customs uses the customs exchange rate (douanekoers) to convert the value of imported goods to SRD. The Central Bank sets it every two weeks. Here is the current list of all 22 currencies.' }}</p>
+{% if D %}
+<div class="today t3">
+ <div><span class="k">1 USD</span><span class="v">SRD {{ num(D.usd) }}{% if D.prev and D.prev.usd %} <span class="sub">{{ '▲' if D.usd > D.prev.usd else ('▼' if D.usd < D.prev.usd else '=') }} {{ num((D.usd - D.prev.usd)|abs) }}</span>{% endif %}</span></div>
+ <div><span class="k">1 EUR</span><span class="v">SRD {{ num(D.eur) }}{% if D.prev and D.prev.eur %} <span class="sub">{{ '▲' if D.eur > D.prev.eur else ('▼' if D.eur < D.prev.eur else '=') }} {{ num((D.eur - D.prev.eur)|abs) }}</span>{% endif %}</span></div>
+ <div><span class="k">{{ 'Volgende lijst verwacht' if nl else 'Next list expected' }}</span><span class="v">{{ date(D.next_expected, weekday=True, year=False) }}</span></div>
+</div>
+<p style="margin-top:14px">{{ 'Van kracht vanaf' if nl else 'In force from' }} <b>{{ date(D.effective, weekday=True) }}</b>. {{ 'Geldt voor aangiftes van' if nl else 'Applies to declarations filed from' }} <b>{{ date(D.period_start, weekday=True, year=False) }}</b> {{ 'tot en met' if nl else 'to' }} <b>{{ date(D.period_end, weekday=True) }}</b>.{% if not D.current %} <span class="pill gold">{{ 'nieuwe lijst nog niet gepubliceerd' if nl else 'new list not yet published' }}</span>{% endif %}</p>
+<div class="cols" style="margin-top:16px">
+ <div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Valuta' if nl else 'Currency' }}</th><th>{{ 'Per' }}</th><th class="r">SRD</th><th class="r">{{ 'Per 1' }}</th></tr></thead><tbody>
+ {% for r in D.rows %}<tr><td><b>{{ r.code }}</b> <span class="sub">{{ r.name[i] }}</span></td><td data-l="{{ 'Per' }}">{{ num(r.unit, 0) }}</td><td class="r" data-l="SRD"><b>{{ num(r.sell) }}</b></td><td class="r" data-l="{{ 'Per 1' }}">{{ num(r.per1, 4 if r.per1 < 1 else 2) }}</td></tr>{% endfor %}
+ </tbody></table></div>
+ <form class="card calc" id="dk" onsubmit="return false">
+  <div class="eyebrow">{{ 'Douanewaarde berekenen' if nl else 'Customs value' }}</div>
+  <label for="dk-a">{{ 'Factuurbedrag (CIF)' if nl else 'Invoice amount (CIF)' }}</label><input id="dk-a" inputmode="decimal" value="5000">
+  <label for="dk-c">{{ 'Valuta' if nl else 'Currency' }}</label><select id="dk-c">{% for r in D.rows %}<option value="{{ r.per1 }}"{% if r.code == 'USD' %} selected{% endif %}>{{ r.code }}</option>{% endfor %}</select>
+  <div class="result" style="margin-top:14px"><div class="sub">{{ 'Douanewaarde in SRD' if nl else 'Customs value in SRD' }}</div><div class="big tnum" id="dk-out"></div></div>
+  <p class="hint" style="margin-top:10px"><a href="{{ U('importcost') }}">{{ 'Bereken ook invoerrecht en BTW' if nl else 'Also work out duty and VAT' }} &rarr;</a></p>
+ </form>
+</div>
+{% if D.history %}
+<h2>{{ 'Vorige lijsten' if nl else 'Previous lists' }}</h2>
+<div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Van kracht' if nl else 'In force' }}</th><th class="r">USD</th><th class="r">EUR</th></tr></thead><tbody>
+<tr><td><b>{{ date(D.effective) }}</b></td><td class="r" data-l="USD"><b>{{ num(D.usd) }}</b></td><td class="r" data-l="EUR"><b>{{ num(D.eur) }}</b></td></tr>
+{% for h in D.history[:12] %}<tr><td>{{ date(h.effective) }}</td><td class="r" data-l="USD">{{ num(h.usd) }}</td><td class="r" data-l="EUR">{{ num(h.eur) if h.eur else '-' }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% endif %}
+{% else %}<p class="note">{{ 'De douanekoers is tijdelijk niet beschikbaar.' if nl else 'The customs rate is temporarily unavailable.' }}</p>{% endif %}
+<div class="prose">
+<h2>{{ 'Hoe werkt de douanekoers?' if nl else 'How does the customs rate work?' }}</h2>
+<p>{{ 'Volgens artikel 17 van de Wet Tarief van Invoerrechten 1996 wordt de waarde in vreemde valuta omgerekend tegen de verkoopkoers van de Centrale Bank die geldt op de tweede werkdag van de periode van twee weken waarin je de aangifte doet. Daarom verschijnt de lijst meestal op dinsdag, om de twee weken.' if nl else 'Under article 17 of the Import Duties Tariff Act 1996, foreign currency values are converted at the Central Bank selling rate in force on the second working day of the two-week period in which you file the declaration. That is why the list usually appears on a Tuesday, every two weeks.' }}</p>
+<p>{{ 'De douanekoers is geen koers waartegen je kunt wisselen. Voor wisselen kijk je bij' if nl else 'You cannot exchange money at the customs rate. For exchanging, see' }} <a href="{{ U('rates') }}">{{ L('rates') }}</a>. {{ 'Het douanesysteem (ASYCUDA) is leidend.' if nl else 'The customs system (ASYCUDA) is decisive.' }}</p>
+{% if D %}<p class="asof">{{ 'Bron' if nl else 'Source' }}: {{ 'Centrale Bank van Suriname, Uitgebreid wisselkoersenoverzicht' if nl else 'Central Bank of Suriname, extended exchange rate overview' }} (<a href="{{ D.pdf }}" rel="noopener">PDF</a>). {{ 'Gecontroleerd' if nl else 'Checked' }} {{ ago(D.checked_at) }}.</p>{% endif %}
+</div>
+{% endblock %}
+{% block scripts %}<script>
+(function(){var a=document.getElementById('dk-a');if(!a)return;var c=document.getElementById('dk-c'),o=document.getElementById('dk-out');
+function n(v){v=String(v||'').replace(/\s/g,'');if(/,\d{1,2}$/.test(v))v=v.replace(/\./g,'').replace(',','.');else v=v.replace(/,/g,'');return parseFloat(v)||0}
+function go(){o.textContent='SRD '+new Intl.NumberFormat('{{ 'nl-NL' if nl else 'en-US' }}',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n(a.value)*parseFloat(c.value));}
+a.addEventListener('input',go);c.addEventListener('change',go);go();})();
+</script>{% endblock %}

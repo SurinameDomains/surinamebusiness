@@ -1,56 +1,113 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set M = mkt %}
 {% block content %}
-<h1>{{ 'Wisselkoers vandaag: dollar en euro in SRD' if nl else 'Exchange rate today: dollar and euro in SRD' }}</h1>
+<h1>{{ 'Wisselkoers vandaag' if nl else 'Exchange rates today' }}</h1>
+<p class="lead">{{ 'De dollar- en eurokoers in SRD bij de cambio (CME), de Centrale Bank (CBvS) en vijf banken naast elkaar, plus de douanekoers. Elke 30 minuten gecontroleerd.' if nl else 'The dollar and euro rate in SRD at the exchange office (CME), the Central Bank (CBvS) and five banks side by side, plus the customs rate. Checked every 30 minutes.' }}</p>
 {% if rates %}
-<p class="lead">{{ 'Cash koersen van Central Money Exchange (CME) van' if nl else 'Cash rates from Central Money Exchange (CME) for' }} {{ date(rates.business_date, weekday=True) }}{% if rates.updated_time %}, {{ rates.updated_time }}{% endif %}.{% if rates.stale %} <span class="pill">{{ 'Laatst bekende koers' if nl else 'Last known rate' }}</span>{% endif %}</p>
-<div class="grid g2" style="margin:18px 0">
- <div class="card">
-  <div class="eyebrow">USD &rarr; SRD</div>
-  <div class="rate-row"><span>{{ 'U verkoopt dollars (cambio koopt)' if nl else 'You sell dollars (cambio buys)' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.usd.buy) }}</span></div>
-  <div class="rate-row"><span>{{ 'U koopt dollars (cambio verkoopt)' if nl else 'You buy dollars (cambio sells)' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.usd.sell) }}</span></div>
-  {% if rates.change is not none %}<div class="sub">{{ 'Verkoopkoers t.o.v. vorige dag' if nl else 'Sell rate vs previous day' }}: <b class="tnum">{{ '+' if rates.change > 0 else '' }}{{ num(rates.change) }}</b></div>{% endif %}
- </div>
- <div class="card">
-  <div class="eyebrow">EUR &rarr; SRD</div>
-  <div class="rate-row"><span>{{ 'U verkoopt euro\'s' if nl else 'You sell euros' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.eur.buy) }}</span></div>
-  <div class="rate-row"><span>{{ 'U koopt euro\'s' if nl else 'You buy euros' }}</span><span class="big tnum" style="font-size:1.8rem">{{ num(rates.eur.sell) }}</span></div>
- </div>
+<div class="today" aria-label="{{ 'Kerncijfers' if nl else 'Key figures' }}">
+ <a href="#cme"><span class="k">USD CME {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(rates.usd.sell) }}</span></a>
+ <a href="#cme"><span class="k">USD CME {{ 'aankoop' if nl else 'buy' }}</span><span class="v">{{ num(rates.usd.buy) }}</span></a>
+ {% if M.cbvs %}<a href="#cbvs"><span class="k">USD CBvS {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(M.cbvs.rates.USD.giraal[1], 3) }}</span></a>{% endif %}
+ {% if M.best %}<a href="#banks"><span class="k">{{ 'Laagste bank verkoop' if nl else 'Lowest bank sell' }}</span><span class="v">{{ num(M.best.usd[1]) }}</span></a>{% endif %}
+ {% if M.douane %}<a href="{{ U('douane') }}"><span class="k">{{ 'Douanekoers USD' if nl else 'Customs rate USD' }}</span><span class="v">{{ num(M.douane.usd) }}</span></a>{% endif %}
+ <a href="#cme"><span class="k">EUR CME {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(rates.eur.sell) }}</span></a>
 </div>
-<form class="card calc" id="fx-form" onsubmit="return false" style="margin-bottom:16px">
- <div class="eyebrow">{{ 'Omrekenen' if nl else 'Convert' }}</div>
- <div class="grid g3">
-  <div><label for="fx-a">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="fx-a" name="a" inputmode="decimal" value="100"></div>
-  <div><label for="fx-f">{{ 'Van' if nl else 'From' }}</label><select id="fx-f" name="f"><option>USD</option><option>EUR</option><option>SRD</option></select></div>
-  <div><label for="fx-t">{{ 'Naar' if nl else 'To' }}</label><select id="fx-t" name="t"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
- </div>
- <div class="big tnum" id="fx-out" style="margin-top:14px"></div>
- <div class="sub" id="fx-how"></div>
-</form>
-{% set pts = spark(rates.series, 700, 120) %}
-{% if pts %}<div class="card"><div class="eyebrow">{{ 'USD verkoopkoers, laatste' if nl else 'USD sell rate, last' }} {{ rates.series|length }} {{ 'dagen' if nl else 'days' }}</div><svg viewBox="0 0 700 120" preserveAspectRatio="none" style="width:100%;height:120px" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2.5"/></svg><div class="foot"><span>{{ date(rates.series[0][0]) }}: {{ num(rates.series[0][1]) }}</span><span>{{ date(rates.series[-1][0]) }}: {{ num(rates.series[-1][1]) }}</span></div></div>{% endif %}
 
-<h2>{{ 'Koershistorie' if nl else 'Rate history' }}</h2>
+<div class="cols" style="margin-top:20px">
+ <form class="card calc" id="fx-form" onsubmit="return false">
+  <div class="eyebrow">{{ 'Omrekenen' if nl else 'Convert' }}</div>
+  <label for="fx-src">{{ 'Koers van' if nl else 'Rate from' }}</label>
+  <select id="fx-src" name="src"></select>
+  <div class="three">
+   <div><label for="fx-a">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="fx-a" name="a" inputmode="decimal" value="100"></div>
+   <div><label for="fx-f">{{ 'Van' if nl else 'From' }}</label><select id="fx-f" name="f"></select></div>
+   <div><label for="fx-t">{{ 'Naar' if nl else 'To' }}</label><select id="fx-t" name="t"></select></div>
+  </div>
+  <p class="hint">{{ 'Wissel je vreemde valuta in, dan geldt de aankoopkoers. Koop je vreemde valuta, dan geldt de verkoopkoers.' if nl else 'When you hand in foreign currency the buy rate applies. When you buy foreign currency the sell rate applies.' }}</p>
+ </form>
+ <div class="result" aria-live="polite"><div class="sub" id="fx-lab"></div><div class="big tnum" id="fx-out"></div><div class="sub" id="fx-how" style="margin-top:8px"></div></div>
+</div>
+
+<h2 id="banks">{{ 'Banken en cambio vergeleken' if nl else 'Banks and exchange office compared' }}</h2>
+<p>{{ 'Aankoop is wat je krijgt als je dollars of euro\'s verkoopt. Verkoop is wat je betaalt om ze te kopen. Groen is de beste koers bij de banken.' if nl else 'Buy is what you get when you sell dollars or euros. Sell is what you pay to buy them. Green is the best rate among the banks.' }}</p>
+<div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Bank of cambio' if nl else 'Bank or exchange' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
+<tr id="cme"><td><b>CME</b> <span class="sub">{{ 'cash, cambio' if nl else 'cash, exchange office' }}</span></td><td class="r" data-l="USD {{ 'aankoop' if nl else 'buy' }}">{{ num(rates.usd.buy) }}</td><td class="r" data-l="USD {{ 'verkoop' if nl else 'sell' }}">{{ num(rates.usd.sell) }}</td><td class="r" data-l="EUR {{ 'aankoop' if nl else 'buy' }}">{{ num(rates.eur.buy) }}</td><td class="r" data-l="EUR {{ 'verkoop' if nl else 'sell' }}">{{ num(rates.eur.sell) }}</td></tr>
+{% if M.cbvs %}<tr><td><b>CBvS</b> <span class="sub">{{ 'gewogen gemiddelde, giraal' if nl else 'weighted average, giral' }}</span></td><td class="r" data-l="USD {{ 'aankoop' if nl else 'buy' }}">{{ num(M.cbvs.rates.USD.giraal[0], 3) }}</td><td class="r" data-l="USD {{ 'verkoop' if nl else 'sell' }}">{{ num(M.cbvs.rates.USD.giraal[1], 3) }}</td><td class="r" data-l="EUR {{ 'aankoop' if nl else 'buy' }}">{{ num(M.cbvs.rates.EUR.giraal[0], 3) }}</td><td class="r" data-l="EUR {{ 'verkoop' if nl else 'sell' }}">{{ num(M.cbvs.rates.EUR.giraal[1], 3) }}</td></tr>{% endif %}
+{% for b in M.banks %}<tr><td><a href="{{ b.url }}" rel="noopener nofollow" target="_blank"><b>{{ b.name }}</b></a>{% if not b.live %} <span class="pill">{{ 'laatst bekend' if nl else 'last known' }}</span>{% endif %}</td>
+{% for cur, k in [('usd',0),('usd',1),('eur',0),('eur',1)] %}{% set v = b[cur][k] %}{% set best = (k == 0 and v == M.best[cur][0]) or (k == 1 and v == M.best[cur][1]) %}<td class="r" data-l="{{ cur|upper }} {{ ('aankoop' if nl else 'buy') if k == 0 else ('verkoop' if nl else 'sell') }}">{% if best %}<span class="pill green">{{ num(v) }}</span>{% else %}{{ num(v) }}{% endif %}</td>{% endfor %}</tr>{% endfor %}
+</tbody></table>
+<p class="asof" style="margin-top:10px">{{ 'Banken: girale koersen (rekening), zoals gepubliceerd op hun websites. CME: contante koersen.' if nl else 'Banks: giral (account) rates as published on their websites. CME: cash rates.' }} {{ 'CME bijgewerkt' if nl else 'CME updated' }} {{ ago(rates.fetched_at) }}.</p></div>
+
+{% if M.cbvs %}
+<h2 id="cbvs">{{ 'Centrale Bank (CBvS): alle valuta' if nl else 'Central Bank (CBvS): all currencies' }}</h2>
+<p>{{ 'Gewogen gemiddelde koersen van de Centrale Bank van Suriname' if nl else 'Weighted average rates of the Central Bank of Suriname' }}{% if M.cbvs.stamp %}, {{ M.cbvs.stamp }}{% endif %}{% if M.cbvs.stale %} <span class="pill">{{ 'laatst bekend' if nl else 'last known' }}</span>{% endif %}. {{ 'Giraal is voor overboekingen, bankpapier voor contant geld.' if nl else 'Giral is for transfers, bank notes for cash.' }}</p>
+<div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Valuta' if nl else 'Currency' }}</th><th class="r">{{ 'Giraal aankoop' if nl else 'Giral buy' }}</th><th class="r">{{ 'Giraal verkoop' if nl else 'Giral sell' }}</th><th class="r">{{ 'Bankpapier aankoop' if nl else 'Notes buy' }}</th><th class="r">{{ 'Bankpapier verkoop' if nl else 'Notes sell' }}</th></tr></thead><tbody>
+{% for code, v in M.cbvs.rates.items() %}<tr><td><b>{{ code }}</b> <span class="sub">{{ M.cur_names.get(code, (code, code))[i] }}{% if code == 'GYD' %} ({{ 'per 1' }}){% endif %}</span></td>
+<td class="r" data-l="{{ 'Giraal aankoop' if nl else 'Giral buy' }}">{{ num(v.giraal[0], 5 if v.giraal[0] < 1 else 3) }}</td><td class="r" data-l="{{ 'Giraal verkoop' if nl else 'Giral sell' }}">{{ num(v.giraal[1], 5 if v.giraal[1] < 1 else 3) }}</td>
+<td class="r" data-l="{{ 'Bankpapier aankoop' if nl else 'Notes buy' }}">{{ num(v.cash[0], 5 if v.cash[0] < 1 else 3) }}</td><td class="r" data-l="{{ 'Bankpapier verkoop' if nl else 'Notes sell' }}">{{ num(v.cash[1], 5 if v.cash[1] < 1 else 3) }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% endif %}
+
+<div class="grid g3" style="margin-top:20px">
+{% if M.douane %}
+ <a class="card" href="{{ U('douane') }}"><div class="eyebrow">{{ 'Douanekoers' if nl else 'Customs rate' }}</div>
+  <div class="rate-row"><span>USD</span><b class="tnum">{{ num(M.douane.usd) }}</b></div>
+  <div class="rate-row"><span>EUR</span><b class="tnum">{{ num(M.douane.eur) }}</b></div>
+  <div class="sub">{{ 'Voor aangiftes van' if nl else 'For declarations from' }} {{ date(M.douane.period_start, year=False) }} {{ 'tot en met' if nl else 'to' }} {{ date(M.douane.period_end) }}. {{ 'Alle 22 valuta' if nl else 'All 22 currencies' }} &rarr;</div></a>
+{% endif %}
+{% if M.cbvs and (M.cbvs.omo or M.cbvs.lending) %}
+ <div class="card"><div class="eyebrow">{{ 'Rente Centrale Bank' if nl else 'Central Bank interest rates' }}</div>
+  {% if M.cbvs.omo %}<div class="rate-row"><span>{{ 'OMO rente (gewogen gemiddelde)' if nl else 'OMO rate (weighted average)' }}</span><b class="tnum">{{ num(M.cbvs.omo[0][2], 1) }}%</b></div>{% endif %}
+  {% if M.cbvs.lending %}<div class="rate-row"><span>{{ 'Beleningsfaciliteit' if nl else 'Lending facility' }}</span><b class="tnum">{{ num(M.cbvs.lending[0][2], 1) }}%</b></div>{% endif %}
+  <div class="sub">{{ 'Veiling van' if nl else 'Auction of' }} {{ date(M.cbvs.omo[0][1]) if M.cbvs.omo else '' }}. {{ 'Vorige weken' if nl else 'Previous weeks' }}: {% for r in M.cbvs.omo[1:4] %}{{ num(r[2], 1) }}%{% if not loop.last %}, {% endif %}{% endfor %}</div></div>
+{% endif %}
+{% if M.comm and M.comm.gold %}
+ <a class="card" href="{{ U('gold') }}"><div class="eyebrow">{{ 'Goud en olie' if nl else 'Gold and oil' }}</div>
+  <div class="rate-row"><span>{{ 'Goud per gram' if nl else 'Gold per gram' }}</span><b class="tnum">{{ srd(M.comm.gold.price / 31.1034768 * rates.usd.buy, 0) }}</b></div>
+  {% if M.comm.brent %}<div class="rate-row"><span>Brent {{ 'per vat' if nl else 'per barrel' }}</span><b class="tnum">USD {{ num(M.comm.brent.price) }}</b></div>{% endif %}
+  <div class="sub">{{ 'Goudprijs, goudcertificaten, zilver en olie' if nl else 'Gold price, gold certificates, silver and oil' }} &rarr;</div></a>
+{% endif %}
+</div>
+
+{% set pts = spark(rates.series, 700, 120) %}
+{% if pts %}<h2>{{ 'Verloop' if nl else 'Trend' }}</h2><div class="card"><div class="eyebrow">CME {{ 'USD verkoopkoers, laatste' if nl else 'USD sell rate, last' }} {{ rates.series|length }} {{ 'dagen' if nl else 'days' }}</div><svg viewBox="0 0 700 120" preserveAspectRatio="none" style="width:100%;height:120px" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2.5"/></svg><div class="foot"><span>{{ date(rates.series[0][0]) }}: {{ num(rates.series[0][1]) }}</span><span>{{ date(rates.series[-1][0]) }}: {{ num(rates.series[-1][1]) }}</span></div></div>{% endif %}
+
+<h2>{{ 'Koershistorie CME' if nl else 'CME rate history' }}</h2>
 <p>{{ 'We bewaren elke werkdag de koers. Download de volledige reeks als' if nl else 'We store the rate every business day. Download the full series as' }} <a href="/assets/koers-historie.csv" download>CSV</a>.</p>
-<div><table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
+<div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th class="r">USD {{ 'aankoop' if nl else 'buy' }}</th><th class="r">USD {{ 'verkoop' if nl else 'sell' }}</th><th class="r">EUR {{ 'aankoop' if nl else 'buy' }}</th><th class="r">EUR {{ 'verkoop' if nl else 'sell' }}</th></tr></thead><tbody>
 {% for d, v in rates.history[:30] %}<tr><td>{{ date(d) }}</td><td class="r" data-l="USD {{ 'aankoop' if nl else 'buy' }}">{{ num(v.usd[0]) if v.usd[0] else '-' }}</td><td class="r" data-l="USD {{ 'verkoop' if nl else 'sell' }}">{{ num(v.usd[1]) }}</td><td class="r" data-l="EUR {{ 'aankoop' if nl else 'buy' }}">{{ num(v.eur[0]) if v.eur[0] else '-' }}</td><td class="r" data-l="EUR {{ 'verkoop' if nl else 'sell' }}">{{ num(v.eur[1]) }}</td></tr>{% endfor %}
 </tbody></table></div>
 {% else %}
 <p class="note">{{ 'De koers is tijdelijk niet beschikbaar. Probeer het later opnieuw.' if nl else 'Rates are temporarily unavailable. Please try again later.' }}</p>
 {% endif %}
 <div class="prose">
-<h2>{{ 'Uitleg' if nl else 'Explained' }}</h2>
-<p>{{ 'Een cambio heeft twee koersen. De aankoopkoers krijg je als je dollars of euro\'s inlevert. De verkoopkoers betaal je als je ze koopt. Banken en de Centrale Bank (CBvS) publiceren eigen koersen die kunnen afwijken.' if nl else 'A cambio quotes two rates. The buy rate is what you get when you hand in dollars or euros. The sell rate is what you pay to buy them. Banks and the Central Bank (CBvS) publish their own rates, which can differ.' }}</p>
-<p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="https://www.cme.sr/" rel="noopener">Central Money Exchange</a>. {{ 'Elke 30 minuten opgehaald. Geen advies; vraag altijd de actuele koers bij je cambio of bank.' if nl else 'Fetched every 30 minutes. Not advice; always confirm the current rate with your cambio or bank.' }}</p>
+<h2>{{ 'Welke koers gebruik je?' if nl else 'Which rate do you use?' }}</h2>
+<ul>
+<li><b>CME</b>: {{ 'de contante koers bij de cambio: wat je krijgt of betaalt voor biljetten.' if nl else 'the cash rate at the exchange office: what you get or pay for bank notes.' }}</li>
+<li><b>{{ 'Banken' if nl else 'Banks' }}</b>: {{ 'girale koersen voor overboekingen en rekeningen. Verkoop gebeurt alleen als de bank de valuta heeft.' if nl else 'giral rates for transfers and accounts. Banks sell only when they have the currency available.' }}</li>
+<li><b>CBvS</b>: {{ 'het gewogen gemiddelde van de markt, gepubliceerd door de Centrale Bank. Veel contracten en officiële berekeningen gebruiken deze koers.' if nl else 'the weighted market average published by the Central Bank. Many contracts and official calculations use this rate.' }}</li>
+<li><b>{{ 'Douanekoers' if nl else 'Customs rate' }}</b>: {{ 'de vaste koers voor invoeraangiftes, per twee weken. Je kunt er niet tegen wisselen.' if nl else 'the fixed rate for import declarations, per two weeks. You cannot exchange at it.' }} <a href="{{ U('douane') }}">{{ L('douane') }}</a></li>
+</ul>
+<p>{{ 'Prijs je producten in SRD op basis van dollars? Gebruik' if nl else 'Pricing in SRD based on dollars? Use' }} <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> {{ 'of' if nl else 'or' }} <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</p>
+<p class="asof">{{ 'Bronnen' if nl else 'Sources' }}: <a href="https://www.cme.sr/" rel="noopener">Central Money Exchange</a>, <a href="https://www.cbvs.sr/" rel="noopener">Centrale Bank van Suriname</a>{% for b in M.banks %}, <a href="{{ b.url }}" rel="noopener nofollow">{{ b.name }}</a>{% endfor %}. {{ 'Indicatief, geen advies. Vraag altijd de actuele koers bij je bank of cambio.' if nl else 'Indicative, not advice. Always confirm the current rate with your bank or exchange office.' }}</p>
 </div>
 {% endblock %}
 {% block scripts %}{% if rates %}<script>
-(function(){var R={USD:{b:{{ rates.usd.buy }},s:{{ rates.usd.sell }}},EUR:{b:{{ rates.eur.buy }},s:{{ rates.eur.sell }}}};var f=document.getElementById('fx-form');var nf=new Intl.NumberFormat('{{ 'nl-NL' if nl else 'en-US' }}',{minimumFractionDigits:2,maximumFractionDigits:2});
+(function(){var SRC={{ M.src_json|safe }},NAMES={{ M.cur_names|tojson }},nl={{ 'true' if nl else 'false' }};
+var f=document.getElementById('fx-form'),nf=function(x,d){return new Intl.NumberFormat(nl?'nl-NL':'en-US',{minimumFractionDigits:d,maximumFractionDigits:d}).format(x)};
 function n(v){v=String(v||'').replace(/\s/g,'');if(/,\d{1,2}$/.test(v))v=v.replace(/\./g,'').replace(',','.');else v=v.replace(/,/g,'');return parseFloat(v)||0}
-function go(){var a=n(f.a.value),fr=f.f.value,to=f.t.value,srd,out,how;
- srd=fr==='SRD'?a:a*R[fr].b; out=to==='SRD'?srd:srd/R[to].s;
- how=(fr==='SRD'?'':'{{ 'aankoopkoers' if nl else 'buy rate' }} '+fr+' '+nf.format(R[fr].b))+(fr!=='SRD'&&to!=='SRD'?' · ':'')+(to==='SRD'?'':'{{ 'verkoopkoers' if nl else 'sell rate' }} '+to+' '+nf.format(R[to].s));
- if(fr===to){out=a;how=''}
- document.getElementById('fx-out').textContent=to+' '+nf.format(out);document.getElementById('fx-how').textContent=how?('CME, '+how):''}
-f.addEventListener('input',go);f.addEventListener('change',go);go()})();
+Object.keys(SRC).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=SRC[k][0];f.src.appendChild(o)});
+function fill(){var r=SRC[f.src.value][1],cs=['SRD'].concat(Object.keys(r)),pf=f.f.value||'USD',pt=f.t.value||'SRD';
+ [f.f,f.t].forEach(function(s,ix){s.innerHTML=cs.map(function(c){return '<option value="'+c+'">'+c+(NAMES[c]?' · '+NAMES[c][nl?0:1]:'')+'</option>'}).join('');});
+ f.f.value=cs.indexOf(pf)>=0?pf:'USD';f.t.value=cs.indexOf(pt)>=0&&pt!==f.f.value?pt:(f.f.value==='SRD'?'USD':'SRD');}
+function go(){var r=SRC[f.src.value][1];if((f.f.value!=='SRD'&&!r[f.f.value])||(f.t.value!=='SRD'&&!r[f.t.value]))fill();var a=n(f.a.value),fr=f.f.value,to=f.t.value,srd,out,how=[];
+ srd=fr==='SRD'?a:a*r[fr][0];if(fr!=='SRD')how.push((f.src.value==='douane'?'':(nl?'aankoop ':'buy '))+fr+' '+nf(r[fr][0],r[fr][0]<1?5:3));
+ out=to==='SRD'?srd:srd/r[to][1];if(to!=='SRD')how.push((f.src.value==='douane'?'':(nl?'verkoop ':'sell '))+to+' '+nf(r[to][1],r[to][1]<1?5:3));
+ if(fr===to){out=a;how=[]}
+ document.getElementById('fx-lab').textContent=nf(a,2)+' '+fr+' =';
+ document.getElementById('fx-out').textContent=to+' '+nf(out,2);
+ document.getElementById('fx-how').textContent=SRC[f.src.value][0]+(how.length?': '+how.join(' · '):'');}
+f.src.addEventListener('change',function(){fill();go()});f.addEventListener('input',go);f.addEventListener('change',go);fill();go();})();
 </script>{% endif %}{% endblock %}

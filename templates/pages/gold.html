@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set C = mkt.comm %}
+{% set CB = mkt.cbvs %}
+{% set OZ = 31.1034768 %}
+{% set fx = rates.usd.buy if rates else none %}
+{% block content %}
+<h1>{{ 'Goudprijs en olieprijs vandaag' if nl else 'Gold and oil price today' }}</h1>
+<p class="lead">{{ 'De wereldprijs van goud, zilver en olie in dollars en omgerekend naar SRD, plus de goudcertificaten van de Centrale Bank. Goud en olie zijn de grootste exportproducten van Suriname.' if nl else 'The world price of gold, silver and oil in dollars and converted to SRD, plus the Central Bank gold certificates. Gold and oil are Suriname\'s largest exports.' }}</p>
+{% if C and C.gold %}
+<div class="today t3">
+ <div><span class="k">{{ 'Goud per troy ounce' if nl else 'Gold per troy ounce' }}</span><span class="v">USD {{ num(C.gold.price) }}</span></div>
+ <div><span class="k">{{ 'Goud per gram (24 karaat)' if nl else 'Gold per gram (24 carat)' }}</span><span class="v">USD {{ num(C.gold.price / OZ) }}{% if fx %} · {{ srd(C.gold.price / OZ * fx, 0) }}{% endif %}</span></div>
+ {% if C.brent %}<div><span class="k">Brent {{ 'per vat' if nl else 'per barrel' }}</span><span class="v">USD {{ num(C.brent.price) }}</span></div>{% endif %}
+</div>
+<div class="cols" style="margin-top:20px">
+ <div>
+  <div class="card"><div class="eyebrow">{{ 'Goud per gram naar zuiverheid' if nl else 'Gold per gram by purity' }}</div>
+  <table class="tbl stack"><thead><tr><th>{{ 'Karaat' if nl else 'Carat' }}</th><th class="r">{{ 'Zuiverheid' if nl else 'Purity' }}</th><th class="r">USD / gram</th><th class="r">SRD / gram</th></tr></thead><tbody>
+  {% for k in [24, 22, 21, 18, 14, 10, 9] %}{% set p = C.gold.price / OZ * k / 24 %}<tr><td><b>{{ k }} {{ 'karaat' if nl else 'carat' }}</b></td><td class="r" data-l="{{ 'Zuiverheid' if nl else 'Purity' }}">{{ num(k / 24 * 1000, 0) }}</td><td class="r" data-l="USD / gram">{{ num(p) }}</td><td class="r" data-l="SRD / gram">{{ srd(p * fx, 0) if fx else '-' }}</td></tr>{% endfor %}
+  </tbody></table>
+  <p class="asof" style="margin-top:8px">{{ 'Wereldprijs zonder marge. Opkopers en juweliers betalen minder en rekenen meer.' if nl else 'World price without margin. Buyers and jewellers pay less and charge more.' }}{% if fx %} {{ 'SRD tegen CME aankoopkoers' if nl else 'SRD at the CME buy rate' }} {{ num(fx) }}.{% endif %}</p></div>
+ </div>
+ <form class="card calc" id="gv" onsubmit="return false">
+  <div class="eyebrow">{{ 'Wat is mijn goud waard?' if nl else 'What is my gold worth?' }}</div>
+  <div class="two"><div><label for="gv-g">{{ 'Gewicht (gram)' if nl else 'Weight (grams)' }}</label><input id="gv-g" inputmode="decimal" value="10"></div><div><label for="gv-k">{{ 'Karaat' if nl else 'Carat' }}</label><select id="gv-k">{% for k in [24, 22, 21, 18, 14, 10, 9] %}<option value="{{ k }}"{% if k == 18 %} selected{% endif %}>{{ k }}</option>{% endfor %}</select></div></div>
+  <label for="gv-m">{{ 'Marge van de opkoper (%)' if nl else 'Buyer\'s margin (%)' }}</label><input id="gv-m" inputmode="decimal" value="10">
+  <div class="result" style="margin-top:14px"><div class="sub">{{ 'Indicatieve waarde' if nl else 'Indicative value' }}</div><div class="big tnum" id="gv-out"></div><div class="sub" id="gv-sub"></div></div>
+ </form>
+</div>
+{% endif %}
+{% if CB and CB.gold and CB.gold.coupons %}
+<h2>{{ 'Goudcertificaten Centrale Bank' if nl else 'Central Bank gold certificates' }}</h2>
+<p>{{ 'De Centrale Bank van Suriname verkoopt goudcertificaten in coupures van 5 tot 1.000 gram. Verkoopprijzen in SRD zoals gepubliceerd door de CBvS' if nl else 'The Central Bank of Suriname sells gold certificates in denominations of 5 to 1,000 grams. Selling prices in SRD as published by the CBvS' }}{% if CB.gold.date %}, {{ CB.gold.date }}{% endif %}{% if CB.gold.lbma_usd_oz %}, {{ 'op basis van de LBMA goudprijs van' if nl else 'based on the LBMA gold price of' }} USD {{ num(CB.gold.lbma_usd_oz) }} {{ 'per troy ounce' }}{% endif %}.</p>
+<div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Coupure' if nl else 'Denomination' }}</th><th class="r">{{ 'Verkoopprijs' if nl else 'Selling price' }}</th></tr></thead><tbody>
+{% for g, p in CB.gold.coupons %}<tr><td><b>{{ num(g, 0) }} gram</b></td><td class="r" data-l="{{ 'Verkoopprijs' if nl else 'Selling price' }}">{{ srd(p, 2) }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% endif %}
+{% if C %}
+<h2>{{ 'Zilver en olie' if nl else 'Silver and oil' }}</h2>
+<div class="grid g3">
+{% if C.silver %}<div class="card"><div class="eyebrow">{{ 'Zilver' if nl else 'Silver' }}</div><div class="big tnum" style="font-size:1.6rem">USD {{ num(C.silver.price) }}</div><div class="sub">{{ 'per troy ounce' }} · USD {{ num(C.silver.price / OZ) }} {{ 'per gram' }}</div></div>{% endif %}
+{% for key, label in [('brent', 'Brent'), ('wti', 'WTI')] %}{% if C[key] %}{% set pts = spark(C[key].series, 300, 56) %}
+<div class="card"><div class="eyebrow">{{ label }} {{ 'ruwe olie' if nl else 'crude oil' }}</div><div class="big tnum" style="font-size:1.6rem">USD {{ num(C[key].price) }}</div><div class="sub">{{ 'per vat' if nl else 'per barrel' }}{% if fx %} · {{ srd(C[key].price * fx, 0) }}{% endif %}</div>{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="{{ label }}"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2"/></svg><div class="foot"><span>{{ date(C[key].series[0][0], year=False) }}</span><span>{{ date(C[key].series[-1][0], year=False) }}</span></div>{% endif %}</div>
+{% endif %}{% endfor %}
+</div>
+{% endif %}
+<div class="prose">
+<h2>{{ 'Goed om te weten' if nl else 'Good to know' }}</h2>
+<ul>
+<li>{{ 'Een troy ounce is 31,1035 gram. Goudprijzen op de wereldmarkt gaan altijd per troy ounce, in dollars.' if nl else 'A troy ounce is 31.1035 grams. World gold prices are always per troy ounce, in dollars.' }}</li>
+<li>{{ '24 karaat is puur goud. 18 karaat is 75% goud, 14 karaat 58,3%.' if nl else '24 carat is pure gold. 18 carat is 75% gold, 14 carat 58.3%.' }}</li>
+<li>{{ 'Brent is de wereldwijde maatstaf voor olie. De olie uit het GranMorgu-project in Blok 58 wordt verkocht tegen prijzen die hiervan afhangen.' if nl else 'Brent is the global oil benchmark. Oil from the GranMorgu project in Block 58 will be sold at prices tied to it.' }} <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></li>
+</ul>
+<p class="asof">{{ 'Bronnen' if nl else 'Sources' }}: gold-api.com ({{ 'goud en zilver' if nl else 'gold and silver' }}), Yahoo Finance (Brent, WTI futures){% if CB %}, <a href="https://www.cbvs.sr/" rel="noopener">{{ 'Centrale Bank van Suriname' }}</a> ({{ 'goudcertificaten' if nl else 'gold certificates' }}){% endif %}. {{ 'Elke 30 minuten bijgewerkt. Indicatief.' if nl else 'Updated every 30 minutes. Indicative.' }}</p>
+</div>
+{% endblock %}
+{% block scripts %}{% if C and C.gold %}<script>
+(function(){var USD={{ C.gold.price }}/{{ OZ }},FX={{ fx or 0 }},nl={{ 'true' if nl else 'false' }};
+var g=document.getElementById('gv-g'),k=document.getElementById('gv-k'),m=document.getElementById('gv-m');
+function n(v){v=String(v||'').replace(/\s/g,'');if(/,\d{1,3}$/.test(v))v=v.replace(/\./g,'').replace(',','.');else v=v.replace(/,/g,'');return parseFloat(v)||0}
+function f(x){return new Intl.NumberFormat(nl?'nl-NL':'en-US',{minimumFractionDigits:2,maximumFractionDigits:2}).format(x)}
+function go(){var u=n(g.value)*USD*(+k.value)/24*(1-n(m.value)/100);document.getElementById('gv-out').textContent='USD '+f(u);document.getElementById('gv-sub').textContent=FX?('SRD '+f(u*FX)):'';}
+[g,k,m].forEach(function(e){e.addEventListener('input',go);e.addEventListener('change',go)});go();})();
+</script>{% endif %}{% endblock %}

@@ -69,10 +69,21 @@
     <div class="rate-row"><span>USD {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.usd.buy) }}</b></div>
     <div class="rate-row"><span>EUR {{ 'verkoop' if nl else 'sell' }}</span><b class="tnum">{{ num(rates.eur.sell) }}</b></div>
     <div class="rate-row"><span>EUR {{ 'aankoop' if nl else 'buy' }}</span><b class="tnum">{{ num(rates.eur.buy) }}</b></div>
+    {% if mkt.cbvs %}<div class="rate-row"><span>USD CBvS {{ 'verkoop' if nl else 'sell' }}</span><b class="tnum">{{ num(mkt.cbvs.rates.USD.giraal[1], 3) }}</b></div>{% endif %}
+    {% if mkt.douane %}<div class="rate-row"><span>{{ 'Douanekoers USD' if nl else 'Customs rate USD' }}</span><b class="tnum">{{ num(mkt.douane.usd) }}</b></div>{% endif %}
     {% set pts = spark(rates.series) %}{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="USD"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2"/></svg>{% endif %}
-    <div class="foot"><span>{% if rates.stale %}<span class="pill">{{ 'Laatst bekend' if nl else 'Last known' }}</span> {% endif %}CME, {{ date(rates.business_date, year=False) }}</span><a href="{{ U('rates') }}">{{ 'Historie' if nl else 'History' }} &rarr;</a></div>
+    <div class="foot"><span>{% if rates.stale %}<span class="pill">{{ 'Laatst bekend' if nl else 'Last known' }}</span> {% endif %}CME, {{ date(rates.business_date, year=False) }}</span><a href="{{ U('rates') }}">{{ 'Alle banken en valuta' if nl else 'All banks and currencies' }} &rarr;</a></div>
    {% else %}<p class="empty">{{ 'Koers tijdelijk niet beschikbaar.' if nl else 'Rates temporarily unavailable.' }}</p>{% endif %}
   </section>
+
+  {% set ups = (outages.notices if outages else [])|selectattr('date','ge',today)|selectattr('slots')|list %}
+  {% if ups %}
+  <section class="card" style="margin-top:16px">
+   <div class="eyebrow">{{ 'Stroomonderbreking EBS' if nl else 'EBS power outage' }}</div>
+   <ul class="list">{% for n in ups[:3] %}{% for s in n.slots[:1] %}<li><b>{% if n.date == today %}{{ 'Vandaag' if nl else 'Today' }}{% else %}{{ date(n.date, weekday=True, year=False) }}{% endif %}, {{ s['from'] }}-{{ s.to }}</b><div class="meta"><span>{{ s.district }}: {{ s.areas[:70] }}{% if s.areas|length > 70 %}...{% endif %}</span></div></li>{% endfor %}{% endfor %}</ul>
+   <div class="foot"><a href="{{ U('outages') }}">{{ 'Alle onderbrekingen' if nl else 'All outages' }} &rarr;</a></div>
+  </section>
+  {% endif %}
 
   {% if hol.next %}
   <section class="card" style="margin-top:16px">

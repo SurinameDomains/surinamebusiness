@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set O = outages %}
+{% block content %}
+<h1>{{ 'Stroomonderbrekingen EBS' if nl else 'EBS power outages' }}</h1>
+<p class="lead">{{ 'Gepland onderhoud van EBS met datum, tijd en straten, zodat je je zaak, koeling en apparatuur op tijd kunt voorbereiden. Elke 30 minuten gecontroleerd.' if nl else 'Planned EBS maintenance with date, time and streets, so you can prepare your business, refrigeration and equipment in time. Checked every 30 minutes.' }}</p>
+{% if O and O.notices %}
+{% set up = O.notices|selectattr('date','ge',today)|list %}
+{% set past = O.notices|rejectattr('date','ge',today)|list %}
+{% if up %}
+{% for n in up %}
+<section class="card" style="margin-bottom:12px{% if n.date == today %};border-left:4px solid var(--accent){% endif %}">
+ <div class="eyebrow">{% if n.date == today %}{{ 'Vandaag' if nl else 'Today' }}{% else %}{{ date(n.date, weekday=True) }}{% endif %}</div>
+ {% if n.slots %}{% for s in n.slots %}
+ <div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline"><b style="font-size:1.1rem">{{ s.district }}</b><span class="pill red">{{ s['from'] }} - {{ s.to }}</span>{% if s.date != n.date %}<span class="sub">{{ date(s.date, weekday=True) }}</span>{% endif %}</div>
+ <p style="margin:6px 0 8px;font-size:.9rem;color:var(--ink-2)">{{ s.areas }}</p>
+ {% endfor %}{% else %}<b>{{ n.title }}</b><p style="margin:6px 0 8px;font-size:.92rem">{{ n.text }}</p>{% endif %}
+ <div class="meta"><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ 'Bericht van EBS' if nl else 'EBS notice' }}</a>{% if n.map %}<a href="{{ n.map }}" rel="noopener nofollow" target="_blank">{{ 'Kaart' if nl else 'Map' }}</a>{% endif %}</div>
+</section>
+{% endfor %}
+{% else %}<p class="note">{{ 'Er is op dit moment geen gepland onderhoud aangekondigd.' if nl else 'No planned maintenance has been announced right now.' }}</p>{% endif %}
+{% if past %}
+<h2>{{ 'Afgelopen dagen' if nl else 'Past days' }}</h2>
+<ul class="list">{% for n in past|reverse %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta">{% for s in n.slots %}<span>{{ s.district }} {{ s['from'] }}-{{ s.to }}</span>{% endfor %}</div></li>{% endfor %}</ul>
+{% endif %}
+{% else %}<p class="note">{{ 'De berichten van EBS zijn op dit moment niet beschikbaar.' if nl else 'EBS notices are not available right now.' }}</p>{% endif %}
+<div class="prose">
+<h2>{{ 'Voorbereiden op een onderbreking' if nl else 'Preparing for an outage' }}</h2>
+<ul>
+<li>{{ 'Zet computers en kassa\'s tijdig uit en bewaar je werk; een UPS geeft je tijd om netjes af te sluiten.' if nl else 'Shut down computers and tills in time and save your work; a UPS gives you time to shut down properly.' }}</li>
+<li>{{ 'Houd koelcellen en vriezers dicht. Een volle vriezer blijft langer koud.' if nl else 'Keep cold rooms and freezers closed. A full freezer stays cold longer.' }}</li>
+<li>{{ 'Laat klanten weten als je dicht bent of beperkt open, bijvoorbeeld via WhatsApp status.' if nl else 'Tell customers if you close or open with limited service, for example on your WhatsApp status.' }}</li>
+<li>{{ 'Overweeg je een generator of zonnepanelen? Reken uit of het zich terugverdient:' if nl else 'Considering a generator or solar panels? Work out whether it pays off:' }} <a href="{{ U('roi') }}">{{ L('roi') }}</a></li>
+</ul>
+<p>{{ 'Een storing melden of schade claimen doe je bij EBS zelf.' if nl else 'Report a fault or claim damage with EBS directly.' }}</p>
+{% if O %}<p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="{{ O.source }}" rel="noopener">N.V. Energiebedrijven Suriname (EBS)</a>. {{ 'Gecontroleerd' if nl else 'Checked' }} {{ ago(O.fetched_at) }}. {{ 'Ongeplande storingen staan hier niet in.' if nl else 'Unplanned faults are not listed here.' }}</p>{% endif %}
+</div>
+{% endblock %}
