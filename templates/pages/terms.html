@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Gebruiksvoorwaarden' if nl else 'Terms of use' }}</h1>
+<p class="lead">{{ 'Suriname Business is een gratis website met informatie en tools voor ondernemers in Suriname. Door de site en een account te gebruiken ga je akkoord met deze voorwaarden.' if nl else 'Suriname Business is a free website with information and tools for businesses in Suriname. By using the site and an account you agree to these terms.' }}</p>
+<h2>{{ 'Informatie en tools' if nl else 'Information and tools' }}</h2>
+<ul>
+ <li>{{ 'We werken met officiële bronnen en controleren cijfers zorgvuldig, maar fouten zijn mogelijk en regels veranderen. Gebruik de informatie en berekeningen als hulpmiddel, niet als juridisch, fiscaal of financieel advies. Controleer belangrijke beslissingen bij de bron of een adviseur.' if nl else 'We work from official sources and check figures carefully, but mistakes are possible and rules change. Use the information and calculations as a guide, not as legal, tax or financial advice. Check important decisions with the source or an adviser.' }}</li>
+ <li>{{ 'Documenten die je met de tools maakt (zoals facturen, offertes en loonstroken) zijn jouw documenten. Jij bent verantwoordelijk voor de inhoud en voor het juist toepassen van BTW en andere regels.' if nl else 'Documents you make with the tools (such as invoices, quotes and payslips) are your documents. You are responsible for their content and for applying VAT and other rules correctly.' }}</li>
+ <li>{{ 'Wisselkoersen, prijzen en andere live gegevens komen van externe bronnen en kunnen vertraagd zijn. Voor transacties geldt altijd de koers of prijs van de bank of instantie zelf.' if nl else 'Exchange rates, prices and other live data come from external sources and may be delayed. For transactions, the rate or price of the bank or authority itself always applies.' }}</li>
+</ul>
+<h2>{{ 'Je account' if nl else 'Your account' }}</h2>
+<ul>
+ <li>{{ 'Een account is gratis. Je logt in met je eigen Google-account en bent verantwoordelijk voor wat er via je account gebeurt.' if nl else 'An account is free. You sign in with your own Google account and are responsible for what happens through your account.' }}</li>
+ <li>{{ 'We bewaren je gegevens zorgvuldig, maar houd van belangrijke documenten ook een eigen kopie (download de PDF of je gegevens in Mijn account). We zijn niet aansprakelijk voor verlies van gegevens.' if nl else 'We store your data with care, but keep your own copy of important documents (download the PDF, or your data in My account). We are not liable for loss of data.' }}</li>
+ <li>{{ 'Gebruik de site niet voor misbruik, spam, oplichting of illegale doeleinden. We mogen accounts en inhoud die dat doen blokkeren of verwijderen.' if nl else 'Do not use the site for abuse, spam, fraud or illegal purposes. We may block or remove accounts and content that do.' }}</li>
+ <li>{{ 'Je kunt je account op elk moment zelf verwijderen in Mijn account.' if nl else 'You can delete your account yourself at any time in My account.' }}</li>
+</ul>
+<h2>{{ 'Vacatures' if nl else 'Vacancies' }}</h2>
+<ul>
+ <li>{{ 'Plaats alleen echte vacatures bij een echte werkgever, zonder kosten voor kandidaten. We controleren elke vacature en mogen een vacature weigeren, aanpassen of offline halen.' if nl else 'Only post real vacancies at a real employer, without fees for candidates. We review every vacancy and may refuse, adjust or remove one.' }}</li>
+ <li>{{ 'Sollicitaties gaan rechtstreeks naar de werkgever. Suriname Business is geen partij bij een sollicitatie of arbeidsovereenkomst.' if nl else 'Applications go directly to the employer. Suriname Business is not a party to any application or employment contract.' }}</li>
+</ul>
+<h2>{{ 'Overig' if nl else 'Other' }}</h2>
+<ul>
+ <li>{{ 'Hoe we met gegevens omgaan staat in ons' if nl else 'How we handle data is explained in our' }} <a href="{{ U('privacy') }}">{{ 'privacybeleid' if nl else 'privacy policy' }}</a>.</li>
+ <li>{{ 'We kunnen deze voorwaarden aanpassen; de actuele versie staat altijd op deze pagina. Op deze voorwaarden is Surinaams recht van toepassing.' if nl else 'We may change these terms; the current version is always on this page. These terms are governed by the law of Suriname.' }}</li>
+ <li>{{ 'Vragen?' if nl else 'Questions?' }} <a href="{{ U('contact') }}">{{ L('contact') }}</a></li>
+</ul>
+<p class="asof">{{ 'Versie van' if nl else 'Version of' }} {{ date('2026-10-18') }}.</p>
+</div>
+{% endblock %}

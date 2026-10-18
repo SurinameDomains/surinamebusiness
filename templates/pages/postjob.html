@@ -6,7 +6,9 @@
 <h1>{{ 'Gratis een vacature plaatsen' if nl else 'Post a job for free' }}</h1>
 <p class="lead">{{ 'Je vacature komt op Suriname Business en in Google Jobs. Kandidaten solliciteren rechtstreeks bij jou, per e-mail of via je eigen website.' if nl else 'Your vacancy goes on Suriname Business and into Google Jobs. Candidates apply directly with you, by email or through your own website.' }}</p>
 
-<form class="card calc pj" id="pj" novalidate>
+{% if settings.get('jobs_open') is sameas false %}<div class="note">{{ 'Vacatures plaatsen is tijdelijk gesloten. Probeer het later opnieuw of mail' if nl else 'Posting vacancies is temporarily closed. Please try again later or email' }} <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</div>{% endif %}
+<div class="note pj-acct" id="pj-acct" hidden></div>
+<form class="card calc pj" id="pj" novalidate{% if settings.get('jobs_open') is sameas false %} hidden{% endif %}>
  <input type="hidden" name="ui" value="{{ lang }}">
  <div class="hp" aria-hidden="true"><label>Website 2<input name="website2" tabindex="-1" autocomplete="off"></label></div>
 
@@ -157,13 +159,71 @@
     st.scrollIntoView({block:'center',behavior:'smooth'});
     return;
    }
+   handleErr(d);
+  }).catch(function(){ btn.disabled=false; if(window.turnstile&&tsId!==null) turnstile.reset(tsId); say('err', NL?'Geen verbinding. Probeer het opnieuw.':'No connection. Please try again.'); });
+ });
+ function handleErr(d){
    if(window.turnstile&&tsId!==null) turnstile.reset(tsId);
    if(d.error==='invalid'&&d.field){ mark(d.field); say('err', NL?'Controleer het gemarkeerde veld.':'Please check the highlighted field.'); return }
    if(d.error==='captcha'){ mark('captcha'); return }
    if(d.error==='rate'){ say('err', NL?'Je hebt vandaag al meerdere vacatures ingediend. Probeer het morgen opnieuw of mail ons.':'You have already submitted several vacancies today. Try again tomorrow or email us.'); return }
+   if(d.error==='jobs_closed'){ say('err', NL?'Vacatures plaatsen is tijdelijk gesloten.':'Posting vacancies is temporarily closed.'); return }
    say('err', NL?'Er ging iets mis. Probeer het opnieuw of mail {{ contact_email }}.':'Something went wrong. Try again or email {{ contact_email }}.');
-  }).catch(function(){ btn.disabled=false; if(window.turnstile&&tsId!==null) turnstile.reset(tsId); say('err', NL?'Geen verbinding. Probeer het opnieuw.':'No connection. Please try again.'); });
- });
+ }
+
+ // ---- signed in with Google: no captcha or email confirmation, vacancy goes to "My account"
+ var editId=(location.search.match(/[?&]edit=([a-z0-9]{8})/)||[])[1]||null, bar=document.getElementById('pj-acct');
+ function acct(){
+  var A=window.SBA, u=A.user(), ce=form.elements.contact_email, cap=form.querySelector('[data-f="captcha"]');
+  bar.hidden=false;
+  if(!u){
+   ce.readOnly=false; if(cap) cap.style.display='';
+   bar.innerHTML=(NL?'<b>Tip:</b> log in met Google. Dan hoef je niets per e-mail te bevestigen en beheer je je vacatures zelf: wijzigen, verlengen en sluiten. ':'<b>Tip:</b> sign in with Google. No email confirmation needed, and you manage your vacancies yourself: edit, extend and close. ')+'<button type="button" class="btn sm" id="pj-login">'+(NL?'Inloggen':'Sign in')+'</button>';
+   document.getElementById('pj-login').onclick=function(){ A.login(NL?'Log in om je vacature direct in te dienen en later zelf te beheren.':'Sign in to submit your vacancy right away and manage it later.'); };
+   if(editId) { bar.innerHTML=(NL?'Log in om deze vacature te wijzigen. ':'Sign in to edit this vacancy. ')+bar.innerHTML.replace(/^.*?(<button)/,'$1'); document.getElementById('pj-login').onclick=function(){A.login()}; }
+   return;
+  }
+  ce.value=u.email; ce.readOnly=true;
+  if(!form.elements.contact_name.value) form.elements.contact_name.value=u.name||'';
+  if(cap) cap.style.display='none';
+  bar.innerHTML=(NL?'Ingelogd als <b></b>. Je vacature komt in ':'Signed in as <b></b>. Your vacancy goes to ')+'<a href="'+(window.SBA_CFG.accountUrl)+'#jobs">'+(NL?'Mijn account':'My account')+'</a>.';
+  bar.querySelector('b').textContent=u.email;
+  if(editId && !form.dataset.loaded){
+   A.api('/me/jobs/'+editId).then(function(r){
+    if(!r.ok){ say('err', NL?'Deze vacature is niet gevonden in je account.':'This vacancy was not found in your account.'); return }
+    var j=r.job, E=form.elements; form.dataset.loaded='1';
+    ['title','employer','employer_url','location','employment_type','description','salary_min','salary_max','salary_currency','salary_period','deadline','apply_email','apply_url','contact_name','contact_phone'].forEach(function(n){ if(E[n]&&j[n]!=null) E[n].value=j[n]; });
+    if(E.lang&&j.lang) E.lang.value=j.lang;
+    desc.dispatchEvent(new Event('input'));
+    btn.textContent=NL?'Wijzigingen indienen':'Submit changes';
+    say('ok', (NL?'Je wijzigt een bestaande vacature. Na het indienen wordt hij opnieuw gecontroleerd':'You are editing an existing vacancy. After submitting it is reviewed again')+(j.status==='live'?(NL?' en staat hij tot de goedkeuring offline.':' and is offline until approved.'):'.'));
+   });
+  }
+ }
+ if(window.SBA) acct(); else window.addEventListener('sba:ready', acct);
+ window.addEventListener('sba:user', function(){ if(window.SBA) acct(); });
+ // signed-in submit replaces the public endpoint
+ form.addEventListener('submit',function(e){
+  var A=window.SBA; if(!A||!A.user()) return;
+  e.stopImmediatePropagation(); e.preventDefault(); clear();
+  var bad=check(); if(bad){mark(bad);return}
+  var fd=new FormData(form); fd.delete('cf-turnstile-response'); fd.delete('contact_email');
+  if(editId) fd.set('action','update');
+  btn.disabled=true; say('ok', NL?'Bezig met versturen...':'Sending...');
+  A.api(editId?'/me/jobs/'+editId:'/me/jobs',{method:'POST',body:fd}).then(function(d){
+   btn.disabled=false;
+   if(d.ok){
+    form.querySelectorAll('fieldset,[data-f],#pj-btn').forEach(function(x){x.style.display='none'});
+    say('ok', editId?(NL?'Je wijzigingen zijn ingediend. We controleren ze meestal binnen één werkdag.':'Your changes have been submitted. We usually review them within one working day.')
+                    :(NL?'Bedankt, je vacature is ingediend. We controleren hem meestal binnen één werkdag; de status zie je in Mijn account.':'Thanks, your vacancy has been submitted. We usually review it within one working day; you can follow the status in My account.'));
+    var p=document.createElement('p'); p.style.marginTop='10px'; var a=document.createElement('a'); a.href=window.SBA_CFG.accountUrl+'#jobs'; a.textContent=NL?'Naar mijn vacatures':'Go to my vacancies'; p.appendChild(a); st.appendChild(p);
+    st.scrollIntoView({block:'center',behavior:'smooth'});
+    return;
+   }
+   if(d._status===401){ say('err', NL?'Je bent uitgelogd. Log opnieuw in.':'You were signed out. Please sign in again.'); return }
+   handleErr(d);
+  });
+ }, true);
 })();
 </script>
 {% endblock %}

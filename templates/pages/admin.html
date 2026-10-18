@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="adm" id="adm" data-no-sync-reload>
+<h1>Beheer</h1>
+<div class="card" id="adm-out" hidden><p>Log in met een beheerdersaccount om verder te gaan.</p><button type="button" class="btn" id="adm-login">Inloggen met Google</button></div>
+<div class="card" id="adm-deny" hidden><p>Dit account heeft geen beheerrechten.</p><a href="{{ U('account') }}">{{ L('account') }}</a></div>
+<div id="adm-in" hidden>
+ <nav class="tabs" id="adm-tabs" role="tablist">
+  <button role="tab" data-tab="home" aria-selected="true">Overzicht</button>
+  <button role="tab" data-tab="jobs">Vacatures <span class="cnt" id="cnt-jobs"></span></button>
+  <button role="tab" data-tab="users">Gebruikers</button>
+  <button role="tab" data-tab="content">Inhoud</button>
+  <button role="tab" data-tab="messages">Berichten <span class="cnt" id="cnt-msg"></span></button>
+  <button role="tab" data-tab="settings">Instellingen</button>
+  <button role="tab" data-tab="log">Logboek</button>
+ </nav>
+
+ <section class="tab" data-pane="home">
+  <div class="kpis" id="adm-kpis"></div>
+  <div class="grid g2">
+   <div class="card"><h3>Nieuwe accounts (30 dagen)</h3><div class="bars" id="adm-signups"></div></div>
+   <div class="card"><h3>Ingediende vacatures (30 dagen)</h3><div class="bars" id="adm-jobseries"></div></div>
+  </div>
+  <div class="card"><div class="row-between"><h3 style="margin:0">Databronnen</h3><span class="sub" id="adm-built"></span></div>
+   <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Bron</th><th>Laatst gelukt</th><th>Status</th></tr></thead><tbody id="adm-feeds"></tbody></table></div>
+   <p class="sub">De site haalt alle gegevens elke 30 minuten op en bouwt zich dan opnieuw. Een bron die faalt houdt de laatste goede gegevens.</p>
+  </div>
+  <div class="card"><h3>Snelkoppelingen</h3>
+   <ul class="links-grid">
+    <li><a href="https://github.com/SurinameDomains/surinamebusiness/actions" target="_blank" rel="noopener">GitHub: builds en data-updates</a></li>
+    <li><a href="https://dash.cloudflare.com/506e85bc68326dda1d8765b02de3f3a2/workers-and-pages" target="_blank" rel="noopener">Cloudflare: workers</a></li>
+    <li><a href="https://dash.cloudflare.com/506e85bc68326dda1d8765b02de3f3a2/web-analytics" target="_blank" rel="noopener">Cloudflare: bezoekers (Web Analytics)</a></li>
+    <li><a href="https://dash.cloudflare.com/506e85bc68326dda1d8765b02de3f3a2/workers/d1" target="_blank" rel="noopener">Cloudflare: database (D1)</a></li>
+    <li><a href="https://console.cloud.google.com/auth/overview?project=suriname-business-512021" target="_blank" rel="noopener">Google: inloggen (OAuth)</a></li>
+    <li><a href="https://search.google.com/search-console?resource_id=sc-domain:surinamebusiness.com" target="_blank" rel="noopener">Google Search Console</a></li>
+   </ul>
+  </div>
+ </section>
+
+ <section class="tab" data-pane="jobs" hidden>
+  <div class="filters adm-filters">
+   <select id="j-status" aria-label="Status"><option value="">Alle statussen</option><option value="pending" selected>Wacht op goedkeuring</option><option value="live">Online</option><option value="unverified">Niet bevestigd</option><option value="rejected">Afgewezen</option><option value="closed">Gesloten</option><option value="expired">Verlopen</option></select>
+   <input type="search" id="j-q" placeholder="Zoek titel, werkgever of e-mail">
+  </div>
+  <div id="adm-jobs"></div>
+ </section>
+
+ <section class="tab" data-pane="users" hidden>
+  <div class="filters adm-filters"><input type="search" id="u-q" placeholder="Zoek naam, e-mail of bedrijf"></div>
+  <div class="tbl-wrap card"><table class="tbl"><thead><tr><th>Gebruiker</th><th>Laatst actief</th><th class="r">Gegevens</th><th class="r">Vacatures</th></tr></thead><tbody id="adm-users"></tbody></table></div>
+  <div class="card" id="adm-user" hidden></div>
+ </section>
+
+ <section class="tab" data-pane="content" hidden>
+  <p class="sub">Banners staan bovenaan elke pagina, mededelingen op een gekozen pagina, nieuws en aanbestedingen komen bovenaan hun lijst, links op de homepage. Wijzigingen staan binnen een half uur op de site (bij de volgende build).</p>
+  <div class="btns"><button type="button" class="btn sm" data-new="banner">+ Banner</button><button type="button" class="btn sm alt" data-new="notice">+ Mededeling</button><button type="button" class="btn sm alt" data-new="news">+ Nieuwsbericht</button><button type="button" class="btn sm alt" data-new="tender">+ Aanbesteding</button><button type="button" class="btn sm alt" data-new="link">+ Uitgelichte link</button></div>
+  <form class="card calc" id="c-form" hidden onsubmit="return false">
+   <h3 id="c-title" style="margin-top:0"></h3>
+   <input type="hidden" name="id"><input type="hidden" name="kind">
+   <div class="two"><div><label>Titel (NL)</label><input name="title" maxlength="300" required></div><div><label>Titel (EN, optioneel)</label><input name="title_en" maxlength="300"></div></div>
+   <div class="two"><div><label data-for="body">Tekst (NL)</label><textarea name="body" rows="3"></textarea></div><div><label>Tekst (EN, optioneel)</label><textarea name="body_en" rows="3"></textarea></div></div>
+   <div class="two"><div><label>Link (https://... of /pagina)</label><input name="url" maxlength="600"></div><div data-k="news,tender"><label>Bron / organisatie</label><input name="source" maxlength="120"></div></div>
+   <div class="three"><div><label>Taal</label><select name="lang"><option value="all">Beide talen</option><option value="nl">Alleen NL</option><option value="en">Alleen EN</option></select></div>
+    <div><label>Vanaf</label><input name="starts" type="date"></div><div><label>Tot en met</label><input name="ends" type="date"></div></div>
+   <div class="three">
+    <div data-k="banner"><label>Stijl</label><select name="d_level"><option value="info">Info</option><option value="warn">Let op</option><option value="ok">Goed nieuws</option></select></div>
+    <div data-k="notice"><label>Pagina</label><select name="d_page"><option value="all">Alle pagina's</option>{% for k in page_keys %}<option value="{{ k }}">{{ L(k) }}</option>{% endfor %}</select></div>
+    <div data-k="tender"><label>Sluitingsdatum</label><input name="d_deadline" type="date"></div>
+    <div><label>Volgorde (hoger = eerst)</label><input name="sort" type="number" value="0"></div>
+    <div><label>Status</label><select name="status"><option value="live">Live</option><option value="draft">Concept</option></select></div>
+   </div>
+   <div class="btns"><button type="button" class="btn" id="c-save">Opslaan</button><button type="button" class="btn alt" id="c-cancel">Annuleren</button></div>
+  </form>
+  <div id="adm-content"></div>
+ </section>
+
+ <section class="tab" data-pane="messages" hidden>
+  <div class="filters adm-filters"><select id="m-status" aria-label="Status"><option value="new">Nieuw</option><option value="done">Afgehandeld</option><option value="spam">Spam</option><option value="">Alles</option></select></div>
+  <div id="adm-messages"></div>
+ </section>
+
+ <section class="tab" data-pane="settings" hidden>
+  <form class="card calc" id="s-form" onsubmit="return false" style="max-width:720px">
+   <label class="check"><input type="checkbox" name="jobs_open"> Werkgevers kunnen vacatures plaatsen</label>
+   <label class="check"><input type="checkbox" name="signup_open"> Nieuwe accounts toegestaan</label>
+   <label>Uitgelichte tools op de homepage (sleutels, met komma's)</label><input name="featured_tools">
+   <div class="hint">Beschikbaar: {{ tool_keys|join(', ') }}</div>
+   <label>WhatsApp-nummer voor support (optioneel, bijv. 5978123456)</label><input name="support_whatsapp" inputmode="tel">
+   <label>Bericht op de homepage (NL, optioneel)</label><textarea name="home_message_nl" rows="2"></textarea>
+   <label>Bericht op de homepage (EN, optioneel)</label><textarea name="home_message_en" rows="2"></textarea>
+   <div class="btns"><button type="button" class="btn" id="s-save">Opslaan</button></div>
+   <p class="sub">Inloggen en vacatures plaatsen gaan direct in; teksten op de site na de volgende build (binnen een half uur).</p>
+  </form>
+ </section>
+
+ <section class="tab" data-pane="log" hidden>
+  <div class="tbl-wrap card"><table class="tbl"><thead><tr><th>Tijd</th><th>Wie</th><th>Actie</th><th>Details</th></tr></thead><tbody id="adm-log"></tbody></table></div>
+ </section>
+</div>
+
+<dialog class="sba-dlg wide" id="j-edit">
+ <button type="button" class="x" aria-label="Sluiten">&times;</button>
+ <h2>Vacature bewerken</h2>
+ <form class="calc" id="je-form" onsubmit="return false">
+  <div class="two"><div><label>Functietitel</label><input name="title" maxlength="120"></div><div><label>Werkgever</label><input name="employer" maxlength="120"></div></div>
+  <div class="three"><div><label>Locatie</label><select name="location">{% for d in ['Paramaribo','Wanica','Nickerie','Commewijne','Para','Saramacca','Marowijne','Coronie','Brokopondo','Sipaliwini','Remote'] %}<option>{{ d }}</option>{% endfor %}</select></div>
+   <div><label>Dienstverband</label><select name="employment_type"><option>FULL_TIME</option><option>PART_TIME</option><option>TEMPORARY</option><option>CONTRACTOR</option><option>INTERN</option></select></div>
+   <div><label>Taal</label><select name="lang"><option value="nl">NL</option><option value="en">EN</option></select></div></div>
+  <label>Omschrijving</label><textarea name="description" rows="8"></textarea>
+  <div class="three"><div><label>Salaris min</label><input name="salary_min" inputmode="decimal"></div><div><label>Salaris max</label><input name="salary_max" inputmode="decimal"></div>
+   <div><label>Valuta / per</label><div class="two"><select name="salary_currency"><option value=""></option><option>SRD</option><option>USD</option><option>EUR</option></select><select name="salary_period"><option value=""></option><option>MONTH</option><option>HOUR</option><option>YEAR</option></select></div></div></div>
+  <div class="three"><div><label>Sluitingsdatum</label><input name="deadline" type="date"></div><div><label>Sollicitatie e-mail</label><input name="apply_email"></div><div><label>Sollicitatielink</label><input name="apply_url"></div></div>
+  <div class="three"><div><label>Website werkgever</label><input name="employer_url"></div><div><label>Contactnaam</label><input name="contact_name"></div><div><label>Contacttelefoon</label><input name="contact_phone"></div></div>
+  <div class="btns"><button type="button" class="btn" id="je-save">Opslaan</button></div>
+  <p class="form-status" id="je-msg"></p>
+ </form>
+</dialog>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/assets/admin-panel.js?v={{ build_id }}" defer></script>{% endblock %}

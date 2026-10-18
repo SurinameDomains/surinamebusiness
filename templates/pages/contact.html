@@ -11,4 +11,37 @@
  <li>{{ 'Aanbesteding aanmelden: stuur de titel, de organisatie, de sluitingsdatum en een link of PDF.' if nl else 'Tender to submit: send the title, organisation, closing date and a link or PDF.' }}</li>
 </ul>
 </div>
+<form class="card calc contact-form" id="cf" novalidate style="max-width:640px;margin-top:18px">
+ <h2 style="margin-top:0">{{ 'Of stuur een bericht' if nl else 'Or send a message' }}</h2>
+ <div class="hp" aria-hidden="true"><label>Website 2<input name="website2" tabindex="-1" autocomplete="off"></label></div>
+ <div class="two">
+  <div><label for="cf-name">{{ 'Naam' if nl else 'Name' }}</label><input id="cf-name" name="name" maxlength="100" autocomplete="name"></div>
+  <div><label for="cf-mail">E-mail</label><input id="cf-mail" name="email" type="email" maxlength="160" required autocomplete="email"></div>
+ </div>
+ <label for="cf-sub">{{ 'Onderwerp' if nl else 'Subject' }}</label><input id="cf-sub" name="subject" maxlength="150">
+ <label for="cf-body">{{ 'Bericht' if nl else 'Message' }}</label><textarea id="cf-body" name="body" rows="6" maxlength="5000" required></textarea>
+ <button class="btn inline" type="submit" id="cf-btn" style="margin-top:12px">{{ 'Versturen' if nl else 'Send' }}</button>
+ <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+</form>
 {% endblock %}
+{% block scripts %}<script>
+(function(){
+ var f=document.getElementById('cf'), st=document.getElementById('cf-status'), NL={{ 'true' if nl else 'false' }};
+ function say(c,m){ st.className='form-status '+c; st.textContent=m; }
+ function fill(){ var u=window.SBA&&SBA.user(); if(u){ if(!f.elements.email.value) f.elements.email.value=u.email; if(!f.elements.name.value) f.elements.name.value=u.name||''; } }
+ window.addEventListener('sba:ready', fill); window.addEventListener('sba:user', fill); fill();
+ f.addEventListener('submit', function(e){
+  e.preventDefault();
+  var E=f.elements;
+  if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(E.email.value.trim())){ say('err', NL?'Vul een geldig e-mailadres in.':'Enter a valid email address.'); E.email.focus(); return; }
+  if(E.body.value.trim().length<10){ say('err', NL?'Je bericht is te kort.':'Your message is too short.'); E.body.focus(); return; }
+  if(!window.SBA){ say('err', NL?'Even geduld, de pagina laadt nog.':'Please wait, the page is still loading.'); return; }
+  document.getElementById('cf-btn').disabled=true; say('ok', NL?'Bezig met versturen...':'Sending...');
+  SBA.api('/contact',{method:'POST',body:{name:E.name.value,email:E.email.value,subject:E.subject.value,body:E.body.value,page:location.pathname,website2:E.website2.value}}).then(function(d){
+   document.getElementById('cf-btn').disabled=false;
+   if(d.ok){ f.reset(); fill(); say('ok', NL?'Bedankt, je bericht is verstuurd. We antwoorden per e-mail.':'Thanks, your message has been sent. We will reply by email.'); return; }
+   say('err', d.error==='rate'?(NL?'Je hebt vandaag al veel berichten gestuurd. Mail ons rechtstreeks.':'You have sent many messages today. Please email us directly.'):(NL?'Versturen lukte niet. Mail ons rechtstreeks op {{ contact_email }}.':'Sending failed. Please email us at {{ contact_email }}.'));
+  });
+ });
+})();
+</script>{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="acct-page" id="acct-page" data-no-sync-reload>
+<h1>{{ 'Mijn account' if nl else 'My account' }}</h1>
+
+<div class="card" id="ap-out" hidden>
+ <p class="lead" style="margin-top:0">{{ 'Log in met Google en je facturen, offertes, klanten, bedrijfsgegevens en vacatures staan veilig in je account, op al je apparaten.' if nl else 'Sign in with Google and your invoices, quotes, customers, business details and vacancies are kept safe in your account, on all your devices.' }}</p>
+ <ul>
+  <li>{{ 'Alles wat de gratis tools onthouden (documenten, klanten, voorraad, openstaande facturen, kasstroom, urenregistratie, BTW-register) wordt automatisch gesynchroniseerd.' if nl else 'Everything the free tools remember (documents, customers, stock, unpaid invoices, cash flow, timesheets, VAT register) is synced automatically.' }}</li>
+  <li>{{ 'Vacatures plaatsen zonder e-mailbevestiging, en ze zelf wijzigen, verlengen en sluiten.' if nl else 'Post vacancies without email confirmation, and edit, extend and close them yourself.' }}</li>
+  <li>{{ 'Vacatures bewaren om later te solliciteren.' if nl else 'Save jobs to apply later.' }}</li>
+ </ul>
+ <button type="button" class="btn" id="ap-login">{{ 'Inloggen met Google' if nl else 'Sign in with Google' }}</button>
+ <p class="sub" style="margin-top:10px">{{ 'Gratis. Geen wachtwoord nodig.' if nl else 'Free. No password needed.' }} <a href="{{ U('privacy') }}">{{ 'Privacy' }}</a> &middot; <a href="{{ U('terms') }}">{{ L('terms') }}</a></p>
+</div>
+
+<div id="ap-in" hidden>
+ <div class="card ap-head">
+  <div class="ap-me"><span class="ap-av" id="ap-av"></span><div><b id="ap-name"></b><div class="sub" id="ap-email"></div></div></div>
+  <div class="btns" style="margin:0">
+   <a class="btn alt sm" id="ap-admin" href="{{ U('admin') }}" hidden>{{ 'Beheer' if nl else 'Admin' }}</a>
+   <button type="button" class="btn alt sm" id="ap-logout">{{ 'Uitloggen' if nl else 'Sign out' }}</button>
+  </div>
+ </div>
+
+ <nav class="tabs" id="ap-tabs" role="tablist">
+  <button role="tab" data-tab="docs" aria-selected="true">{{ 'Documenten' if nl else 'Documents' }}</button>
+  <button role="tab" data-tab="biz">{{ 'Bedrijf' if nl else 'Business' }}</button>
+  <button role="tab" data-tab="jobs">{{ 'Mijn vacatures' if nl else 'My vacancies' }}</button>
+  <button role="tab" data-tab="saved">{{ 'Bewaarde vacatures' if nl else 'Saved jobs' }}</button>
+  <button role="tab" data-tab="data">{{ 'Gegevens' if nl else 'Data' }}</button>
+ </nav>
+
+ <section class="tab" data-pane="docs">
+  <div class="card">
+   <div class="row-between"><h2 style="margin:0">{{ 'Opgeslagen documenten' if nl else 'Saved documents' }}</h2>
+    <select id="ap-docfilter" aria-label="{{ 'Soort document' if nl else 'Document type' }}"><option value="">{{ 'Alle soorten' if nl else 'All types' }}</option></select></div>
+   <input type="search" id="ap-docq" placeholder="{{ 'Zoek op nummer of klant' if nl else 'Search by number or customer' }}" style="margin:12px 0">
+   <div class="tbl-wrap"><table class="tbl"><thead><tr><th>{{ 'Nummer' if nl else 'Number' }}</th><th>{{ 'Klant' if nl else 'Customer' }}</th><th class="r">{{ 'Bedrag' if nl else 'Amount' }}</th><th></th></tr></thead><tbody id="ap-docs"></tbody></table></div>
+   <p class="sub" id="ap-docs-empty" hidden>{{ 'Nog geen opgeslagen documenten. Maak een' if nl else 'No saved documents yet. Make an' }} <a href="{{ U('invoice') }}">{{ 'factuur' if nl else 'invoice' }}</a>, <a href="{{ U('quote') }}">{{ 'offerte' if nl else 'quote' }}</a> {{ 'of' if nl else 'or' }} <a href="{{ U('proforma') }}">{{ 'proforma' }}</a> {{ 'en klik op Opslaan.' if nl else 'and click Save.' }}</p>
+  </div>
+  <div class="card">
+   <h2 style="margin-top:0">{{ 'Klanten' if nl else 'Customers' }}</h2>
+   <div class="tbl-wrap"><table class="tbl"><tbody id="ap-clients"></tbody></table></div>
+   <p class="sub" id="ap-clients-empty" hidden>{{ 'Klanten komen hier vanzelf bij als je een document opslaat.' if nl else 'Customers are added here automatically when you save a document.' }}</p>
+  </div>
+ </section>
+
+ <section class="tab" data-pane="biz" hidden>
+  <form class="card calc" id="ap-biz" onsubmit="return false" autocomplete="off">
+   <h2 style="margin-top:0">{{ 'Bedrijfsgegevens' if nl else 'Business details' }}</h2>
+   <p class="sub">{{ 'Deze gegevens staan automatisch op je facturen, offertes, pakbonnen, kwitanties en brieven.' if nl else 'These details appear automatically on your invoices, quotes, delivery notes, receipts and letters.' }}</p>
+   <label for="b-name">{{ 'Bedrijfsnaam' if nl else 'Business name' }}</label><input id="b-name" name="s_name">
+   <label for="b-addr">{{ 'Adres' if nl else 'Address' }}</label><input id="b-addr" name="s_addr">
+   <div class="two"><div><label for="b-phone">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="b-phone" name="s_phone" inputmode="tel"></div>
+    <div><label for="b-mail">E-mail</label><input id="b-mail" name="s_email" type="email"></div></div>
+   <div class="two"><div><label for="b-fin">{{ 'FIN / BTW nummer' if nl else 'FIN / VAT number' }}</label><input id="b-fin" name="s_fin"></div>
+    <div><label for="b-kkf">{{ 'KKF nummer' if nl else 'KKF number' }}</label><input id="b-kkf" name="s_kkf"></div></div>
+   <label for="b-bank">{{ 'Betaalgegevens (bank en rekeningnummer)' if nl else 'Payment details (bank and account number)' }}</label><input id="b-bank" name="s_bank">
+   <div class="two"><div><label for="b-logo">Logo</label><input id="b-logo" type="file" accept="image/*"><div class="hint"><a href="#" id="b-logo-clear">{{ 'Logo weghalen' if nl else 'Remove logo' }}</a></div></div>
+    <div><label for="b-color">{{ 'Kleur' if nl else 'Colour' }}</label><input id="b-color" name="color" type="color" value="#1f2251"></div></div>
+   <div id="b-logo-prev" class="logo-prev"></div>
+   <div class="btns"><button type="button" class="btn" id="b-save">{{ 'Opslaan' if nl else 'Save' }}</button></div>
+  </form>
+  <form class="card calc" id="ap-prof" onsubmit="return false">
+   <h2 style="margin-top:0">{{ 'Profiel' if nl else 'Profile' }}</h2>
+   <label for="p-name">{{ 'Naam' if nl else 'Name' }}</label><input id="p-name" name="name" maxlength="100">
+   <div class="two"><div><label for="p-co">{{ 'Bedrijf' if nl else 'Company' }}</label><input id="p-co" name="company" maxlength="120"></div>
+    <div><label for="p-ph">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="p-ph" name="phone" maxlength="40"></div></div>
+   <label for="p-lang">{{ 'Taal' if nl else 'Language' }}</label><select id="p-lang" name="lang"><option value="nl">Nederlands</option><option value="en">English</option></select>
+   <div class="btns"><button type="button" class="btn alt" id="p-save">{{ 'Profiel opslaan' if nl else 'Save profile' }}</button></div>
+  </form>
+ </section>
+
+ <section class="tab" data-pane="jobs" hidden>
+  <div class="card">
+   <div class="row-between"><h2 style="margin:0">{{ 'Mijn vacatures' if nl else 'My vacancies' }}</h2><a class="btn sm" href="{{ U('postjob') }}">+ {{ 'Vacature plaatsen' if nl else 'Post a vacancy' }}</a></div>
+   <div id="ap-jobs" style="margin-top:12px"><p class="sub">{{ 'Laden...' if nl else 'Loading...' }}</p></div>
+   <p class="sub">{{ 'Hier staan de vacatures die je ingelogd plaatste, en vacatures met je e-mailadres als contactadres. Wijzigen zet een vacature opnieuw in de controle; verlengen en sluiten gaat direct.' if nl else 'This lists the vacancies you posted while signed in, and vacancies with your email address as contact. Editing sends a vacancy back for review; extending and closing take effect right away.' }}</p>
+  </div>
+ </section>
+
+ <section class="tab" data-pane="saved" hidden>
+  <div class="card"><h2 style="margin-top:0">{{ 'Bewaarde vacatures' if nl else 'Saved jobs' }}</h2><ul class="list" id="ap-saved"></ul>
+   <p class="sub" id="ap-saved-empty" hidden>{{ 'Nog niets bewaard. Klik bij een vacature op Bewaren.' if nl else 'Nothing saved yet. Click Save on a job.' }} <a href="{{ U('jobs') }}">{{ L('jobs') }} &rarr;</a></p></div>
+ </section>
+
+ <section class="tab" data-pane="data" hidden>
+  <div class="card">
+   <h2 style="margin-top:0">{{ 'Wat er in je account staat' if nl else 'What is in your account' }}</h2>
+   <p class="sub" id="ap-quota"></p>
+   <div class="tbl-wrap"><table class="tbl"><tbody id="ap-keys"></tbody></table></div>
+   <div class="btns">
+    <button type="button" class="btn alt" id="ap-sync">{{ 'Nu synchroniseren' if nl else 'Sync now' }}</button>
+    <button type="button" class="btn alt" id="ap-export">{{ 'Alles downloaden (JSON)' if nl else 'Download everything (JSON)' }}</button>
+   </div>
+  </div>
+  <div class="card">
+   <h2 style="margin-top:0">{{ 'Apparaten' if nl else 'Devices' }}</h2>
+   <ul class="list" id="ap-sessions"></ul>
+   <div class="btns">
+    <button type="button" class="btn alt" id="ap-logout-all">{{ 'Overal uitloggen' if nl else 'Sign out everywhere' }}</button>
+    <button type="button" class="btn alt" id="ap-logout-wipe">{{ 'Uitloggen en dit apparaat wissen' if nl else 'Sign out and clear this device' }}</button>
+   </div>
+   <p class="sub">{{ 'Gebruik je een gedeelde computer? Kies "Uitloggen en dit apparaat wissen": dan blijven je gegevens alleen in je account.' if nl else 'On a shared computer? Choose "Sign out and clear this device": your data then stays only in your account.' }}</p>
+  </div>
+  <div class="card danger">
+   <h2 style="margin-top:0">{{ 'Account verwijderen' if nl else 'Delete account' }}</h2>
+   <p>{{ 'Verwijdert je account en alles wat erin staat. Vacatures die online staan blijven tot hun sluitingsdatum, maar zijn dan niet meer aan je gekoppeld. Wat op dit apparaat staat blijft staan.' if nl else 'Deletes your account and everything in it. Live vacancies stay until their closing date but are no longer linked to you. What is on this device stays.' }}</p>
+   <button type="button" class="btn alt" id="ap-delete">{{ 'Account verwijderen' if nl else 'Delete account' }}</button>
+  </div>
+ </section>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}<script>window.SBA_PAGE={postjob:{{ U('postjob')|tojson }},jobs:{{ U('jobs')|tojson }},docs:{invoice:{{ U('invoice')|tojson }},quote:{{ U('quote')|tojson }},proforma:{{ U('proforma')|tojson }},creditnote:{{ U('creditnote')|tojson }},purchaseorder:{{ U('purchaseorder')|tojson }},deliverynote:{{ U('deliverynote')|tojson }}},names:{invoice:{{ L('invoice')|tojson }},quote:{{ L('quote')|tojson }},proforma:{{ L('proforma')|tojson }},creditnote:{{ L('creditnote')|tojson }},purchaseorder:{{ L('purchaseorder')|tojson }},deliverynote:{{ L('deliverynote')|tojson }}}};</script>
+<script src="/assets/account-page.js?v={{ build_id }}" defer></script>{% endblock %}

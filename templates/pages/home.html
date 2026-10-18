@@ -15,6 +15,8 @@
 </section>
 {% endblock %}
 {% block content %}
+{% set hm = settings.get('home_message_' ~ lang) %}{% if hm %}<div class="note home-msg">{{ hm }}</div>{% endif %}
+{% if own_links %}<div class="card own-links"><div class="eyebrow">{{ 'Uitgelicht' if nl else 'Featured' }}</div><ul class="list">{% for c in own_links %}<li><a href="{{ c.url or '#' }}">{{ ctext(c) }}</a>{% if ctext(c, 'body') %}<div class="meta"><span>{{ ctext(c, 'body') }}</span></div>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
 <div class="today" aria-label="{{ 'Vandaag' if nl else 'Today' }}">
 {% for t in ticker %}<a href="{{ t.url }}"><span class="k">{{ t.label }}</span><span class="v">{{ t.value }}</span></a>{% endfor %}
 </div>
@@ -48,7 +50,8 @@
 
   <h2>{{ 'Gratis tools voor je bedrijf' if nl else 'Free tools for your business' }}</h2>
   <div class="grid g3 tools-mini">
-   {% for k in ['invoice','quote','payslip','pricing','importcost','loan','btwregister','qrcode','pdftools'] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+   {% set feat = (settings.get('featured_tools') or '').replace(' ', '').split(',')|select('in', TM.BY_KEY)|list %}
+   {% for k in (feat if feat|length >= 3 else ['invoice','quote','payslip','pricing','importcost','loan','btwregister','qrcode','pdftools'])[:12] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
   </div>
   <p style="margin-top:12px"><a href="{{ U('tools') }}"><b>{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} {{ 'gratis tools' if nl else 'free tools' }} &rarr;</b></a></p>
 
