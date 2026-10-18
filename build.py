@@ -48,7 +48,7 @@ LABELS = {
     "overtime": ("Overuren berekenen", "Overtime calculator"),
     "minwage": ("Minimumloon", "Minimum wage"),
     "vatcalc": ("BTW berekenen", "VAT calculator"),
-    "rates": ("Wisselkoers USD en EUR", "Exchange rates USD and EUR"),
+    "rates": ("Wisselkoers vandaag", "Exchange rates today"),
     "holidays": ("Feestdagen 2026 en 2027", "Public holidays 2026 and 2027"),
     "workdays": ("Werkdagen berekenen", "Working days calculator"),
     "tenders": ("Aanbestedingen", "Tenders"),
@@ -98,10 +98,10 @@ META = {
                  "Reken bedragen om van exclusief naar inclusief BTW en terug, met de Surinaamse tarieven van 10%, 5% en 25%."),
                 ("VAT calculator Suriname: 10%, 5% and 25%",
                  "Convert amounts between excluding and including VAT with Suriname's 10%, 5% and 25% rates.")),
-    "rates": (("Wisselkoers Suriname vandaag: dollar en euro (koers SRD)",
-               "De koers van de dollar en de euro in Surinaamse dollar (SRD) vandaag, met koershistorie en CSV download."),
-              ("Suriname exchange rate today: USD and EUR to SRD",
-               "Today's US dollar and euro rates in Surinamese dollars (SRD), with rate history and a CSV download.")),
+    "rates": (("Wisselkoers Suriname vandaag: dollarkoers bij CME, CBvS en alle banken",
+               "De koers van de dollar en de euro in SRD vandaag: cambio (CME), Centrale Bank (CBvS), Finabank, Hakrinbank, DSB, Republic Bank en Godo naast elkaar, plus douanekoers en omrekenen."),
+              ("Suriname exchange rate today: USD to SRD at CME, CBvS and every bank",
+               "Today's US dollar and euro rate in SRD: exchange office (CME), Central Bank (CBvS), Finabank, Hakrinbank, DSB, Republic Bank and Godo side by side, plus customs rate and converter.")),
     "holidays": (("Feestdagen Suriname 2026 en 2027: alle vrije dagen",
                   "Alle officiële vrije dagen in Suriname voor 2026 en 2027, met datum en dag, voor planning en loonadministratie."),
                  ("Suriname public holidays 2026 and 2027",
@@ -180,6 +180,21 @@ META = {
 
 
 LABELS["tools"] = ("Gratis zakelijke tools", "Free business tools")
+LABELS["douane"] = ("Douanekoers", "Customs exchange rate")
+LABELS["outages"] = ("Stroomonderbrekingen EBS", "EBS power outages")
+META["outages"] = (("Stroomonderbreking EBS vandaag en morgen: gepland onderhoud per wijk",
+                    "Waar en wanneer EBS de stroom onderbreekt voor gepland onderhoud: datum, tijd, district en straten. Elke 30 minuten gecontroleerd."),
+                   ("EBS power outage Suriname today and tomorrow: planned maintenance by area",
+                    "Where and when EBS cuts power for planned maintenance: date, time, district and streets. Checked every 30 minutes."))
+LABELS["gold"] = ("Goudprijs en olieprijs", "Gold and oil price")
+META["douane"] = (("Douanekoers Suriname vandaag: dollar, euro en 20 andere valuta",
+                   "De actuele douanekoers van de Centrale Bank (CBvS) voor invoeraangiftes: USD, EUR en 20 andere valuta, geldigheid, volgende lijst en verloop."),
+                  ("Suriname customs exchange rate today: USD, EUR and 20 more",
+                   "The current customs exchange rate (douanekoers) set by the Central Bank for import declarations: USD, EUR and 20 more currencies, validity and next list."))
+META["gold"] = (("Goudprijs vandaag in SRD en USD, goudcertificaten en olieprijs",
+                 "De goudprijs per gram en per ounce in USD en SRD, de CBvS goudcertificaten, zilver en de olieprijs (Brent en WTI). Met een rekentool voor de waarde van je goud."),
+                ("Gold price today in SRD and USD, gold certificates and oil price",
+                 "The gold price per gram and per ounce in USD and SRD, CBvS gold certificates, silver and the oil price (Brent and WTI). With a calculator for the value of your gold."))
 LABELS["maxprices"] = ("Maximumprijzen basisgoederen", "Maximum prices of basic goods")
 LABELS["contacts"] = ("Overheidsinstanties en contact", "Government offices and contacts")
 LABELS["bankaccount"] = ("Zakelijke bankrekening openen", "Opening a business bank account")
@@ -376,6 +391,64 @@ def maxprices_view():
             "current": bool(end and end >= TODAY), "groups": cats, "count": len(m["rows"]),
             "json": json.dumps([[r["product"], r["importer"], r["r_pack"], r["r_price"], r["w_pack"], r["w_price"]] for r in m["rows"]],
                                ensure_ascii=False).replace("</", "<\\/")}
+
+
+CUR_NAMES = {
+    "USD": ("Amerikaanse dollar", "US dollar"), "EUR": ("Euro", "Euro"), "GBP": ("Brits pond", "British pound"),
+    "XCG": ("Caribische gulden", "Caribbean guilder"), "AWG": ("Arubaanse florin", "Aruban florin"),
+    "BRL": ("Braziliaanse real", "Brazilian real"), "TTD": ("Trinidad en Tobago dollar", "Trinidad and Tobago dollar"),
+    "BBD": ("Barbadiaanse dollar", "Barbados dollar"), "XCD": ("Oost-Caribische dollar", "East Caribbean dollar"),
+    "GYD": ("Guyaanse dollar", "Guyana dollar"), "CNY": ("Chinese yuan", "Chinese yuan"),
+}
+
+
+def market_view(rates):
+    import markets
+    cb = load("cbvs.json", None)
+    dk = load("douanekoers.json", None)
+    bk = load("banks.json", None)
+    co = load("commodities.json", None)
+    out = {"cbvs": None, "douane": None, "banks": [], "comm": None}
+    if cb and cb.get("rates"):
+        order = ["USD", "EUR", "GBP", "XCG", "AWG", "BRL", "TTD", "BBD", "XCD", "GYD", "CNY"]
+        ordered = {k: cb["rates"][k] for k in order if k in cb["rates"]}
+        ordered.update({k: v for k, v in cb["rates"].items() if k not in ordered})
+        out["cbvs"] = dict(cb, rates=ordered, stale=hours_old(cb.get("fetched_at")) > 72, age_h=hours_old(cb.get("fetched_at")))
+    if dk and dk.get("rates"):
+        eff = dt.date.fromisoformat(dk["effective"])
+        prev = dk["history"][0] if dk.get("history") else None
+        rows = []
+        for code, v in dk["rates"].items():
+            per1 = v["sell"] / v["unit"]
+            rows.append({"code": code, "unit": v["unit"], "sell": v["sell"], "per1": per1,
+                         "name": markets.DOUANE_NAMES.get(code, (code, code))})
+        first = ["USD", "EUR", "GBP", "XCG", "AWG", "CNY", "BRL"]
+        rows.sort(key=lambda r: (first.index(r["code"]) if r["code"] in first else 99, r["code"]))
+        out["douane"] = dict(dk, rows=rows, prev=prev, current=dt.date.fromisoformat(dk["period_end"]) >= TODAY,
+                             usd=dk["rates"]["USD"]["sell"], eur=dk["rates"].get("EUR", {}).get("sell"))
+    if bk and bk.get("banks"):
+        banks = bk["banks"]
+        best = {}
+        for cur in ("usd", "eur"):
+            best[cur] = (max(b[cur][0] for b in banks), min(b[cur][1] for b in banks))
+        out["banks"] = banks
+        out["best"] = best
+    if co:
+        out["comm"] = co
+    # converter sources: {key: [label, {CUR: [buy, sell]}]}
+    src = {}
+    if rates:
+        src["cme"] = ["CME (cash)", {"USD": [rates["usd"]["buy"], rates["usd"]["sell"]], "EUR": [rates["eur"]["buy"], rates["eur"]["sell"]]}]
+    if out["cbvs"]:
+        src["cbvs"] = ["CBvS (giraal)", {k: v["giraal"] for k, v in cb["rates"].items()}]
+        src["cbvsc"] = ["CBvS (bankpapier)", {k: v["cash"] for k, v in cb["rates"].items()}]
+    for b in out["banks"]:
+        src[b["key"]] = [b["name"], {"USD": b["usd"], "EUR": b["eur"]}]
+    if out["douane"]:
+        src["douane"] = ["Douanekoers", {r["code"]: [round(r["per1"], 6), round(r["per1"], 6)] for r in out["douane"]["rows"]}]
+    out["src_json"] = json.dumps(src, ensure_ascii=False)
+    out["cur_names"] = CUR_NAMES
+    return out
 
 
 def holidays_view(lang):
@@ -729,6 +802,8 @@ def main():
     news = news_view()
     co = companies_view()
     maxp = maxprices_view()
+    mkt = market_view(rates)
+    outages = load("ebs_outages.json", None)
     buyers = extras.tender_buyers(tenders)
     sitemap = []
     search_index = {"nl": [], "en": []}
@@ -772,7 +847,7 @@ def main():
             jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
-            TM=TM, tool_icon=TM.icon, maxp=maxp, labour_json=json.dumps(facts.LABOUR_JS),
+            TM=TM, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
         )
 

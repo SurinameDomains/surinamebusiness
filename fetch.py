@@ -12,6 +12,7 @@ Sources (all public):
   jobs     gov.sr WordPress REST (vacature)
   news     publisher RSS feeds (headline, source, time, link only)
   maxprices  EZOTI list of maximum prices of basic goods (PDF on gov.sr)
+  markets  CBvS rates, customs rate, bank rates, gold and oil (see markets.py)
 """
 import datetime as dt
 import html
@@ -469,10 +470,22 @@ def fetch_maxprices():
 def main():
     ok = True
     import companies
+    import markets
+    import utilities
+
+    def cme_usd():
+        return (load("rates.json", {}).get("usd") or {}).get("sell")
+
+    def mk(fn):
+        return lambda: fn(load, save, now_iso, cme_usd())
+
     def fetch_companies():
         return companies.fetch_companies(LIVE, UA, now_iso)
     for name, fn in [("rates", fetch_rates), ("tenders", fetch_tenders), ("jobs", fetch_jobs), ("news", fetch_news),
-                     ("companies", fetch_companies), ("maxprices", fetch_maxprices)]:
+                     ("companies", fetch_companies), ("maxprices", fetch_maxprices),
+                     ("cbvs", mk(markets.fetch_cbvs)), ("douane", mk(markets.fetch_douane)),
+                     ("banks", mk(markets.fetch_banks)), ("commodities", mk(markets.fetch_commodities)),
+                     ("ebs", mk(utilities.fetch_ebs))]:
         try:
             print(f"{name}: {fn()}")
         except Exception as e:

@@ -49,6 +49,9 @@ PAGES = {
     "companies": ("bedrijven/", "en/companies/", "companies"),
     "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
     "tools": ("tools", "en/tools", "tools"),
+    "douane": ("douanekoers", "en/customs-exchange-rate", "trade"),
+    "gold": ("goudprijs", "en/gold-price-suriname", "trade"),
+    "outages": ("stroomonderbreking-ebs", "en/power-outages-suriname", "trade"),
     "maxprices": ("maximumprijzen-basisgoederen", "en/maximum-prices-basic-goods", "trade"),
     "contacts": ("overheidsinstanties", "en/government-offices", "guides"),
     "bankaccount": ("zakelijke-rekening-openen", "en/business-bank-account", "guides"),
@@ -70,8 +73,8 @@ MENU = [
         ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "holidays"]),
     ]),
     ("trade", "Handel en markt", "Trade and market", [
-        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies"]),
-        ("Markt en cijfers", "Market and figures", ["rates", "maxprices", "news", "import"]),
+        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "import"]),
+        ("Markt en cijfers", "Market and figures", ["rates", "douane", "gold", "maxprices", "outages", "news"]),
     ]),
     ("guides", "Gidsen", "Guides", [
         ("Starten en regelen", "Start and arrange", ["start", "bankaccount", "contacts", "land"]),
@@ -82,7 +85,7 @@ MENU = [
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
     ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "maxprices", "news", "holidays", "workdays"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "douane", "gold", "maxprices", "outages", "news"]),
     ("Gidsen", "Guides", ["start", "hiring", "bankaccount", "contacts", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),
 ]
