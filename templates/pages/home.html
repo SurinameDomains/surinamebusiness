@@ -46,6 +46,12 @@
    <div class="foot"><a href="{{ U('news') }}">{{ 'Meer zakennieuws' if nl else 'More business news' }} &rarr;</a></div>
   </section>
 
+  <h2>{{ 'Gratis tools voor je bedrijf' if nl else 'Free tools for your business' }}</h2>
+  <div class="grid g3 tools-mini">
+   {% for k in ['invoice','quote','payslip','pricing','importcost','loan','btwregister','qrcode','pdftools'] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+  </div>
+  <p style="margin-top:12px"><a href="{{ U('tools') }}"><b>{{ 'Alle' if nl else 'All' }} {{ TM.TOOLS|length + 7 }} {{ 'gratis tools' if nl else 'free tools' }} &rarr;</b></a></p>
+
   <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
   <div class="grid g2">
    <a class="card" href="{{ '/bedrijven/' if nl else '/en/companies/' }}"><b>{{ 'Bedrijvengids' if nl else 'Business directory' }}</b><div class="sub">{{ co.count }} {{ 'bedrijven per categorie, met adres en telefoon' if nl else 'businesses by category, with address and phone' }}</div></a>

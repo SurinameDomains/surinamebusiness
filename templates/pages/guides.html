@@ -6,5 +6,5 @@
 <h2>{{ 'Ondernemen' if nl else 'Running a business' }}</h2>
 <div class="grid g2">{% for k in ['start','incometax','vatguide','import','labour','workpermit','land','supplier','oilgas'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] }}</div></a>{% endfor %}</div>
 <h2>{{ 'Tools' }}</h2>
-<div class="grid g3">{% for k in ['salary','tax','overtime','minwage','vatcalc','workdays','holidays','rates'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b></a>{% endfor %}</div>
+<div class="grid g3">{% for k in ['tools','invoice','payslip','salary','tax','overtime','vatcalc','importcost','loan','workdays','holidays','rates'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b></a>{% endfor %}</div>
 {% endblock %}
