@@ -1,0 +1,83 @@
+{
+ "fetched_at": "2026-10-18T20:10:26+00:00",
+ "notices": [
+  {
+   "date": "2026-10-16",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=9a0e359e68a44fcca413d25c4053b8e9",
+   "slots": [
+    {
+     "areas": "GEDEELTE DE BOERBUITENWEG TUSSEN KWATTAWEG EN MOEJEKREEKSTRAAT, STOLKWEG, STOLKWEG-NOORD, MARIESTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-16",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "13:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud vrijdag 16 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1629/gepland-onderhoud-vrijdag-16-oktober-2026"
+  },
+  {
+   "date": "2026-10-17",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=4e389ae2af67419bb0173f0a5aafa9ec",
+   "slots": [
+    {
+     "areas": "GEDEELTE MAGENTAKANAAL WEG TUSSEN HELENA CHRISTINAWEG EN WELGEDACHT A WEG, WELGEDACHT A WEG TUSSEN INDIRA GANDHIWEG EN MAWAKABOWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-17",
+     "district": "Wanica",
+     "from": "08:30",
+     "to": "15:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zaterdag 17 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1632/gepland-onderhoud-zaterdag-17-oktober-2026"
+  },
+  {
+   "date": "2026-10-17",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "De N.V. Energiebedrijven Suriname (N.V. EBS) maakt bekend dat in verband met de werkzaamheden voor het slopen en verwijderen van de hoogspanningslijn OSA-OSB in de middenberm van de Van ’t Hogerhuysstraat, de volgende wegen afgesloten zullen worden vanaf ZATERDAG 17 OKTOBER AANVANG 20:00 TOT ZONDAG 18 OKTOBER 2026 OMSTREEKS 06:00 uur smorgens. Locatie: Van ’t Hogerhuysstraat - tussen hoek Willem Campagnestraat en hoek rotonde (nabij gow2 service station), ter hoogte van masten AB-5 en AB-10. Dit weggedeelte zal worden bezet tijdens het neerhalen van de geleiders. De stroomvoorziening in dit gebied zal gedurende de werkzaamheden NIET worden onderbroken. Aan de weggebruikers wordt gevraagd om ",
+   "title": "Bekendmaking wegafsluiting zaterdag 17 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1628/bekendmaking-wegafsluiting-zaterdag-17-oktober-2026"
+  },
+  {
+   "date": "2026-10-18",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=487ff9c50d174aa7b1ea64acb6e74e54",
+   "slots": [
+    {
+     "areas": "GEDEELTE LIVORNO BEEKHUIZENWEG TUSSEN TOEKOMSTWEG EN ARAKAKASTRAAT, GEDEELTE PANDIT PALTAN TEWARIEWEG TUSSEN AITKANTIWEG EN VERVUURTWEG, AITKANTIWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-18",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "15:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zondag 18 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1630/gepland-onderhoud-zondag-18-oktober-2026"
+  },
+  {
+   "date": "2026-10-19",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=2863b3d0e8f84ad881141111e9263770",
+   "slots": [
+    {
+     "areas": "TISRIWEG, COLETTELAAN EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-19",
+     "district": "Wanica",
+     "from": "08:30",
+     "to": "12:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud maandag 19 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1633/gepland-onderhoud-maandag-19-oktober-2026"
+  }
+ ],
+ "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
+}
