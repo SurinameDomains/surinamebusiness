@@ -51,13 +51,18 @@
    {% endfor %}
    {% if rates and not rates.stale %}<a class="rate-chip" href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}" title="{{ 'Verkoopkoers CME' if lang=='nl' else 'CME selling rate' }}"><span>USD</span> {{ num(rates.usd.sell) }}</a>{% endif %}
    <a class="nav-search" href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"{% if key == 'search' %} aria-current="page"{% endif %}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-3px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr-only-mobile"> {{ 'Zoeken' if lang=='nl' else 'Search' }}</span></a>
+   <div class="acct" id="acct"></div>
    {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
   </nav>
  </div>
 </header>
+{% for b in banners %}<div class="site-banner lv-{{ (b.data or {}).get('level', 'info') }}" data-id="{{ b.id }}"><div class="wrap"><span>{{ ctext(b) }}</span>{% if b.url %} <a href="{{ b.url }}">{{ ctext(b, 'body') or ('Lees meer' if lang=='nl' else 'Read more') }} &rarr;</a>{% endif %}<button type="button" class="x" aria-label="{{ 'Sluiten' if lang=='nl' else 'Close' }}">&times;</button></div></div>
+{% endfor %}
 <main id="main">
 {% block hero %}{% endblock %}
 <div class="wrap">
+{% for n in notices if (n.data or {}).get('page') in (key, 'all') %}<div class="note site-notice">{% if n.title %}<b>{{ ctext(n) }}</b> {% endif %}{{ ctext(n, 'body') or '' }}{% if n.url %} <a href="{{ n.url }}">{{ 'Meer' if lang=='nl' else 'More' }} &rarr;</a>{% endif %}</div>
+{% endfor %}
 {% if crumbs %}<div class="crumbs">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}{{ c.label }}{% endif %}{% endfor %}</div>{% endif %}
 {% block content %}{% endblock %}
 {% if faq %}<section class="prose" style="margin-top:28px"><h2>{{ 'Veelgestelde vragen' if lang=='nl' else 'Frequently asked questions' }}</h2>{% for q, a in faq %}<h3>{{ q }}</h3><p>{{ a }}</p>{% endfor %}</section>{% endif %}
@@ -72,6 +77,7 @@
   </div>
   <div class="group">
    <span>&copy; {{ year }} Suriname Business. {{ 'Onderdeel van de' if lang=='nl' else 'Part of the' }} Explore group &middot; <a href="https://exploresuriname.com" rel="noopener">Explore Suriname</a></span>
+   {% if settings.get('support_whatsapp') %}<span><a href="https://wa.me/{{ settings.get('support_whatsapp')|replace('+','')|replace(' ','') }}" rel="noopener">WhatsApp support</a></span>{% endif %}
    <span>{{ 'Laatst bijgewerkt' if lang=='nl' else 'Last updated' }} <span class="tnum">{{ built_sr }}</span> SRT</span>
   </div>
  </div>
@@ -89,8 +95,10 @@ mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.set
 /* Keeps SB's copy of the CBvS rates current: cbvs.sr only answers visitors in Suriname, so a browser here
    nudges SB's relay at most every 15 minutes. Sends nothing about the visitor; the relay ignores other countries. */
 (function(){try{var k='sb_cbvs_warm',t=Date.now(),l=+localStorage.getItem(k)||0;if(t-l<9e5)return;localStorage.setItem(k,t);}catch(e){}
-setTimeout(function(){try{fetch('https://sb-cbvs.amanbhulai.workers.dev/warm',{mode:'no-cors',credentials:'omit',keepalive:true}).catch(function(){});}catch(e){}},3000);})();
+setTimeout(function(){try{fetch('https://data.surinamebusiness.com/warm',{mode:'no-cors',credentials:'omit',keepalive:true}).catch(function(){});}catch(e){}},3000);})();
 </script>
+<script>window.SBA_CFG={api:{{ account_api|tojson }},clientId:{{ google_client_id|tojson }},accountUrl:{{ U('account')|tojson }},adminUrl:{{ U('admin')|tojson }},devLogin:{{ 'true' if dev_login else 'false' }}};</script>
+<script src="/assets/account.js?v={{ build_id }}" defer></script>
 {% block scripts %}{% endblock %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
 </body>

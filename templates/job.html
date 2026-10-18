@@ -25,6 +25,7 @@
   {% if j.apply_url %}<a class="btn" href="{{ j.apply_url }}" rel="noopener nofollow" target="_blank">{{ 'Solliciteren' if nl else 'Apply now' }}</a>{% endif %}
   {% if j.apply_email %}<a class="btn{{ ' alt' if j.apply_url }}" href="mailto:{{ j.apply_email }}?subject={{ ('Sollicitatie ' if nl else 'Application ') ~ j.title|urlencode }}">{{ ('Solliciteer per e-mail' if nl else 'Apply by email') }}</a>
   <div class="sub">{{ j.apply_email }}</div>{% endif %}
+  <button type="button" class="btn alt" data-save-job data-url="{{ j.url }}" data-title="{{ j.title }}" data-employer="{{ j.employer }}" data-deadline="{{ j.deadline or '' }}" aria-pressed="false">{{ 'Bewaren' if nl else 'Save' }}</button>
   </div>
  </div>
  <div class="note" style="margin-top:14px">{{ 'Betaal nooit geld om te solliciteren of voor een "training". Klopt iets niet aan deze vacature? Meld het via' if nl else 'Never pay money to apply or for "training". Something wrong with this vacancy? Report it to' }} <a href="mailto:{{ contact_email }}?subject={{ ('Melding vacature ' ~ j.sbid)|urlencode }}">{{ contact_email }}</a>.</div>
