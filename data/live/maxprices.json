@@ -1,0 +1,843 @@
+{
+ "archive": [
+  "https://gov.sr/wp-content/uploads/2026/09/Publicatielijst-Basis-goederen-voor-de-periode-05-18-september-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/08/Publicatielijst-Basis-goederen-voor-de-periode-22-augustus-04-september-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/04/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-18-april-09-mei-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/04/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-04-17-april-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/03/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-21-maart-03-april-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/03/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-07-20-maart-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/02/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-21-febr-06-mrt-2026.pdf",
+  "https://gov.sr/wp-content/uploads/2026/02/Publicatielijst-van-de-basis-en-strategische-goederen-voor-de-periode-07-20-febr-2026.pdf"
+ ],
+ "checked_at": "2026-10-18T19:32:10+00:00",
+ "fetched_at": "2026-10-18T19:32:10+00:00",
+ "pdf": "https://gov.sr/wp-content/uploads/2026/09/Publicatielijst-Basis-goederen-voor-de-periode-05-18-september-2026.pdf",
+ "period": "05 september 2026 - 18 September 2026",
+ "rows": [
+  {
+   "importer": "NV Dam",
+   "product": "Aardappelen",
+   "r_pack": "per kg",
+   "r_price": 45.3,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 906.0
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Aardappelen",
+   "r_pack": "per kg",
+   "r_price": 45.1,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 902.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Aardappelen",
+   "r_pack": "per kg",
+   "r_price": 48.65,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 973.0
+  },
+  {
+   "importer": "Hem Suriname NV",
+   "product": "Babyvoeding: merk Lactogen (1+2)",
+   "r_pack": "per blik @ 400 gr",
+   "r_price": 218.5,
+   "w_pack": "per karton @ 24 blikken",
+   "w_price": 4560.0
+  },
+  {
+   "importer": "NV Nutrisur",
+   "product": "Babyvoeding: merk Nutrilon (1+2+3)",
+   "r_pack": "per blik @ 400 gr",
+   "r_price": 228.25,
+   "w_pack": "per karton @ 24 blikken",
+   "w_price": 4763.48
+  },
+  {
+   "importer": "Hem Suriname NV",
+   "product": "Babyvoeding: merk Lactogen (1+2)",
+   "r_pack": "per blik @ 900 gr",
+   "r_price": 477.25,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 4980.0
+  },
+  {
+   "importer": "Hem Suriname NV",
+   "product": "Babyvoeding: merk Lactogen (3)",
+   "r_pack": "per blik @ 350 gr",
+   "r_price": 218.5,
+   "w_pack": "per karton @ 24 blikken",
+   "w_price": 4560.0
+  },
+  {
+   "importer": "Hem Suriname NV",
+   "product": "Babyvoeding: merk Lactogen (3)",
+   "r_pack": "per blik @ 800 gr",
+   "r_price": 477.25,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 4980.0
+  },
+  {
+   "importer": "NV Nutrisur",
+   "product": "Babyvoeding: merk Nutrilon (1+2+3)",
+   "r_pack": "per blik @ 900 gr",
+   "r_price": 503.85,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 5257.57
+  },
+  {
+   "importer": "NV Nutrisur",
+   "product": "Kindervoeding van granen: Phosphatine Honey",
+   "r_pack": "per blik @ 190 gr",
+   "r_price": 136.5,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 1424.35
+  },
+  {
+   "importer": "NV Nutrisur",
+   "product": "Kindervoeding van granen: Phosphatine Multicereal",
+   "r_pack": "per blik @ 190 gr",
+   "r_price": 136.5,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 1424.35
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Bruine bonen: merk VIP",
+   "r_pack": "per blik @ 800 ml",
+   "r_price": 59.85,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 574.56
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Bruine bonen: merk VIP",
+   "r_pack": "per blik @ 850 ml",
+   "r_price": 59.5,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 571.2
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Bruine bonen: merk Coroos",
+   "r_pack": "per blik @ 850 ml",
+   "r_price": 76.05,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 730.08
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Bruine bonen: merk Annabel",
+   "r_pack": "per pot @ 720 ml",
+   "r_price": 80.75,
+   "w_pack": "per karton @ 12 potten",
+   "w_price": 775.2
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Bruine bonen: merk Annabel",
+   "r_pack": "per pot @ 370 ml",
+   "r_price": 61.15,
+   "w_pack": "per karton @ 12 potten",
+   "w_price": 587.04
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Witte bonen: merk Coroos",
+   "r_pack": "per blik @ 850 ml",
+   "r_price": 66.65,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 639.84
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Witte bonen: merk Coroos",
+   "r_pack": "per blik @ 425 ml",
+   "r_price": 41.7,
+   "w_pack": "per karton @ 12 blikken",
+   "w_price": 400.32
+  },
+  {
+   "importer": "Combe Markt",
+   "product": "Witte suiker",
+   "r_pack": "per kg",
+   "r_price": 37.9,
+   "w_pack": "per zak @ 50 kg",
+   "w_price": 1516.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Witte suiker",
+   "r_pack": "per kg",
+   "r_price": 38.6,
+   "w_pack": "per zak @ 50 kg",
+   "w_price": 1544.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Witte suiker",
+   "r_pack": "per kg",
+   "r_price": 37.75,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 755.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Witte suiker",
+   "r_pack": "per kg",
+   "r_price": 36.75,
+   "w_pack": "per zak @ 50 kg",
+   "w_price": 1470.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Gele erwten",
+   "r_pack": "per kg",
+   "r_price": 51.8,
+   "w_pack": "per zak @ 22.7 kg",
+   "w_price": 1036.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Groene erwten",
+   "r_pack": "per kg",
+   "r_price": 55.7,
+   "w_pack": "per zak @ 22.7 kg",
+   "w_price": 1011.51
+  },
+  {
+   "importer": "Combe Markt",
+   "product": "Groene erwten",
+   "r_pack": "per kg",
+   "r_price": 60.35,
+   "w_pack": "per zak @ 22.7 kg",
+   "w_price": 1095.96
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Gele erwten",
+   "r_pack": "per kg",
+   "r_price": 46.65,
+   "w_pack": "per zak @ 22.7 kg",
+   "w_price": 847.16
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Groene erwten",
+   "r_pack": "per kg",
+   "r_price": 53.8,
+   "w_pack": "per zak @ 22.7 kg",
+   "w_price": 977.01
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Gist: merk Pakmaya (instand dry yeast)",
+   "r_pack": "per pak @ 500 gr",
+   "r_price": 118.9,
+   "w_pack": "per karton @ 20 pakken",
+   "w_price": 1902.4
+  },
+  {
+   "importer": "NV Dam",
+   "product": "Knoflook",
+   "r_pack": "per kg",
+   "r_price": 75.4,
+   "w_pack": "per zak @ 10 kg",
+   "w_price": 603.2
+  },
+  {
+   "importer": "King Long Trading NV",
+   "product": "Knoflook",
+   "r_pack": "per kg",
+   "r_price": 86.2,
+   "w_pack": "per zak @ 10 kg",
+   "w_price": 689.6
+  },
+  {
+   "importer": "Firgos Suriname NV",
+   "product": "Maandverband: merk Libresse maxi reg cotton",
+   "r_pack": "per pak @ 10 stuks",
+   "r_price": 34.2,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 684.0
+  },
+  {
+   "importer": "Firgos Suriname NV",
+   "product": "Maandverband: merk Libresse dailies regular, multistyle",
+   "r_pack": "per pak @ 15 stuks",
+   "r_price": 32.25,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 645.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Maandverband: merk Diana Classic Normal, Long",
+   "r_pack": "per pak",
+   "r_price": 21.25,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 425.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Maandverband: merk Confylady Ultra Normal,long,extra long",
+   "r_pack": "per pak @ 10 stuks",
+   "r_price": 35.75,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 715.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Maandverband: merk Sally maxit fit",
+   "r_pack": "per pak @ 10 stuks",
+   "r_price": 20.2,
+   "w_pack": "per karton @ 18 pakken",
+   "w_price": 303.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Maandverband: merk Sally Panty Liner",
+   "r_pack": "per pak @ 20 stuks",
+   "r_price": 15.8,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 316.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Sardien in tomatensaus: merk Excellence",
+   "r_pack": "per blik @ 155 gr",
+   "r_price": 21.5,
+   "w_pack": "per karton @ 50 blikken",
+   "w_price": 860.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Sardien in tomatensaus: merk Excellence",
+   "r_pack": "per blik @ 425 gr",
+   "r_price": 57.0,
+   "w_pack": "per karton @ 24 blikken",
+   "w_price": 1094.4
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Sardien in tomatensaus: merk VIP",
+   "r_pack": "per blik @ 425 gr",
+   "r_price": 61.35,
+   "w_pack": "per karton @ 24 blikken",
+   "w_price": 1177.92
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Sardien in tomatensaus: merk VIP",
+   "r_pack": "per blik @ 155 gr",
+   "r_price": 21.8,
+   "w_pack": "per karton @ 50 blikken",
+   "w_price": 872.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Thee: merk Breakfast",
+   "r_pack": "per pak @ 20 zakjes @ 2 gr",
+   "r_price": 28.25,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 542.4
+  },
+  {
+   "importer": "SAF Trade NV",
+   "product": "Thee: merk Kings Garden",
+   "r_pack": "per pak @ 20 zakjes",
+   "r_price": 49.9,
+   "w_pack": "per karton @ 24 pakken",
+   "w_price": 958.08
+  },
+  {
+   "importer": "Carimega NV",
+   "product": "Thee: merk Jumbo groene thee cranberry",
+   "r_pack": "per pak @ 20 zakjes",
+   "r_price": 44.85,
+   "w_pack": "per karton @ 12 pakken",
+   "w_price": 430.56
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Uien (rood)",
+   "r_pack": "per kg",
+   "r_price": 48.15,
+   "w_pack": "per zak @ 10 kg",
+   "w_price": 385.2
+  },
+  {
+   "importer": "B.Bisheshar NV",
+   "product": "Uien (rood)",
+   "r_pack": "per kg",
+   "r_price": 49.3,
+   "w_pack": "per zak @ 10 kg",
+   "w_price": 394.4
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Uien (rood)",
+   "r_pack": "per kg",
+   "r_price": 52.8,
+   "w_pack": "per zak @ 10 kg",
+   "w_price": 422.4
+  },
+  {
+   "importer": "NV Dam",
+   "product": "Uien (geel)",
+   "r_pack": "per kg",
+   "r_price": 39.3,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 786.0
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Uien (geel)",
+   "r_pack": "per kg",
+   "r_price": 39.05,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 781.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Uien (geel)",
+   "r_pack": "per kg",
+   "r_price": 42.1,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 842.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Wegwerpluiers baby's: merk VIP Baby Pants (Midi,Maxi)",
+   "r_pack": "per pak",
+   "r_price": 195.35,
+   "w_pack": "per baal @ 5 pakken",
+   "w_price": 813.96
+  },
+  {
+   "importer": "Suriname Wanda Paper Company",
+   "product": "Wegwerpluiers baby's: merk PPL baby diapers (M)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 250.2,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 2085.0
+  },
+  {
+   "importer": "Suriname Wanda Paper Company",
+   "product": "Wegwerpluiers baby's: merk PPL baby diapers (L)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 201.4,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 1678.33
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Wegwerpluiers baby's: merk merk Softlove Baby diapers (XL)",
+   "r_pack": "per pak @ 30 stuks",
+   "r_price": 164.15,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 820.75
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Wegwerpluiers baby's: merk merk Softlove Baby diapers (M)",
+   "r_pack": "per pak @ 60 stuks",
+   "r_price": 276.8,
+   "w_pack": "per baal @ 4 pakken",
+   "w_price": 922.67
+  },
+  {
+   "importer": "Shen Long Company NV",
+   "product": "Wegwerpluiers baby's: merk Kids Kit baby diaper (M)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 290.45,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 1452.25
+  },
+  {
+   "importer": "Shen Long Company NV",
+   "product": "Wegwerpluiers baby's: merk Snow-Kleen Baby Diaper (S)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 151.45,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 757.25
+  },
+  {
+   "importer": "Zahra Soft",
+   "product": "Wegwerpluiers baby's: merk Zahra Soft (M)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 189.9,
+   "w_pack": "per baal @ 5 pakken",
+   "w_price": 791.25
+  },
+  {
+   "importer": "Zahra Soft",
+   "product": "Wegwerpluiers baby's: merk Zahra Soft (L)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 179.05,
+   "w_pack": "per baal @ 5 pakken",
+   "w_price": 746.04
+  },
+  {
+   "importer": "Shen Long Company NV",
+   "product": "Wegwerpluiers volwassen: merk Grandee-Kleen (M)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 238.9,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 1194.5
+  },
+  {
+   "importer": "Shen Long Company NV",
+   "product": "Wegwerpluiers volwassen: merk Grandee-Kleen (L)",
+   "r_pack": "per pak @ 40 stuks",
+   "r_price": 253.4,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 1267.0
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Wegwerpluiers volwassen: merk Evony Adult diapers (L)",
+   "r_pack": "per pak @ 8 stuks",
+   "r_price": 204.45,
+   "w_pack": "per baal @ 6 pakken",
+   "w_price": 1022.25
+  },
+  {
+   "importer": "Firgos Suriname NV",
+   "product": "Wegwerpluiers volwassen: merk Panal Tena Slip Ultra Protect M",
+   "r_pack": "per pak @ 9 stuks",
+   "r_price": 186.15,
+   "w_pack": "per baal @ 8 pakken",
+   "w_price": 1241.0
+  },
+  {
+   "importer": "Firgos Suriname NV",
+   "product": "Wegwerpluiers volwassen: merk Panal Tena Pants Ultra Protect L",
+   "r_pack": "per pak @ 20 stuks",
+   "r_price": 449.9,
+   "w_pack": "per baal @ 4 pakken",
+   "w_price": 1499.67
+  },
+  {
+   "importer": "Combe Markt",
+   "product": "Zonnebloem olie: merk Allnature's",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 87.0,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1044.0
+  },
+  {
+   "importer": "Combe Markt",
+   "product": "Zonnebloem olie: merk Sarbio",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 75.05,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 900.6
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Zonnebloem olie: merk Victoria",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 132.75,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 1274.4
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Zonnebloem olie: merk Bonlife",
+   "r_pack": "per fles @ 800 ml",
+   "r_price": 76.8,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 921.6
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Zonnebloem olie: merk Sun Empire",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 85.05,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1020.6
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk VIP",
+   "r_pack": "per fles @ 700 ml",
+   "r_price": 82.2,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1315.2
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk VIP",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 104.0,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1664.03
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk VIP",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 99.6,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1195.2
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk VIP",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 101.85,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 1222.2
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk Kernel",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 99.45,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1193.4
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zonnebloem olie: merk Coroli",
+   "r_pack": "per fles @ 815 ml",
+   "r_price": 109.75,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1317.0
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Zonnebloem olie: merk Aoil",
+   "r_pack": "per fles @ 850 ml",
+   "r_price": 96.65,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1159.8
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Zonnebloemolie: merk Oleovita",
+   "r_pack": "per fles @ 880 ml",
+   "r_price": 104.3,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1251.6
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Zonnebloemolie: merk Ino",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 104.05,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 998.88
+  },
+  {
+   "importer": "HJ de Vries Engros NV",
+   "product": "Zonnebloem olie: merk Prima",
+   "r_pack": "per fles @ 750 ml",
+   "r_price": 83.85,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1341.6
+  },
+  {
+   "importer": "Simpex International NV",
+   "product": "Zonnebloem olie: merk Familiar",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 104.75,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 1005.6
+  },
+  {
+   "importer": "Simpex International NV",
+   "product": "Zonnebloem olie: merk Oleina",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 106.7,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1024.32
+  },
+  {
+   "importer": "Mini Stepper NV",
+   "product": "Zonnebloem olie: merk Sor",
+   "r_pack": "per fles @ 825 ml",
+   "r_price": 76.0,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 912.0
+  },
+  {
+   "importer": "Prabo Inklaringen",
+   "product": "Zonnebloem olie: merk Fryday's",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 50.55,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 606.6
+  },
+  {
+   "importer": "Simi Trading",
+   "product": "Zonnebloem olie: merk Sunflower",
+   "r_pack": "per fles @ 870 ml",
+   "r_price": 102.7,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1232.4
+  },
+  {
+   "importer": "Sharen Trading",
+   "product": "Zonnebloem olie: merk Sunar",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 96.0,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1152.0
+  },
+  {
+   "importer": "SAF Trade NV",
+   "product": "Zonnebloem olie: merk Pure Sunshine",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 65.45,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 785.37
+  },
+  {
+   "importer": "Gao Ming NV",
+   "product": "Zonnebloem olie: merk ZER",
+   "r_pack": "per fles @ 825 ml",
+   "r_price": 66.1,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1057.6
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Zonnebloem olie: merk Oilio",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 94.1,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1129.2
+  },
+  {
+   "importer": "Ziran Import",
+   "product": "Zonnebloem olie: Oxxo",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 71.45,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 685.92
+  },
+  {
+   "importer": "Rudisa agencies NV",
+   "product": "Zonnebloem olie: Pro-Life",
+   "r_pack": "per fles @ 810 ml",
+   "r_price": 103.6,
+   "w_pack": "per karton @ 15 flessen",
+   "w_price": 1243.2
+  },
+  {
+   "importer": "Combe Markt",
+   "product": "Soja olie: merk Habibi",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 92.9,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 891.84
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Soja olie: merk Habibi",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 116.55,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 1118.88
+  },
+  {
+   "importer": "B.Bisheshar NV",
+   "product": "Soja olie: merk Unoli",
+   "r_pack": "per fles @ 1 l",
+   "r_price": 80.6,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 773.76
+  },
+  {
+   "importer": "B.Bisheshar NV",
+   "product": "Soja olie: merk Unoli",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 86.85,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1389.6
+  },
+  {
+   "importer": "SAF Trade NV",
+   "product": "Soja olie: merk Soya",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 84.95,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1359.2
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Soja olie: merk Primor",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 77.3,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1236.8
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Soja olie: merk Salad Special",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 77.35,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1237.6
+  },
+  {
+   "importer": "Simpex International NV",
+   "product": "Soja olie: merk Siglo De Oro",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 90.45,
+   "w_pack": "per karton @ 20 flessen",
+   "w_price": 1447.2
+  },
+  {
+   "importer": "Avam Agencies NV",
+   "product": "Soja olie: merk Golden Fields",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 46.2,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 443.52
+  },
+  {
+   "importer": "Avam Agencies NV",
+   "product": "Soja olie: merk Golden Fields",
+   "r_pack": "per fles @ 800 ml",
+   "r_price": 67.8,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 650.88
+  },
+  {
+   "importer": "B.Chotelal NV",
+   "product": "Soja olie: merk Belle",
+   "r_pack": "per fles @ 900 ml",
+   "r_price": 90.5,
+   "w_pack": "per karton @ 12 flessen",
+   "w_price": 868.8
+  },
+  {
+   "importer": "NV Dam Import & Export",
+   "product": "Zout",
+   "r_pack": "per kg",
+   "r_price": 14.95,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 299.0
+  },
+  {
+   "importer": "Best Food Supply NV",
+   "product": "Zout",
+   "r_pack": "per kg",
+   "r_price": 20.35,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 407.0
+  },
+  {
+   "importer": "Subisco International NV",
+   "product": "Zout",
+   "r_pack": "per kg",
+   "r_price": 18.6,
+   "w_pack": "per zak @ 25 kg",
+   "w_price": 372.0
+  }
+ ],
+ "source": "https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/richtprijzen-basis-en-strategische-goederen/"
+}
