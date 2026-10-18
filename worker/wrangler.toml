@@ -1,0 +1,35 @@
+# sb-jobs: vacancy board backend for surinamebusiness.com.
+# Deploy ONLY to the Suriname Business Cloudflare account. Never to the Explore account.
+name = "sb-jobs"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+SITE_URL = "https://surinamebusiness.com"
+ALLOWED_ORIGINS = "https://surinamebusiness.com,https://www.surinamebusiness.com"
+ADMIN_EMAIL = "info@surinamebusiness.com"   # shown to employers as contact address
+NOTIFY_TO = "surinamedomains@gmail.com"     # review mails (verified Email Routing destination)
+NOTIFY_FROM = "vacatures@surinamebusiness.com"
+MAIL_FROM = "Suriname Business <vacatures@surinamebusiness.com>"
+GH_REPO = ""          # e.g. owner/surinamebusiness; with secret GH_TOKEN, approvals trigger a rebuild
+# Secrets (wrangler secret put): ADMIN_SECRET, TURNSTILE_SECRET; optional RESEND_API_KEY (turns on employer
+# email confirmation and status mails), GH_TOKEN (instant rebuild after approval)
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sb-jobs"
+database_id = "aeccaca0-6bc3-4a13-ae24-f70a09f81592"
+
+# PDFs of vacancies (KV, max 3 MB each)
+[[kv_namespaces]]
+binding = "FILES"
+id = "cd2d498b162a44b6a335e6986d8a8383"
+
+# admin notifications through Email Routing (free, only to NOTIFY_TO)
+[[send_email]]
+name = "NOTIFY"
+destination_address = "surinamedomains@gmail.com"
+
+[triggers]
+crons = ["17 7 * * *"]   # daily 04:17 SRT: expire, purge
