@@ -1,0 +1,41 @@
+# sb-api: accounts (Sign in with Google), synced user data, employer vacancy management and the
+# admin backend for surinamebusiness.com. Source: api/src/index.js.
+# Deploy ONLY to the Suriname Business Cloudflare account. Never to the Explore account.
+# Deployed by Cloudflare Workers Builds on every push to main that touches api/.
+name = "sb-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+routes = [{ pattern = "id.surinamebusiness.com", custom_domain = true }]
+
+[vars]
+SITE_URL = "https://surinamebusiness.com"
+ALLOWED_ORIGINS = "https://surinamebusiness.com,https://www.surinamebusiness.com"
+# OAuth client "surinamebusiness.com web" in Google Cloud project suriname-business-512021 (public value)
+GOOGLE_CLIENT_ID = "592377866539-j9th8mohoon2mb11ko37hid0eftii9ol.apps.googleusercontent.com"
+# always admin; more admins can be added in the admin panel
+ADMIN_EMAILS = "surinamedomains@gmail.com,amanbhulai@gmail.com"
+NOTIFY_TO = "surinamedomains@gmail.com"
+NOTIFY_FROM = "vacatures@surinamebusiness.com"
+
+# shared with the sb-jobs worker: vacancies live in the same database (this worker only adds sb_* tables)
+[[d1_databases]]
+binding = "DB"
+database_name = "sb-jobs"
+database_id = "aeccaca0-6bc3-4a13-ae24-f70a09f81592"
+
+# vacancy PDFs, shared with sb-jobs
+[[kv_namespaces]]
+binding = "FILES"
+id = "cd2d498b162a44b6a335e6986d8a8383"
+
+# admin notifications through Email Routing (only to the verified address)
+[[send_email]]
+name = "NOTIFY"
+destination_address = "surinamedomains@gmail.com"
+
+[triggers]
+crons = ["23 7 * * *"]   # daily: purge expired sessions, old log lines, orphaned owner links
+
+[observability]
+enabled = true
