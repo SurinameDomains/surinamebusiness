@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-18T22:20:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Eerste landbouwopleiding voor studenten uit binnenland",
+   "url": "https://www.dbsuriname.com/2026/10/18/eerste-landbouwopleiding-voor-studenten-uit-binnenland/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-18T19:04:00+00:00",
    "source": "de Ware Tijd",
    "title": "VSB wil duidelijkheid over uitvoering ‘Negatieve Lijst’",
@@ -309,7 +316,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-18T22:10:22+00:00",
+ "fetched_at": "2026-10-18T22:36:28+00:00",
  "oil": [
   {
    "econ": true,
@@ -329,32 +336,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-18T22:10:21+00:00",
+   "fetched_at": "2026-10-18T22:36:27+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-10-18T22:10:18+00:00",
+   "fetched_at": "2026-10-18T22:36:25+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-18T22:10:20+00:00",
+   "fetched_at": "2026-10-18T22:36:26+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T22:10:21+00:00",
+   "fetched_at": "2026-10-18T22:36:27+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-18T22:10:19+00:00",
+   "fetched_at": "2026-10-18T22:36:26+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T22:10:22+00:00",
+   "fetched_at": "2026-10-18T22:36:28+00:00",
    "ok": true
   }
  }
