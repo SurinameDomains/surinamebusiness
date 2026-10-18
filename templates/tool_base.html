@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="tool-head">
+ <h1>{% block h1 %}{{ L(key) }}{% endblock %}</h1>
+ <p class="lead">{% block lead %}{% endblock %}</p>
+ {% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Gratis, zonder account. Alles gebeurt in je eigen browser, niets wordt naar ons verstuurd.' if nl else 'Free, no account. Everything happens in your own browser, nothing is sent to us.' }}</p>{% endblock %}
+</div>
+{% block tool %}{% endblock %}
+{% block info %}{% endblock %}
+{% if tool and TM.RELATED.get(key) %}
+<h2>{{ 'Ook handig' if nl else 'Also useful' }}</h2>
+<div class="grid g4 tools-mini">
+{% for k in TM.RELATED[key] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon if k in TM.BY_KEY else TM.EXISTING_ICON.get(k, 'calc'))|safe }}</span><b>{{ L(k) }}</b></a>{% endfor %}
+</div>
+<p style="margin-top:14px"><a href="{{ U('tools') }}"><b>{{ 'Alle gratis tools' if nl else 'All free tools' }} &rarr;</b></a></p>
+{% endif %}
+{% block sources %}{% endblock %}
+<p class="asof" style="margin-top:18px">{{ 'Een hulpmiddel, geen fiscaal of juridisch advies. Controleer belangrijke bedragen.' if nl else 'A helpful tool, not tax or legal advice. Check important amounts.' }}</p>
+{% endblock %}
+{% block scripts %}
+<script>window.SB=Object.assign(window.SB||{},{lang:{{ lang|tojson }},rates:{{ rates_json|safe }},tax:{{ tax_params|safe }},labour:{{ labour_json|safe }},holidays:{{ holidays_json|safe }}});</script>
+<script src="/assets/tools/common.js?v={{ build_id }}"></script>
+{% block toolscripts %}{% endblock %}
+{% endblock %}
