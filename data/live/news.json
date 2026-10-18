@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-17T23:49:16+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons wil banken meer laten investeren in Surinaamse economie",
+   "url": "https://www.srherald.com/suriname/2026/10/17/simons-wil-banken-meer-laten-investeren-in-surinaamse-economie/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-17T23:26:00+00:00",
+   "source": "Starnieuws",
+   "title": "VSB wil knelpunten bij toelating buitenlandse arbeidskrachten in kaart brengen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94405"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-17T21:45:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "President Geerlings-Simons: ‘Onze ambitie gaat verder dan economisch herstel’",
+   "url": "https://dwtonline.com/president-geerlings-simons-onze-ambitie-gaat-verder-dan-economisch-herstel/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-17T21:23:00+00:00",
    "source": "Starnieuws",
    "title": "Man met illegale revolver aangehouden in goudnederzetting 21 Pasi",
@@ -190,7 +211,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-17T21:43:44+00:00",
+ "fetched_at": "2026-10-18T00:00:51+00:00",
  "oil": [
   {
    "econ": true,
@@ -210,32 +231,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-17T21:43:42+00:00",
+   "fetched_at": "2026-10-18T00:00:49+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-17T21:43:40+00:00",
+   "fetched_at": "2026-10-18T00:00:47+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-17T21:43:41+00:00",
+   "fetched_at": "2026-10-18T00:00:49+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T21:43:43+00:00",
+   "fetched_at": "2026-10-18T00:00:50+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-17T21:43:41+00:00",
+   "fetched_at": "2026-10-18T00:00:48+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-17T21:43:44+00:00",
+   "fetched_at": "2026-10-18T00:00:51+00:00",
    "ok": true
   }
  }
