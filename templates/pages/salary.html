@@ -38,7 +38,7 @@
 <div><table class="tbl">
  <thead><tr><th>{{ 'Bruto' if nl else 'Gross' }} (SRD)</th><th class="r">{{ 'Belasting' if nl else 'Tax' }}</th><th class="r">AOV</th><th class="r">{{ 'Netto' if nl else 'Net' }}</th></tr></thead>
  <tbody>
- {% for g in [8000, 10000, 12000, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}
+ {% for g in [8000, 10000, 12000, 15000, 18000, 20000, 25000, 30000, 40000, 50000, 75000, 100000] %}{% set r = salary_py(g) %}
   <tr><td><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ g }}">{{ num(g, 0) }}</a></td><td class="r">{{ num(r.tax, 0) }}</td><td class="r">{{ num(r.aov, 0) }}</td><td class="r"><b>{{ num(r.net, 0) }}</b></td></tr>
  {% endfor %}
  </tbody>
