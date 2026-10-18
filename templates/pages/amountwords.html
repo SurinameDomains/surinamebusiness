@@ -1,0 +1,21 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Typ een bedrag en zie het direct voluit geschreven, in het Nederlands en in het Engels. Voor kwitanties, cheques, contracten en koopovereenkomsten.' if nl else 'Type an amount and see it written out in full, in English and in Dutch. For receipts, cheques, contracts and sales agreements.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="aw" onsubmit="return false">
+  <label for="amount">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="amount" name="amount" inputmode="decimal" value="12.345,50" autofocus>
+  <label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option value="SRD">{{ 'Surinaamse dollar (SRD)' if nl else 'Surinamese dollar (SRD)' }}</option><option value="USD">{{ 'Amerikaanse dollar (USD)' if nl else 'US dollar (USD)' }}</option><option value="EUR">Euro (EUR)</option></select>
+  <p class="hint">{{ 'Je mag 12.345,50 of 12345.50 typen.' if nl else 'You can type 12,345.50 or 12345.50.' }}</p>
+ </form>
+ <div class="result" aria-live="polite">
+  <div class="sub">Nederlands</div><div id="w-nl" style="font-size:1.2rem;font-weight:650;margin:4px 0 12px"></div>
+  <div class="btns" style="margin:0 0 16px"><button type="button" class="btn ghost sm" data-copy="#w-nl">{{ 'Kopieer' if nl else 'Copy' }}</button></div>
+  <div class="sub">English</div><div id="w-en" style="font-size:1.2rem;font-weight:650;margin:4px 0 12px"></div>
+  <div class="btns" style="margin:0"><button type="button" class="btn ghost sm" data-copy="#w-en">{{ 'Kopieer' if nl else 'Copy' }}</button></div>
+ </div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script>
+(function(){var S=window.SBT,f=document.getElementById('aw');function r(){var a=f.amount.value,c=f.cur.value;document.getElementById('w-nl').textContent=S.words(a,c,'nl');document.getElementById('w-en').textContent=S.words(a,c,'en');}
+f.addEventListener('input',r);f.addEventListener('change',r);if(!S.nl)f.amount.value='12,345.50';r();})();
+</script>{% endblock %}

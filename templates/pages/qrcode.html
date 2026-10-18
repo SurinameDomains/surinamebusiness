@@ -1,0 +1,29 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Maak een QR code voor je website, WhatsApp, wifi, telefoonnummer, e-mail of je menukaart. Download als PNG voor print en social media of als SVG voor drukwerk. Gratis en hij verloopt nooit.' if nl else 'Make a QR code for your website, WhatsApp, wifi, phone number, e-mail or menu. Download as PNG for print and social media or as SVG for professional print. Free and it never expires.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="qr" onsubmit="return false">
+  <label for="type">{{ 'Soort' if nl else 'Type' }}</label>
+  <select id="type" name="type"><option value="url">{{ 'Website of link' if nl else 'Website or link' }}</option><option value="wa">WhatsApp</option><option value="wifi">Wifi</option><option value="tel">{{ 'Telefoonnummer' if nl else 'Phone number' }}</option><option value="mail">E-mail</option><option value="text">{{ 'Tekst' if nl else 'Text' }}</option></select>
+  <div data-t="url"><label for="url">Link</label><input id="url" name="url" value="https://surinamebusiness.com"></div>
+  <div data-t="wa" hidden><label for="waphone">{{ 'WhatsApp nummer' if nl else 'WhatsApp number' }}</label><input id="waphone" name="waphone" inputmode="tel" placeholder="8xx xxxx"><label for="watext">{{ 'Bericht (optioneel)' if nl else 'Message (optional)' }}</label><input id="watext" name="watext" placeholder="{{ 'Hallo, ik wil graag bestellen' if nl else 'Hi, I would like to order' }}"></div>
+  <div data-t="wifi" hidden><label for="ssid">{{ 'Netwerknaam (SSID)' if nl else 'Network name (SSID)' }}</label><input id="ssid" name="ssid"><label for="wpass">{{ 'Wachtwoord' if nl else 'Password' }}</label><input id="wpass" name="wpass" autocomplete="off"><label for="wsec">{{ 'Beveiliging' if nl else 'Security' }}</label><select id="wsec" name="wsec"><option>WPA</option><option>WEP</option><option value="nopass">{{ 'Geen' if nl else 'None' }}</option></select></div>
+  <div data-t="tel" hidden><label for="tel">{{ 'Nummer' if nl else 'Number' }}</label><input id="tel" name="tel" inputmode="tel" placeholder="+597 ..."></div>
+  <div data-t="mail" hidden><label for="mto">E-mail</label><input id="mto" name="mto" type="email"><label for="msub">{{ 'Onderwerp' if nl else 'Subject' }}</label><input id="msub" name="msub"></div>
+  <div data-t="text" hidden><label for="txt">{{ 'Tekst' if nl else 'Text' }}</label><textarea id="txt" name="txt"></textarea></div>
+  <div class="three">
+   <div><label for="fg">{{ 'Kleur' if nl else 'Colour' }}</label><input id="fg" name="fg" type="color" value="#1f2251"></div>
+   <div><label for="bg">{{ 'Achtergrond' if nl else 'Background' }}</label><input id="bg" name="bg" type="color" value="#ffffff"></div>
+   <div><label for="ec">{{ 'Foutcorrectie' if nl else 'Error correction' }}</label><select id="ec" name="ec"><option value="M">{{ 'Normaal' if nl else 'Normal' }}</option><option value="Q">{{ 'Hoog' if nl else 'High' }}</option><option value="H">{{ 'Hoogst' if nl else 'Highest' }}</option></select></div>
+  </div>
+  <label for="cap">{{ 'Tekst onder de code (optioneel)' if nl else 'Caption under the code (optional)' }}</label><input id="cap" name="cap" placeholder="{{ 'Scan om te bestellen' if nl else 'Scan to order' }}">
+ </form>
+ <div>
+  <div class="qr-out" id="qr-out"></div>
+  <div class="btns"><button type="button" class="btn" id="qr-png">{{ 'Download PNG' }}</button><button type="button" class="btn alt" id="qr-svg">{{ 'Download SVG' }}</button></div>
+  <p class="asof" id="qr-info" style="margin-top:8px"></p>
+ </div>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><h2>{{ 'Tips' }}</h2><ul><li>{{ 'Houd een donkere code op een lichte achtergrond; omgekeerd lezen veel telefoons niet.' if nl else 'Keep a dark code on a light background; many phones cannot read the reverse.' }}</li><li>{{ 'Print minstens 2 bij 2 cm, groter voor posters die van afstand gescand worden.' if nl else 'Print at least 2 by 2 cm, larger for posters scanned from a distance.' }}</li><li>{{ 'Test de code altijd met je eigen telefoon voor je laat drukken.' if nl else 'Always test the code with your own phone before printing.' }}</li></ul></section>{% endblock %}
+{% block toolscripts %}<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" integrity="sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k" crossorigin="anonymous" defer></script><script src="/assets/tools/codes.js?v={{ build_id }}" defer></script>{% endblock %}

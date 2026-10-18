@@ -1,0 +1,48 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een klant heeft nog niet betaald? Maak in een halve minuut een nette herinnering, een dringende tweede herinnering of een laatste aanmaning, in het Nederlands of Engels. Pas de tekst aan en verstuur via WhatsApp of e-mail.' if nl else 'A customer has not paid yet? Make a polite reminder, a firm second reminder or a final notice in half a minute, in Dutch or English. Edit the text and send it by WhatsApp or e-mail.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="rm" onsubmit="return false" autocomplete="off">
+  <label for="cust">{{ 'Naam klant' if nl else 'Customer name' }}</label><input id="cust" name="cust" placeholder="{{ 'Bijv. meneer Pinas' if nl else 'E.g. Mr Pinas' }}">
+  <div class="two">
+   <div><label for="inv">{{ 'Factuurnummer' if nl else 'Invoice number' }}</label><input id="inv" name="inv" value="2026-014"></div>
+   <div><label for="invdate">{{ 'Factuurdatum' if nl else 'Invoice date' }}</label><input id="invdate" name="invdate" type="date"></div>
+  </div>
+  <div class="two">
+   <div><label for="amount">{{ 'Openstaand bedrag' if nl else 'Amount due' }}</label><input id="amount" name="amount" inputmode="decimal" value="4500"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+  </div>
+  <label for="due">{{ 'Oorspronkelijke vervaldatum' if nl else 'Original due date' }}</label><input id="due" name="due" type="date">
+  <label for="days">{{ 'Nieuwe termijn om te betalen (dagen)' if nl else 'New period to pay (days)' }}</label><input id="days" name="days" inputmode="numeric" value="7">
+  <label for="me">{{ 'Je naam of bedrijf' if nl else 'Your name or business' }}</label><input id="me" name="me">
+  <label for="pay">{{ 'Hoe te betalen' if nl else 'How to pay' }}</label><input id="pay" name="pay" placeholder="{{ 'Bijv. Hakrinbank 20.xxx.xxx t.n.v. ...' if nl else 'E.g. Hakrinbank 20.xxx.xxx in the name of ...' }}">
+  <label for="phone">{{ 'WhatsApp nummer klant (optioneel)' if nl else 'Customer WhatsApp number (optional)' }}</label><input id="phone" name="phone" inputmode="tel" placeholder="8xx xxxx">
+  <label for="tone">{{ 'Toon' if nl else 'Tone' }}</label>
+  <select id="tone" name="tone"><option value="1">{{ 'Vriendelijke herinnering' if nl else 'Friendly reminder' }}</option><option value="2">{{ 'Tweede herinnering (dringend)' if nl else 'Second reminder (firm)' }}</option><option value="3">{{ 'Laatste aanmaning' if nl else 'Final notice' }}</option></select>
+  <label for="ml">{{ 'Taal van het bericht' if nl else 'Message language' }}</label>
+  <select id="ml" name="ml"><option value="nl"{% if nl %} selected{% endif %}>Nederlands</option><option value="en"{% if not nl %} selected{% endif %}>English</option></select>
+ </form>
+ <div>
+  <label for="msg" class="eyebrow" style="display:block">{{ 'Bericht (je kunt het aanpassen)' if nl else 'Message (you can edit it)' }}</label>
+  <textarea id="msg" class="outbox" style="width:100%;min-height:330px;font:inherit;resize:vertical"></textarea>
+  <div class="btns">
+   <button type="button" class="btn" id="wa">{{ 'Verstuur via WhatsApp' if nl else 'Send by WhatsApp' }}</button>
+   <button type="button" class="btn alt" id="mail">{{ 'Verstuur via e-mail' if nl else 'Send by e-mail' }}</button>
+   <button type="button" class="btn alt" data-copy="#msg">{{ 'Kopieer' if nl else 'Copy' }}</button>
+  </div>
+  <p class="asof" style="margin-top:8px">{{ 'Er wordt niets vanaf deze site verstuurd: WhatsApp of je e-mailprogramma opent met het bericht.' if nl else 'Nothing is sent from this site: WhatsApp or your e-mail app opens with the message.' }}</p>
+ </div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Zo krijg je sneller betaald' if nl else 'How to get paid faster' }}</h2>
+<ul>
+<li>{{ 'Stuur de eerste herinnering kort na de vervaldatum, vriendelijk en met het exacte bedrag en factuurnummer.' if nl else 'Send the first reminder soon after the due date, friendly and with the exact amount and invoice number.' }}</li>
+<li>{{ 'Maak betalen makkelijk: zet je rekeningnummer of mobiel betalen erbij.' if nl else 'Make paying easy: include your account number or mobile payment details.' }}</li>
+<li>{{ 'Geef bij de tweede herinnering een concrete nieuwe datum.' if nl else 'Give a concrete new date in the second reminder.' }}</li>
+<li>{{ 'Een laatste aanmaning noemt wat je daarna doet. Dreig alleen met stappen die je echt zet.' if nl else 'A final notice states what you will do next. Only mention steps you will really take.' }}</li>
+</ul>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/reminder.js?v={{ build_id }}" defer></script>{% endblock %}

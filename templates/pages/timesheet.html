@@ -1,0 +1,25 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Vul per dag de begin- en eindtijd en de pauze in. Je ziet de gewerkte uren, de overuren en wat de week bruto betaalt, en een waarschuwing als de wettelijke grens van 8,5 uur per dag of 48 uur per week wordt overschreden.' if nl else 'Enter start and end times and the break for each day. You see the hours worked, overtime and gross pay for the week, with a warning when the legal limit of 8.5 hours a day or 48 hours a week is exceeded.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="ts" onsubmit="return false">
+  <div class="ts-row ts-head"><span>{{ 'Dag' if nl else 'Day' }}</span><span>{{ 'Begin' if nl else 'Start' }}</span><span>{{ 'Eind' if nl else 'End' }}</span><span>{{ 'Pauze min' if nl else 'Break min' }}</span><span class="r">{{ 'Uren' if nl else 'Hours' }}</span></div>
+  <div id="days"></div>
+  <div class="three">
+   <div><label for="rate">{{ 'Uurloon (SRD)' if nl else 'Hourly wage (SRD)' }}</label><input id="rate" name="rate" inputmode="decimal" value="{{ num(F.MIN_WAGE.hour, 2) }}"></div>
+   <div><label for="norm">{{ 'Normale uren per dag' if nl else 'Normal hours per day' }}</label><input id="norm" name="norm" inputmode="decimal" value="8"></div>
+   <div><label for="sun">{{ 'Zondag' if nl else 'Sunday' }}</label><select id="sun" name="sun"><option value="2">{{ 'rustdag, 200%' if nl else 'rest day, 200%' }}</option><option value="1">{{ 'gewone werkdag' if nl else 'normal workday' }}</option></select></div>
+  </div>
+  <div class="btns"><button type="button" class="btn alt sm" id="clear">{{ 'Week leegmaken' if nl else 'Clear week' }}</button><button type="button" class="btn alt sm" data-print>{{ 'Print' }}</button></div>
+ </form>
+ <div class="result" id="ts-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Hoe rekenen we?' if nl else 'How we calculate' }}</h2>
+<p>{{ 'Uren boven het normale aantal per dag tellen als overwerk tegen minimaal 150%. Werk op de rustdag telt tegen minimaal 200%. Nachtdiensten over middernacht kun je gewoon invullen (bijv. 22:00 tot 06:00). Werk op feestdagen (200% of 300%) en overwerktoeslagen uit een CAO vallen hier buiten.' if nl else 'Hours above the normal number per day count as overtime at least 150%. Work on the rest day counts at least 200%. Night shifts past midnight are fine (e.g. 22:00 to 06:00). Public holiday work (200% or 300%) and collective agreement premiums are not included.' }}</p>
+<p><a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/staff.js?v={{ build_id }}" defer></script>{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Wat kost een zending je echt als hij in Suriname is? Vul de factuurwaarde, vracht en verzekering in, het invoerrecht voor je goederen en de lokale kosten. Je ziet de totale kosten en de kostprijs per stuk.' if nl else 'What does a shipment really cost once it is in Suriname? Enter the invoice value, freight and insurance, the import duty for your goods and local costs. You see the total cost and the landed cost per item.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="ic" onsubmit="return false">
+  <fieldset><legend>{{ 'Zending' if nl else 'Shipment' }}</legend>
+  <div class="two">
+   <div><label for="cur">{{ 'Factuurvaluta' if nl else 'Invoice currency' }}</label><select id="cur" name="cur"><option>USD</option><option>EUR</option><option>SRD</option></select></div>
+   <div><label for="fx">{{ 'Koers (SRD per eenheid)' if nl else 'Rate (SRD per unit)' }}</label><input id="fx" name="fx" inputmode="decimal"><div class="hint" id="fx-hint"></div></div>
+  </div>
+  <div class="three">
+   <div><label for="val">{{ 'Waarde goederen' if nl else 'Value of goods' }}</label><input id="val" name="val" inputmode="decimal" value="5000"></div>
+   <div><label for="frt">{{ 'Vracht' if nl else 'Freight' }}</label><input id="frt" name="frt" inputmode="decimal" value="800"></div>
+   <div><label for="ins">{{ 'Verzekering' if nl else 'Insurance' }}</label><input id="ins" name="ins" inputmode="decimal" value="50"></div>
+  </div>
+  <label for="units">{{ 'Aantal stuks in de zending' if nl else 'Number of items in the shipment' }}</label><input id="units" name="units" inputmode="numeric" value="200">
+  </fieldset>
+  <fieldset><legend>{{ 'Rechten en heffingen' if nl else 'Duties and levies' }}</legend>
+  <div class="two">
+   <div><label for="duty">{{ 'Invoerrecht (%)' if nl else 'Import duty (%)' }}</label><input id="duty" name="duty" inputmode="decimal" value="20"><div class="hint">{{ 'Hangt af van de HS-code van je goederen' if nl else 'Depends on the HS code of your goods' }}</div></div>
+   <div><label for="lev">{{ 'Overige heffingen (%)' if nl else 'Other levies (%)' }}</label><input id="lev" name="lev" inputmode="decimal" value="0"><div class="hint">{{ 'Bijv. statistiek- of consentrecht, zie je aangifte' if nl else 'E.g. statistics or consent fee, see your declaration' }}</div></div>
+  </div>
+  <div class="two">
+   <div><label for="exc">{{ 'Accijns (SRD, als van toepassing)' if nl else 'Excise (SRD, if any)' }}</label><input id="exc" name="exc" inputmode="decimal" value="0"></div>
+   <div><label for="vat">{{ 'BTW bij invoer' if nl else 'Import VAT' }}</label><select id="vat" name="vat"><option value="10">10%</option><option value="5">5%</option><option value="25">25%</option><option value="0">0%</option></select></div>
+  </div>
+  <label for="local">{{ 'Expediteur, havenkosten, transport (SRD)' if nl else 'Broker, port charges, transport (SRD)' }}</label><input id="local" name="local" inputmode="decimal" value="3500">
+  <label class="check"><input type="checkbox" name="reg" checked> {{ 'Ik ben BTW-plichtig (BTW bij invoer is voorbelasting)' if nl else 'I am VAT registered (import VAT is input tax)' }}</label>
+  </fieldset>
+ </form>
+ <div class="result" id="ic-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Zo rekent de douane ongeveer' if nl else 'Roughly how customs calculates' }}</h2>
+<p>{{ 'Invoerrecht wordt berekend over de douanewaarde: de waarde van de goederen plus vracht en verzekering tot Suriname (CIF). BTW bij invoer gaat over de douanewaarde plus invoerrecht en andere heffingen. De douane rekent met een eigen koers; gebruik die van je aangifte als je hem hebt.' if nl else 'Import duty is calculated on the customs value: the value of the goods plus freight and insurance to Suriname (CIF). Import VAT is charged on the customs value plus duty and other levies. Customs uses its own exchange rate; use the one on your declaration if you have it.' }}</p>
+<p>{{ 'Dit is een schatting. Het juiste tarief per product vind je in het douanetarief; een douane-expediteur kan het precies voor je uitrekenen.' if nl else 'This is an estimate. The correct rate per product is in the customs tariff; a customs broker can calculate it exactly.' }} <a href="{{ U('import') }}">{{ L('import') }}</a></p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

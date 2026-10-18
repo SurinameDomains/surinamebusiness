@@ -1,0 +1,26 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Maak foto\'s kleiner voor WhatsApp, e-mail, je website of een uploadformulier met een maximum in KB. Of snij ze bij voor Instagram, Facebook of je status. Je foto\'s worden niet geüpload.' if nl else 'Make photos smaller for WhatsApp, e-mail, your website or an upload form with a KB limit. Or crop them for Instagram, Facebook or your status. Your photos are not uploaded.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="im" onsubmit="return false">
+  <label class="drop" id="im-drop" for="im-in"><b>{{ 'Kies foto\'s of sleep ze hierheen' if nl else 'Choose photos or drag them here' }}</b><span class="sub">JPG, PNG, WebP</span></label>
+  <input type="file" id="im-in" multiple accept="image/*" hidden>
+  <div class="two">
+   <div><label for="preset">{{ 'Doel' if nl else 'Purpose' }}</label><select id="preset" name="preset"><option value="wa">{{ 'WhatsApp / e-mail (1600 px)' if nl else 'WhatsApp / e-mail (1600 px)' }}</option><option value="web">{{ 'Website (1200 px)' if nl else 'Website (1200 px)' }}</option><option value="form">{{ 'Formulier met maximum KB' if nl else 'Form with a KB limit' }}</option><option value="custom">{{ 'Zelf instellen' if nl else 'Custom' }}</option></select></div>
+   <div><label for="side">{{ 'Langste zijde (px)' if nl else 'Longest side (px)' }}</label><input id="side" name="side" inputmode="numeric" value="1600"></div>
+  </div>
+  <div class="two">
+   <div><label for="maxkb">{{ 'Maximum (KB, leeg = geen)' if nl else 'Maximum (KB, empty = none)' }}</label><input id="maxkb" name="maxkb" inputmode="numeric"></div>
+   <div><label for="shape">{{ 'Vorm' if nl else 'Shape' }}</label><select id="shape" name="shape"><option value="0">{{ 'Origineel' if nl else 'Original' }}</option><option value="1">{{ 'Vierkant 1:1' if nl else 'Square 1:1' }}</option><option value="0.8">{{ 'Staand 4:5 (Instagram)' if nl else 'Portrait 4:5 (Instagram)' }}</option><option value="0.5625">{{ 'Hoog 9:16 (status, stories)' if nl else 'Tall 9:16 (status, stories)' }}</option><option value="1.7778">{{ 'Breed 16:9' if nl else 'Wide 16:9' }}</option></select></div>
+  </div>
+  <div class="two">
+   <div><label for="fmt">{{ 'Formaat' if nl else 'Format' }}</label><select id="fmt" name="fmt"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></div>
+   <div><label for="q">{{ 'Kwaliteit' if nl else 'Quality' }} <span id="qv">82</span></label><input id="q" name="q" type="range" min="40" max="95" value="82" style="padding:0"></div>
+  </div>
+  <p class="hint">{{ 'Locatie (GPS), camera en datum uit de foto worden niet meegenomen in de nieuwe kopie.' if nl else 'Location (GPS), camera and date data in the photo are not carried over to the new copy.' }}</p>
+  <button type="button" class="btn" id="im-go" style="margin-top:12px;width:100%" disabled>{{ 'Verklein' if nl else 'Resize' }}</button>
+ </form>
+ <div><div class="thumbs" id="im-out"></div><div class="btns" id="im-all" hidden><button type="button" class="btn" id="im-dl">{{ 'Download alles' if nl else 'Download all' }}</button></div></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/image.js?v={{ build_id }}" defer></script>{% endblock %}

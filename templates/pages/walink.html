@@ -1,0 +1,17 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Maak een link die direct een WhatsApp-gesprek met je opent, met een kant-en-klaar bericht. Zet hem in je Instagram bio, op je website of Facebook-pagina, of print de QR code op je flyer of toonbank.' if nl else 'Make a link that opens a WhatsApp chat with you straight away, with a ready-made message. Put it in your Instagram bio, on your website or Facebook page, or print the QR code on your flyer or counter.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="wl" onsubmit="return false" autocomplete="off">
+  <label for="phone">{{ 'Je WhatsApp nummer' if nl else 'Your WhatsApp number' }}</label><input id="phone" name="phone" inputmode="tel" placeholder="8xx xxxx"><div class="hint">{{ 'Surinaams nummer zonder +597 mag; buitenlands nummer met landcode.' if nl else 'A Surinamese number without +597 is fine; foreign numbers with country code.' }}</div>
+  <label for="msg">{{ 'Bericht dat al klaarstaat' if nl else 'Pre-filled message' }}</label><textarea id="msg" name="msg">{{ 'Hallo! Ik kom via jullie website en heb een vraag over' if nl else 'Hi! I found you through your website and have a question about' }}</textarea>
+ </form>
+ <div class="result">
+  <div class="sub">{{ 'Je link' if nl else 'Your link' }}</div><div id="wl-link" style="font-weight:700;word-break:break-all;margin:6px 0 10px"></div>
+  <div class="btns" style="margin:0 0 16px"><button type="button" class="btn ghost sm" data-copy="#wl-link">{{ 'Kopieer link' if nl else 'Copy link' }}</button><a class="btn ghost sm" id="wl-test" target="_blank" rel="noopener">{{ 'Test' }}</a></div>
+  <div style="background:#fff;border-radius:8px;padding:12px;display:grid;place-items:center" id="wl-qr"></div>
+  <div class="btns"><button type="button" class="btn ghost sm" id="wl-png">{{ 'Download QR (PNG)' }}</button></div>
+ </div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" integrity="sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k" crossorigin="anonymous" defer></script><script src="/assets/tools/codes.js?v={{ build_id }}" defer></script>{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Zie hoe je spaargeld of termijndeposito groeit met rente op rente en een vaste maandelijkse inleg. In SRD, USD of EUR.' if nl else 'See how your savings or term deposit grow with compound interest and a fixed monthly deposit. In SRD, USD or EUR.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="sv" onsubmit="return false">
+  <div class="two">
+   <div><label for="start">{{ 'Startbedrag' if nl else 'Starting amount' }}</label><input id="start" name="start" inputmode="decimal" value="5000"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>USD</option><option>SRD</option><option>EUR</option></select></div>
+  </div>
+  <div class="two">
+   <div><label for="dep">{{ 'Inleg per maand' if nl else 'Deposit per month' }}</label><input id="dep" name="dep" inputmode="decimal" value="200"></div>
+   <div><label for="rate">{{ 'Rente per jaar (%)' if nl else 'Interest per year (%)' }}</label><input id="rate" name="rate" inputmode="decimal" value="4"></div>
+  </div>
+  <div class="two">
+   <div><label for="years">{{ 'Aantal jaren' if nl else 'Years' }}</label><input id="years" name="years" inputmode="numeric" value="10"></div>
+   <div><label for="comp">{{ 'Rente bijgeschreven' if nl else 'Interest added' }}</label><select id="comp" name="comp"><option value="12">{{ 'per maand' if nl else 'monthly' }}</option><option value="4">{{ 'per kwartaal' if nl else 'quarterly' }}</option><option value="1">{{ 'per jaar' if nl else 'yearly' }}</option></select></div>
+  </div>
+ </form>
+ <div class="result" id="sv-out" aria-live="polite"></div>
+</div>
+<div class="card" style="margin-top:20px"><div class="eyebrow">{{ 'Per jaar' if nl else 'Year by year' }}</div><div id="sv-table"></div></div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Rente op spaarrekeningen kan belast zijn en de inflatie in SRD kan hoger zijn dan de rente. Vergelijk de voorwaarden van je bank.' if nl else 'Interest on savings may be taxable, and SRD inflation can be higher than the interest rate. Compare your bank\'s terms.' }}</p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

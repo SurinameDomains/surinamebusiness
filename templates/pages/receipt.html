@@ -1,0 +1,44 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een kwitantie is een bewijs dat je geld hebt ontvangen: voor huur, een aanbetaling, contante verkoop of een lening tussen personen. Met nummer, bedrag in cijfers en in woorden, en ruimte voor handtekeningen.' if nl else 'A receipt proves you received money: for rent, a deposit, a cash sale or a personal loan. With a number, the amount in figures and in words, and space for signatures.' }}{% endblock %}
+{% block tool %}
+<div class="wide-cols">
+ <form class="card calc" id="rc" onsubmit="return false" autocomplete="off">
+  <div class="two">
+   <div><label for="no">{{ 'Kwitantie nummer' if nl else 'Receipt number' }}</label><input id="no" name="no"></div>
+   <div><label for="date">{{ 'Datum' if nl else 'Date' }}</label><input id="date" name="date" type="date"></div>
+  </div>
+  <label for="from">{{ 'Ontvangen van' if nl else 'Received from' }}</label><input id="from" name="from" placeholder="{{ 'Naam van de betaler' if nl else 'Name of the payer' }}">
+  <div class="two">
+   <div><label for="amount">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="amount" name="amount" inputmode="decimal" value="2500"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+  </div>
+  <label for="for">{{ 'Wegens' if nl else 'For' }}</label><input id="for" name="for" placeholder="{{ 'Bijv. huur november 2026, Kwattaweg 100' if nl else 'E.g. rent November 2026, Kwattaweg 100' }}">
+  <label for="method">{{ 'Betaald per' if nl else 'Paid by' }}</label>
+  <select id="method" name="method"><option value="cash">{{ 'Contant' if nl else 'Cash' }}</option><option value="bank">{{ 'Bankoverschrijving' if nl else 'Bank transfer' }}</option><option value="cheque">Cheque</option><option value="mobile">{{ 'Mobiel betalen (bijv. Uni5Pay+, Mope)' if nl else 'Mobile payment (e.g. Uni5Pay+, Mope)' }}</option><option value="card">{{ 'Pinpas' if nl else 'Debit card' }}</option></select>
+  <label for="by">{{ 'Ontvangen door (naam of bedrijf)' if nl else 'Received by (name or business)' }}</label><input id="by" name="by">
+  <label for="place">{{ 'Plaats' if nl else 'Place' }}</label><input id="place" name="place" value="Paramaribo">
+  <label class="check"><input type="checkbox" name="copy"> {{ 'Origineel en kopie op één A4' if nl else 'Original and copy on one A4' }}</label>
+ </form>
+ <div class="sticky">
+  <div class="print-area" id="doc"></div>
+  <div class="btns">
+   <button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button>
+   <button type="button" class="btn alt" id="wa">WhatsApp</button>
+   <button type="button" class="btn alt" id="next">{{ 'Volgende kwitantie' if nl else 'Next receipt' }}</button>
+  </div>
+  <p class="asof" style="margin-top:8px">{{ 'Het volgende nummer en je naam worden op dit toestel onthouden.' if nl else 'The next number and your name are remembered on this device.' }}</p>
+ </div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Tips voor een goede kwitantie' if nl else 'Tips for a good receipt' }}</h2>
+<ul>
+<li>{{ 'Schrijf het bedrag ook in woorden, zodat er niets aan kan worden veranderd.' if nl else 'Also write the amount in words, so it cannot be altered.' }}</li>
+<li>{{ 'Nummer je kwitanties door, en bewaar een kopie voor je administratie.' if nl else 'Number your receipts in sequence and keep a copy for your records.' }}</li>
+<li>{{ 'Laat beide partijen tekenen, zeker bij contante betalingen en huur.' if nl else 'Have both parties sign, especially for cash payments and rent.' }}</li>
+</ul>
+<p>{{ 'Ben je BTW-plichtig en verkoop je aan een bedrijf? Dan heeft de klant meestal een factuur nodig:' if nl else 'VAT registered and selling to a business? The customer usually needs an invoice:' }} <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>.</p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/receipt.js?v={{ build_id }}" defer></script>{% endblock %}

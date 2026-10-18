@@ -1,0 +1,44 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Noteer je verkopen en zakelijke inkopen en zie per maand hoeveel BTW je moet afdragen: de BTW op je verkopen per tarief, min de BTW die je zelf hebt betaald (voorbelasting). Precies de cijfers voor je maandaangifte.' if nl else 'Record your sales and business purchases and see each month how much VAT you owe: VAT on your sales per rate, minus the VAT you paid yourself (input tax). Exactly the figures for your monthly return.' }}{% endblock %}
+{% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Je gegevens blijven op dit toestel, in deze browser. Maak af en toe een back-up.' if nl else 'Your data stays on this device, in this browser. Make a backup now and then.' }}</p>{% endblock %}
+{% block tool %}
+<div class="cols">
+ <div>
+  <form class="card calc" id="br" onsubmit="return false" autocomplete="off">
+   <div class="eyebrow">{{ 'Boeking toevoegen' if nl else 'Add an entry' }}</div>
+   <div class="two">
+    <div><label for="date">{{ 'Datum' if nl else 'Date' }}</label><input id="date" name="date" type="date" required></div>
+    <div><label for="type">{{ 'Soort' if nl else 'Type' }}</label><select id="type" name="type"><option value="s">{{ 'Verkoop' if nl else 'Sale' }}</option><option value="p">{{ 'Inkoop of kosten' if nl else 'Purchase or cost' }}</option></select></div>
+   </div>
+   <label for="desc">{{ 'Omschrijving' if nl else 'Description' }}</label><input id="desc" name="desc" placeholder="{{ 'Bijv. factuur 2026-014, of inkoop bij groothandel' if nl else 'E.g. invoice 2026-014, or wholesaler purchase' }}">
+   <div class="three">
+    <div><label for="amount">{{ 'Bedrag (SRD)' if nl else 'Amount (SRD)' }}</label><input id="amount" name="amount" inputmode="decimal" required></div>
+    <div><label for="incl">{{ 'Bedrag is' if nl else 'Amount is' }}</label><select id="incl" name="incl"><option value="1">{{ 'incl. BTW' if nl else 'incl. VAT' }}</option><option value="0">{{ 'excl. BTW' if nl else 'excl. VAT' }}</option></select></div>
+    <div><label for="rate">{{ 'Tarief' if nl else 'Rate' }}</label><select id="rate" name="rate"><option value="10">10%</option><option value="5">5%</option><option value="25">25%</option><option value="0">0%</option><option value="x">{{ 'Vrijgesteld' if nl else 'Exempt' }}</option></select></div>
+   </div>
+   <button class="btn" type="submit" style="margin-top:14px;width:100%">{{ 'Toevoegen' if nl else 'Add' }}</button>
+  </form>
+  <div class="card" style="margin-top:16px">
+   <div class="filters" style="margin:0 0 10px;align-items:center">
+    <label for="month" style="font-weight:600">{{ 'Maand' if nl else 'Month' }}</label>
+    <input id="month" type="month" style="flex:0 1 190px">
+   </div>
+   <table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Omschrijving' if nl else 'Description' }}</th><th class="r">{{ 'Excl.' }}</th><th class="r">{{ 'BTW' if nl else 'VAT' }}</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+   <div class="btns">
+    <button type="button" class="btn alt sm" id="csv">{{ 'Maand naar CSV (Excel)' if nl else 'Month to CSV (Excel)' }}</button>
+    <button type="button" class="btn alt sm" id="backup">{{ 'Back-up downloaden' if nl else 'Download backup' }}</button>
+    <label class="btn alt sm" style="display:inline-block;cursor:pointer">{{ 'Back-up terugzetten' if nl else 'Restore backup' }}<input type="file" id="restore" accept=".json,application/json" hidden></label>
+   </div>
+  </div>
+ </div>
+ <aside class="result sticky" id="sum" aria-live="polite"></aside>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Hoe werkt de BTW afdracht?' if nl else 'How does paying VAT work?' }}</h2>
+<p>{{ 'Over je verkopen breng je BTW in rekening. De BTW die je zelf betaalt op zakelijke inkopen mag je daar in de regel van aftrekken (voorbelasting). Het verschil draag je af. Aangifte en betaling gaan per maand, voor de 16e van de volgende maand.' if nl else 'You charge VAT on your sales. VAT you pay on business purchases can generally be deducted (input tax). You pay the difference. Returns and payment are monthly, by the 16th of the following month.' }}</p>
+<p>{{ 'Niet alle inkopen geven recht op aftrek, en vrijgestelde omzet telt anders. Bij twijfel: vraag je boekhouder of de Belastingdienst.' if nl else 'Not every purchase allows a deduction, and exempt turnover is treated differently. If in doubt, ask your accountant or the tax office.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/btwregister.js?v={{ build_id }}" defer></script>{% endblock %}

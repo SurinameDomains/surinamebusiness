@@ -1,0 +1,31 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Alle vaste data voor BTW, loonbelasting en AOV, en de inkomstenbelasting voor de komende 12 maanden. Zet ze in één keer in je agenda, met een herinnering twee dagen vooraf.' if nl else 'Every fixed date for VAT, wage tax and AOV, and income tax for the next 12 months. Add them all to your calendar at once, with a reminder two days before.' }}{% endblock %}
+{% block badge %}{% endblock %}
+{% block tool %}
+<div class="filters" id="dl-f">
+ <button class="chip" type="button" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }}</button>
+ <button class="chip" type="button" data-v="vat" aria-pressed="false">{{ 'BTW' if nl else 'VAT' }}</button>
+ <button class="chip" type="button" data-v="wage" aria-pressed="false">{{ 'Loonbelasting en AOV' if nl else 'Wage tax and AOV' }}</button>
+ <button class="chip" type="button" data-v="ib" aria-pressed="false">{{ 'Inkomstenbelasting' if nl else 'Income tax' }}</button>
+</div>
+<div class="cols">
+ <section class="card"><ul class="list deadline-list" id="dl-list"></ul></section>
+ <aside>
+  <div class="result"><div class="sub">{{ 'Eerstvolgende deadline' if nl else 'Next deadline' }}</div><div class="big" id="dl-next" style="font-size:1.6rem"></div><div class="sub" id="dl-next-sub"></div>
+  <div class="btns"><button type="button" class="btn" id="dl-ics">{{ 'Zet in mijn agenda (.ics)' if nl else 'Add to my calendar (.ics)' }}</button></div>
+  <p class="sub" style="margin-top:10px">{{ 'Werkt met iPhone, Android, Outlook en Google Agenda (importeren).' if nl else 'Works with iPhone, Android, Outlook and Google Calendar (import).' }}</p></div>
+ </aside>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Hoe de data zijn bepaald' if nl else 'How the dates are set' }}</h2>
+<ul>
+<li><b>{{ 'BTW' if nl else 'VAT' }}</b>: {{ 'aangifte en betaling per maand, voor de 16e van de volgende maand.' if nl else 'return and payment monthly, by the 16th of the following month.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></li>
+<li><b>{{ 'Loonbelasting en AOV' if nl else 'Wage tax and AOV' }}</b>: {{ 'het portaal van de Belastingdienst neemt de maandaangifte aan van de 26e tot en met de 10e. We tonen de 10e van de volgende maand.' if nl else 'the tax office portal accepts the monthly return from the 26th up to and including the 10th. We show the 10th of the following month.' }}</li>
+<li><b>{{ 'Inkomstenbelasting' if nl else 'Income tax' }}</b>: {{ 'voorlopige aangifte voor 15 april; definitieve aangifte voor personen binnen 4 maanden na het jaar (30 april); voor bedrijven binnen 6 maanden na het boekjaar (30 juni bij een kalenderjaar).' if nl else 'provisional return by 15 April; final return for individuals within 4 months after the year (30 April); for companies within 6 months after the financial year (30 June for a calendar year).' }} <a href="{{ U('incometax') }}">{{ L('incometax') }}</a></li>
+</ul>
+<p>{{ 'Valt een datum in het weekend of op een feestdag, dien dan op tijd in; reken niet op uitstel. Controleer bij twijfel bij de Belastingdienst.' if nl else 'When a date falls on a weekend or holiday, file in time; do not count on an extension. If in doubt, check with the tax office.' }}</p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/office.js?v={{ build_id }}" defer></script>{% endblock %}

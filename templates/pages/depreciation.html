@@ -1,0 +1,24 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Bereken hoeveel een bedrijfsmiddel elk jaar in waarde daalt en wat de boekwaarde is: een auto, machine, computer of inventaris. Lineair (elk jaar hetzelfde) of degressief (vast percentage van de boekwaarde).' if nl else 'Work out how much a business asset loses in value each year and its book value: a car, machine, computer or fixtures. Straight-line (same each year) or declining balance (fixed percentage of book value).' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="dp" onsubmit="return false">
+  <div class="two">
+   <div><label for="cost">{{ 'Aanschafprijs' if nl else 'Purchase price' }}</label><input id="cost" name="cost" inputmode="decimal" value="450000"></div>
+   <div><label for="res">{{ 'Restwaarde' if nl else 'Residual value' }}</label><input id="res" name="res" inputmode="decimal" value="50000"></div>
+  </div>
+  <div class="two">
+   <div><label for="life">{{ 'Levensduur (jaren)' if nl else 'Useful life (years)' }}</label><input id="life" name="life" inputmode="numeric" value="5"></div>
+   <div><label for="y0">{{ 'Eerste jaar' if nl else 'First year' }}</label><input id="y0" name="y0" inputmode="numeric" value="{{ today[:4] }}"></div>
+  </div>
+  <div class="two">
+   <div><label for="method">{{ 'Methode' if nl else 'Method' }}</label><select id="method" name="method"><option value="lin">{{ 'Lineair' if nl else 'Straight-line' }}</option><option value="deg">{{ 'Degressief' if nl else 'Declining balance' }}</option></select></div>
+   <div><label for="m1">{{ 'Maanden in gebruik eerste jaar' if nl else 'Months in use in first year' }}</label><input id="m1" name="m1" inputmode="numeric" value="12"></div>
+  </div>
+ </form>
+ <div class="result" id="dp-out" aria-live="polite"></div>
+</div>
+<div class="card" style="margin-top:20px"><div class="eyebrow">{{ 'Afschrijvingstabel' if nl else 'Depreciation table' }}</div><div id="dp-table"></div></div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Welke levensduur en methode fiscaal zijn toegestaan bepaal je met je accountant. Degressief rekent hier met tweemaal het lineaire percentage, en stapt over op lineair zodra dat meer oplevert.' if nl else 'Which useful life and method are allowed for tax is something to settle with your accountant. Declining balance here uses twice the straight-line rate and switches to straight-line once that gives more.' }}</p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

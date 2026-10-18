@@ -1,0 +1,40 @@
+{% extends "tool_base.html" %}
+{% set V = F.LEAVE %}
+{% block lead %}{{ 'Hoeveel vakantiedagen heeft een werknemer recht op, hoeveel is de vakantietoelage en wat moet je uitbetalen als iemand uit dienst gaat? Berekend volgens de Vakantiewet.' if nl else 'How many leave days is an employee entitled to, how much is the leave allowance and what is paid out when someone leaves? Calculated under the Leave Act (Vakantiewet).' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="vc" onsubmit="return false">
+  <label for="years">{{ 'Volledige kalenderjaren in dienst bij deze werkgever' if nl else 'Full calendar years with this employer' }}</label>
+  <select id="years" name="years"><option value="0">{{ 'Nog geen volledig kalenderjaar' if nl else 'Not yet a full calendar year' }}</option>{% for y in range(1, 6) %}<option value="{{ y }}"{% if y == 1 %} selected{% endif %}>{{ y }}{% if y == 5 %}+{% endif %}</option>{% endfor %}</select>
+  <div id="months-wrap" hidden><label for="months">{{ 'Volle maanden gewerkt in het eerste jaar' if nl else 'Full months worked in the first year' }}</label><input id="months" name="months" inputmode="numeric" value="6"></div>
+  <div class="two">
+   <div><label for="wage">{{ 'Bruto maandloon (SRD)' if nl else 'Gross monthly wage (SRD)' }}</label><input id="wage" name="wage" inputmode="decimal" value="12000"></div>
+   <div><label for="dpw">{{ 'Werkdagen per week' if nl else 'Working days per week' }}</label><select id="dpw" name="dpw"><option value="5">5</option><option value="6">6</option></select></div>
+  </div>
+  <label class="check"><input type="checkbox" name="leaving"> {{ 'De werknemer gaat dit jaar uit dienst' if nl else 'The employee leaves this year' }}</label>
+  <div id="leave-wrap" hidden>
+   <div class="two">
+    <div><label for="mthis">{{ 'Volle maanden gewerkt dit jaar' if nl else 'Full months worked this year' }}</label><input id="mthis" name="mthis" inputmode="numeric" value="7"></div>
+    <div><label for="taken">{{ 'Dit jaar al opgenomen dagen' if nl else 'Days already taken this year' }}</label><input id="taken" name="taken" inputmode="numeric" value="0"></div>
+   </div>
+   <label for="old">{{ 'Nog niet opgenomen dagen uit vorig jaar' if nl else 'Untaken days from last year' }}</label><input id="old" name="old" inputmode="numeric" value="0">
+  </div>
+ </form>
+ <div class="result" id="vc-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'De regels in het kort' if nl else 'The rules in short' }}</h2>
+<ul>
+<li>{{ 'Na een volledig kalenderjaar bij dezelfde werkgever: 12 werkdagen vakantie. Elk volgend jaar 2 dagen meer, tot maximaal 18 (art. 7 lid 1).' if nl else 'After one full calendar year with the same employer: 12 working days of leave. Each further year adds 2 days, up to 18 (art. 7(1)).' }}</li>
+<li>{{ 'Nog geen volledig jaar: 1 werkdag per volle maand (art. 7 lid 3).' if nl else 'Not yet a full year: 1 working day per full month (art. 7(3)).' }}</li>
+<li>{{ 'Tijdens vakantie loopt het loon door. Daarbovenop krijgt de werknemer een vakantietoelage van de helft van het loon over de opgenomen dagen (art. 10).' if nl else 'Wages continue during leave. On top of that the employee gets a leave allowance of half the wage for the days taken (art. 10).' }}</li>
+<li>{{ 'Bij uit dienst gaan (niet wegens een dringende reden) heeft de werknemer recht op vakantie naar rato van de volle maanden van dit jaar. Niet opgenomen dagen worden uitbetaald, met de toelage (art. 12).' if nl else 'When the employee leaves (not for an urgent reason) they are entitled to leave in proportion to the full months worked this year. Untaken days are paid out, with the allowance (art. 12).' }}</li>
+<li>{{ 'Een CAO of arbeidsovereenkomst mag meer geven, nooit minder.' if nl else 'A collective agreement or contract may give more, never less.' }}</li>
+</ul>
+<p>{{ 'Een vakantietoelage is tot SRD 19.500 per jaar vrij van loonbelasting.' if nl else 'A holiday allowance is exempt from wage tax up to SRD 19,500 a year.' }} <a href="{{ U('tax') }}">{{ L('tax') }}</a></p>
+</section>
+{% endblock %}
+{% block sources %}<p class="asof">{{ 'Bron' if nl else 'Source' }}: {% for name, url in V.sources %}<a href="{{ url }}" rel="noopener">{{ name }}</a>{% endfor %}. {{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}.</p>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/staff.js?v={{ build_id }}" defer></script>{% endblock %}

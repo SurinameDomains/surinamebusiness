@@ -1,0 +1,17 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Hoeveel moet je per maand verkopen om je vaste kosten te dekken? En hoeveel blijft er over als je meer verkoopt? Vul je kosten en prijs in.' if nl else 'How much do you need to sell each month to cover your fixed costs? And what is left when you sell more? Enter your costs and price.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="be" onsubmit="return false">
+  <label for="fixed">{{ 'Vaste kosten per maand (SRD)' if nl else 'Fixed costs per month (SRD)' }}</label><input id="fixed" name="fixed" inputmode="decimal" value="45000"><div class="hint">{{ 'Huur, lonen, stroom, internet, lening' if nl else 'Rent, wages, power, internet, loan' }}</div>
+  <div class="two">
+   <div><label for="price">{{ 'Verkoopprijs per stuk, excl. BTW (SRD)' if nl else 'Selling price per item, excl. VAT (SRD)' }}</label><input id="price" name="price" inputmode="decimal" value="250"></div>
+   <div><label for="var">{{ 'Variabele kosten per stuk (SRD)' if nl else 'Variable cost per item (SRD)' }}</label><input id="var" name="var" inputmode="decimal" value="140"><div class="hint">{{ 'Inkoop, verpakking, commissie' if nl else 'Purchase, packaging, commission' }}</div></div>
+  </div>
+  <label for="target">{{ 'Gewenste winst per maand (SRD)' if nl else 'Target profit per month (SRD)' }}</label><input id="target" name="target" inputmode="decimal" value="20000">
+ </form>
+ <div class="result" id="be-out" aria-live="polite"></div>
+</div>
+<div class="card" style="margin-top:20px"><div class="eyebrow">{{ 'Winst bij verschillende aantallen' if nl else 'Profit at different volumes' }}</div><div id="be-table"></div></div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

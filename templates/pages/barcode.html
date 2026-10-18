@@ -1,0 +1,22 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Maak barcodes voor je producten, schappen en voorraad. Code 128 voor je eigen artikelnummers (letters en cijfers), EAN-13 voor 13-cijferige productcodes. Download als SVG of PNG, of print een vel labels.' if nl else 'Make barcodes for your products, shelves and stock. Code 128 for your own item numbers (letters and digits), EAN-13 for 13-digit product codes. Download as SVG or PNG, or print a sheet of labels.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="bc" onsubmit="return false">
+  <label for="sym">{{ 'Soort barcode' if nl else 'Barcode type' }}</label><select id="sym" name="sym"><option value="128">Code 128</option><option value="ean">EAN-13</option></select>
+  <label for="val">{{ 'Code (één per regel voor meerdere labels)' if nl else 'Code (one per line for several labels)' }}</label><textarea id="val" name="val" rows="4">SB-10045
+SB-10046</textarea>
+  <div class="hint" id="bc-hint"></div>
+  <div class="two">
+   <div><label for="h">{{ 'Hoogte (px)' if nl else 'Height (px)' }}</label><input id="h" name="h" inputmode="numeric" value="70"></div>
+   <div><label for="copies">{{ 'Kopieën per code (labelvel)' if nl else 'Copies per code (label sheet)' }}</label><input id="copies" name="copies" inputmode="numeric" value="1"></div>
+  </div>
+  <label class="check"><input type="checkbox" name="txt" checked> {{ 'Code als tekst eronder' if nl else 'Show code as text below' }}</label>
+  <label for="lbl">{{ 'Extra tekst op het label (bijv. prijs)' if nl else 'Extra text on the label (e.g. price)' }}</label><input id="lbl" name="lbl" placeholder="SRD 125,00">
+ </form>
+ <div><div class="card print-area"><div class="bc-sheet" id="bc-out"></div></div>
+  <div class="btns"><button type="button" class="btn" id="bc-svg">{{ 'Download SVG (eerste)' if nl else 'Download SVG (first)' }}</button><button type="button" class="btn alt" id="bc-png">{{ 'Download PNG (eerste)' if nl else 'Download PNG (first)' }}</button><button type="button" class="btn alt" data-print>{{ 'Print labels' if nl else 'Print labels' }}</button></div></div>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" style="margin-top:28px"><p>{{ 'Wil je je product in supermarkten verkopen, dan heb je meestal een officiële EAN code van GS1 nodig. Voor je eigen voorraad en kassa volstaat Code 128 met je eigen nummers.' if nl else 'To sell your product in supermarkets you usually need an official EAN code from GS1. For your own stock and till, Code 128 with your own numbers is enough.' }}</p></section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/codes.js?v={{ build_id }}" defer></script>{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Bereken de maandlast, de totale rente en het volledige aflossingsschema van een lening, autolening of hypotheek. Annuïtair (vaste maandlast) of lineair (dalende maandlast), in SRD, USD of EUR.' if nl else 'Work out the monthly payment, total interest and the full repayment schedule of a loan, car loan or mortgage. Annuity (fixed payment) or linear (falling payment), in SRD, USD or EUR.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="ln" onsubmit="return false">
+  <div class="two">
+   <div><label for="amt">{{ 'Leenbedrag' if nl else 'Loan amount' }}</label><input id="amt" name="amt" inputmode="decimal" value="25000"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>USD</option><option>SRD</option><option>EUR</option></select></div>
+  </div>
+  <div class="two">
+   <div><label for="rate">{{ 'Rente per jaar (%)' if nl else 'Interest per year (%)' }}</label><input id="rate" name="rate" inputmode="decimal" value="11"></div>
+   <div><label for="months">{{ 'Looptijd (maanden)' if nl else 'Term (months)' }}</label><input id="months" name="months" inputmode="numeric" value="60"><div class="hint" id="yrs"></div></div>
+  </div>
+  <div class="two">
+   <div><label for="type">{{ 'Soort' if nl else 'Type' }}</label><select id="type" name="type"><option value="ann">{{ 'Annuïtair (vaste maandlast)' if nl else 'Annuity (fixed payment)' }}</option><option value="lin">{{ 'Lineair (vaste aflossing)' if nl else 'Linear (fixed principal)' }}</option></select></div>
+   <div><label for="fee">{{ 'Afsluitkosten' if nl else 'Arrangement fee' }}</label><input id="fee" name="fee" inputmode="decimal" value="0"></div>
+  </div>
+  <label for="start">{{ 'Eerste betaling' if nl else 'First payment' }}</label><input id="start" name="start" type="month">
+ </form>
+ <div class="result" id="ln-out" aria-live="polite"></div>
+</div>
+<div class="card" style="margin-top:20px"><div class="eyebrow">{{ 'Aflossingsschema' if nl else 'Repayment schedule' }}</div><div id="ln-sched"></div><div class="btns"><button type="button" class="btn alt sm" id="ln-csv">{{ 'Download als CSV (Excel)' if nl else 'Download as CSV (Excel)' }}</button></div></div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<p>{{ 'Vraag bij je bank altijd naar het effectieve jaarpercentage en alle kosten: afsluitprovisie, taxatie, verzekeringen en notaris. Leen je in dollars terwijl je inkomen in SRD is, dan loop je koersrisico.' if nl else 'Always ask your bank for the effective annual rate and all costs: arrangement fee, valuation, insurance and notary. Borrowing in dollars while you earn in SRD carries exchange rate risk.' }}</p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

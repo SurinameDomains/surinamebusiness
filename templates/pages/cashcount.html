@@ -1,0 +1,24 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Tel de biljetten en munten in de kassa, tel dollars en euro\'s mee en zie direct of de kas klopt met je verkopen. Handig voor de dagafsluiting.' if nl else 'Count the notes and coins in the till, add dollars and euros and see right away whether the drawer matches your sales. Handy at closing time.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="cc" onsubmit="return false">
+  <div class="ts-row ts-head" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)"><span>{{ 'Biljet / munt' if nl else 'Note / coin' }}</span><span>{{ 'Aantal' if nl else 'How many' }}</span><span class="r">{{ 'Waarde' if nl else 'Value' }}</span></div>
+  {% for d in F.CASH.notes + F.CASH.coins %}
+  <div class="ts-row cash-row" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)" data-v="{{ d }}"><span>{% if d >= 5 %}SRD {{ d|int }} {{ 'biljet' if nl else 'note' }}{% elif d >= 1 %}SRD {{ num(d, 2 if d % 1 else 0) }}{% else %}{{ (d*100)|round|int }} {{ 'cent' }}{% endif %}</span><input inputmode="numeric" name="d{{ loop.index }}" aria-label="{{ d }}"><span class="r">-</span></div>
+  {% endfor %}
+  <fieldset><legend>{{ 'Vreemde valuta (optioneel)' if nl else 'Foreign cash (optional)' }}</legend>
+  <div class="two"><div><label for="usd">USD</label><input id="usd" name="usd" inputmode="decimal"></div><div><label for="usdr">{{ 'Koers' if nl else 'Rate' }}</label><input id="usdr" name="usdr" inputmode="decimal" value="{{ num(rates.usd.buy) if rates else '' }}"></div></div>
+  <div class="two"><div><label for="eur">EUR</label><input id="eur" name="eur" inputmode="decimal"></div><div><label for="eurr">{{ 'Koers' if nl else 'Rate' }}</label><input id="eurr" name="eurr" inputmode="decimal" value="{{ num(rates.eur.buy) if rates else '' }}"></div></div>
+  </fieldset>
+  <div class="two">
+   <div><label for="exp">{{ 'Verwacht in de kas (SRD)' if nl else 'Expected in the drawer (SRD)' }}</label><input id="exp" name="exp" inputmode="decimal"><div class="hint">{{ 'Contante verkopen plus wisselgeld' if nl else 'Cash sales plus float' }}</div></div>
+   <div><label for="float">{{ 'Wisselgeld dat blijft (SRD)' if nl else 'Float to keep (SRD)' }}</label><input id="float" name="float" inputmode="decimal"></div>
+  </div>
+  <div class="btns"><button type="button" class="btn alt sm" id="cc-save">{{ 'Telling bewaren' if nl else 'Save count' }}</button><button type="button" class="btn alt sm" id="cc-clear">{{ 'Leegmaken' if nl else 'Clear' }}</button><button type="button" class="btn alt sm" data-print>Print</button></div>
+ </form>
+ <div><div class="result sticky" id="cc-out" aria-live="polite"></div><div class="card" style="margin-top:16px" id="cc-hist"></div></div>
+</div>
+{% endblock %}
+{% block sources %}<p class="asof">{{ 'Coupures' if nl else 'Denominations' }}: {% for name, url in F.CASH.sources %}<a href="{{ url }}" rel="noopener">{{ name }}</a>{% endfor %}. {{ 'Koers: CME aankoop' if nl else 'Rate: CME buying' }}{% if rates %} {{ date(rates.business_date) }}{% endif %}.</p>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/office.js?v={{ build_id }}" defer></script>{% endblock %}

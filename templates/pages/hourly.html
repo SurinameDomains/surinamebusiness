@@ -1,0 +1,21 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Reken een uurloon om naar dag-, week-, maand- en jaarloon, of een maandloon terug naar een uurloon. Met de vergelijking met het minimumuurloon van' if nl else 'Convert an hourly wage to daily, weekly, monthly and annual pay, or a monthly wage back to an hourly wage. Compared with the minimum hourly wage of' }} {{ srd(F.MIN_WAGE.hour, 2) }}.{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="hw" onsubmit="return false">
+  <div class="seg" role="group"><button type="button" data-mode="h" aria-pressed="true">{{ 'Ik weet het uurloon' if nl else 'I know the hourly wage' }}</button><button type="button" data-mode="m" aria-pressed="false">{{ 'Ik weet het maandloon' if nl else 'I know the monthly wage' }}</button></div>
+  <label for="amount" id="amount-l">{{ 'Uurloon (SRD)' if nl else 'Hourly wage (SRD)' }}</label><input id="amount" name="amount" inputmode="decimal" value="75">
+  <div class="two">
+   <div><label for="hpw">{{ 'Uren per week' if nl else 'Hours per week' }}</label><input id="hpw" name="hpw" inputmode="decimal" value="40"></div>
+   <div><label for="dpw">{{ 'Werkdagen per week' if nl else 'Working days per week' }}</label><select id="dpw" name="dpw"><option>5</option><option>6</option></select></div>
+  </div>
+ </form>
+ <div class="result" id="hw-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<p>{{ 'Een maand telt gemiddeld 52 / 12 = 4,33 weken. Bij 40 uur per week is een maand dus ongeveer 173 uur. Wil je weten wat er netto overblijft?' if nl else 'A month has on average 52 / 12 = 4.33 weeks. At 40 hours a week a month is about 173 hours. Want to know what is left after tax?' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/staff.js?v={{ build_id }}" defer></script>{% endblock %}

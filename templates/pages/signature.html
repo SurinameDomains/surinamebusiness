@@ -1,0 +1,19 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een nette e-mailhandtekening met je naam, functie, telefoon, WhatsApp-link, website en logo. Kopieer hem en plak in Gmail, Outlook of de mail-app op je telefoon.' if nl else 'A clean e-mail signature with your name, title, phone, WhatsApp link, website and logo. Copy it and paste it into Gmail, Outlook or the mail app on your phone.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="sg" onsubmit="return false" autocomplete="off">
+  <div class="two"><div><label for="name">{{ 'Naam' if nl else 'Name' }}</label><input id="name" name="name" value="Sharon Kartodikromo"></div><div><label for="title">{{ 'Functie' if nl else 'Title' }}</label><input id="title" name="title" value="{{ 'Verkoopmanager' if nl else 'Sales manager' }}"></div></div>
+  <label for="biz">{{ 'Bedrijf' if nl else 'Business' }}</label><input id="biz" name="biz" value="Voorbeeld NV">
+  <div class="two"><div><label for="phone">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="phone" name="phone" value="+597 4xx xxx"></div><div><label for="wa">WhatsApp</label><input id="wa" name="wa" value="+597 8xx xxxx"></div></div>
+  <div class="two"><div><label for="web">Website</label><input id="web" name="web" value="www.voorbeeld.sr"></div><div><label for="addr">{{ 'Adres' if nl else 'Address' }}</label><input id="addr" name="addr" value="Paramaribo, Suriname"></div></div>
+  <label for="logo">{{ 'Logo-URL (een afbeelding die al online staat)' if nl else 'Logo URL (an image that is already online)' }}</label><input id="logo" name="logo" placeholder="https://...">
+  <div class="two"><div><label for="c1">{{ 'Kleur' if nl else 'Colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div><div><label for="note">{{ 'Slogan of disclaimer (optioneel)' if nl else 'Tagline or disclaimer (optional)' }}</label><input id="note" name="note"></div></div>
+ </form>
+ <div><div class="sig-prev" id="sg-out"></div>
+  <div class="btns"><button type="button" class="btn" id="sg-copy">{{ 'Kopieer handtekening' if nl else 'Copy signature' }}</button><button type="button" class="btn alt" id="sg-html">{{ 'Kopieer HTML' if nl else 'Copy HTML' }}</button></div>
+  <div class="prose" style="margin-top:16px;font-size:.92rem"><p><b>Gmail</b>: {{ 'Instellingen, Alle instellingen bekijken, Handtekening, en plakken.' if nl else 'Settings, See all settings, Signature, then paste.' }}<br><b>Outlook</b>: {{ 'Instellingen, E-mail, Opstellen en beantwoorden, Handtekening, en plakken.' if nl else 'Settings, Mail, Compose and reply, Signature, then paste.' }}</p></div>
+ </div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/office.js?v={{ build_id }}" defer></script>{% endblock %}

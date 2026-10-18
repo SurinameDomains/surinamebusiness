@@ -1,0 +1,24 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Ontwerp een visitekaartje met je naam, functie, contactgegevens, logo en een QR code naar je WhatsApp of website. Download als PNG voor de drukker of print zelf een vel van 10 kaartjes op A4.' if nl else 'Design a business card with your name, title, contact details, logo and a QR code to your WhatsApp or website. Download as PNG for the printer or print a sheet of 10 cards on A4 yourself.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="bk" onsubmit="return false" autocomplete="off">
+  <div class="two"><div><label for="name">{{ 'Naam' if nl else 'Name' }}</label><input id="name" name="name" value="Ravi Ramdin"></div><div><label for="title">{{ 'Functie' if nl else 'Title' }}</label><input id="title" name="title" value="{{ 'Eigenaar' if nl else 'Owner' }}"></div></div>
+  <label for="biz">{{ 'Bedrijf' if nl else 'Business' }}</label><input id="biz" name="biz" value="Ramdin Electrical NV">
+  <div class="two"><div><label for="phone">{{ 'Telefoon / WhatsApp' if nl else 'Phone / WhatsApp' }}</label><input id="phone" name="phone" value="+597 8xx xxxx"></div><div><label for="email">E-mail</label><input id="email" name="email" value="info@voorbeeld.sr"></div></div>
+  <div class="two"><div><label for="web">Website</label><input id="web" name="web"></div><div><label for="addr">{{ 'Adres' if nl else 'Address' }}</label><input id="addr" name="addr" value="Paramaribo"></div></div>
+  <div class="three">
+   <div><label for="style">{{ 'Ontwerp' if nl else 'Design' }}</label><select id="style" name="style"><option value="band">{{ 'Kleurband' if nl else 'Colour band' }}</option><option value="dark">{{ 'Donker' if nl else 'Dark' }}</option><option value="clean">{{ 'Strak wit' if nl else 'Clean white' }}</option></select></div>
+   <div><label for="c1">{{ 'Hoofdkleur' if nl else 'Main colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div>
+   <div><label for="c2">{{ 'Accent' if nl else 'Accent' }}</label><input id="c2" name="c2" type="color" value="#e4572e"></div>
+  </div>
+  <div class="two"><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div><div><label for="qrto">{{ 'QR code naar' if nl else 'QR code to' }}</label><select id="qrto" name="qrto"><option value="none">{{ 'Geen QR' if nl else 'No QR' }}</option><option value="wa">WhatsApp</option><option value="web">Website</option><option value="vcard">{{ 'Contact opslaan (vCard)' if nl else 'Save contact (vCard)' }}</option></select></div></div>
+ </form>
+ <div><div class="bcard"><canvas id="bk-c" width="1004" height="650" aria-label="{{ 'Voorbeeld visitekaartje' if nl else 'Business card preview' }}"></canvas></div>
+  <div class="btns"><button type="button" class="btn" id="bk-png">{{ 'Download PNG (drukwerk)' if nl else 'Download PNG (print)' }}</button><button type="button" class="btn alt" id="bk-sheet">{{ 'Print vel van 10 (A4)' if nl else 'Print sheet of 10 (A4)' }}</button></div>
+  <p class="asof" style="margin-top:8px">{{ 'Formaat 85 x 55 mm, PNG op 300 dpi. Print op stevig papier (250 tot 350 gram) en snij langs de lijnen.' if nl else 'Size 85 x 55 mm, PNG at 300 dpi. Print on heavy paper (250 to 350 gsm) and cut along the lines.' }}</p>
+  <div class="print-area" id="bk-print" hidden></div>
+ </div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" integrity="sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k" crossorigin="anonymous" defer></script><script src="/assets/tools/codes.js?v={{ build_id }}" defer></script>{% endblock %}

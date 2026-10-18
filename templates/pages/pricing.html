@@ -1,0 +1,34 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Van inkoopprijs in dollars, euro\'s of SRD naar een verkoopprijs in SRD: met de koers van vandaag, een buffer voor koersstijging, je opslag of marge en BTW. Plus een prijstabel bij verschillende marges.' if nl else 'From a cost price in US dollars, euros or SRD to an SRD selling price: with today\'s exchange rate, a buffer for rate rises, your markup or margin and VAT. Plus a price table at different margins.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="pr" onsubmit="return false">
+  <div class="two">
+   <div><label for="cost">{{ 'Inkoopprijs per stuk' if nl else 'Cost per item' }}</label><input id="cost" name="cost" inputmode="decimal" value="10"></div>
+   <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>USD</option><option>EUR</option><option>SRD</option></select></div>
+  </div>
+  <div class="two" id="fx-wrap">
+   <div><label for="fx">{{ 'Koers (SRD per eenheid)' if nl else 'Rate (SRD per unit)' }}</label><input id="fx" name="fx" inputmode="decimal"><div class="hint" id="fx-hint"></div></div>
+   <div><label for="buf">{{ 'Koersbuffer (%)' if nl else 'Rate buffer (%)' }}</label><input id="buf" name="buf" inputmode="decimal" value="2"><div class="hint">{{ 'Voor als de koers stijgt voor je opnieuw inkoopt' if nl else 'In case the rate rises before you restock' }}</div></div>
+  </div>
+  <label for="extra">{{ 'Overige kosten per stuk (SRD)' if nl else 'Other costs per item (SRD)' }}</label><input id="extra" name="extra" inputmode="decimal" value="0"><div class="hint">{{ 'Vracht, invoerrecht, verpakking.' if nl else 'Freight, duties, packaging.' }} <a href="{{ U('importcost') }}">{{ L('importcost') }}</a></div>
+  <div class="two">
+   <div><label for="mode">{{ 'Ik reken met' if nl else 'I work with' }}</label><select id="mode" name="mode"><option value="markup">{{ 'Opslag % (op de kostprijs)' if nl else 'Markup % (on cost)' }}</option><option value="margin">{{ 'Marge % (van de verkoopprijs)' if nl else 'Margin % (of selling price)' }}</option></select></div>
+   <div><label for="pct">%</label><input id="pct" name="pct" inputmode="decimal" value="30"></div>
+  </div>
+  <div class="two">
+   <div><label for="vat">{{ 'BTW op verkoop' if nl else 'VAT on sale' }}</label><select id="vat" name="vat"><option value="10">10%</option><option value="5">5%</option><option value="25">25%</option><option value="0">{{ '0% / geen BTW' if nl else '0% / no VAT' }}</option></select></div>
+   <div><label for="round">{{ 'Afronden op' if nl else 'Round to' }}</label><select id="round" name="round"><option value="0">{{ 'niet' if nl else 'none' }}</option><option value="0.5">0,50</option><option value="1" selected>1,00</option><option value="5">5,00</option></select></div>
+  </div>
+ </form>
+ <div class="result" id="pr-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Opslag of marge?' if nl else 'Markup or margin?' }}</h2>
+<p>{{ 'Opslag is een percentage bovenop de kostprijs: 30% opslag op SRD 100 geeft SRD 130. Marge is het deel van de verkoopprijs dat winst is: 30% marge op SRD 100 kostprijs geeft SRD 142,86. Een opslag van 30% is dus maar 23% marge.' if nl else 'Markup is a percentage on top of cost: 30% markup on SRD 100 gives SRD 130. Margin is the share of the selling price that is profit: 30% margin on SRD 100 cost gives SRD 142.86. A 30% markup is only a 23% margin.' }}</p>
+<p>{{ 'De koers wordt automatisch ingevuld met de verkoopkoers van CME van vandaag. Je kunt je eigen koers typen.' if nl else 'The rate is filled in with today\'s CME selling rate. You can type your own.' }} <a href="{{ U('rates') }}">{{ L('rates') }}</a></p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

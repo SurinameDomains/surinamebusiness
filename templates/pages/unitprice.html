@@ -1,0 +1,9 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Groot pak of klein pak, merk A of merk B? Vul prijs en inhoud in en zie meteen welke verpakking het goedkoopst is per kilo, liter of stuk, en hoeveel je bespaart.' if nl else 'Big pack or small pack, brand A or brand B? Enter price and size and see right away which pack is cheapest per kilo, litre or piece, and how much you save.' }}{% endblock %}
+{% block tool %}
+<div class="cols">
+ <form class="card calc" id="up" onsubmit="return false"><div id="up-rows"></div><button type="button" class="btn alt sm" id="up-add" style="margin-top:10px">+ {{ 'Product toevoegen' if nl else 'Add product' }}</button></form>
+ <div class="result" id="up-out" aria-live="polite"></div>
+</div>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/money.js?v={{ build_id }}" defer></script>{% endblock %}

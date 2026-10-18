@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<h1>{{ 'Gratis zakelijke tools' if nl else 'Free business tools' }}</h1>
+<p class="lead">{{ 'Facturen, offertes, loonstroken, BTW, invoerkosten, leningen, QR codes en PDF\'s. Gemaakt voor Suriname, gratis en zonder account. Alles werkt in je eigen browser: je gegevens gaan nergens heen.' if nl else 'Invoices, quotes, payslips, VAT, import costs, loans, QR codes and PDFs. Made for Suriname, free and with no account. Everything runs in your own browser: your data goes nowhere.' }}</p>
+<div class="filters" style="margin-bottom:8px">
+ <input id="tool-q" type="search" placeholder="{{ 'Zoek een tool, bijvoorbeeld factuur of lening' if nl else 'Find a tool, for example invoice or loan' }}" aria-label="{{ 'Zoek een tool' if nl else 'Find a tool' }}">
+</div>
+<div id="tool-list">
+{% for g, gnl, gen in TM.GROUPS %}
+<section class="tool-group">
+<h2>{{ gnl if nl else gen }}</h2>
+<div class="grid g4">
+{% for t in TM.TOOLS if t.group == g %}<a class="card tool" href="{{ U(t.key) }}"><span class="ic">{{ tool_icon(t.icon)|safe }}</span><b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
+{% for k in TM.EXISTING.get(g, []) %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.EXISTING_ICON.get(k,'calc'))|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span></a>{% endfor %}
+</div>
+</section>
+{% endfor %}
+<p class="empty" id="tool-none" hidden>{{ 'Geen tool gevonden. Probeer een ander woord, of' if nl else 'No tool found. Try another word, or' }} <a href="{{ U('contact') }}">{{ 'laat ons weten wat je mist' if nl else 'tell us what you are missing' }}</a>.</p>
+</div>
+<section class="prose" style="margin-top:30px">
+<h2>{{ 'Waarom deze tools?' if nl else 'Why these tools?' }}</h2>
+<p>{{ 'De meeste gratis tools online zijn gemaakt voor Nederland of de VS: verkeerde BTW, verkeerde belasting, geen SRD. Deze tools rekenen met de Surinaamse BTW (10%, 5% en 25%), de loonbelasting en AOV van 2026, de koers van vandaag en de Surinaamse feestdagen.' if nl else 'Most free tools online are made for the Netherlands or the US: wrong VAT, wrong tax, no SRD. These tools use Suriname VAT (10%, 5% and 25%), the 2026 wage tax and AOV, today\'s exchange rate and Suriname public holidays.' }}</p>
+<p>{{ 'Mis je een tool? Mail ons op' if nl else 'Missing a tool? E-mail us at' }} <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var q=document.getElementById('tool-q'),none=document.getElementById('tool-none');
+q.addEventListener('input',function(){var v=q.value.toLowerCase().trim(),any=0;
+document.querySelectorAll('.tool-group').forEach(function(s){var n=0;s.querySelectorAll('a.tool').forEach(function(a){var ok=!v||a.textContent.toLowerCase().indexOf(v)>=0;a.hidden=!ok;if(ok)n++;});s.hidden=!n;any+=n;});
+none.hidden=!!any;});})();
+</script>
+{% endblock %}
