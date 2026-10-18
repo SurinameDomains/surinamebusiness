@@ -12,6 +12,11 @@ PUBLISHER = "Explore group"
 EXPLORE_URL = "https://exploresuriname.com"
 CONTACT_EMAIL = "info@surinamebusiness.com"
 
+# Vacancy board backend (Cloudflare Worker "sb-jobs" on the Suriname Business account, see worker/)
+JOBS_API = "https://api.surinamebusiness.com"
+TURNSTILE_SITEKEY = "0x4AAAAAAFZ5xMtNbyuItKi_"
+POSTED_SOURCE = "Suriname Business"   # source name of vacancies posted directly on this site
+
 # key: (nl_slug, en_slug, section)
 PAGES = {
     "home": ("", "en/", "home"),
@@ -25,6 +30,7 @@ PAGES = {
     "workdays": ("werkdagen-berekenen", "en/working-days-calculator", "money"),
     "tenders": ("aanbestedingen", "en/tenders", "tenders"),
     "jobs": ("vacatures", "en/jobs", "jobs"),
+    "postjob": ("vacature-plaatsen", "en/post-a-job", "jobs"),
     "news": ("zakennieuws", "en/business-news", "news"),
     "oilgas": ("olie-en-gas", "en/oil-and-gas", "oilgas"),
     "supplier": ("leverancier-olie-en-gas", "en/oil-and-gas-supplier-guide", "oilgas"),
@@ -58,7 +64,7 @@ NAV = [
 
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "companies", "news", "holidays", "workdays"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "news", "holidays", "workdays"]),
     ("Gidsen", "Guides", ["start", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),
 ]

@@ -15,10 +15,13 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import facts
 import extras
-from site_config import (DYNAMIC, CONTACT_EMAIL, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
+from site_config import (DYNAMIC, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+# local testing only: point the post form at a local worker
+JOBS_API = os.environ.get("JOBS_API") or JOBS_API
+TURNSTILE_SITEKEY = os.environ.get("TURNSTILE_SITEKEY") or TURNSTILE_SITEKEY
 OUT = os.path.join(ROOT, "_site")
 LIVE = os.path.join(ROOT, "data", "live")
 SR_TZ = dt.timezone(dt.timedelta(hours=-3))
@@ -48,6 +51,7 @@ LABELS = {
     "workdays": ("Werkdagen berekenen", "Working days calculator"),
     "tenders": ("Aanbestedingen", "Tenders"),
     "jobs": ("Vacatures", "Jobs"),
+    "postjob": ("Vacature plaatsen", "Post a job"),
     "news": ("Zakennieuws", "Business news"),
     "oilgas": ("Olie en gas: GranMorgu", "Oil and gas: GranMorgu"),
     "supplier": ("Leverancier worden in olie en gas", "Become an oil and gas supplier"),
@@ -112,6 +116,10 @@ META = {
               "Actuele vacatures bij de overheid van Suriname en consultancy opdrachten van de IDB en de Wereldbank."),
              ("Jobs in Suriname: government and consultancy",
               "Current government vacancies in Suriname and consultancy assignments from the IDB and the World Bank.")),
+    "postjob": (("Gratis vacature plaatsen in Suriname",
+                 "Plaats gratis een vacature op Suriname Business. Kandidaten solliciteren direct bij jou, je vacature verschijnt ook in Google."),
+                ("Post a job in Suriname for free",
+                 "Post a vacancy for free on Suriname Business. Candidates apply directly with you, and your vacancy also shows in Google.")),
     "news": (("Zakennieuws Suriname: economie, olie, banken en handel",
               "De laatste economische koppen uit Surinaamse media op één plek, met link naar het originele artikel."),
              ("Suriname business news: economy, oil, banking and trade",
@@ -289,9 +297,11 @@ def tenders_view():
 
 def jobs_view():
     j = load("jobs.json", {"items": []})
-    items = j.get("items", [])
+    items = [it for it in j.get("items", []) if not (it.get("deadline") and days_until(it["deadline"]) < 0)]
     for it in items:
         it["days_left"] = days_until(it.get("deadline"))
+        it["posted"] = it.get("source") == POSTED_SOURCE
+        it["ext"] = not it["posted"]
     return {"items": items, "fetched_at": j.get("fetched_at"), "stale": hours_old(j.get("fetched_at")) > 48}
 
 
@@ -514,6 +524,97 @@ def build_company_pages(render, lang, U, L, co):
             render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
                    extra={"r": r, "gr": gr}, graph=graph)
 
+# ---------------------------------------------------------------- posted vacancies
+JOB_TYPES = {"FULL_TIME": ("Fulltime", "Full-time"), "PART_TIME": ("Parttime", "Part-time"),
+             "TEMPORARY": ("Tijdelijk", "Temporary"), "CONTRACTOR": ("Freelance / opdracht", "Freelance / contract"),
+             "INTERN": ("Stage", "Internship")}
+LOCATION_EN = {"Remote": "Remote"}
+LOCATION_NL = {"Remote": "Op afstand"}
+
+
+def desc_html(text):
+    """Plain text from the posting form to safe HTML: blank lines split paragraphs, '- ' lines become lists."""
+    from markupsafe import escape
+    out = []
+    for block in [b for b in (text or "").split("\n\n") if b.strip()]:
+        lines = [ln.rstrip() for ln in block.split("\n") if ln.strip()]
+        para, items = [], []
+
+        def flush_para():
+            if para:
+                out.append("<p>" + "<br>".join(str(escape(x)) for x in para) + "</p>")
+                para.clear()
+
+        def flush_items():
+            if items:
+                out.append("<ul>" + "".join(f"<li>{escape(x)}</li>" for x in items) + "</ul>")
+                items.clear()
+        for ln in lines:
+            st = ln.strip()
+            if st[:2] in ("- ", "* ", "• ") or st[:1] == "•":
+                flush_para()
+                items.append(st.lstrip("-*• ").strip())
+            else:
+                flush_items()
+                para.append(st)
+        flush_para()
+        flush_items()
+    return "\n".join(out)
+
+
+def job_schema(j, canonical):
+    loc = j.get("location") or "Paramaribo"
+    js = {"@type": "JobPosting", "title": j["title"], "description": desc_html(j["description"]),
+          "identifier": {"@type": "PropertyValue", "name": "Suriname Business", "value": j["id"]},
+          "datePosted": j["published"], "validThrough": j["deadline"] + "T23:59:59-03:00",
+          "employmentType": j["employment_type"], "url": canonical, "directApply": False,
+          "hiringOrganization": {"@type": "Organization", "name": j["employer"]}}
+    if j.get("employer_url"):
+        js["hiringOrganization"]["sameAs"] = j["employer_url"]
+    if loc == "Remote":
+        js["jobLocationType"] = "TELECOMMUTE"
+        js["applicantLocationRequirements"] = {"@type": "Country", "name": "Suriname"}
+    else:
+        js["jobLocation"] = {"@type": "Place", "address": {"@type": "PostalAddress", "addressRegion": loc,
+                                                           "addressLocality": loc, "addressCountry": "SR"}}
+    if j.get("salary_min") or j.get("salary_max"):
+        v = {"@type": "QuantitativeValue", "unitText": j.get("salary_period") or "MONTH"}
+        if j.get("salary_min") and j.get("salary_max"):
+            v.update(minValue=j["salary_min"], maxValue=j["salary_max"])
+        else:
+            v["value"] = j.get("salary_min") or j.get("salary_max")
+        js["baseSalary"] = {"@type": "MonetaryAmount", "currency": j.get("salary_currency") or "SRD", "value": v}
+    return js
+
+
+def build_job_pages(render, lang, U, L, jobs):
+    nl = lang == "nl"
+    for j in jobs["items"]:
+        if not j.get("posted") or (j.get("lang") or "nl") != lang:
+            continue
+        path = j["url"]
+        canonical = SITE_URL + path
+        loc = (LOCATION_NL if nl else LOCATION_EN).get(j["location"], j["location"])
+        title = f"{j['title']} bij {j['employer']} ({loc})" if nl else f"{j['title']} at {j['employer']} ({loc})"
+        first = " ".join(j["description"].split())[:150]
+        where = ("op afstand" if nl else "remote") if j["location"] == "Remote" else ("in " + loc)
+        desc = (f"Vacature {j['title']} bij {j['employer']}, {where}. Solliciteer voor {fmt_date(j['deadline'], 'nl')}. "
+                if nl else f"Job: {j['title']} at {j['employer']}, {where}. Apply by {fmt_date(j['deadline'], 'en')}. ") + first
+        desc = desc[:300]
+        crumbs = [{"label": "Home", "url": U("home")}, {"label": L("jobs"), "url": U("jobs")}, {"label": j["title"]}]
+        graph = [{"@type": "WebPage", "url": canonical, "name": title, "inLanguage": lang},
+                 {"@type": "BreadcrumbList", "itemListElement": [
+                     {"@type": "ListItem", "position": 1, "name": "Suriname Business", "item": SITE_URL + U("home")},
+                     {"@type": "ListItem", "position": 2, "name": L("jobs"), "item": SITE_URL + U("jobs")},
+                     {"@type": "ListItem", "position": 3, "name": j["title"], "item": canonical}]},
+                 job_schema(j, canonical)]
+        other = url_for("jobs", "en" if nl else "nl")
+        similar = [o for o in jobs["items"] if o is not j][:6]
+        render("job.html", "jobs", title, desc, path if nl else other, other if nl else path, crumbs,
+               extra={"j": j, "loc": loc, "body": desc_html(j["description"]), "similar": similar,
+                      "lang_switch": other}, graph=graph, single=True)
+
+
 # ---------------------------------------------------------------- render
 def main():
     build_id = NOW.strftime("%Y%m%d%H%M")
@@ -570,10 +671,13 @@ def main():
             explore_url=EXPLORE_URL, holidays_json=json.dumps([h[0] for h in facts.HOLIDAYS]),
             tax_params=json.dumps(facts.TAX_JS), salary_py=py_salary, salary_amounts=SALARY_AMOUNTS,
             META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON,
+            jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
+            min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
+            etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
         )
 
         def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
-                   robots=None, in_sitemap=True, _lang=lang, _common=common):
+                   robots=None, in_sitemap=True, single=False, _lang=lang, _common=common):
             canonical = SITE_URL + (path_nl if _lang == "nl" else path_en)
             nav = [{"label": (a if _lang == "nl" else b), "url": url_for(k, _lang), "current": k == nav_key}
                    for a, b, k in NAV]
@@ -583,7 +687,9 @@ def main():
                        lang_switch=path_en if _lang == "nl" else path_nl, nav=nav, crumbs=crumbs, robots=robots,
                        schema=json.dumps({"@context": "https://schema.org",
                                           "@graph": graph or schema_for(nav_key, _lang, title, desc, canonical)},
-                                         ensure_ascii=False))
+                                         ensure_ascii=False).replace("<", "\\u003c"))
+            if single:
+                ctx.update(alt_nl=None, alt_en=None)
             if extra:
                 ctx.update(extra)
             html_out = env.get_template(tpl_name).render(**ctx)
@@ -594,7 +700,7 @@ def main():
             with open(path, "w", encoding="utf-8") as f:
                 f.write(html_out)
             if in_sitemap and not robots:
-                sitemap.append((canonical, SITE_URL + path_nl, SITE_URL + path_en))
+                sitemap.append((canonical, None, None) if single else (canonical, SITE_URL + path_nl, SITE_URL + path_en))
             kind = tpl_name.split("/")[-1][:-5]
             search_index[_lang].append([title.split(":")[0] if kind == "company" else title,
                                         (path_nl if _lang == "nl" else path_en), kind])
@@ -624,6 +730,7 @@ def main():
                    crumbs, extra={"b": b})
 
         build_salary_pages(render, lang, U, L)
+        build_job_pages(render, lang, U, L, jobs)
         build_company_pages(render, lang, U, L, co)
 
     # 404
@@ -654,6 +761,9 @@ def main():
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for loc, nl, en in sitemap:
+        if nl is None:
+            lines.append(f"<url><loc>{loc}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>")
+            continue
         lines.append(f"<url><loc>{loc}</loc><lastmod>{TODAY.isoformat()}</lastmod>"
                      f'<xhtml:link rel="alternate" hreflang="nl" href="{nl}"/>'
                      f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/></url>')

@@ -100,7 +100,8 @@ def _rss(title, link, desc, items, path):
             extra.append(it.get("buyer") or it.get("employer"))
         if it.get("deadline"):
             extra.append("Sluit / closes " + it["deadline"])
-        out.append(f"<item><title>{html.escape(it['title'])}</title><link>{html.escape(it['url'])}</link>"
+        link = it["url"] if not it["url"].startswith("/") else _SITE + it["url"]
+        out.append(f"<item><title>{html.escape(it['title'])}</title><link>{html.escape(link)}</link>"
                    f"<guid isPermaLink=\"false\">{html.escape(it['id'])}</guid>"
                    + (f"<pubDate>{pub}</pubDate>" if pub else "")
                    + f"<description>{html.escape(' · '.join(extra))}</description></item>")
@@ -110,7 +111,12 @@ def _rss(title, link, desc, items, path):
         f.write("\n".join(out))
 
 
+_SITE = "https://surinamebusiness.com"
+
+
 def write_feeds(out_dir, site, tenders, jobs):
+    global _SITE
+    _SITE = site
     _rss("Aanbestedingen Suriname | Suriname Business", site + "/aanbestedingen",
          "Alle open aanbestedingen in Suriname: overheid, Staatsolie, IDB en Wereldbank.",
          tenders["items"], os.path.join(out_dir, "feeds", "aanbestedingen.xml"))

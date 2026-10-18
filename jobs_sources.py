@@ -150,5 +150,25 @@ def uncareers(get):
     return out
 
 
-SOURCES = [("Newmont", newmont), ("TotalEnergies", totalenergies), ("UNDP", undp), ("UNICEF", unicef),
+def posted(get):
+    """Vacancies posted directly on surinamebusiness.com (approved in the sb-jobs worker)."""
+    import os
+    from site_config import JOBS_API, POSTED_SOURCE
+    api = os.environ.get("JOBS_API") or JOBS_API
+    d = json.loads(get(api.rstrip("/") + "/api/jobs/public", headers={"Accept": "application/json"}))
+    if not d.get("ok"):
+        raise ValueError("api not ok")
+    out = []
+    for j in d.get("items", []):
+        j = dict(j)
+        j["source"] = POSTED_SOURCE
+        j["url"] = ("/en/job/" if j.get("lang") == "en" else "/vacature/") + j["slug"]
+        if j.get("pdf_url"):
+            j["pdf_url"] = api.rstrip("/") + j["pdf_url"]
+        out.append(j)
+    return out
+
+
+POSTED = "Suriname Business"
+SOURCES = [(POSTED, posted), ("Newmont", newmont), ("TotalEnergies", totalenergies), ("UNDP", undp), ("UNICEF", unicef),
            ("US Embassy", usembassy), ("UN Careers", uncareers)]
