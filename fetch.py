@@ -11,6 +11,7 @@ Sources (all public):
            World Bank procurement API, IDB open data (CC BY 4.0)
   jobs     gov.sr WordPress REST (vacature)
   news     publisher RSS feeds (headline, source, time, link only)
+  maxprices  EZOTI list of maximum prices of basic goods (PDF on gov.sr)
 """
 import datetime as dt
 import html
@@ -429,13 +430,49 @@ def fetch_news():
     return f"{len(business)} business, {len(oil)} oil"
 
 
+# ---------------------------------------------------------------- maximum prices basic goods (EZOTI)
+MAXPRICE_PAGE = ("https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/"
+                 "richtprijzen-basis-en-strategische-goederen/")
+
+
+def fetch_maxprices():
+    import maxprices
+    import tempfile
+    page = get(MAXPRICE_PAGE, timeout=40)
+    links = []
+    for u in re.findall(r'https://gov\.sr/wp-content/uploads/[^"\'\s]+?\.pdf', page):
+        if "ublicatielijst" in u and u not in links:
+            links.append(u)
+    if not links:
+        raise ValueError("no price lists found on the EZOTI page")
+    old = load("maxprices.json", {})
+    for url in links[:3]:
+        if old.get("pdf") == url and len(old.get("rows", [])) >= 20:
+            old["checked_at"] = now_iso()
+            old["archive"] = links[:8]
+            save("maxprices.json", old)
+            return f"unchanged ({len(old['rows'])} rows)"
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = r.read()
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
+            tmp.write(data)
+            tmp.flush()
+            period, rows = maxprices.parse(tmp.name)
+        if len(rows) >= 20:
+            save("maxprices.json", {"pdf": url, "period": period or "", "rows": rows, "fetched_at": now_iso(),
+                                    "checked_at": now_iso(), "source": MAXPRICE_PAGE, "archive": links[:8]})
+            return f"{len(rows)} rows, {period}"
+    raise ValueError("could not parse the latest price lists")
+
+
 def main():
     ok = True
     import companies
     def fetch_companies():
         return companies.fetch_companies(LIVE, UA, now_iso)
     for name, fn in [("rates", fetch_rates), ("tenders", fetch_tenders), ("jobs", fetch_jobs), ("news", fetch_news),
-                     ("companies", fetch_companies)]:
+                     ("companies", fetch_companies), ("maxprices", fetch_maxprices)]:
         try:
             print(f"{name}: {fn()}")
         except Exception as e:

@@ -49,6 +49,10 @@ PAGES = {
     "companies": ("bedrijven/", "en/companies/", "companies"),
     "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
     "tools": ("tools", "en/tools", "tools"),
+    "maxprices": ("maximumprijzen-basisgoederen", "en/maximum-prices-basic-goods", "trade"),
+    "contacts": ("overheidsinstanties", "en/government-offices", "guides"),
+    "bankaccount": ("zakelijke-rekening-openen", "en/business-bank-account", "guides"),
+    "hiring": ("personeel-aannemen", "en/hiring-staff", "guides"),
 }
 
 # free business tools (see tools_meta.py), one page per tool in both languages
@@ -57,23 +61,29 @@ for _t in _TOOLS:
     PAGES[_t["key"]] = (_t["nl"], _t["en"], "tools")
 DYNAMIC = {"companies"}
 
-NAV = [
-    # (label_nl, label_en, page_key)
-    ("Tools", "Tools", "tools"),
-    ("Salaris", "Salary", "salary"),
-    ("Aanbestedingen", "Tenders", "tenders"),
-    ("Vacatures", "Jobs", "jobs"),
-    ("Bedrijven", "Companies", "companies"),
-    ("Koers", "Rates", "rates"),
-    ("Olie & gas", "Oil & gas", "oilgas"),
-    ("Gidsen", "Guides", "guides"),
+# Header menu: four drop-downs. Tools opens a panel with every tool by group (from tools_meta);
+# the others list their pages in columns: (column label nl, en, [page keys]).
+MENU = [
+    ("tools", "Tools", "Tools", None),
+    ("work", "Werk en personeel", "Work and staff", [
+        ("Werk zoeken en aanbieden", "Jobs", ["jobs", "postjob", "hiring", "workpermit"]),
+        ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "holidays"]),
+    ]),
+    ("trade", "Handel en markt", "Trade and market", [
+        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies"]),
+        ("Markt en cijfers", "Market and figures", ["rates", "maxprices", "news", "import"]),
+    ]),
+    ("guides", "Gidsen", "Guides", [
+        ("Starten en regelen", "Start and arrange", ["start", "bankaccount", "contacts", "land"]),
+        ("Belasting", "Tax", ["vatguide", "incometax", "tax", "deadlines"]),
+    ]),
 ]
 
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
-    ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "qrcode", "pdftools"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "news", "holidays", "workdays"]),
-    ("Gidsen", "Guides", ["start", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
+    ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "maxprices", "news", "holidays", "workdays"]),
+    ("Gidsen", "Guides", ["start", "hiring", "bankaccount", "contacts", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy"]),
 ]
 

@@ -177,3 +177,41 @@ LABOUR_JS = {"max_day": LABOUR["max_day"], "max_week": LABOUR["max_week"], "ot_n
 # subset handed to the browser calculators
 TAX_JS = {k: TAX[k] for k in ("free_month", "forfait_pct", "forfait_max_month", "brackets_month",
                               "overtime_brackets_month", "aov_pct")}
+
+# Contact details for businesses, checked at the official pages on CONTACTS_CHECKED.
+CONTACTS_CHECKED = "2026-10-18"
+CONTACTS = [
+    {"group": "tax", "name": ("Belastingdienst: hoofdkantoor Directoraat Belastingen", "Tax office: head office Directorate of Taxes"),
+     "addr": "Kerkplein 12, Paramaribo", "phone": "1960 toestel 231 / 232", "web": "https://belastingdienst.sr/"},
+    {"group": "tax", "name": ("Inspectie der Directe Belastingen (loonbelasting, inkomstenbelasting)", "Direct Taxes Inspectorate (wage tax, income tax)"),
+     "addr": "Van Sommelsdijckstraat 27, Paramaribo", "phone": "1960 toestel 312 / 313"},
+    {"group": "tax", "name": ("Inspectie Omzetbelasting (BTW)", "VAT Inspectorate"),
+     "addr": "Van Sommelsdijckstraat 27, Paramaribo", "phone": "1960 toestel 345"},
+    {"group": "tax", "name": ("Ontvangkantoor der Directe Belastingen (betalen)", "Direct Taxes Receiving Office (payments)"),
+     "addr": "Van Sommelsdijckstraat 27, Paramaribo", "phone": "1960 toestel 305"},
+    {"group": "tax", "name": ("Belastingkantoor Commewijne", "Tax office Commewijne"), "addr": "Oost-westverbinding 16", "phone": "1960 toestel 298 / 299"},
+    {"group": "tax", "name": ("Belastingkantoor Nickerie", "Tax office Nickerie"), "addr": "Landingstraat 1, Nieuw-Nickerie", "phone": "212184 / 212175 / 321703 / 231452"},
+    {"group": "customs", "name": ("Douane: Inspectie der Invoerrechten en Accijnzen", "Customs: Import Duties and Excise Inspectorate"),
+     "addr": "Havenlaan 1, Paramaribo", "phone": "1960 toestel 161 / 162, direct 402626"},
+    {"group": "customs", "name": ("Ontvangkantoor der Invoerrechten en Accijnzen", "Import Duties Receiving Office"), "addr": "Havenlaan 1, Paramaribo", "phone": "1960 toestel 151"},
+    {"group": "customs", "name": ("Visitatiepost Nieuwe Haven", "Customs post Nieuwe Haven"), "addr": "Nieuwe Haven, Paramaribo", "phone": "403711 / 402541"},
+    {"group": "customs", "name": ("Visitatiepost Albina", "Customs post Albina"), "addr": "Albina", "phone": "342022"},
+    {"group": "customs", "name": ("Visitatiepost Nieuw-Nickerie", "Customs post Nieuw-Nickerie"), "addr": "Nieuw-Nickerie", "phone": "231710 / 231435"},
+    {"group": "business", "name": ("Kamer van Koophandel en Fabrieken (KKF)", "Chamber of Commerce and Industry (KKF)"),
+     "addr": "KKF Beursterrein, Prof. W.J.A. Kernkampweg 37, Paramaribo", "phone": "530311 / 530313", "web": "https://www.kkf.sr/"},
+    {"group": "business", "name": ("Ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie (EZOTI)", "Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI)"),
+     "addr": "Havenlaan 1, Paramaribo", "phone": "402080",
+     "web": "https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/"},
+    {"group": "business", "name": ("KMO Unit (kleine en middelgrote ondernemingen)", "SME Unit (small and medium-sized enterprises)"),
+     "addr": "Kantongebouw, Frederik Derbystraat, Paramaribo", "phone": "420029, WhatsApp 8951447"},
+    {"group": "business", "name": ("Surinaams Standaarden Bureau (SSB)", "Suriname Standards Bureau (SSB)"),
+     "addr": "Frederik Derbystraat 81, Paramaribo", "phone": "499928 / 499929", "web": "https://www.ssb.sr/"},
+    {"group": "business", "name": ("Suriname Business Forum (SBF)", "Suriname Business Forum (SBF)"),
+     "addr": "Prins Hendrikstraat, Paramaribo", "phone": "475286", "web": "https://www.surinamebusinessforum.com/"},
+]
+CONTACT_SOURCES = [
+    ("Belastingdienst Suriname: contact", "https://belastingdienst.sr/contact/"),
+    ("Ministerie van EZOTI: contact", "https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/contact/"),
+]
+TAX_OFFICE_HOURS = (("maandag tot en met donderdag 07:30 tot 14:00, vrijdag 07:30 tot 13:00, weekend gesloten",
+                     "Monday to Thursday 07:30 to 14:00, Friday 07:30 to 13:00, closed at weekends"))

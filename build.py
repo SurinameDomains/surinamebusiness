@@ -8,6 +8,7 @@ Self-contained: no data or files from any other site are used.
 import datetime as dt
 import json
 import os
+import re
 import shutil
 import sys
 
@@ -16,7 +17,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import tools_meta as TM
-from site_config import (DYNAMIC, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, NAV, PAGES, SITE_URL,
+from site_config import (DYNAMIC, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -179,10 +180,30 @@ META = {
 
 
 LABELS["tools"] = ("Gratis zakelijke tools", "Free business tools")
+LABELS["maxprices"] = ("Maximumprijzen basisgoederen", "Maximum prices of basic goods")
+LABELS["contacts"] = ("Overheidsinstanties en contact", "Government offices and contacts")
+LABELS["bankaccount"] = ("Zakelijke bankrekening openen", "Opening a business bank account")
+LABELS["hiring"] = ("Personeel aannemen", "Hiring staff")
+META["maxprices"] = (("Maximumprijzen basisgoederen Suriname: actuele prijslijst EZOTI",
+                      "De officiële maximumprijzen van basisgoederen zoals suiker, rijst, aardappelen, uien, babyvoeding en luiers, per importeur. Doorzoekbaar en elke dag gecontroleerd."),
+                     ("Maximum prices of basic goods in Suriname: current EZOTI list",
+                      "The official maximum prices of basic goods such as sugar, potatoes, onions, baby food and diapers, per importer. Searchable and checked daily."))
+META["contacts"] = (("Belastingdienst, douane, KKF en ministeries: adressen en telefoon",
+                     "Adressen, telefoonnummers, openingstijden en online portalen van de Belastingdienst, douane, KKF en het ministerie van Economische Zaken, voor ondernemers in Suriname."),
+                    ("Tax office, customs, KKF and ministries in Suriname: addresses and phone",
+                     "Addresses, phone numbers, opening hours and online portals of the tax office, customs, the chamber of commerce (KKF) and the Ministry of Economic Affairs."))
+META["bankaccount"] = (("Zakelijke bankrekening openen in Suriname: documenten en stappen",
+                        "Welke documenten je nodig hebt voor een zakelijke rekening bij een Surinaamse bank: KKF uittreksel, ID, UBO verklaring, statuten en vergunning."),
+                       ("Opening a business bank account in Suriname: documents and steps",
+                        "Which documents you need for a business account at a Surinamese bank: KKF extract, ID, UBO declaration, articles and licence."))
+META["hiring"] = (("Personeel aannemen in Suriname: wat moet je regelen als werkgever?",
+                   "Inschrijven als werkgever, loonbelasting en AOV inhouden, minimumloon, werktijden, vakantiedagen, loonstrook en de maandelijkse aangifte. Met rekentools."),
+                  ("Hiring staff in Suriname: what an employer has to arrange",
+                   "Registering as an employer, withholding wage tax and AOV, minimum wage, working hours, annual leave, payslips and the monthly return. With calculators."))
 META["tools"] = (("Gratis zakelijke tools voor Suriname: factuur, offerte, loonstrook en meer",
-                  "Meer dan 30 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR code, PDF samenvoegen. Zonder account."),
+                  "Meer dan 45 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR code, PDF samenvoegen. Zonder account."),
                  ("Free business tools for Suriname: invoice, quote, payslip and more",
-                  "Over 30 free tools for doing business in Suriname: invoice and quote generator, payslip, VAT register, import cost, loan, QR code, PDF merge. No account needed."))
+                  "Over 45 free tools for doing business in Suriname: invoice and quote generator, payslip, VAT register, import cost, loan, QR code, PDF merge. No account needed."))
 for _t in TM.TOOLS:
     LABELS[_t["key"]] = _t["label"]
     META[_t["key"]] = (_t["meta_nl"], _t["meta_en"])
@@ -322,6 +343,39 @@ def news_view():
     fresh = hours_old(n.get("fetched_at")) < 48
     return {"business": n.get("business", []) if fresh else [], "oil": n.get("oil", []) if fresh else [],
             "fetched_at": n.get("fetched_at"), "sources": n.get("sources", {})}
+
+
+NL_MON = {"jan": 1, "feb": 2, "maa": 3, "mrt": 3, "mar": 3, "apr": 4, "mei": 5, "may": 5, "jun": 6, "jul": 7,
+          "aug": 8, "sep": 9, "okt": 10, "oct": 10, "nov": 11, "dec": 12}
+
+
+def period_dates(text):
+    """'05 september 2026 - 18 September 2026' -> (date, date) or (None, None)."""
+    found = []
+    for d, m, y in re.findall(r"(\d{1,2})\s+([A-Za-z]+)\.?\s+(\d{4})", text or ""):
+        mo = NL_MON.get(m[:3].lower())
+        if mo:
+            try:
+                found.append(dt.date(int(y), mo, int(d)))
+            except ValueError:
+                pass
+    return (found[0], found[-1]) if len(found) >= 2 else (None, None)
+
+
+def maxprices_view():
+    m = load("maxprices.json", None)
+    if not m or not m.get("rows"):
+        return None
+    start, end = period_dates(m.get("period"))
+    groups = {}
+    for r in m["rows"]:
+        base = r["product"].split(":")[0].strip()
+        groups.setdefault(base, []).append(r)
+    cats = sorted(groups.items(), key=lambda x: x[0].lower())
+    return {**m, "start": start.isoformat() if start else None, "end": end.isoformat() if end else None,
+            "current": bool(end and end >= TODAY), "groups": cats, "count": len(m["rows"]),
+            "json": json.dumps([[r["product"], r["importer"], r["r_pack"], r["r_price"], r["w_pack"], r["w_price"]] for r in m["rows"]],
+                               ensure_ascii=False).replace("</", "<\\/")}
 
 
 def holidays_view(lang):
@@ -627,6 +681,37 @@ def build_job_pages(render, lang, U, L, jobs):
                       "lang_switch": other}, graph=graph, single=True)
 
 
+# ---------------------------------------------------------------- header menu
+def build_menu(lang, cur):
+    li = 0 if lang == "nl" else 1
+    out, found = [], False
+    for key, lnl, len_, cols in MENU:
+        item = {"key": key, "label": lnl if li == 0 else len_, "cols": []}
+        if key == "tools":
+            keys = {"tools"} | TOOL_KEYS
+            for g, gnl, gen in TM.GROUPS:
+                links = [k for k in [t["key"] for t in TM.TOOLS if t["group"] == g] + TM.EXISTING.get(g, [])]
+                item["cols"].append({"label": gnl if li == 0 else gen,
+                                     "links": [{"label": LABELS[k][li], "url": url_for(k, lang), "current": k == cur} for k in links]})
+            item["all"] = {"label": ("Alle %d gratis tools" if li == 0 else "All %d free tools") % TM.TOTAL,
+                           "url": url_for("tools", lang)}
+        else:
+            keys = set()
+            for cnl, cen, ks in cols:
+                keys |= set(ks)
+                item["cols"].append({"label": cnl if li == 0 else cen,
+                                     "links": [{"label": LABELS[k][li], "url": url_for(k, lang), "current": k == cur} for k in ks]})
+            if key == "guides":
+                item["all"] = {"label": "Alle gidsen" if li == 0 else "All guides", "url": url_for("guides", lang)}
+                keys.add("guides")
+            if key == "trade":
+                keys |= {"companies"}
+        item["current"] = (not found) and (cur in keys)
+        found = found or item["current"]
+        out.append(item)
+    return out
+
+
 # ---------------------------------------------------------------- render
 def main():
     build_id = NOW.strftime("%Y%m%d%H%M")
@@ -643,6 +728,7 @@ def main():
     jobs = jobs_view()
     news = news_view()
     co = companies_view()
+    maxp = maxprices_view()
     buyers = extras.tender_buyers(tenders)
     sitemap = []
     search_index = {"nl": [], "en": []}
@@ -686,15 +772,14 @@ def main():
             jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
-            TM=TM, tool_icon=TM.icon, labour_json=json.dumps(facts.LABOUR_JS),
+            TM=TM, tool_icon=TM.icon, maxp=maxp, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
         )
 
         def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
                    robots=None, in_sitemap=True, single=False, _lang=lang, _common=common):
             canonical = SITE_URL + (path_nl if _lang == "nl" else path_en)
-            nav = [{"label": (a if _lang == "nl" else b), "url": url_for(k, _lang), "current": k == nav_key}
-                   for a, b, k in NAV]
+            nav = build_menu(_lang, nav_key)
             ctx = dict(_common)
             ctx.update(key=nav_key, title=title, description=desc, canonical=canonical,
                        alt_nl=SITE_URL + path_nl, alt_en=SITE_URL + path_en,
