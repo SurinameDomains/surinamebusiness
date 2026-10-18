@@ -17,7 +17,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import tools_meta as TM
-from site_config import (DYNAMIC, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
+from site_config import (DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -69,6 +69,9 @@ LABELS = {
     "sources": ("Bronnen en methode", "Sources and method"),
     "contact": ("Contact", "Contact"),
     "privacy": ("Privacy", "Privacy"),
+    "terms": ("Voorwaarden", "Terms"),
+    "account": ("Mijn account", "My account"),
+    "admin": ("Beheer", "Admin"),
     "companies": ("Bedrijvengids", "Business directory"),
     "search": ("Zoeken", "Search"),
 }
@@ -176,6 +179,11 @@ META = {
                 ("Contact", "Get in touch with Suriname Business.")),
     "privacy": (("Privacy", "Hoe Suriname Business met gegevens omgaat."),
                 ("Privacy", "How Suriname Business handles data.")),
+    "terms": (("Gebruiksvoorwaarden", "De voorwaarden voor het gebruik van Suriname Business, de tools en een account."),
+              ("Terms of use", "The terms for using Suriname Business, the tools and an account.")),
+    "account": (("Mijn account", "Je documenten, klanten, bedrijfsgegevens en vacatures op Suriname Business."),
+                ("My account", "Your documents, customers, business details and vacancies on Suriname Business.")),
+    "admin": (("Beheer", "Beheer van Suriname Business."), ("Admin", "Suriname Business admin.")),
 }
 
 
@@ -337,6 +345,15 @@ def spark_points(series, w=300, h=56):
 def tenders_view():
     t = load("tenders.json", {"items": [], "sources": {}})
     items = t.get("items", [])
+    own = []
+    for c in SBC["items"]:
+        if c["kind"] != "tender":
+            continue
+        d = c.get("data") or {}
+        own.append({"id": "sb-" + c["id"], "title": c["title"], "buyer": d.get("buyer") or c.get("source") or "Suriname Business",
+                     "deadline": d.get("deadline") or c.get("ends"), "published": (c.get("created_at") or "")[:10],
+                     "url": c.get("url") or SITE_URL, "source": "Suriname Business", "lang": "nl"})
+    items = own + items
     for it in items:
         it["days_left"] = days_until(it.get("deadline"))
     return {"items": items, "sources": t.get("sources", {}), "fetched_at": t.get("fetched_at"),
@@ -356,8 +373,22 @@ def jobs_view():
 def news_view():
     n = load("news.json", {"business": [], "oil": []})
     fresh = hours_old(n.get("fetched_at")) < 48
-    return {"business": n.get("business", []) if fresh else [], "oil": n.get("oil", []) if fresh else [],
+    business = n.get("business", []) if fresh else []
+    # own news items from the admin panel go first
+    own = [{"title": c["title"], "url": c.get("url") or SITE_URL, "source": c.get("source") or "Suriname Business",
+            "published": c.get("created_at"), "econ": True, "own": True} for c in SBC["items"] if c["kind"] == "news"]
+    return {"business": own + business, "oil": n.get("oil", []) if fresh else [],
             "fetched_at": n.get("fetched_at"), "sources": n.get("sources", {})}
+
+
+def sbcontent_view():
+    """Banners, news, tenders, notices and settings managed in the admin panel (sb-api /public/content)."""
+    c = load("sbcontent.json", {"items": [], "settings": {}})
+    items = [it for it in c.get("items", []) if it.get("kind") in ("banner", "news", "tender", "notice", "link")]
+    return {"items": items, "settings": c.get("settings") or {}, "fetched_at": c.get("fetched_at")}
+
+
+SBC = {"items": [], "settings": {}}
 
 
 NL_MON = {"jan": 1, "feb": 2, "maa": 3, "mrt": 3, "mar": 3, "apr": 4, "mei": 5, "may": 5, "jun": 6, "jul": 7,
@@ -796,6 +827,7 @@ def main():
     env = Environment(loader=FileSystemLoader(os.path.join(ROOT, "templates")),
                       autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
 
+    SBC.update(sbcontent_view())
     rates = rates_view()
     tenders = tenders_view()
     jobs = jobs_view()
@@ -849,6 +881,14 @@ def main():
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
             TM=TM, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
+            account_api=ACCOUNT_API, google_client_id=GOOGLE_CLIENT_ID, dev_login=bool(os.environ.get("SB_DEV_LOGIN")),
+            sbc=SBC, settings=SBC["settings"],
+            page_keys=[k for k in PAGES if k not in DYNAMIC and k not in PRIVATE_PAGES],
+            tool_keys=sorted({t["key"] for t in TM.TOOLS} | {k for v in TM.EXISTING.values() for k in v}),
+            banners=[b for b in SBC["items"] if b["kind"] == "banner" and b.get("lang") in ("all", lang, None)],
+            notices=[b for b in SBC["items"] if b["kind"] == "notice" and b.get("lang") in ("all", lang, None)],
+            own_links=[b for b in SBC["items"] if b["kind"] == "link" and b.get("lang") in ("all", lang, None)],
+            ctext=lambda c, f="title", _l=lang: (c.get(f + "_en") or c.get(f)) if _l == "en" else c.get(f),
         )
 
         def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
@@ -876,6 +916,8 @@ def main():
             if in_sitemap and not robots:
                 sitemap.append((canonical, None, None) if single else (canonical, SITE_URL + path_nl, SITE_URL + path_en))
             kind = tpl_name.split("/")[-1][:-5]
+            if nav_key in PRIVATE_PAGES:
+                return
             search_index[_lang].append([title.split(":")[0] if kind == "company" else title,
                                         (path_nl if _lang == "nl" else path_en), kind])
 
@@ -890,7 +932,7 @@ def main():
                 graph.append(extras.faq_schema(faq))
             render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs,
                    extra={"faq": faq, "buyers": buyers, "tool": TM.BY_KEY.get(key)}, graph=graph,
-                   robots="noindex,follow" if key == "search" else None)
+                   robots="noindex,follow" if key == "search" else ("noindex,nofollow" if key in PRIVATE_PAGES else None))
 
         for b in buyers:
             if len(b["items"]) < 2:
@@ -952,6 +994,22 @@ def main():
         f.write("")
     with open(os.path.join(OUT, "build.json"), "w") as f:
         json.dump({"built_at": NOW.replace(microsecond=0).isoformat(), "pages": len(sitemap)}, f)
+    # data freshness for the admin panel
+    status = {"built_at": NOW.replace(microsecond=0).isoformat(), "pages": len(sitemap), "feeds": {}}
+    for fn in sorted(os.listdir(os.path.join(ROOT, "data", "live"))):
+        if not fn.endswith(".json") or fn.endswith("_history.json"):
+            continue
+        d = load(fn, {})
+        if not isinstance(d, dict):
+            continue
+        fa = d.get("fetched_at") or max([v.get("fetched_at") for v in d.values()
+                                         if isinstance(v, dict) and isinstance(v.get("fetched_at"), str)] or [None])
+        status["feeds"][fn[:-5]] = {"fetched_at": fa, "checked_at": d.get("checked_at"),
+                                    "age_h": round(hours_old(fa), 1) if fa else None,
+                                    "sources": {k: {"ok": v.get("ok"), "count": v.get("count"), "error": v.get("error")}
+                                                for k, v in (d.get("sources") or {}).items() if isinstance(v, dict)}}
+    with open(os.path.join(OUT, "status.json"), "w") as f:
+        json.dump(status, f)
     print(f"built {len(sitemap)} pages into _site/")
     return 0
 

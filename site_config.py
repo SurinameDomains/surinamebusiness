@@ -17,6 +17,12 @@ JOBS_API = "https://api.surinamebusiness.com"
 TURNSTILE_SITEKEY = "0x4AAAAAAFZ5xMtNbyuItKi_"
 POSTED_SOURCE = "Suriname Business"   # source name of vacancies posted directly on this site
 
+# Accounts and admin backend (Cloudflare Worker "sb-api" on the Suriname Business account, see api/)
+ACCOUNT_API = "https://id.surinamebusiness.com"
+# OAuth web client in Google Cloud project suriname-business-512021 (public value, not a secret)
+GOOGLE_CLIENT_ID = "592377866539-j9th8mohoon2mb11ko37hid0eftii9ol.apps.googleusercontent.com"
+PRIVATE_PAGES = {"account", "admin"}   # noindex, not in the sitemap or search
+
 # key: (nl_slug, en_slug, section)
 PAGES = {
     "home": ("", "en/", "home"),
@@ -46,6 +52,9 @@ PAGES = {
     "sources": ("bronnen", "en/sources", "trust"),
     "contact": ("contact", "en/contact", "trust"),
     "privacy": ("privacy", "en/privacy", "trust"),
+    "terms": ("voorwaarden", "en/terms", "trust"),
+    "account": ("mijn-account", "en/my-account", "trust"),
+    "admin": ("beheer", "en/admin", "trust"),
     "companies": ("bedrijven/", "en/companies/", "companies"),
     "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
     "tools": ("tools", "en/tools", "tools"),
@@ -87,7 +96,7 @@ FOOTER_GROUPS = [
     ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
     ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "douane", "gold", "maxprices", "outages", "news"]),
     ("Gidsen", "Guides", ["start", "hiring", "bankaccount", "contacts", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
-    ("Over", "About", ["about", "sources", "contact", "privacy"]),
+    ("Over", "About", ["about", "sources", "contact", "privacy", "terms", "account"]),
 ]
 
 

@@ -467,6 +467,20 @@ def fetch_maxprices():
     raise ValueError("could not parse the latest price lists")
 
 
+def fetch_sbcontent():
+    """Banners, own news and tenders, notices and settings from the admin panel (sb-api)."""
+    from site_config import ACCOUNT_API
+    base = os.environ.get("ACCOUNT_API") or ACCOUNT_API
+    j = json.loads(get(base.rstrip("/") + "/public/content", timeout=20))
+    if not j.get("ok") or not isinstance(j.get("items"), list):
+        raise ValueError("unexpected answer from the account API")
+    save("sbcontent.json", {"items": j["items"], "settings": j.get("settings") or {}, "fetched_at": now_iso()})
+    kinds = {}
+    for it in j["items"]:
+        kinds[it.get("kind")] = kinds.get(it.get("kind"), 0) + 1
+    return ", ".join(f"{v} {k}" for k, v in sorted(kinds.items())) or "no items"
+
+
 def main():
     ok = True
     import companies
@@ -485,7 +499,7 @@ def main():
                      ("companies", fetch_companies), ("maxprices", fetch_maxprices),
                      ("cbvs", mk(markets.fetch_cbvs)), ("douane", mk(markets.fetch_douane)),
                      ("banks", mk(markets.fetch_banks)), ("commodities", mk(markets.fetch_commodities)),
-                     ("ebs", mk(utilities.fetch_ebs))]:
+                     ("ebs", mk(utilities.fetch_ebs)), ("sbcontent", fetch_sbcontent)]:
         try:
             print(f"{name}: {fn()}")
         except Exception as e:

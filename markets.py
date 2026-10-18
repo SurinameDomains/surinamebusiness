@@ -44,7 +44,7 @@ def _get(url, timeout=25, binary=False, follow=True):
 # cbvs.sr challenges traffic from outside Suriname, which includes GitHub Actions. SB's own relay
 # (Cloudflare Worker sb-cbvs on the Suriname Business account, source in worker-cbvs/) keeps a copy
 # that is refreshed whenever it runs in Paramaribo. Returns (body, copy time as ISO or None).
-CBVS_RELAY = "https://sb-cbvs.amanbhulai.workers.dev/"
+CBVS_RELAY = "https://data.surinamebusiness.com/"
 
 
 def _cbvs_get(url, binary=False, follow=True):
