@@ -1,0 +1,10 @@
+# sb-cbvs: read-only relay for public CBvS publications (see src/index.js).
+# Deploy ONLY to the Suriname Business Cloudflare account. Never to the Explore account.
+name = "sb-cbvs"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "STORE"
+id = "7ea8833cab0c46dda44e3a9690e98ce4"
