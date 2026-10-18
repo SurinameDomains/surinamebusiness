@@ -17,6 +17,7 @@ import html
 import json
 import re
 import tempfile
+import urllib.parse
 import urllib.request
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -38,6 +39,26 @@ def _get(url, timeout=25, binary=False, follow=True):
     with r:
         data = r.read()
     return data if binary else data.decode("utf-8", errors="replace")
+
+
+# cbvs.sr challenges traffic from outside Suriname, which includes GitHub Actions. SB's own relay
+# (Cloudflare Worker sb-cbvs on the Suriname Business account, source in worker-cbvs/) keeps a copy
+# that is refreshed whenever it runs in Paramaribo. Returns (body, copy time as ISO or None).
+CBVS_RELAY = "https://sb-cbvs.amanbhulai.workers.dev/"
+
+
+def _cbvs_get(url, binary=False, follow=True):
+    try:
+        return _get(url, binary=binary, follow=follow), None
+    except Exception as direct_err:
+        path = url.split("cbvs.sr", 1)[1] or "/"
+        req = urllib.request.Request(CBVS_RELAY + "?" + urllib.parse.urlencode({"path": path}), headers={"User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                data, at = r.read(), r.headers.get("x-relay-fetched-at")
+        except Exception as relay_err:
+            raise RuntimeError(f"direct: {direct_err}; relay: {relay_err}")
+        return (data if binary else data.decode("utf-8", errors="replace")), at
 
 
 def _text(s):
@@ -113,9 +134,11 @@ def parse_cbvs(page):
 
 def fetch_cbvs(load, save, now_iso, cme_usd=None):
     last_err = None
-    for url in CBVS_URLS + CBVS_URLS[:1]:
+    old = load("cbvs.json", {})
+    for url in CBVS_URLS[:1] + CBVS_URLS:
         try:
-            d = parse_cbvs(_get(url))
+            page, copy_at = _cbvs_get(url)
+            d = parse_cbvs(page)
         except Exception as e:  # Cloudflare in front of cbvs.sr fails now and then
             last_err = e
             continue
@@ -126,17 +149,22 @@ def fetch_cbvs(load, save, now_iso, cme_usd=None):
             continue
         if not (10 < usd[0] < 200 and usd[0] <= usd[1]) or (cme_usd and abs(usd[1] - cme_usd) / cme_usd > 0.15):
             raise ValueError(f"implausible CBvS USD {usd} vs CME {cme_usd}")
-        d.update(fetched_at=now_iso(), source="https://www.cbvs.sr/")
+        fetched = now_iso()
+        if copy_at:  # relay copy: keep the time the copy was taken, so the site can show its age
+            fetched = dt.datetime.fromisoformat(copy_at.replace("Z", "+00:00")).replace(microsecond=0).isoformat()
+            if old.get("fetched_at") and fetched <= old["fetched_at"]:
+                return f"relay copy of {copy_at} not newer than {old['fetched_at']}, kept"
+        d.update(fetched_at=fetched, source="https://www.cbvs.sr/")
         save("cbvs.json", d)
         hist = load("cbvs_history.json", {"note": "CBvS weighted average rates, giraal buy/sell", "days": {}})
-        today = dt.datetime.now(SR_TZ).date().isoformat()
+        today = dt.datetime.fromisoformat(fetched).astimezone(SR_TZ).date().isoformat()
         hist["days"][today] = {k: r[k]["giraal"] for k in ("USD", "EUR") if k in r}
         if d.get("gold", {}).get("lbma_usd_oz"):
             hist["days"][today]["gold"] = d["gold"]["lbma_usd_oz"]
         keep = sorted(hist["days"])[-800:]
         hist["days"] = {k: hist["days"][k] for k in keep}
         save("cbvs_history.json", hist)
-        return f"{len(r)} rates, USD {usd} ({d.get('stamp')})"
+        return f"{len(r)} rates, USD {usd} ({d.get('stamp')}){' via relay copy of ' + copy_at if copy_at else ''}"
     raise last_err or ValueError("CBvS not reachable")
 
 
@@ -202,7 +230,7 @@ def fetch_douane(load, save, now_iso, cme_usd=None):
             url = f"{DOUANE_BASE}/{d.year}/UWKOVZ-{d.strftime('%d%m%Y')}{suffix}.pdf"
             tried += 1
             try:
-                data = _get(url, binary=True, follow=False)
+                data, _ = _cbvs_get(url, binary=True, follow=False)
             except Exception:
                 continue
             if not data.startswith(b"%PDF"):
