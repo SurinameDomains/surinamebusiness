@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-18T19:04:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "VSB wil duidelijkheid over uitvoering ‘Negatieve Lijst’",
+   "url": "https://dwtonline.com/vsb-wil-duidelijkheid-over-uitvoering-negatieve-lijst/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-18T18:29:11+00:00",
    "source": "Suriname Herald",
    "title": "Ramautarsing signaleert grote loonverschillen tussen kabinetten",
@@ -302,7 +309,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-18T19:01:27+00:00",
+ "fetched_at": "2026-10-18T19:25:00+00:00",
  "oil": [
   {
    "econ": true,
@@ -322,32 +329,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-18T19:01:25+00:00",
+   "fetched_at": "2026-10-18T19:24:59+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-10-18T19:01:23+00:00",
+   "count": 13,
+   "fetched_at": "2026-10-18T19:24:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-18T19:01:25+00:00",
+   "fetched_at": "2026-10-18T19:24:58+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T19:01:26+00:00",
+   "fetched_at": "2026-10-18T19:24:59+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-18T19:01:25+00:00",
+   "fetched_at": "2026-10-18T19:24:58+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-18T19:01:27+00:00",
+   "fetched_at": "2026-10-18T19:25:00+00:00",
    "ok": true
   }
  }
