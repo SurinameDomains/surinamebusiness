@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-10-19T17:46:34+00:00",
+ "fetched_at": "2026-10-19T22:18:55+00:00",
  "notices": [
-  {
-   "date": "2026-10-16",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=9a0e359e68a44fcca413d25c4053b8e9",
-   "slots": [
-    {
-     "areas": "GEDEELTE DE BOERBUITENWEG TUSSEN KWATTAWEG EN MOEJEKREEKSTRAAT, STOLKWEG, STOLKWEG-NOORD, MARIESTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-10-16",
-     "district": "Paramaribo",
-     "from": "09:00",
-     "to": "13:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud vrijdag 16 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1629/gepland-onderhoud-vrijdag-16-oktober-2026"
-  },
   {
    "date": "2026-10-17",
    "kind": "planned",
@@ -77,6 +60,23 @@
    "text": "GEDEELTE AQUARIUSSTRAAT TUSSEN SOEKHANSTRAAT EN PEU ET CONTENTSTRAAT, GEDEELTE RINGWEG – NOORD TUSSEN CURITIBASTRAAT EN SIPER JANUSSTRAAT, NOORDWIJKWEG, MARTINUSSTRAAT, HELOUISESTRAAT, CURITIBASTRAAT, RIO NEGROSTRAAT, BOMBAYSTRAAT, MONTEVIDEOSTRAAT, SANTIAGOSTRAAT, LIMASTRAAT, ASUNCIONSTRAAT, BOGOTASTRAAT, GUMMELSWEG, PEU ET CONTENTSTRAAT, HAFLINGERSTRAAT, LAAN VAN LOUSISEHOF, BELLADONNASTRAAT, RICANAUSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED. GEDEELTE MORGENSTONDSTRAAT TUSSEN PAPAJAFOWROESTRAAT EN SABAKOESTRAAT, ROWTISTRAAT, BASJAFOWROESTRAAT, PAPAJAFOWROESTRAAT, BAGA BAGA STRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
    "title": "Gepland onderhoud woensdag 21 oktober 2026",
    "url": "https://nvebs.com/nieuws/1634/gepland-onderhoud-woensdag-21-oktober-2026"
+  },
+  {
+   "date": "2026-10-22",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=298c24ac89514eb5828ae4351ed43b35",
+   "slots": [
+    {
+     "areas": "GEHEEL LEIDING 10 EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-22",
+     "district": "Wanica",
+     "from": "09:00",
+     "to": "14:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud donderdag 22 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1631/gepland-onderhoud-donderdag-22-oktober-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

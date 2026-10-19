@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-19T17:45:48+00:00",
+ "fetched_at": "2026-10-19T22:18:26+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -155,6 +155,17 @@
    "url": "https://gov.sr/aanbestedingen/het-vervangen-verfraaien-en-bedrijfsklaar-opleveren-van-een-tweetal-vris-voor-de-afdeling-verkeersmonitoring-en-digitale-techniek-van-het-directoraat-veiligheid-en-mobiliteit/"
   },
   {
+   "buyer": "Fiscal Support Program to Regain Growth",
+   "deadline": "2026-11-19",
+   "id": "idb-39220",
+   "kind": "Goods",
+   "lang": "en",
+   "published": "2026-10-05",
+   "source": "IDB",
+   "title": "Purchase of High-Performance Server Hardware for DoTC",
+   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1154"
+  },
+  {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
    "deadline": "2026-10-19",
    "id": "so-ities-pump-inspection-repair-overhaul-and-testing-downstream",
@@ -183,17 +194,6 @@
    "source": "Staatsolie",
    "title": "Request for Expression of Interest for Provision of Temporary Labor Services",
    "url": "https://www.staatsolie.com/en/procurement-opportunities/temporary-labor-services/"
-  },
-  {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-11-19",
-   "id": "idb-39220",
-   "kind": "Goods",
-   "lang": "en",
-   "published": "2026-10-05",
-   "source": "IDB",
-   "title": "Purchase of High-Performance Server Hardware for DoTC",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1154"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -493,22 +493,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-19T17:45:48+00:00",
+   "fetched_at": "2026-10-19T22:18:26+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-19T17:45:47+00:00",
+   "fetched_at": "2026-10-19T22:18:25+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 18,
-   "fetched_at": "2026-10-19T17:45:47+00:00",
+   "fetched_at": "2026-10-19T22:18:26+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-19T17:45:46+00:00",
+   "fetched_at": "2026-10-19T22:18:24+00:00",
    "ok": true
   }
  }
