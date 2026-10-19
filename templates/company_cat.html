@@ -8,7 +8,9 @@
 <div class="filters" data-filter-list="cat-list">
  <input type="search" placeholder="{{ 'Zoek op naam, straat of plaats' if nl else 'Search by name, street or place' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alle plaatsen' if nl else 'All places' }}</button>
- {% for p in gr['items']|map(attribute='place')|select|unique|list|sort %}{% if gr['items']|selectattr('place','equalto',p)|list|length >= 3 %}<button class="chip" data-v="{{ p }}" aria-pressed="false">{{ p }}</button>{% endif %}{% endfor %}
+ {% set towns = [] %}{% for p, rows in gr['items']|selectattr('place')|groupby('place') %}{% if rows|length >= 3 %}{% set _ = towns.append((rows|length, p)) %}{% endif %}{% endfor %}
+ {% for n, p in towns|sort(reverse=True) %}<button class="chip{% if loop.index > 6 %} extra{% endif %}" data-v="{{ p }}" aria-pressed="false">{{ p }}</button>{% endfor %}
+ {% if towns|length > 6 %}<button type="button" class="chip-more" aria-expanded="false">+{{ towns|length - 6 }} {{ 'plaatsen' if nl else 'places' }}</button>{% endif %}
 </div>
 <div class="card"><ul class="list" id="cat-list">
 {% for r in gr['items'] %}
@@ -20,4 +22,5 @@
 {% if gr.key in ex %}<p style="margin-top:14px"><a href="{{ ex[gr.key][0] }}" rel="noopener">{{ ex[gr.key][1] if nl else ex[gr.key][2] }} &rarr;</a></p>{% endif %}
 <p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. {% if town %}<a href="{{ '/bedrijven/' ~ parent.nl_slug if nl else '/en/companies/' ~ parent.en_slug }}">{{ 'Heel Suriname' if nl else 'All of Suriname' }}</a> &middot; {% endif %}<a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Alle categorieën' if nl else 'All categories' }}</a></p>
 {% endblock %}
-{% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>{% endblock %}
+{% block scripts %}<script src="/assets/calc.js?v={{ build_id }}" defer></script>
+<script>(function(){var m=document.querySelector('.chip-more');if(!m)return;m.addEventListener('click',function(){var box=m.parentNode,o=!box.classList.contains('all-chips');box.classList.toggle('all-chips',o);m.setAttribute('aria-expanded',o);m.hidden=o;});})();</script>{% endblock %}

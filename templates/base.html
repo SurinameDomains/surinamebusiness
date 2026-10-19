@@ -130,6 +130,20 @@ var seen=false;new IntersectionObserver(function(es){seen=es[0].isIntersecting;b
 bar.addEventListener('click',function(){target.scrollIntoView({behavior:'smooth',block:'start'});});
 })();
 </script>
+<script>
+/* phones: long forms fold. Every fieldset with a legend becomes a section you can close; a fieldset marked
+   data-fold="<input id>" starts closed when that input already has a value (returning users skip their own details). */
+document.addEventListener('DOMContentLoaded',function(){if(window.innerWidth>1000)return;
+var sets=[].slice.call(document.querySelectorAll('form.calc fieldset, form.pj fieldset'));if(sets.length<2)return;
+sets.forEach(function(fs){var lg=fs.querySelector(':scope > legend');if(!lg)return;
+var b=document.createElement('button');b.type='button';b.className='fs-toggle';b.setAttribute('aria-expanded','true');
+while(lg.firstChild)b.appendChild(lg.firstChild);var sum=document.createElement('span');sum.className='fs-sum';b.appendChild(sum);
+b.insertAdjacentHTML('beforeend','<svg width="14" height="14" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>');lg.appendChild(b);
+function set(o){fs.classList.toggle('folded',!o);b.setAttribute('aria-expanded',o);var id=fs.getAttribute('data-fold'),el=id&&document.getElementById(id);sum.textContent=(!o&&el&&el.value)?el.value:'';}
+b.addEventListener('click',function(){set(fs.classList.contains('folded'));});
+var id=fs.getAttribute('data-fold'),el=id&&document.getElementById(id);if(el&&el.value.trim())set(false);
+fs.addEventListener('invalid',function(){set(true);},true);});});
+</script>
 <script src="/assets/account.js?v={{ build_id }}" defer></script>
 {% block scripts %}{% endblock %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
