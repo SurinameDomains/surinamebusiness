@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-19T11:51:00+00:00",
+   "source": "Starnieuws",
+   "title": "Drie keer gewaarschuwd in nog geen half jaar: wanneer handelt de regering?",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94436"
+  },
+  {
+   "econ": false,
    "published": "2026-10-19T11:08:02+00:00",
    "source": "Suriname Herald",
    "title": "Surinaamse ondernemer wil cassavebier in eigen land produceren en boeren vaste afzet bieden",
@@ -344,7 +351,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-19T11:14:44+00:00",
+ "fetched_at": "2026-10-19T12:31:02+00:00",
  "oil": [
   {
    "econ": false,
@@ -371,32 +378,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-19T11:14:42+00:00",
+   "fetched_at": "2026-10-19T12:30:59+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-19T11:14:40+00:00",
+   "fetched_at": "2026-10-19T12:30:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-19T11:14:42+00:00",
+   "fetched_at": "2026-10-19T12:30:58+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T11:14:43+00:00",
+   "fetched_at": "2026-10-19T12:31:01+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-19T11:14:42+00:00",
+   "fetched_at": "2026-10-19T12:30:58+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T11:14:44+00:00",
+   "fetched_at": "2026-10-19T12:31:02+00:00",
    "ok": true
   }
  }
