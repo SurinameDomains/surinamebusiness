@@ -627,6 +627,7 @@ def complete_graph(graph, lang, title, desc, canonical):
 
 # ---------------------------------------------------------------- programmatic pages
 CF_BEACON = "14f5303c07304c89bef2bbe3a980e6fe"
+GA_ID = "G-PWMQ9KJ81H"  # Google Analytics 4, property "Suriname Business"
 SALARY_AMOUNTS = (list(range(6000, 20001, 1000)) + list(range(22500, 50001, 2500))
                   + [60000, 75000, 100000, 125000, 150000])
 
@@ -969,7 +970,7 @@ def main():
             spark=spark_points, today=TODAY.isoformat(), contact_email=CONTACT_EMAIL,
             explore_url=EXPLORE_URL, holidays_json=json.dumps([h[0] for h in facts.HOLIDAYS]),
             tax_params=json.dumps(facts.TAX_JS), salary_py=py_salary, salary_amounts=SALARY_AMOUNTS,
-            META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON,
+            META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON, ga_id=GA_ID,
             jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             recent=(TODAY - dt.timedelta(days=2)).isoformat(),
