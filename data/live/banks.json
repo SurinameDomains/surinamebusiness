@@ -1,51 +1,51 @@
 {
  "banks": [
   {
-   "date": "16-10-2026",
+   "date": "19-10-2026",
    "eur": [
     41.8,
-    42.693
+    42.648
    ],
-   "fetched_at": "2026-10-19T06:28:44+00:00",
+   "fetched_at": "2026-10-19T11:14:50+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
    "url": "https://www.finabanknv.com/service-desk/koersen-rates/",
    "usd": [
     37.4,
-    37.916
+    37.933
    ]
   },
   {
    "date": "",
    "eur": [
-    41.8,
-    42.73
+    41.75,
+    42.65
    ],
-   "fetched_at": "2026-10-19T06:28:45+00:00",
+   "fetched_at": "2026-10-19T11:14:51+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
    "url": "https://www.hakrinbank.com/en/private/foreign-exchange/",
    "usd": [
     37.4,
-    37.92
+    37.93
    ]
   },
   {
-   "date": "2026-10-16",
+   "date": "2026-10-19",
    "eur": [
     41.66,
     42.51
    ],
-   "fetched_at": "2026-10-19T06:28:46+00:00",
+   "fetched_at": "2026-10-19T11:14:52+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
    "url": "https://www.dsb.sr/",
    "usd": [
-    37.15,
-    37.91
+    37.17,
+    37.93
    ]
   },
   {
@@ -54,7 +54,7 @@
     41.97,
     42.67
    ],
-   "fetched_at": "2026-10-19T06:28:47+00:00",
+   "fetched_at": "2026-10-19T11:14:53+00:00",
    "key": "republic",
    "live": true,
    "name": "Republic Bank",
@@ -65,21 +65,21 @@
    ]
   },
   {
-   "date": "Vrijdag 16 oktober 2026",
+   "date": "Maandag 19 oktober 2026",
    "eur": [
-    41.658,
-    42.626
+    41.816,
+    42.648
    ],
-   "fetched_at": "2026-10-19T06:28:47+00:00",
+   "fetched_at": "2026-10-19T11:14:54+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
    "url": "https://www.godo.sr/",
    "usd": [
-    37.503,
-    37.916
+    37.497,
+    37.933
    ]
   }
  ],
- "fetched_at": "2026-10-19T06:28:47+00:00"
+ "fetched_at": "2026-10-19T11:14:54+00:00"
 }

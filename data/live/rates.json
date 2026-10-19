@@ -2,12 +2,12 @@
  "business_date": "2026-10-19",
  "eur": {
   "buy": 41.35,
-  "sell": 42.0
+  "sell": 42.15
  },
- "fetched_at": "2026-10-19T06:28:14+00:00",
+ "fetched_at": "2026-10-19T11:14:04+00:00",
  "source": "Central Money Exchange (CME)",
  "source_url": "https://www.cme.sr/",
- "updated_time": "03:28 AM",
+ "updated_time": "08:14 AM",
  "usd": {
   "buy": 37.5,
   "sell": 37.8
