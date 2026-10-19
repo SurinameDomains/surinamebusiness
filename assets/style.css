@@ -404,7 +404,7 @@ a.card.tool{display:flex}
 .paper .ph img{max-height:70px;max-width:180px;object-fit:contain}
 .paper .pm{color:#5b6078;font-size:.86rem}
 .paper .pp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:18px}
-.paper .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#7a7f96;font-weight:700;margin-bottom:2px}
+.paper .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#60657c;font-weight:700;margin-bottom:2px}
 .paper table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .paper th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--pc,#1f2251);padding:7px 8px}
 .paper td{padding:7px 8px;border-bottom:1px solid #eceaf2;vertical-align:top}
@@ -413,7 +413,7 @@ a.card.tool{display:flex}
 .paper .tots td{border:0;padding:4px 8px}
 .paper .tots tr.g td{border-top:2px solid var(--pc,#1f2251);font-weight:700;font-size:1.05rem;padding-top:8px}
 .paper .pn{margin-top:22px;font-size:.85rem;color:#4a4f68;white-space:pre-wrap}
-.paper .pf{margin-top:24px;padding-top:10px;border-top:1px solid #eceaf2;font-size:.78rem;color:#7a7f96;text-align:center}
+.paper .pf{margin-top:24px;padding-top:10px;border-top:1px solid #eceaf2;font-size:.78rem;color:#60657c;text-align:center}
 .paper .words{font-style:italic;color:#4a4f68;margin-top:8px}
 .paper .sigs{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px}
 .paper .sigs div{border-top:1px solid #9a9db0;padding-top:4px;font-size:.8rem;color:#5b6078}
@@ -583,3 +583,20 @@ h2.h3{font-family:var(--font);font-size:1.15rem;font-weight:700;letter-spacing:-
 .tool-filters input{flex:0 0 auto;width:100%}
 @media (min-width:901px){.cols > aside{position:sticky;top:calc(var(--head-h) + 16px)}}
 @media (max-width:350px){.wm{font-size:1.12rem}.menu-btn{padding:0 9px}.top .wrap{gap:6px}}
+
+/* ---------------------------------------------------------------- polish round (19 Oct) */
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--brand-2);box-shadow:var(--focus)}
+.tbl tbody tr:last-child td{border-bottom:0}
+.bylist{margin:-6px 0 14px;line-height:1.7}
+.bylist a{color:var(--ink-2);text-decoration-color:rgba(59,63,92,.35)}
+@media (max-width:600px){.lead{font-size:1.06rem}h1{font-size:clamp(1.7rem,1.2rem + 2.6vw,2.9rem)}}
+/* phones: the answer follows you. A thin bar above the tab bar shows the live result (calculators)
+   or jumps to the document preview (invoice family); it hides once the result itself is on screen. */
+.sb-sticky{display:none}
+@media (max-width:1000px){
+  .sb-sticky{display:flex;align-items:center;gap:12px;position:fixed;left:12px;right:12px;bottom:calc(var(--tabbar) + 10px);background:var(--brand);color:#fff;border-radius:12px;padding:10px 14px;box-shadow:0 10px 30px rgba(23,25,46,.3);z-index:44;cursor:pointer;border:0;font:inherit;text-align:left;transform:translateY(16px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+  .sb-sticky.on{opacity:1;transform:none;pointer-events:auto}
+  .sb-sticky .k{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#b9bce0;font-weight:700;white-space:nowrap}
+  .sb-sticky .v{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sb-sticky svg{flex:none;opacity:.85}
+}
