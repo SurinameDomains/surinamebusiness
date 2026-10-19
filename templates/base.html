@@ -21,9 +21,8 @@
 <meta name="theme-color" content="#1f2251">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,650&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="/assets/fonts/SourceSans3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={{ build_id }}">
 {% if key in ("tenders","jobs") %}<link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/{{ "aanbestedingen" if key=="tenders" else "vacatures" }}.xml">{% endif %}
 <script type="application/ld+json">{{ schema|safe }}</script>
@@ -36,8 +35,11 @@
    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f2251"/><rect x="7.5" y="18" width="5" height="9" rx="1.5" fill="#c9cbeb"/><rect x="14.5" y="13" width="5" height="14" rx="1.5" fill="#c9cbeb"/><rect x="21.5" y="7" width="5" height="20" rx="1.5" fill="#e4572e"/></svg>
    <span>Suriname Business<small>{{ 'Werken, handelen, investeren' if lang=='nl' else 'Work, trade, invest' }}</small></span>
   </a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav" id="menu-btn">{{ 'Menu' }}</button>
+  <a class="hd-search" href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" id="menu-btn" data-close="{{ 'Sluiten' if lang=='nl' else 'Close' }}"><span class="hb" aria-hidden="true"><i></i><i></i><i></i></span><span class="lbl">Menu</span></button>
   <nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
+   <div class="drawer-head"><form action="{{ '/zoeken' if lang=='nl' else '/en/search' }}" method="get" role="search"><input type="search" name="q" placeholder="{{ 'Zoek een tool, bedrijf of gids' if lang=='nl' else 'Find a tool, company or guide' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}" autocomplete="off"></form></div>
+   {% if rates and not rates.stale %}<div class="drawer-today"><a href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}"><span class="k">USD {{ 'verkoop' if lang=='nl' else 'sell' }}</span><span class="v">{{ num(rates.usd.sell) }}<small>SRD</small></span></a><a href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}"><span class="k">EUR {{ 'verkoop' if lang=='nl' else 'sell' }}</span><span class="v">{{ num(rates.eur.sell) }}<small>SRD</small></span></a></div>{% endif %}
    {% for m in nav %}
    <div class="dd{% if m.current %} cur{% endif %}{% if m.key == 'tools' %} mega-dd{% endif %}">
     <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-{{ m.key }}">{{ m.label }}<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
@@ -49,10 +51,12 @@
     </div>
    </div>
    {% endfor %}
-   {% if rates and not rates.stale %}<a class="rate-chip" href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}" title="{{ 'Verkoopkoers CME' if lang=='nl' else 'CME selling rate' }}"><span>USD</span> {{ num(rates.usd.sell) }}</a>{% endif %}
+   {% if rates and not rates.stale %}<a class="rate-chip" href="{{ '/wisselkoers' if lang=='nl' else '/en/exchange-rates' }}" title="{{ 'Verkoopkoers CME in SRD' if lang=='nl' else 'CME selling rate in SRD' }}"><span>USD</span> {{ num(rates.usd.sell) }}<i>&middot;</i><span>EUR</span> {{ num(rates.eur.sell) }}</a>{% endif %}
    <a class="nav-search" href="{{ '/zoeken' if lang=='nl' else '/en/search' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"{% if key == 'search' %} aria-current="page"{% endif %}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="vertical-align:-3px"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="sr-only-mobile"> {{ 'Zoeken' if lang=='nl' else 'Search' }}</span></a>
+   <div class="drawer-foot">
    <div class="acct" id="acct"></div>
    {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
+   </div>
   </nav>
  </div>
 </header>
@@ -82,14 +86,26 @@
   </div>
  </div>
 </footer>
+<nav class="tabbar" aria-label="{{ 'Snelmenu' if lang=='nl' else 'Quick menu' }}">
+ <a href="{{ home_url }}"{% if key == 'home' %} aria-current="page"{% endif %}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+ <a href="{{ U('tools') }}"{% if key == 'tools' or tool %} aria-current="page"{% endif %}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span>Tools</span></a>
+ <a href="{{ U('jobs') }}"{% if key in ('jobs','postjob') %} aria-current="page"{% endif %}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg><span>{{ 'Vacatures' if lang=='nl' else 'Jobs' }}</span></a>
+ <a href="{{ U('rates') }}"{% if key == 'rates' %} aria-current="page"{% endif %}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span>{{ 'Koers' if lang=='nl' else 'Rates' }}</span></a>
+ <button type="button" id="tab-menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
 <script>
-(function(){var nav=document.getElementById('nav'),mb=document.getElementById('menu-btn'),dds=[].slice.call(nav.querySelectorAll('.dd'));
+(function(){var nav=document.getElementById('nav'),mb=document.getElementById('menu-btn'),tb=document.getElementById('tab-menu'),dds=[].slice.call(nav.querySelectorAll('.dd'));
 function close(except){dds.forEach(function(d){if(d!==except){d.classList.remove('open');d.querySelector('.dd-btn').setAttribute('aria-expanded','false');}});}
 dds.forEach(function(d){var b=d.querySelector('.dd-btn');b.addEventListener('click',function(e){e.stopPropagation();var o=!d.classList.contains('open');close(d);d.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});});
 document.addEventListener('click',function(e){if(!nav.contains(e.target))close();});
 dds.forEach(function(d){d.addEventListener('mouseenter',function(){if(window.innerWidth>1000)close(d);});});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();}});
-mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);});})();
+function setDrawer(o){nav.classList.toggle('open',o);document.body.classList.toggle('nav-open',o);mb.setAttribute('aria-expanded',o);var l=mb.querySelector('.lbl');if(l)l.textContent=o?mb.getAttribute('data-close'):'Menu';if(tb)tb.setAttribute('aria-expanded',o);if(o){var f=nav.querySelector('input[type=search]');if(f&&window.innerWidth>600)f.focus();}else close();}
+function toggle(e){e.stopPropagation();setDrawer(!nav.classList.contains('open'));}
+mb.addEventListener('click',toggle);if(tb)tb.addEventListener('click',toggle);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();if(nav.classList.contains('open')){setDrawer(false);mb.focus();}}});
+window.addEventListener('resize',function(){if(window.innerWidth>1000&&nav.classList.contains('open'))setDrawer(false);});
+/* the current section opens by itself in the drawer, so one tap shows where you are */
+var cur=nav.querySelector('.dd.cur');if(cur&&window.innerWidth<=1000){cur.classList.add('open');cur.querySelector('.dd-btn').setAttribute('aria-expanded','true');}})();
 </script>
 <script>
 /* Keeps SB's copy of the CBvS rates current: cbvs.sr only answers visitors in Suriname, so a browser here
