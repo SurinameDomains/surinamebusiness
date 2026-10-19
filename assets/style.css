@@ -556,3 +556,27 @@ tr.click:hover td{background:var(--line-2)}
 .acct-page input[type=search],.acct-page select,.acct-page input[type=date],.adm input[type=search],.adm input[type=date],.adm select,.adm .two input,.sba-dlg input[type=email]{font:inherit;font-size:1rem;padding:9px 11px;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff;min-width:0;min-height:42px}
 .acct-page input[type=search]{width:100%}
 .acct-page select{width:auto}
+
+/* ---------------------------------------------------------------- home page sections */
+.home-sec{margin-top:32px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{margin:0}
+.sec-head a{font-weight:600;white-space:nowrap}
+h2.h3{font-family:var(--font);font-size:1.15rem;font-weight:700;letter-spacing:-.005em}
+.card .sec-head{margin-bottom:2px}
+.home-sub{margin:0 0 14px;max-width:720px}
+.home-more > section{min-width:0}
+.list.compact li{padding:9px 0}
+.list.compact a{font-weight:500}
+.more-link{margin:10px 0 0;font-size:.92rem}
+.more-link a{font-weight:600}
+@media (max-width:600px){.home-sec{margin-top:26px}.home-more{gap:18px}}
+
+/* ---------------------------------------------------------------- tools hub */
+.tool-filters{flex-direction:column;align-items:stretch;gap:10px;margin:16px 0 22px}
+.tool-filters .chips{display:flex;flex-wrap:wrap;gap:6px}
+.tool-filters .chip{font-size:.86rem;padding:6px 12px;min-height:36px}
+.tool-start{margin:0 0 8px}
+.tool-start .eyebrow{margin-bottom:10px}
+.tool-filters input{flex:0 0 auto;width:100%}
+@media (min-width:901px){.cols > aside{position:sticky;top:calc(var(--head-h) + 16px)}}
