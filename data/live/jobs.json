@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-19T03:28:24+00:00",
+ "fetched_at": "2026-10-19T04:07:42+00:00",
  "items": [
   {
    "deadline": null,
@@ -50,16 +50,6 @@
    "source": "Newmont",
    "title": "Graduate Trainee",
    "url": "https://jobs.newmont.com/us/en/job/45061"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
-   "id": "nm-45062",
-   "location": "Paramaribo",
-   "published": "2026-10-06",
-   "source": "Newmont",
-   "title": "Graduate Trainee",
-   "url": "https://jobs.newmont.com/us/en/job/45062"
   },
   {
    "deadline": "2026-10-20",
@@ -159,38 +149,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 5,
-   "fetched_at": "2026-10-19T03:28:11+00:00",
+   "count": 4,
+   "fetched_at": "2026-10-19T04:07:28+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-10-19T03:28:09+00:00",
+   "fetched_at": "2026-10-19T04:07:27+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 4,
-   "fetched_at": "2026-10-19T03:28:15+00:00",
+   "fetched_at": "2026-10-19T04:07:33+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-19T03:28:24+00:00",
+   "fetched_at": "2026-10-19T04:07:42+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 2,
-   "fetched_at": "2026-10-19T03:28:19+00:00",
+   "fetched_at": "2026-10-19T04:07:36+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 2,
-   "fetched_at": "2026-10-19T03:28:20+00:00",
+   "fetched_at": "2026-10-19T04:07:38+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-19T03:28:22+00:00",
+   "fetched_at": "2026-10-19T04:07:40+00:00",
    "ok": true
   }
  }
