@@ -27,6 +27,13 @@ Deploy (from `worker/`): `wrangler d1 create sb-jobs`, put the id in `wrangler.t
 
 Local test: `.dev.vars` with `ADMIN_SECRET`, `TURNSTILE_SECRET=1x0000000000000000000000000000000AA`, `MAIL_LOG=1`; `wrangler dev`; then `JOBS_API=http://localhost:8787 TURNSTILE_SITEKEY=1x00000000000000000000AA python fetch.py && python build.py`.
 
+## Design system (assets/style.css)
+
+- Two self-hosted, subset fonts in `assets/fonts/`: **Source Sans 3** (variable 400–700, upright + italic) for text and all numbers, **Fraunces** (one static instance, 650, optical size 48, softness 25) for h1/h2 and legends. Google Fonts is no longer loaded: it stripped the `tnum`/`lnum` features, so figures were proportional old-style; Source Sans 3 has tabular lining figures by default, which is why `.big`, tables and results use the sans. Fallbacks are metric-matched (`SS3 Fallback`, `Fraunces Fallback`) to limit layout shift. Preloaded in `base.html`.
+- Colours: indigo `--brand` for identity blocks (hero, results, footer), persimmon `--accent` for marks and large text only; small text and buttons use `--accent-ink` (#bd3f17, 5:1 on paper) because #e4572e fails WCAG AA on white (3.7:1). No green as a main colour.
+- Phones (≤1000px): header is logo + search + menu; the menu is a full-height drawer with search, today's USD/EUR, the four sections as accordions (the current section opens itself), account and language. A fixed bottom tab bar (Home, Tools, Vacatures, Koers, Menu) exposes the main destinations; `--tabbar` pads the body and lifts the toast. Nothing scrolls sideways; tables marked `.stack` become label/value rows.
+- Every class name is stable: templates and `assets/*.js` build markup with them (`.card`, `.btn`, `.pill`, `.tbl`, `.calc`, `.result`, `.paper`, `.sba-dlg`, …). Change values, not names.
+
 ## Local
 
 ```
