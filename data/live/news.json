@@ -330,7 +330,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-19T06:20:33+00:00",
+ "fetched_at": "2026-10-19T06:27:22+00:00",
  "oil": [
   {
    "econ": true,
@@ -350,32 +350,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-19T06:20:32+00:00",
+   "fetched_at": "2026-10-19T06:27:20+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-19T06:20:29+00:00",
+   "fetched_at": "2026-10-19T06:27:19+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-19T06:20:31+00:00",
+   "fetched_at": "2026-10-19T06:27:20+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T06:20:32+00:00",
+   "fetched_at": "2026-10-19T06:27:21+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-19T06:20:31+00:00",
+   "fetched_at": "2026-10-19T06:27:20+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T06:20:33+00:00",
+   "fetched_at": "2026-10-19T06:27:22+00:00",
    "ok": true
   }
  }
