@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-19T12:33:20+00:00",
+ "fetched_at": "2026-10-19T17:46:34+00:00",
  "notices": [
   {
    "date": "2026-10-16",
@@ -36,15 +36,6 @@
    "url": "https://nvebs.com/nieuws/1632/gepland-onderhoud-zaterdag-17-oktober-2026"
   },
   {
-   "date": "2026-10-17",
-   "kind": "notice",
-   "map": "",
-   "slots": [],
-   "text": "De N.V. Energiebedrijven Suriname (N.V. EBS) maakt bekend dat in verband met de werkzaamheden voor het slopen en verwijderen van de hoogspanningslijn OSA-OSB in de middenberm van de Van ’t Hogerhuysstraat, de volgende wegen afgesloten zullen worden vanaf ZATERDAG 17 OKTOBER AANVANG 20:00 TOT ZONDAG 18 OKTOBER 2026 OMSTREEKS 06:00 uur smorgens. Locatie: Van ’t Hogerhuysstraat - tussen hoek Willem Campagnestraat en hoek rotonde (nabij gow2 service station), ter hoogte van masten AB-5 en AB-10. Dit weggedeelte zal worden bezet tijdens het neerhalen van de geleiders. De stroomvoorziening in dit gebied zal gedurende de werkzaamheden NIET worden onderbroken. Aan de weggebruikers wordt gevraagd om ",
-   "title": "Bekendmaking wegafsluiting zaterdag 17 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1628/bekendmaking-wegafsluiting-zaterdag-17-oktober-2026"
-  },
-  {
    "date": "2026-10-18",
    "kind": "planned",
    "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=487ff9c50d174aa7b1ea64acb6e74e54",
@@ -77,6 +68,15 @@
    "text": "",
    "title": "Gepland onderhoud maandag 19 oktober 2026",
    "url": "https://nvebs.com/nieuws/1633/gepland-onderhoud-maandag-19-oktober-2026"
+  },
+  {
+   "date": "2026-10-21",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE AQUARIUSSTRAAT TUSSEN SOEKHANSTRAAT EN PEU ET CONTENTSTRAAT, GEDEELTE RINGWEG – NOORD TUSSEN CURITIBASTRAAT EN SIPER JANUSSTRAAT, NOORDWIJKWEG, MARTINUSSTRAAT, HELOUISESTRAAT, CURITIBASTRAAT, RIO NEGROSTRAAT, BOMBAYSTRAAT, MONTEVIDEOSTRAAT, SANTIAGOSTRAAT, LIMASTRAAT, ASUNCIONSTRAAT, BOGOTASTRAAT, GUMMELSWEG, PEU ET CONTENTSTRAAT, HAFLINGERSTRAAT, LAAN VAN LOUSISEHOF, BELLADONNASTRAAT, RICANAUSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED. GEDEELTE MORGENSTONDSTRAAT TUSSEN PAPAJAFOWROESTRAAT EN SABAKOESTRAAT, ROWTISTRAAT, BASJAFOWROESTRAAT, PAPAJAFOWROESTRAAT, BAGA BAGA STRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud woensdag 21 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1634/gepland-onderhoud-woensdag-21-oktober-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

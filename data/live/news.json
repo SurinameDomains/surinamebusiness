@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-19T16:26:00+00:00",
+   "source": "Starnieuws",
+   "title": "Qatar waarschuwt voor verdere wereldwijde energieschok door oorlog met Iran",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94442"
+  },
+  {
+   "econ": false,
    "published": "2026-10-19T11:51:00+00:00",
    "source": "Starnieuws",
    "title": "Drie keer gewaarschuwd in nog geen half jaar: wanneer handelt de regering?",
@@ -41,6 +48,13 @@
    "source": "Dagblad Suriname",
    "title": "Eerste landbouwopleiding voor studenten uit binnenland",
    "url": "https://www.dbsuriname.com/2026/10/18/eerste-landbouwopleiding-voor-studenten-uit-binnenland/"
+  },
+  {
+   "econ": true,
+   "published": "2026-10-18T21:12:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "ECD: Eigenaar NG Electronics maakt zich onbereikbaar",
+   "url": "https://dwtonline.com/ecd-eigenaar-ng-electronics-maakt-zich-onbereikbaar/"
   },
   {
    "econ": true,
@@ -351,8 +365,15 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-19T12:33:12+00:00",
+ "fetched_at": "2026-10-19T17:46:12+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-19T14:08:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Saoedi-Arabië groeit uit tot grootste onzekere factor op oliemarkt",
+   "url": "https://www.dbsuriname.com/2026/10/19/saoedi-arabie-groeit-uit-tot-grootste-onzekere-factor-op-oliemarkt/"
+  },
   {
    "econ": false,
    "published": "2026-10-19T08:57:00+00:00",
@@ -378,32 +399,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-19T12:33:11+00:00",
+   "fetched_at": "2026-10-19T17:46:10+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-19T12:33:08+00:00",
+   "count": 16,
+   "fetched_at": "2026-10-19T17:46:07+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-19T12:33:10+00:00",
+   "fetched_at": "2026-10-19T17:46:09+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T12:33:11+00:00",
+   "fetched_at": "2026-10-19T17:46:11+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-19T12:33:09+00:00",
+   "fetched_at": "2026-10-19T17:46:09+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T12:33:12+00:00",
+   "fetched_at": "2026-10-19T17:46:12+00:00",
    "ok": true
   }
  }
