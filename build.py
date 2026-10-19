@@ -976,11 +976,13 @@ def main():
                 sitemap.append((canonical, None, None, lastmod) if single else
                                (canonical, SITE_URL + path_nl, SITE_URL + path_en, lastmod))
             kind = tpl_name.split("/")[-1][:-5]
-            if nav_key in PRIVATE_PAGES:
+            if nav_key in PRIVATE_PAGES or (robots and "noindex" in robots):
                 return
             search_index[_lang].append([title.split(":")[0] if kind == "company" else title,
                                         (path_nl if _lang == "nl" else path_en), kind])
 
+        if lang == "nl":
+            render_nl = render
         for key in PAGES:
             if key in DYNAMIC:
                 continue
@@ -1020,10 +1022,9 @@ def main():
                         f'<meta http-equiv="refresh" content="0; url={target}"></head>'
                         f'<body><a href="{target}">{target}</a></body></html>')
 
-    # 404
-    tpl = env.get_template("404.html")
-    with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as f:
-        f.write(tpl.render(site_url=SITE_URL))
+    # 404: a real page with the full header, drawer, tab bar and search (GitHub Pages serves /404.html)
+    render_nl("404.html", "home", "Pagina niet gevonden | Suriname Business", "Deze pagina bestaat niet.",
+              "/404", "/404", robots="noindex", in_sitemap=False, single=True)
 
     kind_rank = {"salary_amount": 3, "company": 4, "company_cat": 2, "tender_buyer": 2}
     for lg, rows in search_index.items():
