@@ -13,7 +13,7 @@
 {% block tool %}
 <div class="wide-cols">
  <form class="card calc" id="inv" data-doc="{{ key }}" onsubmit="return false" autocomplete="off">
-  <fieldset><legend>{{ 'Je bedrijf' if nl else 'Your business' }}</legend>
+  <fieldset data-fold="s_name"><legend>{{ 'Je bedrijf' if nl else 'Your business' }}</legend>
    <label for="s_name">{{ 'Bedrijfsnaam' if nl else 'Business name' }}</label><input id="s_name" name="s_name" placeholder="{{ 'Bijv. Bakkerij De Waag NV' if nl else 'E.g. Waag Bakery NV' }}">
    <label for="s_addr">{{ 'Adres' if nl else 'Address' }}</label><input id="s_addr" name="s_addr" placeholder="{{ 'Straat 12, Paramaribo' if nl else 'Street 12, Paramaribo' }}">
    <div class="two">
