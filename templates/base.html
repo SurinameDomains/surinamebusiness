@@ -151,16 +151,6 @@ fs.addEventListener('invalid',function(){set(true);},true);var f=fs.form||fs.clo
 document.addEventListener('click',function(e){if(!navigator.share)return;var a=e.target.closest&&e.target.closest('a[data-share]');if(!a)return;var m=/text=([^&]*)/.exec(a.getAttribute('href'));if(!m)return;e.preventDefault();navigator.share({text:decodeURIComponent(m[1])}).catch(function(){});});
 document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#tool-q,#q,.filters input[type=search]');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
 </script>
-<script>
-/* long guides get an "Op deze pagina" list after the intro (NN/g: long pages need a visible structure up front) */
-document.addEventListener('DOMContentLoaded',function(){var m=document.getElementById('main');if(!m||!m.querySelector('.prose')||m.querySelector('form.calc,.result,form.pj'))return;
-var hs=[].slice.call(m.querySelectorAll('.prose h2, main > .wrap > h2')).filter(function(h){return !h.closest('.card,.result,.toc')&&h.textContent.trim()});if(hs.length<4)return;
-var lead=m.querySelector('.lead');if(!lead)return;
-var nav=document.createElement('nav');nav.className='toc';nav.setAttribute('aria-label','{{ 'Op deze pagina' if lang=='nl' else 'On this page' }}');
-var h='<div class="eyebrow">{{ 'Op deze pagina' if lang=='nl' else 'On this page' }}</div><ul>';
-hs.forEach(function(x,i){if(!x.id)x.id='s-'+(i+1);h+='<li><a href="#'+x.id+'">'+x.textContent.replace(/</g,'&lt;')+'</a></li>';});
-nav.innerHTML=h+'</ul>';lead.parentNode.insertBefore(nav,lead.nextSibling);});
-</script>
 <script src="/assets/account.js?v={{ build_id }}" defer></script>
 {% block scripts %}{% endblock %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
