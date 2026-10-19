@@ -613,3 +613,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .filters:not(.all-chips) .chip.extra{display:none}
 .chip-more{font:inherit;font-size:.9rem;padding:8px 14px;border-radius:99px;border:1px dashed var(--line);background:none;cursor:pointer;color:var(--brand-2);min-height:40px;font-weight:600}
 .chip-more:hover{border-color:var(--brand-2)}
+/* share */
+.share-row{margin:10px 0 0;font-size:.92rem}
+.share-wa{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--brand-2);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 13px;background:#fff;min-height:38px;line-height:1.2}
+.share-wa:hover{border-color:#bfbbd0;color:var(--accent-ink)}
+.share-wa svg{color:#1d7a62}
+.meta .share-wa{padding:3px 10px;min-height:28px;font-size:.84rem}
