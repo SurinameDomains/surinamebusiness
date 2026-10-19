@@ -3,8 +3,8 @@
 {% set label = gr.nl if nl else gr.en %}
 {% block content %}
 <h1>{{ label }} {{ 'in' }} {{ town or 'Suriname' }}</h1>
-{% if gr.towns and not town %}<div class="filters">{% for tname, ts, n in gr.towns %}<a class="chip" href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}-{{ ts }}">{{ tname }} ({{ n }})</a>{% endfor %}</div>{% endif %}
 <p class="lead">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}{% if town %} {{ 'in' }} {{ town }}{% endif %}. {{ 'Gesorteerd op naam; filter op plaats of zoek op naam.' if nl else 'Sorted by name; filter by place or search by name.' }}</p>
+{% if gr.towns and not town %}<p class="sub bylist">{{ 'Per plaats' if nl else 'By place' }}: {% for tname, ts, n in gr.towns %}{% if not loop.first %} &middot; {% endif %}<a href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}-{{ ts }}">{{ tname }} ({{ n }})</a>{% endfor %}</p>{% endif %}
 <div class="filters" data-filter-list="cat-list">
  <input type="search" placeholder="{{ 'Zoek op naam, straat of plaats' if nl else 'Search by name, street or place' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alle plaatsen' if nl else 'All places' }}</button>

@@ -21,8 +21,9 @@
 </div>
 <aside>
  <div class="card"><div class="eyebrow">{{ 'Meer in' if nl else 'More in' }} {{ label|lower }}</div><ul class="list">
- {% for o in gr['items'] if o.page and o.slug != r.slug and (o.place == r.place) %}{% if loop.index <= 6 %}<li><a href="{{ '/bedrijf/' if nl else '/en/company/' }}{{ o.slug }}">{{ o.name }}</a>{% if o.street %}<div class="meta"><span>{{ o.street }}</span></div>{% endif %}</li>{% endif %}{% endfor %}
- </ul><div class="foot"><a href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}">{{ 'Alle' if nl else 'All' }} {{ gr.count }} &rarr;</a></div></div>
+ {% set same = gr['items']|selectattr('page')|rejectattr('slug','equalto',r.slug)|selectattr('place','equalto',r.place)|list %}{% set rel = same if same|length >= 3 else gr['items']|selectattr('page')|rejectattr('slug','equalto',r.slug)|list %}
+ {% for o in rel[:6] %}<li><a href="{{ '/bedrijf/' if nl else '/en/company/' }}{{ o.slug }}">{{ o.name }}</a>{% if o.street or (o.place and o.place != r.place) %}<div class="meta">{% if o.street %}<span>{{ o.street }}</span>{% endif %}{% if o.place and o.place != r.place %}<span>{{ o.place }}</span>{% endif %}</div>{% endif %}</li>{% endfor %}
+ </ul><div class="foot"><a href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}">{{ 'Alle' if nl else 'All' }} {{ gr.count }} {{ label|lower }} &rarr;</a></div></div>
 </aside>
 </div>
 <p class="asof">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL.</p>

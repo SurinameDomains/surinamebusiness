@@ -1,5 +1,13 @@
-<!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pagina niet gevonden | Suriname Business</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"></head>
-<body><header class="top"><div class="wrap"><a class="logo" href="/">Suriname Business</a></div></header>
-<main><div class="wrap prose"><h1>Pagina niet gevonden</h1><p class="lead">Deze pagina bestaat niet (meer). / This page does not exist.</p>
-<ul><li><a href="/">Home</a></li><li><a href="/netto-salaris-berekenen">Netto salaris berekenen</a></li><li><a href="/aanbestedingen">Aanbestedingen</a></li><li><a href="/wisselkoers">Wisselkoers</a></li><li><a href="/en/">English</a></li></ul></div></main></body></html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Pagina niet gevonden</h1>
+<p class="lead">Deze pagina bestaat niet (meer). Zoek wat je nodig hebt, of begin bij een van deze pagina's.<br><span class="sub">This page does not exist. Search, or start from one of these pages.</span></p>
+<form class="filters" action="/zoeken" method="get" role="search"><input type="search" name="q" placeholder="Zoek een tool, bedrijf of gids" aria-label="Zoeken" autocomplete="off"></form>
+<div class="grid g4 tools-mini" style="margin-top:6px">
+ <a class="card tool" href="/tools"><b>Gratis tools</b><span>Factuur, offerte, loonstrook en meer</span></a>
+ <a class="card tool" href="/netto-salaris-berekenen"><b>Netto salaris</b><span>Bruto naar netto, tarieven 2026</span></a>
+ <a class="card tool" href="/wisselkoers"><b>Wisselkoers</b><span>Dollar en euro vandaag</span></a>
+ <a class="card tool" href="/vacatures"><b>Vacatures</b><span>Open banen in Suriname</span></a>
+</div>
+<p style="margin-top:18px"><a href="/">Home</a> &middot; <a href="/en/">English</a></p>
+{% endblock %}
