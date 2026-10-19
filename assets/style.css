@@ -619,3 +619,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .share-wa:hover{border-color:#bfbbd0;color:var(--accent-ink)}
 .share-wa svg{color:#1d7a62}
 .meta .share-wa{padding:3px 10px;min-height:28px;font-size:.84rem}
+/* on this page */
+.toc{margin:0 0 24px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);max-width:720px}
+.toc .eyebrow{margin-bottom:6px}
+.toc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:24px;font-size:.95rem}
+.toc li{margin:3px 0;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--brand-2)}
+.toc a:hover{text-decoration:underline}
+@media (max-width:600px){.toc ul{columns:1}}
+@media print{.sb-sticky,.share-row,.toc,.fs-toggle svg{display:none!important}}
