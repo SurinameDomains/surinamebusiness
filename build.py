@@ -933,6 +933,7 @@ def main():
             META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON,
             jobs_api=JOBS_API, turnstile_sitekey=TURNSTILE_SITEKEY, max_deadline=(TODAY + dt.timedelta(days=60)).isoformat(),
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
+            recent=(TODAY - dt.timedelta(days=2)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
             TM=TM, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
