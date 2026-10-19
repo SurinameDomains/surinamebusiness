@@ -2,13 +2,24 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'Gratis zakelijke tools' if nl else 'Free business tools' }}</h1>
-<p class="lead">{{ 'Facturen, offertes, loonstroken, BTW, invoerkosten, leningen, QR codes en PDF\'s. Gemaakt voor Suriname, gratis en zonder account. Alles werkt in je eigen browser: je gegevens gaan nergens heen.' if nl else 'Invoices, quotes, payslips, VAT, import costs, loans, QR codes and PDFs. Made for Suriname, free and with no account. Everything runs in your own browser: your data goes nowhere.' }}</p>
-<div class="filters" style="margin-bottom:8px">
- <input id="tool-q" type="search" placeholder="{{ 'Zoek een tool, bijvoorbeeld factuur of lening' if nl else 'Find a tool, for example invoice or loan' }}" aria-label="{{ 'Zoek een tool' if nl else 'Find a tool' }}">
+<p class="lead">{{ TM.TOTAL }} {{ 'tools, gemaakt voor Suriname: Surinaamse BTW, loonbelasting 2026, SRD en de koers van vandaag. Gratis, zonder account, en alles werkt in je eigen browser.' if nl else 'tools made for Suriname: Suriname VAT, 2026 wage tax, SRD and today\'s exchange rate. Free, no account, and everything runs in your own browser.' }}</p>
+<div class="filters tool-filters">
+ <input id="tool-q" type="search" placeholder="{{ 'Zoek een tool, bijvoorbeeld factuur of lening' if nl else 'Find a tool, for example invoice or loan' }}" aria-label="{{ 'Zoek een tool' if nl else 'Find a tool' }}" autocomplete="off">
+ <div class="chips" role="group" aria-label="{{ 'Filter op groep' if nl else 'Filter by group' }}">
+  <button type="button" class="chip" data-g="" aria-pressed="true">{{ 'Alles' if nl else 'All' }}</button>
+  {% for g, gnl, gen in TM.GROUPS %}<button type="button" class="chip" data-g="{{ g }}" aria-pressed="false">{{ gnl if nl else gen }}</button>{% endfor %}
+ </div>
 </div>
+<section class="tool-start" id="tool-start">
+ <div class="eyebrow">{{ 'Begin hier' if nl else 'Start here' }}</div>
+ <div class="grid g4 tools-mini">
+  {% for k in ['invoice','quote','payslip'] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+  <a class="card tool" href="{{ U('salary') }}"><span class="ic">{{ tool_icon('calc')|safe }}</span><b>{{ L('salary') }}</b><span>{{ TM.EXISTING_BLURB['salary'][0] if nl else TM.EXISTING_BLURB['salary'][1] }}</span></a>
+ </div>
+</section>
 <div id="tool-list">
 {% for g, gnl, gen in TM.GROUPS %}
-<section class="tool-group">
+<section class="tool-group" data-g="{{ g }}">
 <h2>{{ gnl if nl else gen }}</h2>
 <div class="grid g4">
 {% for t in TM.TOOLS if t.group == g %}<a class="card tool" href="{{ U(t.key) }}"><span class="ic">{{ tool_icon(t.icon)|safe }}</span><b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
@@ -26,9 +37,12 @@
 {% endblock %}
 {% block scripts %}
 <script>
-(function(){var q=document.getElementById('tool-q'),none=document.getElementById('tool-none');
-q.addEventListener('input',function(){var v=q.value.toLowerCase().trim(),any=0;
-document.querySelectorAll('.tool-group').forEach(function(s){var n=0;s.querySelectorAll('a.tool').forEach(function(a){var ok=!v||a.textContent.toLowerCase().indexOf(v)>=0;a.hidden=!ok;if(ok)n++;});s.hidden=!n;any+=n;});
-none.hidden=!!any;});})();
+(function(){var q=document.getElementById('tool-q'),none=document.getElementById('tool-none'),start=document.getElementById('tool-start'),chips=[].slice.call(document.querySelectorAll('.tool-filters .chip')),g='';
+function run(){var v=q.value.toLowerCase().trim(),any=0;
+document.querySelectorAll('.tool-group').forEach(function(s){var n=0,gok=!g||s.getAttribute('data-g')===g;s.querySelectorAll('a.tool').forEach(function(a){var ok=gok&&(!v||a.textContent.toLowerCase().indexOf(v)>=0);a.hidden=!ok;if(ok)n++;});s.hidden=!n;any+=n;});
+start.hidden=!!(v||g);none.hidden=!!any;}
+q.addEventListener('input',run);
+chips.forEach(function(c){c.addEventListener('click',function(){g=c.getAttribute('data-g');chips.forEach(function(o){o.setAttribute('aria-pressed',o===c?'true':'false');});run();if(g){var s=document.querySelector('.tool-group[data-g="'+g+'"]');if(s&&window.innerWidth<=1000)s.scrollIntoView({block:'start',behavior:'smooth'});}});});
+var p=new URLSearchParams(location.search).get('q');if(p){q.value=p;run();}})();
 </script>
 {% endblock %}

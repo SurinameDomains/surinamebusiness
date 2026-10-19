@@ -4,64 +4,59 @@
 <section class="hero">
  <div class="wrap">
   <h1>{% if nl %}Werken en zakendoen in Suriname, <em>in cijfers</em>{% else %}Working and doing business in Suriname, <em>by the numbers</em>{% endif %}</h1>
-  <p class="lead">{{ 'Bereken je netto salaris, vind elke open aanbesteding en volg de koers. Actuele cijfers met bron, gratis.' if nl else 'Work out your net salary, find every open tender and follow the exchange rate. Current figures with sources, free.' }}</p>
+  <p class="lead">{{ 'Bereken je netto salaris, volg de koers, vind een baan of een aanbesteding. Actuele cijfers met bron, gratis.' if nl else 'Work out your net salary, follow the exchange rate, find a job or a tender. Current figures with sources, free.' }}</p>
   <div class="grid g4 tools">
    <a class="card tool" href="{{ U('salary') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span><b>{{ 'Netto salaris' if nl else 'Net salary' }}</b><span>{{ 'Bruto naar netto met de tarieven van 2026' if nl else 'Gross to net with 2026 tax rates' }}</span></a>
+   <a class="card tool" href="{{ U('rates') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><b>{% if rates and not rates.stale %}USD {{ num(rates.usd.sell) }}{% else %}{{ 'Wisselkoers' if nl else 'Exchange rate' }}{% endif %}</b><span>{{ 'Dollar en euro bij CME, CBvS en de banken' if nl else 'Dollar and euro at CME, CBvS and the banks' }}</span></a>
+   <a class="card tool" href="{{ U('jobs') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><b>{{ jobs['items']|length }} {{ 'vacatures' if nl else 'open jobs' }}</b><span>{{ 'Overheid, grote werkgevers en direct geplaatst' if nl else 'Government, large employers and posted directly' }}</span></a>
    <a class="card tool" href="{{ U('tenders') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><b>{{ tenders.count }} {{ 'open aanbestedingen' if nl else 'open tenders' }}</b><span>{{ 'Overheid, Staatsolie, IDB en Wereldbank' if nl else 'Government, Staatsolie, IDB and World Bank' }}</span></a>
-   <a class="card tool" href="{{ U('rates') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><b>{% if rates and not rates.stale %}USD {{ num(rates.usd.sell) }}{% else %}{{ 'Wisselkoers' if nl else 'Exchange rate' }}{% endif %}</b><span>{{ 'Dollar en euro in SRD, met historie' if nl else 'Dollar and euro in SRD, with history' }}</span></a>
-   <a class="card tool" href="{{ U('minwage') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur' if nl else 'per hour' }}</b><span>{{ 'Minimumloon sinds 1 juli 2026' if nl else 'Minimum wage since 1 July 2026' }}</span></a>
   </div>
  </div>
 </section>
 {% endblock %}
 {% block content %}
 {% set hm = settings.get('home_message_' ~ lang) %}{% if hm %}<div class="note home-msg">{{ hm }}</div>{% endif %}
-{% if own_links %}<div class="card own-links"><div class="eyebrow">{{ 'Uitgelicht' if nl else 'Featured' }}</div><ul class="list">{% for c in own_links %}<li><a href="{{ c.url or '#' }}">{{ ctext(c) }}</a>{% if ctext(c, 'body') %}<div class="meta"><span>{{ ctext(c, 'body') }}</span></div>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
+{% if own_links %}<div class="card own-links" style="margin-top:20px"><div class="eyebrow">{{ 'Uitgelicht' if nl else 'Featured' }}</div><ul class="list">{% for c in own_links %}<li><a href="{{ c.url or '#' }}">{{ ctext(c) }}</a>{% if ctext(c, 'body') %}<div class="meta"><span>{{ ctext(c, 'body') }}</span></div>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
 <div class="today" aria-label="{{ 'Vandaag' if nl else 'Today' }}">
 {% for t in ticker %}<a href="{{ t.url }}"><span class="k">{{ t.label }}</span><span class="v">{{ t.value }}</span></a>{% endfor %}
 </div>
-<div class="cols" style="margin-top:22px">
+
+{# 1. The tools are what makes this site different: they come first. #}
+<section class="home-sec">
+ <div class="sec-head"><h2>{{ 'Gratis tools voor je bedrijf' if nl else 'Free tools for your business' }}</h2><a href="{{ U('tools') }}">{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} {{ 'tools' if nl else 'tools' }} &rarr;</a></div>
+ <p class="sub home-sub">{{ 'Factuur, offerte of loonstrook in een minuut, met Surinaamse BTW en SRD. Alles werkt in je eigen browser, zonder account.' if nl else 'Invoice, quote or payslip in a minute, with Suriname VAT and SRD. Everything runs in your own browser, no account needed.' }}</p>
+ <div class="grid g4 tools-mini">
+  {% set feat = (settings.get('featured_tools') or '').replace(' ', '').split(',')|select('in', TM.BY_KEY)|list %}
+  {% for k in (feat if feat|length >= 4 else ['invoice','quote','payslip','pricing','importcost','loan','btwregister','pdftools'])[:8] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+ </div>
+</section>
+
+{# 2. What is open right now: tenders and jobs, with the rate panel beside them. #}
+<div class="cols home-sec">
  <div>
   {% set closing = tenders['items']|selectattr('days_left','ne',none)|selectattr('days_left','le',7)|sort(attribute='days_left')|list %}
-  {% if closing %}<section class="card" style="margin-bottom:16px;border-left:4px solid var(--accent)">
-   <div class="eyebrow">{{ 'Sluit binnen 7 dagen' if nl else 'Closing within 7 days' }}</div>
-   <ul class="list">{% for t in closing[:5] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta"><span>{{ t.buyer }}</span><span class="pill red">{% if t.days_left == 0 %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ 'nog' if nl else '' }} {{ t.days_left }} {{ 'dagen' if nl else 'days left' }}{% endif %}</span></div></li>{% endfor %}</ul>
-  </section>{% endif %}
   <section class="card">
-   <div class="eyebrow">{{ 'Nieuwste aanbestedingen' if nl else 'Latest tenders' }}</div>
+   <div class="sec-head"><h2 class="h3">{{ 'Aanbestedingen' if nl else 'Tenders' }}</h2><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} &rarr;</a></div>
+   {% if closing %}<div class="eyebrow" style="margin-top:6px">{{ 'Sluit binnen 7 dagen' if nl else 'Closing within 7 days' }}</div>
+   <ul class="list">{% for t in closing[:4] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta"><span>{{ t.buyer }}</span><span class="pill red">{% if t.days_left == 0 %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ 'nog' if nl else '' }} {{ t.days_left }} {{ 'dagen' if nl else 'days left' }}{% endif %}</span></div></li>{% endfor %}</ul>
+   <div class="eyebrow" style="margin-top:14px">{{ 'Nieuw' if nl else 'New' }}</div>{% endif %}
    <ul class="list">
-   {% for t in tenders['items'][:7] %}
+   {% for t in tenders['items'][:5] %}
     <li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
      <div class="meta"><span>{{ t.buyer }}</span><span>{{ date(t.published) }}</span>{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline, year=False) }}</span>{% endif %}</div></li>
    {% else %}<li class="empty">{{ 'Nog geen gegevens.' if nl else 'No data yet.' }}</li>{% endfor %}
    </ul>
-   <div class="foot"><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} {{ 'open aanbestedingen' if nl else 'open tenders' }} &rarr;</a>{% if tenders.fetched_at %}<span>{{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(tenders.fetched_at) }}</span>{% endif %}</div>
+   {% if tenders.fetched_at %}<div class="foot"><span>{{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(tenders.fetched_at) }}</span><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></div>{% endif %}
   </section>
 
   <section class="card" style="margin-top:16px">
-   <div class="eyebrow">{{ 'Zakennieuws' if nl else 'Business news' }}</div>
+   <div class="sec-head"><h2 class="h3">{{ 'Vacatures' if nl else 'Jobs' }}</h2><a href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job, free' }} &rarr;</a></div>
    <ul class="list">
-   {% for n in news.business[:6] %}
-    <li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
-   {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
+   {% for j in jobs['items'][:6] %}<li><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span>{% if j.published %}<span>{{ date(j.published) }}</span>{% endif %}</div></li>
+   {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
    </ul>
-   <div class="foot"><a href="{{ U('news') }}">{{ 'Meer zakennieuws' if nl else 'More business news' }} &rarr;</a></div>
+   <div class="foot"><a href="{{ U('jobs') }}">{{ 'Alle' if nl else 'All' }} {{ jobs['items']|length }} {{ 'vacatures' if nl else 'jobs' }} &rarr;</a><a href="{{ U('salary') }}">{{ 'Wat hou je netto over?' if nl else 'What do you keep net?' }}</a></div>
   </section>
-
-  <h2>{{ 'Gratis tools voor je bedrijf' if nl else 'Free tools for your business' }}</h2>
-  <div class="grid g3 tools-mini">
-   {% set feat = (settings.get('featured_tools') or '').replace(' ', '').split(',')|select('in', TM.BY_KEY)|list %}
-   {% for k in (feat if feat|length >= 3 else ['invoice','quote','payslip','pricing','importcost','loan','btwregister','qrcode','pdftools'])[:12] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
-  </div>
-  <p style="margin-top:12px"><a href="{{ U('tools') }}"><b>{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} {{ 'gratis tools' if nl else 'free tools' }} &rarr;</b></a></p>
-
-  <h2>{{ 'Gidsen' if nl else 'Guides' }}</h2>
-  <div class="grid g2">
-   <a class="card" href="{{ '/bedrijven/' if nl else '/en/companies/' }}"><b>{{ 'Bedrijvengids' if nl else 'Business directory' }}</b><div class="sub">{{ co.count }} {{ 'bedrijven per categorie, met adres en telefoon' if nl else 'businesses by category, with address and phone' }}</div></a>
-   {% for k in ['start','hiring','bankaccount','incometax','import','contacts'] %}
-   <a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] if META_SUB is defined else '' }}</div></a>
-   {% endfor %}
-  </div>
  </div>
 
  <aside>
@@ -79,15 +74,6 @@
    {% else %}<p class="empty">{{ 'Koers tijdelijk niet beschikbaar.' if nl else 'Rates temporarily unavailable.' }}</p>{% endif %}
   </section>
 
-  {% set ups = (outages.notices if outages else [])|selectattr('date','ge',today)|selectattr('slots')|list %}
-  {% if ups %}
-  <section class="card" style="margin-top:16px">
-   <div class="eyebrow">{{ 'Stroomonderbreking EBS' if nl else 'EBS power outage' }}</div>
-   <ul class="list">{% for n in ups[:3] %}{% for s in n.slots[:1] %}<li><b>{% if n.date == today %}{{ 'Vandaag' if nl else 'Today' }}{% else %}{{ date(n.date, weekday=True, year=False) }}{% endif %}, {{ s['from'] }}-{{ s.to }}</b><div class="meta"><span>{{ s.district }}: {{ s.areas[:70] }}{% if s.areas|length > 70 %}...{% endif %}</span></div></li>{% endfor %}{% endfor %}</ul>
-   <div class="foot"><a href="{{ U('outages') }}">{{ 'Alle onderbrekingen' if nl else 'All outages' }} &rarr;</a></div>
-  </section>
-  {% endif %}
-
   {% if hol.next %}
   <section class="card" style="margin-top:16px">
    <div class="eyebrow">{{ 'Volgende vrije dag' if nl else 'Next public holiday' }}</div>
@@ -97,23 +83,46 @@
   </section>
   {% endif %}
 
+  {% set ups = (outages.notices if outages else [])|selectattr('date','ge',today)|selectattr('slots')|list %}
+  {% if ups %}
   <section class="card" style="margin-top:16px">
-   <div class="eyebrow">{{ 'Olie en gas' if nl else 'Oil and gas' }}</div>
-   <div style="font-weight:700;font-size:1.1rem">GranMorgu</div>
-   <div class="rate-row"><span>{{ 'Investering' if nl else 'Investment' }}</span><b>USD {{ num(F.GRANMORGU.investment_bn_usd,1) }} {{ 'mld' if nl else 'bn' }}</b></div>
-   <div class="rate-row"><span>{{ 'Capaciteit' if nl else 'Capacity' }}</span><b>{{ num(F.GRANMORGU.capacity_bpd,0) }} {{ 'vaten/dag' if nl else 'bbl/day' }}</b></div>
-   <div class="rate-row"><span>{{ 'Eerste olie' if nl else 'First oil' }}</span><b>{{ F.GRANMORGU.first_oil }}</b></div>
-   <div class="foot"><a href="{{ U('oilgas') }}">{{ 'Feiten, tenders en nieuws' if nl else 'Facts, tenders and news' }} &rarr;</a></div>
+   <div class="eyebrow">{{ 'Stroomonderbreking EBS' if nl else 'EBS power outage' }}</div>
+   <ul class="list">{% for n in ups[:3] %}{% for s in n.slots[:1] %}<li><b>{% if n.date == today %}{{ 'Vandaag' if nl else 'Today' }}{% else %}{{ date(n.date, weekday=True, year=False) }}{% endif %}, {{ s['from'] }}-{{ s.to }}</b><div class="meta"><span>{{ s.district }}: {{ s.areas[:70] }}{% if s.areas|length > 70 %}...{% endif %}</span></div></li>{% endfor %}{% endfor %}</ul>
+   <div class="foot"><a href="{{ U('outages') }}">{{ 'Alle onderbrekingen' if nl else 'All outages' }} &rarr;</a></div>
   </section>
-
-  <section class="card" style="margin-top:16px">
-   <div class="eyebrow">{{ 'Vacatures' if nl else 'Jobs' }}</div>
-   <ul class="list">
-   {% for j in jobs['items'][:4] %}<li><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span></div></li>
-   {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
-   </ul>
-   <div class="foot"><a href="{{ U('jobs') }}">{{ 'Alle vacatures' if nl else 'All jobs' }} &rarr;</a></div>
-  </section>
+  {% endif %}
  </aside>
 </div>
+
+{# 3. Everything else, compact: news, guides, directory, oil and gas. #}
+<section class="home-sec">
+ <div class="sec-head"><h2>{{ 'Verder op Suriname Business' if nl else 'More on Suriname Business' }}</h2></div>
+ <div class="grid g3 home-more">
+  <section>
+   <div class="eyebrow">{{ 'Zakennieuws' if nl else 'Business news' }}</div>
+   <ul class="list compact">
+   {% for n in news.business[:5] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
+   {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
+   </ul>
+   <p class="more-link"><a href="{{ U('news') }}">{{ 'Meer zakennieuws' if nl else 'More business news' }} &rarr;</a></p>
+  </section>
+  <section>
+   <div class="eyebrow">{{ 'Gidsen' if nl else 'Guides' }}</div>
+   <ul class="list compact">
+   {% for k in ['start','hiring','bankaccount','incometax','import','contacts'] %}<li><a href="{{ U(k) }}">{{ L(k) }}</a></li>{% endfor %}
+   </ul>
+   <p class="more-link"><a href="{{ U('guides') }}">{{ 'Alle gidsen' if nl else 'All guides' }} &rarr;</a></p>
+  </section>
+  <section>
+   <div class="eyebrow">{{ 'Bedrijven en markt' if nl else 'Companies and market' }}</div>
+   <ul class="list compact">
+    <li><a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Bedrijvengids' if nl else 'Business directory' }}</a><div class="meta"><span>{{ co.count }} {{ 'bedrijven, met adres en telefoon' if nl else 'businesses, with address and phone' }}</span></div></li>
+    <li><a href="{{ U('oilgas') }}">{{ 'Olie en gas: GranMorgu' if nl else 'Oil and gas: GranMorgu' }}</a><div class="meta"><span>USD {{ num(F.GRANMORGU.investment_bn_usd,1) }} {{ 'mld, eerste olie' if nl else 'bn, first oil' }} {{ F.GRANMORGU.first_oil }}</span></div></li>
+    <li><a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a></li>
+    <li><a href="{{ U('douane') }}">{{ L('douane') }}</a></li>
+    <li><a href="{{ U('gold') }}">{{ L('gold') }}</a></li>
+   </ul>
+  </section>
+ </div>
+</section>
 {% endblock %}
