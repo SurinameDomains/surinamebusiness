@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% from "_share.html" import wa %}
 {% set O = outages %}
 {% block content %}
 <h1>{{ 'Stroomonderbrekingen EBS' if nl else 'EBS power outages' }}</h1>
@@ -15,7 +16,7 @@
  <div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline"><b style="font-size:1.1rem">{{ s.district }}</b><span class="pill red">{{ s['from'] }} - {{ s.to }}</span>{% if s.date != n.date %}<span class="sub">{{ date(s.date, weekday=True) }}</span>{% endif %}</div>
  <p style="margin:6px 0 8px;font-size:.9rem;color:var(--ink-2)">{{ s.areas }}</p>
  {% endfor %}{% else %}<b>{{ n.title }}</b><p style="margin:6px 0 8px;font-size:.92rem">{{ n.text }}</p>{% endif %}
- <div class="meta"><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ 'Bericht van EBS' if nl else 'EBS notice' }}</a>{% if n.map %}<a href="{{ n.map }}" rel="noopener nofollow" target="_blank">{{ 'Kaart' if nl else 'Map' }}</a>{% endif %}</div>
+ <div class="meta"><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ 'Bericht van EBS' if nl else 'EBS notice' }}</a>{% if n.map %}<a href="{{ n.map }}" rel="noopener nofollow" target="_blank">{{ 'Kaart' if nl else 'Map' }}</a>{% endif %}{% if n.slots %}{{ wa((('EBS stroomonderbreking ' ~ date(n.date, weekday=True, year=False) ~ ': ') if nl else ('EBS power outage ' ~ date(n.date, weekday=True, year=False) ~ ': ')) ~ (n.slots|map(attribute='district')|unique|join(', ')) ~ ' ' ~ n.slots[0]['from'] ~ '-' ~ n.slots[0].to ~ '. ' ~ (n.slots[0].areas[:120]) ~ ' ' ~ canonical, 'Deel' if nl else 'Share') }}{% endif %}</div>
 </section>
 {% endfor %}
 {% else %}<p class="note">{{ 'Er is op dit moment geen gepland onderhoud aangekondigd.' if nl else 'No planned maintenance has been announced right now.' }}</p>{% endif %}

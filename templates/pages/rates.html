@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% from "_share.html" import wa %}
 {% set i = 0 if nl else 1 %}
 {% set M = mkt %}
 {% block content %}
@@ -14,6 +15,7 @@
  {% if M.douane %}<a href="{{ U('douane') }}"><span class="k">{{ 'Douanekoers USD' if nl else 'Customs rate USD' }}</span><span class="v">{{ num(M.douane.usd) }}</span></a>{% endif %}
  <a href="#cme"><span class="k">EUR CME {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(rates.eur.sell) }}</span></a>
 </div>
+<p class="share-row">{{ wa((('Koers vandaag ' ~ date(rates.business_date, year=False) ~ ': USD ' ~ num(rates.usd.sell) ~ ' verkoop / ' ~ num(rates.usd.buy) ~ ' aankoop, EUR ' ~ num(rates.eur.sell) ~ ' (CME). Alle banken: ') if nl else ('Rate today ' ~ date(rates.business_date, year=False) ~ ': USD ' ~ num(rates.usd.sell) ~ ' sell / ' ~ num(rates.usd.buy) ~ ' buy, EUR ' ~ num(rates.eur.sell) ~ ' (CME). All banks: ')) ~ canonical, 'Deel de koers via WhatsApp' if nl else 'Share the rate on WhatsApp') }}</p>
 
 <div class="cols" style="margin-top:20px">
  <form class="card calc" id="fx-form" onsubmit="return false">
