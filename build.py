@@ -515,6 +515,45 @@ def py_salary(gross, pension_pct=0.0, aov=True):
     return {"gross": gross, "tax": tax, "aov": aov_amt, "net": gross - pension - tax - aov_amt}
 
 
+# ---------------------------------------------------------------- "Op deze pagina" for long guides
+_H2 = re.compile(r"<h2(\s[^>]*)?>(.*?)</h2>", re.S)
+_TAG = re.compile(r"<[^>]+>")
+
+
+def add_toc(html, lang):
+    """Long prose pages (4+ h2, no calculator or form) get a compact list of their sections after the lead.
+    Done at build time so the list is in the first paint (no layout shift)."""
+    if 'class="prose"' not in html or 'class="card calc' in html or 'class="result' in html or 'id="tool-list"' in html or 'data-filter-list' in html:
+        return html
+    lead_end = html.find("</p>", html.find('<p class="lead">')) if '<p class="lead">' in html else -1
+    if lead_end < 0:
+        return html
+    body = html[lead_end:]
+    heads = [m for m in _H2.finditer(body)]
+    if len(heads) < 4:
+        return html
+    items, out, pos, n = [], [], 0, 0
+    for m in heads:
+        n += 1
+        attrs = m.group(1) or ""
+        text = _TAG.sub("", m.group(2)).strip()
+        if not text:
+            continue
+        if 'id="' in attrs:
+            hid = re.search(r'id="([^"]+)"', attrs).group(1)
+            new = m.group(0)
+        else:
+            hid = f"s-{n}"
+            new = f'<h2 id="{hid}"{attrs}>{m.group(2)}</h2>'
+        items.append((hid, text))
+        out.append(body[pos:m.start()]); out.append(new); pos = m.end()
+    out.append(body[pos:])
+    label = "Op deze pagina" if lang == "nl" else "On this page"
+    nav = (f'<nav class="toc" aria-label="{label}"><div class="eyebrow">{label}</div><ul>'
+           + "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items) + "</ul></nav>")
+    return html[:lead_end + 4] + nav + "".join(out)[4:]
+
+
 # ---------------------------------------------------------------- schema
 def schema_for(key, lang, meta_title, desc, canonical):
     org = {"@type": "Organization", "@id": SITE_URL + "/#org", "name": "Suriname Business",
@@ -964,7 +1003,7 @@ def main():
                 ctx.update(alt_nl=None, alt_en=None)
             if extra:
                 ctx.update(extra)
-            html_out = env.get_template(tpl_name).render(**ctx)
+            html_out = add_toc(env.get_template(tpl_name).render(**ctx), _lang)
             lastmod = page_lastmod(canonical, html_out)
             html_out = html_out.replace(LASTMOD_TOKEN, lastmod)
             rel = (path_nl if _lang == "nl" else path_en).lstrip("/")
