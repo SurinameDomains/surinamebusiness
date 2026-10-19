@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-19T05:17:33+00:00",
+ "fetched_at": "2026-10-19T06:08:56+00:00",
  "items": [
   {
    "deadline": null,
@@ -40,16 +40,6 @@
    "source": "Newmont",
    "title": "Intern, Assay Lab",
    "url": "https://jobs.newmont.com/us/en/job/44412"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
-   "id": "nm-45061",
-   "location": "Paramaribo",
-   "published": "2026-10-06",
-   "source": "Newmont",
-   "title": "Graduate Trainee",
-   "url": "https://jobs.newmont.com/us/en/job/45061"
   },
   {
    "deadline": "2026-10-20",
@@ -149,38 +139,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 4,
-   "fetched_at": "2026-10-19T05:17:20+00:00",
+   "count": 3,
+   "fetched_at": "2026-10-19T06:08:43+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-10-19T05:17:19+00:00",
+   "fetched_at": "2026-10-19T06:08:41+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 4,
-   "fetched_at": "2026-10-19T05:17:25+00:00",
+   "fetched_at": "2026-10-19T06:08:48+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-19T05:17:33+00:00",
+   "fetched_at": "2026-10-19T06:08:56+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 2,
-   "fetched_at": "2026-10-19T05:17:28+00:00",
+   "fetched_at": "2026-10-19T06:08:51+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 2,
-   "fetched_at": "2026-10-19T05:17:29+00:00",
+   "fetched_at": "2026-10-19T06:08:51+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-19T05:17:31+00:00",
+   "fetched_at": "2026-10-19T06:08:55+00:00",
    "ok": true
   }
  }
