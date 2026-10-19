@@ -600,3 +600,16 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
   .sb-sticky .v{font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .sb-sticky svg{flex:none;opacity:.85}
 }
+/* folding form sections on phones */
+@media (max-width:1000px){
+  .fs-toggle{display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;min-height:40px}
+  .fs-toggle svg{margin-left:auto;flex:none;opacity:.6;transition:transform .15s}
+  .fs-toggle[aria-expanded=false] svg{transform:rotate(-90deg)}
+  .fs-sum{font:500 .9rem/1.2 var(--font);color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+  fieldset.folded > :not(legend){display:none!important}
+  fieldset.folded{margin-bottom:0}
+  fieldset.folded > legend{padding-bottom:10px;border-bottom:1px solid var(--line-2);width:100%}
+}
+.filters:not(.all-chips) .chip.extra{display:none}
+.chip-more{font:inherit;font-size:.9rem;padding:8px 14px;border-radius:99px;border:1px dashed var(--line);background:none;cursor:pointer;color:var(--brand-2);min-height:40px;font-weight:600}
+.chip-more:hover{border-color:var(--brand-2)}
