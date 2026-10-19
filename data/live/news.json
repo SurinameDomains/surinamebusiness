@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-19T03:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "ANALYSE — Internationale energiecrisis dreigt economisch herstel Suriname te ondermijnen",
+   "url": "https://dwtonline.com/analyse-internationale-energiecrisis-dreigt-economisch-herstel-suriname-te-ondermijnen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-18T22:58:29+00:00",
    "source": "Suriname Herald",
    "title": "Binnenland krijgt eerste landbouwopleiding: 90 studenten starten met pre-bachelor- en bachelortraject",
@@ -323,7 +330,7 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-19T02:21:42+00:00",
+ "fetched_at": "2026-10-19T03:27:07+00:00",
  "oil": [
   {
    "econ": true,
@@ -343,32 +350,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-19T02:21:41+00:00",
+   "fetched_at": "2026-10-19T03:27:06+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-19T02:21:39+00:00",
+   "fetched_at": "2026-10-19T03:27:04+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-19T02:21:40+00:00",
+   "fetched_at": "2026-10-19T03:27:05+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T02:21:41+00:00",
+   "fetched_at": "2026-10-19T03:27:06+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-19T02:21:40+00:00",
+   "fetched_at": "2026-10-19T03:27:05+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-19T02:21:42+00:00",
+   "fetched_at": "2026-10-19T03:27:07+00:00",
    "ok": true
   }
  }
