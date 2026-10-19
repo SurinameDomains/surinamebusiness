@@ -2,7 +2,7 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'Vacatures in Suriname' if nl else 'Jobs in Suriname' }}</h1>
-<p class="lead">{{ 'Vacatures die werkgevers direct bij ons plaatsen, plus vacatures bij de overheid, grote werkgevers zoals Newmont en TotalEnergies, de VN, de Amerikaanse ambassade en consultancy opdrachten van de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'Vacancies employers post directly with us, plus vacancies at the government, large employers such as Newmont and TotalEnergies, the UN, the US Embassy and consultancy assignments from the IDB and the World Bank. Updated every 30 minutes.' }}</p>
+<p class="lead">{{ 'Vacatures van werkgevers die hier plaatsen, de overheid, Newmont, TotalEnergies, de VN, de ambassades, de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'Jobs from employers who post here, the government, Newmont, TotalEnergies, the UN, the embassies, the IDB and the World Bank. Updated every 30 minutes.' }}</p>
 <p><a class="btn inline" href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job for free' }}</a></p>
 <div class="filters" data-filter-list="j-list" data-count="j-count">
  <input type="search" placeholder="{{ 'Zoek functie of werkgever' if nl else 'Search job title or employer' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
