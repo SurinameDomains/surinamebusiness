@@ -1,6 +1,36 @@
 {
- "fetched_at": "2026-10-20T14:24:35+00:00",
+ "fetched_at": "2026-10-20T14:54:28+00:00",
  "items": [
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163605",
+   "lang": "nl",
+   "published": "2026-10-20",
+   "source": "gov.sr",
+   "title": "Het leveren van voertuigen A1 conditie) tbv het ministerie van Onderwijs wetenschap en Cultuur",
+   "url": "https://gov.sr/aanbestedingen/het-leveren-van-voertuigen-a1-conditie-tbv-het-ministerie-van-onderwijs-wetenschap-en-cultuur/"
+  },
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163602",
+   "lang": "nl",
+   "published": "2026-10-20",
+   "source": "gov.sr",
+   "title": "Het bouwen van een betonnen verkeersbrug in de Siriusstraat over de Boomskreek in het district Paramaribo",
+   "url": "https://gov.sr/aanbestedingen/het-bouwen-van-een-betonnen-verkeersbrug-in-de-siriusstraat-over-de-boomskreek-in-het-district-paramaribo-2/"
+  },
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163599",
+   "lang": "nl",
+   "published": "2026-10-20",
+   "source": "gov.sr",
+   "title": "Het ophalen van huishoudelijk afval per wijk in het district Marowijne ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
+   "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-marowijne-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening-2/"
+  },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
@@ -462,22 +492,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-20T14:24:35+00:00",
+   "fetched_at": "2026-10-20T14:54:28+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-20T14:24:34+00:00",
+   "fetched_at": "2026-10-20T14:54:28+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 18,
-   "fetched_at": "2026-10-20T14:24:34+00:00",
+   "fetched_at": "2026-10-20T14:54:28+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-20T14:24:33+00:00",
+   "fetched_at": "2026-10-20T14:54:27+00:00",
    "ok": true
   }
  }
