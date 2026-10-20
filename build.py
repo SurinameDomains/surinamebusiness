@@ -666,7 +666,7 @@ def companies_view():
         if items:
             groups.append({"key": g, "nl_slug": nls, "nl": nll, "en_slug": ens, "en": enl, "items": items,
                            "count": len(items), "pages": sum(1 for r in items if r["page"])})
-    groups.sort(key=lambda x: -x["count"])
+    groups.sort(key=lambda x: (x["key"] in ("other", "services"), -x["count"]))  # catch-alls last
     return {"recs": recs, "groups": groups, "fetched_at": raw.get("fetched_at"),
             "count": len(recs), "pages": sum(1 for r in recs if r["page"])}
 
