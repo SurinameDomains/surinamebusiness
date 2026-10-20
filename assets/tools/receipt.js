@@ -17,7 +17,7 @@
   function one(label) {
     var E = S.esc, v = function (n) { return E(f.elements[n].value.trim()); }, cur = f.elements.cur.value, amt = S.num(f.elements.amount.value);
     return '<div class="paper" style="--pc:' + E(biz.color || '#1f2251') + ';margin-bottom:14px">' +
-      '<div class="ph"><div>' + (biz.logo ? '<img src="' + biz.logo + '" alt="">' : '') + '<h3>' + T('Kwitantie', 'Receipt') + '</h3>' + (label ? '<div class="pm">' + label + '</div>' : '') + '</div>' +
+      '<div class="ph"><div>' + (biz.logo ? '<img src="' + biz.logo + '" alt="">' : '') + '<div class="dh">' + T('Kwitantie', 'Receipt') + '</div>' + (label ? '<div class="pm">' + label + '</div>' : '') + '</div>' +
       '<div style="text-align:right" class="pm">' + T('Nummer', 'No.') + ': <b>' + v('no') + '</b><br>' + E(S.dateLong(f.elements.date.value)) + '</div></div>' +
       '<table><tbody>' +
       '<tr><td style="width:38%">' + T('Ontvangen van', 'Received from') + '</td><td><b>' + (v('from') || '&nbsp;') + '</b></td></tr>' +

@@ -22,7 +22,7 @@
       });
       var price = function (p) { var n = S.num(p); return p === '' ? '' : (n ? cur + ' ' + S.fmt(n, n % 1 ? 2 : 0) : E(p)); };
       var h = '<div style="text-align:center;margin-bottom:18px">' + (logo ? '<img src="' + logo + '" alt="" style="max-height:80px;margin:0 auto 8px;display:block">' : '') +
-        '<h3 style="font-size:2rem">' + E(f.title.value) + '</h3><div style="letter-spacing:.2em;text-transform:uppercase;color:' + E(c1) + ';font-weight:700;font-size:.8rem;margin-top:4px">' + E(f.sub.value) + '</div></div>' +
+        '<div class="dh" style="font-size:2rem">' + E(f.title.value) + '</div><div style="letter-spacing:.2em;text-transform:uppercase;color:' + E(c1) + ';font-weight:700;font-size:.8rem;margin-top:4px">' + E(f.sub.value) + '</div></div>' +
         '<div style="column-count:' + (+f.cols.value) + ';column-gap:32px">';
       cats.forEach(function (c) {
         h += '<div style="break-inside:avoid;margin-bottom:16px">' + (c.name ? '<div style="font-family:var(--serif);font-size:1.25rem;font-weight:650;color:' + E(c1) + ';border-bottom:2px solid ' + E(c1) + ';padding-bottom:3px;margin-bottom:6px">' + E(c.name) + '</div>' : '');

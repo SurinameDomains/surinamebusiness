@@ -15,7 +15,7 @@
     var m = function (x) { return S.fmt(x); };
     var per = f.elements.period.value ? new Date(f.elements.period.value + '-15T12:00:00').toLocaleDateString(S.nl ? 'nl-NL' : 'en-GB', { month: 'long', year: 'numeric' }) : '';
     var row = function (a, b, c) { return '<tr><td>' + a + '</td><td class="r">' + (b === '' ? '' : m(b)) + '</td><td class="r">' + (c === '' ? '' : m(c)) + '</td></tr>'; };
-    var h = '<div class="ph"><div>' + (biz.logo ? '<img src="' + biz.logo + '" alt=""><br>' : '') + '<b>' + (v('er') || T('Werkgever', 'Employer')) + '</b></div><div style="text-align:right"><h3>' + T('Loonstrook', 'Payslip') + '</h3><div class="pm">' + S.esc(per) + '</div></div></div>' +
+    var h = '<div class="ph"><div>' + (biz.logo ? '<img src="' + biz.logo + '" alt=""><br>' : '') + '<b>' + (v('er') || T('Werkgever', 'Employer')) + '</b></div><div style="text-align:right"><div class="dh">' + T('Loonstrook', 'Payslip') + '</div><div class="pm">' + S.esc(per) + '</div></div></div>' +
       '<div class="pp"><div><div class="lbl">' + T('Werknemer', 'Employee') + '</div><b>' + (v('ee') || '&nbsp;') + '</b><br>' + v('fn') + '</div><div><div class="lbl">' + T('Personeelsnummer', 'Staff number') + '</div>' + (v('pid') || '-') + '</div></div>' +
       '<table><thead><tr><th>' + T('Omschrijving', 'Description') + '</th><th class="r">' + T('Bij', 'Earnings') + '</th><th class="r">' + T('Af', 'Deductions') + '</th></tr></thead><tbody>' +
       row(T('Basisloon', 'Basic wage'), base, '') + (allow ? row(T('Belaste toelagen', 'Taxable allowances'), allow, '') : '') + (ot ? row(T('Overwerk', 'Overtime'), ot, '') : '') +

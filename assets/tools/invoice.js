@@ -89,10 +89,10 @@
     var ids = [];
     if (v('s_fin')) ids.push(T('FIN/BTW', 'FIN/VAT') + ': ' + v('s_fin'));
     if (v('s_kkf')) ids.push('KKF: ' + v('s_kkf'));
-    var h = '<div class="ph"><div>' + (logo ? '<img src="' + logo + '" alt="">' : '<h3>' + (v('s_name') || T('Je bedrijfsnaam', 'Your business name')) + '</h3>') +
+    var h = '<div class="ph"><div>' + (logo ? '<img src="' + logo + '" alt="">' : '<div class="dh">' + (v('s_name') || T('Je bedrijfsnaam', 'Your business name')) + '</div>') +
       (logo && v('s_name') ? '<div style="font-weight:700;margin-top:6px">' + v('s_name') + '</div>' : '') +
       '<div class="pm" style="margin-top:4px">' + sellerBits + (ids.length ? '<br>' + ids.join(' &middot; ') : '') + '</div></div>' +
-      '<div style="text-align:right"><h3>' + CFG.t + '</h3><div class="pm">' + T('Nummer', 'Number') + ': <b>' + v('no') + '</b><br>' +
+      '<div style="text-align:right"><div class="dh">' + CFG.t + '</div><div class="pm">' + T('Nummer', 'Number') + ': <b>' + v('no') + '</b><br>' +
       T('Datum', 'Date') + ': ' + Es(S.dateLong(val('date'))) +
       (E.due && val('due') ? '<br>' + CFG.due + ': ' + Es(S.dateLong(val('due'))) : '') +
       (CFG.ref && v('ref') ? '<br>' + CFG.ref + ': ' + v('ref') : '') + '</div></div></div>';
