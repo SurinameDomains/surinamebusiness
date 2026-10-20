@@ -421,7 +421,7 @@
    "url": "https://www.srherald.com/economie/2026/09/25/staatsschuld-blijft-ruim-boven-wettelijk-plafond/"
   }
  ],
- "fetched_at": "2026-10-20T14:56:06+00:00",
+ "fetched_at": "2026-10-20T14:57:34+00:00",
  "oil": [
   {
    "econ": false,
@@ -462,32 +462,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-20T14:56:05+00:00",
+   "fetched_at": "2026-10-20T14:57:32+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 17,
-   "fetched_at": "2026-10-20T14:56:02+00:00",
+   "fetched_at": "2026-10-20T14:57:30+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-20T14:56:04+00:00",
+   "fetched_at": "2026-10-20T14:57:32+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T14:56:05+00:00",
+   "fetched_at": "2026-10-20T14:57:33+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-20T14:56:04+00:00",
+   "fetched_at": "2026-10-20T14:57:32+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T14:56:06+00:00",
+   "fetched_at": "2026-10-20T14:57:34+00:00",
    "ok": true
   }
  }
