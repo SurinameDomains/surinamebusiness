@@ -10,8 +10,8 @@
 {% block info %}{% endblock %}
 {% if tool and TM.RELATED.get(key) %}
 <h2>{{ 'Ook handig' if nl else 'Also useful' }}</h2>
-<div class="grid g4 tools-mini">
-{% for k in TM.RELATED[key] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon if k in TM.BY_KEY else TM.EXISTING_ICON.get(k, 'calc'))|safe }}</span><b>{{ L(k) }}</b></a>{% endfor %}
+<div class="tindex c4">
+{% for k in TM.RELATED[key] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b>{% if k in TM.BY_KEY %}<span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span>{% elif k in TM.EXISTING_BLURB %}<span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span>{% endif %}</a>{% endfor %}
 </div>
 <p style="margin-top:14px"><a href="{{ U('tools') }}"><b>{{ 'Alle gratis tools' if nl else 'All free tools' }} &rarr;</b></a></p>
 {% endif %}

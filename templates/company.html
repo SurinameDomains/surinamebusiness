@@ -5,19 +5,23 @@
 <div class="cols">
 <div>
 <h1>{{ r.name }}</h1>
-<p class="lead">{{ label }}{% if r.place %} {{ 'in' }} {{ r.place }}{% endif %}{% if r.brand and r.brand != r.name %}, {{ r.brand }}{% endif %}.</p>
+<p class="lead">{% if r.own and r.kind %}{{ r.kind|capitalize }}{% else %}{{ label }}{% endif %}{% if r.place %} {{ 'in' }} {{ r.place }}{% endif %}{% if r.brand and r.brand != r.name %}, {{ r.brand }}{% endif %}.</p>
+{% if r.about %}<p class="co-about">{{ r.about }}</p>{% endif %}
+{% if r.own %}<p class="co-own"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg> {{ 'Gegevens aangeleverd door het bedrijf, gecontroleerd door Suriname Business' if nl else 'Details supplied by the business, checked by Suriname Business' }}</p>{% endif %}
 <div class="card">
 <table class="tbl"><tbody>
 {% if r.street or r.place %}<tr><td>{{ 'Adres' if nl else 'Address' }}</td><td>{{ r.street }}{% if r.street and r.place %}, {% endif %}{{ r.place }}</td></tr>{% endif %}
 {% if r.phone %}<tr><td>{{ 'Telefoon' if nl else 'Phone' }}</td><td><a href="tel:{{ r.phone|replace(' ','') }}">{{ r.phone }}</a></td></tr>{% endif %}
+{% if r.whatsapp %}<tr><td>WhatsApp</td><td><a href="https://wa.me/{{ r.whatsapp }}" rel="noopener nofollow" target="_blank">+{{ r.whatsapp[:3] }} {{ r.whatsapp[3:] }}</a></td></tr>{% endif %}
 {% if r.website %}<tr><td>Website</td><td><a href="{{ r.website }}" rel="noopener nofollow" target="_blank">{{ r.website|replace('https://','')|replace('http://','')|truncate(40) }}</a></td></tr>{% endif %}
 {% if r.email %}<tr><td>E-mail</td><td><a href="mailto:{{ r.email }}">{{ r.email }}</a></td></tr>{% endif %}
 {% if r.hours %}<tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td><span class="open-now" id="open-now" data-h="{{ r.hours }}"></span><div class="sub" id="hours-txt">{{ r.hours }}</div></td></tr>{% endif %}
 {% if r.operator and r.operator != r.name %}<tr><td>{{ 'Uitbater' if nl else 'Operator' }}</td><td>{{ r.operator }}</td></tr>{% endif %}
 </tbody></table>
-{% if r.lat %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ r.lat }},{{ r.lon }}" rel="noopener nofollow" target="_blank">{{ 'Route in Google Maps' if nl else 'Directions in Google Maps' }}</a><a href="{{ r.osm }}" rel="noopener">{{ 'Bekijk of bewerk op OpenStreetMap' if nl else 'View or edit on OpenStreetMap' }}</a></div>{% endif %}
+{% if r.lat %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ r.lat }},{{ r.lon }}" rel="noopener nofollow" target="_blank">{{ 'Route in Google Maps' if nl else 'Directions in Google Maps' }}</a>{% if r.osm %}<a href="{{ r.osm }}" rel="noopener">{{ 'Bekijk op OpenStreetMap' if nl else 'View on OpenStreetMap' }}</a>{% endif %}</div>
+{% elif r.street %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ (r.name ~ ', ' ~ r.street ~ ', ' ~ (r.place or '') ~ ', Suriname')|urlencode }}" rel="noopener nofollow" target="_blank">{{ 'Zoek in Google Maps' if nl else 'Find in Google Maps' }}</a></div>{% endif %}
 </div>
-<p class="sub" style="margin-top:14px">{{ 'Is dit jouw bedrijf? Werk de gegevens bij op OpenStreetMap of mail ons via' if nl else 'Is this your business? Update the details on OpenStreetMap or email us at' }} <a href="mailto:{{ contact_email }}?subject={{ r.name|urlencode }}">{{ contact_email }}</a>.</p>
+<p class="claim"><b>{{ 'Is dit jouw bedrijf?' if nl else 'Is this your business?' }}</b> <a href="{{ U('addbiz') }}?b={{ r.slug }}&amp;n={{ r.name|urlencode }}">{{ 'Werk je gegevens bij, gratis' if nl else 'Update your details, free' }} &rarr;</a></p>
 </div>
 <aside>
  <div class="card"><div class="eyebrow">{{ 'Meer in' if nl else 'More in' }} {{ label|lower }}</div><ul class="list">
@@ -26,7 +30,7 @@
  </ul><div class="foot"><a href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}">{{ 'Alle' if nl else 'All' }} {{ gr.count }} {{ label|lower }} &rarr;</a></div></div>
 </aside>
 </div>
-<p class="asof">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL.</p>
+<p class="asof">{{ 'Bron' if nl else 'Source' }}: {% if r.own and not r.osm %}{{ 'het bedrijf zelf' if nl else 'the business itself' }}.{% else %}&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL{% if r.own %}, {{ 'aangevuld door het bedrijf' if nl else 'completed by the business' }}{% endif %}.{% endif %}</p>
 {% endblock %}
 {% block scripts %}{% if r.hours %}<script>
 (function(){var el=document.getElementById('open-now');var h=el.getAttribute('data-h').trim();var D=['Su','Mo','Tu','We','Th','Fr','Sa'];
