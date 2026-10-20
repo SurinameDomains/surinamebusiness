@@ -564,9 +564,21 @@ def add_toc(html, lang):
         out.append(body[pos:m.start()]); out.append(new); pos = m.end()
     out.append(body[pos:])
     label = "Op deze pagina" if lang == "nl" else "On this page"
-    nav = (f'<nav class="toc" aria-label="{label}"><div class="eyebrow">{label}</div><ul>'
-           + "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items) + "</ul></nav>")
-    return html[:lead_end + 4] + nav + "".join(out)[4:]
+    nav = (f'<nav class="toc" aria-label="{label}"><div class="toc-in"><div class="eyebrow">{label}</div><ul>'
+           + "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items) + "</ul></div></nav>")
+    rest = "".join(out)[4:]
+    # key figures right after the lead stay first; the list goes after them
+    m = re.match(r'\s*<div class="(today[^"]*|grid[^"]*)"', rest)
+    if m:
+        start, depth, end = m.end(0) - len(m.group(0).lstrip()), 0, -1
+        for t in re.finditer(r"<div\b|</div>", rest[start:]):
+            depth += -1 if t.group(0) == "</div>" else 1
+            if depth == 0:
+                end = start + t.end()
+                break
+        if end > 0 and ('class="big' in rest[start:end] or m.group(1).startswith("today")):
+            return html[:lead_end + 4] + rest[:end] + nav + rest[end:]
+    return html[:lead_end + 4] + nav + rest
 
 
 # ---------------------------------------------------------------- schema
