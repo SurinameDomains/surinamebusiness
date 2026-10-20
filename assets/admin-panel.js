@@ -7,7 +7,7 @@
     var day = function (s) { if (!s) return '-'; var d = new Date(String(s).length === 10 ? s + 'T12:00:00' : s); return isNaN(d) ? esc(s) : d.toLocaleDateString('nl-NL', { day: 'numeric', month: 'short', year: 'numeric' }); };
     var kb = function (n) { n = n || 0; return n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.round(n / 1024) + ' KB'; };
     var ST = { live: 'Online', pending: 'Wacht op goedkeuring', unverified: 'Niet bevestigd', rejected: 'Afgewezen', closed: 'Gesloten', expired: 'Verlopen' };
-    var KIND = { banner: 'Banner', notice: 'Mededeling', news: 'Nieuws', tender: 'Aanbesteding', link: 'Uitgelichte link' };
+    var KIND = { banner: 'Banner', notice: 'Mededeling', news: 'Nieuws', tender: 'Aanbesteding', link: 'Uitgelichte link', company: 'Bedrijf' };
     var loaded = {};
 
     function gate() {
@@ -185,17 +185,23 @@
         var today = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
         $('adm-content').innerHTML = content.length ? '<div class="tbl-wrap card"><table class="tbl"><tbody>' + content.map(function (c) {
           var active = c.status === 'live' && (!c.starts || c.starts <= today) && (!c.ends || c.ends >= today);
-          return '<tr><td><span class="pill">' + KIND[c.kind] + '</span> <b>' + esc(c.title) + '</b>' + (c.url ? '<div class="sub">' + esc(c.url) + '</div>' : '') + '</td><td>' +
-            (active ? '<span class="pill st-live">zichtbaar</span>' : '<span class="pill">' + (c.status === 'draft' ? 'concept' : 'buiten periode') + '</span>') +
+          var pend = c.kind === 'company' && c.status === 'draft' && c.data && c.data.pending;
+          return '<tr><td><span class="pill">' + KIND[c.kind] + '</span> <b>' + esc(c.title) + '</b>' + (c.url ? '<div class="sub">' + esc(c.url) + '</div>' : '') +
+            (c.kind === 'company' && c.data ? '<div class="sub">' + esc([c.data.street, c.data.place, c.data.phone].filter(Boolean).join(' \u00b7 ')) + '</div>' : '') + '</td><td>' +
+            (pend ? '<span class="pill st-pending">wacht op controle</span>' : active ? '<span class="pill st-live">zichtbaar</span>' : '<span class="pill">' + (c.status === 'draft' ? 'concept' : 'buiten periode') + '</span>') +
             '<div class="sub">' + (c.starts ? day(c.starts) : '') + (c.ends ? ' t/m ' + day(c.ends) : '') + '</div></td><td class="r nowrap"><button class="btn alt sm" data-ce="' + c.id + '">Bewerken</button> <button class="x" data-cd="' + c.id + '" title="Verwijderen">&times;</button></td></tr>';
         }).join('') + '</tbody></table></div>' : '<div class="card sub">Nog geen eigen inhoud.</div>';
       });
     }
+    var cur = null;
+    var CO_FIELDS = ['group', 'kind', 'street', 'place', 'phone', 'whatsapp', 'email', 'hours', 'replaces'];
     function openForm(c) {
-      var F = cform.elements; cform.reset(); cform.hidden = false;
+      var F = cform.elements; cform.reset(); cform.hidden = false; cur = c;
       F.kind.value = c.kind; F.id.value = c.id || '';
       ['title', 'title_en', 'body', 'body_en', 'url', 'source', 'lang', 'starts', 'ends', 'sort', 'status'].forEach(function (n) { if (c[n] != null) F[n].value = c[n]; });
       var d = c.data || {}; F.d_level.value = d.level || 'info'; F.d_page.value = d.page || 'all'; F.d_deadline.value = d.deadline || '';
+      CO_FIELDS.forEach(function (n) { if (d[n] != null && F['d_' + n]) F['d_' + n].value = d[n]; });
+      $('c-by').textContent = d.by_email ? 'Aangemeld door ' + (d.by_name || '') + ' <' + d.by_email + '>' + (d.by_role ? ', ' + d.by_role : '') + (d.pending ? '. Nog niet gecontroleerd: zet de status op Live als het klopt.' : '') : '';
       $('c-title').textContent = (c.id ? 'Bewerken: ' : 'Nieuw: ') + KIND[c.kind];
       Array.prototype.forEach.call(cform.querySelectorAll('[data-k]'), function (el) { el.hidden = el.getAttribute('data-k').split(',').indexOf(c.kind) < 0; });
       cform.querySelector('[data-for="body"]').textContent = c.kind === 'banner' ? 'Linktekst (NL)' : 'Tekst (NL)';
@@ -211,7 +217,9 @@
     $('c-save').onclick = function () {
       var F = cform.elements, b = {};
       ['id', 'kind', 'title', 'title_en', 'body', 'body_en', 'url', 'source', 'lang', 'starts', 'ends', 'sort', 'status'].forEach(function (n) { b[n] = F[n].value; });
-      b.data = {};
+      // keep what the form does not show (e.g. who submitted a business listing)
+      b.data = {}; var old = (cur && cur.id && cur.data) || {}; Object.keys(old).forEach(function (k) { b.data[k] = old[k]; });
+      if (b.kind === 'company') { CO_FIELDS.forEach(function (n) { b.data[n] = F['d_' + n].value.trim(); }); if (b.status === 'live') delete b.data.pending; }
       if (b.kind === 'banner') b.data.level = F.d_level.value;
       if (b.kind === 'notice') b.data.page = F.d_page.value;
       if (b.kind === 'tender') { b.data.deadline = F.d_deadline.value || null; b.data.buyer = F.source.value; }
