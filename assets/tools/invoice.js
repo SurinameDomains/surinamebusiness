@@ -81,6 +81,7 @@
   }
 
   function render() {
+    var lc = document.getElementById('logo-clear'); if (lc) lc.parentNode.hidden = !logo;
     var c = calc(), cur = val('cur') || 'SRD', Es = S.esc, sign = CFG.credit ? -1 : 1;
     var m = function (x) { return S.money(sign * x, cur); };
     var v = function (n) { return Es(val(n).trim()); };
