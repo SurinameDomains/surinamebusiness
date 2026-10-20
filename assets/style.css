@@ -79,7 +79,7 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .dd-btn svg{transition:transform .15s;opacity:.7}
 .dd.open .dd-btn svg{transform:rotate(180deg)}
 .nav > a[aria-current=page]{color:var(--accent-ink);background:var(--accent-soft)}
-.nav a.lang{border:1px solid var(--line);margin-left:6px;font-size:.88rem;font-weight:600;padding:7px 11px}
+.nav a.lang{border:1px solid var(--line);border-radius:99px;margin-left:6px;font-size:.88rem;font-weight:600;padding:7px 14px}
 .rate-chip{font-variant-numeric:tabular-nums;font-weight:700!important;color:var(--ink)!important;border:1px solid var(--line);margin-left:6px;gap:5px!important;background:var(--card)}
 .rate-chip:hover{border-color:#cfcbe0}
 .rate-chip span{font-size:.72rem;color:var(--muted);font-weight:700;letter-spacing:.05em}
@@ -289,7 +289,7 @@ a.card.tool{display:flex}
 .seg button + button{border-left:1px solid var(--line)}
 .seg button[aria-pressed=true]{background:var(--brand);color:#fff}
 .result{background:var(--brand);color:#fff;border-radius:var(--r);padding:22px;min-width:0;position:relative;overflow:hidden}
-.result::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.result::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--accent)}
 .result .eyebrow{color:#b9bce0}.result .eyebrow::after{background:rgba(255,255,255,.14)}
 .result .big{color:#fff}
 .result .sub{color:#c3c6e8}
@@ -620,12 +620,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .share-wa svg{color:#1d7a62}
 .meta .share-wa{padding:3px 10px;min-height:28px;font-size:.84rem}
 /* on this page */
-.toc{margin:0 0 24px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);max-width:720px}
+.toc{margin:6px 0 30px;padding:12px 0 14px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);max-width:720px}
 .toc .eyebrow{margin-bottom:6px}
 .toc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:24px;font-size:.95rem}
-.toc li{margin:3px 0;break-inside:avoid}
-.toc a{text-decoration:none;color:var(--brand-2)}
-.toc a:hover{text-decoration:underline}
+.toc li{margin:0;padding:4px 0;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent-ink);text-decoration:underline}
 @media (max-width:600px){.toc ul{columns:1}}
 @media print{.sb-sticky,.share-row,.toc,.fs-toggle svg{display:none!important}}
 
@@ -686,3 +686,54 @@ a.ti:focus-visible{outline-offset:4px}
 .co-own{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--up);margin:0 0 14px}
 .claim{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:.98rem}
 .claim a{font-weight:600}
+
+/* ---------------------------------------------------------------- 20 Oct, round 3: one way to show figures
+   Every set of key figures (rates, gold, customs, minimum wage, oil and gas, salary pages, admin) is a ruled ledger like the
+   home hero: a strong rule on top, hairlines between, no boxes or shadows. The calculator result keeps its indigo panel
+   with the persimmon rule on top, the same rule as the hero foot and the footer. */
+.toc .eyebrow::after{display:none}
+.today,.kpis,.grid:has(> .card > .big){gap:0;background:none;border:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;overflow:visible}
+.today > a,.today > div,.kpis > .kpi,.grid:has(> .card > .big) > .card{background:none;border:0;border-left:1px solid var(--line);border-radius:0;box-shadow:none;padding:13px 18px 15px;min-width:0}
+.today > :first-child,.kpis > :first-child,.grid:has(> .card > .big) > .card:first-child{border-left:0;padding-left:0}
+.today a:hover{background:none}
+.today a:hover .v{color:var(--accent-ink)}
+.today .k,.kpi .sub:first-child{font-size:.7rem}
+.today .v{font-size:1.5rem;letter-spacing:-.02em;line-height:1.15;margin-top:4px}
+.kpi b{font-size:1.5rem}
+.grid:has(> .card > .big) > .card .eyebrow::after{display:none}
+.grid:has(> .card > .big) > .card .eyebrow{margin-bottom:4px}
+.grid:has(> .card > .big) > .card .big{font-size:1.75rem}
+a.card:has(> .big):hover{box-shadow:none}
+@media (max-width:900px){
+  .today:not(.t3) > :nth-child(3n+1),.kpis > :nth-child(3n+1){border-left:0;padding-left:0}
+  .today:not(.t3) > :nth-child(n+4),.kpis > :nth-child(n+4){border-top:1px solid var(--line)}
+  .grid.g4:has(> .card > .big) > .card:nth-child(odd),.grid.g3:has(> .card > .big) > .card:nth-child(odd){border-left:0;padding-left:0}
+  .grid.g4:has(> .card > .big) > .card:nth-child(even),.grid.g3:has(> .card > .big) > .card:nth-child(even){border-left:1px solid var(--line);padding-left:18px}
+  .grid.g4:has(> .card > .big) > .card:nth-child(n+3),.grid.g3:has(> .card > .big) > .card:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:600px){
+  .grid.g3:has(> .card > .big) > .card,.grid.g2:has(> .card > .big) > .card{border-left:0!important;padding-left:0!important}
+  .grid.g3:has(> .card > .big) > .card + .card,.grid.g2:has(> .card > .big) > .card + .card{border-top:1px solid var(--line)}
+  .today > a,.today > div,.kpis > .kpi,.grid:has(> .card > .big) > .card{padding-top:11px;padding-bottom:12px}
+  .today .v{font-size:1.3rem}
+  .grid:has(> .card > .big) > .card .big{font-size:1.5rem}
+}
+@media (max-width:520px){
+  .today:not(.t3) > *,.kpis > *{border-left:0!important;padding-left:0!important;border-top:0!important}
+  .today:not(.t3) > :nth-child(even),.kpis > :nth-child(even){border-left:1px solid var(--line)!important;padding-left:14px!important}
+  .today:not(.t3) > :nth-child(n+3),.kpis > :nth-child(n+3){border-top:1px solid var(--line)!important}
+  .today.t3 > *{border-left:0!important;padding-left:0!important}
+  .today.t3 > * + *{border-top:1px solid var(--line)}
+}
+/* long guides, wide screens: the section list moves into the right margin and stays in view */
+.toc a.on{color:var(--accent-ink);font-weight:650}
+@media (min-width:1100px){
+  .prose:has(> .toc){position:relative}
+  .prose > .toc{position:absolute;top:0;bottom:0;left:calc(100% + 56px);width:250px;margin:0;padding:0;border:0;max-width:none}
+  .prose > .toc .toc-in{position:sticky;top:calc(var(--head-h) + 28px);border-top:1px solid var(--ink);padding-top:12px;max-height:calc(100vh - var(--head-h) - 60px);overflow:auto}
+  .prose > .toc ul{columns:1;font-size:.92rem}
+  .prose > .toc li{padding:5px 0 5px 12px;border-left:2px solid var(--line-2)}
+  .prose > .toc li:has(a.on){border-left-color:var(--accent)}
+}
+/* a table inside a guide gets room before the text that follows it */
+.prose table,.prose .tbl-wrap{margin-bottom:1.1em}
