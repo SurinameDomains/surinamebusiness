@@ -4,7 +4,7 @@
 <h1>{{ 'Bedrijvengids Suriname' if nl else 'Suriname business directory' }}</h1>
 <p class="lead">{{ co.count }} {{ 'bedrijven, winkels en kantoren in' if nl else 'businesses, shops and offices in' }} {{ co.groups|length }} {{ 'categorieën, met adres, telefoon en openingstijden waar bekend.' if nl else 'categories, with address, phone and opening hours where known.' }}</p>
 <div class="filters"><input type="search" id="co-q" placeholder="{{ 'Zoek een bedrijf of categorie' if nl else 'Search a business or category' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}"></div>
-<div class="grid g3" id="co-groups">
+<div class="grid g3 co-cats" id="co-groups">
 {% for gr in co.groups %}<a class="card" href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}"><b>{{ gr.nl if nl else gr.en }}</b><div class="sub">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}</div></a>{% endfor %}
 </div>
 <div class="card" id="co-results" hidden style="margin-top:16px"><ul class="list" id="co-list"></ul></div>
