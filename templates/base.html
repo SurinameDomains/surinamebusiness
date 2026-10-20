@@ -151,6 +151,14 @@ fs.addEventListener('invalid',function(){set(true);},true);var f=fs.form||fs.clo
 document.addEventListener('click',function(e){if(!navigator.share)return;var a=e.target.closest&&e.target.closest('a[data-share]');if(!a)return;var m=/text=([^&]*)/.exec(a.getAttribute('href'));if(!m)return;e.preventDefault();navigator.share({text:decodeURIComponent(m[1])}).catch(function(){});});
 document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#tool-q,#q,.filters input[type=search]');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
 </script>
+<script>
+/* long guides on wide screens: the "on this page" list sits in the right margin and marks the section you are reading */
+(function(){var t=document.querySelector('.prose > .toc');if(!t||!('IntersectionObserver' in window))return;
+var links={},hs=[];[].forEach.call(t.querySelectorAll('a[href^="#"]'),function(a){var h=document.getElementById(a.getAttribute('href').slice(1));if(h){links[h.id]=a;hs.push(h);}});
+var cur=null;function set(id){if(cur)cur.classList.remove('on');cur=links[id]||null;if(cur)cur.classList.add('on');}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(e.target.id);});},{rootMargin:'0px 0px -70% 0px'});
+hs.forEach(function(h){io.observe(h);});})();
+</script>
 <script src="/assets/account.js?v={{ build_id }}" defer></script>
 {% block scripts %}{% endblock %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
