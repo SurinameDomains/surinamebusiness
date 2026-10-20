@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T01:15:14+00:00",
+ "fetched_at": "2026-10-20T06:34:33+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -167,26 +167,6 @@
   },
   {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
-   "deadline": "2026-10-19",
-   "id": "so-ities-pump-inspection-repair-overhaul-and-testing-downstream",
-   "lang": "en",
-   "published": "2026-10-05",
-   "source": "Staatsolie",
-   "title": "Request for Expression of Interest for Pump Inspection, Repair, Overhaul and Testing - Downstream",
-   "url": "https://www.staatsolie.com/en/procurement-opportunities/pump-inspection-repair-overhaul-and-testing-downstream/"
-  },
-  {
-   "buyer": "Staatsolie Maatschappij Suriname N.V.",
-   "deadline": "2026-10-19",
-   "id": "so-compressor-inspection-repair-overhaul-and-testing-downstream",
-   "lang": "en",
-   "published": "2026-10-05",
-   "source": "Staatsolie",
-   "title": "Request for Expression of Interest for Compressor Inspection, Repair, Overhaul and Testing - Downstream",
-   "url": "https://www.staatsolie.com/en/procurement-opportunities/compressor-inspection-repair-overhaul-and-testing-downstream/"
-  },
-  {
-   "buyer": "Staatsolie Maatschappij Suriname N.V.",
    "deadline": "2026-10-26",
    "id": "so-en-procurement-opportunities-temporary-labor-services",
    "lang": "en",
@@ -236,17 +216,6 @@
    "source": "IDB",
    "title": "Purchase of toners and parts for printers at DoTC",
    "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1144"
-  },
-  {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-10-19",
-   "id": "idb-39061",
-   "kind": "Consulting Firms",
-   "lang": "en",
-   "published": "2026-09-19",
-   "source": "IDB",
-   "title": "Consulting Firm to Support Corporate Income Tax Reform and International Tax Administration Modernization in Suriname",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1140"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -493,22 +462,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-20T01:15:14+00:00",
+   "fetched_at": "2026-10-20T06:34:33+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-20T01:15:13+00:00",
+   "fetched_at": "2026-10-20T06:34:32+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 18,
-   "fetched_at": "2026-10-20T01:15:13+00:00",
+   "fetched_at": "2026-10-20T06:34:32+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-20T01:15:12+00:00",
+   "fetched_at": "2026-10-20T06:34:31+00:00",
    "ok": true
   }
  }

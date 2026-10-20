@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-20T06:04:00+00:00",
+   "source": "Starnieuws",
+   "title": "Colombia: 14 doden bij instorting illegale goudmijn",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94446"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-20T03:05:03+00:00",
+   "source": "Suriname Herald",
+   "title": "Jones: Nickerie dreigt kansen in olie- en gassector mis te lopen",
+   "url": "https://www.srherald.com/suriname/2026/10/20/jones-nickerie-dreigt-kansen-in-olie-en-gassector-mis-te-lopen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-19T23:52:00+00:00",
    "source": "de Ware Tijd",
    "title": "Regering investeert 600.000 euro in Basis Acute Zorgopleiding AZP",
@@ -393,8 +407,15 @@
    "url": "https://www.srherald.com/economie/2026/09/15/derde-grootste-amerikaanse-bank-opent-kantoor-in-guyana/"
   }
  ],
- "fetched_at": "2026-10-20T01:15:37+00:00",
+ "fetched_at": "2026-10-20T06:34:56+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-20T03:05:03+00:00",
+   "source": "Suriname Herald",
+   "title": "Jones: Nickerie dreigt kansen in olie- en gassector mis te lopen",
+   "url": "https://www.srherald.com/suriname/2026/10/20/jones-nickerie-dreigt-kansen-in-olie-en-gassector-mis-te-lopen/"
+  },
   {
    "econ": false,
    "published": "2026-10-19T14:08:00+00:00",
@@ -427,32 +448,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-20T01:15:35+00:00",
+   "fetched_at": "2026-10-20T06:34:54+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-20T01:15:32+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-20T06:34:52+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-20T01:15:34+00:00",
+   "fetched_at": "2026-10-20T06:34:54+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T01:15:35+00:00",
+   "fetched_at": "2026-10-20T06:34:55+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-20T01:15:34+00:00",
+   "fetched_at": "2026-10-20T06:34:54+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T01:15:37+00:00",
+   "fetched_at": "2026-10-20T06:34:56+00:00",
    "ok": true
   }
  }
