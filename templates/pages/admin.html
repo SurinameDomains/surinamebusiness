@@ -54,7 +54,8 @@
 
  <section class="tab" data-pane="content" hidden>
   <p class="sub">Banners staan bovenaan elke pagina, mededelingen op een gekozen pagina, nieuws en aanbestedingen komen bovenaan hun lijst, links op de homepage. Wijzigingen staan binnen een half uur op de site (bij de volgende build).</p>
-  <div class="btns"><button type="button" class="btn sm" data-new="banner">+ Banner</button><button type="button" class="btn sm alt" data-new="notice">+ Mededeling</button><button type="button" class="btn sm alt" data-new="news">+ Nieuwsbericht</button><button type="button" class="btn sm alt" data-new="tender">+ Aanbesteding</button><button type="button" class="btn sm alt" data-new="link">+ Uitgelichte link</button></div>
+  <div class="btns"><button type="button" class="btn sm" data-new="banner">+ Banner</button><button type="button" class="btn sm alt" data-new="notice">+ Mededeling</button><button type="button" class="btn sm alt" data-new="news">+ Nieuwsbericht</button><button type="button" class="btn sm alt" data-new="tender">+ Aanbesteding</button><button type="button" class="btn sm alt" data-new="link">+ Uitgelichte link</button><button type="button" class="btn sm alt" data-new="company">+ Bedrijf</button></div>
+  <p class="sub">Bedrijven die zich via <a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a> aanmelden staan hier als concept met &ldquo;wacht op controle&rdquo;. Controleer ze (bel of app het nummer), zet de status op Live en sla op: het bedrijf staat dan na de volgende build in de bedrijvengids.</p>
   <form class="card calc" id="c-form" hidden onsubmit="return false">
    <h3 id="c-title" style="margin-top:0"></h3>
    <input type="hidden" name="id"><input type="hidden" name="kind">
@@ -63,6 +64,13 @@
    <div class="two"><div><label>Link (https://... of /pagina)</label><input name="url" maxlength="600"></div><div data-k="news,tender"><label>Bron / organisatie</label><input name="source" maxlength="120"></div></div>
    <div class="three"><div><label>Taal</label><select name="lang"><option value="all">Beide talen</option><option value="nl">Alleen NL</option><option value="en">Alleen EN</option></select></div>
     <div><label>Vanaf</label><input name="starts" type="date"></div><div><label>Tot en met</label><input name="ends" type="date"></div></div>
+   <div data-k="company">
+    <p class="sub" id="c-by"></p>
+    <div class="two"><div><label>Categorie</label><select name="d_group">{% for k, nl_, en_ in cgroups %}<option value="{{ k }}">{{ nl_ }}</option>{% endfor %}</select></div><div><label>Soort bedrijf (bijv. bakkerij)</label><input name="d_kind" maxlength="60"></div></div>
+    <div class="two"><div><label>Straat en nummer</label><input name="d_street" maxlength="120"></div><div><label>Plaats</label><input name="d_place" maxlength="60"></div></div>
+    <div class="three"><div><label>Telefoon</label><input name="d_phone" maxlength="40"></div><div><label>WhatsApp</label><input name="d_whatsapp" maxlength="40"></div><div><label>E-mail</label><input name="d_email" maxlength="160"></div></div>
+    <div class="two"><div><label>Openingstijden</label><input name="d_hours" maxlength="200" placeholder="Mo-Fr 08:00-16:30; Sa 08:00-13:00"></div><div><label>Vervangt vermelding (slug, leeg = nieuw)</label><input name="d_replaces" maxlength="90"></div></div>
+   </div>
    <div class="three">
     <div data-k="banner"><label>Stijl</label><select name="d_level"><option value="info">Info</option><option value="warn">Let op</option><option value="ok">Goed nieuws</option></select></div>
     <div data-k="notice"><label>Pagina</label><select name="d_page"><option value="all">Alle pagina's</option>{% for k in page_keys %}<option value="{{ k }}">{{ L(k) }}</option>{% endfor %}</select></div>
