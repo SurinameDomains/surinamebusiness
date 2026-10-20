@@ -23,7 +23,10 @@ const COOKIE = "__Host-sbs";
 const MAX_VALUE = 900 * 1024;          // one synced item
 const MAX_USER_BYTES = 15 * 1024 * 1024;
 const MAX_USER_KEYS = 1000;
-const CONTENT_KINDS = ["banner", "news", "tender", "notice", "link"];
+const CONTENT_KINDS = ["banner", "news", "tender", "notice", "link", "company"];
+// business directory: groups a listing can be filed under (same keys as companies.py GROUPS on the site)
+const CO_GROUPS = ["supermarkets", "wholesale", "department", "clothing", "auto", "fuel", "building", "home", "electronics",
+  "beauty", "health", "finance", "food", "jewelry", "offices", "ngo", "government", "travel", "services", "markets", "other"];
 const SETTINGS = {                      // admin-editable site settings with their defaults
   jobs_open: true,                      // employers can post vacancies
   signup_open: true,                    // new accounts can be created
@@ -73,6 +76,7 @@ async function route(req, env, ctx, url, p) {
   if (p === "/auth/logout-all" && M === "POST") return logout(req, env, true);
   // public
   if (p === "/contact" && M === "POST") return contact(req, env, ctx);
+  if (p === "/listing" && M === "POST") return submitListing(req, env, ctx);
   if (p === "/settings" && M === "GET") return json({ ok: true, settings: await getSettings(env) });
   // signed-in user
   if (p.startsWith("/me")) {
@@ -664,6 +668,56 @@ async function contact(req, env, ctx) {
   return json({ ok: true });
 }
 
+// ------------------------------------------------------------------ business directory: add or correct a listing
+// Public form on /bedrijf-aanmelden. Stored as sb_content kind "company", status "draft" until an admin checks it
+// and sets it live in the admin panel; the site then shows it in the directory on the next build.
+async function submitListing(req, env, ctx) {
+  const b = await body(req);
+  if (b.website2) return json({ ok: true });            // honeypot
+  const u = await currentUser(req, env);
+  const name = oneLine(b.name, 120);
+  const group = CO_GROUPS.includes(b.group) ? b.group : "";
+  const d = {
+    group, kind: oneLine(b.kind, 60), street: oneLine(b.street, 120), place: oneLine(b.place, 60),
+    phone: oneLine(b.phone, 40), whatsapp: oneLine(b.whatsapp, 40), email: oneLine(b.email, 160).toLowerCase(),
+    hours: oneLine(b.hours, 200), replaces: /^[a-z0-9-]{2,90}$/.test(b.replaces || "") ? b.replaces : "",
+    by_name: oneLine(b.by_name, 100), by_email: (oneLine(b.by_email, 160) || (u ? u.email : "")).toLowerCase(),
+    by_role: oneLine(b.by_role, 60), pending: true,
+  };
+  const website = oneLine(b.website, 300);
+  const about = clean(b.about, 600);
+  if (name.length < 2) throw new HttpError(400, "invalid", "name");
+  // a new listing needs a category, a place and one way to reach the business; a correction only what changes
+  if (!d.replaces) {
+    if (!group) throw new HttpError(400, "invalid", "group");
+    if (!d.place) throw new HttpError(400, "invalid", "place");
+    if (!d.phone && !d.email && !d.whatsapp && !website) throw new HttpError(400, "invalid", "phone");
+  }
+  if (d.email && !isEmail(d.email)) throw new HttpError(400, "invalid", "email");
+  if (website && !isUrl(website)) throw new HttpError(400, "invalid", "website");
+  if (!isEmail(d.by_email)) throw new HttpError(400, "invalid", "by_email");
+  if (b.consent !== true) throw new HttpError(400, "invalid", "consent");
+  const ih = await ipHash(req, env);
+  d.ih = ih.slice(0, 16);
+  const since = new Date(Date.now() - 864e5).toISOString();
+  const mine = await env.DB.prepare("SELECT COUNT(*) n FROM sb_content WHERE kind='company' AND created_at>? AND data LIKE ?")
+    .bind(since, '%"ih":"' + d.ih + '"%').first();
+  if (mine && mine.n >= (u ? 10 : 3)) throw new HttpError(429, "rate");
+  const all = await env.DB.prepare("SELECT COUNT(*) n FROM sb_content WHERE kind='company' AND status='draft' AND created_at>?").bind(since).first();
+  if (all && all.n >= 60) throw new HttpError(429, "rate");
+  const id = rid(12), now = nowIso();
+  await env.DB.prepare(`INSERT INTO sb_content (id,kind,status,lang,title,title_en,body,body_en,url,source,starts,ends,sort,data,created_at,updated_at,created_by)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).bind(id, "company", "draft", "all", name, null, about || null, null, website || null,
+    null, null, null, 0, JSON.stringify(d), now, now, u ? u.id : null).run();
+  ctx.waitUntil(notifyAdmin(env, (d.replaces ? "Bedrijfsgegevens bijgewerkt: " : "Nieuw bedrijf aangemeld: ") + name,
+    `<p><b>${esc(name)}</b>${d.kind ? " (" + esc(d.kind) + ")" : ""}<br>${esc(d.street)}${d.street ? ", " : ""}${esc(d.place)}</p>
+<p>Tel: ${esc(d.phone || "-")} &middot; WhatsApp: ${esc(d.whatsapp || "-")} &middot; ${esc(d.email || "")} ${website ? "&middot; " + esc(website) : ""}</p>
+${about ? `<p style="white-space:pre-wrap">${esc(about)}</p>` : ""}
+<p>Aangemeld door ${esc(d.by_name || "")} &lt;${esc(d.by_email)}&gt;${d.by_role ? ", " + esc(d.by_role) : ""}${u ? " (ingelogd)" : ""}${d.replaces ? "<br>Werkt bij: /bedrijf/" + esc(d.replaces) : ""}</p>
+<p><a href="${esc(siteUrl(env))}/beheer#content">Controleren in beheer</a></p>`));
+  return json({ ok: true });
+}
+
 // ------------------------------------------------------------------ settings and content
 async function getSettings(env) {
   const { results } = await env.DB.prepare("SELECT k,v FROM sb_settings").all();
@@ -695,7 +749,11 @@ async function publicContent(env) {
   const { results } = await env.DB.prepare(`SELECT id,kind,lang,title,title_en,body,body_en,url,source,starts,ends,sort,data,created_at,updated_at
       FROM sb_content WHERE status='live' AND (starts IS NULL OR starts='' OR starts<=?) AND (ends IS NULL OR ends='' OR ends>=?)
       ORDER BY sort DESC, created_at DESC LIMIT 500`).bind(today, today).all();
-  const items = results.map(r => { let d = {}; try { d = r.data ? JSON.parse(r.data) : {}; } catch (e) { /* ignore */ } return { ...r, data: d }; });
+  const items = results.map(r => {
+    let d = {}; try { d = r.data ? JSON.parse(r.data) : {}; } catch (e) { /* ignore */ }
+    if (r.kind === "company") { delete d.ih; delete d.by_name; delete d.by_email; delete d.by_role; delete d.pending; }
+    return { ...r, data: d };
+  });
   return new Response(JSON.stringify({ ok: true, generated_at: nowIso(), settings: await getSettings(env), items }), {
     headers: { "content-type": "application/json; charset=utf-8", "cache-control": "public, max-age=60" } });
 }
