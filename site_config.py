@@ -56,6 +56,7 @@ PAGES = {
     "account": ("mijn-account", "en/my-account", "trust"),
     "admin": ("beheer", "en/admin", "trust"),
     "companies": ("bedrijven/", "en/companies/", "companies"),
+    "addbiz": ("bedrijf-aanmelden", "en/add-your-business", "companies"),
     "search": ("zoeken", "en/search", "trust"),  # rendered by build_company_pages
     "tools": ("tools", "en/tools", "tools"),
     "douane": ("douanekoers", "en/customs-exchange-rate", "trade"),
@@ -82,7 +83,7 @@ MENU = [
         ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "holidays"]),
     ]),
     ("trade", "Handel en markt", "Trade and market", [
-        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "import"]),
+        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "addbiz", "import"]),
         ("Markt en cijfers", "Market and figures", ["rates", "douane", "gold", "maxprices", "outages", "news"]),
     ]),
     ("guides", "Gidsen", "Guides", [
@@ -94,7 +95,7 @@ MENU = [
 FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
     ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "douane", "gold", "maxprices", "outages", "news"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "addbiz", "douane", "gold", "maxprices", "outages", "news"]),
     ("Gidsen", "Guides", ["start", "hiring", "bankaccount", "contacts", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
     ("Over", "About", ["about", "sources", "contact", "privacy", "terms", "account"]),
 ]

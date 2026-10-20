@@ -27,6 +27,14 @@ Deploy (from `worker/`): `wrangler d1 create sb-jobs`, put the id in `wrangler.t
 
 Local test: `.dev.vars` with `ADMIN_SECRET`, `TURNSTILE_SECRET=1x0000000000000000000000000000000AA`, `MAIL_LOG=1`; `wrangler dev`; then `JOBS_API=http://localhost:8787 TURNSTILE_SITEKEY=1x00000000000000000000AA python fetch.py && python build.py`.
 
+## Editorial filters (quality.py)
+
+Applied at build time; fetch.py still stores everything. Business news only shows headlines about Suriname: world news from the local papers' feeds (China, Colombia, Venezuela...) and crime reports are left out unless the headline also names Suriname (Guyana is allowed on the oil list). Tenders that a buyer re-posts (an AMENDMENT prefix or a corrected typo, at most 4 characters apart, same buyer) are folded into the newest one with a "Bijgewerkt" label.
+
+## Directory listings (sb-api `/listing`)
+
+Businesses add themselves or correct their entry at `/bedrijf-aanmelden` (`/en/add-your-business`; a company page links there with `?b=<slug>&n=<name>`). No account needed; honeypot plus 3 submissions per IP per day (10 when signed in) and 60 pending in total. A submission is stored as admin content of kind `company`, status draft, marked "wacht op controle", and the admin gets an email. In Beheer > Inhoud the admin checks it (call or WhatsApp), sets Live and saves; the next build merges it into the directory (`build.merge_listings`): with `replaces` it updates that OpenStreetMap entry, otherwise it becomes a new entry with its own page. Submitter name, email and the IP hash never leave the API (`/public/content` strips them).
+
 ## Design system (assets/style.css)
 
 - Two self-hosted, subset fonts in `assets/fonts/`: **Source Sans 3** (variable 400–700, upright + italic) for text and all numbers, **Fraunces** (one static instance, 650, optical size 48, softness 25) for h1/h2 and legends. Google Fonts is no longer loaded: it stripped the `tnum`/`lnum` features, so figures were proportional old-style; Source Sans 3 has tabular lining figures by default, which is why `.big`, tables and results use the sans. Fallbacks are metric-matched (`SS3 Fallback`, `Fraunces Fallback`) to limit layout shift. Preloaded in `base.html`.

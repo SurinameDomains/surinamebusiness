@@ -18,6 +18,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import tools_meta as TM
+import quality
 from site_config import (INDEXNOW_KEY, DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
@@ -196,6 +197,11 @@ META["outages"] = (("Stroomonderbreking EBS vandaag en morgen: gepland onderhoud
                    ("EBS power outage Suriname today and tomorrow: planned maintenance by area",
                     "Where and when EBS cuts power for planned maintenance: date, time, district and streets. Checked every 30 minutes."))
 LABELS["gold"] = ("Goudprijs en olieprijs", "Gold and oil price")
+LABELS["addbiz"] = ("Bedrijf aanmelden", "Add your business")
+META["addbiz"] = (("Bedrijf aanmelden in de bedrijvengids van Suriname, gratis",
+                   "Zet je bedrijf gratis in de bedrijvengids van Suriname Business, of werk je adres, telefoon en openingstijden bij. We controleren elke aanmelding."),
+                  ("Add your business to the Suriname business directory, free",
+                   "List your business for free in the Suriname Business directory, or update your address, phone and opening hours. We check every listing."))
 META["douane"] = (("Douanekoers Suriname vandaag: dollar, euro en 20 andere valuta",
                    "De actuele douanekoers van de Centrale Bank (CBvS) voor invoeraangiftes: USD, EUR en 20 andere valuta, geldigheid, volgende lijst en verloop."),
                   ("Suriname customs exchange rate today: USD, EUR and 20 more",
@@ -354,7 +360,7 @@ def tenders_view():
         own.append({"id": "sb-" + c["id"], "title": c["title"], "buyer": d.get("buyer") or c.get("source") or "Suriname Business",
                      "deadline": d.get("deadline") or c.get("ends"), "published": (c.get("created_at") or "")[:10],
                      "url": c.get("url") or SITE_URL, "source": "Suriname Business", "lang": "nl"})
-    items = own + items
+    items = own + quality.dedupe_tenders(items)
     for it in items:
         it["days_left"] = days_until(it.get("deadline"))
     return {"items": items, "sources": t.get("sources", {}), "fetched_at": t.get("fetched_at"),
@@ -374,22 +380,31 @@ def jobs_view():
 def news_view():
     n = load("news.json", {"business": [], "oil": []})
     fresh = hours_old(n.get("fetched_at")) < 48
-    business = n.get("business", []) if fresh else []
+    business = [it for it in n.get("business", []) if quality.local_business(it.get("title"))] if fresh else []
+    oil = [it for it in n.get("oil", []) if quality.local_business(it.get("title"), oil=True)] if fresh else []
     # own news items from the admin panel go first
     own = [{"title": c["title"], "url": c.get("url") or SITE_URL, "source": c.get("source") or "Suriname Business",
             "published": c.get("created_at"), "econ": True, "own": True} for c in SBC["items"] if c["kind"] == "news"]
-    return {"business": own + business, "oil": n.get("oil", []) if fresh else [],
+    return {"business": own + business, "oil": oil,
             "fetched_at": n.get("fetched_at"), "sources": n.get("sources", {})}
 
 
 def sbcontent_view():
     """Banners, news, tenders, notices and settings managed in the admin panel (sb-api /public/content)."""
     c = load("sbcontent.json", {"items": [], "settings": {}})
-    items = [it for it in c.get("items", []) if it.get("kind") in ("banner", "news", "tender", "notice", "link")]
+    items = [it for it in c.get("items", []) if it.get("kind") in ("banner", "news", "tender", "notice", "link", "company")]
     return {"items": items, "settings": c.get("settings") or {}, "fetched_at": c.get("fetched_at")}
 
 
 SBC = {"items": [], "settings": {}}
+
+
+def _cgroups():
+    import companies as C
+    return [(k, v[1], v[3]) for k, v in C.GROUPS.items()]
+
+
+CGROUPS = _cgroups()
 
 
 NL_MON = {"jan": 1, "feb": 2, "maa": 3, "mrt": 3, "mar": 3, "apr": 4, "mei": 5, "may": 5, "jun": 6, "jul": 7,
@@ -650,6 +665,41 @@ def nearest_town(lat, lon):
     return best if bd ** 0.5 * 111 < 18 else ""
 
 
+def merge_listings(recs, C):
+    """Businesses that added or corrected their own listing (admin-checked, sb-api kind "company").
+    A listing with `replaces` updates that OpenStreetMap entry; otherwise it is a new entry with its own page."""
+    by_slug = {r["slug"]: r for r in recs if r.get("slug")}
+    used = set(by_slug) | set(C.REDIRECTS)
+    for c in SBC["items"]:
+        if c.get("kind") != "company":
+            continue
+        d = c.get("data") or {}
+        fields = {"name": c.get("title") or "", "group": d.get("group") if d.get("group") in C.GROUPS else "",
+                  "kind": d.get("kind") or "", "street": d.get("street") or "", "place": d.get("place") or "",
+                  "phone": d.get("phone") or "", "website": c.get("url") or None, "email": d.get("email") or None,
+                  "hours": d.get("hours") or None, "whatsapp": re.sub(r"[^0-9]", "", d.get("whatsapp") or "") or None,
+                  "about": c.get("body") or ""}
+        if fields["whatsapp"] and len(fields["whatsapp"]) == 7:
+            fields["whatsapp"] = "597" + fields["whatsapp"]     # local Suriname number
+        target = by_slug.get(d.get("replaces") or "")
+        if target:
+            for k, v in fields.items():
+                if v:
+                    target[k] = v
+            target["own"] = True
+            target["page"] = True
+            continue
+        if len(fields["name"]) < 2 or not fields["group"]:
+            continue
+        r = dict(fields, brand=None, operator=None, lat=None, lon=None, osm=None, district="", own=True, page=True)
+        base = C.slugify(r["name"] + (" " + r["place"] if r["place"] else ""))
+        slug = base if base not in used else base + "-sb"
+        used.add(slug)
+        r["slug"] = slug
+        recs.append(r)
+    recs.sort(key=lambda x: x["name"].lower())
+
+
 def companies_view():
     import companies as C
     try:
@@ -660,6 +710,7 @@ def companies_view():
     for r in recs:
         if not r["place"]:
             r["place"] = nearest_town(r["lat"], r["lon"])
+    merge_listings(recs, C)
     groups = []
     for g, (nls, nll, ens, enl) in C.GROUPS.items():
         items = [r for r in recs if r["group"] == g]
@@ -978,7 +1029,7 @@ def main():
             TM=TM, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
             account_api=ACCOUNT_API, google_client_id=GOOGLE_CLIENT_ID, dev_login=bool(os.environ.get("SB_DEV_LOGIN")),
-            sbc=SBC, settings=SBC["settings"],
+            sbc=SBC, settings=SBC["settings"], cgroups=CGROUPS,
             page_keys=[k for k in PAGES if k not in DYNAMIC and k not in PRIVATE_PAGES],
             tool_keys=sorted({t["key"] for t in TM.TOOLS} | {k for v in TM.EXISTING.values() for k in v}),
             banners=[b for b in SBC["items"] if b["kind"] == "banner" and b.get("lang") in ("all", lang, None)],
