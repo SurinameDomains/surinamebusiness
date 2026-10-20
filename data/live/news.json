@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-20T19:21:40+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons wil strengere regels voor digitaal bankieren in Suriname",
+   "url": "https://www.srherald.com/suriname/2026/10/20/simons-wil-strengere-regels-voor-digitaal-bankieren-in-suriname/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-20T14:16:00+00:00",
    "source": "Starnieuws",
    "title": "Braganza: Uitblijven grootschalige landbouw in Suriname gemiste kans",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Overheidsrekening slaat om naar tekort van SRD 3,6 miljard",
    "url": "https://www.srherald.com/economie/2026/09/25/overheidsrekening-slaat-om-naar-tekort-van-srd-36-miljard/"
-  },
-  {
-   "econ": true,
-   "published": "2026-09-25T15:02:43+00:00",
-   "source": "Suriname Herald",
-   "title": "Staatsschuld blijft ruim boven wettelijk plafond",
-   "url": "https://www.srherald.com/economie/2026/09/25/staatsschuld-blijft-ruim-boven-wettelijk-plafond/"
   }
  ],
- "fetched_at": "2026-10-20T17:31:04+00:00",
+ "fetched_at": "2026-10-20T20:52:14+00:00",
  "oil": [
   {
    "econ": false,
@@ -462,32 +462,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-20T17:31:02+00:00",
+   "fetched_at": "2026-10-20T20:52:12+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 19,
-   "fetched_at": "2026-10-20T17:31:00+00:00",
+   "count": 20,
+   "fetched_at": "2026-10-20T20:52:10+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-20T17:31:02+00:00",
+   "fetched_at": "2026-10-20T20:52:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T17:31:03+00:00",
+   "fetched_at": "2026-10-20T20:52:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-20T17:31:01+00:00",
+   "fetched_at": "2026-10-20T20:52:11+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T17:31:04+00:00",
+   "fetched_at": "2026-10-20T20:52:14+00:00",
    "ok": true
   }
  }
