@@ -17,9 +17,6 @@
 {% block content %}
 {% set hm = settings.get('home_message_' ~ lang) %}{% if hm %}<div class="note home-msg">{{ hm }}</div>{% endif %}
 {% if own_links %}<div class="card own-links" style="margin-top:20px"><div class="eyebrow">{{ 'Uitgelicht' if nl else 'Featured' }}</div><ul class="list">{% for c in own_links %}<li><a href="{{ c.url or '#' }}">{{ ctext(c) }}</a>{% if ctext(c, 'body') %}<div class="meta"><span>{{ ctext(c, 'body') }}</span></div>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
-<div class="today" aria-label="{{ 'Vandaag' if nl else 'Today' }}">
-{% for t in ticker %}<a href="{{ t.url }}"><span class="k">{{ t.label }}</span><span class="v">{{ t.value }}</span></a>{% endfor %}
-</div>
 
 {# 1. The tools are what makes this site different: they come first. #}
 <section class="home-sec">
@@ -38,9 +35,9 @@
   <section class="card">
    <div class="sec-head"><h2 class="h3">{{ 'Aanbestedingen' if nl else 'Tenders' }}</h2><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} &rarr;</a></div>
    {% if closing %}<div class="eyebrow" style="margin-top:6px">{{ 'Sluit binnen 7 dagen' if nl else 'Closing within 7 days' }}</div>
-   <ul class="list">{% for t in closing[:4] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta"><span>{{ t.buyer }}</span><span class="pill red">{% if t.days_left == 0 %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ 'nog' if nl else '' }} {{ t.days_left }} {{ 'dagen' if nl else 'days left' }}{% endif %}</span></div></li>{% endfor %}</ul>
+   <ul class="list cap3">{% for t in closing[:4] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta"><span>{{ t.buyer }}</span><span class="pill red">{% if t.days_left == 0 %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ 'nog' if nl else '' }} {{ t.days_left }} {{ 'dagen' if nl else 'days left' }}{% endif %}</span></div></li>{% endfor %}</ul>
    <div class="eyebrow" style="margin-top:14px">{{ 'Nieuw' if nl else 'New' }}</div>{% endif %}
-   <ul class="list">
+   <ul class="list cap3">
    {% for t in tenders['items'][:5] %}
     <li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
      <div class="meta"><span>{{ t.buyer }}</span><span>{{ date(t.published) }}</span>{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline, year=False) }}</span>{% endif %}</div></li>
@@ -51,7 +48,7 @@
 
   <section class="card" style="margin-top:16px">
    <div class="sec-head"><h2 class="h3">{{ 'Vacatures' if nl else 'Jobs' }}</h2><a href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job, free' }} &rarr;</a></div>
-   <ul class="list">
+   <ul class="list cap4">
    {% for j in jobs['items'][:6] %}<li><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a><div class="meta"><span>{{ j.employer }}</span>{% if j.published %}<span>{{ date(j.published) }}</span>{% endif %}</div></li>
    {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
    </ul>
@@ -100,7 +97,7 @@
  <div class="grid g3 home-more">
   <section>
    <div class="eyebrow">{{ 'Zakennieuws' if nl else 'Business news' }}</div>
-   <ul class="list compact">
+   <ul class="list compact cap3">
    {% for n in news.business[:5] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
    {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
    </ul>
