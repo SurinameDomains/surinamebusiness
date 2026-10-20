@@ -12,18 +12,18 @@
 </div>
 <section class="tool-start" id="tool-start">
  <div class="eyebrow">{{ 'Begin hier' if nl else 'Start here' }}</div>
- <div class="grid g4 tools-mini">
-  {% for k in ['invoice','quote','payslip'] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
-  <a class="card tool" href="{{ U('salary') }}"><span class="ic">{{ tool_icon('calc')|safe }}</span><b>{{ L('salary') }}</b><span>{{ TM.EXISTING_BLURB['salary'][0] if nl else TM.EXISTING_BLURB['salary'][1] }}</span></a>
+ <div class="tindex c4">
+  {% for k in ['invoice','quote','payslip'] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+  <a class="tool ti" href="{{ U('salary') }}"><b>{{ L('salary') }}</b><span>{{ TM.EXISTING_BLURB['salary'][0] if nl else TM.EXISTING_BLURB['salary'][1] }}</span></a>
  </div>
 </section>
 <div id="tool-list">
 {% for g, gnl, gen in TM.GROUPS %}
 <section class="tool-group" data-g="{{ g }}">
 <h2>{{ gnl if nl else gen }}</h2>
-<div class="grid g4">
-{% for t in TM.TOOLS if t.group == g %}<a class="card tool" href="{{ U(t.key) }}"><span class="ic">{{ tool_icon(t.icon)|safe }}</span><b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
-{% for k in TM.EXISTING.get(g, []) %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.EXISTING_ICON.get(k,'calc'))|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span></a>{% endfor %}
+<div class="tindex">
+{% for t in TM.TOOLS if t.group == g %}<a class="tool ti" href="{{ U(t.key) }}"><b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
+{% for k in TM.EXISTING.get(g, []) %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span></a>{% endfor %}
 </div>
 </section>
 {% endfor %}

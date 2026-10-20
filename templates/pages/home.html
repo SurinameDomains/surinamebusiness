@@ -3,13 +3,15 @@
 {% block hero %}
 <section class="hero">
  <div class="wrap">
-  <h1>{% if nl %}Werken en zakendoen in Suriname, <em>in cijfers</em>{% else %}Working and doing business in Suriname, <em>by the numbers</em>{% endif %}</h1>
-  <p class="lead">{{ 'Bereken je netto salaris, volg de koers, vind een baan of een aanbesteding. Actuele cijfers met bron, gratis.' if nl else 'Work out your net salary, follow the exchange rate, find a job or a tender. Current figures with sources, free.' }}</p>
-  <div class="grid g4 tools">
-   <a class="card tool" href="{{ U('salary') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span>{% set ex = salary_py(15000) %}<b>{{ srd(ex.net) }} {{ 'netto' if nl else 'net' }}</b><span>{{ 'van SRD 15.000 bruto. En van jouw loon?' if nl else 'from SRD 15,000 gross. And from your pay?' }}</span></a>
-   <a class="card tool" href="{{ U('rates') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><b>{% if rates and not rates.stale %}USD {{ num(rates.usd.sell) }}{% else %}{{ 'Wisselkoers' if nl else 'Exchange rate' }}{% endif %}</b><span>{% if rates and not rates.stale %}EUR {{ num(rates.eur.sell) }} &middot; CME {{ date(rates.business_date, year=False) }}. {{ 'Ook CBvS en de banken' if nl else 'Also CBvS and the banks' }}{% else %}{{ 'Dollar en euro bij CME, CBvS en de banken' if nl else 'Dollar and euro at CME, CBvS and the banks' }}{% endif %}</span></a>
-   <a class="card tool" href="{{ U('jobs') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><b>{{ jobs['items']|length }} {{ 'vacatures' if nl else 'open jobs' }}</b><span>{{ 'Overheid, grote werkgevers en direct geplaatst' if nl else 'Government, large employers and posted directly' }}</span></a>
-   <a class="card tool" href="{{ U('tenders') }}"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><b>{{ tenders.count }} {{ 'open aanbestedingen' if nl else 'open tenders' }}</b><span>{{ 'Overheid, Staatsolie, IDB en Wereldbank' if nl else 'Government, Staatsolie, IDB and World Bank' }}</span></a>
+  <p class="dateline">{{ date(today, weekday=True) }} &middot; Paramaribo</p>
+  <h1>{% if nl %}Werken en zakendoen in Suriname, in cijfers{% else %}Working and doing business in Suriname, by the numbers{% endif %}<i class="dot">.</i></h1>
+  <p class="lead">{% if nl %}Netto salaris, de koers van vandaag, vacatures en aanbestedingen op een plek, met de bron erbij. En {{ TM.TOTAL }} gratis tools voor je factuur, offerte of loonstrook.{% else %}Net salary, today's exchange rate, jobs and tenders in one place, with the source next to each figure. And {{ TM.TOTAL }} free tools for your invoice, quote or payslip.{% endif %}</p>
+  {% set ex = salary_py(15000) %}
+  <div class="ledger">
+   <a href="{{ U('salary') }}"><span class="k">{{ 'Netto bij SRD 15.000 bruto' if nl else 'Net from SRD 15,000 gross' }}</span><span class="v">{{ num(ex.net, 0) }}<small>SRD</small></span><span class="s">{{ 'En van jouw loon?' if nl else 'And from your pay?' }} &rarr;</span></a>
+   <a href="{{ U('rates') }}">{% if rates and not rates.stale %}<span class="k">{{ 'Dollar verkoop, CME' if nl else 'US dollar sell, CME' }}</span><span class="v">{{ num(rates.usd.sell) }}<small>SRD</small></span><span class="s">{{ 'Euro' if nl else 'Euro' }} {{ num(rates.eur.sell) }} &middot; {{ date(rates.business_date, year=False) }}</span>{% else %}<span class="k">{{ 'Wisselkoers' if nl else 'Exchange rate' }}</span><span class="v">USD</span><span class="s">{{ 'CME, CBvS en de banken' if nl else 'CME, CBvS and the banks' }}</span>{% endif %}</a>
+   <a href="{{ U('jobs') }}"><span class="k">{{ 'Vacatures' if nl else 'Open jobs' }}</span><span class="v">{{ jobs['items']|length }}</span><span class="s">{{ 'Overheid, grote werkgevers en direct geplaatst' if nl else 'Government, large employers, posted here' }}</span></a>
+   <a href="{{ U('tenders') }}"><span class="k">{{ 'Open aanbestedingen' if nl else 'Open tenders' }}</span><span class="v">{{ tenders.count }}</span><span class="s">{{ 'Overheid, Staatsolie, IDB en Wereldbank' if nl else 'Government, Staatsolie, IDB and World Bank' }}</span></a>
   </div>
  </div>
 </section>
@@ -21,10 +23,10 @@
 {# 1. The tools are what makes this site different: they come first. #}
 <section class="home-sec">
  <div class="sec-head"><h2>{{ 'Gratis tools voor je bedrijf' if nl else 'Free tools for your business' }}</h2><a href="{{ U('tools') }}">{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} {{ 'tools' if nl else 'tools' }} &rarr;</a></div>
- <p class="sub home-sub">{{ 'Factuur, offerte of loonstrook in een minuut, met Surinaamse BTW en SRD. Alles werkt in je eigen browser, zonder account.' if nl else 'Invoice, quote or payslip in a minute, with Suriname VAT and SRD. Everything runs in your own browser, no account needed.' }}</p>
- <div class="grid g4 tools-mini">
+ <p class="sub home-sub">{{ 'Met Surinaamse BTW, loonbelasting 2026 en SRD. Alles werkt in je eigen browser: je gegevens gaan nergens heen.' if nl else 'With Suriname VAT, 2026 wage tax and SRD. Everything runs in your own browser: your data goes nowhere.' }}</p>
+ <div class="tindex c4">
   {% set feat = (settings.get('featured_tools') or '').replace(' ', '').split(',')|select('in', TM.BY_KEY)|list %}
-  {% for k in (feat if feat|length >= 4 else ['invoice','quote','payslip','pricing','importcost','loan','btwregister','pdftools'])[:8] %}<a class="card tool" href="{{ U(k) }}"><span class="ic">{{ tool_icon(TM.BY_KEY[k].icon)|safe }}</span><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+  {% for k in (feat if feat|length >= 4 else ['invoice','quote','payslip','pricing','importcost','loan','btwregister','pdftools'])[:8] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
  </div>
 </section>
 
@@ -40,7 +42,7 @@
    <ul class="list cap3">
    {% for t in tenders['items'][:5] %}
     <li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
-     <div class="meta"><span>{{ t.buyer }}</span><span>{{ date(t.published) }}</span>{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline, year=False) }}</span>{% endif %}</div></li>
+     <div class="meta"><span>{{ t.buyer }}</span><span>{{ date(t.published) }}</span>{% if t.amended %}<span class="pill">{{ "Bijgewerkt" if nl else "Updated" }}</span>{% endif %}{% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline, year=False) }}</span>{% endif %}</div></li>
    {% else %}<li class="empty">{{ 'Nog geen gegevens.' if nl else 'No data yet.' }}</li>{% endfor %}
    </ul>
    {% if tenders.fetched_at %}<div class="foot"><span>{{ 'Bijgewerkt' if nl else 'Updated' }} {{ ago(tenders.fetched_at) }}</span><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></div>{% endif %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="tool-head">
+ <h1>{{ 'Je bedrijf in de bedrijvengids' if nl else 'Your business in the directory' }}</h1>
+ <p class="lead" id="ab-lead">{{ 'Gratis, en zonder account. Vul in wat klanten moeten weten: waar je zit, hoe ze je bereiken en wanneer je open bent. We bellen of appen even om te controleren en zetten het daarna online.' if nl else 'Free, no account needed. Fill in what customers need to know: where you are, how to reach you and when you are open. We call or message you to check, then put it online.' }}</p>
+ <p class="note" id="ab-upd" hidden></p>
+</div>
+
+<form class="card calc" id="ab" novalidate style="max-width:760px">
+ <div class="hp" aria-hidden="true"><label>Website 2<input name="website2" tabindex="-1" autocomplete="off"></label></div>
+ <input type="hidden" name="replaces">
+ <fieldset>
+  <legend>{{ 'Het bedrijf' if nl else 'The business' }}</legend>
+  <label for="ab-name">{{ 'Naam van het bedrijf' if nl else 'Business name' }}</label>
+  <input id="ab-name" name="name" maxlength="120" required autocomplete="organization">
+  <div class="two">
+   <div><label for="ab-group">{{ 'Categorie' if nl else 'Category' }}</label>
+    <select id="ab-group" name="group" required><option value="">{{ 'Kies een categorie' if nl else 'Choose a category' }}</option>{% for k, a, b in cgroups %}<option value="{{ k }}">{{ a if nl else b }}</option>{% endfor %}</select></div>
+   <div><label for="ab-kind">{{ 'Wat voor zaak? (optioneel)' if nl else 'What kind of business? (optional)' }}</label>
+    <input id="ab-kind" name="kind" maxlength="60" placeholder="{{ 'Bijv. bakkerij, autoverhuur, notaris' if nl else 'E.g. bakery, car rental, notary' }}"></div>
+  </div>
+  <label for="ab-about">{{ 'In een paar zinnen (optioneel)' if nl else 'In a few sentences (optional)' }}</label>
+  <textarea id="ab-about" name="about" rows="3" maxlength="600" placeholder="{{ 'Wat je verkoopt of doet, sinds wanneer, voor wie.' if nl else 'What you sell or do, since when, for whom.' }}"></textarea>
+  <div class="hint"><span id="ab-left">600</span> {{ 'tekens over' if nl else 'characters left' }}</div>
+ </fieldset>
+
+ <fieldset>
+  <legend>{{ 'Adres en contact' if nl else 'Address and contact' }}</legend>
+  <div class="two">
+   <div><label for="ab-street">{{ 'Straat en nummer' if nl else 'Street and number' }}</label><input id="ab-street" name="street" maxlength="120" autocomplete="street-address"></div>
+   <div><label for="ab-place">{{ 'Plaats of wijk' if nl else 'Town or area' }}</label><input id="ab-place" name="place" maxlength="60" list="ab-places" required>
+    <datalist id="ab-places">{% for p in ['Paramaribo','Lelydorp','Wanica','Nieuw Nickerie','Albina','Moengo','Groningen','Onverwacht','Totness','Brokopondo','Meerzorg','Domburg','Commewijne','Saramacca','Para','Coronie','Marowijne','Sipaliwini'] %}<option value="{{ p }}">{% endfor %}</datalist></div>
+  </div>
+  <div class="three">
+   <div><label for="ab-phone">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="ab-phone" name="phone" type="tel" maxlength="40" inputmode="tel" autocomplete="tel" placeholder="{{ 'Bijv. 471234' if nl else 'E.g. 471234' }}"></div>
+   <div><label for="ab-wa">WhatsApp</label><input id="ab-wa" name="whatsapp" type="tel" maxlength="40" inputmode="tel" placeholder="{{ 'Bijv. 8123456' if nl else 'E.g. 8123456' }}"></div>
+   <div><label for="ab-mail">{{ 'E-mail van de zaak' if nl else 'Business email' }}</label><input id="ab-mail" name="email" type="email" maxlength="160" autocomplete="email"></div>
+  </div>
+  <div class="two">
+   <div><label for="ab-web">{{ 'Website of Facebook-pagina' if nl else 'Website or Facebook page' }}</label><input id="ab-web" name="website" type="url" maxlength="300" placeholder="https://"></div>
+   <div><label for="ab-hours">{{ 'Openingstijden' if nl else 'Opening hours' }}</label><input id="ab-hours" name="hours" maxlength="200" placeholder="{{ 'Bijv. ma-vr 8:00-16:30, za 8:00-13:00' if nl else 'E.g. Mon-Fri 8:00-16:30, Sat 8:00-13:00' }}"></div>
+  </div>
+  <div class="hint">{{ 'Minstens een manier om je te bereiken: telefoon, WhatsApp, e-mail of website.' if nl else 'At least one way to reach you: phone, WhatsApp, email or website.' }}</div>
+ </fieldset>
+
+ <fieldset>
+  <legend>{{ 'Wie meldt het aan?' if nl else 'Who is submitting?' }}</legend>
+  <p class="sub" style="margin-top:0">{{ 'Alleen voor ons, om te controleren. Dit komt niet op de site.' if nl else 'For us only, to check. This is not shown on the site.' }}</p>
+  <div class="three">
+   <div><label for="ab-by">{{ 'Je naam' if nl else 'Your name' }}</label><input id="ab-by" name="by_name" maxlength="100" autocomplete="name"></div>
+   <div><label for="ab-bymail">{{ 'Je e-mail' if nl else 'Your email' }}</label><input id="ab-bymail" name="by_email" type="email" maxlength="160" required autocomplete="email"></div>
+   <div><label for="ab-role">{{ 'Je rol' if nl else 'Your role' }}</label><select id="ab-role" name="by_role"><option value="eigenaar">{{ 'Eigenaar' if nl else 'Owner' }}</option><option value="medewerker">{{ 'Medewerker' if nl else 'Employee' }}</option><option value="klant">{{ 'Klant of bezoeker' if nl else 'Customer or visitor' }}</option></select></div>
+  </div>
+  <label class="check"><input type="checkbox" name="consent" id="ab-consent" required> {{ 'Deze gegevens kloppen en mogen op Suriname Business staan.' if nl else 'These details are correct and may appear on Suriname Business.' }}</label>
+ </fieldset>
+
+ <button class="btn inline" type="submit" id="ab-btn" style="margin-top:14px">{{ 'Aanmelden' if nl else 'Submit' }}</button>
+ <div class="form-status" id="ab-status" role="status" aria-live="polite"></div>
+</form>
+
+<div class="card ab-done" id="ab-done" hidden style="max-width:760px">
+ <h2 style="margin-top:0">{{ 'Ontvangen, dank je.' if nl else 'Received, thank you.' }}</h2>
+ <p>{{ 'We nemen binnen een paar werkdagen contact op om de gegevens te controleren. Daarna staat je bedrijf in de gids.' if nl else 'We will be in touch within a few working days to check the details. Then your business goes into the directory.' }}</p>
+ <p><a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Naar de bedrijvengids' if nl else 'To the directory' }} &rarr;</a> &middot; <a href="{{ U('tools') }}">{{ 'Gratis tools voor je zaak' if nl else 'Free tools for your business' }}</a></p>
+</div>
+
+<section class="prose" style="margin-top:30px">
+ <h2>{{ 'Goed om te weten' if nl else 'Good to know' }}</h2>
+ <ul>
+  <li>{{ 'Een vermelding is gratis en blijft gratis. Er zit geen abonnement of advertentie aan vast.' if nl else 'A listing is free and stays free. No subscription or advertising attached.' }}</li>
+  <li>{{ 'Je bedrijf krijgt een eigen pagina met adres, telefoon, WhatsApp en openingstijden, en staat in de categorie en plaats die je kiest.' if nl else 'Your business gets its own page with address, phone, WhatsApp and opening hours, and appears under the category and town you choose.' }}</li>
+  <li>{{ 'Staat je bedrijf er al in? Open je pagina in de gids en kies "Werk je gegevens bij". Vul dan alleen in wat anders moet.' if nl else 'Already listed? Open your page in the directory and choose "Update your details". Then fill in only what changes.' }}</li>
+  <li>{{ 'Weghalen of iets anders? Mail' if nl else 'Remove a listing or anything else? Email' }} <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</li>
+ </ul>
+</section>
+{% endblock %}
+{% block scripts %}<script>
+(function(){
+ var f=document.getElementById('ab'), st=document.getElementById('ab-status'), NL={{ 'true' if nl else 'false' }}, E=f.elements;
+ function say(c,m){ st.className='form-status '+c; st.textContent=m; }
+ var q=new URLSearchParams(location.search), b=q.get('b'), n=q.get('n');
+ if(b&&/^[a-z0-9-]{2,90}$/.test(b)){
+  E.replaces.value=b; if(n) E.name.value=n.slice(0,120);
+  var u=document.getElementById('ab-upd'); u.hidden=false;
+  u.textContent=NL?('Je werkt de gegevens van '+(n||'dit bedrijf')+' bij. Vul alleen in wat anders of nieuw is; wat je leeg laat, blijft zoals het nu op de site staat.'):('You are updating '+(n||'this business')+'. Fill in only what is new or different; anything left empty stays as it is on the site.');
+  E.group.required=false; E.place.required=false;
+  document.querySelector('#ab-group option[value=""]').textContent=NL?'Niet veranderen':'No change';
+ }
+ var left=document.getElementById('ab-left'); E.about.addEventListener('input',function(){left.textContent=600-E.about.value.length;});
+ function fill(){ var u=window.SBA&&SBA.user(); if(u){ if(!E.by_email.value) E.by_email.value=u.email; if(!E.by_name.value) E.by_name.value=u.name||''; } }
+ window.addEventListener('sba:ready', fill); window.addEventListener('sba:user', fill); fill();
+ function bad(el,m){ say('err',m); el.focus(); return false; }
+ function check(){
+  var mail=/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i, upd=!!E.replaces.value;
+  if(E.name.value.trim().length<2) return bad(E.name, NL?'Vul de naam van het bedrijf in.':'Enter the business name.');
+  if(!upd&&!E.group.value) return bad(E.group, NL?'Kies een categorie.':'Choose a category.');
+  if(!upd&&!E.place.value.trim()) return bad(E.place, NL?'Vul de plaats of wijk in.':'Enter the town or area.');
+  if(!upd&&!(E.phone.value.trim()||E.whatsapp.value.trim()||E.email.value.trim()||E.website.value.trim())) return bad(E.phone, NL?'Geef minstens een manier om je te bereiken.':'Give at least one way to reach you.');
+  if(E.email.value.trim()&&!mail.test(E.email.value.trim())) return bad(E.email, NL?'Het e-mailadres van de zaak klopt niet.':'The business email is not valid.');
+  var w=E.website.value.trim(); if(w&&!/^https?:\/\//i.test(w)){ w='https://'+w; E.website.value=w; }
+  if(!mail.test(E.by_email.value.trim())) return bad(E.by_email, NL?'Vul je eigen e-mailadres in, zodat we je kunnen bereiken.':'Enter your own email so we can reach you.');
+  if(!E.consent.checked) return bad(E.consent, NL?'Vink aan dat de gegevens kloppen.':'Tick the box to confirm the details.');
+  return true;
+ }
+ f.addEventListener('submit', function(e){
+  e.preventDefault(); if(!check()) return;
+  if(!window.SBA){ say('err', NL?'Even geduld, de pagina laadt nog.':'Please wait, the page is still loading.'); return; }
+  var body={consent:true}; ['name','group','kind','about','street','place','phone','whatsapp','email','website','hours','by_name','by_email','by_role','replaces','website2'].forEach(function(k){ body[k]=E[k].value.trim(); });
+  var btn=document.getElementById('ab-btn'); btn.disabled=true; say('ok', NL?'Bezig met versturen...':'Sending...');
+  SBA.api('/listing',{method:'POST',body:body}).then(function(d){
+   btn.disabled=false;
+   if(d.ok){ f.hidden=true; document.getElementById('ab-done').hidden=false; document.getElementById('ab-done').scrollIntoView({block:'start'}); if(window.gtag) gtag('event','listing_submit',{update:!!body.replaces}); return; }
+   var F={name:E.name,group:E.group,place:E.place,phone:E.phone,email:E.email,website:E.website,by_email:E.by_email,consent:E.consent}[d.field];
+   say('err', d.error==='rate'?(NL?'Er zijn vandaag al een paar aanmeldingen vanaf dit adres. Probeer het morgen, of mail ons.':'There have been a few submissions from this address today. Try tomorrow, or email us.'):
+     d.error==='invalid'?(NL?'Controleer het gemarkeerde veld.':'Please check the highlighted field.'):(NL?'Versturen lukte niet. Mail ons op {{ contact_email }}.':'Sending failed. Please email us at {{ contact_email }}.'));
+   if(F) F.focus();
+  });
+ });
+})();
+</script>{% endblock %}

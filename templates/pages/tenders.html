@@ -13,7 +13,7 @@
 <ul class="list" id="t-list">
 {% for t in tenders['items'] %}
  <li data-src="{{ t.source }}"><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a>
-  <div class="meta"><span>{{ t.buyer }}</span>{% if t.kind %}<span>{{ t.kind }}</span>{% endif %}<span>{{ 'Gepubliceerd' if nl else 'Published' }} {{ date(t.published) }}</span>
+  <div class="meta"><span>{{ t.buyer }}</span>{% if t.kind %}<span>{{ t.kind }}</span>{% endif %}<span>{{ 'Gepubliceerd' if nl else 'Published' }} {{ date(t.published) }}</span>{% if t.amended %}<span class="pill">{{ "Bijgewerkt" if nl else "Updated" }}</span>{% endif %}
   {% if t.deadline %}<span class="pill {{ 'red' if t.days_left is not none and t.days_left <= 3 else 'gold' }}">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}{% if t.days_left is not none %} ({{ t.days_left }} {{ 'd' }}){% endif %}</span>{% else %}<span class="pill">{{ 'Sluitingsdatum in document' if nl else 'Deadline in document' }}</span>{% endif %}</div></li>
 {% else %}<li class="empty">{{ 'Nog geen gegevens.' if nl else 'No data yet.' }}</li>{% endfor %}
 </ul>
