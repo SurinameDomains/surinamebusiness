@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T12:11:16+00:00",
+ "fetched_at": "2026-10-20T14:22:59+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -462,22 +462,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-20T12:11:16+00:00",
+   "fetched_at": "2026-10-20T14:22:59+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-20T12:11:16+00:00",
+   "fetched_at": "2026-10-20T14:22:58+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 18,
-   "fetched_at": "2026-10-20T12:11:16+00:00",
+   "fetched_at": "2026-10-20T14:22:59+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-20T12:11:15+00:00",
+   "fetched_at": "2026-10-20T14:22:58+00:00",
    "ok": true
   }
  }
