@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-20T23:44:21+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Uitbreiding goudproject vraagt om 3600 nieuwe arbeidskrachten",
+   "url": "https://www.dbsuriname.com/2026/10/20/uitbreiding-goudproject-vraagt-om-3600-nieuwe-arbeidskrachten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-20T23:42:28+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Digicel bespreekt investeringen en sneller internet met Simons",
+   "url": "https://www.dbsuriname.com/2026/10/20/digicel-bespreekt-investeringen-en-sneller-internet-met-simons/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-20T23:20:35+00:00",
+   "source": "de Ware Tijd",
+   "title": "Bewoners Witagron willen dat regering landbouwplannen met mennonieten ondersteunt",
+   "url": "https://dwtonline.com/bewoners-witagron-willen-dat-regering-landbouwplannen-met-mennonieten-ondersteunt/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-20T22:53:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Lichaam met schotwond gevonden bij goudzoekerskamp Lawagebied",
+   "url": "https://www.dbsuriname.com/2026/10/20/lichaam-met-schotwond-gevonden-bij-goudzoekerskamp-lawagebied/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-20T19:21:40+00:00",
    "source": "Suriname Herald",
    "title": "Simons wil strengere regels voor digitaal bankieren in Suriname",
@@ -391,37 +419,9 @@
    "source": "Suriname Herald",
    "title": "TotalEnergies trekt US$ 10 miljard uit voor olie en gas in Argentinië",
    "url": "https://www.srherald.com/economie/2026/10/02/totalenergies-trekt-us-10-miljard-uit-voor-olie-en-gas-in-argentinie/"
-  },
-  {
-   "econ": true,
-   "published": "2026-09-30T22:13:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Systeemupdate moet beveiliging Internet en Mobile Banking DSB versterken",
-   "url": "https://dwtonline.com/systeemupdate-moet-beveiliging-internet-en-mobile-banking-dsb-versterken/"
-  },
-  {
-   "econ": true,
-   "published": "2026-09-30T19:04:02+00:00",
-   "source": "de Ware Tijd",
-   "title": "Begrotingstekort 2027 geraamd op SRD 10,8 miljard",
-   "url": "https://dwtonline.com/begrotingstekort-2027-geraamd-op-srd-108-miljard/"
-  },
-  {
-   "econ": true,
-   "published": "2026-09-26T13:02:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Jan Tawjoeram leidt nieuw bestuur stichting Garantiefonds voor Bedrijfskredieten",
-   "url": "https://dwtonline.com/jan-tawjoeram-leidt-nieuw-bestuur-stichting-garantiefonds-voor-bedrijfskredieten/"
-  },
-  {
-   "econ": true,
-   "published": "2026-09-25T19:08:18+00:00",
-   "source": "Suriname Herald",
-   "title": "Overheidsrekening slaat om naar tekort van SRD 3,6 miljard",
-   "url": "https://www.srherald.com/economie/2026/09/25/overheidsrekening-slaat-om-naar-tekort-van-srd-36-miljard/"
   }
  ],
- "fetched_at": "2026-10-20T20:52:14+00:00",
+ "fetched_at": "2026-10-20T23:50:24+00:00",
  "oil": [
   {
    "econ": false,
@@ -462,32 +462,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-20T20:52:12+00:00",
+   "fetched_at": "2026-10-20T23:50:22+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 20,
-   "fetched_at": "2026-10-20T20:52:10+00:00",
+   "count": 19,
+   "fetched_at": "2026-10-20T23:50:20+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-20T20:52:12+00:00",
+   "fetched_at": "2026-10-20T23:50:22+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T20:52:13+00:00",
+   "fetched_at": "2026-10-20T23:50:23+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-20T20:52:11+00:00",
+   "fetched_at": "2026-10-20T23:50:21+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T20:52:14+00:00",
+   "fetched_at": "2026-10-20T23:50:24+00:00",
    "ok": true
   }
  }
