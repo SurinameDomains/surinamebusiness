@@ -1,85 +1,85 @@
 {
  "banks": [
   {
-   "date": "19-10-2026",
+   "date": "20-10-2026",
    "eur": [
     41.8,
-    42.648
+    42.772
    ],
-   "fetched_at": "2026-10-20T06:35:04+00:00",
+   "fetched_at": "2026-10-20T12:11:38+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
    "url": "https://www.finabanknv.com/service-desk/koersen-rates/",
    "usd": [
     37.4,
-    37.933
+    37.907
    ]
   },
   {
    "date": "",
    "eur": [
-    41.75,
-    42.65
+    41.8,
+    42.77
    ],
-   "fetched_at": "2026-10-20T06:35:06+00:00",
+   "fetched_at": "2026-10-20T12:11:40+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
    "url": "https://www.hakrinbank.com/en/private/foreign-exchange/",
    "usd": [
     37.4,
-    37.93
+    37.91
    ]
   },
   {
-   "date": "2026-10-19",
+   "date": "2026-10-20",
    "eur": [
-    41.68,
-    42.53
+    41.64,
+    42.49
    ],
-   "fetched_at": "2026-10-20T06:35:06+00:00",
+   "fetched_at": "2026-10-20T12:11:41+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
    "url": "https://www.dsb.sr/",
    "usd": [
-    37.17,
-    37.93
+    37.14,
+    37.9
    ]
   },
   {
-   "date": "19/10/2026",
+   "date": "20/10/2026",
    "eur": [
-    41.82,
-    42.52
+    41.81,
+    42.51
    ],
-   "fetched_at": "2026-10-20T06:35:07+00:00",
+   "fetched_at": "2026-10-20T12:11:41+00:00",
    "key": "republic",
    "live": true,
    "name": "Republic Bank",
    "url": "https://www.republicbanksr.com/",
    "usd": [
-    37.37,
-    37.93
+    37.35,
+    37.91
    ]
   },
   {
-   "date": "Maandag 19 oktober 2026",
+   "date": "Dinsdag 20 oktober 2026",
    "eur": [
-    41.816,
-    42.648
+    42.053,
+    42.772
    ],
-   "fetched_at": "2026-10-20T06:35:08+00:00",
+   "fetched_at": "2026-10-20T12:11:42+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
    "url": "https://www.godo.sr/",
    "usd": [
-    37.497,
-    37.933
+    37.385,
+    37.907
    ]
   }
  ],
- "fetched_at": "2026-10-20T06:35:08+00:00"
+ "fetched_at": "2026-10-20T12:11:42+00:00"
 }
