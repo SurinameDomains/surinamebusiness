@@ -628,3 +628,26 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
 .toc a:hover{text-decoration:underline}
 @media (max-width:600px){.toc ul{columns:1}}
 @media print{.sb-sticky,.share-row,.toc,.fs-toggle svg{display:none!important}}
+
+/* ---------------------------------------------------------------- 20 Oct review */
+/* phones: tool cards become rows (icon left, text right): long Dutch compounds never break mid-word and a list scans faster than a 2-up grid */
+@media (max-width:600px){
+  .tools-mini,.tool-group .grid{grid-template-columns:minmax(0,1fr);gap:8px}
+  .tools-mini a.card.tool,.tool-group a.card.tool{display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:12px;row-gap:1px;align-items:start;padding:12px 14px}
+  .tools-mini .tool .ic,.tool-group .tool .ic{grid-row:span 2;margin:1px 0 0}
+  .tools-mini .tool b,.tool-group .tool b{hyphens:manual;-webkit-hyphens:manual}
+}
+/* home on phones: shorter lists, the "all" link sits right under them */
+@media (max-width:600px){.cap3 > li:nth-child(n+4),.cap4 > li:nth-child(n+5){display:none}}
+/* the phone result bar never sits on top of the open menu */
+body.nav-open .sb-sticky{display:none}
+/* native file and colour inputs in the house style */
+.calc input[type=file]::file-selector-button,.pj input[type=file]::file-selector-button{font:inherit;font-size:.9rem;font-weight:600;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 12px;margin-right:10px;cursor:pointer}
+.calc input[type=file]:hover::file-selector-button,.pj input[type=file]:hover::file-selector-button{background:var(--brand-soft)}
+.calc input[type=color]{width:96px;cursor:pointer}
+/* directory on phones: compact rows with the count on the right, catch-all groups last (build.py) */
+@media (max-width:600px){.co-cats{gap:8px}.co-cats .card{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:13px 16px}.co-cats .card .sub{margin:0;white-space:nowrap;font-size:.88rem}}
+/* footer on phones: two columns instead of one long list */
+@media (max-width:600px){.site-foot .grid.g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}.site-foot li{margin:9px 0}}
+/* breathing room between form sections (Je bedrijf / Klant / Factuur ...) */
+.calc fieldset + fieldset{margin-top:22px}
