@@ -274,6 +274,12 @@ a.card.tool{display:flex}
   .tbl.stack td::before{content:attr(data-l);color:var(--muted);text-align:left;font-size:.8rem}
   .tbl.stack td:first-child{font-weight:700;text-align:left}
   .tbl.stack td:first-child::before{display:none}
+  .tbl.stack td::before{flex-shrink:0}
+  .tbl.stack td:first-child{display:block}
+  /* text tables in guides: label above a left-aligned value */
+  .tbl.stack.tx td{display:block;text-align:left;padding:4px 0}
+  .tbl.stack.tx td::before{display:block;margin-bottom:1px}
+  .tbl.stack.tx td:first-child::before{display:none}
   .tbl tbody tr:hover td{background:none}
 }
 
@@ -737,3 +743,37 @@ a.card:has(> .big):hover{box-shadow:none}
 }
 /* a table inside a guide gets room before the text that follows it */
 .prose table,.prose .tbl-wrap{margin-bottom:1.1em}
+
+/* ---------------------------------------------------------------- guide components (21 Oct 2026)
+   ol.steps: a numbered procedure, one ruled row per step, the number set in Fraunces.
+   ul.check: a list of things to bring or arrange, an empty tick box per line (prints well).
+   .tldr: "in short" summary under the lead, a ruled block like the figures ledger.
+   .tbl.stack tables already turn into label/value rows on phones. */
+.prose ol.steps{list-style:none;padding-left:0;counter-reset:st;margin:14px 0 18px}
+.prose ol.steps>li{counter-increment:st;position:relative;margin:0;padding:12px 0 12px 46px;border-top:1px solid var(--line-2)}
+.prose ol.steps>li:last-child{border-bottom:1px solid var(--line-2)}
+.prose ol.steps>li::before{content:counter(st);position:absolute;left:0;top:9px;width:32px;text-align:center;font-family:var(--serif);font-weight:650;font-size:1.45rem;line-height:1.2;color:var(--accent)}
+.prose ul.check{list-style:none;padding-left:0}
+.prose ul.check>li{position:relative;padding-left:28px}
+.prose ul.check>li::before{content:"";position:absolute;left:2px;top:.32em;width:13px;height:13px;border:2px solid var(--brand-2);border-radius:3px;background:var(--card)}
+.prose .tldr{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:12px 0 6px;margin:18px 0 22px}
+.prose .tldr .eyebrow{margin-bottom:4px}
+.prose .tldr ul{margin:0;padding-left:1.1em}
+.prose .tldr li{margin:.3em 0}
+.prose h3{margin-top:1.3em}
+.prose .tbl{margin:12px 0 18px}
+.prose details.more{border-top:1px solid var(--line-2);padding:10px 0}
+.prose details.more>summary{cursor:pointer;font-weight:650}
+@media print{.prose ol.steps>li{break-inside:avoid}}
+/* resources directory (/instanties-en-links) */
+.prose .res-list,.res-list{list-style:none;padding:0;margin:8px 0 6px;border-top:1px solid var(--line)}
+.res-list>li{padding:12px 0;border-bottom:1px solid var(--line-2);margin:0}
+.res-list>li>a.rn{font-weight:650;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.res-list>li>a.rn:hover{color:var(--brand-2);border-bottom-color:var(--brand-2)}
+.res-list .rw{color:var(--ink-2);font-size:.95rem;margin-top:3px}
+.res-list .rx{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:5px;font-size:.88rem;color:var(--muted)}
+.res-list .rx a{font-weight:600}
+.res-list .dom{color:var(--muted);font-size:.86rem;margin-left:6px;white-space:nowrap}
+.res-rel{font-size:.92rem;color:var(--muted);margin:4px 0 0}
+#res-empty[hidden],.res-group[hidden]{display:none}
+@media (max-width:600px){.res-list .dom{display:block;margin-left:0}}
