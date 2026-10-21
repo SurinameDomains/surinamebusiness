@@ -421,7 +421,7 @@
    "url": "https://www.srherald.com/economie/2026/10/05/amerikaans-bedrijf-sluit-grote-energiedeals-in-venezuela-voor-gas-olie-en-mogelijke-lng-export/"
   }
  ],
- "fetched_at": "2026-10-21T15:11:45+00:00",
+ "fetched_at": "2026-10-21T16:22:44+00:00",
  "oil": [
   {
    "econ": false,
@@ -469,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-21T15:11:43+00:00",
+   "fetched_at": "2026-10-21T16:22:43+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 19,
-   "fetched_at": "2026-10-21T15:11:39+00:00",
+   "fetched_at": "2026-10-21T16:22:41+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-21T15:11:42+00:00",
+   "fetched_at": "2026-10-21T16:22:42+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T15:11:44+00:00",
+   "fetched_at": "2026-10-21T16:22:43+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-21T15:11:41+00:00",
+   "fetched_at": "2026-10-21T16:22:42+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T15:11:45+00:00",
+   "fetched_at": "2026-10-21T16:22:44+00:00",
    "ok": true
   }
  }
