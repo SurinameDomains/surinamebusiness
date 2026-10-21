@@ -68,6 +68,11 @@ PAGES = {
     "hiring": ("personeel-aannemen", "en/hiring-staff", "guides"),
 }
 
+# long-form guides added 21 Oct 2026 (see guides_meta.py)
+from guides_meta import NEW as _NEW_GUIDES  # noqa: E402
+for _k, (_nl, _en) in _NEW_GUIDES.items():
+    PAGES[_k] = (_nl, _en, "guides")
+
 # free business tools (see tools_meta.py), one page per tool in both languages
 from tools_meta import TOOLS as _TOOLS  # noqa: E402
 for _t in _TOOLS:
@@ -79,16 +84,16 @@ DYNAMIC = {"companies"}
 MENU = [
     ("tools", "Tools", "Tools", None),
     ("work", "Werk en personeel", "Work and staff", [
-        ("Werk zoeken en aanbieden", "Jobs", ["jobs", "postjob", "hiring", "workpermit"]),
+        ("Personeel en vacatures", "Jobs and staff", ["jobs", "postjob", "hiring", "employer", "dismissal", "workpermit"]),
         ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "holidays"]),
     ]),
     ("trade", "Handel en markt", "Trade and market", [
-        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "addbiz", "import"]),
+        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "addbiz", "import", "export"]),
         ("Markt en cijfers", "Market and figures", ["rates", "douane", "gold", "maxprices", "outages", "news"]),
     ]),
     ("guides", "Gidsen", "Guides", [
-        ("Starten en regelen", "Start and arrange", ["start", "bankaccount", "contacts", "land"]),
-        ("Belasting", "Tax", ["vatguide", "incometax", "tax", "deadlines"]),
+        ("Starten en regelen", "Start and arrange", ["start", "licences", "bankaccount", "finance", "trademark", "invest", "land", "resources", "contacts"]),
+        ("Belasting en administratie", "Tax and admin", ["biztax", "vatguide", "incometax", "tax", "bookkeeping", "deadlines"]),
     ]),
 ]
 
@@ -96,7 +101,7 @@ FOOTER_GROUPS = [
     ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
     ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
     ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "addbiz", "douane", "gold", "maxprices", "outages", "news"]),
-    ("Gidsen", "Guides", ["start", "hiring", "bankaccount", "contacts", "incometax", "vatguide", "import", "labour", "workpermit", "land", "supplier"]),
+    ("Gidsen", "Guides", ["guides", "start", "licences", "hiring", "employer", "biztax", "vatguide", "bookkeeping", "finance", "import", "export", "labour", "dismissal", "workpermit", "invest", "resources"]),
     ("Over", "About", ["about", "sources", "contact", "privacy", "terms", "account"]),
 ]
 

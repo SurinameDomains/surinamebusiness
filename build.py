@@ -18,6 +18,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import tools_meta as TM
+import guides_meta as GM
+import resources_data as RES
 import quality
 from site_config import (INDEXNOW_KEY, DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
@@ -151,10 +153,10 @@ META = {
                 "De basisregels: maximaal 8,5 uur per dag en 48 per week, 150% en 200% overwerk, vakantiedagen en minimumloon."),
                ("Suriname labour law basics: hours, overtime and leave",
                 "The basics: max 8.5 hours a day and 48 a week, 150% and 200% overtime, annual leave and minimum wage.")),
-    "guides": (("Gidsen voor ondernemers en werknemers in Suriname",
-                "Praktische gidsen over een bedrijf starten, BTW, arbeidsrecht en leveren aan de olie en gas sector."),
-               ("Guides for doing business in Suriname",
-                "Practical guides on starting a business, VAT, labour law and supplying the oil and gas sector.")),
+    "guides": (("Gidsen voor ondernemers en werkgevers in Suriname: 26 onderwerpen",
+                "Gidsen met bronnen over een bedrijf starten, vergunningen, BTW en belastingen, personeel, ontslag, import, export, investeren, financiering en grond in Suriname."),
+               ("Guides for doing business in Suriname: 26 topics",
+                "Sourced guides on starting a business, licences, VAT and taxes, hiring, dismissal, importing, exporting, investing, financing and land in Suriname.")),
     "workpermit": (("Werkvergunning Suriname: aanvragen, kosten en vrijstellingen",
                     "Zo vraag je een werkvergunning en verblijfsvergunning aan in Suriname: wie aanvraagt, documenten, USD 100 leges, 30 dagen beslistermijn en wie is vrijgesteld (PSA, CARICOM)."),
                    ("Suriname work permit: how to apply, fees and exemptions",
@@ -234,6 +236,9 @@ META["tools"] = (("Gratis zakelijke tools voor Suriname: factuur, offerte, loons
                   "Meer dan 45 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR code, PDF samenvoegen. Zonder account."),
                  ("Free business tools for Suriname: invoice, quote, payslip and more",
                   "Over 45 free tools for doing business in Suriname: invoice and quote generator, payslip, VAT register, import cost, loan, QR code, PDF merge. No account needed."))
+for _k, _g in GM.GUIDES.items():
+    LABELS[_k] = _g["label"]
+    META[_k] = _g["meta"]
 for _t in TM.TOOLS:
     LABELS[_t["key"]] = _t["label"]
     META[_t["key"]] = (_t["meta_nl"], _t["meta_en"])
@@ -568,7 +573,7 @@ def add_toc(html, lang):
            + "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items) + "</ul></div></nav>")
     rest = "".join(out)[4:]
     # key figures right after the lead stay first; the list goes after them
-    m = re.match(r'\s*<div class="(today[^"]*|grid[^"]*)"', rest)
+    m = re.match(r'\s*<div class="(today[^"]*|grid[^"]*|tldr[^"]*)"', rest)
     if m:
         start, depth, end = m.end(0) - len(m.group(0).lstrip()), 0, -1
         for t in re.finditer(r"<div\b|</div>", rest[start:]):
@@ -576,7 +581,7 @@ def add_toc(html, lang):
             if depth == 0:
                 end = start + t.end()
                 break
-        if end > 0 and ('class="big' in rest[start:end] or m.group(1).startswith("today")):
+        if end > 0 and ('class="big' in rest[start:end] or m.group(1).startswith(("today", "tldr"))):
             return html[:lead_end + 4] + rest[:end] + nav + rest[end:]
     return html[:lead_end + 4] + nav + rest
 
@@ -1038,7 +1043,7 @@ def main():
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             recent=(TODAY - dt.timedelta(days=2)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
-            TM=TM, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
+            TM=TM, RES=RES, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
             account_api=ACCOUNT_API, google_client_id=GOOGLE_CLIENT_ID, dev_login=bool(os.environ.get("SB_DEV_LOGIN")),
             sbc=SBC, settings=SBC["settings"], cgroups=CGROUPS,
@@ -1092,7 +1097,7 @@ def main():
                 continue
             title, desc = META[key][li]
             crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
-            faq = extras.faqs(key, lang, py_salary) or TM.faqs(key, lang)
+            faq = extras.faqs(key, lang, py_salary) or TM.faqs(key, lang) or GM.faqs(key, lang)
             graph = schema_for(key, lang, title, desc, SITE_URL + U(key))
             if faq:
                 graph.append(extras.faq_schema(faq))

@@ -47,14 +47,13 @@ MIN_WAGE = {
 VAT = {
     "since": "2023-01-01",
     "standard": 0.10,
-    "fuel": 0.05,
+    "low": 0.05,                # water, electricity, cooking gas, domestic freight (bijlage 4 since 1 Nov 2023; fuel moved to 10%)
     "luxury": 0.25,
     "threshold_srd": 1000000,
     "sources": [
         ("Belastingdienst Suriname: BTW algemeen", "https://belastingdienst.sr/btw/algemeen/"),
-        ("Wet BTW bijlage 1, nultarief", "https://belastingdienst.sr/wp-content/uploads/2023/01/Wet-BTW-Bijlage-1-nultarief-na-wijziging.pdf"),
-        ("Wet BTW bijlage 3, tarief 25%", "https://belastingdienst.sr/wp-content/uploads/2023/01/Wet-BTW-Bijlage-3-Tarief-25-na-wijziging.pdf"),
-        ("Wet BTW bijlage 4, tarief 5%", "https://belastingdienst.sr/wp-content/uploads/2023/01/Wet-BTW-Bijlage-4-tarief-5-na-wijziging.pdf"),
+        ("Wet BTW 2022 (S.B. 2022 no. 121)", "https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf"),
+        ("Wijziging Wet BTW, nieuwe bijlagen 1, 2 en 4 (S.B. 2023 no. 126)", "https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2023-no.-126-nadere-wijziging-WET-BTW-5-September-2023.pdf"),
     ],
 }
 
@@ -179,7 +178,7 @@ TAX_JS = {k: TAX[k] for k in ("free_month", "forfait_pct", "forfait_max_month", 
                               "overtime_brackets_month", "aov_pct")}
 
 # Contact details for businesses, checked at the official pages on CONTACTS_CHECKED.
-CONTACTS_CHECKED = "2026-10-18"
+CONTACTS_CHECKED = "2026-10-21"
 CONTACTS = [
     {"group": "tax", "name": ("Belastingdienst: hoofdkantoor Directoraat Belastingen", "Tax office: head office Directorate of Taxes"),
      "addr": "Kerkplein 12, Paramaribo", "phone": "1960 toestel 231 / 232", "web": "https://belastingdienst.sr/"},
@@ -198,7 +197,7 @@ CONTACTS = [
     {"group": "customs", "name": ("Visitatiepost Albina", "Customs post Albina"), "addr": "Albina", "phone": "342022"},
     {"group": "customs", "name": ("Visitatiepost Nieuw-Nickerie", "Customs post Nieuw-Nickerie"), "addr": "Nieuw-Nickerie", "phone": "231710 / 231435"},
     {"group": "business", "name": ("Kamer van Koophandel en Fabrieken (KKF)", "Chamber of Commerce and Industry (KKF)"),
-     "addr": "KKF Beursterrein, Prof. W.J.A. Kernkampweg 37, Paramaribo", "phone": "530311 / 530313", "web": "https://www.kkf.sr/"},
+     "addr": "Gravenberchstraat 33, Paramaribo", "phone": "530311", "web": "https://www.surinamechamber.com/"},
     {"group": "business", "name": ("Ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie (EZOTI)", "Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI)"),
      "addr": "Havenlaan 1, Paramaribo", "phone": "402080",
      "web": "https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/"},
@@ -207,7 +206,7 @@ CONTACTS = [
     {"group": "business", "name": ("Surinaams Standaarden Bureau (SSB)", "Suriname Standards Bureau (SSB)"),
      "addr": "Frederik Derbystraat 81, Paramaribo", "phone": "499928 / 499929", "web": "https://www.ssb.sr/"},
     {"group": "business", "name": ("Suriname Business Forum (SBF)", "Suriname Business Forum (SBF)"),
-     "addr": "Prins Hendrikstraat, Paramaribo", "phone": "475286", "web": "https://www.surinamebusinessforum.com/"},
+     "addr": "Anton Drachtenweg 68 (RCR Medical Centre, 1e etage), Paramaribo", "phone": "852 0258 / 818 4065", "web": "https://www.surinamebusinessforum.com/"},
 ]
 CONTACT_SOURCES = [
     ("Belastingdienst Suriname: contact", "https://belastingdienst.sr/contact/"),

@@ -20,6 +20,8 @@ def faqs(key, lang, salary_py):
     nl = lang == "nl"
     T, M = facts.TAX, facts.MIN_WAGE
     r15 = salary_py(15000)
+    mw = M['hour'] * 40 * 52 / 12
+    rmw = salary_py(mw)
     data = {
         "salary": [
             (("Hoeveel is de belastingvrije som in 2026?", f"De belastingvrije som is {_srd(T['free_month'], lang)} per maand, {_srd(T['free_month']*12, lang)} per jaar. Over loon daaronder betaal je geen loonbelasting."),
@@ -32,12 +34,14 @@ def faqs(key, lang, salary_py):
         "minwage": [
             (("Wat is het minimumloon in Suriname?", f"Het minimumuurloon is {_srd(M['hour'], lang, 2)} sinds 1 juli 2026. Bij 40 uur per week is dat ongeveer {_srd(M['hour']*40*52/12, lang)} per maand."),
              ("What is the minimum wage in Suriname?", f"The minimum hourly wage is {_srd(M['hour'], lang, 2)} since 1 July 2026. At 40 hours a week that is about {_srd(M['hour']*40*52/12, lang)} per month.")),
-            (("Betaal je belasting over het minimumloon?", "Nee, een volle werkweek tegen het minimumloon blijft onder de belastingvrije som. Je betaalt alleen 4% AOV."),
-             ("Is the minimum wage taxed?", "No, a full working week at the minimum wage stays below the tax-free amount. Only the 4% AOV premium applies.")),
+            (("Betaal je belasting over het minimumloon?", (f"Ja, een klein bedrag. Een volle werkweek tegen het minimumloon ({_srd(mw, lang)} per maand) komt na de forfaitaire aftrek net boven de belastingvrije som. Je betaalt ongeveer {_srd(rmw['tax'], lang)} loonbelasting en {_srd(rmw['aov'], lang)} AOV."
+                                                        if rmw['tax'] > 0 else "Nee, een volle werkweek tegen het minimumloon blijft onder de belastingvrije som. Je betaalt alleen 4% AOV.")),
+             ("Is the minimum wage taxed?", (f"Yes, a little. A full working week at the minimum wage ({_srd(mw, lang)} a month) ends up just above the tax-free amount after the flat deduction. Wage tax is about {_srd(rmw['tax'], lang)} plus {_srd(rmw['aov'], lang)} AOV."
+                                             if rmw['tax'] > 0 else "No, a full working week at the minimum wage stays below the tax-free amount. Only the 4% AOV premium applies."))),
         ],
         "vatcalc": [
-            (("Hoe hoog is de BTW in Suriname?", "Het algemene tarief is 10%. Brandstof valt onder 5%, luxe goederen zoals grote auto's onder 25%, en onder meer basisvoeding, zorg en export onder 0%."),
-             ("What is the VAT rate in Suriname?", "The standard rate is 10%. Fuel is 5%, luxury goods such as large cars 25%, and among others basic food, healthcare and exports 0%.")),
+            (("Hoe hoog is de BTW in Suriname?", "Het algemene tarief is 10%. Water, elektriciteit, kookgas en binnenlands goederenvervoer vallen onder 5%, luxe goederen zoals grote auto's onder 25%. Export is 0%; onder meer het basispakket voeding, zorg, onderwijs en financiële diensten zijn vrijgesteld (sinds oktober 2023)."),
+             ("What is the VAT rate in Suriname?", "The standard rate is 10%. Water, electricity, cooking gas and domestic freight are 5%, luxury goods such as large cars 25%. Exports are 0%; among others the basic food basket, healthcare, education and financial services are exempt (since October 2023).")),
             (("Wanneer moet ik me registreren voor BTW?", "Bij een belastbare omzet boven SRD 1.000.000 per kalenderjaar. Aangifte doe je maandelijks."),
              ("When do I have to register for VAT?", "Above SRD 1,000,000 taxable turnover per calendar year. Returns are filed monthly.")),
         ],

@@ -15,6 +15,12 @@ Fully independent site: own repo, own data pipeline, own Cloudflare account. It 
 
 `tools_meta.py` registers the free business tools (invoice, quote, receipt, payslip, VAT register, pricing, import cost, loan, PDF and image tools, QR and barcodes, and more). Each tool is `templates/pages/<key>.html` (extends `templates/tool_base.html`) with its script in `assets/tools/`. `site_config.py` adds them to `PAGES`; the hub is `/tools` (`/en/tools`). Everything runs in the browser: nothing is uploaded, and per-visitor conveniences (business details, invoice number, VAT register) live in the visitor's local storage only. Two libraries load from jsDelivr with a pinned version and SRI hash: pdf-lib 1.17.1 (MIT) on the PDF tools page and qrcode-generator 1.4.4 (MIT) on the QR, WhatsApp link and business card pages. Leave-law values live in `facts.LEAVE`, cash denominations in `facts.CASH`.
 
+## Guides and resources (guides_meta.py, guides_content.py, resources_data.py)
+
+Long-form guides are `templates/pages/<key>.html` (prose, both languages, a `.tldr` summary, `ol.steps`, `ul.check`, `.tbl.stack.tx` tables). `guides_meta.NEW` registers guides added on 21 Oct 2026 (licences, biztax, employer, dismissal, export, invest, trademark, finance, bookkeeping, resources) in `PAGES`; `guides_content.ENTRIES` holds label, title, description and FAQ per guide (rendered under the page with FAQPage schema). Every guide lists its sources and a "checked on" date: re-check the figures (APF premium, FVO, BZV, fees, the export currency rule) every January and when a decree changes.
+
+`resources_data.py` is the directory behind `/instanties-en-links` (`/en/business-resources`): 175 institutions in 14 groups with official site, deep links, phone and address. Links were checked from a PC in Suriname on 21 Oct 2026; re-check twice a year.
+
 ## Vacancy board (worker/)
 
 Employers post vacancies themselves at `/vacature-plaatsen` (`/en/post-a-job`). The backend is the Cloudflare Worker `sb-jobs` on the **Suriname Business** Cloudflare account (never the Explore account), with D1 (`sb-jobs`), KV (`sb-jobs-files`, PDFs) and Turnstile.
