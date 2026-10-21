@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-21T14:11:00+00:00",
+   "source": "Starnieuws",
+   "title": "Blokland steunt ontruiming, hoopt op aanpak illegale mijnbouw",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94454"
+  },
+  {
+   "econ": false,
    "published": "2026-10-21T04:06:00+00:00",
    "source": "Starnieuws",
    "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Amerikaans bedrijf sluit grote energiedeals in Venezuela voor gas, olie en mogelijke LNG-export",
    "url": "https://www.srherald.com/economie/2026/10/05/amerikaans-bedrijf-sluit-grote-energiedeals-in-venezuela-voor-gas-olie-en-mogelijke-lng-export/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-05T17:05:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "BESCHOUWING — Regering poetst de etalage op, maar het fundament is nog broos",
-   "url": "https://dwtonline.com/beschouwing-regering-poetst-de-etalage-op-maar-het-fundament-is-nog-broos/"
   }
  ],
- "fetched_at": "2026-10-21T09:40:51+00:00",
+ "fetched_at": "2026-10-21T15:11:45+00:00",
  "oil": [
   {
    "econ": false,
@@ -469,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-21T09:40:45+00:00",
+   "fetched_at": "2026-10-21T15:11:43+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-10-21T09:40:24+00:00",
+   "count": 19,
+   "fetched_at": "2026-10-21T15:11:39+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-21T09:40:45+00:00",
+   "fetched_at": "2026-10-21T15:11:42+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T09:40:50+00:00",
+   "fetched_at": "2026-10-21T15:11:44+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-21T09:40:25+00:00",
+   "fetched_at": "2026-10-21T15:11:41+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T09:40:51+00:00",
+   "fetched_at": "2026-10-21T15:11:45+00:00",
    "ok": true
   }
  }

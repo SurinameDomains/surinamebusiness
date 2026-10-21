@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-21T09:40:11+00:00",
+ "fetched_at": "2026-10-21T15:11:23+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -30,6 +30,17 @@
    "source": "gov.sr",
    "title": "Het ophalen van huishoudelijk afval per wijk in het district Marowijne ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-marowijne-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening-2/"
+  },
+  {
+   "buyer": "Support to Safety Nets for Vulnerable Populations in Suriname",
+   "deadline": "2026-10-29",
+   "id": "idb-39372",
+   "kind": "Consulting Firms",
+   "lang": "en",
+   "published": "2026-10-20",
+   "source": "IDB",
+   "title": "AMENDMENT - Hiring of a consulting firm for training of 500 persons in the use of computers and IT equipment",
+   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1598869369-1003"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -481,22 +492,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-21T09:40:11+00:00",
+   "fetched_at": "2026-10-21T15:11:23+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-21T09:40:11+00:00",
+   "fetched_at": "2026-10-21T15:11:22+00:00",
    "ok": true
   },
   "World Bank": {
-   "count": 18,
-   "fetched_at": "2026-10-21T09:40:11+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-21T15:11:23+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-21T09:40:11+00:00",
+   "fetched_at": "2026-10-21T15:11:22+00:00",
    "ok": true
   }
  }
