@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set total = RES.GROUPS|map(attribute='items')|map('length')|sum %}
+{% set rel = {
+  'gov': ['contacts', 'start', 'tenders'],
+  'tax': ['vatguide', 'biztax', 'incometax', 'deadlines'],
+  'legal': ['start', 'licences', 'trademark', 'workpermit'],
+  'money': ['bankaccount', 'finance', 'rates'],
+  'work': ['hiring', 'employer', 'labour', 'dismissal'],
+  'trade': ['invest', 'import', 'export'],
+  'finance': ['finance', 'loan', 'cashflow'],
+  'energy': ['oilgas', 'supplier', 'tenders'],
+  'land': ['land', 'licences'],
+  'util': ['outages'],
+  'transport': ['import', 'export', 'douane'],
+  'data': ['news', 'rates', 'gold'],
+  'assoc': ['companies', 'addbiz'],
+  'travel': ['workpermit', 'invest'],
+} %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Instanties en links voor ondernemers' if nl else 'Business resources in Suriname' }}</h1>
+<p class="lead">{% if nl %}Alle {{ total }} instanties, overheidsportalen, banken, fondsen en organisaties waar je als ondernemer, werkgever of investeerder in Suriname mee te maken krijgt, met hun officiële website en waarvoor je er terechtkunt. Elke link is gecontroleerd vanuit Suriname.{% else %}All {{ total }} government offices, portals, banks, funds and organisations a business owner, employer or investor in Suriname deals with, each with its official website and what you go there for. Every link was checked from Suriname.{% endif %}</p>
+<div class="filters" role="search">
+ <input type="search" id="res-q" placeholder="{{ 'Zoek: belasting, vergunning, bank, haven...' if nl else 'Search: tax, licence, bank, port...' }}" aria-label="{{ 'Zoek in alle instanties' if nl else 'Search all organisations' }}" autocomplete="off">
+</div>
+<p id="res-empty" class="sub" hidden>{{ 'Niets gevonden. Probeer een ander woord, of bekijk' if nl else 'Nothing found. Try another word, or see' }} <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</p>
+{% for g in RES.GROUPS %}
+<section class="res-group" data-g="{{ g.key }}">
+<h2>{{ g.nl if nl else g.en }}</h2>
+<p class="sub">{{ g.intro_nl if nl else g.intro_en }}</p>
+<ul class="res-list">
+{% for it in g['items'] %}
+ <li data-q="{{ (it.tags or [])|join(' ') }} {{ it.name[1] if nl else it.name[0] }}">
+ {% if it.url %}<a class="rn" href="{{ it.url }}" rel="noopener">{{ it.name[i] }}</a>{% else %}<b>{{ it.name[i] }}</b>{% endif %}{% if it.abbr and it.abbr not in it.name[i] %} <span class="pill">{{ it.abbr }}</span>{% endif %}{% if it.url %}<span class="dom">{{ it.url.split('//')[1].split('/')[0].replace('www.', '') }}</span>{% endif %}
+ <div class="rw">{{ it.what[i] }}</div>
+ {% if it.extra or it.phone or it.addr %}<div class="rx">{% for e in it.extra or [] %}<a href="{{ e[2] }}" rel="noopener">{{ e[i] }}</a>{% endfor %}{% if it.phone %}<span>{{ 'Tel.' }} <a href="tel:{{ it.phone|replace(' ', '') }}">{{ it.phone }}</a></span>{% endif %}{% if it.addr %}<span>{{ it.addr }}</span>{% endif %}</div>{% endif %}
+ </li>
+{% endfor %}
+</ul>
+{% if rel.get(g.key) %}<p class="res-rel">{{ 'Onze gidsen hierover:' if nl else 'Our guides on this:' }} {% for k in rel[g.key] %}<a href="{{ U(k) }}">{{ L(k) }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>{% endif %}
+</section>
+{% endfor %}
+<h2>{{ 'Over deze lijst' if nl else 'About this list' }}</h2>
+<p>{% if nl %}We nemen alleen officiële websites op, en geen betaalde vermeldingen. Banken en verzekeraars staan in alfabetische volgorde, zonder rangorde. Sommige overheidssites zijn alleen vanuit Suriname bereikbaar of tijdelijk traag; probeer het dan later opnieuw. Adressen en telefoonnummers van de Belastingdienst, douane en KKF staan op <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Mist er een instantie, of werkt een link niet meer? Mail ons op <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. Is het jouw bedrijf? <a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a>.{% else %}We only list official websites and no paid placements. Banks and insurers are in alphabetical order, without ranking. Some government sites only open from Suriname or are slow at times; try again later. Addresses and phone numbers of the tax office, customs and the KKF are on <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Missing an organisation, or a link that no longer works? E-mail us at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. Your own business? <a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a>.{% endif %}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(RES.CHECKED) }}.</p>
+</div>
+<script>
+(function () {
+  var q = document.getElementById('res-q'); if (!q) return;
+  var groups = document.querySelectorAll('.res-group'), empty = document.getElementById('res-empty');
+  function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  groups.forEach(function (g) { g.querySelectorAll('li').forEach(function (li) { li._t = norm(li.textContent + ' ' + li.getAttribute('data-q')); }); });
+  q.addEventListener('input', function () {
+    var words = norm(q.value).split(/\s+/).filter(Boolean), any = false;
+    groups.forEach(function (g) {
+      var shown = 0;
+      g.querySelectorAll('li').forEach(function (li) {
+        var ok = words.every(function (w) { return li._t.indexOf(w) >= 0; });
+        li.hidden = !ok; if (ok) shown++;
+      });
+      g.hidden = !shown; if (shown) any = true;
+    });
+    empty.hidden = any;
+  });
+})();
+</script>
+{% endblock %}

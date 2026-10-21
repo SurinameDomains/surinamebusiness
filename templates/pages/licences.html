@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Vergunningen voor je bedrijf in Suriname' if nl else 'Business licences in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">De meeste bedrijven in Suriname hebben geen bedrijfsvergunning nodig: inschrijving bij de KKF is genoeg. Een vergunning is alleen verplicht voor activiteiten op de lijst, zoals hotels, reisbureaus, pompstations, slagers, voedselproductie, eet- en drankgelegenheden, wisselkantoren en busdiensten. Je vraagt de vergunning aan via de KKF en het ministerie van EZOTI beslist binnen ongeveer 35 dagen.</p>
+{% else %}
+<p class="lead">Most businesses in Suriname do not need a business licence: registering at the KKF (Chamber of Commerce) is enough. A licence is only required for activities on the list, such as hotels, travel agencies, petrol stations, butchers, food production, places serving food and drinks, exchange offices and bus services. You apply through the KKF and the Ministry of Economic Affairs (EZOTI) decides within about 35 days.</p>
+{% endif %}
+<div class="grid g3">
+<div class="card"><div class="eyebrow">{{ 'Wettelijke beslistermijn' if nl else 'Legal decision time' }}</div><div class="big">{{ '± 35 dagen' if nl else '± 35 days' }}</div><div class="sub">{{ '7 + 14 + 14 dagen, art. 4 en 5' if nl else '7 + 14 + 14 days, art. 4 and 5' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Kosten via KKF' if nl else 'Cost via KKF' }}</div><div class="big">SRD 550</div><div class="sub">{{ 'inclusief vergunningsrecht SRD 304,50' if nl else 'including licence fee SRD 304.50' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Zonder vergunning' if nl else 'Without a licence' }}</div><div class="big">{{ 'SRD 1.000' if nl else 'SRD 1,000' }}</div><div class="sub">{{ 'maximale boete, plus dwangsom en sluiting' if nl else 'maximum fine, plus penalty payment and closure' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>De Wet Bedrijven en Beroepen (S.B. 2017 no. 40) verving het Decreet Vergunningen Bedrijven en Beroepen van 1981. Ondernemen is vrij, behalve voor activiteiten op de lijst.</li>
+<li>De lijst is sterk ingekort: van ruim 120 bedrijven en beroepen in 1981 naar ongeveer 40 in 2011. Sinds 2024 hebben architecten, raadgevend ingenieurs, aannemers en bouwtechnici een registratie in het Beroepenregister nodig in plaats van een vergunning.</li>
+<li>Je dient de aanvraag in bij de KKF (One Stop Window of E-Services). Het ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie (EZOTI) beoordeelt.</li>
+<li>Een vergunning geldt voor onbepaalde tijd, staat op jouw naam en vervalt bij overdracht of, als ze plaatsgebonden is, bij verhuizing.</li>
+<li>Horeca, standplaatsen en Hinderwet: districtscommissaris. Banken, wisselkantoren en geldovermakers: Centrale Bank. Bus, radio, tv en drones: ministerie van TCT. Internet en belhuizen: TAS. Goudconcessies: GMD.</li>
+<li>Vanaf 1 november 2026 gelden aangepaste procedures voor importvergunningen onder de gewijzigde Negatieve Lijst.</li>
+{% else %}
+<li>The Businesses and Professions Act (Wet Bedrijven en Beroepen, S.B. 2017 no. 40) replaced the 1981 Licensing Decree for Businesses and Professions. Doing business is free, except for activities on the list.</li>
+<li>The list has been cut sharply: from over 120 businesses and professions in 1981 to about 40 in 2011. Since 2024 architects, consulting engineers, contractors and building technicians need registration in the Professions Register instead of a licence.</li>
+<li>You file the application at the KKF (One Stop Window or E-Services). The Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI) assesses it.</li>
+<li>A licence is valid indefinitely, is in your name and lapses on transfer or, if location-bound, when you move.</li>
+<li>Restaurants and bars, street stalls and nuisance permits: district commissioner. Banks, exchange offices and money transfer: Central Bank. Buses, radio, TV and drones: Ministry of Transport (TCT). Internet providers and call shops: TAS. Gold concessions: GMD.</li>
+<li>From 1 November 2026 adjusted procedures apply to import licences under the amended Negative List.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'De wet: van Decreet naar Wet Bedrijven en Beroepen' if nl else 'The law: from the 1981 Decree to the Businesses and Professions Act' }}</h2>
+{% if nl %}
+<p>Veel mensen zoeken nog op de "Wet Vestiging Bedrijven en Beroepen". Van 1 juni 1982 tot 2017 gold het <b>Decreet Vergunningen Bedrijven en Beroepen</b> (S.B. 1981 no. 145), met een lijst van vergunningplichtige activiteiten in het <b>Besluit vergunningplichtige Bedrijven en Beroepen</b> (S.B. 1981 no. 147). Dat decreet is vervangen door de <b>Wet Bedrijven en Beroepen</b> (S.B. 2017 no. 40), die zes maanden na publicatie op 5 mei 2017 in werking trad.</p>
+<p>De nieuwe wet draait het systeem om. Ondernemen is vrij (art. 3), tenzij een staatsbesluit een activiteit indeelt in een van vier categorieën:</p>
+<ul>
+<li><b>Verboden</b> activiteiten.</li>
+<li><b>Vergunningplichtige</b> activiteiten. Activiteiten met gevaarlijke stoffen, wapens of munitie horen daar altijd bij.</li>
+<li>Activiteiten waarvoor <b>diploma's, certificaten of technische voorschriften</b> gelden, bijvoorbeeld als mensen lijfelijk worden behandeld of als gebrek aan vakkennis schade kan veroorzaken.</li>
+<li>Activiteiten die alleen in aangewezen <b>economische zones</b> mogen.</li>
+</ul>
+<p>Alle activiteiten worden ingedeeld met de internationale ISIC-code (versie 4, S.B. 2018 no. 69). Zolang er geen nieuwe lijst is, blijven de besluiten en beschikkingen onder het oude decreet van kracht (art. 34). In de praktijk is de lijst die de KKF hanteert dus de maatstaf. Wij vonden tot oktober 2026 geen volledig nieuwe lijst onder artikel 3 van de wet.</p>
+{% else %}
+<p>Many people still search for the "Wet Vestiging Bedrijven en Beroepen". From 1 June 1982 to 2017 the <b>Licensing Decree for Businesses and Professions</b> (Decreet Vergunningen Bedrijven en Beroepen, S.B. 1981 no. 145) applied, with the list of licensed activities in the <b>Decree on Licensed Businesses and Professions</b> (S.B. 1981 no. 147). That decree was replaced by the <b>Businesses and Professions Act</b> (Wet Bedrijven en Beroepen, S.B. 2017 no. 40), which took effect six months after publication on 5 May 2017.</p>
+<p>The new law turns the system around. Doing business is free (art. 3) unless a state decree places an activity in one of four categories:</p>
+<ul>
+<li><b>Prohibited</b> activities.</li>
+<li><b>Licensed</b> activities. Activities involving dangerous substances, weapons or ammunition always belong here.</li>
+<li>Activities that require <b>diplomas, certificates or technical regulations</b>, for example where people are physically treated or where lack of expertise can cause harm.</li>
+<li>Activities allowed only in designated <b>economic zones</b>.</li>
+</ul>
+<p>All activities are classified with the international ISIC code (version 4, S.B. 2018 no. 69). As long as no new list has been adopted, the decrees and orders under the old decree remain in force (art. 34). In practice the list the KKF uses is the reference. Up to October 2026 we found no complete new list under article 3 of the Act.</p>
+{% endif %}
+
+<h2>{{ 'Is de lijst korter geworden?' if nl else 'Has the list become shorter?' }}</h2>
+{% if nl %}
+<p>Ja, in drie stappen.</p>
+<ol class="steps">
+<li><b>2011 (S.B. 2011 no. 64).</b> De lijst ging van ruim 120 bedrijven en beroepen terug naar ongeveer 40. Kleermakers, bakkers, fotostudio's, drukkerijen, schoonmaakbedrijven, rijscholen, importeurs, exporteurs, groothandels en veel kleine fabrikanten hebben sindsdien geen vergunning meer nodig, alleen inschrijving in het Handelsregister. De districtscommissarissen verloren hun bevoegdheid voor ambachtsvergunningen; die gaan sindsdien via het ministerie.</li>
+<li><b>2019 (S.B. 2019 no. 34 en 35).</b> Sinds 1 april 2019 worden geen vergunningen meer uitgegeven voor de verkoop van provisiewaren en kramerijen. Bestaande vergunningen werden een algemene winkeliersvergunning, waarmee je geen vuurwerk, wapens, bestrijdingsmiddelen, receptgeneesmiddelen, brandstof, gedistilleerd, contactlenzen, erotische artikelen of zand en schelpen mag verkopen. Voor die producten gelden aparte vergunningen. De minister legde de algemene voorwaarden voor alle vergunninghouders vast in één beschikking.</li>
+<li><b>2024 (S.B. 2024 no. 62).</b> Voor architecten, raadgevend ingenieurs, aannemers van bouw- en civieltechnische werken en technici bouw- en civieltechnische werken is de vergunning vervangen door toetsing van vakbekwaamheid en inschrijving in het Beroepenregister. Inschrijving kost SRD 500, is drie jaar geldig en herinschrijving vraag je uiterlijk drie maanden voor afloop aan (ook SRD 500). Een uittreksel uit het register kost SRD 300. De beoordelingscommissie beslist binnen 30 dagen.</li>
+</ol>
+<p>Let op: de KKF-lijst noemt aannemers, architecten en ingenieursbureaus nog onder het ministerie van EZOTI. Vraag bij inschrijving of de KKF een vergunning of een bewijs van inschrijving in het Beroepenregister verwacht.</p>
+{% else %}
+<p>Yes, in three steps.</p>
+<ol class="steps">
+<li><b>2011 (S.B. 2011 no. 64).</b> The list went from over 120 businesses and professions to about 40. Tailors, bakers, photo studios, printers, cleaning companies, driving schools, importers, exporters, wholesalers and many small manufacturers no longer need a licence, only trade register registration. District commissioners lost their power to license trades; those licences now go through the ministry.</li>
+<li><b>2019 (S.B. 2019 no. 34 and 35).</b> Since 1 April 2019 no licences are issued for selling provisions and general goods. Existing licences became a general shopkeeper's licence, which does not allow selling fireworks, weapons, pesticides, prescription medicines, fuel, spirits, contact lenses, erotic articles or sand and shells. Separate licences apply to those products. The minister set the general conditions for all licence holders in one order.</li>
+<li><b>2024 (S.B. 2024 no. 62).</b> For architects, consulting engineers, building and civil engineering contractors and building technicians, the licence was replaced by a competence assessment and registration in the Professions Register (Beroepenregister). Registration costs SRD 500, is valid for three years and renewal must be requested at least three months before expiry (also SRD 500). An extract from the register costs SRD 300. The assessment committee decides within 30 days.</li>
+</ol>
+<p>Note: the KKF list still names contractors, architects and engineering firms under EZOTI. When registering, ask whether the KKF expects a licence or proof of registration in the Professions Register.</p>
+{% endif %}
+
+<h2>{{ 'Welke activiteiten hebben een vergunning nodig?' if nl else 'Which activities need a licence?' }}</h2>
+{% if nl %}
+<p>Dit is de lijst die de KKF in 2026 hanteert: deze bedrijven en beroepen moeten bij inschrijving een vergunning overleggen. Staat je activiteit er niet op, dan heb je in beginsel alleen een KKF-inschrijving nodig. Twijfel je, vraag het de KKF of de genoemde instantie; de KKF meldt zelf dat wijzigingen voorbehouden zijn.</p>
+{% else %}
+<p>This is the list the KKF uses in 2026: these businesses and professions must show a licence when registering. If your activity is not on it, in principle you only need KKF registration. If in doubt, ask the KKF or the authority named; the KKF itself notes that the list may change.</p>
+{% endif %}
+<table class="tbl stack tx"><thead><tr><th>{{ 'Instantie' if nl else 'Authority' }}</th><th>{{ 'Activiteiten' if nl else 'Activities' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Instantie"><b>Ministerie van EZOTI</b></td><td data-l="Activiteiten">Aannemer (civiel, bouw, constructie, grondverzet, schilderwerk, installaties); amusementsspelen; architect en bouwkundig technicus; bespuitings- en besproeiingsbedrijf; douane-expediteur of inklaarder; fabrikant van voedingsmiddelen, ijs, veevoer, alcoholhoudende dranken, zuurstof, acetyleengas, cement, verf, huishoudelijke en industriële artikelen; verwerking van vis, noten en pluimvee; water filteren en bottelen; bouw en reparatie van stalen of plastic vaartuigen; goud- en zilversmid; hotel; houtzaagmolen; ingenieurs- of adviesbureau; ongediertebestrijding; kapsalon; keuringsinstantie; luchtvaartbedrijf; pelmolenaar; pension of appartementencomplex; reisbureau; pompstation; slager; verzekeraar; winkelier in auto's, brandstof in vaten, geneesmiddelen (ook apotheek), propaan, gezaagd hout, erotische artikelen, vlees, landbouwchemicaliën, levende dieren en diermedicijnen (petshop) of zuurstof</td></tr>
+<tr><td data-l="Instantie"><b>Districtscommissaris</b></td><td data-l="Activiteiten">Eet- en drankinrichting; verkoop van gedistilleerd in fabrieksverpakking; standhouder op de openbare weg; openbare vermakelijkheden; Hinderwetvergunning</td></tr>
+<tr><td data-l="Instantie"><b>Centrale Bank van Suriname</b></td><td data-l="Activiteiten">Wisselkantoor of bankier; geldovermakingsbedrijf</td></tr>
+<tr><td data-l="Instantie"><b>Ministerie van Transport, Communicatie en Toerisme (TCT)</b></td><td data-l="Activiteiten">Autobusdienst; radio-omroep; televisie; luchtvaartbedrijf met economische vergunning; droneactiviteiten</td></tr>
+<tr><td data-l="Instantie"><b>Telecommunicatie Autoriteit Suriname (TAS)</b></td><td data-l="Activiteiten">Internet service provider; internetcafé; belhuis</td></tr>
+<tr><td data-l="Instantie"><b>Ministerie van VWA (arbeid)</b></td><td data-l="Activiteiten">Uitzendbureau</td></tr>
+<tr><td data-l="Instantie"><b>Ministerie van Natuurlijke Hulpbronnen, Geologisch Mijnbouwkundige Dienst (GMD)</b></td><td data-l="Activiteiten">Concessionaris (mijnbouw, waaronder goud)</td></tr>
+{% else %}
+<tr><td data-l="Authority"><b>Ministry of EZOTI</b></td><td data-l="Activities">Contractor (civil, building, construction, earthworks, painting, installations); amusement games; architect and building technician; crop spraying; customs broker; manufacturer of food, ice, animal feed, alcoholic drinks, oxygen, acetylene, cement, paint, household and industrial articles; processing of fish, nuts and poultry; water filtering and bottling; building and repair of steel or plastic vessels; gold and silversmith; hotel; sawmill; engineering or consulting firm; pest control; hair salon; inspection body; airline; rice mill (pelmolen); guesthouse or apartment complex; travel agency; petrol station; butcher; insurer; shop selling cars, fuel in drums, medicines (including pharmacy), propane, sawn timber, erotic articles, meat, agricultural chemicals, live animals and veterinary drugs (pet shop) or oxygen</td></tr>
+<tr><td data-l="Authority"><b>District commissioner</b></td><td data-l="Activities">Place serving food and drinks; sale of spirits in factory packaging; stallholder on the public road; public entertainment; Nuisance Act permit (Hinderwetvergunning)</td></tr>
+<tr><td data-l="Authority"><b>Central Bank of Suriname (CBvS)</b></td><td data-l="Activities">Exchange office (cambio) or banker; money transfer business</td></tr>
+<tr><td data-l="Authority"><b>Ministry of Transport, Communication and Tourism (TCT)</b></td><td data-l="Activities">Bus service; radio broadcasting; television; airline with an economic licence; drone operations</td></tr>
+<tr><td data-l="Authority"><b>Telecommunications Authority Suriname (TAS)</b></td><td data-l="Activities">Internet service provider; internet café; call shop</td></tr>
+<tr><td data-l="Authority"><b>Ministry of VWA (labour)</b></td><td data-l="Activities">Temporary employment agency</td></tr>
+<tr><td data-l="Authority"><b>Ministry of Natural Resources, Geological Mining Service (GMD)</b></td><td data-l="Activities">Concession holder (mining, including gold)</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Niet op de lijst, dus in beginsel vrij na KKF-inschrijving: een gewone winkel in levensmiddelen of kleding (de KKF-lijst noemt alleen winkels in bepaalde producten; vraag bij twijfel de One Stop Window, omdat de beschikking uit 2019 nog over een algemene winkeliersvergunning spreekt), een webshop, een ICT- of adviesbedrijf (geen ingenieursbureau), een bakkerij die niet industrieel produceert, een schoonmaakbedrijf, een drukkerij, import en export van vrije goederen. Controleer altijd of je product of locatie niet onder een andere regel valt, zoals de Negatieve Lijst, de Bouwwet of de milieuwet.</p>
+{% else %}
+<p>Not on the list, so in principle free after KKF registration: an ordinary grocery or clothing shop (the KKF list only names shops in certain products; if in doubt ask the One Stop Window, because the 2019 order still refers to a general shopkeeper's licence), an online shop, an IT or consulting firm (not an engineering firm), a non-industrial bakery, a cleaning company, a printer, importing and exporting free goods. Always check whether your product or location falls under another rule, such as the Negative List, the Building Act or environmental law.</p>
+{% endif %}
+
+<h2>{{ 'Een vergunning aanvragen bij EZOTI' if nl else 'Applying for a licence from EZOTI' }}</h2>
+{% if nl %}
+<p>Het ministerie heeft aanvraag en beoordeling gescheiden. De <b>KKF is het front office</b>: daar dien je in, daar lever je documenten aan en daar krijg je antwoord. Het ministerie is het back office en beslist. Je kunt indienen aan de balie van de One Stop Window van de KKF of online via de <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a>. Sinds november 2024 loopt de afhandeling via een digitaal platform waaraan ook adviesinstanties zijn gekoppeld, zoals het milieu-instituut, het BOG en Openbare Werken.</p>
+<h3>Stappen en termijnen</h3>
+<ol class="steps">
+<li><b>Indienen.</b> Bij de KKF, met alle documenten en het bewijs van betaling.</li>
+<li><b>Publicatie binnen 7 dagen.</b> Het ministerie maakt je aanvraag bekend in het Advertentieblad, in de dagbladen of digitaal.</li>
+<li><b>14 dagen voor bedenkingen.</b> Belanghebbenden, zoals buren, kunnen bezwaren tegen je vestiging indienen. Dat kan niet als je bedrijf in een aangewezen economische zone ligt of geen bijzonder gezondheids- of milieurisico heeft.</li>
+<li><b>Besluit binnen 14 dagen</b> na publicatie, of na afloop van de termijn voor bedenkingen. Samen ongeveer 35 dagen.</li>
+<li><b>Te laat?</b> Stuur de directeur van het ministerie een aangetekende brief met het verzoek te beslissen. Die moet dan binnen 14 dagen beslissen. Blijft een besluit uit, dan staan bezwaar en beroep open.</li>
+</ol>
+<p>Volgens het ministerie moesten ondernemers vroeger tot zeven maanden wachten; in mei 2026 zei de minister dat aanvragen nu binnen de wettelijke termijn van een maand worden afgehandeld, met uitleg bij een afwijzing.</p>
+<h3>Documenten (lijst van de KKF One Stop Window)</h3>
+<ul class="check">
+<li>Drie gelijke, recente pasfoto's</li>
+<li>Belastingverklaring: bewijs dat je geen belastingschuld hebt of een regeling hebt getroffen</li>
+<li>Uittreksel uit het bevolkingsregister en nationaliteitsverklaring</li>
+<li>Kopie verblijfsvergunning als je niet de Surinaamse nationaliteit hebt</li>
+<li>Bij productie of verkoop van eet- en drinkwaren: gezondheidsverklaring van de huisarts, afgestempeld door het BOG</li>
+<li>Kwitantie van het betaalde vergunningsrecht</li>
+<li>Goedkeuring van de eigenaar van het pand of de huurovereenkomst (handtekeningen gelegaliseerd) en een hypothecair uittreksel</li>
+<li>KKF-uittreksel met contributiestempel (bewijs dat de jaarbijdrage is betaald)</li>
+<li>Kopie statuten bij een rechtspersoon</li>
+<li>Diploma's, cijferlijst of cv als vakkennis vereist is</li>
+<li>Bouwtekening van het pand</li>
+</ul>
+<h3>Kosten</h3>
+<p>Het vergunningsrecht is SRD 304,50. Via de One Stop Window betaal je in totaal SRD 550, inclusief vergunningsrecht en andere kosten. Betaal je zelf, dan kan dat volgens de KKF bij de kassa van de districtscommissaris Paramaribo Noord-Oost (Van Sommelsdijckstraat) of bij de kassa van Openbare Werken (Jagernath Lachmonstraat). De wet laat toe dat tarieven bij staatsbesluit worden aangepast; controleer het bedrag bij de KKF.</p>
+<h3>Wie kan aanvragen</h3>
+<p>Een ingezetene van Suriname, een burger van een ander CARICOM-land, of een rechtspersoon (ook een buitenlandse rechtspersoon die zich volgens de regels heeft gevestigd). Een rechtspersoon krijgt de vergunning op eigen naam; de vakkennis moet dan aanwezig zijn bij een bestuurder of werknemer.</p>
+<h3>Geldigheid, voorwaarden en verlenging</h3>
+<ul>
+<li><b>Onbepaalde tijd.</b> Een vergunning geldt in beginsel voor onbepaalde tijd (art. 7). Alleen voor categorieën die bij staatsbesluit zijn aangewezen geldt een bepaalde tijd; die vergunning wordt automatisch verlengd, tenzij de minister minstens zes maanden vooraf met redenen meldt dat hij niet verlengt. Voor verlenging betaal je opnieuw vergunningsrecht.</li>
+<li><b>Voorwaarden.</b> Elke vergunning heeft algemene voorwaarden (S.B. 2019 no. 35) en soms bijzondere voorwaarden van adviesinstanties, zoals het BOG, het milieu-instituut, de Veterinaire Dienst of de Brandweer. Voorbeelden: terrein en stoep vrij van wrakken en afval, een poederblusser van 7 kg binnen bereik, geen inbreuk op merken en auteursrecht, openingstijden volgens het Decreet openingstijden winkelbedrijven en de Zondagrustwet, en inspecteurs toelaten.</li>
+<li><b>Persoonlijk.</b> Alleen de vergunninghouder mag het bedrijf voor eigen rekening uitoefenen. Verhuren of uitlenen is verboden, tenzij de directeur schriftelijk toestemming geeft (art. 10).</li>
+<li><b>Overdracht en verhuizing.</b> De vergunning vervalt bij overdracht, bij verhuizing (als ze plaatsgebonden is), bij overlijden of bij ontbinding van de rechtspersoon. Vraag 30 dagen vóór overdracht of verhuizing een wijziging van de tenaamstelling aan; dat wordt behandeld als een nieuwe aanvraag. Bij overlijden of ontbinding loopt de vergunning nog 6 maanden door, twee keer te verlengen, zodat de erfgenamen de tenaamstelling kunnen regelen.</li>
+</ul>
+{% else %}
+<p>The ministry has separated application from assessment. The <b>KKF is the front office</b>: you file there, submit documents there and get your answer there. The ministry is the back office and decides. You can file at the counter of the KKF One Stop Window or online through the <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a>. Since November 2024 processing runs on a digital platform that also connects advisory bodies such as the environmental institute, the Public Health Bureau (BOG) and Public Works.</p>
+<h3>Steps and deadlines</h3>
+<ol class="steps">
+<li><b>File.</b> At the KKF, with all documents and proof of payment.</li>
+<li><b>Publication within 7 days.</b> The ministry publishes your application in the Official Advertiser (Advertentieblad), in newspapers or online.</li>
+<li><b>14 days for objections.</b> Interested parties, such as neighbours, can object to your business. This is not possible if your business is in a designated economic zone or poses no particular health or environmental risk.</li>
+<li><b>Decision within 14 days</b> after publication, or after the objection period ends. About 35 days in total.</li>
+<li><b>Late?</b> Send the ministry's director a registered letter asking for a decision. The director must then decide within 14 days. If no decision follows, objection and appeal are open to you.</li>
+</ol>
+<p>According to the ministry, entrepreneurs used to wait up to seven months; in May 2026 the minister said applications are now handled within the legal term of one month, with reasons given for a refusal.</p>
+<h3>Documents (KKF One Stop Window list)</h3>
+<ul class="check">
+<li>Three identical recent passport photos</li>
+<li>Tax statement (belastingverklaring): proof that you have no tax debt or have a payment arrangement</li>
+<li>Extract from the population register and a nationality statement</li>
+<li>Copy of your residence permit if you are not a Surinamese national</li>
+<li>For producing or selling food and drinks: health certificate from your GP, stamped by the BOG</li>
+<li>Receipt for the paid licence fee</li>
+<li>The property owner's approval or the lease (signatures legalised) and a mortgage register extract</li>
+<li>KKF extract with the contribution stamp (proof that the annual contribution is paid)</li>
+<li>Copy of the articles for a legal entity</li>
+<li>Diplomas, transcripts or CV if expertise is required</li>
+<li>Building drawing of the premises</li>
+</ul>
+<h3>Costs</h3>
+<p>The licence fee (vergunningsrecht) is SRD 304.50. Through the One Stop Window you pay SRD 550 in total, including the licence fee and other costs. If you pay yourself, the KKF says this can be done at the cash desk of the district commissioner of Paramaribo North-East (Van Sommelsdijckstraat) or at the Public Works cash desk (Jagernath Lachmonstraat). The law allows fees to be changed by state decree; check the amount with the KKF.</p>
+<h3>Who can apply</h3>
+<p>A resident of Suriname, a citizen of another CARICOM country, or a legal entity (including a foreign legal entity that has established itself according to the rules). A legal entity receives the licence in its own name; the required expertise must then be present in a director or employee.</p>
+<h3>Validity, conditions and renewal</h3>
+<ul>
+<li><b>Indefinite.</b> A licence is in principle valid indefinitely (art. 7). Only for categories designated by state decree is it granted for a fixed term; such a licence renews automatically unless the minister gives reasoned notice at least six months in advance that it will not be renewed. Renewal requires paying the licence fee again.</li>
+<li><b>Conditions.</b> Every licence carries general conditions (S.B. 2019 no. 35) and sometimes special conditions from advisory bodies such as the BOG, the environmental institute, the Veterinary Service or the Fire Service. Examples: premises and pavement free of wrecks and waste, a 7 kg powder extinguisher within reach, no infringement of trademarks and copyright, opening hours under the Shop Opening Hours Decree and the Sunday Rest Act, and allowing inspectors in.</li>
+<li><b>Personal.</b> Only the licence holder may run the business for its own account. Renting out or lending the licence is prohibited unless the director gives written consent (art. 10).</li>
+<li><b>Transfer and moving.</b> The licence lapses on transfer, on moving (if location-bound), on death or on dissolution of the legal entity. Apply to change the name on the licence 30 days before a transfer or move; this is treated as a new application. On death or dissolution the licence continues for 6 months, extendable twice, so heirs can arrange the change of name.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Vergunningen van de districtscommissaris' if nl else 'Licences from the district commissioner' }}</h2>
+{% if nl %}
+<p>De districtscommissaris (DC) van het district waar je bedrijf komt, valt onder het ministerie van Regionale Ontwikkeling en geeft nog steeds de vergunningen voor:</p>
+<ul>
+<li><b>Eet- en drankinrichtingen</b> (restaurant, snackbar, bar, café) en de verkoop van gedistilleerd, onder de Wet op Drankhuizen en huizen van openbare vermakelijkheden (G.B. 1944 no. 64). Het "zetten van eet- en drinkgelagen" is vergunningplichtig en de DC kan voorwaarden stellen, bijvoorbeeld over het schenken aan bepaalde groepen. Burgers en bedrijven uit CARICOM-landen worden sinds 2006 gelijk behandeld (S.B. 2006 no. 15).</li>
+<li><b>Openbare vermakelijkheden</b>, zoals feesten en evenementen.</li>
+<li><b>Standplaatsen op de openbare weg.</b></li>
+<li><b>Hinderwetvergunning</b> voor bedrijven die gevaar, schade of hinder voor de omgeving kunnen veroorzaken.</li>
+</ul>
+<p>Vraag bij het commissariaat van je ressort naar de formulieren, de leges en de verlengingstermijn; die zijn niet centraal gepubliceerd. Een horecazaak heeft daarnaast vaak een bouwvergunning, brandweeradvies en een gezondheidsverklaring nodig (zie hieronder).</p>
+{% else %}
+<p>The district commissioner (DC) of the district where your business will be located falls under the Ministry of Regional Development and still issues licences for:</p>
+<ul>
+<li><b>Places serving food and drinks</b> (restaurant, snack bar, bar, café) and the sale of spirits, under the Drinking Houses and Public Entertainment Act (G.B. 1944 no. 64). Serving food and drinks commercially requires a licence and the DC can set conditions, for example on serving certain groups. Citizens and companies from CARICOM countries have been treated equally since 2006 (S.B. 2006 no. 15).</li>
+<li><b>Public entertainment</b>, such as parties and events.</li>
+<li><b>Stalls on the public road.</b></li>
+<li><b>Nuisance Act permit</b> (Hinderwetvergunning) for businesses that may cause danger, damage or nuisance to the surroundings.</li>
+</ul>
+<p>Ask the commissioner's office for your area (ressort) about the forms, fees and renewal period; these are not published centrally. A restaurant or bar usually also needs a building permit, fire service advice and a health certificate (see below).</p>
+{% endif %}
+
+<h2>{{ 'Sectorvergunningen' if nl else 'Sector licences' }}</h2>
+{% if nl %}
+<h3>Voeding en horeca</h3>
+<p>Voedselproductie (voedingsmiddelen, ijs, dranken, vleesproducten, vis- en pluimveeverwerking) heeft een fabrikantenvergunning van EZOTI nodig, met voorwaarden van het BOG. Wie eten verkoopt of bereidt, heeft een gezondheidsverklaring nodig van de huisarts, afgestempeld door het BOG. Slagers en vleesverkopers hebben daarnaast veterinaire vergunningen voor varkens-, schapen-, geiten- en rundvlees en moeten voldoen aan hygiëne-eisen: ongediertebestrijding, handwasgelegenheid, kleedruimte voor personeel en een jaarlijkse medische keuring.</p>
+<h3>Apotheek en medicijnen</h3>
+<p>Een winkel in verpakte of onverpakte geneesmiddelen, ook een apotheek, heeft een EZOTI-vergunning nodig. Bij de vergunning gelden bijzondere voorwaarden van de Farmaceutische Inspectie. Voor de invoer van medicijnen vraagt de dienst IUD een certificaat van de Farmaceutische Inspectie of het Bureau Registratie Geneesmiddelen.</p>
+<h3>Transport</h3>
+<p>Een autobusdienst, luchtvaartbedrijf of drone-activiteit heeft een vergunning van het ministerie van TCT nodig. Voor een vervoersbedrijf vraagt de KKF bij inschrijving het nummerbewijs, rijbewijs, keuringsbewijs, verzekeringsbewijs en eventueel een verklaring van geen bezwaar en koopovereenkomst. Taxi's staan niet apart op de KKF-lijst; vraag het ministerie van TCT welke vergunning en nummerbewijs je nodig hebt.</p>
+<h3>Goud en mijnbouw</h3>
+<p>Mijnbouw, ook kleinschalige goudwinning, vraagt een concessie of mijnbouwrecht onder het Decreet Mijnbouw (S.B. 1986 no. 28), via de Geologisch Mijnbouwkundige Dienst (GMD) van het ministerie van Natuurlijke Hulpbronnen. Een goud- of zilversmid heeft een EZOTI-vergunning nodig. Meer over de goudsector: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</p>
+<h3>Bos en hout</h3>
+<p>Houtkap valt onder de Wet Bosbeheer (S.B. 1992 no. 80) en de Stichting voor Bosbeheer en Bostoezicht (SBB). Een houtzaagmolen heeft een EZOTI-vergunning nodig, met eisen voor brandveiligheid, elektra en blusmiddelen. Voor de export van hout en houtproducten meld je je eerst bij de SBB; de exportvergunning zelf komt van de dienst IUD.</p>
+<h3>Telecom en media</h3>
+<p>Internet service providers, internetcafés en belhuizen hebben een vergunning van de Telecommunicatie Autoriteit Suriname (TAS) nodig, onder de Wet Telecommunicatievoorzieningen (S.B. 2004 no. 151). Radio en televisie vallen onder het ministerie van TCT.</p>
+<h3>Financiële diensten</h3>
+<p>Banken, wisselkantoren (cambio's) en geldovermakingsbedrijven hebben een vergunning van de Centrale Bank van Suriname (CBvS) nodig. Voor geldtransactiekantoren geldt de Wet Toezicht Geldtransactiekantoren 2012. Een verzekeraar staat op de EZOTI-lijst; vraag ook bij de CBvS welke toezichtregels gelden voordat je begint.</p>
+<h3>Toerisme: hotels, pensions, reisbureaus en gidsen</h3>
+<p>Hotels, motels, pensions, appartementencomplexen en reisbureaus hebben een EZOTI-vergunning nodig. Voor een hotel, motel of guesthouse gelden eisen voor vermogen, bedrijfskennis en bekwaamheid (S.B. 1992 no. 30 en 33), en voor touroperators S.B. 1992 no. 34. De Toerisme Raamwet (S.B. 2023 no. 88) laat de Suriname Toerisme Autoriteit samen met het Surinaams Standaarden Bureau standaarden en richtlijnen voor de sector ontwikkelen; wie eraan voldoet, kan worden gecertificeerd. Nieuw: in december 2025 werden de standaarden voor toeristische accommodatie (SSB 020:2020) en voor toeristengidsen (SSB 011:2019) technische voorschriften. Ze gaan in na een overgangstermijn van twee jaar, dus rond eind 2027. Voor accommodaties geldt onder meer een minimale slaapkamergrootte van 20 m².</p>
+<h3>Beveiliging, wapens en kansspelen</h3>
+<p>Activiteiten met wapens, munitie of gevaarlijke stoffen vallen volgens de Wet Bedrijven en Beroepen altijd in de vergunningplichtige categorie. Particuliere beveiligingsbedrijven staan niet op de KKF-lijst; vraag het ministerie van Justitie en Veiligheid en de KKF welke vergunningen gelden voordat je personeel inzet. Voor de invoer en verkoop van vuurwerk is toestemming van het Parket van de Procureur-generaal nodig. Casino's en kansspelen vallen onder de Wet Hazardspelen (S.B. 2023 no. 135) en de Wet Toezicht en Controle Kansspelen; amusementsspelen zoals flipperkasten hebben een EZOTI-vergunning nodig.</p>
+<h3>Uitzendbureaus</h3>
+<p>Een uitzendbureau heeft een vergunning nodig van het Ministerie van Volksgezondheid, Welzijn en Arbeid (VWA), dat sinds juli 2025 over arbeid gaat. Sinds 27 juli 2026 neemt het ministerie geen nieuwe aanvragen voor zo'n vergunning in behandeling; vraag daar naar de stand van zaken.</p>
+{% else %}
+<h3>Food and hospitality</h3>
+<p>Food production (food, ice, drinks, meat products, fish and poultry processing) needs a manufacturer's licence from EZOTI, with conditions set by the BOG. Anyone selling or preparing food needs a health certificate from their GP, stamped by the BOG. Butchers and meat sellers also need veterinary permits for pork, mutton, goat and beef and must meet hygiene rules: pest control, hand washing facilities, a staff changing room and an annual medical check.</p>
+<h3>Pharmacy and medicines</h3>
+<p>A shop selling packaged or unpackaged medicines, including a pharmacy, needs an EZOTI licence. Special conditions from the Pharmaceutical Inspectorate apply. For importing medicines, the IUD service asks for a certificate from the Pharmaceutical Inspectorate or the Medicines Registration Bureau.</p>
+<h3>Transport</h3>
+<p>A bus service, airline or drone operation needs a licence from the Ministry of Transport, Communication and Tourism (TCT). For a transport business the KKF asks at registration for the vehicle registration certificate, driving licence, inspection certificate, insurance certificate and, if relevant, a statement of no objection and purchase agreement. Taxis are not listed separately on the KKF list; ask the Ministry of TCT which licence and registration you need.</p>
+<h3>Gold and mining</h3>
+<p>Mining, including small-scale gold mining, requires a concession or mining right under the Mining Decree (S.B. 1986 no. 28), through the Geological Mining Service (GMD) of the Ministry of Natural Resources. A gold or silversmith needs an EZOTI licence. More on the gold sector: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</p>
+<h3>Forestry and timber</h3>
+<p>Logging falls under the Forest Management Act (S.B. 1992 no. 80) and the Foundation for Forest Management and Production Control (SBB). A sawmill needs an EZOTI licence, with fire safety, electrical and extinguisher requirements. For exporting timber and wood products you first report to the SBB; the export licence itself comes from the IUD service.</p>
+<h3>Telecom and media</h3>
+<p>Internet service providers, internet cafés and call shops need a licence from the Telecommunications Authority Suriname (TAS), under the Telecommunications Facilities Act (S.B. 2004 no. 151). Radio and television fall under the Ministry of TCT.</p>
+<h3>Financial services</h3>
+<p>Banks, exchange offices (cambios) and money transfer businesses need a licence from the Central Bank of Suriname (CBvS). Money transaction offices fall under the Money Transaction Offices Supervision Act 2012. An insurer is on the EZOTI list; also ask the CBvS which supervision rules apply before you start.</p>
+<h3>Tourism: hotels, guesthouses, travel agencies and guides</h3>
+<p>Hotels, motels, guesthouses, apartment complexes and travel agencies need an EZOTI licence. For a hotel, motel or guesthouse there are requirements on capital, business knowledge and competence (S.B. 1992 no. 30 and 33), and for tour operators S.B. 1992 no. 34. The Tourism Framework Act (S.B. 2023 no. 88) has the Suriname Tourism Authority develop standards and guidelines for the sector together with the Suriname Standards Bureau; businesses that meet them can be certified. New: in December 2025 the standards for tourist accommodation (SSB 020:2020) and for tour guides (SSB 011:2019) became technical regulations. They take effect after a two-year transition period, so around the end of 2027. For accommodation they include a minimum bedroom size of 20 m².</p>
+<h3>Security, weapons and gambling</h3>
+<p>Under the Businesses and Professions Act, activities involving weapons, ammunition or dangerous substances always fall in the licensed category. Private security companies are not on the KKF list; ask the Ministry of Justice and Security and the KKF which licences apply before you deploy staff. Importing and selling fireworks requires permission from the Office of the Attorney General. Casinos and gambling fall under the Games of Chance Act (Wet Hazardspelen, S.B. 2023 no. 135) and the Gaming Supervision and Control Act; amusement games such as pinball machines need an EZOTI licence.</p>
+<h3>Temporary employment agencies</h3>
+<p>A temporary employment agency needs a licence from the Ministry of Health, Welfare and Labour (VWA), which has handled labour since July 2025. Since 27 July 2026 the ministry has not been taking new applications for this licence; ask there about the current status.</p>
+{% endif %}
+
+<h2>{{ 'Bouwen, brandweer en milieu' if nl else 'Building, fire service and environment' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Bouwvergunning.</b> Bouwen en verbouwen vraagt een vergunning van het ministerie van Openbare Werken (Bouwwet 1956). Je betaalt SRD 50 leges per aanvraag plus vergunningsrecht volgens het Besluit Vergunningsrecht (S.B. 2023 no. 92). Een zakenpand van één bouwlaag: 0,20% van een vaste bouwsom van SRD 15.000 per m², dus SRD 30 per m². Een woning tot 70 m²: SRD 250. Een commercieel parkeervak in de berm kost SRD 2.500 per jaar en commerciële bermbestrating SRD 50 per m² per jaar.</li>
+<li><b>Brandweer.</b> Voor winkels, magazijnen, pakhuizen, hotels, pensions, scholen, bioscopen, kinderdagverblijven en opslag van brandbare stoffen vraagt de vergunningverlener eerst advies aan de afdeling Preventie van het Korps Brandweer Suriname. Dat advies komt binnen 30 dagen. De vergunning volgt pas nadat je de brandveiligheidsvoorschriften hebt uitgevoerd (Beschikking Brandveiligheid, S.B. 2007 no. 118).</li>
+<li><b>Milieu.</b> Onder de Milieu Raamwet (S.B. 2020 no. 97) en het Besluit Milieu Effecten Analyse (S.B. 2025 no. 23) beoordeelt de Nationale Milieu Autoriteit (NMA) of een project een milieueffectenanalyse (MEA) nodig heeft. Categorie A vraagt een volledige MEA, categorie B een beperktere studie volgens de NMA, categorie C geen MEA. In categorie C vallen onder meer kapsalons, uitdeuk- en spuitinrichtingen, goud- en zilversmeden, niet-industriële bakkerijen en winkels in brandstof in vaten of landbouwchemicaliën. Los daarvan kan een milieuvergunning of een vergunning voor gevaarlijke stoffen verplicht zijn; vraag de NMA of dat voor jou geldt.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Building permit.</b> Building and renovating require a permit from the Ministry of Public Works (Building Act 1956). You pay SRD 50 in fees per application plus a permit charge under the Permit Charges Decree (S.B. 2023 no. 92). A one-storey business building: 0.20% of a fixed building value of SRD 15,000 per m², so SRD 30 per m². A home up to 70 m²: SRD 250. A commercial parking space on the verge costs SRD 2,500 a year and commercial verge paving SRD 50 per m² a year.</li>
+<li><b>Fire service.</b> For shops, warehouses, storage buildings, hotels, guesthouses, schools, cinemas, day care centres and storage of flammable materials, the issuing authority first asks the Prevention Department of the Suriname Fire Service for advice. That advice comes within 30 days. The permit follows only after you have carried out the fire safety requirements (Fire Safety Order, S.B. 2007 no. 118).</li>
+<li><b>Environment.</b> Under the Environmental Framework Act (S.B. 2020 no. 97) and the Environmental Impact Assessment Decree (S.B. 2025 no. 23), the National Environmental Authority (NMA) decides whether a project needs an environmental impact assessment (MEA). Category A requires a full MEA, category B a more limited study set by the NMA, category C no MEA. Category C includes hair salons, panel beating and spray shops, gold and silversmiths, non-industrial bakeries and shops selling fuel in drums or agricultural chemicals. Separately, an environmental permit or a hazardous substances permit may be mandatory; ask the NMA whether that applies to you.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Import- en exportvergunningen' if nl else 'Import and export licences' }}</h2>
+{% if nl %}
+<p>Sinds de handelsliberalisatie van 1 september 1999 mag iedereen vrij importeren en exporteren na inschrijving bij de KKF. Je hebt dus geen bedrijfsvergunning als importeur nodig. Alleen voor goederen op de <b>Negatieve Lijst</b> (Besluit Negatieve Lijst, S.B. 2003 no. 74) geldt een verbod, een vergunning of een bijzondere behandeling. Die vergunning vraag je aan bij de dienst Invoer, Uitvoer en Deviezencontrole (IUD) van EZOTI, met het H-03-formulier. Is advies van een ander ministerie nodig, dan haal je dat eerst. Voor sommige goederen volstaat een certificaat, bijvoorbeeld van het BOG voor voedingswaren.</p>
+<ul>
+<li><b>Eerst de vergunning, dan verschepen.</b> De vergunning moet er zijn vóór de invoer of uitvoer (art. 9 Wet Goederenverkeer, S.B. 2003 no. 58). Het ministerie benadrukt dat je goederen niet mag verschepen voordat je de importvergunning hebt.</li>
+<li><b>SESW.</b> Sinds 1 oktober 2025 registreer je producten van de Negatieve Lijst zoveel mogelijk online in de Suriname Electronic Single Window (SESW). Voor registratie als bedrijf heb je een getekend formulier met bedrijfsstempel nodig, kopie ID-kaart en rijbewijs (voor- en achterkant), kopie paspoort, een KKF-uittreksel en een belastingverklaring met kopie van het belastingvaste nummer, alle niet ouder dan zes maanden.</li>
+<li><b>Gewijzigde Negatieve Lijst.</b> Sinds 21 mei 2026 (S.B. 2026 no. 39) is de invoer verboden van bussen voor tien of meer personen ouder dan vijftien jaar en van personenauto's ouder dan acht jaar. Uitzonderingen: auto's die aantoonbaar langer dan twee jaar tot de inboedel van een remigrant horen, en verzamelaarsauto's ouder dan 35 jaar. Aanvragen die tot en met 31 oktober 2026 zijn ingediend, worden nog volgens de oude procedure behandeld; vanaf 1 november 2026 gelden de aangepaste procedures.</li>
+</ul>
+<p>Meer over douane, invoerrechten en BTW bij import: <a href="{{ U('import') }}">{{ L('import') }}</a>. Over export: <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% else %}
+<p>Since trade liberalisation on 1 September 1999 anyone may import and export freely after KKF registration. So you do not need a business licence as an importer. Only goods on the <b>Negative List</b> (Negative List Decree, S.B. 2003 no. 74) are banned, licensed or subject to special treatment. You apply for that licence at the Import, Export and Foreign Exchange Control service (IUD) of EZOTI, with the H-03 form. If another ministry's advice is needed, get it first. For some goods a certificate is enough, for example from the BOG for food.</p>
+<ul>
+<li><b>Licence first, then ship.</b> The licence must be in hand before import or export (art. 9 Goods Traffic Act, S.B. 2003 no. 58). The ministry stresses that you may not ship goods before you have the import licence.</li>
+<li><b>SESW.</b> Since 1 October 2025 products on the Negative List are registered online as far as possible in the Suriname Electronic Single Window (SESW). To register as a company you need a signed form with company stamp, copies of ID card and driving licence (front and back), a copy of your passport, a KKF extract and a tax statement with a copy of your tax number, all no older than six months.</li>
+<li><b>Amended Negative List.</b> Since 21 May 2026 (S.B. 2026 no. 39) it is prohibited to import buses for ten or more people older than fifteen years and passenger cars older than eight years. Exceptions: cars that have demonstrably been part of a returning migrant's household goods for more than two years, and collector's cars older than 35 years. Applications filed up to and including 31 October 2026 are still handled under the old procedure; from 1 November 2026 the adjusted procedures apply.</li>
+</ul>
+<p>More on customs, import duties and VAT on imports: <a href="{{ U('import') }}">{{ L('import') }}</a>. On exports: <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Boetes en handhaving' if nl else 'Fines and enforcement' }}</h2>
+{% if nl %}
+<p>Toezicht ligt bij de Economische Controle Dienst (ECD) van EZOTI en bij aangewezen instanties, zoals het Surinaams Standaarden Bureau voor technische voorschriften. De Wet Bedrijven en Beroepen kent deze sancties:</p>
+<table class="tbl stack tx"><thead><tr><th>Overtreding</th><th>Sanctie</th></tr></thead><tbody>
+<tr><td data-l="Overtreding">Bedrijf uitoefenen zonder vergunning, zonder vereist diploma of certificaat, of in strijd met zonering</td><td data-l="Sanctie">Bestuurlijke boete tot SRD 1.000</td></tr>
+<tr><td data-l="Overtreding">Vergunningsvoorwaarde overtreden</td><td data-l="Sanctie">Boete tot SRD 1.000; bij niet opvolgen intrekking van de vergunning</td></tr>
+<tr><td data-l="Overtreding">Te laat wijziging tenaamstelling bij overdracht of verhuizing</td><td data-l="Sanctie">Boete gelijk aan het vergunningsrecht voor de wijziging</td></tr>
+<tr><td data-l="Overtreding">Bindende aanwijzing niet opgevolgd</td><td data-l="Sanctie">Herstel op eigen kosten, dwangsom tot SRD 500 per dag met een maximum van SRD 100.000, sluiting</td></tr>
+<tr><td data-l="Overtreding">Gevaar voor openbare orde, veiligheid, gezondheid of milieu</td><td data-l="Sanctie">Sluiting met onmiddellijke ingang</td></tr>
+<tr><td data-l="Overtreding">Herhaalde overtreding</td><td data-l="Sanctie">Economisch delict (Wet Economische Delicten); opzet met letsel of ernstig risico is een misdrijf</td></tr>
+<tr><td data-l="Overtreding">Niet inschrijven bij de KKF of geen KKF-nummer op facturen</td><td data-l="Sanctie">Geldboete tot SRD 50.000 (Handelsregisterwet)</td></tr>
+</tbody></table>
+<p>Je wordt altijd eerst gehoord of opgeroepen voordat een boete, dwangsom, sluiting of intrekking wordt opgelegd. De bevoegdheid om een boete op te leggen vervalt drie jaar na vaststelling van de overtreding. Het besluit wordt in een dagblad bekendgemaakt.</p>
+{% else %}
+<p>Supervision lies with EZOTI's Economic Control Service (ECD) and designated bodies, such as the Suriname Standards Bureau for technical regulations. The Businesses and Professions Act provides these sanctions:</p>
+<table class="tbl stack tx"><thead><tr><th>Offence</th><th>Sanction</th></tr></thead><tbody>
+<tr><td data-l="Offence">Running a business without a licence, without a required diploma or certificate, or against zoning rules</td><td data-l="Sanction">Administrative fine up to SRD 1,000</td></tr>
+<tr><td data-l="Offence">Breaching a licence condition</td><td data-l="Sanction">Fine up to SRD 1,000; revocation if instructions are not followed</td></tr>
+<tr><td data-l="Offence">Late request to change the licence name on transfer or move</td><td data-l="Sanction">Fine equal to the licence fee for the change</td></tr>
+<tr><td data-l="Offence">Binding instruction not followed</td><td data-l="Sanction">Restoration at own cost, penalty payment up to SRD 500 a day with a maximum of SRD 100,000, closure</td></tr>
+<tr><td data-l="Offence">Danger to public order, safety, health or the environment</td><td data-l="Sanction">Immediate closure</td></tr>
+<tr><td data-l="Offence">Repeated offence</td><td data-l="Sanction">Economic offence (Economic Offences Act); intent causing injury or serious risk is a crime</td></tr>
+<tr><td data-l="Offence">Not registering at the KKF or no KKF number on invoices</td><td data-l="Sanction">Fine up to SRD 50,000 (Trade Register Act)</td></tr>
+</tbody></table>
+<p>You are always heard or summoned before a fine, penalty payment, closure or revocation is imposed. The power to impose a fine lapses three years after the offence was established. The decision is published in a daily newspaper.</p>
+{% endif %}
+
+<h2>{{ 'Afgewezen? Bezwaar en beroep' if nl else 'Refused? Objection and appeal' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Bezwaar binnen 30 dagen</b> bij het orgaan dat besliste, met je naam, adres, datum, het besluit en je gronden. Het orgaan beslist binnen 7 dagen, na je te hebben gehoord.</li>
+<li><b>Administratief beroep binnen 30 dagen</b> bij de minister. De minister beslist binnen 30 dagen.</li>
+<li><b>Beroep bij de kantonrechter</b> tegen de beslissing in administratief beroep, of als er niet op tijd is beslist. De rechter kan het besluit vernietigen, een termijn stellen en een dwangsom opleggen aan de overheid.</li>
+</ol>
+<p>Zolang de termijn loopt of op je bezwaar nog niet is beslist, wordt een herstelverplichting, sluiting (behalve sluiting met onmiddellijke ingang) of intrekking opgeschort.</p>
+{% else %}
+<ol class="steps">
+<li><b>Objection within 30 days</b> to the body that decided, with your name, address, date, the decision and your grounds. The body decides within 7 days after hearing you.</li>
+<li><b>Administrative appeal within 30 days</b> to the minister. The minister decides within 30 days.</li>
+<li><b>Appeal to the cantonal court</b> against the decision on administrative appeal, or if no decision was taken in time. The court can annul the decision, set a deadline and impose a penalty payment on the government.</li>
+</ol>
+<p>While the period runs or your objection has not been decided, a restoration order, closure (except immediate closure) or revocation is suspended.</p>
+{% endif %}
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and timeline' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Wat' if nl else 'What' }}</th><th>{{ 'Kosten' if nl else 'Cost' }}</th><th>{{ 'Termijn' if nl else 'Time' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Wat">Bedrijfsvergunning EZOTI</td><td data-l="Kosten">Vergunningsrecht SRD 304,50; via One Stop Window SRD 550</td><td data-l="Termijn">Ongeveer 35 dagen; onbepaalde tijd geldig</td></tr>
+<tr><td data-l="Wat">Wijziging tenaamstelling</td><td data-l="Kosten">Opnieuw vergunningsrecht</td><td data-l="Termijn">Aanvragen 30 dagen vooraf</td></tr>
+<tr><td data-l="Wat">Beroepenregister (architect, aannemer, ingenieur, technicus)</td><td data-l="Kosten">SRD 500; uittreksel SRD 300</td><td data-l="Termijn">Toetsing binnen 30 dagen; 3 jaar geldig</td></tr>
+<tr><td data-l="Wat">Vergunningen districtscommissaris</td><td data-l="Kosten">Vraag het commissariaat</td><td data-l="Termijn">Vraag het commissariaat</td></tr>
+<tr><td data-l="Wat">Bouwvergunning</td><td data-l="Kosten">SRD 50 leges plus vergunningsrecht</td><td data-l="Termijn">Brandweeradvies binnen 30 dagen</td></tr>
+<tr><td data-l="Wat">Importvergunning (Negatieve Lijst)</td><td data-l="Kosten">Vraag de dienst IUD</td><td data-l="Termijn">Vóór verscheping</td></tr>
+{% else %}
+<tr><td data-l="What">EZOTI business licence</td><td data-l="Cost">Licence fee SRD 304.50; via One Stop Window SRD 550</td><td data-l="Time">About 35 days; valid indefinitely</td></tr>
+<tr><td data-l="What">Change of name on licence</td><td data-l="Cost">Licence fee again</td><td data-l="Time">Apply 30 days in advance</td></tr>
+<tr><td data-l="What">Professions Register (architect, contractor, engineer, technician)</td><td data-l="Cost">SRD 500; extract SRD 300</td><td data-l="Time">Assessment within 30 days; valid 3 years</td></tr>
+<tr><td data-l="What">District commissioner licences</td><td data-l="Cost">Ask the commissioner's office</td><td data-l="Time">Ask the commissioner's office</td></tr>
+<tr><td data-l="What">Building permit</td><td data-l="Cost">SRD 50 fee plus permit charge</td><td data-l="Time">Fire service advice within 30 days</td></tr>
+<tr><td data-l="What">Import licence (Negative List)</td><td data-l="Cost">Ask the IUD service</td><td data-l="Time">Before shipment</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Aannemen dat je een vergunning nodig hebt.</b> Veel ondernemers betalen voor een vergunning die sinds 2011 niet meer bestaat, bijvoorbeeld als bakker, kleermaker, importeur of groothandel. Kijk eerst op de lijst.</li>
+<li><b>Aannemen dat je géén vergunning nodig hebt.</b> Verkoop je naast gewone artikelen ook medicijnen, brandstof in vaten, propaan of vlees, dan heb je voor dat deel wel een vergunning nodig.</li>
+<li><b>Starten tijdens de aanvraag.</b> Wacht op het besluit. Een boete is beperkt, maar sluiting en problemen bij de bank en de KKF zijn duurder.</li>
+<li><b>Verhuizen of de zaak verkopen zonder melding.</b> Een plaatsgebonden vergunning vervalt bij verhuizing; een vergunning vervalt bij overdracht. Vraag 30 dagen vooraf de wijziging aan.</li>
+<li><b>Een vergunning "lenen".</b> Op andermans vergunning werken is verboden en de echte houder blijft aansprakelijk.</li>
+<li><b>Goederen bestellen vóór de importvergunning.</b> Opslagkosten in de haven lopen snel op. Registreer op tijd in SESW.</li>
+<li><b>De brandweer vergeten.</b> Voor winkels, opslag, horeca en hotels komt de vergunning pas als het brandweeradvies is uitgevoerd.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Assuming you need a licence.</b> Many entrepreneurs pay for a licence that has not existed since 2011, for example as a baker, tailor, importer or wholesaler. Check the list first.</li>
+<li><b>Assuming you do not need one.</b> If you also sell medicines, fuel in drums, propane or meat alongside ordinary goods, you need a licence for that part.</li>
+<li><b>Starting while the application is pending.</b> Wait for the decision. The fine is limited, but closure and problems with the bank and the KKF cost more.</li>
+<li><b>Moving or selling without notice.</b> A location-bound licence lapses when you move; a licence lapses on transfer. Apply for the change 30 days in advance.</li>
+<li><b>"Borrowing" a licence.</b> Working under someone else's licence is prohibited and the real holder stays liable.</li>
+<li><b>Ordering goods before the import licence.</b> Storage costs in the port add up quickly. Register in SESW in time.</li>
+<li><b>Forgetting the fire service.</b> For shops, storage, restaurants and hotels the permit only comes after fire service advice has been carried out.</li>
+</ul>
+{% endif %}
+<p>{{ 'Verder lezen:' if nl else 'Read next:' }} <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a> &middot; <a href="{{ U('invest') }}">{{ L('invest') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+<li><a href="https://www.sris.sr/wp-content/uploads/2022/04/S.B.-2017-no.-40-Wet-Bedrijven-en-Beroepen.pdf" rel="noopener">Wet Bedrijven en Beroepen, S.B. 2017 no. 40</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/01/besluit_vergunningplichtige_bedrijven_en_beroepen.pdf" rel="noopener">Besluit vergunningplichtige Bedrijven en Beroepen, S.B. 1981 no. 147</a></li>
+<li><a href="https://sris.sr/wp-content/uploads/2024/06/Besluit-vergunningplichtige-bedrijven-en-beroepen-wijz.-S.B.-2011-no.-64.pdf" rel="noopener">Wijziging Besluit vergunningplichtige Bedrijven en Beroepen, S.B. 2011 no. 64</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/01/S.B.-2019-no.-34-Beschikking-houdende-vaststelling-van-algemene-voorwaarden-voor-de-algemene-winkeliersvergunningen..pdf" rel="noopener">Algemene winkeliersvergunning, S.B. 2019 no. 34</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/01/S.B.-2019-no.-35-Beschikking-houdende-vaststelling-van-algemene-voorwaarden-voor-vergunningsplcihtige-Bedrijven-en-Beroepen.pdf" rel="noopener">Algemene voorwaarden vergunningplichtige Bedrijven en Beroepen, S.B. 2019 no. 35</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2024/07/S.B.-2024-no.-62_-STAATSBESLUIT-van-31-mei-2024-uitvoer-art-12-en-13-Wet-Bedrijv-en-BeroepS.B.-2017-no.pdf" rel="noopener">Besluit Vakbekwaamheidscriteria, Beoordelingscommissie en Beroepenregister, S.B. 2024 no. 62</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/01/S.B.-2018-no.-69-Besluit-vaststelling-internationale-classificatie-Wet-bedrijven-en-Beroepen..pdf" rel="noopener">Besluit internationale classificatie (ISIC), S.B. 2018 no. 69</a></li>
+<li><a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services: vergunningplichtige bedrijven per instantie</a></li>
+<li><a href="https://www.surinamechamber.com/index.php?r=site%2Finfo" rel="noopener">KKF: One Stop Window, benodigdheden en kosten vergunningsaanvraag</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/bedrijfsvergunning/" rel="noopener">EZOTI: Bedrijfsvergunning</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/procedures-en-vergunningen-aanvraagprocedure/" rel="noopener">EZOTI: algemene voorwaarden voor vergunningsplichtige bedrijven</a></li>
+<li><a href="https://gov.sr/ministerie-ez-lanceert-een-nieuw-digitaal-platform-voor-bedrijfsvergunningen/" rel="noopener">EZOTI: digitaal platform voor bedrijfsvergunningen (november 2024)</a></li>
+<li><a href="https://www.srherald.com/suriname/2026/05/09/ez-verkort-vergunningstraject-naar-een-maand/" rel="noopener">Suriname Herald: EZ verkort vergunningstraject naar één maand (9 mei 2026)</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/08/G.B.-1944-no.-64-Wet-op-Drankhuizen-en-huizen-van-openbare-vermakelijkheden.pdf" rel="noopener">Wet op Drankhuizen en huizen van openbare vermakelijkheden, G.B. 1944 no. 64</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/08/SB_2006_no_15_wijz._wet_op_Drankhuizen_en_huizen_van_openbare_vermakelijkheden1.pdf" rel="noopener">Wijziging Wet op Drankhuizen (CARICOM), S.B. 2006 no. 15</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/invoer-uitvoer-en-deviezen-controle-iud/" rel="noopener">EZOTI: Invoer, Uitvoer en Deviezen Controle (IUD)</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2026/06/Wijziging-besluit-negatieve-lijst-1.pdf" rel="noopener">EZOTI: wijziging Besluit Negatieve Lijst, S.B. 2026 no. 39 (1 juni 2026)</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2025/09/SESW-online-registratie.pdf" rel="noopener">EZOTI: SESW-registratie (29 september 2025)</a></li>
+<li><a href="https://dagbladdewest.com/2026/09/28/bedrijfsleven-krijgt-tot-november-ruimte-voor-bestaande-importprocedures/" rel="noopener">De West: bestaande importprocedures tot 31 oktober 2026</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/10/S.B.-2023-no.-92-Besluit-Vergunningsrecht.pdf" rel="noopener">Besluit Vergunningsrecht (bouw), S.B. 2023 no. 92</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2022/11/SB-2007-No-118-Brandveiligheid.pdf" rel="noopener">Beschikking Brandveiligheid, S.B. 2007 no. 118</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2020/05/mileuraamwet.pdf" rel="noopener">Milieu Raamwet, S.B. 2020 no. 97</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/05/S.B.-2025-no.-23-STAATSBESLUIT-van-12-februari-2025-ter-uitvoering-van-artikelen-22-lid-1-en-2.pdf" rel="noopener">Besluit Milieu Effecten Analyse, S.B. 2025 no. 23</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2024/05/SB-2023-88.pdf" rel="noopener">Toerisme Raamwet, S.B. 2023 no. 88</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-4-Beschikking-houdende-vaststelling-van-de-Standaard-Specificatie-voor-toeristische-accomodatie-Deel-1-Algemene-vereisten-tot-een-technisch-voorschrift-ten-behoeve-van-alle-toeristische-acco.pdf" rel="noopener">Technisch voorschrift toeristische accommodatie, S.B. 2026 no. 4</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2021/06/Wet-Toezicht-Geldtransactiekantoren-2012-bijgewerkt-door-SRiS-tm-2021-no-53.pdf" rel="noopener">Wet Toezicht Geldtransactiekantoren 2012</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/08/wet_telecommunicatievoorzieningen1.pdf" rel="noopener">Wet Telecommunicatievoorzieningen, S.B. 2004 no. 151</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/02/wet_bosbeheer.pdf" rel="noopener">Wet Bosbeheer, S.B. 1992 no. 80</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/02/decreet_mijnbouw.pdf" rel="noopener">Decreet Mijnbouw, S.B. 1986 no. 28</a></li>
+<li><a href="{{ F.PORTALS.license }}" rel="noopener">Doing Business Dutch Caribbean: business licence</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

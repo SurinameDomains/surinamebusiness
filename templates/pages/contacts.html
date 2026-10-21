@@ -23,6 +23,7 @@
 <li>{{ 'Invoer en uitvoer: aangifte gaat via ASYCUDA, meestal door een douane-expediteur.' if nl else 'Import and export: declarations go through ASYCUDA, usually via a customs broker.' }} <a href="{{ U('import') }}">{{ L('import') }}</a></li>
 <li>{{ 'Inschrijving in het handelsregister: bij de KKF.' if nl else 'Registration in the trade register: at the KKF.' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
 </ul>
+<p><b>{{ 'Alle andere instanties, banken, fondsen en organisaties met hun website:' if nl else 'Every other office, bank, fund and organisation with its website:' }} <a href="{{ U('resources') }}">{{ L('resources') }}</a></b></p>
 <p><a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></p>
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>{% for n, u in F.CONTACT_SOURCES %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}</ul>

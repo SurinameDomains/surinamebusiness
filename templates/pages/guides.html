@@ -1,10 +1,49 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% set groups = [
+  ('Een bedrijf starten en regelen', 'Starting and running a business', [
+    ('start', 'Rechtsvorm, KKF, FIN-nummer en bankrekening, stap voor stap', 'Legal form, KKF, tax number and bank account, step by step'),
+    ('licences', 'Welke activiteiten een vergunning nodig hebben en hoe je die aanvraagt', 'Which activities need a licence and how to apply'),
+    ('bankaccount', 'Documenten per rechtsvorm, UBO en wat banken vragen', 'Documents per legal form, UBO and what banks ask'),
+    ('finance', 'Bankkrediet, NOB-fondsen, garanties en microkrediet', 'Bank loans, NOB funds, guarantees and microcredit'),
+    ('bookkeeping', 'Bewaarplicht, factuureisen, jaarrekening en accountant', 'Record keeping, invoice rules, annual accounts and auditors'),
+    ('trademark', 'Merk, handelsnaam en domeinnaam beschermen', 'Protecting your trademark, trade name and domain'),
+    ('resources', 'Alle instanties, banken en fondsen met hun officiële site', 'Every office, bank and fund with its official site'),
+    ('contacts', 'Adressen en telefoon van Belastingdienst, douane en KKF', 'Addresses and phones of the tax office, customs and KKF'),
+  ]),
+  ('Belasting', 'Tax', [
+    ('biztax', 'Elke belasting voor een bedrijf, met de jaarkalender', 'Every tax a business pays, with the yearly calendar'),
+    ('vatguide', 'Tarieven, registratie, aftrek, facturen en aangifte', 'Rates, registration, input VAT, invoices and returns'),
+    ('incometax', 'Voorlopige en definitieve aangifte, tarieven en aftrekposten', 'Provisional and final returns, rates and deductions'),
+    ('tax', 'Tarieven 2026, belastingvrije som en AOV', '2026 rates, tax-free amount and AOV'),
+    ('deadlines', 'Alle vaste data in je agenda', 'Every fixed date in your calendar'),
+  ]),
+  ('Personeel en arbeid', 'Staff and employment', [
+    ('hiring', 'Je eerste werknemer: contract, loon, premies en administratie', 'Your first employee: contract, pay, premiums and records'),
+    ('employer', 'Wat een werknemer kost: APF, FVO, zorgverzekering', 'What an employee costs: APF pension, FVO, health insurance'),
+    ('labour', 'Werktijden, verlof, ziekte, gelijke behandeling', 'Hours, leave, sickness, equal treatment'),
+    ('dismissal', 'Ontslagvergunning, opzegtermijnen en dringende reden', 'Dismissal permits, notice periods and summary dismissal'),
+    ('workpermit', 'Werkvergunning, verblijf, visum en PSA', 'Work permit, residence, visa and PSA'),
+    ('minwage', 'Het minimumuurloon en wat het per maand is', 'The minimum hourly wage and what it is per month'),
+  ]),
+  ('Handel, investeren en grond', 'Trade, investment and land', [
+    ('import', 'Douane, invoerrechten, BTW bij invoer en auto\'s', 'Customs, import duties, import VAT and cars'),
+    ('export', 'Exportaangifte, certificaten en de deviezenregel', 'Export declaration, certificates and the currency rule'),
+    ('invest', 'Klimaat, wetgeving, geld in en uit, kansen en risico\'s', 'Climate, law, moving money, opportunities and risks'),
+    ('supplier', 'Registreren bij SSRP en Ariba en tenders winnen', 'Registering in SSRP and Ariba and winning tenders'),
+    ('oilgas', 'GranMorgu en de olie- en gassector in cijfers', 'GranMorgu and the oil and gas sector in figures'),
+    ('land', 'Grondhuur, eigendom, notaris, kadaster en bouwvergunning', 'Land lease, freehold, notary, land registry and building permits'),
+    ('maxprices', 'De officiële prijslijst van EZOTI', 'The official EZOTI price list'),
+  ]),
+] %}
 {% block content %}
 <h1>{{ 'Gidsen' if nl else 'Guides' }}</h1>
-<p class="lead">{{ 'Praktische uitleg met bronnen, voor ondernemers, werknemers en investeerders.' if nl else 'Practical explainers with sources, for entrepreneurs, employees and investors.' }}</p>
-<h2>{{ 'Ondernemen' if nl else 'Running a business' }}</h2>
-<div class="grid g2">{% for k in ['start','hiring','bankaccount','contacts','incometax','vatguide','import','labour','workpermit','land','supplier','oilgas','maxprices'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b><div class="sub">{{ META_SUB[k] }}</div></a>{% endfor %}</div>
-<h2>{{ 'Tools' }}</h2>
-<div class="grid g3">{% for k in ['tools','invoice','quote','payslip','salary','btwregister','receivables','stock','cashflow','importcost','loan','deadlines'] %}<a class="card" href="{{ U(k) }}"><b>{{ L(k) }}</b></a>{% endfor %}</div>
+<p class="lead">{{ 'Praktische uitleg met bronnen, voor ondernemers, werkgevers, werknemers en investeerders in Suriname. Elke gids noemt de wet of de instantie waar een regel vandaan komt, en de datum waarop we hem hebben gecontroleerd.' if nl else 'Practical explainers with sources, for business owners, employers, employees and investors in Suriname. Every guide names the law or office a rule comes from, and the date we checked it.' }}</p>
+{% for gnl, gen, items in groups %}
+<h2>{{ gnl if nl else gen }}</h2>
+<div class="tindex">{% for k, snl, sen in items %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
+{% endfor %}
+<h2>{{ 'Tools die bij de gidsen horen' if nl else 'Tools that go with the guides' }}</h2>
+<div class="tindex c4">{% for k in ['invoice','quote','payslip','salary','btwregister','receivables','stock','cashflow','importcost','loan','breakeven','vatcalc'] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ 'Gratis, zonder account' if nl else 'Free, no account' }}</span></a>{% endfor %}</div>
+<p style="margin-top:18px"><a href="{{ U('tools') }}"><b>{{ L('tools') }} &rarr;</b></a></p>
 {% endblock %}

@@ -1,0 +1,366 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Ontslag en opzegtermijn in Suriname' if nl else 'Dismissal and notice periods in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Een werkgever in Suriname mag een werknemer in de regel alleen ontslaan met een ontslagvergunning van de Ontslagcommissie, en daarna met inachtneming van de wettelijke opzegtermijn. Zonder vergunning is het ontslag nietig, behalve in een paar wettelijke uitzonderingen zoals de proeftijd, wederzijds goedvinden en ontslag op staande voet. Deze gids legt uit hoe het werkt voor werkgevers en wat je kunt doen als je ontslagen bent.</p>
+{% else %}
+<p class="lead">An employer in Suriname can generally only dismiss an employee with a dismissal permit from the Dismissal Committee, followed by the statutory notice period. Without a permit the dismissal is void, apart from a few legal exceptions such as the probation period, mutual consent and summary dismissal. This guide explains how it works for employers and what you can do if you were dismissed.</p>
+{% endif %}
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Ontslag door de werkgever vereist een vergunning van de Ontslagcommissie (Ontslagwet 2018). Die beslist binnen 30 dagen en de vergunning is 8 weken geldig.</li>
+<li>Geen vergunning nodig bij: proeftijd, wederzijds goedvinden, einde van een eerste tijdelijk contract, ontbinding door de kantonrechter en ontslag op staande voet.</li>
+<li>Ontslag op staande voet meld je binnen 4 werkdagen schriftelijk bij het Hoofd van de Arbeidsinspectie. Zonder melding of bij bezwaar is het ontslag nietig.</li>
+<li>Opzegtermijn werkgever: 1 week per vol dienstjaar tot 10 jaar, 4 maanden bij 10 tot 15 jaar, 6 maanden boven 15 jaar (art. 7:672 BW).</li>
+<li>Opzeggen is verboden tijdens de eerste zes weken ziekte, tijdens zwangerschap en bevallingsverlof, en vanwege vakbondswerk, een klacht of discriminatie.</li>
+<li>De wet kent geen vaste ontslagvergoeding, maar wel schadevergoeding bij onregelmatig of kennelijk onredelijk ontslag, en uitbetaling van niet-opgenomen vakantie.</li>
+{% else %}
+<li>Dismissal by the employer requires a permit from the Dismissal Committee (Dismissal Act 2018). It decides within 30 days and the permit is valid for 8 weeks.</li>
+<li>No permit is needed for: probation, mutual consent, the end of a first fixed-term contract, dissolution by the cantonal court and summary dismissal.</li>
+<li>A summary dismissal must be reported in writing to the Head of the Labour Inspectorate within 4 working days. Without a report, or if the Head objects, the dismissal is void.</li>
+<li>Employer's notice: 1 week per full year of service up to 10 years, 4 months for 10 to 15 years, 6 months above 15 years (art. 7:672 Civil Code).</li>
+<li>Notice is prohibited during the first six weeks of sickness, during pregnancy and maternity leave, and because of union work, a complaint or discrimination.</li>
+<li>The law sets no fixed severance payment, but there is compensation for irregular or manifestly unreasonable dismissal, and payout of untaken leave.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Hoe het Surinaamse ontslagrecht werkt' if nl else 'How Surinamese dismissal law works' }}</h2>
+{% if nl %}
+<p>Suriname heeft sinds 1983 een "duaal" stelsel. De overheid toetst vooraf of een ontslag gerechtvaardigd is (de ontslagvergunning), en daarnaast gelden de regels van het Burgerlijk Wetboek over opzegging, termijnen en schadevergoeding.</p>
+<ul>
+<li><b>Ontslagwet 2018</b> (S.B. 2018 no. 94): het verbod om zonder vergunning te ontslaan, de uitzonderingen, de Ontslagcommissie, de melding van ontslag op staande voet en de herziening bij het College van Arbeidszaken. Deze wet verving de Wet Ontslagvergunning van 1983.</li>
+<li><b>Burgerlijk Wetboek, Boek 7, titel 10</b> (sinds 1 mei 2025): opzegtermijnen, opzegverboden, dringende redenen, schadevergoeding, kennelijk onredelijk ontslag en ontbinding door de kantonrechter. Met het nieuwe BW zijn de opzegverboden en de hoorplicht uit de Ontslagwet (oude artikelen 6 tot 9) letterlijk overgezet naar de artikelen 7:670 tot 670c. Het vergunningstelsel zelf is niet veranderd (Aanpassingswet, S.B. 2024 no. 168).</li>
+</ul>
+<p>De Minister heeft de beslissing over vergunningen gemandateerd aan de <b>Ontslagcommissie</b>; de melding van ontslag op staande voet beoordeelt het <b>Hoofd van de Arbeidsinspectie</b>. Sinds 16 juli 2025 vallen arbeidszaken onder het Ministerie van Volksgezondheid, Welzijn en Arbeid (S.B. 2025 no. 94). De Ontslagwet geldt niet voor ambtenaren (landsdienaren).</p>
+{% else %}
+<p>Since 1983 Suriname has had a "dual" system. The government checks in advance whether a dismissal is justified (the dismissal permit), and on top of that the Civil Code rules on notice, notice periods and compensation apply.</p>
+<ul>
+<li><b>Dismissal Act 2018</b> (Ontslagwet, S.B. 2018 no. 94): the ban on dismissal without a permit, the exceptions, the Dismissal Committee, reporting summary dismissals and review by the Labour Affairs Board (College van Arbeidszaken). It replaced the 1983 Dismissal Permit Act.</li>
+<li><b>Civil Code, Book 7, title 10</b> (since 1 May 2025): notice periods, dismissal bans, urgent reasons, compensation, manifestly unreasonable dismissal and dissolution by the cantonal court. With the new Civil Code the dismissal bans and the duty to hear the employee were moved word for word from the Dismissal Act (old articles 6 to 9) to articles 7:670 to 670c. The permit system itself did not change (Adaptation Act, S.B. 2024 no. 168).</li>
+</ul>
+<p>The Minister has delegated permit decisions to the <b>Dismissal Committee</b> (Ontslagcommissie); reports of summary dismissal are assessed by the <b>Head of the Labour Inspectorate</b>. Since 16 July 2025 labour matters fall under the Ministry of Health, Welfare and Labour (S.B. 2025 no. 94). The Dismissal Act does not apply to civil servants (landsdienaren).</p>
+{% endif %}
+
+<h2>{{ 'Alle manieren waarop een dienstverband eindigt' if nl else 'All the ways employment can end' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Hoe' if nl else 'How' }}</th><th>{{ 'Vergunning nodig?' if nl else 'Permit needed?' }}</th><th>{{ 'Let op' if nl else 'Note' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Hoe">Opzegging door de werkgever</td><td data-l="Vergunning">Ja</td><td data-l="Let op">Na de vergunning opzeggen met de wettelijke termijn</td></tr>
+<tr><td data-l="Hoe">Opzegging tijdens de proeftijd</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Alleen bij een schriftelijke proeftijd van maximaal 2 maanden</td></tr>
+<tr><td data-l="Hoe">Wederzijds goedvinden</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Leg het vast in een beëindigingsovereenkomst</td></tr>
+<tr><td data-l="Hoe">Einde eerste contract voor bepaalde tijd</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Alleen het eerste contract; zie het hoofdstuk over tijdelijke contracten</td></tr>
+<tr><td data-l="Hoe">Contract met ontbindende voorwaarde; uitzendcontract met uitzendbeding</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Eindigt als de voorwaarde intreedt of de terbeschikkingstelling stopt</td></tr>
+<tr><td data-l="Hoe">Ontslag op staande voet</td><td data-l="Vergunning">Nee, wel melden</td><td data-l="Let op">Binnen 4 werkdagen bij de Arbeidsinspectie</td></tr>
+<tr><td data-l="Hoe">Ontbinding door de kantonrechter</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Wegens gewichtige redenen, art. 7:685</td></tr>
+<tr><td data-l="Hoe">Opzegging door de werknemer</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Met de opzegtermijn voor de werknemer</td></tr>
+<tr><td data-l="Hoe">Overlijden van de werknemer</td><td data-l="Vergunning">Nee</td><td data-l="Let op">Nabestaanden krijgen nog één maand loon (art. 7:674)</td></tr>
+{% else %}
+<tr><td data-l="How">Notice by the employer</td><td data-l="Permit">Yes</td><td data-l="Note">After the permit, give the statutory notice</td></tr>
+<tr><td data-l="How">Notice during probation</td><td data-l="Permit">No</td><td data-l="Note">Only with a written probation period of at most 2 months</td></tr>
+<tr><td data-l="How">Mutual consent</td><td data-l="Permit">No</td><td data-l="Note">Put it in a termination agreement</td></tr>
+<tr><td data-l="How">End of a first fixed-term contract</td><td data-l="Permit">No</td><td data-l="Note">Only the first contract; see the section on fixed-term contracts</td></tr>
+<tr><td data-l="How">Contract with a resolutive condition; agency contract with an agency clause</td><td data-l="Permit">No</td><td data-l="Note">Ends when the condition occurs or the placement ends</td></tr>
+<tr><td data-l="How">Summary dismissal</td><td data-l="Permit">No, but must be reported</td><td data-l="Note">Within 4 working days to the Labour Inspectorate</td></tr>
+<tr><td data-l="How">Dissolution by the cantonal court</td><td data-l="Permit">No</td><td data-l="Note">For serious reasons, art. 7:685</td></tr>
+<tr><td data-l="How">Resignation by the employee</td><td data-l="Permit">No</td><td data-l="Note">With the employee's notice period</td></tr>
+<tr><td data-l="How">Death of the employee</td><td data-l="Permit">No</td><td data-l="Note">Survivors receive one more month of pay (art. 7:674)</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Opzegtermijnen' if nl else 'Notice periods' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Duur dienstverband' if nl else 'Length of service' }}</th><th>{{ 'Werkgever zegt op' if nl else 'Employer gives notice' }}</th><th>{{ 'Werknemer zegt op' if nl else 'Employee gives notice' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Duur">Tot en met 10 jaar</td><td data-l="Werkgever">1 week per vol dienstjaar</td><td data-l="Werknemer">1 week per 2 volle dienstjaren</td></tr>
+<tr><td data-l="Duur">Meer dan 10, tot en met 15 jaar</td><td data-l="Werkgever">4 maanden</td><td data-l="Werknemer">2 maanden</td></tr>
+<tr><td data-l="Duur">Meer dan 15 jaar</td><td data-l="Werkgever">6 maanden</td><td data-l="Werknemer">3 maanden</td></tr>
+{% else %}
+<tr><td data-l="Service">Up to and including 10 years</td><td data-l="Employer">1 week per full year of service</td><td data-l="Employee">1 week per 2 full years of service</td></tr>
+<tr><td data-l="Service">More than 10, up to 15 years</td><td data-l="Employer">4 months</td><td data-l="Employee">2 months</td></tr>
+<tr><td data-l="Service">More than 15 years</td><td data-l="Employer">6 months</td><td data-l="Employee">3 months</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Voorbeeld: na 6 volle dienstjaren is de termijn voor de werkgever 6 weken en voor de werknemer 3 weken (art. 7:672). Verder geldt:</p>
+<ul>
+<li><b>Termijn na een vergunning.</b> De werkgever mag de tijd die de vergunningsprocedure duurde aftrekken van zijn opzegtermijn, maar er moet ten minste één maand overblijven (art. 7:672 lid 4). Lees je de tekst letterlijk, dan zeg je na een vergunning dus nooit korter dan een maand op. Twijfel je, neem dan de langere termijn: te kort opzeggen maakt je schadeplichtig.</li>
+<li><b>Langer of korter.</b> Langere termijnen mogen schriftelijk worden afgesproken. Die van de werknemer mag hooguit 6 maanden worden, en die van de werkgever is dan minstens het dubbele. De termijn van de werkgever korter maken kan alleen via een cao of overheidsregeling.</li>
+<li><b>Tegen welke dag.</b> Opzeggen gebeurt tegen de dag die in het contract, het reglement of door gebruik is bepaald, bijvoorbeeld het einde van de maand. Is niets bepaald, dan tegen elke dag (art. 7:672 lid 1).</li>
+<li><b>Opeenvolgende contracten</b> tellen mee: bij omzetting van tijdelijk naar vast rekent de termijn vanaf het eerste contract (art. 7:667c lid 5).</li>
+<li><b>Vakantie</b> mag niet met de opzegtermijn worden verrekend (art. 12 Vacantiewet).</li>
+</ul>
+<p>Een einddatum uitrekenen kan met <a href="{{ U('datecalc') }}">{{ L('datecalc') }}</a>.</p>
+{% else %}
+<p>Example: after 6 full years of service the employer's notice is 6 weeks and the employee's is 3 weeks (art. 7:672). Also:</p>
+<ul>
+<li><b>Notice after a permit.</b> The employer may deduct the time the permit procedure took from its notice period, but at least one month must remain (art. 7:672(4)). Read literally, notice after a permit is therefore never shorter than one month. If in doubt, use the longer period: giving too little notice makes you liable for damages.</li>
+<li><b>Longer or shorter.</b> Longer periods can be agreed in writing. The employee's period may be at most 6 months, and the employer's must then be at least double. The employer's period can only be shortened by a collective agreement (CAO) or government regulation.</li>
+<li><b>Effective date.</b> Notice ends on the day set by the contract, company rules or custom, for example the end of the month. If nothing is set, any day (art. 7:672(1)).</li>
+<li><b>Consecutive contracts</b> count: when fixed-term contracts convert into a permanent one, notice is calculated from the first contract (art. 7:667c(5)).</li>
+<li><b>Annual leave</b> may not be offset against the notice period (art. 12 Annual Leave Act).</li>
+</ul>
+<p>Work out an end date with <a href="{{ U('datecalc') }}">{{ L('datecalc') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Ontslag met vergunning: stap voor stap' if nl else 'Dismissal with a permit: step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Controleer de opzegverboden.</b> Is de werknemer ziek, zwanger, met verlof, vakbondsvertegenwoordiger of heeft hij net geklaagd bij de Arbeidsinspectie? Zie het hoofdstuk over opzegverboden hieronder.</li>
+<li><b>Bouw je dossier op.</b> Gaat het om functioneren of gedrag, leg dan waarschuwingen, gesprekken en afspraken schriftelijk vast. Gaat het om bedrijfseconomische redenen, leg de cijfers en de keuze voor juist deze functie vast.</li>
+<li><b>Hoor de werknemer.</b> Bij een reden die in de werknemer ligt, moet hij vooraf de kans krijgen zich mondeling of schriftelijk te verweren, binnen minimaal drie werkdagen. Hij mag zich laten bijstaan, bijvoorbeeld door de vakbond (art. 7:670b). Wacht niet te lang: wie te lang wacht na het bekend worden van de reden, verliest het recht om daarom op te zeggen (art. 7:670c).</li>
+<li><b>Vraag de vergunning schriftelijk aan</b> bij de Ontslagcommissie, met een duidelijke motivering en bewijsstukken. Vermeld in elk geval de bedrijfsgegevens, het aantal werknemers, naam, geboortedatum, datum in dienst, functie en loon van de werknemer en de redenen. Vraag het ministerie naar het actuele formulier en de indieningsplek. De commissie kan de werknemer horen.</li>
+<li><b>Wacht het besluit af.</b> De Ontslagcommissie beslist binnen 30 dagen schriftelijk en gemotiveerd, en kan voorwaarden stellen, bijvoorbeeld een vergoeding (art. 10 Ontslagwet). Anders dan onder de oude wet geldt de vergunning niet automatisch als verleend wanneer de termijn verloopt.</li>
+<li><b>Zeg op binnen 8 weken.</b> De vergunning is 8 weken geldig vanaf de schriftelijke bekendmaking (art. 11). Zeg schriftelijk op, met de juiste opzegtermijn en tegen de juiste dag. Op verzoek geef je de reden schriftelijk (art. 7:669).</li>
+<li><b>Rond af.</b> Eindafrekening met vakantie-uitbetaling, loonstrook en op verzoek een getuigschrift (zie hieronder).</li>
+</ol>
+<p>Werkgever en werknemer kunnen binnen 7 werkdagen na het besluit van de Ontslagcommissie of het Hoofd van de Arbeidsinspectie schriftelijk herziening vragen bij het <b>College van Arbeidszaken</b>, dat binnen 3 weken beslist (art. 13 Ontslagwet). Vraag het ministerie waar je dat verzoek indient. Ook met een vergunning kan de werknemer nog naar de kantonrechter als hij het ontslag kennelijk onredelijk vindt.</p>
+{% else %}
+<ol class="steps">
+<li><b>Check the dismissal bans.</b> Is the employee sick, pregnant, on leave, a union representative, or did he just complain to the Labour Inspectorate? See the section on dismissal bans below.</li>
+<li><b>Build your file.</b> For performance or conduct, record warnings, meetings and agreements in writing. For economic reasons, document the figures and why this particular position is affected.</li>
+<li><b>Hear the employee.</b> For a reason related to the employee, he must first get the chance to respond orally or in writing, and must be given at least three working days for this. He may bring someone to assist him, such as the union (art. 7:670b). Do not wait too long: an employer who waits too long after learning of the reason loses the right to give notice for it (art. 7:670c).</li>
+<li><b>Apply for the permit in writing</b> to the Dismissal Committee, with clear reasons and evidence. Include at least the company details, number of employees, the employee's name, date of birth, start date, job and pay, and the reasons. Ask the ministry for the current form and where to file it. The committee can hear the employee.</li>
+<li><b>Wait for the decision.</b> The Dismissal Committee decides within 30 days, in writing and with reasons, and may attach conditions, such as a payment (art. 10 Dismissal Act). Unlike under the old law, the permit is not deemed granted when the deadline passes.</li>
+<li><b>Give notice within 8 weeks.</b> The permit is valid for 8 weeks from the written notification (art. 11). Give notice in writing, with the correct notice period and effective date. On request, give the reason in writing (art. 7:669).</li>
+<li><b>Wrap up.</b> Final pay with leave payout, payslip and, on request, a reference letter (see below).</li>
+</ol>
+<p>Employer and employee can ask the <b>Labour Affairs Board</b> (College van Arbeidszaken) in writing to review a decision of the Dismissal Committee or the Head of the Labour Inspectorate within 7 working days; the Board decides within 3 weeks (art. 13 Dismissal Act). Ask the ministry where to file the request. Even with a permit, the employee can still go to the cantonal court if he considers the dismissal manifestly unreasonable.</p>
+{% endif %}
+
+<h2>{{ 'Ontslag op staande voet' if nl else 'Summary dismissal (on the spot)' }}</h2>
+{% if nl %}
+<p>Bij een <b>dringende reden</b> mag de werkgever direct opzeggen, zonder vergunning en zonder opzegtermijn. Een dringende reden is gedrag waardoor van de werkgever redelijkerwijs niet kan worden gevraagd het contract te laten doorlopen (art. 7:678). De wet noemt als voorbeelden onder meer: valse diploma's of getuigschriften bij sollicitatie, diefstal, verduistering of bedrog, mishandeling of ernstige bedreiging van collega's of de werkgever, dronkenschap of drugsgebruik ondanks waarschuwing, opzettelijke beschadiging van bedrijfseigendom, het lekken van bedrijfsgeheimen en hardnekkige weigering van redelijke opdrachten.</p>
+<ol class="steps">
+<li><b>Handel onmiddellijk</b> en vertel de reden tegelijk met het ontslag, liefst schriftelijk. Wie zonder dringende reden of zonder gelijktijdige mededeling van de reden opzegt, is schadeplichtig (art. 7:677).</li>
+<li><b>Meld binnen 4 werkdagen</b> schriftelijk bij het Hoofd van de Arbeidsinspectie, met de dringende reden (art. 2 lid 2 Ontslagwet).</li>
+<li><b>Het ontslag is opgeschort</b> tot het Hoofd van de Arbeidsinspectie beslist dat er geen bezwaar is. Dat besluit volgt binnen 14 werkdagen en werkt terug tot de dag van het ontslag (art. 5).</li>
+<li><b>Geen melding of wel bezwaar?</b> Dan is het ontslag nietig (art. 12) en loopt het dienstverband door.</li>
+</ol>
+<div class="note">{{ 'Bij geweld of seksuele intimidatie geldt ook de Wet Geweld en Seksuele Intimidatie Arbeid: heeft de werkgever bewijs of een bekentenis, dan mag hij opzeggen zonder klachtprocedure, mits de ontslagregels worden gevolgd. Anders volgt hij het bindende advies van de klachtencommissie of de Arbeidsinspectie.' }}</div>
+{% else %}
+<p>For an <b>urgent reason</b> the employer may end the contract immediately, without a permit and without notice. An urgent reason is conduct that means the employer cannot reasonably be expected to continue the contract (art. 7:678). The law gives examples, including: false diplomas or references when applying, theft, embezzlement or fraud, assault or serious threats against colleagues or the employer, drunkenness or drug use despite a warning, deliberately damaging company property, leaking business secrets and persistently refusing reasonable instructions.</p>
+<ol class="steps">
+<li><b>Act immediately</b> and state the reason at the same time as the dismissal, preferably in writing. Dismissing without an urgent reason, or without stating the reason at the same time, makes you liable for damages (art. 7:677).</li>
+<li><b>Report within 4 working days</b> in writing to the Head of the Labour Inspectorate, stating the urgent reason (art. 2(2) Dismissal Act).</li>
+<li><b>The dismissal is suspended</b> until the Head of the Labour Inspectorate decides there is no objection. That decision follows within 14 working days and applies retroactively to the day of dismissal (art. 5).</li>
+<li><b>No report, or an objection?</b> Then the dismissal is void (art. 12) and the employment continues.</li>
+</ol>
+<div class="note">For violence or sexual harassment, the Violence and Sexual Harassment at Work Act also applies: if the employer has evidence or a confession, it may give notice without a complaints procedure, provided the dismissal rules are followed. Otherwise it follows the binding advice of the complaints committee or the Labour Inspectorate.</div>
+{% endif %}
+
+<h2>{{ 'Proeftijd' if nl else 'Probation period' }}</h2>
+{% if nl %}
+<p>Tijdens een geldige proeftijd mogen werkgever en werknemer direct opzeggen, zonder vergunning, opzegtermijn of schadevergoeding (art. 7:676). De proeftijd is alleen geldig als hij schriftelijk is afgesproken, voor beide partijen gelijk is en niet langer duurt dan twee maanden, ook niet opgeteld bij een eerdere proeftijd (art. 7:652). Is één van die eisen niet vervuld, dan is er géén proeftijd en heb je voor ontslag een vergunning nodig. Ook in de proeftijd mag je niet opzeggen om een verboden reden, zoals zwangerschap of discriminatie.</p>
+{% else %}
+<p>During a valid probation period employer and employee can end the contract immediately, without a permit, notice or compensation (art. 7:676). Probation is only valid if agreed in writing, equal for both parties and no longer than two months, including any earlier probation period (art. 7:652). If any of these conditions is not met, there is no probation at all and a dismissal needs a permit. Even during probation you may not dismiss for a prohibited reason, such as pregnancy or discrimination.</p>
+{% endif %}
+
+<h2>{{ 'Beëindiging met wederzijds goedvinden' if nl else 'Termination by mutual consent' }}</h2>
+{% if nl %}
+<p>Als werkgever en werknemer het eens zijn, is geen vergunning nodig (art. 4 Ontslagwet). Het initiatief mag van beide kanten komen. Leg de afspraken vast in een getekende <b>beëindigingsovereenkomst</b> met in elk geval:</p>
+<ul class="check">
+<li>De einddatum, en of de werknemer tot die dag werkt of wordt vrijgesteld.</li>
+<li>Het loon tot de einddatum en de uitbetaling van niet-opgenomen vakantiedagen met vakantietoelage.</li>
+<li>Een eventuele vergoeding en wanneer die wordt betaald.</li>
+<li>Het getuigschrift en wat daarin komt.</li>
+<li>Teruggave van bedrijfseigendommen, en of een concurrentiebeding blijft gelden.</li>
+<li>Dat partijen elkaar daarna niets meer verschuldigd zijn (finale kwijting), als dat de bedoeling is.</li>
+</ul>
+<p>Als werknemer: teken niet onder druk. Vraag bedenktijd en laat het voorstel nakijken door je vakbond of een advocaat. Een werkgever die een werknemer onder druk zet om te tekenen, loopt het risico dat de afspraak later wordt aangevochten.</p>
+{% else %}
+<p>If employer and employee agree, no permit is needed (art. 4 Dismissal Act). Either side may take the initiative. Record the terms in a signed <b>termination agreement</b> that covers at least:</p>
+<ul class="check">
+<li>The end date, and whether the employee works until then or is released from duties.</li>
+<li>Pay up to the end date and payout of untaken leave days with the leave allowance.</li>
+<li>Any payment and when it will be made.</li>
+<li>The reference letter and what it will say.</li>
+<li>Return of company property, and whether a non-compete clause still applies.</li>
+<li>That neither party owes the other anything afterwards (full and final settlement), if that is intended.</li>
+</ul>
+<p>As an employee: do not sign under pressure. Ask for time to think and have the offer checked by your union or a lawyer. An employer who pressures an employee into signing risks having the agreement challenged later.</p>
+{% endif %}
+
+<h2>{{ 'Tijdelijke contracten' if nl else 'Fixed-term contracts' }}</h2>
+{% if nl %}
+<ul>
+<li>Een contract voor bepaalde tijd eindigt van rechtswege op de einddatum (art. 7:667). Zonder vergunning geldt dat volgens de Ontslagwet alleen voor het contract dat <b>voor de eerste maal</b> is aangegaan (art. 4 onder b). Bij een verlengd of opvolgend tijdelijk contract valt het einde niet onder die uitzondering. Vraag in dat geval vooraf bij het ministerie of je een vergunning nodig hebt.</li>
+<li>Opzegging vooraf is alleen nodig als dat schriftelijk is afgesproken, als de wet of het gebruik dat vraagt of als het contract stilzwijgend was voortgezet. Werkt de werknemer na de einddatum gewoon door zonder bezwaar, dan geldt het contract als verlengd voor dezelfde duur, maximaal een jaar (art. 7:668).</li>
+<li>Tussentijds opzeggen kan alleen als dat schriftelijk voor beide partijen is afgesproken (art. 7:667 lid 3).</li>
+<li>Na meer dan drie opeenvolgende contracten of meer dan 24 maanden (tussenpozen van maximaal drie maanden tellen mee) is het contract vast (art. 7:667c). Afwisselend tijdelijk in dienst nemen en inlenen via een uitzendbureau om dat te omzeilen is verboden (art. 7:667g).</li>
+</ul>
+{% else %}
+<ul>
+<li>A fixed-term contract ends automatically on its end date (art. 7:667). Under the Dismissal Act, ending without a permit only applies to the contract entered into <b>for the first time</b> (art. 4(b)). For a renewed or follow-on fixed-term contract, the end does not fall under that exception. In that case, ask the ministry beforehand whether you need a permit.</li>
+<li>Prior notice is only needed if agreed in writing, if law or custom requires it, or if the contract was tacitly continued. If the employee simply keeps working after the end date without objection, the contract is renewed for the same term, up to one year (art. 7:668).</li>
+<li>Early termination is only possible if agreed in writing for both parties (art. 7:667(3)).</li>
+<li>After more than three consecutive contracts or more than 24 months (gaps of up to three months count), the contract is permanent (art. 7:667c). Alternating between hiring someone on fixed-term contracts and borrowing the same person through an agency to avoid this is prohibited (art. 7:667g).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Reorganisatie en collectief ontslag' if nl else 'Restructuring and collective dismissal' }}</h2>
+{% if nl %}
+<p>De Ontslagwet 2018 heeft geen aparte procedure voor collectief ontslag. Een oudere beschikking uit 1994 die dat regelde is vervallen (Piroe, Surinaams Juristenblad 2023). Ook bij een reorganisatie heb je dus voor elke werknemer een ontslagvergunning nodig, tenzij een uitzondering geldt. Vraag het ministerie hoe je meerdere aanvragen tegelijk indient. Let daarnaast op:</p>
+<ul>
+<li>Een cao kan regels bevatten over overleg met de vakbond, afvloeiingsvolgorde en vergoedingen.</li>
+<li>Wie afwijkt van een geldende getalsverhouding- of anciënniteitsregeling zonder zwaarwichtige reden, loopt het risico dat de rechter het ontslag kennelijk onredelijk vindt (art. 7:681 lid 2).</li>
+<li>Ontslag vanwege een staking is verboden, tenzij de rechter de staking onrechtmatig heeft verklaard (art. 7:670 lid 2).</li>
+</ul>
+{% else %}
+<p>The Dismissal Act 2018 has no separate procedure for collective dismissal. An older 1994 ministerial order that covered it has lapsed (Piroe, Surinaams Juristenblad 2023). So in a restructuring you still need a dismissal permit for each employee, unless an exception applies. Ask the ministry how to file several applications together. Also note:</p>
+<ul>
+<li>A collective agreement (CAO) may contain rules on consulting the union, selection order and payments.</li>
+<li>Departing from an applicable ratio or seniority rule without serious grounds risks the court finding the dismissal manifestly unreasonable (art. 7:681(2)).</li>
+<li>Dismissal because of a strike is prohibited unless a court has declared the strike unlawful (art. 7:670(2)).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Opzegverboden: wanneer je niet mag ontslaan' if nl else 'Dismissal bans: when you may not dismiss' }}</h2>
+{% if nl %}
+<p>De werkgever mag niet opzeggen:</p>
+<ul class="check">
+<li>Tijdens <b>ziekte of een ongeval</b>, tenzij de arbeidsongeschiktheid al minstens 6 weken duurt (met een doktersverklaring) of pas begon nadat de vergunningsaanvraag was ontvangen (art. 7:670 lid 3). Het verbod vervalt als de werknemer zonder goede reden weigert mee te werken aan herstel of passend werk (art. 7:670a).</li>
+<li>Tijdens <b>zwangerschap</b>, <b>bevallingsverlof</b> en na werkhervatting, behalve om een dringende reden of als de formele ontslagprocedure al liep vóór de melding van de zwangerschap (art. 7:633g en 670 lid 4).</li>
+<li>Omdat een werknemer <b>vaderschapsverlof</b> heeft gevraagd of genomen (art. 7:633g lid 4).</li>
+<li>Vanwege <b>vakbondslidmaatschap</b>, vakbondsactiviteiten of de rol van werknemersvertegenwoordiger (art. 7:670 lid 1).</li>
+<li>Tijdens een <b>wettelijke of overheidsplicht</b> in het belang van veiligheid of openbare orde (art. 7:670 lid 5).</li>
+<li>Omdat de werknemer een <b>klacht</b> indiende, procedeerde tegen de werkgever of de Arbeidsinspectie benaderde (art. 7:670 lid 6).</li>
+<li>Op grond van <b>ras, kleur, geslacht, seksuele geaardheid, religie, politieke opinie, afkomst, gezondheid</b> (ook chronische aandoeningen), burgerlijke staat of leeftijd, behalve pensioenregels (art. 7:670 lid 6 en de Wet Gelijke Behandeling Arbeid).</li>
+<li>Omdat de werknemer zich onttrok aan <b>levensgevaarlijk werk</b> en dat meteen meldde (art. 7:670 lid 6).</li>
+<li>Omdat de werknemer <b>geweld of seksuele intimidatie</b> meldde of daarover getuigde. Zulke handelingen zijn van rechtswege nietig (art. 3 Wet Geweld en Seksuele Intimidatie Arbeid).</li>
+</ul>
+<p>Een beding dat het contract laat eindigen bij huwelijk, zwangerschap of bevalling is nietig (art. 7:667h). Een opzegging in strijd met art. 7:670 leden 1 tot en met 5 (vakbond, staking, ziekte, zwangerschap, overheidsplicht) kan de werknemer binnen <b>twee maanden</b> vernietigen door dat aan de werkgever te laten weten (art. 7:677 lid 5). Een opzegging in strijd met de regels over zwangerschaps- en vaderschapsverlof is nietig (art. 7:633g lid 5). Bij ontslag om een klacht, discriminatie of het weigeren van gevaarlijk werk kan de werknemer naar de kantonrechter, onder meer wegens kennelijk onredelijk ontslag.</p>
+{% else %}
+<p>The employer may not give notice:</p>
+<ul class="check">
+<li>During <b>sickness or after an accident</b>, unless the incapacity has lasted at least 6 weeks (with a doctor's statement) or started only after the permit application was received (art. 7:670(3)). The ban lapses if the employee refuses without good reason to cooperate with recovery or suitable work (art. 7:670a).</li>
+<li>During <b>pregnancy</b>, <b>maternity leave</b> and after return to work, except for an urgent reason or if the formal dismissal procedure began before the pregnancy was reported (arts. 7:633g and 670(4)).</li>
+<li>Because an employee requested or took <b>paternity leave</b> (art. 7:633g(4)).</li>
+<li>Because of <b>union membership</b>, union activities or the role of employee representative (art. 7:670(1)).</li>
+<li>During a <b>legal or government duty</b> in the interest of security or public order (art. 7:670(5)).</li>
+<li>Because the employee filed a <b>complaint</b>, took legal action against the employer or contacted the Labour Inspectorate (art. 7:670(6)).</li>
+<li>On grounds of <b>race, colour, sex, sexual orientation, religion, political opinion, origin, health</b> (including chronic conditions), marital status or age, except pension rules (art. 7:670(6) and the Equal Treatment in Employment Act).</li>
+<li>Because the employee withdrew from <b>life-threatening work</b> and reported it immediately (art. 7:670(6)).</li>
+<li>Because the employee reported or testified about <b>violence or sexual harassment</b>. Such acts are void by law (art. 3 Violence and Sexual Harassment at Work Act).</li>
+</ul>
+<p>A clause ending the contract on marriage, pregnancy or childbirth is void (art. 7:667h). Notice given in breach of art. 7:670(1) to (5) (union, strike, sickness, pregnancy, public duty) can be annulled by the employee within <b>two months</b> by informing the employer (art. 7:677(5)). Notice in breach of the maternity and paternity leave rules is void (art. 7:633g(5)). For dismissal over a complaint, discrimination or refusing dangerous work, the employee can go to the cantonal court, for example for manifestly unreasonable dismissal.</p>
+{% endif %}
+
+<h2>{{ 'Ontslagvergoeding en schadevergoeding' if nl else 'Severance and compensation' }}</h2>
+{% if nl %}
+<p>Boek 7 en de Ontslagwet 2018 kennen <b>geen vaste ontslagvergoeding</b> per dienstjaar. Geld kan wel verschuldigd zijn in deze gevallen:</p>
+<table class="tbl stack tx"><thead><tr><th>Situatie</th><th>Wat</th></tr></thead><tbody>
+<tr><td data-l="Situatie">Vergunning met voorwaarden</td><td data-l="Wat">De Ontslagcommissie kan een vergunning onder voorwaarden geven, bijvoorbeeld een vergoeding (art. 10 Ontslagwet)</td></tr>
+<tr><td data-l="Situatie">Cao, contract of sociaal plan</td><td data-l="Wat">Wat daarin is afgesproken</td></tr>
+<tr><td data-l="Situatie">Te kort of zonder geldige reden opgezegd</td><td data-l="Wat">Gefixeerde schadevergoeding: het loon over de opzegtermijn die niet in acht is genomen, of de volledige schade (art. 7:677 en 680)</td></tr>
+<tr><td data-l="Situatie">Kennelijk onredelijk ontslag</td><td data-l="Wat">Schadevergoeding naar billijkheid of herstel van het dienstverband, eventueel met afkoopsom (art. 7:681 en 682)</td></tr>
+<tr><td data-l="Situatie">Ontbinding door de kantonrechter wegens veranderde omstandigheden</td><td data-l="Wat">De rechter kan een vergoeding toekennen (art. 7:685 lid 8)</td></tr>
+<tr><td data-l="Situatie">Ontslag zonder vergunning</td><td data-l="Wat">Nietig: het loon loopt door. De rechter kan een loonvordering matigen, maar niet onder het loon over de opzegtermijn en niet onder drie maanden loon (art. 7:680a)</td></tr>
+</tbody></table>
+<p>Kennelijk onredelijk is een ontslag onder meer als er geen of een valse reden wordt gegeven, als de gevolgen voor de werknemer te ernstig zijn in verhouding tot het belang van de werkgever, of als het verband houdt met ziekte (art. 7:681).</p>
+{% else %}
+<p>Book 7 and the Dismissal Act 2018 provide <b>no fixed severance payment</b> per year of service. Money can still be owed in these cases:</p>
+<table class="tbl stack tx"><thead><tr><th>Situation</th><th>What</th></tr></thead><tbody>
+<tr><td data-l="Situation">Permit with conditions</td><td data-l="What">The Dismissal Committee may grant a permit on conditions, such as a payment (art. 10 Dismissal Act)</td></tr>
+<tr><td data-l="Situation">CAO, contract or social plan</td><td data-l="What">Whatever was agreed there</td></tr>
+<tr><td data-l="Situation">Notice too short or without a valid reason</td><td data-l="What">Fixed compensation: pay for the notice period not observed, or full damages (arts. 7:677 and 680)</td></tr>
+<tr><td data-l="Situation">Manifestly unreasonable dismissal</td><td data-l="What">Fair compensation or reinstatement, possibly with a buy-off sum (arts. 7:681 and 682)</td></tr>
+<tr><td data-l="Situation">Dissolution by the cantonal court for changed circumstances</td><td data-l="What">The court can award compensation (art. 7:685(8))</td></tr>
+<tr><td data-l="Situation">Dismissal without a permit</td><td data-l="What">Void: wages continue. The court can reduce a wage claim, but not below pay for the notice period and not below three months' pay (art. 7:680a)</td></tr>
+</tbody></table>
+<p>A dismissal is manifestly unreasonable, among other cases, if no reason or a false reason is given, if the consequences for the employee are too serious compared with the employer's interest, or if it is connected with sickness (art. 7:681).</p>
+{% endif %}
+
+<h2>{{ 'Eindafrekening en getuigschrift' if nl else 'Final pay and reference letter' }}</h2>
+{% if nl %}
+<ul class="check">
+<li><b>Loon</b> tot en met de laatste dag, inclusief overwerk en toeslagen, met een loonstrook.</li>
+<li><b>Vakantie</b>: niet-opgenomen dagen worden uitbetaald met de vakantietoelage. Bij ontslag dat niet om een dringende reden is, telt ook het lopende jaar mee: zoveel twaalfden als er volle maanden zijn gewerkt (art. 12 Vacantiewet). Reken het na met <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</li>
+<li><b>Afspraken uit contract of cao</b>, zoals een naar rato gratificatie of dertiende maand, als die zijn afgesproken. Voor de loonbelasting op zulke bijzondere beloningen zie <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</li>
+<li><b>Verrekening</b> met schulden van de werknemer mag, maar nooit met het deel van het loon dat beschermd is tegen beslag (art. 7:632 en 632a).</li>
+<li><b>Getuigschrift</b>: op verzoek van de werknemer verplicht (art. 7:656). Het vermeldt het soort werk, de werktijd per dag of week en de begin- en einddatum. Alleen als de werknemer dat vraagt komt erin hoe hij zijn werk deed, hoe het dienstverband eindigde en, als de werkgever opzegde, de reden. Wie weigert of bewust onjuiste informatie of geheime tekens opneemt, is aansprakelijk voor de schade.</li>
+</ul>
+{% else %}
+<ul class="check">
+<li><b>Pay</b> up to and including the last day, with overtime and allowances, and a payslip.</li>
+<li><b>Annual leave</b>: untaken days are paid out with the leave allowance. For a dismissal that is not for an urgent reason, the current year also counts: as many twelfths as full months worked (art. 12 Annual Leave Act). Check it with <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</li>
+<li><b>Contract or CAO terms</b>, such as a pro-rata bonus or thirteenth month, if agreed. For wage tax on such special payments see <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</li>
+<li><b>Set-off</b> against the employee's debts is allowed, but never against the part of pay protected from seizure (arts. 7:632 and 632a).</li>
+<li><b>Reference letter</b> (getuigschrift): mandatory at the employee's request (art. 7:656). It states the type of work, the hours per day or week and the start and end dates. Only if the employee asks does it say how he performed, how the employment ended and, if the employer gave notice, the reason. An employer who refuses, or deliberately includes false information or hidden signals, is liable for the damage.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zelf ontslag nemen' if nl else 'Resigning as an employee' }}</h2>
+{% if nl %}
+<p>Een werknemer heeft geen vergunning nodig om op te zeggen. Hij houdt zich aan zijn eigen opzegtermijn (zie de tabel) en aan wat het contract of de cao zegt; bij minder dan twee volle dienstjaren geeft de wet zelf geen minimum in weken. Wie zonder dringende reden direct vertrekt, is de werkgever het loon over de opzegtermijn verschuldigd (art. 7:677 en 680), en de werkgever mag dat in het getuigschrift vermelden. Een werknemer mag wél direct vertrekken bij een dringende reden (art. 7:679), bijvoorbeeld als het loon niet op tijd wordt betaald, bij mishandeling of grove belediging, of als het werk ernstig gevaar oplevert dat bij het aannemen niet duidelijk was. Vermeld de reden dan direct en schriftelijk.</p>
+{% else %}
+<p>An employee does not need a permit to resign. He observes his own notice period (see the table) and what the contract or CAO says; with less than two full years of service the law itself sets no minimum in weeks. Leaving immediately without an urgent reason makes the employee liable for pay over the notice period (arts. 7:677 and 680), and the employer may mention it in the reference letter. An employee may leave immediately for an urgent reason (art. 7:679), for example when wages are not paid on time, in case of assault or gross insults, or when the work involves serious danger that was not clear when he was hired. State the reason immediately and in writing.</p>
+{% endif %}
+
+<h2>{{ 'Ontslagen? Dit kun je doen' if nl else 'Dismissed? What you can do' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Actie' if nl else 'Action' }}</th><th>{{ 'Termijn' if nl else 'Deadline' }}</th><th>{{ 'Waar' if nl else 'Where' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Actie">Vraag de reden van ontslag schriftelijk (art. 7:669)</td><td data-l="Termijn">Direct</td><td data-l="Waar">Werkgever</td></tr>
+<tr><td data-l="Actie">Controleer of er een vergunning was, of bij staande voet een melding</td><td data-l="Termijn">Direct</td><td data-l="Waar">Werkgever, Arbeidsinspectie</td></tr>
+<tr><td data-l="Actie">Laat schriftelijk weten dat je beschikbaar blijft om te werken als het ontslag nietig is</td><td data-l="Termijn">Zo snel mogelijk</td><td data-l="Waar">Werkgever</td></tr>
+<tr><td data-l="Actie">Herziening vragen van een besluit van de Ontslagcommissie of het Hoofd van de Arbeidsinspectie</td><td data-l="Termijn">7 werkdagen</td><td data-l="Waar">College van Arbeidszaken</td></tr>
+<tr><td data-l="Actie">Opzegging vernietigen wegens ziekte, zwangerschap, vakbond, staking of overheidsplicht</td><td data-l="Termijn">2 maanden na de opzegging</td><td data-l="Waar">Brief aan de werkgever</td></tr>
+<tr><td data-l="Actie">Schadevergoeding, kennelijk onredelijk ontslag, herstel of vordering na vernietiging</td><td data-l="Termijn">6 maanden (art. 7:683)</td><td data-l="Waar">Kantonrechter</td></tr>
+<tr><td data-l="Actie">Klacht over loon, minimumloon, vakantie of intimidatie</td><td data-l="Termijn">Zo snel mogelijk</td><td data-l="Waar">Arbeidsinspectie</td></tr>
+<tr><td data-l="Actie">Getuigschrift aanvragen</td><td data-l="Termijn">Bij het einde</td><td data-l="Waar">Werkgever</td></tr>
+{% else %}
+<tr><td data-l="Action">Ask for the reason for dismissal in writing (art. 7:669)</td><td data-l="Deadline">Immediately</td><td data-l="Where">Employer</td></tr>
+<tr><td data-l="Action">Check whether there was a permit, or for summary dismissal a report</td><td data-l="Deadline">Immediately</td><td data-l="Where">Employer, Labour Inspectorate</td></tr>
+<tr><td data-l="Action">State in writing that you remain available for work if the dismissal is void</td><td data-l="Deadline">As soon as possible</td><td data-l="Where">Employer</td></tr>
+<tr><td data-l="Action">Request review of a decision by the Dismissal Committee or the Head of the Labour Inspectorate</td><td data-l="Deadline">7 working days</td><td data-l="Where">Labour Affairs Board</td></tr>
+<tr><td data-l="Action">Annul notice given during sickness or pregnancy, or over union work, a strike or a public duty</td><td data-l="Deadline">2 months after notice</td><td data-l="Where">Letter to the employer</td></tr>
+<tr><td data-l="Action">Damages, manifestly unreasonable dismissal, reinstatement or claims after annulment</td><td data-l="Deadline">6 months (art. 7:683)</td><td data-l="Where">Cantonal court</td></tr>
+<tr><td data-l="Action">Complaint about pay, minimum wage, leave or harassment</td><td data-l="Deadline">As soon as possible</td><td data-l="Where">Labour Inspectorate</td></tr>
+<tr><td data-l="Action">Request a reference letter</td><td data-l="Deadline">When employment ends</td><td data-l="Where">Employer</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>De Ontslagcommissie en de Arbeidsinspectie mogen werknemers horen over een aanvraag of melding (art. 3 Ontslagwet); vraag zelf om gehoord te worden als je het niet eens bent met de opgegeven reden. Ga voor een procedure bij de kantonrechter naar een advocaat of je vakbond. De rechter kan op verzoek van werkgever of werknemer het contract ook ontbinden wegens gewichtige redenen; de zitting begint uiterlijk in de vijfde week na indiening (art. 7:685). Algemene regels over werk en loon staan in <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% else %}
+<p>The Dismissal Committee and the Labour Inspectorate may hear employees about an application or report (art. 3 Dismissal Act); ask to be heard yourself if you disagree with the stated reason. For a case at the cantonal court, go to a lawyer or your union. At the request of either party the court can also dissolve the contract for serious reasons; the hearing starts no later than the fifth week after filing (art. 7:685). General rules on work and pay are in <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li>Opzeggen zonder vergunning omdat "het een klein bedrijf is". De Ontslagwet geldt voor elke werkgever met een werknemer.</li>
+<li>Ontslag op staande voet niet binnen 4 werkdagen melden. Het ontslag is dan nietig en het loon loopt door.</li>
+<li>Een proeftijd van drie maanden, of een mondelinge proeftijd, gebruiken om iemand weg te sturen.</li>
+<li>Het tweede of derde tijdelijke contract laten aflopen zonder na te gaan of een vergunning nodig is.</li>
+<li>De werknemer niet horen voordat je de vergunning aanvraagt, of maanden wachten na een incident.</li>
+<li>De vergunning laten verlopen: na 8 weken moet je opnieuw aanvragen.</li>
+<li>Vakantiedagen "wegstrepen" tegen de opzegtermijn.</li>
+<li>Als werknemer een beëindigingsovereenkomst meteen tekenen zonder te weten waar je recht op hebt.</li>
+</ul>
+{% else %}
+<ul>
+<li>Giving notice without a permit because "it is a small business". The Dismissal Act applies to every employer with an employee.</li>
+<li>Not reporting a summary dismissal within 4 working days. The dismissal is then void and wages continue.</li>
+<li>Using a three-month or verbal probation period to let someone go.</li>
+<li>Letting a second or third fixed-term contract expire without checking whether a permit is needed.</li>
+<li>Not hearing the employee before applying for the permit, or waiting months after an incident.</li>
+<li>Letting the permit expire: after 8 weeks you must apply again.</li>
+<li>Offsetting leave days against the notice period.</li>
+<li>As an employee, signing a termination agreement on the spot without knowing your rights.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+<li><a href="https://www.dna.sr/media/nfqhwfvq/sb_2018___94.pdf" rel="noopener">Ontslagwet 2018 (S.B. 2018 no. 94)</a></li>
+<li><a href="https://www.dna.sr/media/g1kjnrbj/s-b-_2024_no-_164__boek_7.pdf" rel="noopener">Burgerlijk Wetboek Boek 7 (S.B. 2024 no. 164), titel 10, afdeling 9 Einde van de arbeidsovereenkomst</a></li>
+<li><a href="https://www.dna.sr/media/jblpbo4t/s-b-_2024_no-_168__wet_van_5_december_2024___aanpassing_bestaande_wetgeving_in_verband_met_de_invoering_van_het_nieuwe_burgerlijk_wetboek.pdf" rel="noopener">Aanpassingswet nieuw Burgerlijk Wetboek (S.B. 2024 no. 168), onderdeel DD Ontslagwet</a></li>
+<li><a href="https://www.dna.sr/media/egnb5dhm/vakantiewet.pdf" rel="noopener">Vacantiewet 1975</a></li>
+<li><a href="https://www.dna.sr/media/sorfelsu/sb_2022___136.pdf" rel="noopener">Wet Geweld en Seksuele Intimidatie Arbeid (S.B. 2022 no. 136)</a></li>
+<li><a href="https://www.dna.sr/media/ikeltftw/sb_2022___137.pdf" rel="noopener">Wet Gelijke Behandeling Arbeid (S.B. 2022 no. 137)</a></li>
+<li><a href="https://www.bjutijdschriften.nl/tijdschrift/SJB/2023/1/SJB_0562-6684_2023_060_001_004.pdf" rel="noopener">G. Piroe, Modernisering van het Surinaams ontslagrecht, Surinaams Juristenblad 2023</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/09/PRESIDENTIEEL-BESLUIT-aanpassing-instelling-Departementen-van-Algemeen-Bestuur-S.B.-2025-no.-94.pdf" rel="noopener">Presidentieel Besluit departementen (S.B. 2025 no. 94)</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-volksgezondheid-welzijn-arbeid/contact/" rel="noopener">Ministerie van Volksgezondheid, Welzijn en Arbeid: contact</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies. Laat je bij een concreet ontslag adviseren door het ministerie, je vakbond of een advocaat.' if nl else 'General information, not legal advice. For an actual dismissal, get advice from the ministry, your union or a lawyer.' }}</p>
+</div>
+{% endblock %}

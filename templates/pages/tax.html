@@ -43,7 +43,7 @@
 
 <h2>{{ 'Voorbeeld' if nl else 'Example' }}</h2>
 {% set r = salary_py(20000) %}
-<p>{{ 'Bruto' if nl else 'Gross' }} {{ srd(20000) }}: {{ 'forfaitaire aftrek' if nl else 'flat deduction' }} {{ srd(400) }}, {{ 'zuiver loon' if nl else 'net taxable wage' }} {{ srd(19600) }}, {{ 'na belastingvrije som' if nl else 'after the tax-free amount' }} {{ srd(10600) }}. {{ 'Loonbelasting' if nl else 'Wage tax' }}: 8% {{ 'over' if nl else 'on' }} 3.500 + 18% {{ 'over' if nl else 'on' }} 3.500 + 28% {{ 'over' if nl else 'on' }} 3.500 + 38% {{ 'over' if nl else 'on' }} 100 = <b>{{ srd(r.tax, 2) }}</b>. AOV 4% = {{ srd(r.aov, 2) }}. {{ 'Netto' if nl else 'Net' }} <b>{{ srd(r.net, 2) }}</b>.</p>
+<p>{{ 'Bruto' if nl else 'Gross' }} {{ srd(20000) }}: {{ 'forfaitaire aftrek' if nl else 'flat deduction' }} {{ srd(400) }}, {{ 'zuiver loon' if nl else 'net taxable wage' }} {{ srd(19600) }}, {{ 'na belastingvrije som' if nl else 'after the tax-free amount' }} {{ srd(10600) }}. {{ 'Loonbelasting' if nl else 'Wage tax' }}: 8% {{ 'over' if nl else 'on' }} {{ num(3500, 0) }} + 18% {{ 'over' if nl else 'on' }} {{ num(3500, 0) }} + 28% {{ 'over' if nl else 'on' }} {{ num(3500, 0) }} + 38% {{ 'over' if nl else 'on' }} 100 = <b>{{ srd(r.tax, 2) }}</b>. AOV 4% = {{ srd(r.aov, 2) }}. {{ 'Netto' if nl else 'Net' }} <b>{{ srd(r.net, 2) }}</b>.</p>
 
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>{% for name, url in F.TAX.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>

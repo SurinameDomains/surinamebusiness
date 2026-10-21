@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Merk registreren in Suriname: procedure, kosten en bescherming' if nl else 'Registering a trademark in Suriname: procedure, costs and protection' }}</h1>
+{% if nl %}
+<p class="lead">Je registreert een merk in Suriname bij het Bureau voor Intellectuele Eigendom (BIE) van het Ministerie van EZOTI, met een nationale aanvraag per merk. Suriname doet niet mee aan het Madrid-systeem. Sinds 9 oktober 2026 kun je ook dienstenmerken registreren, en bestaande merkhouders kunnen tot 9 juli 2027 dienstenklassen toevoegen.</p>
+{% else %}
+<p class="lead">You register a trademark in Suriname with the Intellectual Property Office (Bureau voor Intellectuele Eigendom, BIE) of the Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI), through a national application. Suriname is not part of the Madrid system. Since 9 October 2026 service marks can be registered too, and existing owners can add service classes until 9 July 2027.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Geldigheid' if nl else 'Term' }}</div><div class="big">{{ '10 jaar' if nl else '10 years' }}</div><div class="sub">{{ 'steeds te vernieuwen' if nl else 'renewable again and again' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Doorlooptijd' if nl else 'Processing' }}</div><div class="big">{{ '3 tot 4 jaar' if nl else '3 to 4 years' }}</div><div class="sub">{{ 'door achterstand bij het BIE' if nl else 'due to the BIE backlog' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Dienstenklassen toevoegen' if nl else 'Add service classes' }}</div><div class="big">{{ '9 juli 2027' if nl else '9 July 2027' }}</div><div class="sub">{{ 'eenmalige overgangsregeling' if nl else 'one-off transition window' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Aanvragen gaat bij het BIE, volledig online via het portaal bie.gov.sr (account aanmaken, aanvraag indienen, digitaal certificaat) of aan het loket in de Fred Derbystraat 81, Paramaribo. Alleen nationale aanvragen; Suriname is geen lid van Madrid.</li>
+ <li>Sinds 9 oktober 2026 zijn dienstenmerken (Nice-klassen 35 tot 45) registreerbaar. Tot 9 juli 2027 kun je een bestaand merk uitbreiden met dienstenklassen, met behoud van je oude datum, als je gebruik kunt aantonen.</li>
+ <li>Een registratie geldt 10 jaar en is telkens voor 10 jaar te vernieuwen, met 6 maanden respijt. Herstel daarna is niet mogelijk.</li>
+ <li>Reken op 3 tot 4 jaar tot de inschrijving. De leges zijn SRD 500 voor een merk tot en met drie klassen en SRD 50 per extra klasse (S.B. 2018 no. 105).</li>
+ <li>Handelsnaam (KKF), domeinnaam (.sr) en merk zijn drie verschillende dingen. Regel ze alle drie.</li>
+{% else %}
+ <li>You apply at the BIE, fully online through the bie.gov.sr portal (create an account, file, receive a digital certificate) or at the counter at Fred Derbystraat 81, Paramaribo. National applications only; Suriname is not a Madrid member.</li>
+ <li>Since 9 October 2026 service marks (Nice classes 35 to 45) can be registered. Until 9 July 2027 you can extend an existing mark to service classes, keeping your original date, if you can show use.</li>
+ <li>A registration lasts 10 years and can be renewed for 10 years at a time, with a 6-month grace period. No restoration after that.</li>
+ <li>Expect 3 to 4 years until registration. The fee is SRD 500 for a mark of up to three classes and SRD 50 per extra class (S.B. 2018 no. 105).</li>
+ <li>A trade name (KKF), a domain name (.sr) and a trademark are three different things. Arrange all three.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wat is er nieuw: dienstenmerken sinds 9 oktober 2026' if nl else 'What is new: service marks since 9 October 2026' }}</h2>
+{% if nl %}
+<p>Tot voor kort beschermde Suriname alleen merken voor <i>waren</i> (Nice-klassen 1 tot 34). Een restaurant, bank, hotel, transportbedrijf of adviesbureau kon zijn naam niet als merk voor zijn diensten inschrijven. De Nationale Assemblee keurde in juli 2026 een wijziging van de merkenregeling goed, die op 9 oktober 2026 in werking trad. Wat verandert:</p>
+<ul>
+ <li>Dienstenmerken zijn registreerbaar, onder hetzelfde regime als warenmerken. Weigerings- en nietigheidsgronden gelden nu ook voor diensten.</li>
+ <li><b>Overgangsregeling:</b> wie op 9 oktober 2026 een merk ingeschreven had of een aanvraag had lopen, kan tot 9 juli 2027 eenmalig dienstenklassen toevoegen. De oorspronkelijke depot- of inschrijvingsdatum blijft dan behouden. Je moet bewijzen dat je het merk in Suriname voor die diensten gebruikt, bijvoorbeeld met facturen, orderbevestigingen of contracten, en de geldende tarieven betalen.</li>
+ <li>Het tarief voor elke klasse boven de derde geldt ook voor dienstenklassen. Er komt een apart tarief voor het wisselen van gemachtigde.</li>
+ <li>Voor elektronische aanvragen gelden technische eisen voor de afbeelding van het merk (afmetingen, resolutie, bestandsformaat). Ingeschreven merken worden op de website van het BIE gepubliceerd.</li>
+</ul>
+<p>Een bestaande registratie onder de oude regeling blijft geldig; je hoeft niet opnieuw te registreren. Alleen als je ook diensten wilt dekken, moet je vóór 9 juli 2027 in actie komen.</p>
+{% else %}
+<p>Until recently Suriname only protected marks for <i>goods</i> (Nice classes 1 to 34). A restaurant, bank, hotel, transport company or consultancy could not register its name as a mark for its services. The National Assembly (De Nationale Assemblee) approved an amendment to the trademark rules in July 2026, which took effect on 9 October 2026. What changes:</p>
+<ul>
+ <li>Service marks can be registered under the same regime as goods marks. Grounds for refusal and invalidity now also apply to services.</li>
+ <li><b>Transition window:</b> anyone with a registered mark or pending application on 9 October 2026 can, once, add service classes until 9 July 2027. The original filing or registration date is kept. You must prove use of the mark in Suriname for those services, for example with invoices, order confirmations or contracts, and pay the applicable fees.</li>
+ <li>The fee for each class above the third also applies to service classes. There will be a separate fee for changing your trademark agent.</li>
+ <li>Electronic filings have technical requirements for the image of the mark (size, resolution, file format). Registered marks are published on the BIE website.</li>
+</ul>
+<p>An existing registration under the old rules stays valid; you do not need to register again. Only if you also want to cover services must you act before 9 July 2027.</p>
+{% endif %}
+
+<h2>{{ 'De regels en het BIE' if nl else 'The rules and the BIE' }}</h2>
+{% if nl %}
+<p>Suriname heeft geen moderne merkenwet. De basis is nog steeds het Koninklijk Besluit van 29 augustus 1912 over fabrieks- en handelsmerken (het Reglement Industriële Eigendom 1912), gewijzigd in 1984 (decreet C-81), 2001 en 2026. Een gevolg van dat oude systeem: het recht op een merk ontstaat volgens merkenspecialisten door <i>eerste gebruik</i>; de inschrijving geldt als bewijs daarvan. Registreren en aantoonbaar gebruiken gaan dus samen.</p>
+<p>Het Bureau voor Intellectuele Eigendom (BIE) is een onderdeel van het Ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie (EZOTI). Het BIE registreert op dit moment alleen merken en geeft algemene voorlichting over intellectuele eigendom. Sinds december 2024 werkt het BIE met TMclass en de geharmoniseerde termenlijst van het EUIPO voor de omschrijving van waren en diensten.</p>
+{% else %}
+<p>Suriname has no modern trademark act. The basis is still the Royal Decree of 29 August 1912 on factory and trade marks (the Industrial Property Regulation 1912), amended in 1984 (decree C-81), 2001 and 2026. One consequence of that old system: according to trademark specialists, the right to a mark arises from <i>first use</i>; registration counts as evidence of it. So register and keep proof that you use the mark.</p>
+<p>The Intellectual Property Office (BIE) is part of the Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI). At present the BIE only registers trademarks and gives general information about intellectual property. Since December 2024 the BIE uses TMclass and the EUIPO harmonised database of terms to describe goods and services.</p>
+{% endif %}
+<table class="tbl"><thead><tr><th>{{ 'Bureau voor Intellectuele Eigendom' if nl else 'Intellectual Property Office (BIE)' }}</th><th></th></tr></thead><tbody>
+ <tr><td>{{ 'Adres' if nl else 'Address' }}</td><td>{{ 'Fred Derbystraat 81, 1e verdieping rechts, Paramaribo' if nl else 'Fred Derbystraat 81, 1st floor right, Paramaribo' }}</td></tr>
+ <tr><td>{{ 'Telefoon' if nl else 'Phone' }}</td><td>+597 420006</td></tr>
+ <tr><td>{{ 'Online' }}</td><td><a href="https://bie.gov.sr/" rel="noopener">bie.gov.sr</a> ({{ 'aanvragen, tarieven, klassen, publicatielijst en contactformulier' if nl else 'applications, fees, classes, publication list and contact form' }})</td></tr>
+ <tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td>{{ 'maandag tot en met donderdag 09:00 tot 14:00, vrijdag 09:00 tot 13:30' if nl else 'Monday to Thursday 09:00 to 14:00, Friday 09:00 to 13:30' }}</td></tr>
+</tbody></table>
+
+<h2>{{ 'Wat je kunt registreren' if nl else 'What you can register' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Woordmerk:</b> een naam, woord, letters of cijfers.</li>
+ <li><b>Beeldmerk of logo,</b> eventueel in kleur, en vormmerken (3D), zolang het teken onderscheidend is en grafisch kan worden weergegeven.</li>
+ <li><b>Niet</b> volgens de laatste beschikbare landeninformatie: geluidsmerken, geurmerken en collectieve merken.</li>
+</ul>
+<p>Je kiest de klassen volgens de Nice-classificatie. Eén aanvraag mag meerdere klassen bevatten. Omschrijf je waren en diensten met termen uit TMclass; dat voorkomt vragen van het BIE. Een merk dat beschrijvend is (bijvoorbeeld &ldquo;Beste Rijst&rdquo; voor rijst) of verwarrend lijkt op een ouder merk, kan worden geweigerd.</p>
+{% else %}
+<ul>
+ <li><b>Word mark:</b> a name, word, letters or numbers.</li>
+ <li><b>Figurative mark or logo,</b> in colour if you like, and shape marks (3D), as long as the sign is distinctive and can be shown graphically.</li>
+ <li><b>Not,</b> according to the latest available country information: sound marks, smell marks and collective marks.</li>
+</ul>
+<p>You choose classes under the Nice Classification. One application may cover several classes. Describe your goods and services with terms from TMclass; that avoids questions from the BIE. A mark that is descriptive (for example &ldquo;Best Rice&rdquo; for rice) or confusingly similar to an earlier mark can be refused.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap een merk registreren' if nl else 'Registering a mark step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zoek eerst.</b> Controleer of er al een gelijk of vergelijkbaar merk bestaat. Vraag het BIE of een gemachtigde om een onderzoek in het register, en kijk ook in het Handelsregister van de KKF en naar .sr-domeinnamen.</li>
+ <li><b>Bepaal de klassen.</b> Gebruik de Nice-classificatie en TMclass. Neem alleen klassen op die je echt gebruikt of gaat gebruiken.</li>
+ <li><b>Maak een account aan op bie.gov.sr</b> en dien de aanvraag online in. Dien je op papier in, gebruik dan formulier UD-BIP-202 (Verzoek Inschrijving), of UD-BIP-203 als je prioriteit inroept op basis van een buitenlandse aanvraag, en lees eerst de instructie UD-BIP-201.</li>
+ <li><b>Volmacht.</b> Laat je je vertegenwoordigen, dan gebruik je formulier UD-BIP-211 (Volmacht).</li>
+ <li><b>Indienen en betalen.</b> Dien de aanvraag in en betaal de leges per merk op een rekening van het ministerie van EZOTI / BIE (de rekeningnummers staan op bie.gov.sr onder Tarieven en betalen) of via de Centrale Betaaldienst. Er komt een digitale zegel bij. Bewaar je bewijs van indiening: je depotdatum telt.</li>
+ <li><b>Onderzoek.</b> Het BIE toetst vorm, onderscheidend vermogen en oudere merken. Vragen van het BIE komen weinig voor.</li>
+ <li><b>Publicatie en inschrijving.</b> Het merk wordt gepubliceerd in het Advertentieblad van de Republiek Suriname en ingeschreven; je krijgt een inschrijvingsbewijs. Er is geen oppositieprocedure vooraf. Wie meent eigenaar te zijn, kan binnen 9 maanden na publicatie nietigverklaring vragen.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Search first.</b> Check whether an identical or similar mark exists. Ask the BIE or an agent to search the register, and also look in the KKF trade register and at .sr domain names.</li>
+ <li><b>Choose the classes.</b> Use the Nice Classification and TMclass. Include only classes you actually use or will use.</li>
+ <li><b>Create an account at bie.gov.sr</b> and file the application online. On paper, use form UD-BIP-202 (request for registration), or UD-BIP-203 if you claim priority from a foreign application, and read the instructions UD-BIP-201 first.</li>
+ <li><b>Power of attorney.</b> If someone represents you, use form UD-BIP-211 (power of attorney).</li>
+ <li><b>File and pay.</b> File the application and pay the fee per mark into an account of the Ministry of EZOTI / BIE (account numbers are on bie.gov.sr under Tarieven en betalen) or through the Centrale Betaaldienst. A digital stamp duty applies on top. Keep your proof of filing: your filing date counts.</li>
+ <li><b>Examination.</b> The BIE checks formalities, distinctiveness and earlier marks. Office actions are rare.</li>
+ <li><b>Publication and registration.</b> The mark is published in the Official Advertiser (Advertentieblad van de Republiek Suriname) and registered; you receive a registration certificate. There is no opposition procedure before registration. Anyone who claims to own the mark can ask for invalidation within 9 months of publication.</li>
+</ol>
+{% endif %}
+<h3>{{ 'Documenten' if nl else 'Documents' }}</h3>
+<ul class="check">
+{% if nl %}
+ <li>Ingevuld aanvraagformulier (UD-BIP-202 of 203).</li>
+ <li>De naam van het merk en, bij een logo, een afbeelding volgens de eisen van het BIE.</li>
+ <li>Lijst van waren en diensten per Nice-klasse.</li>
+ <li>Naam en adres van de aanvrager; voor een bedrijf een KKF-uittreksel.</li>
+ <li>Volmacht als een gemachtigde indient. Voor buitenlandse aanvragers: een origineel, notarieel gelegaliseerde volmacht in het Nederlands en Engels, één per aanvraag.</li>
+ <li>Bij prioriteit: een gewaarmerkte Engelstalige kopie van de eerdere aanvraag van het buitenlandse merkenbureau.</li>
+{% else %}
+ <li>Completed application form (UD-BIP-202 or 203).</li>
+ <li>The name of the mark and, for a logo, an image meeting the BIE requirements.</li>
+ <li>List of goods and services per Nice class.</li>
+ <li>Applicant's name and address; for a company a KKF extract.</li>
+ <li>Power of attorney if an agent files. For foreign applicants: an original notarised power of attorney in Dutch and English, one per application.</li>
+ <li>When claiming priority: a certified English copy of the earlier application from the foreign trademark office.</li>
+{% endif %}
+</ul>
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and timeline' }}</h2>
+{% if nl %}
+<p>De leges staan in artikel 23 van het Reglement Industriële Eigendom 1912, laatst vastgesteld bij S.B. 2018 no. 105. Het BIE publiceert ze op <a href="https://bie.gov.sr/" rel="noopener">bie.gov.sr</a>:</p>
+<table class="tbl"><thead><tr><th>Handeling</th><th class="r">SRD</th></tr></thead><tbody>
+<tr><td>Eerste inschrijving van een merk, tot en met 3 klassen</td><td class="r">500</td></tr>
+<tr><td>Per klasse boven de derde (ook bij vernieuwing)</td><td class="r">50</td></tr>
+<tr><td>Vernieuwing, tot en met 3 klassen</td><td class="r">500</td></tr>
+<tr><td>Overgang van een merk</td><td class="r">250</td></tr>
+<tr><td>Doorhaling, naams- of adreswijziging, beperking van de warenlijst</td><td class="r">200</td></tr>
+<tr><td>Gewaarmerkt afschrift / niet-gewaarmerkt afschrift</td><td class="r">200 / 65</td></tr>
+</tbody></table>
+<p>Daarbij komt een digitale zegel van SRD 1,50 per zegelplichtig stuk (verzoekschrift en certificaat, en de volmacht als een gemachtigde indient). Betaal per merk. Met de wijziging van oktober 2026 kunnen de tarieven bij staatsbesluit worden aangepast; kijk vlak voor het indienen op de tarievenpagina van het BIE. Een gemachtigde rekent daarnaast een eigen honorarium.</p>
+<p>De doorlooptijd is lang: nieuwe aanvragen worden gemiddeld in 3 tot 4 jaar afgehandeld; overdrachten en andere wijzigingen duren vaak langer. Je depotdatum telt wel vanaf de dag van indienen, dus dien zo vroeg mogelijk in.</p>
+{% else %}
+<p>The fees are in article 23 of the Industrial Property Regulation 1912, last set by S.B. 2018 no. 105. The BIE publishes them on <a href="https://bie.gov.sr/" rel="noopener">bie.gov.sr</a>:</p>
+<table class="tbl"><thead><tr><th>Action</th><th class="r">SRD</th></tr></thead><tbody>
+<tr><td>First registration of a mark, up to 3 classes</td><td class="r">500</td></tr>
+<tr><td>Per class above the third (also on renewal)</td><td class="r">50</td></tr>
+<tr><td>Renewal, up to 3 classes</td><td class="r">500</td></tr>
+<tr><td>Transfer of a mark</td><td class="r">250</td></tr>
+<tr><td>Cancellation, change of name or address, limiting the list of goods</td><td class="r">200</td></tr>
+<tr><td>Certified copy / uncertified copy</td><td class="r">200 / 65</td></tr>
+</tbody></table>
+<p>On top comes a digital stamp duty of SRD 1.50 per document subject to it (the request and the certificate, plus the power of attorney if an agent files). Pay per mark. Since the October 2026 amendment the fees can be changed by state decree, so check the BIE fee page just before you file. An agent charges its own fee on top.</p>
+<p>Processing is slow: new applications take 3 to 4 years on average; transfers and other changes often take longer. Your filing date still counts from the day you file, so file as early as possible.</p>
+{% endif %}
+
+<h2>{{ 'Looptijd, vernieuwen en wijzigen' if nl else 'Term, renewal and changes' }}</h2>
+{% if nl %}
+<ul>
+ <li>Een inschrijving geldt 10 jaar en kan telkens voor 10 jaar worden vernieuwd, met formulier UD-BIP-204 (of UD-BIP-205 als je de warenlijst tegelijk beperkt).</li>
+ <li>Vernieuw vóór de vervaldatum. Daarna heb je 6 maanden respijt. Is ook die termijn voorbij, dan is herstel niet mogelijk en moet je opnieuw aanvragen, met een nieuwe datum.</li>
+ <li>Verandert je naam of adres, of verkoop je het merk, dien dan het juiste formulier in: naamswijziging (UD-BIP-207), adreswijziging (UD-BIP-208) of overgang (UD-BIP-209), met de notariële stukken die het bewijzen.</li>
+ <li>Gebruik je merk. Volgens merkengemachtigden kan een merk na 3 jaar niet-gebruik kwetsbaar worden.</li>
+</ul>
+{% else %}
+<ul>
+ <li>A registration lasts 10 years and can be renewed for 10 years at a time, with form UD-BIP-204 (or UD-BIP-205 if you also limit the list of goods).</li>
+ <li>Renew before the expiry date. After that you have a 6-month grace period. Once that has passed, restoration is not possible and you must file a new application with a new date.</li>
+ <li>If your name or address changes, or you sell the mark, file the right form: change of name (UD-BIP-207), change of address (UD-BIP-208) or transfer (UD-BIP-209), with the notarial documents that prove it.</li>
+ <li>Use your mark. According to trademark agents, a mark can become vulnerable after 3 years of non-use.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Als buitenlands bedrijf een merk beschermen' if nl else 'Protecting a mark as a foreign company' }}</h2>
+{% if nl %}
+<p>Suriname is geen lid van de Madrid-overeenkomst of het Madrid-protocol. Een internationale registratie via WIPO dekt Suriname dus niet. Je dient een nationale aanvraag in via een lokale gemachtigde, met een originele, notarieel gelegaliseerde volmacht in het Nederlands en Engels. Suriname is wel lid van het Verdrag van Parijs: dien je binnen de prioriteitstermijn van dat verdrag in, dan kun je de datum van je eerste aanvraag in het buitenland inroepen. Een basisregistratie in je eigen land is niet nodig. Verkoop je al in Suriname via een distributeur, registreer het merk dan op naam van je eigen bedrijf, niet op naam van de distributeur.</p>
+{% else %}
+<p>Suriname is not a member of the Madrid Agreement or Protocol. An international registration through WIPO does not cover Suriname. You file a national application through a local agent, with an original notarised power of attorney in Dutch and English. Suriname is a member of the Paris Convention: if you file within that convention's priority period, you can claim the date of your first foreign application. A home registration is not required. If you already sell in Suriname through a distributor, register the mark in your own company's name, not the distributor's.</p>
+{% endif %}
+
+<h2>{{ 'Handelsnaam, domeinnaam en merk: het verschil' if nl else 'Trade name, domain name and trademark: the difference' }}</h2>
+<table class="tbl stack tx"><thead><tr><th></th><th>{{ 'Wat het beschermt' if nl else 'What it protects' }}</th><th>{{ 'Waar' if nl else 'Where' }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td><b>Handelsnaam</b></td><td data-l="Wat het beschermt">De naam waaronder je bedrijf handelt. Volgens de Handelsnaamwet 1931 mag niemand een naam voeren die verwarrend lijkt op een naam die een ander al rechtmatig gebruikt. De kantonrechter kan een naamswijziging bevelen.</td><td data-l="Waar">Inschrijving in het Handelsregister van de KKF. Het Handelsregisterbesluit kent geen toets op gelijkende namen; inschrijving beschermt je naam dus niet automatisch.</td></tr>
+ <tr><td><b>Merk</b></td><td data-l="Wat het beschermt">Het teken op je producten en diensten, in heel Suriname, voor de gekozen klassen.</td><td data-l="Waar">BIE.</td></tr>
+ <tr><td><b>.sr-domeinnaam</b></td><td data-l="Wat het beschermt">Je webadres. Iedereen mag aanvragen, ook vanuit het buitenland (met een adres in Suriname). Looptijd 1 tot 5 jaar, automatische verlenging.</td><td data-l="Waar">Telesur beheert .sr; aanvragen lopen via Datasur. Premium-namen kosten USD 100 tot 300 per jaar.</td></tr>
+{% else %}
+ <tr><td><b>Trade name</b></td><td data-l="What it protects">The name your business trades under. Under the Trade Name Act 1931 nobody may use a name confusingly similar to one another business already uses lawfully. The cantonal court can order a name change.</td><td data-l="Where">Registration in the KKF trade register. The trade register rules contain no check for similar names, so registering does not automatically protect your name.</td></tr>
+ <tr><td><b>Trademark</b></td><td data-l="What it protects">The sign on your goods and services, throughout Suriname, for the chosen classes.</td><td data-l="Where">BIE.</td></tr>
+ <tr><td><b>.sr domain name</b></td><td data-l="What it protects">Your web address. Anyone may apply, including from abroad (with an address in Suriname). Term 1 to 5 years, renewed automatically.</td><td data-l="Where">Telesur manages .sr; applications go through Datasur. Premium names cost USD 100 to 300 a year.</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Heeft iemand jouw merknaam als .sr-domein vastgelegd zonder eigen belang en te kwader trouw, dan kun je dat aanvechten via de geschillenregeling (arbitrage) van de .sr-voorwaarden. Met een ingeschreven merk sta je veel sterker. Een bedrijf starten en je naam inschrijven: zie <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% else %}
+<p>If someone registered your brand as a .sr domain without a legitimate interest and in bad faith, you can challenge it through the dispute procedure (arbitration) in the .sr terms. A registered trademark makes your position much stronger. Starting a business and registering your name: see <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Auteursrecht, octrooien en modellen' if nl else 'Copyright, patents and designs' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Auteursrecht:</b> geregeld in de Auteurswet 1913 (laatst gewijzigd in 2015). Suriname is lid van de Berner Conventie, dus auteursrecht op teksten, foto's, software, muziek en ontwerpen ontstaat zonder registratie. Bewaar bewijs van wanneer je iets maakte (originele bestanden, datum). De wijzigingen uit 2015 worden volgens het Amerikaanse ministerie van Buitenlandse Zaken niet gehandhaafd.</li>
+ <li><b>Octrooien:</b> er bestaat oude wetgeving, maar het BIE neemt tot nader bericht geen octrooiaanvragen aan. Bescherming van een uitvinding in Suriname is nu niet mogelijk; uitvinders vragen octrooi aan in hun exportmarkten. Houd een uitvinding geheim tot je die elders hebt beschermd.</li>
+ <li><b>Modellen (design):</b> Suriname is sinds 10 september 2020 aangesloten bij de Akte van Genève van de Haagse Overeenkomst voor internationale inschrijving van modellen, maar er is geen nationale modellenwet. Laat een specialist beoordelen wat een internationale inschrijving in Suriname waard is.</li>
+ <li><b>Niet beschermd:</b> gebruiksmodellen, geografische aanduidingen, chipontwerpen en bedrijfsgeheimen hebben geen eigen wettelijke regeling. Bescherm geheimen met contracten (geheimhoudingsbeding).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Copyright:</b> governed by the Copyright Act 1913 (last amended in 2015). Suriname is a member of the Berne Convention, so copyright in texts, photos, software, music and designs arises without registration. Keep evidence of when you created something (original files, dates). According to the US State Department, the 2015 amendments are not enforced.</li>
+ <li><b>Patents:</b> old legislation exists, but the BIE is not accepting patent applications until further notice. Protecting an invention in Suriname is not possible now; inventors file in their export markets. Keep an invention confidential until it is protected elsewhere.</li>
+ <li><b>Designs:</b> Suriname has been party to the Geneva Act of the Hague Agreement on international design registration since 10 September 2020, but there is no national design law. Ask a specialist what an international registration is worth in Suriname.</li>
+ <li><b>Not protected:</b> utility models, geographical indications, chip layouts and trade secrets have no specific legal regime. Protect secrets with contracts (confidentiality clauses).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Handhaving en namaak' if nl else 'Enforcement and counterfeits' }}</h2>
+{% if nl %}
+<p>Handhaving van intellectuele eigendom is in Suriname zwak: inbreuken worden zelden vervolgd en de overheid houdt geen cijfers bij over in beslag genomen namaakgoederen. Reken er niet op dat de overheid je merk voor je bewaakt. Wat je zelf kunt doen:</p>
+<ol class="steps">
+ <li><b>Verzamel bewijs.</b> Foto's, aankoopbonnen, advertenties, schermafdrukken met datum.</li>
+ <li><b>Stuur een sommatiebrief.</b> Via een advocaat, met verwijzing naar je inschrijving bij het BIE.</li>
+ <li><b>Ga naar de rechter.</b> Een kort geding bij de kantonrechter voor een verbod, eventueel met dwangsom. Bij een handelsnaam kan de kantonrechter een naamswijziging bevelen.</li>
+ <li><b>Overweeg aangifte.</b> Het strafrecht kent bepalingen tegen misbruik van namen en merken. Vraag je advocaat of aangifte bij de politie zinvol is.</li>
+ <li><b>Douane.</b> Wij vonden geen gepubliceerde procedure om een merk bij de douane te registreren. Komt namaak via import binnen, neem dan contact op met de douane en een advocaat. Zie ook <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ol>
+{% else %}
+<p>Enforcement of intellectual property in Suriname is weak: infringements are rarely prosecuted and the government keeps no figures on seized counterfeit goods. Do not count on the authorities to police your mark. What you can do yourself:</p>
+<ol class="steps">
+ <li><b>Collect evidence.</b> Photos, receipts, adverts, dated screenshots.</li>
+ <li><b>Send a cease-and-desist letter.</b> Through a lawyer, referring to your BIE registration.</li>
+ <li><b>Go to court.</b> Summary proceedings (kort geding) at the cantonal court for an injunction, with a penalty for non-compliance if needed. For a trade name the cantonal court can order a name change.</li>
+ <li><b>Consider a police report.</b> Criminal law has provisions against misuse of names and marks. Ask your lawyer whether reporting it to the police makes sense.</li>
+ <li><b>Customs.</b> We found no published procedure to record a mark with customs. If counterfeits come in through imports, contact customs and a lawyer. See also <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Denken dat een KKF-inschrijving je merk beschermt.</b> Dat is alleen je handelsnaam.</li>
+ <li><b>Wachten tot je groot bent.</b> Met 3 tot 4 jaar doorlooptijd telt elke maand. Dien in zodra je naam vaststaat.</li>
+ <li><b>Dienstverleners die niets doen.</b> Restaurants, winkels met eigen merk, salons en adviesbureaus kunnen nu een dienstenmerk aanvragen. Heb je al een warenmerk, voeg dan voor 9 juli 2027 dienstenklassen toe.</li>
+ <li><b>De distributeur laten registreren.</b> Dan is de distributeur eigenaar van je merk in Suriname.</li>
+ <li><b>Vernieuwing vergeten.</b> Na de respijttermijn van 6 maanden is je merk weg. Zet de vervaldatum in je agenda.</li>
+ <li><b>Te brede of te vage warenlijst.</b> Gebruik TMclass-termen en alleen klassen die je echt gebruikt.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Thinking a KKF registration protects your brand.</b> It only covers your trade name.</li>
+ <li><b>Waiting until you are big.</b> With 3 to 4 years of processing, every month counts. File as soon as your name is settled.</li>
+ <li><b>Service businesses doing nothing.</b> Restaurants, shops with their own brand, salons and consultancies can now apply for a service mark. If you already have a goods mark, add service classes before 9 July 2027.</li>
+ <li><b>Letting the distributor register.</b> Then the distributor owns your brand in Suriname.</li>
+ <li><b>Forgetting renewal.</b> After the 6-month grace period your mark is gone. Put the expiry date in your calendar.</li>
+ <li><b>A list of goods that is too broad or vague.</b> Use TMclass terms and only classes you really use.</li>
+</ul>
+{% endif %}
+<p>{{ 'Meer over vergunningen en instanties:' if nl else 'More on licences and institutions:' }} <a href="{{ U('licences') }}">{{ L('licences') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/bureau-intellectuele-eigendom-bie/" rel="noopener">Ministerie van EZOTI: Bureau Intellectuele Eigendom (BIE), formulieren en contact</a></li>
+ <li><a href="https://spoor.com/suriname-introduces-registration-and-protection-for-service-marks/" rel="noopener">Spoor &amp; Fisher: Suriname introduces registration and protection for service marks (21 October 2026)</a></li>
+ <li><a href="https://www.caribbean-ip.com/insights-and-news/suriname-trademark-law-reform" rel="noopener">Caribbean IP: Suriname trademark law reform, service marks</a></li>
+ <li><a href="https://ogier.com/news-and-insights/guides-and-factsheets/trade-marks-prosecution-factsheet-dutch-caribbean-and-suriname" rel="noopener">Ogier: Trade marks prosecution factsheet Dutch Caribbean and Suriname (October 2026)</a></li>
+ <li><a href="https://country-index.com/country_surveys.aspx?ID=221" rel="noopener">Country Index: Suriname trademark survey</a></li>
+ <li><a href="https://www.wipo.int/wipolex/en/members/profile/SR" rel="noopener">WIPO Lex: Suriname, IP legislation and treaties</a></li>
+ <li><a href="https://www.wipo.int/wipolex/en/legislation/details/8824" rel="noopener">WIPO Lex: Koninklijk Besluit no. 57 van 29 augustus 1912 (merken)</a></li>
+ <li><a href="https://www.wipo.int/wipolex/en/legislation/details/8828" rel="noopener">WIPO Lex: Handelsnaamwet 1931</a></li>
+ <li><a href="https://www.wipo.int/wipolex/en/treaties/notifications/details/treaty_hague_142" rel="noopener">WIPO Hague Notification No. 142: Suriname, Akte van Genève</a></li>
+ <li><a href="https://hsmoffice.com/?p=824" rel="noopener">HSM IP: Suriname patent guide</a></li>
+ <li><a href="https://www.state.gov/reports/2026-investment-climate-statements/suriname" rel="noopener">US State Department: 2026 Investment Climate Statement Suriname (intellectual property)</a></li>
+ <li><a href="https://www.doingbusinessdutchcaribbean.com/suriname/financial-and-insurance-services-supervision/intellectual-property-rights/" rel="noopener">Guide to Doing Business: Suriname, intellectual property rights</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/05/S.B.-2025-no.-46-Handelsregisterbesluit.pdf" rel="noopener">Handelsregisterbesluit (S.B. 2025 no. 46)</a></li>
+ <li><a href="https://datasur.sr/terms-and-conditions-sr-domain-names/" rel="noopener">Datasur: terms and conditions .sr domain names</a></li>
+ <li><a href="https://datasur.sr/wp-content/uploads/2026/03/PREMIUM-DOMAIN-POLICY_DATASUR_FINAL-1.pdf" rel="noopener">Datasur: Premium Domain Policy (2026)</a></li>
+ <li><a href="https://www.iana.org/domains/root/db/sr.html" rel="noopener">IANA: delegation record for .sr</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

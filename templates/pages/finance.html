@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Financiering voor ondernemers in Suriname' if nl else 'Financing a business in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">De meeste ondernemers in Suriname financieren hun bedrijf met eigen geld, een banklening of krediet van leveranciers. Een bank vraagt bijna altijd onderpand, een eigen inbreng en een onderbouwd plan. Heb je te weinig onderpand of produceer je iets in Suriname, kijk dan eerst naar de programma's van de Nationale Ontwikkelingsbank (NOB), met rentes vanaf 5%.</p>
+{% else %}
+<p class="lead">Most business owners in Suriname finance their business with their own money, a bank loan or supplier credit. A bank almost always asks for collateral, a contribution of your own and a well-supported plan. If you lack collateral or produce something in Suriname, look first at the programmes of the National Development Bank (NOB), with rates from 5%.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Gem. leenrente banken' if nl else 'Avg. bank lending rate' }}</div><div class="big">{{ '14,5%' if nl else '14.5%' }}</div><div class="sub">{{ 'juli 2025, CBvS' if nl else 'July 2025, CBvS' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Productie Krediet Fonds' if nl else 'Production Credit Fund' }}</div><div class="big">5%</div><div class="sub">{{ 'rente per jaar, tot SRD 5 miljoen' if nl else 'interest a year, up to SRD 5 million' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Garantiefonds' if nl else 'Guarantee fund' }}</div><div class="big">80%</div><div class="sub">{{ 'max. garantie bij te weinig onderpand' if nl else 'max. guarantee if collateral is short' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Banken vragen vrijwel altijd volledige dekking met onderpand (hypotheek, pand op goederen, cessie van vorderingen) en een eigen inbreng; de NOB vraagt 10%.</li>
+ <li>De gemiddelde leenrente bij banken was 14,5% in juli 2025. Finabank noemde in oktober 2026 indicatief 14% tot 20% in SRD en 9% tot 10% in USD of EUR.</li>
+ <li>Leen in de valuta waarin je verdient. Een USD-lening met SRD-inkomsten wordt duurder als de koers stijgt.</li>
+ <li>De NOB biedt het Productie Krediet Fonds (5%), het Level-up krediet voor ondernemers van 18 tot 27 jaar (5%, tot SRD 400.000) en technische bijstand (3% tot 4%).</li>
+ <li>Te weinig onderpand? Je bank kan een garantie aanvragen bij de Stichting Garantiefonds voor Bedrijfskredieten: tot 80% van het krediet, voor 1% per jaar.</li>
+ <li>Een goed ondernemingsplan met drie jaar prognoses, je cijfers en een sluitende kasstroom zijn de basis van elke aanvraag.</li>
+{% else %}
+ <li>Banks almost always want full cover with collateral (mortgage, pledge on goods, assignment of receivables) and a contribution of your own; the NOB asks 10%.</li>
+ <li>The average bank lending rate was 14.5% in July 2025. In October 2026 Finabank listed indicative rates of 14% to 20% in SRD and 9% to 10% in USD or EUR.</li>
+ <li>Borrow in the currency you earn in. A USD loan repaid from SRD income gets more expensive when the exchange rate rises.</li>
+ <li>The NOB offers the Production Credit Fund (5%), the Level-up loan for entrepreneurs aged 18 to 27 (5%, up to SRD 400,000) and technical assistance loans (3% to 4%).</li>
+ <li>Not enough collateral? Your bank can request a guarantee from the Business Credit Guarantee Fund: up to 80% of the loan, for 1% a year.</li>
+ <li>A sound business plan with three years of forecasts, your figures and a cash flow that adds up are the basis of every application.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Je opties op een rij' if nl else 'Your options at a glance' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Vorm</th><th>Geschikt voor</th><th>Let op</th></tr></thead><tbody>
+<tr><td>Eigen geld en winst</td><td data-l="Geschikt voor">start, kleine investeringen</td><td data-l="Let op">houd een buffer voor vaste lasten aan</td></tr>
+<tr><td>Rekening-courantkrediet</td><td data-l="Geschikt voor">werkkapitaal, schommelingen in je kas</td><td data-l="Let op">hoogste rente; bank verlangt dat de rekening "beweegt"</td></tr>
+<tr><td>Investeringskrediet</td><td data-l="Geschikt voor">pand, machines, voertuigen</td><td data-l="Let op">looptijd tot 15 jaar; onderpand nodig</td></tr>
+<tr><td>Seizoenskrediet</td><td data-l="Geschikt voor">landbouw, veeteelt, visserij</td><td data-l="Let op">aflossing per oogst of seizoen</td></tr>
+<tr><td>NOB-programma's</td><td data-l="Geschikt voor">productie, verwerking, export, toerisme, jonge ondernemers</td><td data-l="Let op">handel en woningbouw uitgesloten</td></tr>
+<tr><td>Leverancierskrediet</td><td data-l="Geschikt voor">voorraad, grondstoffen</td><td data-l="Let op">korting voor contant betalen kan goedkoper zijn</td></tr>
+<tr><td>Factoring en invoice discounting</td><td data-l="Geschikt voor">bedrijven met grote, betrouwbare afnemers</td><td data-l="Let op">alleen voor bestaande bankklanten</td></tr>
+<tr><td>Familie, diaspora, partners</td><td data-l="Geschikt voor">start, overbrugging</td><td data-l="Let op">leg alles schriftelijk vast</td></tr>
+<tr><td>Investeerder (aandelen)</td><td data-l="Geschikt voor">groei zonder vaste aflossing</td><td data-l="Let op">je deelt winst en zeggenschap</td></tr>
+</tbody></table>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Type</th><th>Suits</th><th>Watch out</th></tr></thead><tbody>
+<tr><td>Own money and profits</td><td data-l="Suits">start-up, small investments</td><td data-l="Watch out">keep a buffer for fixed costs</td></tr>
+<tr><td>Overdraft (current account credit)</td><td data-l="Suits">working capital, swings in cash</td><td data-l="Watch out">highest rate; the bank wants the account to "move"</td></tr>
+<tr><td>Investment loan</td><td data-l="Suits">premises, machines, vehicles</td><td data-l="Watch out">term up to 15 years; collateral needed</td></tr>
+<tr><td>Seasonal credit</td><td data-l="Suits">agriculture, livestock, fishing</td><td data-l="Watch out">repaid per harvest or season</td></tr>
+<tr><td>NOB programmes</td><td data-l="Suits">production, processing, export, tourism, young entrepreneurs</td><td data-l="Watch out">trade and housing construction excluded</td></tr>
+<tr><td>Supplier credit</td><td data-l="Suits">stock, raw materials</td><td data-l="Watch out">a cash discount may be cheaper</td></tr>
+<tr><td>Factoring and invoice discounting</td><td data-l="Suits">businesses with large, reliable customers</td><td data-l="Watch out">only for existing bank clients</td></tr>
+<tr><td>Family, diaspora, partners</td><td data-l="Suits">start-up, bridging</td><td data-l="Watch out">put everything in writing</td></tr>
+<tr><td>Investor (shares)</td><td data-l="Suits">growth without fixed repayments</td><td data-l="Watch out">you share profit and control</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Een banklening: wat banken vragen' if nl else 'A bank loan: what banks ask for' }}</h2>
+{% if nl %}
+<p>Elke bank beoordeelt drie dingen: kun je de lening terugbetalen uit je kasstroom, wat is je eigen inbreng, en wat is het onderpand als het misgaat. In Suriname weegt het onderpand zwaar. De NOB vraagt bijvoorbeeld <b>100% dekking</b> en accepteert onroerend goed, roerende zaken, aankopen op naam van de bank, cessie van vorderingen en garantiestellingen. Commerciële banken werken op dezelfde manier. Banken financieren vaak niet het volledige bedrag; de NOB vraagt een eigen inbreng van 10%.</p>
+<h3>De producten</h3>
+<ul>
+ <li><b>Investeringskrediet</b> voor de aankoop, bouw, uitbreiding of renovatie van een bedrijfspand of machines. Je betaalt maandelijks een vast bedrag aan rente en aflossing. Godo Bank en de NOB noemen een maximale looptijd van 15 jaar; bij Hakrinbank is in overleg een aflossingsvrije periode tot 1 jaar mogelijk.</li>
+ <li><b>Rekening-courantkrediet</b> voor werkkapitaal. Je betaalt rente over wat je opneemt en vaak een provisie over het ongebruikte deel. Godo Bank noemt in de praktijk een looptijd tot 5 jaar met periodieke herziening.</li>
+ <li><b>Seizoenskrediet</b> voor grondstoffen in landbouw, veeteelt en visserij, met aflossing per 3 of 6 maanden (Godo Bank, alleen in SRD).</li>
+ <li><b>Bankgarantie en letter of credit</b> voor import, aanbestedingen en huur. Een bankgarantie wordt behandeld als een kredietaanvraag en vraagt dekking met onroerend goed of geld.</li>
+</ul>
+<h3>Rente: wat is normaal?</h3>
+<p>De Centrale Bank (CBvS) rapporteerde voor juli 2025 een gemiddelde leenrente bij banken van 14,5% en een gemiddelde spaarrente van 6,5%. De inflatie was in augustus 2026 8,0% op jaarbasis (ABS). Op de website van Finabank stonden op 21 oktober 2026 deze indicatieve tarieven:</p>
+<table class="tbl"><thead><tr><th>Finabank (indicatief)</th><th>SRD</th><th>USD</th><th>EUR</th></tr></thead><tbody>
+<tr><td>Rekening-courantkrediet</td><td>20%</td><td>9%</td><td>9%</td></tr>
+<tr><td>Investeringskrediet</td><td>14%</td><td>10%</td><td>10%</td></tr>
+</tbody></table>
+<p>Ter vergelijking: de NOB rekent voor eigen bedrijfskredieten minimaal 10% (investering) of 13% (werkkapitaal) in SRD en vanaf 5% tot 6% in USD of EUR, met een risico-opslag van maximaal 3%. De rente die je krijgt, hangt af van je risico, je onderpand en de looptijd. Vraag altijd ook naar afsluitprovisie, taxatiekosten, notariskosten voor de hypotheek en verplichte verzekeringen. Reken je maandlast uit met de <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+<p>De rente die de CBvS zelf hanteert (de OMO-rente van 3,4% op 14 oktober 2026) is geen leenrente voor bedrijven. Het geeft alleen aan welke kant de rentes op gaan.</p>
+{% else %}
+<p>Every bank looks at three things: can you repay the loan from your cash flow, what is your own contribution, and what is the collateral if things go wrong. In Suriname collateral weighs heavily. The NOB, for example, asks for <b>100% cover</b> and accepts real estate, movable goods, purchases in the bank's name, assignment of receivables and guarantees. Commercial banks work the same way. Banks often do not finance the full amount; the NOB asks you to put in 10% yourself.</p>
+<h3>The products</h3>
+<ul>
+ <li><b>Investment loan</b> to buy, build, expand or renovate premises or machinery. You pay a fixed monthly amount of interest and principal. Godo Bank and the NOB mention a maximum term of 15 years; Hakrinbank can agree a grace period on principal of up to 1 year.</li>
+ <li><b>Overdraft</b> (rekening-courantkrediet) for working capital. You pay interest on what you draw and often a commitment fee on the unused part. Godo Bank mentions a practical term of up to 5 years with periodic review.</li>
+ <li><b>Seasonal credit</b> for inputs in agriculture, livestock and fishing, repaid every 3 or 6 months (Godo Bank, SRD only).</li>
+ <li><b>Bank guarantee and letter of credit</b> for imports, tenders and rent. A bank guarantee is handled as a credit application and needs cover with real estate or cash.</li>
+</ul>
+<h3>Interest: what is normal?</h3>
+<p>The Central Bank (CBvS) reported an average bank lending rate of 14.5% and an average savings rate of 6.5% for July 2025. Inflation was 8.0% year on year in August 2026 (ABS). On 21 October 2026 Finabank's website showed these indicative rates:</p>
+<table class="tbl"><thead><tr><th>Finabank (indicative)</th><th>SRD</th><th>USD</th><th>EUR</th></tr></thead><tbody>
+<tr><td>Overdraft</td><td>20%</td><td>9%</td><td>9%</td></tr>
+<tr><td>Investment loan</td><td>14%</td><td>10%</td><td>10%</td></tr>
+</tbody></table>
+<p>For comparison: the NOB charges at least 10% (investment) or 13% (working capital) in SRD for its own business loans and from 5% to 6% in USD or EUR, plus a risk margin of up to 3%. The rate you get depends on your risk, your collateral and the term. Always ask about arrangement fees, valuation costs, notary costs for the mortgage and required insurance. Work out your monthly payment with the <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+<p>The CBvS's own rate (the OMO rate of 3.4% on 14 October 2026) is not a lending rate for businesses. It only indicates which way rates are heading.</p>
+{% endif %}
+
+<h3>{{ 'SRD of USD lenen: het koersrisico' if nl else 'Borrowing in SRD or USD: exchange rate risk' }}</h3>
+{% if nl %}
+<p>Een lening in USD of EUR heeft een lagere rente, maar je betaalt terug in die valuta. Verdien je in SRD, dan stijgt je maandlast mee met de koers. Rekenvoorbeeld: je maandlast is USD 500. Bij een koers van 38 is dat SRD 19.000. Stijgt de koers naar 45, dan betaal je SRD 22.500 per maand, 18% meer, terwijl je omzet in SRD misschien niet meegroeit. Het voordeel van de lagere USD-rente ben je dan snel kwijt.</p>
+<p>De vuistregel: <b>leen in de valuta waarin je verdient.</b> Exporteurs, toeristische bedrijven en bedrijven die in USD factureren, kunnen een valutalening goed dragen. Het Garantiefonds zegt het ook zo: de lening kan worden verstrekt in de valuta waarin het bedrijf verdient. Volg de koers op <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<p>A loan in USD or EUR carries a lower rate, but you repay in that currency. If you earn in SRD, your monthly payment rises with the exchange rate. Example: your monthly payment is USD 500. At a rate of 38 that is SRD 19,000. If the rate goes to 45, you pay SRD 22,500 a month, 18% more, while your SRD turnover may not grow with it. The lower USD rate is quickly wiped out.</p>
+<p>The rule of thumb: <b>borrow in the currency you earn in.</b> Exporters, tourism businesses and businesses that invoice in USD can carry a foreign currency loan. The Guarantee Fund puts it the same way: the loan can be given in the currency the business earns in. Follow the rate on <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'NOB en overheidsprogramma\'s' if nl else 'NOB and government programmes' }}</h2>
+{% if nl %}
+<p>De <b>Nationale Ontwikkelingsbank (NOB)</b> is de staatsontwikkelingsbank. Dit stond op 21 oktober 2026 op de website van de NOB:</p>
+<table class="tbl stack tx"><thead><tr><th>Programma</th><th>Voor wie</th><th>Voorwaarden</th></tr></thead><tbody>
+<tr><td>Productie Krediet Fonds (PKF)</td><td data-l="Voor wie">bedrijven die importvervangend, exporteerbaar of waardetoevoegend produceren, en toerisme</td><td data-l="Voorwaarden">tot SRD 5 miljoen, 5% rente, max. 15 jaar, aflossingsvrij tot 24 maanden; minstens 50% Surinaams eigendom; 10% eigen inbreng</td></tr>
+<tr><td>Level-up krediet (binnen het PKF)</td><td data-l="Voor wie">jonge ondernemers van 18 tot 27 jaar in productie en verwerking</td><td data-l="Voorwaarden">tot SRD 400.000, 5% rente, max. 5 jaar; Surinaamse nationaliteit of minstens 5 jaar ingezetene</td></tr>
+<tr><td>Fonds Technische Bijstand Particuliere Sector (FTBP)</td><td data-l="Voor wie">bedrijven die studies, pilots, training, certificering of tijdelijke deskundigheid nodig hebben</td><td data-l="Voorwaarden">tot USD 25.000, 4% (SRD) of 3% (USD, EUR), 10% eigen inbreng</td></tr>
+<tr><td>NOB-bedrijfskredieten</td><td data-l="Voor wie">startende en bestaande bedrijven, niet in handel of woningbouw</td><td data-l="Voorwaarden">tot USD 50.000 (start) of USD 100.000 (bestaand), of de tegenwaarde in SRD; 100% dekking</td></tr>
+</tbody></table>
+<p>Uitgesloten van het PKF zijn handel en primaire landbouw, veeteelt en visserij. Verwerking van landbouwproducten komt wel in aanmerking. Het PKF startte op 28 april 2023 met een eerste inleg van SRD 100 miljoen van het ministerie van Financiën en Planning. In januari 2024 noemde de NOB nog een maximum van SRD 2 miljoen; de website noemt nu SRD 5 miljoen.</p>
+<h3>Garantiefonds voor Bedrijfskredieten</h3>
+<p>Heb je een haalbaar plan maar te weinig onderpand, dan kan de <b>Stichting Garantiefonds voor Bedrijfskredieten</b> (beheerd door de NOB) garant staan. Alleen je bank kan de garantie aanvragen. De garantie is maximaal 80% van het kredietbedrag en kost 1% per jaar over het gegarandeerde bedrag. Voorbeeld van de NOB: bij een lening van SRD 100.000 is de garantie maximaal SRD 80.000 en de vergoeding SRD 800 per jaar; SRD 20.000 blijft eigen inbreng of eigen risico. Het fonds richt zich op het mkb en starters, niet op handel. Vraag je bank expliciet om een garantieaanvraag.</p>
+<h3>IDB, EU en andere donoren</h3>
+<ul>
+ <li><b>NOB en IDB (mei 2024).</b> De NOB kondigde een leen- en garantieprogramma aan voor micro-, kleine en middelgrote ondernemers, met een IDB-lening van USD 10 miljoen via de Staat, waarvan USD 2 miljoen uit het Amazon Bioeconomy Fund van het Green Climate Fund. Er is een garantiefonds van USD 1 miljoen (tot 60% garantie, tot 80% voor vrouwen en voor inheemse en tribale gemeenschappen), en commerciële banken zouden goedkoper krediet krijgen om door te lenen. We konden niet bevestigen of het programma inmiddels loopt. Vraag het na bij de NOB.</li>
+ <li><b>Landbouwprogramma's van de IDB.</b> Het Agricultural Competitiveness Program (USD 17,5 miljoen, 2017) en het Sustainable Agricultural Productivity Program (USD 30 miljoen, 2018) investeren in diergezondheid, plantgezondheid, onderzoek, irrigatie en statistiek. Ze verstrekken geen leningen aan individuele boeren.</li>
+ <li><b>Een "KMO-fonds" of mkb-fonds</b> met een open loket konden we op 21 oktober 2026 niet vinden. Overheidsgeld voor ondernemers loopt nu vooral via de NOB-fondsen hierboven.</li>
+ <li><b>EU en UNDP.</b> We vonden op 21 oktober 2026 geen open subsidieregeling van de EU of UNDP voor Surinaamse kleine bedrijven. UNDP Suriname organiseerde wel trainingen voor toerisme en horeca in het binnenland.</li>
+</ul>
+{% else %}
+<p>The <b>National Development Bank (NOB)</b> is the state development bank. This was on the NOB website on 21 October 2026:</p>
+<table class="tbl stack tx"><thead><tr><th>Programme</th><th>For whom</th><th>Terms</th></tr></thead><tbody>
+<tr><td>Production Credit Fund (PKF)</td><td data-l="For whom">businesses that produce import substitutes, exportable or value-adding products, and tourism</td><td data-l="Terms">up to SRD 5 million, 5% interest, max. 15 years, grace on principal up to 24 months; at least 50% Surinamese ownership; 10% own contribution</td></tr>
+<tr><td>Level-up loan (within the PKF)</td><td data-l="For whom">young entrepreneurs aged 18 to 27 in production and processing</td><td data-l="Terms">up to SRD 400,000, 5% interest, max. 5 years; Surinamese nationality or at least 5 years resident</td></tr>
+<tr><td>Private Sector Technical Assistance Fund (FTBP)</td><td data-l="For whom">businesses that need studies, pilots, training, certification or temporary expertise</td><td data-l="Terms">up to USD 25,000, 4% (SRD) or 3% (USD, EUR), 10% own contribution</td></tr>
+<tr><td>NOB business loans</td><td data-l="For whom">start-ups and existing businesses, not in trade or housing construction</td><td data-l="Terms">up to USD 50,000 (start-up) or USD 100,000 (existing), or the SRD equivalent; 100% cover</td></tr>
+</tbody></table>
+<p>Trade and primary agriculture, livestock and fishing are excluded from the PKF. Processing of farm products does qualify. The PKF started on 28 April 2023 with an initial SRD 100 million from the Ministry of Finance and Planning. In January 2024 the NOB still mentioned a maximum of SRD 2 million; the website now says SRD 5 million.</p>
+<h3>Business Credit Guarantee Fund</h3>
+<p>If you have a viable plan but not enough collateral, the <b>Stichting Garantiefonds voor Bedrijfskredieten</b> (managed by the NOB) can provide a guarantee. Only your bank can request it. The guarantee is at most 80% of the loan and costs 1% a year of the guaranteed amount. The NOB's example: on a loan of SRD 100,000 the guarantee is at most SRD 80,000 and the fee SRD 800 a year; SRD 20,000 stays your own contribution or risk. The fund targets SMEs and start-ups, not trade. Ask your bank explicitly to file a guarantee request.</p>
+<h3>IDB, EU and other donors</h3>
+<ul>
+ <li><b>NOB and IDB (May 2024).</b> The NOB announced a loan and guarantee programme for micro, small and medium enterprises, funded by a USD 10 million IDB loan through the State, of which USD 2 million comes from the Green Climate Fund's Amazon Bioeconomy Fund. There is a USD 1 million guarantee fund (up to 60% cover, up to 80% for women and for indigenous and tribal communities), and commercial banks would get cheaper funds to lend on. We could not confirm whether the programme is running yet. Ask the NOB.</li>
+ <li><b>IDB agriculture programmes.</b> The Agricultural Competitiveness Program (USD 17.5 million, 2017) and the Sustainable Agricultural Productivity Program (USD 30 million, 2018) invest in animal and plant health, research, irrigation and statistics. They do not lend to individual farmers.</li>
+ <li><b>A "KMO fund" or SME fund</b> with an open window: we could not find one on 21 October 2026. Public money for entrepreneurs now flows mainly through the NOB funds above.</li>
+ <li><b>EU and UNDP.</b> On 21 October 2026 we found no open EU or UNDP grant scheme for small Surinamese businesses. UNDP Suriname did run tourism and hospitality training in the interior.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Coöperatieve banken, spaarinstellingen en microkrediet' if nl else 'Cooperative banks, credit unions and microcredit' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Godo Bank.</b> De vroegere coöperatieve Godo werkt sinds 24 oktober 2024, na goedkeuring van de CBvS, als Godo Bank N.V. Het is nu een commerciële bank met coöperatieve wortels, met kantoren in Paramaribo, Lelydorp, Albina en Atjoni. Godo biedt investerings-, seizoens- en rekening-courantkrediet in SRD, USD en EUR.</li>
+ <li><b>Spaar- en kredietcoöperaties.</b> De CBvS houdt toezicht op spaarinstellingen en heeft in 2023 eigen richtlijnen voor ze uitgegeven, onder meer over kredietclassificatie en krediet in vreemde valuta. Leen je bij een coöperatie, controleer dan dat ze onder toezicht van de CBvS staat.</li>
+ <li><b>Microkrediet.</b> Het NOB-IDB-programma uit 2024 richt zich ook op micro-ondernemers. Daarnaast verstrekt de Volkscredietbank kleine kredieten; we konden haar actuele voorwaarden niet online controleren. Vraag bij elke aanbieder naar het effectieve jaarpercentage, niet alleen de maandrente.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Godo Bank.</b> The former cooperative Godo has operated as Godo Bank N.V. since 24 October 2024, after approval by the CBvS. It is now a commercial bank with cooperative roots, with offices in Paramaribo, Lelydorp, Albina and Atjoni. Godo offers investment, seasonal and overdraft credit in SRD, USD and EUR.</li>
+ <li><b>Savings and credit cooperatives.</b> The CBvS supervises savings institutions and issued separate guidelines for them in 2023, including on credit classification and foreign currency lending. If you borrow from a cooperative, check that it is supervised by the CBvS.</li>
+ <li><b>Microcredit.</b> The 2024 NOB-IDB programme also targets micro enterprises. The Volkscredietbank also provides small loans; we could not check its current terms online. With any lender, ask for the effective annual rate, not just the monthly rate.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Alternatieven voor een banklening' if nl else 'Alternatives to a bank loan' }}</h2>
+{% if nl %}
+<h3>Leverancierskrediet</h3>
+<p>Een betaaltermijn van 30 of 60 dagen bij je leverancier is in feite een renteloze lening. Vraag erom, zeker als je vaste klant bent, en leg de afspraak vast op je <a href="{{ U('purchaseorder') }}">{{ L('purchaseorder') }}</a>. Reken wel na: biedt de leverancier 2% korting bij contante betaling, dan is dat bij een termijn van 30 dagen omgerekend een hoge jaarrente. Gebruik de <a href="{{ U('percentage') }}">{{ L('percentage') }}</a>.</p>
+<h3>Factoring en invoice discounting</h3>
+<p>Wacht je lang op betaling van grote afnemers, dan kan de bank je facturen voorfinancieren. Finabank biedt beide vormen aan bestaande klanten met "gerenommeerde" debiteuren. Bij <b>factoring</b> verhaalt de bank de terugbetaling op je debiteur; bij <b>invoice discounting</b> blijf jij aansprakelijk. Houd je openstaande facturen bij met <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>.</p>
+<h3>Lease en afbetaling</h3>
+<p>Voor voertuigen en machines financieren banken meestal met een investeringskrediet of voertuigfinanciering, waarbij het object als onderpand dient. Vraag ook bij de leverancier of hij afbetaling of huurkoop aanbiedt, en vergelijk de totale kosten.</p>
+<h3>Familie, vrienden en diaspora</h3>
+<p>Geld van familie, ook uit Nederland of de VS, is vaak de eerste financiering. Leg het vast in een schriftelijke overeenkomst van geldlening: bedrag, valuta, rente, aflossingsschema, wat er gebeurt bij te laat betalen, en of het een lening is of een aandeel in het bedrijf. Laat het geld via de bank binnenkomen. Banken moeten onder de regels tegen witwassen vragen naar de herkomst van je startkapitaal, en een overeenkomst plus bankafschrift beantwoordt die vraag. We konden geen actief Surinaams crowdfundingplatform bevestigen.</p>
+<h3>Investeerders en aandelen</h3>
+<p>Een investeerder stapt in met eigen vermogen en krijgt een deel van de winst en zeggenschap. In een NV gaat dat via aandelen op naam. Het bestuur houdt een aandeelhoudersregister bij (art. 2:109 BW) en een overdracht van aandelen gebeurt met een door partijen getekende akte van overdracht die aan de vennootschap wordt betekend of door haar wordt erkend (art. 2:110 BW). Maak daarnaast een aandeelhoudersovereenkomst: wie beslist wat, hoe wordt winst verdeeld, wat als iemand eruit wil. Voor buitenlandse investeerders: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+<h3>Subsidies, wedstrijden en begeleiding</h3>
+<ul>
+ <li>Het FTBP van de NOB geeft voor <b>branche- en sectorstudies</b> een schenking tot USD 25.000, als minstens 50% van de sector bij de aanvrager is aangesloten.</li>
+ <li>Het NOB-IDB-programma (2024) noemt USD 2 miljoen aan schenking van het Green Climate Fund voor technische bijstand en garanties voor groene ondernemingen.</li>
+ <li>De KKF organiseert ondernemersavonden, zoals op 6 mei 2026 over belastingplicht, registratie en financiële planning.</li>
+ <li>Finabank heeft een Small Business Academy; vraag de bank naar het programma.</li>
+</ul>
+{% else %}
+<h3>Supplier credit</h3>
+<p>Payment terms of 30 or 60 days from your supplier are in effect an interest-free loan. Ask for them, especially as a regular customer, and record the terms on your <a href="{{ U('purchaseorder') }}">{{ L('purchaseorder') }}</a>. Do the maths though: if the supplier offers 2% off for cash, that discount over a 30-day term works out to a high annual rate. Use the <a href="{{ U('percentage') }}">{{ L('percentage') }}</a>.</p>
+<h3>Factoring and invoice discounting</h3>
+<p>If you wait long for payment from large customers, the bank can pre-finance your invoices. Finabank offers both to existing clients with "reputable" debtors. With <b>factoring</b> the bank collects repayment from your debtor; with <b>invoice discounting</b> you stay liable. Track open invoices with <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>.</p>
+<h3>Leasing and instalments</h3>
+<p>For vehicles and machines banks usually lend through an investment loan or vehicle financing, with the asset as collateral. Also ask the supplier whether they offer instalments or hire purchase, and compare the total cost.</p>
+<h3>Family, friends and diaspora</h3>
+<p>Money from family, including from the Netherlands or the US, is often the first funding. Put it in a written loan agreement: amount, currency, interest, repayment schedule, what happens if payments are late, and whether it is a loan or a share in the business. Have the money come in through the bank. Under anti money laundering rules banks must ask where your starting capital comes from, and an agreement plus bank statement answers that. We could not confirm an active Surinamese crowdfunding platform.</p>
+<h3>Investors and shares</h3>
+<p>An investor comes in with equity and gets a share of profit and control. In an NV that happens through registered shares. The board keeps a shareholders register (art. 2:109 Civil Code) and shares are transferred by a deed of transfer signed by the parties and served on or acknowledged by the company (art. 2:110 Civil Code). Also make a shareholders' agreement: who decides what, how profit is shared, what happens if someone wants out. For foreign investors: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+<h3>Grants, competitions and support</h3>
+<ul>
+ <li>The NOB's FTBP gives a grant of up to USD 25,000 for <b>industry and sector studies</b>, if at least 50% of the sector is affiliated with the applicant.</li>
+ <li>The NOB-IDB programme (2024) mentions USD 2 million in Green Climate Fund grants for technical assistance and guarantees for green enterprises.</li>
+ <li>The KKF (Chamber of Commerce) runs evenings for entrepreneurs, such as on 6 May 2026 on tax obligations, registration and financial planning.</li>
+ <li>Finabank has a Small Business Academy; ask the bank about the programme.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Een ondernemingsplan dat de bank accepteert' if nl else 'A business plan the bank will accept' }}</h2>
+{% if nl %}
+<p>De NOB vraagt een ondernemingsplan of het PKF-aanvraagformulier met prognoses (verlies en winst) voor <b>minstens de komende drie jaar</b>. Hakrinbank vraagt naast je jaarrekening een omzet- en winstprognose. Een bankmedewerker leest tientallen plannen; maak het hem makkelijk.</p>
+<ol class="steps">
+ <li><b>Samenvatting op één pagina.</b> Wat doe je, hoeveel geld heb je nodig, waarvoor, wat breng je zelf in, welk onderpand bied je, en hoe betaal je terug.</li>
+ <li><b>Het bedrijf en de eigenaren.</b> Rechtsvorm, KKF-inschrijving, vergunningen, je ervaring (cv) en wie wat doet.</li>
+ <li><b>Markt en klanten.</b> Wie koopt, waarom bij jou, wat vragen concurrenten. Gebruik cijfers: offertes, contracten, intentieverklaringen van afnemers.</li>
+ <li><b>Investeringsbegroting.</b> Elke aankoop met een offerte van de leverancier. Banken vragen offertes, en bij bouw een bouwtekening, begroting en bouwvergunning.</li>
+ <li><b>Prognose van omzet en kosten</b> per maand voor het eerste jaar en per jaar voor jaar 2 en 3. Onderbouw je prijzen met de <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> en je importkosten met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>Kasstroom en aflossing.</b> Laat zien dat er elke maand genoeg geld is voor rente en aflossing, ook in een slechte maand. <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a></li>
+ <li><b>Break-even en rendement.</b> Hoeveel moet je verkopen om quitte te spelen, en wanneer verdien je de investering terug? <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></li>
+ <li><b>Risico's en plan B.</b> Koersstijging, stroomuitval, een grote klant die wegvalt. Wat doe je dan?</li>
+</ol>
+<p>Schrijf voorzichtig: een plan met bescheiden omzet en ruime kosten is geloofwaardiger dan een plan dat in jaar 1 al winst maakt.</p>
+{% else %}
+<p>The NOB asks for a business plan or the PKF application form with profit and loss forecasts for <b>at least the next three years</b>. Hakrinbank asks for a turnover and profit forecast as well as your annual accounts. A loan officer reads dozens of plans; make yours easy to read.</p>
+<ol class="steps">
+ <li><b>One-page summary.</b> What you do, how much money you need, what for, what you put in yourself, what collateral you offer, and how you will repay.</li>
+ <li><b>The business and owners.</b> Legal form, KKF registration, licences, your experience (CV) and who does what.</li>
+ <li><b>Market and customers.</b> Who buys, why from you, what competitors charge. Use evidence: quotes, contracts, letters of intent from buyers.</li>
+ <li><b>Investment budget.</b> Every purchase backed by a supplier quote. Banks ask for quotes, and for construction a building drawing, budget and building permit.</li>
+ <li><b>Turnover and cost forecast</b> per month for year 1 and per year for years 2 and 3. Support your prices with the <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> and import costs with the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>Cash flow and repayment.</b> Show there is enough money every month for interest and repayment, even in a bad month. <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a></li>
+ <li><b>Break-even and return.</b> How much must you sell to break even, and when do you earn the investment back? <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></li>
+ <li><b>Risks and plan B.</b> A rising exchange rate, power cuts, losing a big customer. What will you do?</li>
+</ol>
+<p>Be conservative: a plan with modest sales and generous costs is more credible than one that makes a profit in year 1.</p>
+{% endif %}
+
+<h2>{{ 'Checklist: documenten voor een kredietaanvraag' if nl else 'Checklist: documents for a loan application' }}</h2>
+{% if nl %}
+<p>Samengesteld uit de lijsten van Finabank, Hakrinbank en de NOB. Elke bank heeft een eigen lijst en kan meer vragen.</p>
+<ul class="check">
+ <li>Ingevulde en ondertekende aanvraagformulieren van de bank</li>
+ <li>Geldig identiteitsbewijs van de eigenaar en tekenbevoegden; cv</li>
+ <li>Recent KKF-uittreksel (vaak niet ouder dan 1 maand; kost SRD 300 bij de KKF)</li>
+ <li>Bedrijfsvergunning, en zo nodig een Hinderwetvergunning</li>
+ <li>Bij een NV of stichting: statuten en aandeelhoudersregister of stichtingsakte</li>
+ <li>Bij een eenmanszaak: CBB-uittreksel en nationaliteitsverklaring (vaak niet ouder dan 1 maand)</li>
+ <li>Financiële cijfers van de laatste 3 jaar: jaarrekening, vermogensopstelling, winst- en verliesrekening</li>
+ <li>Ondernemingsplan met prognoses en investeringsbegroting</li>
+ <li>Bankafschriften van de laatste 3 tot 6 maanden; overzicht van bestaande leningen</li>
+ <li>Voor onderpand: hypothecair uittreksel, perceelkaart (landmeterskaart), eigendoms- of grondhuurbewijs, recent taxatierapport</li>
+ <li>Offertes van leveranciers; bij bouw ook bouwtekening, begroting en bouwvergunning</li>
+ <li>Polissen van brand- en eventueel levensverzekering</li>
+ <li>Contracten met afnemers, leveranciers of huurders</li>
+</ul>
+{% else %}
+<p>Combined from the lists of Finabank, Hakrinbank and the NOB. Each bank has its own list and may ask for more.</p>
+<ul class="check">
+ <li>The bank's completed and signed application forms</li>
+ <li>Valid ID of the owner and authorised signatories; CV</li>
+ <li>Recent KKF extract (often no older than 1 month; SRD 300 at the KKF)</li>
+ <li>Business licence, and a nuisance act (Hinderwet) permit if needed</li>
+ <li>For an NV or foundation: articles of association and shareholders register or foundation deed</li>
+ <li>For a sole trader: CBB extract (civil registry) and nationality declaration (often no older than 1 month)</li>
+ <li>Financial figures for the last 3 years: annual accounts, statement of assets, profit and loss account</li>
+ <li>Business plan with forecasts and investment budget</li>
+ <li>Bank statements for the last 3 to 6 months; overview of existing loans</li>
+ <li>For collateral: mortgage register extract, parcel map (surveyor's map), title deed or ground lease (grondhuur) decision, recent valuation report</li>
+ <li>Supplier quotes; for construction also building drawing, budget and building permit</li>
+ <li>Fire insurance and, if required, life insurance policies</li>
+ <li>Contracts with customers, suppliers or tenants</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and processing time' }}</h2>
+{% if nl %}
+<p>Naast de rente betaal je bijkomende kosten. Vraag ze vooraf op papier:</p>
+<ul>
+ <li><b>Afsluit- of bereidstellingsprovisie</b> en administratiekosten van de bank. Let ook op kosten als je een goedgekeurd krediet niet opneemt: Godo Bank rekent bijvoorbeeld 0,25% van het aangevraagde bedrag (minimaal SRD 500) bij intrekking van een goedgekeurde aanvraag.</li>
+ <li><b>Taxatierapport</b> van het onderpand. Finabank vraagt een rapport van niet ouder dan 6 maanden; de NOB accepteert er een tot 3 jaar oud.</li>
+ <li><b>Notariskosten</b> voor de hypotheekakte en inschrijving.</li>
+ <li><b>Verzekeringen</b> die de bank verplicht stelt.</li>
+ <li><b>Garantievergoeding</b> van 1% per jaar als het Garantiefonds meedoet.</li>
+</ul>
+<p>Een doorlooptijd geven banken niet vooraf. Taxatie, notaris en een volledig dossier bepalen het tempo. Lever alles in één keer aan en vraag je accountmanager welke stap nog open staat.</p>
+{% else %}
+<p>On top of interest you pay other costs. Get them in writing beforehand:</p>
+<ul>
+ <li><b>Arrangement or commitment fee</b> and bank administration charges. Watch for costs if you do not take up an approved loan: Godo Bank, for example, charges 0.25% of the amount requested (minimum SRD 500) when an approved application is withdrawn.</li>
+ <li><b>Valuation report</b> on the collateral. Finabank wants one no older than 6 months; the NOB accepts one up to 3 years old.</li>
+ <li><b>Notary costs</b> for the mortgage deed and registration.</li>
+ <li><b>Insurance</b> the bank requires.</li>
+ <li><b>Guarantee fee</b> of 1% a year if the Guarantee Fund takes part.</li>
+</ul>
+<p>Banks do not give a processing time in advance. Valuation, the notary and a complete file set the pace. Hand in everything at once and ask your account manager which step is still open.</p>
+{% endif %}
+
+<h2>{{ 'Kasstroom beheren' if nl else 'Managing cash flow' }}</h2>
+{% if nl %}
+<p>Veel bedrijven gaan niet failliet door verlies, maar doordat het geld op is voordat de klant betaalt. Een lening lost dat niet op als de oorzaak in je kasstroom zit.</p>
+<ul>
+ <li>Maak elke maand een kasstroomprognose voor drie maanden vooruit: <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li>Factureer direct na levering en stuur een herinnering op de dag na de vervaldatum: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> &middot; <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li>Vraag een aanbetaling bij grote opdrachten met een <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+ <li>Houd een buffer aan van minstens een paar maanden vaste lasten, in de valuta waarin je die lasten betaalt: <a href="{{ U('savings') }}">{{ L('savings') }}</a>.</li>
+ <li>Gebruik een rekening-courantkrediet voor tijdelijke gaten, niet voor investeringen. Machines en panden financier je met een investeringskrediet.</li>
+ <li>Houd je administratie bij, zodat je cijfers klaar zijn als de bank erom vraagt: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ul>
+{% else %}
+<p>Many businesses do not fail because of losses, but because the money runs out before the customer pays. A loan does not fix that if the cause is in your cash flow.</p>
+<ul>
+ <li>Make a cash flow forecast for three months ahead every month: <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li>Invoice right after delivery and send a reminder the day after the due date: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> &middot; <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li>Ask for a deposit on large jobs with a <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+ <li>Keep a buffer of at least a few months of fixed costs, in the currency you pay those costs in: <a href="{{ U('savings') }}">{{ L('savings') }}</a>.</li>
+ <li>Use an overdraft for temporary gaps, not for investments. Finance machines and premises with an investment loan.</li>
+ <li>Keep your records up to date so your figures are ready when the bank asks: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Een USD-lening nemen met alleen SRD-inkomsten</b> omdat de rente lager is.</li>
+ <li><b>Een investering financieren met rood staan.</b> De rente is hoger en de bank kan de limiet verlagen.</li>
+ <li><b>Geen cijfers kunnen laten zien.</b> Zonder jaarcijfers en bankafschriften komt een aanvraag niet verder. Begin vandaag met je administratie.</li>
+ <li><b>Te optimistische prognoses.</b> Een bankmedewerker herkent ze direct.</li>
+ <li><b>Alleen naar de rente kijken.</b> Provisies, taxatie, notaris en verzekeringen tellen mee.</li>
+ <li><b>Familiegeld zonder afspraken.</b> Onduidelijkheid over lening of aandeel leidt later tot ruzie.</li>
+ <li><b>Niet naar het Garantiefonds vragen</b> als het onderpand tekortschiet. De bank moet de aanvraag doen.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Taking a USD loan with only SRD income</b> because the rate is lower.</li>
+ <li><b>Financing an investment with an overdraft.</b> The rate is higher and the bank can cut the limit.</li>
+ <li><b>Having no figures to show.</b> Without annual figures and bank statements an application goes nowhere. Start your bookkeeping today.</li>
+ <li><b>Over-optimistic forecasts.</b> A loan officer spots them at once.</li>
+ <li><b>Looking only at the interest rate.</b> Fees, valuation, notary and insurance all count.</li>
+ <li><b>Family money without agreements.</b> Confusion over loan or share leads to conflict later.</li>
+ <li><b>Not asking about the Guarantee Fund</b> when collateral falls short. The bank must file the request.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<p><b>...de bank mijn aanvraag afwijst?</b> Vraag waarom: onderpand, cijfers, plan of je kredietverleden. Los dat punt op en probeer het opnieuw, bij dezelfde of een andere bank. Bij een tekort aan onderpand vraag je naar het Garantiefonds; bij productie of verwerking kijk je naar het PKF van de NOB.</p>
+<p><b>...ik net begin en geen jaarcijfers heb?</b> Dan weegt je plan zwaarder, net als je eigen inbreng en onderpand. De NOB heeft aparte limieten voor startende bedrijven, en het Level-up krediet is bedoeld voor jonge starters.</p>
+<p><b>...ik buitenlander ben?</b> Het PKF vraagt minstens 50% Surinaams eigendom en het Level-up krediet Surinaamse nationaliteit of vijf jaar ingezetenschap. Finabank vraagt bij een eenmanszaak een nationaliteitsverklaring of een verblijfsvergunning. Zie <a href="{{ U('invest') }}">{{ L('invest') }}</a> en <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p><b>...ik mijn lening niet meer kan betalen?</b> Ga direct naar je bank, voordat je achterstand oploopt. Herstructurering kost geld (Godo Bank rekent 1% van het bedrag in SRD), maar een gedwongen verkoop van je onderpand is veel duurder.</p>
+{% else %}
+<p><b>...the bank turns me down?</b> Ask why: collateral, figures, plan or credit history. Fix that point and try again, at the same or another bank. If collateral is short, ask about the Guarantee Fund; for production or processing, look at the NOB's PKF.</p>
+<p><b>...I am just starting and have no annual figures?</b> Then your plan counts for more, as do your own contribution and collateral. The NOB has separate limits for start-ups, and the Level-up loan is meant for young starters.</p>
+<p><b>...I am a foreigner?</b> The PKF requires at least 50% Surinamese ownership and the Level-up loan Surinamese nationality or five years' residence. Finabank asks a sole trader for a nationality declaration or a residence permit. See <a href="{{ U('invest') }}">{{ L('invest') }}</a> and <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p><b>...I can no longer pay my loan?</b> Go to your bank at once, before arrears build up. Restructuring costs money (Godo Bank charges 1% of the amount in SRD), but a forced sale of your collateral is far more expensive.</p>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.nob.sr/" rel="noopener">Nationale Ontwikkelingsbank (NOB): {{ 'bedrijfskredieten, PKF, Level-up, FTBP, garantiefonds' if nl else 'business loans, PKF, Level-up, FTBP, guarantee fund' }}</a></li>
+ <li><a href="https://www.nob.sr/over-te-leggen-documenten-1/" rel="noopener">NOB: {{ 'over te leggen documenten' if nl else 'documents to submit' }}</a></li>
+ <li><a href="https://www.nob.sr/stichting-garantiefonds-voor-bedrijfskredieten/" rel="noopener">Stichting Garantiefonds voor Bedrijfskredieten</a></li>
+ <li><a href="https://www.nob.sr/stappen-vooruit-met-het-productie-krediet-fonds/" rel="noopener">NOB: Productie Krediet Fonds ({{ 'januari 2024' if nl else 'January 2024' }})</a></li>
+ <li><a href="https://www.nob.sr/nob-en-idb-slaan-handen-ineen-voor-duurzaam-ondernemen/" rel="noopener">NOB: {{ 'NOB en IDB, programma voor mkb' if nl else 'NOB and IDB, SME programme' }} ({{ 'mei 2024' if nl else 'May 2024' }})</a></li>
+ <li><a href="https://www.finabanknv.com/zakelijk/zakelijke-kredietfaciliteiten/" rel="noopener">Finabank: {{ 'zakelijke kredietfaciliteiten en rente' if nl else 'business credit and rates' }}</a></li>
+ <li><a href="https://www.finabanknv.com/zakelijk/voorwaarden-en-benodigdheden/" rel="noopener">Finabank: {{ 'documenten voor bedrijfskredieten' if nl else 'documents for business loans' }}</a></li>
+ <li><a href="https://www.finabanknv.com/zakelijk/factoring/" rel="noopener">Finabank: factoring</a> &middot; <a href="https://www.finabanknv.com/zakelijk/invoice-discounting/" rel="noopener">invoice discounting</a></li>
+ <li><a href="https://www.hakrinbank.com/bedrijven/bedrijfsfinancieringen/investeringskredieten/" rel="noopener">Hakrinbank: {{ 'investeringskredieten' if nl else 'investment loans' }}</a></li>
+ <li><a href="https://www.godobanknv.com/zakelijke-financiering/" rel="noopener">Godo Bank: {{ 'zakelijke financiering' if nl else 'business financing' }}</a> &middot; <a href="https://www.godobanknv.com/over-godobank/" rel="noopener">{{ 'over Godo Bank' if nl else 'about Godo Bank' }}</a></li>
+ <li><a href="https://www.godobanknv.com/download/63/kosten-en-rentetarievenoverzicht/5340/kosten-en-rentetarievenoverzicht_godo-bank-n-v.pdf" rel="noopener">Godo Bank: {{ 'kosten- en rentetarievenoverzicht (september 2025)' if nl else 'fees and rates overview (September 2025)' }}</a></li>
+ <li><a href="https://www.cbvs.sr/images/content/2025/DME2025/EconomischBulletin/EconomischBulletinJuni2025_secured.pdf" rel="noopener">CBvS: Economisch Bulletin {{ 'juni' if nl else 'June' }} 2025</a></li>
+ <li><a href="https://sun.sr/nieuws/lokaal/recente-economische-ontwikkelingen-in-suriname?id=39588" rel="noopener">SUN: {{ 'recente economische ontwikkelingen (29-09-2025)' if nl else 'recent economic developments (29-09-2025)' }}</a></li>
+ <li><a href="https://www.cbvs.sr/?view=article&amp;id=3187" rel="noopener">CBvS: {{ 'communiqué termijndepositoveiling 1 april 2026 (inflatie)' if nl else 'term deposit auction communiqué 1 April 2026 (inflation)' }}</a></li>
+ <li><a href="https://www.cbvs.sr/" rel="noopener">CBvS: {{ 'OMO-rente en beleningsfaciliteit' if nl else 'OMO rate and lending facility' }}</a></li>
+ <li><a href="https://www.iadb.org/en/project/SU-L1020" rel="noopener">IDB: Agricultural Competitiveness Program (SU-L1020)</a> &middot; <a href="https://www.iadb.org/en/project/SU-L1052" rel="noopener">Sustainable Agricultural Productivity Program (SU-L1052)</a></li>
+ <li><a href="https://www.undp.org/suriname" rel="noopener">UNDP Suriname</a></li>
+ <li><a href="https://www.surinamechamber.com/index.php?r=site%2Ffaq" rel="noopener">KKF: {{ 'veelgestelde vragen (kosten uittreksel)' if nl else 'FAQ (extract fee)' }}</a> &middot; <a href="https://www.surinamechamber.com/index.php?r=site%2Fnews-events" rel="noopener">{{ 'nieuws en evenementen' if nl else 'news and events' }}</a></li>
+ <li><a href="https://www.dna.sr/media/avzdei43/s-b-_2024_no-_164__boek_2.pdf" rel="noopener">Burgerlijk Wetboek Boek 2, art. 109 en 110 ({{ 'aandelen' if nl else 'shares' }})</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen financieel advies. Rentes en voorwaarden veranderen; de bank of de NOB beslist.' if nl else 'General information, not financial advice. Rates and terms change; the bank or the NOB decides.' }}</p>
+</div>
+{% endblock %}

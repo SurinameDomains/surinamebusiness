@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Exporteren vanuit Suriname' if nl else 'Exporting from Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Met een KKF-inschrijving, een FIN-nummer en een douane-expediteur kun je exporteren; voor de meeste goederen is geen vergunning nodig. Export is belast met 0% BTW. Let op twee dingen: voor voedsel, vis, planten, hout en goud gelden eigen keuringen en certificaten, en sinds 17 augustus 2026 moet je exportopbrengsten naar Suriname halen en minstens 35% binnen drie werkdagen aan een lokale bank verkopen.</p>
+{% else %}
+<p class="lead">With KKF registration, a FIN tax number and a customs broker you can export, and most goods need no licence. Exports are taxed at 0% VAT. Watch two things: food, fish, plants, timber and gold have their own inspections and certificates, and since 17 August 2026 you must bring export proceeds into Suriname and sell at least 35% to a local bank within three working days.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'BTW op export' if nl else 'VAT on exports' }}</div><div class="big">0%</div><div class="sub">{{ 'Wet BTW 2022, art. 4 lid 2' if nl else 'VAT Act 2022, art. 4(2)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Verplicht verkopen' if nl else 'Mandatory sale' }}</div><div class="big">35%</div><div class="sub">{{ 'van je exportopbrengst, binnen 3 werkdagen' if nl else 'of export proceeds, within 3 working days' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Toegang EU' if nl else 'EU access' }}</div><div class="big">0%</div><div class="sub">{{ 'invoerrecht onder de EPA, met bewijs van oorsprong' if nl else 'import duty under the EPA, with proof of origin' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Iedereen die bij de KKF staat ingeschreven mag exporteren. Een H-03-vergunning van de IUD (EZOTI) is alleen nodig voor goederen op de Negatieve Lijst.</li>
+ <li>De uitvoeraangifte loopt via een douane-expediteur in ASYCUDA World; sinds 1 januari 2025 met je FIN-nummer.</li>
+ <li>Export van goederen is belast met 0% BTW. Bewaar de uitvoeraangifte en vervoersdocumenten als bewijs.</li>
+ <li>Planten: fytosanitair certificaat van LVV. Dierlijke producten: veterinair certificaat. Vis: alleen via VKI-erkende bedrijven. Hout: keuring door SBB en uitvoerrecht.</li>
+ <li>Deviezen: Algemene Beschikking no. 228 van de Deviezencommissie verplicht je je opbrengsten te repatriëren en minstens 35% te verkopen. Goudexporteurs verkopen aan de Centrale Bank.</li>
+ <li>Naar CARICOM en de EU kun je met een certificaat van oorsprong vaak zonder of met lager invoerrecht leveren.</li>
+{% else %}
+ <li>Anyone registered with the KKF may export. An H-03 licence from the IUD (Ministry of Economic Affairs, EZOTI) is only needed for goods on the Negative List.</li>
+ <li>The export declaration goes through a customs broker in ASYCUDA World, with your FIN number since 1 January 2025.</li>
+ <li>Exports of goods are taxed at 0% VAT. Keep the export declaration and transport documents as proof.</li>
+ <li>Plants: phytosanitary certificate from Agriculture (LVV). Animal products: veterinary certificate. Fish: only through companies approved by the Fish Inspection Institute (VKI). Timber: inspection by the forestry authority SBB and export duty.</li>
+ <li>Foreign exchange: General Decision no. 228 of the Foreign Exchange Commission requires you to repatriate proceeds and sell at least 35%. Gold exporters sell to the Central Bank.</li>
+ <li>With a certificate of origin you can often sell into CARICOM and the EU with no or lower import duty.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie mag exporteren?' if nl else 'Who may export?' }}</h2>
+{% if nl %}
+<p>Sinds de handelsliberalisatie van 1 september 1999 mag iedereen die bij de KKF staat ingeschreven importeren en exporteren (Wet Goederenverkeer, Besluit Negatieve Lijst 2003). Je hebt dezelfde basis nodig als een importeur:</p>
+<ul class="check">
+ <li>Inschrijving in het Handelsregister van de KKF en een recent uittreksel. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li>Een FIN-nummer bij de Belastingdienst; verplicht voor zakelijke exporteurs in ASYCUDA sinds 1 januari 2025.</li>
+ <li>Registratie bij de Douane in ASYCUDA World, via je expediteur of het Belastingportaal.</li>
+ <li>Een zakelijke rekening bij een Surinaamse deviezenbank. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li>Voor sommige sectoren een eigen registratie of erkenning: een exportcode van het Directoraat Landbouw (verse producten), VKI-erkenning (vis), een goedgekeurde inrichting (vlees en dierlijke producten).</li>
+</ul>
+<p>Goederen op de Negatieve Lijst hebben bij uitvoer een H-03-vergunning nodig van de Dienst Invoer, Uitvoer en Deviezencontrole (IUD) van EZOTI. Je dient die in drievoud in, na een gunstig advies van het vakministerie. Twijfel je, vraag het de IUD vóór je een koopcontract tekent.</p>
+{% else %}
+<p>Since trade was liberalised on 1 September 1999, anyone registered with the KKF may import and export (Goods Traffic Act, Negative List Decree 2003). You need the same basics as an importer:</p>
+<ul class="check">
+ <li>Registration in the KKF trade register and a recent extract (uittreksel). <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li>A FIN tax number from the tax office; mandatory for commercial exporters in ASYCUDA since 1 January 2025.</li>
+ <li>Registration with Customs in ASYCUDA World, through your broker or the tax portal.</li>
+ <li>A business account at a Surinamese foreign exchange bank. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li>For some sectors a separate registration or approval: an export code from the Directorate of Agriculture (fresh produce), VKI approval (fish), an approved establishment (meat and animal products).</li>
+</ul>
+<p>Goods on the Negative List need an H-03 export licence from the Import, Export and Foreign Exchange Control Service (IUD) of EZOTI. You file it in triplicate, after a positive opinion from the relevant ministry. If in doubt, ask the IUD before you sign a sales contract.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap: een zending exporteren' if nl else 'Step by step: exporting a shipment' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Controleer de eisen van het land van bestemming.</b> Welk invoerrecht betaalt je klant, welke certificaten en etiketten eist dat land? Voor de EU vind je dat in Access2Markets van de Europese Commissie; voor CARICOM bij de douane van het bestemmingsland.</li>
+ <li><b>Ga na of je product vergunning- of certificaatplichtig is.</b> Negatieve Lijst (H-03 bij de IUD), fytosanitair (LVV), veterinair (Directoraat Veeteelt), vis (VKI), voedsel (BOG), hout (SBB), goud.</li>
+ <li><b>Maak de handelsdocumenten.</b> Exportfactuur, paklijst en, waar nodig, het certificaat van oorsprong. <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> &middot; <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+ <li><b>Boek de vracht.</b> Zeevracht via de haven van Paramaribo, luchtvracht via de internationale luchthaven. Je krijgt een Bill of Lading of Airway Bill.</li>
+ <li><b>Laat keuren en certificeren.</b> Vraag de exportinspectie tijdig aan; certificaten worden pas afgegeven na betaling van de keurlonen.</li>
+ <li><b>Uitvoeraangifte.</b> Je expediteur doet de aangifte in ASYCUDA met het Enig Document (ED), het IT-formulier, factuur, B/L of AWB, KKF-uittreksel en de certificaten. ASYCUDA kent een kleur toe (rood, geel, blauw of groen).</li>
+ <li><b>Verscheping en betaling.</b> Laat je klant betalen op je rekening bij een Surinaamse bank, of repatrieer de opbrengst daarheen.</li>
+ <li><b>Verkoop minstens 35% van de opbrengst.</b> Binnen drie werkdagen na de overmaking aan een deviezenbank in Suriname.</li>
+ <li><b>Administratie.</b> Bewaar aangifte, vervoersdocument, factuur en bankafschrift bij elkaar. Die heb je nodig voor het 0% BTW-tarief en voor de Deviezencommissie. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Check the destination country's requirements.</b> What duty will your customer pay, which certificates and labels does that country require? For the EU, see the European Commission's Access2Markets; for CARICOM, the customs service of the destination country.</li>
+ <li><b>Check whether your product needs a licence or certificate.</b> Negative List (H-03 at the IUD), phytosanitary (LVV), veterinary (Directorate of Livestock), fish (VKI), food (Public Health Bureau, BOG), timber (SBB), gold.</li>
+ <li><b>Prepare the commercial documents.</b> Export invoice, packing list and, where needed, the certificate of origin. <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> &middot; <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+ <li><b>Book the freight.</b> Sea freight through the port of Paramaribo, air cargo through the international airport. You receive a Bill of Lading or Air Waybill.</li>
+ <li><b>Get inspected and certified.</b> Request the export inspection in time; certificates are only issued after the inspection fees are paid.</li>
+ <li><b>Export declaration.</b> Your broker files in ASYCUDA with the Single Document (ED), the IT form, invoice, B/L or AWB, KKF extract and the certificates. ASYCUDA assigns a colour (red, yellow, blue or green).</li>
+ <li><b>Shipment and payment.</b> Have your customer pay into your account at a Surinamese bank, or repatriate the proceeds there.</li>
+ <li><b>Sell at least 35% of the proceeds.</b> Within three working days of the transfer, to a foreign exchange bank in Suriname.</li>
+ <li><b>Records.</b> Keep the declaration, transport document, invoice and bank statement together. You need them for the 0% VAT rate and for the Foreign Exchange Commission. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ '0% BTW op export en hoe je dat onderbouwt' if nl else '0% VAT on exports and how to support it' }}</h2>
+{% if nl %}
+<p>De Wet BTW 2022 (artikel 4 lid 2) noemt vier vormen van export die onder het 0% tarief vallen:</p>
+<ul>
+ <li>de levering van goederen die in verband met de levering worden <b>uitgevoerd</b>;</li>
+ <li>internationaal goederenvervoer per vliegtuig of zeeschip;</li>
+ <li>diensten in Suriname die te maken hebben met <b>uitgaande goederen</b> (bijvoorbeeld laden, opslag of keuring van een exportzending);</li>
+ <li>outsourcing werkzaamheden in Suriname voor een afnemer die niet in Suriname woont of gevestigd is.</li>
+</ul>
+<p>0% is iets anders dan vrijgesteld: je blijft BTW-ondernemer en je mag de BTW op je inkopen (voorbelasting) aftrekken. Exporteurs krijgen dus vaak BTW terug.</p>
+<p>De wet schrijft geen vaste lijst van bewijsstukken voor, maar de minister kan nadere regels stellen en je administratie moet de uitvoer van goederen laten zien (artikel 26). Bewaar per zending: de uitvoeraangifte uit ASYCUDA, de Bill of Lading of Airway Bill, je exportfactuur met het adres van de buitenlandse klant en het bankbewijs van de betaling. Zonder dat bewijs kan de Inspectie Omzetbelasting 10% BTW naheffen. Twijfel je, vraag het bij de Inspectie Omzetbelasting (1960 toestel 345). <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
+{% else %}
+<p>The VAT Act 2022 (article 4(2)) lists four kinds of export at the 0% rate:</p>
+<ul>
+ <li>the supply of goods that are <b>exported</b> in connection with the supply;</li>
+ <li>international goods transport by aircraft or sea vessel;</li>
+ <li>services in Suriname related to <b>outgoing goods</b> (for example loading, storage or inspection of an export shipment);</li>
+ <li>outsourcing work done in Suriname for a customer who does not live or is not established in Suriname.</li>
+</ul>
+<p>0% is not the same as exempt: you remain a VAT-registered business and can deduct the VAT on your purchases (input tax). Exporters therefore often get VAT back.</p>
+<p>The law does not set a fixed list of proof, but the minister can issue further rules and your records must show the export of goods (article 26). For each shipment, keep: the ASYCUDA export declaration, the Bill of Lading or Air Waybill, your export invoice with the foreign customer's address and the bank record of the payment. Without that proof the VAT Inspectorate can assess 10% VAT. If in doubt, ask the VAT Inspectorate (1960 extension 345). <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Deviezen: repatriëren en 35% verkopen' if nl else 'Foreign exchange: repatriate and sell 35%' }}</h2>
+{% if nl %}
+<p>Exporteurs zijn sinds 2021 verplicht hun exportopbrengsten naar Suriname te halen. De Deviezencommissie heeft die regel aangescherpt met <b>Algemene Beschikking no. 228</b> van 31 juli 2026, met ingang van 17 augustus 2026:</p>
+<ul>
+ <li>Je repatrieert de opbrengst van export van goederen, diensten en waarden naar een rekening bij een deviezenbank in Suriname.</li>
+ <li>Je verkoopt <b>minstens 35%</b> daarvan binnen <b>drie werkdagen</b> na de overmaking aan een Surinaamse deviezenbank, die een correspondentrelatie heeft met de buitenlandse bank waarlangs het geld binnenkwam.</li>
+ <li><b>Goudexporteurs</b> verkopen hun 35% aan de Centrale Bank van Suriname, tegen de gewogen gemiddelde koers van de bank.</li>
+ <li>Het restant hoef je onder deze regeling niet te verkopen; dat blijft op je rekening in vreemde valuta.</li>
+</ul>
+<p>Ondernemersorganisaties zoals de VSB vinden de verplichte verkoop een rem op de productie, en de discussie erover loopt nog. Volg het nieuws en vraag je bank hoe zij de regeling uitvoert. Al in 2023 kondigde de regering aan dat het Openbaar Ministerie optreedt tegen exporteurs die de regeling ontduiken. Actuele koersen: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<p>Since 2021 exporters must bring their export proceeds into Suriname. The Foreign Exchange Commission tightened that rule with <b>General Decision (Algemene Beschikking) no. 228</b> of 31 July 2026, effective 17 August 2026:</p>
+<ul>
+ <li>You repatriate the proceeds of exports of goods, services and assets to an account at a foreign exchange bank in Suriname.</li>
+ <li>You sell <b>at least 35%</b> of it within <b>three working days</b> of the transfer to a Surinamese foreign exchange bank that has a correspondent relationship with the foreign bank through which the money came in.</li>
+ <li><b>Gold exporters</b> sell their 35% to the Central Bank of Suriname, at the bank's weighted average rate.</li>
+ <li>You do not have to sell the remainder under this rule; it stays in your foreign currency account.</li>
+</ul>
+<p>Business organisations such as the VSB (Suriname Trade and Industry Association) say the mandatory sale holds back production, and the rule is under debate. Follow the news and ask your bank how it applies the rule. As early as 2023 the government announced that the Public Prosecutor would act against exporters who evade the scheme. Current rates: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Certificaten per product' if nl else 'Certificates by product' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Product</th><th>Instantie</th><th>Wat je nodig hebt</th></tr></thead><tbody>
+ <tr><td data-l="Product"><b>Groente, fruit, planten, hout</b></td><td data-l="Instantie">LVV, Dienst Plantenbescherming en Kwaliteitskeuringen</td><td data-l="Wat je nodig hebt">Fytosanitair certificaat (Plantenbeschermingswet 2020). Daarvoor: exportcode, kwaliteitsmanager, geregistreerde producenten met productcode, traceerbaarheid, GAP-teelt, en een aanvraag voor exportinspectie. Houten verpakking volgens ISPM 15.</td></tr>
+ <tr><td data-l="Product"><b>Vlees, levende dieren, dierlijke producten</b></td><td data-l="Instantie">LVV, Directoraat Veeteelt (Veterinaire Diensten)</td><td data-l="Wat je nodig hebt">Internationaal veterinair certificaat; alleen producten uit goedgekeurde inrichtingen</td></tr>
+ <tr><td data-l="Product"><b>Vis en garnalen</b></td><td data-l="Instantie">Viskeuringsinstituut (VKI), Vangbalstraat 29</td><td data-l="Wat je nodig hebt">Alleen export door VKI-erkende bedrijven; gezondheidscertificaat op aanvraag met ED, productiestaat en vooraanmelding (zware metalen, PAK's, proceswater). Kosten per kg netto plus administratiekosten.</td></tr>
+ <tr><td data-l="Product"><b>Verwerkte voedingsmiddelen</b></td><td data-l="Instantie">BOG Keuringsdienst, Rode Kruislaan 13-15</td><td data-l="Wat je nodig hebt">Producentenverklaring en partijgegevens; analyse in het Centraal Laboratorium, uitslag binnen 10 werkdagen</td></tr>
+ <tr><td data-l="Product"><b>Producten die in Suriname worden verkocht</b></td><td data-l="Instantie">Surinaams Standaarden Bureau (SSB) met EZOTI</td><td data-l="Wat je nodig hebt">Certificate of Free Sale, als de koper erom vraagt; verwerking binnen 10 werkdagen</td></tr>
+</tbody></table>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Product</th><th>Authority</th><th>What you need</th></tr></thead><tbody>
+ <tr><td data-l="Product"><b>Vegetables, fruit, plants, wood</b></td><td data-l="Authority">LVV, Plant Protection and Quality Inspection Service</td><td data-l="What you need">Phytosanitary certificate (Plant Protection Act 2020). For that: an export code, a quality manager, registered growers with a producer code, traceability, GAP farming, and a request for export inspection. Wooden packaging to ISPM 15.</td></tr>
+ <tr><td data-l="Product"><b>Meat, live animals, animal products</b></td><td data-l="Authority">LVV, Directorate of Livestock (Veterinary Services)</td><td data-l="What you need">International veterinary certificate; only products from approved establishments</td></tr>
+ <tr><td data-l="Product"><b>Fish and shrimp</b></td><td data-l="Authority">Fish Inspection Institute (VKI), Vangbalstraat 29</td><td data-l="What you need">Export only by VKI-approved companies; health certificate on request with the ED, production statement and pre-notification (heavy metals, PAHs, process water). Fees per kg net plus administration costs.</td></tr>
+ <tr><td data-l="Product"><b>Processed foods</b></td><td data-l="Authority">BOG Inspection Service, Rode Kruislaan 13-15</td><td data-l="What you need">Producer's declaration and batch data; analysis at the Central Laboratory, results within 10 working days</td></tr>
+ <tr><td data-l="Product"><b>Products sold in Suriname</b></td><td data-l="Authority">Suriname Standards Bureau (SSB) with EZOTI</td><td data-l="What you need">Certificate of Free Sale, if the buyer asks for it; processed within 10 working days</td></tr>
+</tbody></table>
+{% endif %}
+{% if nl %}
+<p>Mango-export naar Europa lag sinds 2019 stil door EU-regels over fruitvliegen en wordt hervat vanuit Nickerie, dat tot Pest Free Area is verklaard. Dit soort regels verschillen per product en per land: controleer ze vóór je een order accepteert.</p>
+{% else %}
+<p>Mango exports to Europe stopped in 2019 under EU fruit fly rules and are resuming from Nickerie, which has been declared a Pest Free Area. Rules like these differ by product and country: check them before you accept an order.</p>
+{% endif %}
+
+<h2>{{ 'Hout, vis en goud: aparte regels' if nl else 'Timber, fish and gold: special rules' }}</h2>
+{% if nl %}
+<h3>Hout</h3>
+<p>Houtexport loopt via de Stichting voor Bosbeheer en Bostoezicht (SBB). Je vraagt een keuring aan van het hout dat je wilt uitvoeren; SBB legt daarbij de FOB-waarde, kwaliteit, houtsoort, het volume en de afmetingen vast, en je betaalt keurloon (Beschikking Keuringstarief Rondhout, Houtproducten en Bosbijproducten 2023). Op rondhout en ruw bewerkt hout betaal je <b>uitvoerrecht</b> (Wet uitvoerrecht op hout, S.B. 2005 no. 29). Dat wordt geheven over minimale fiscale waarden die sinds 1 december 2023 gelden, bijvoorbeeld USD 220 per m³ voor rondhout klasse A en USD 210 per m³ voor klasse B. Het percentage hangt af van de mate van bewerking: volgens het Timber Trade Portal van 20% tot 5%, hoe verder bewerkt, hoe lager. Vraag SBB en de Douane naar het tarief voor jouw product.</p>
+<h3>Vis</h3>
+<p>Het VKI is sinds 2007 de bevoegde autoriteit die de hele productieketen controleert, zoals de EU eist. Alleen door het VKI erkende verwerkingsbedrijven mogen vis exporteren. Voor de EU heb je daarnaast een vangstcertificaat (tegen illegale visserij, IUU) nodig; vraag het Directoraat Visserij van LVV naar de procedure.</p>
+<h3>Goud</h3>
+<p>Goudexport is streng gereguleerd en loopt via het Suriname Electronic Single Window. Gehalte en gewicht worden vóór export vastgesteld (bij Kaloti Suriname Mint House of via de Centrale Bank), en je betaalt vooraf voorlopig consentrecht en royalty's. Sinds A.B. no. 228 verkopen goudexporteurs 35% van hun opbrengst aan de Centrale Bank. Wil je in goud handelen, praat dan eerst met de Centrale Bank en het ministerie dat over de mijnbouw gaat. Prijzen: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</p>
+{% else %}
+<h3>Timber</h3>
+<p>Timber exports go through the Foundation for Forest Management and Production Control (SBB). You request an inspection of the timber you want to export; SBB records the FOB value, quality, species, volume and dimensions, and you pay an inspection fee (Inspection Tariff Decree for Round Wood, Wood Products and Forest By-products 2023). On round logs and roughly processed wood you pay <b>export duty</b> (Timber Export Duty Act, S.B. 2005 no. 29). It is levied on minimum fiscal values in force since 1 December 2023, for example USD 220 per m³ for class A round logs and USD 210 per m³ for class B. The percentage depends on the degree of processing: according to the Timber Trade Portal from 20% down to 5%, the more processed, the lower. Ask SBB and Customs for the rate for your product.</p>
+<h3>Fish</h3>
+<p>Since 2007 the VKI has been the competent authority that controls the whole production chain, as the EU requires. Only processing companies approved by the VKI may export fish. For the EU you also need a catch certificate (against illegal fishing, IUU); ask the Fisheries Directorate of LVV about the procedure.</p>
+<h3>Gold</h3>
+<p>Gold exports are strictly regulated and run through the Suriname Electronic Single Window. Purity and weight are determined before export (at Kaloti Suriname Mint House or through the Central Bank), and you pay provisional consent fee and royalties in advance. Under General Decision no. 228, gold exporters sell 35% of their proceeds to the Central Bank. If you want to trade in gold, first talk to the Central Bank and the ministry responsible for mining. Prices: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Markttoegang: CARICOM, EU en andere akkoorden' if nl else 'Market access: CARICOM, EU and other agreements' }}</h2>
+{% if nl %}
+<h3>CARICOM</h3>
+<p>Onder het Herziene Verdrag van Chaguaramas kunnen goederen van CARICOM-oorsprong in de andere lidstaten met lager of geen invoerrecht worden ingevoerd. Daarvoor heeft je klant een <b>certificaat van oorsprong</b> en een CARICOM-factuur nodig. Het product moet echt in Suriname zijn gemaakt of voldoende bewerkt; alleen ompakken is meestal niet genoeg.</p>
+<h3>Europese Unie</h3>
+<p>Suriname valt onder de Economic Partnership Agreement (EPA) tussen de EU en CARIFORUM, die sinds 29 december 2008 voorlopig wordt toegepast. De EU geeft 100% rechten- en quotavrije toegang voor goederen uit CARIFORUM-landen die aan de oorsprongsregels voldoen. Bewijs van oorsprong is een <b>EUR.1-certificaat</b>, af te geven door de douane van het land van uitvoer, of een oorsprongsverklaring van de exporteur op de factuur voor zendingen tot EUR 6.000 (boven dat bedrag alleen door een toegelaten exporteur). Het bewijs is tien maanden geldig. Je product moet wel voldoen aan de Europese eisen voor voedselveiligheid, residuen en etikettering.</p>
+<h3>Andere akkoorden</h3>
+<p>Volgens EZOTI heeft Suriname ook: de CARIFORUM-UK EPA (Verenigd Koninkrijk), vrijhandelsakkoorden van CARICOM met Costa Rica, Cuba en de Dominicaanse Republiek, en een Partial Scope Agreement voor rijst met Noord-Brazilië. Het Onderdirectoraat Internationale Handel van EZOTI kan je vertellen welk akkoord voor jouw product en markt het meeste oplevert.</p>
+<p class="note">Wie in Suriname het certificaat van oorsprong voor CARICOM afgeeft, staat niet in de officiële gidsen die we hebben gecontroleerd. Vraag het bij EZOTI (402080) of de KKF voordat je de eerste zending plant. Het EUR.1-certificaat geeft de Douane af.</p>
+{% else %}
+<h3>CARICOM</h3>
+<p>Under the Revised Treaty of Chaguaramas, goods of CARICOM origin can enter the other member states with lower or no import duty. Your customer needs a <b>certificate of origin</b> and a CARICOM invoice. The product must really be made or sufficiently processed in Suriname; repacking alone is usually not enough.</p>
+<h3>European Union</h3>
+<p>Suriname falls under the Economic Partnership Agreement (EPA) between the EU and CARIFORUM, provisionally applied since 29 December 2008. The EU gives 100% duty-free and quota-free access for goods from CARIFORUM countries that meet the rules of origin. Proof of origin is an <b>EUR.1 certificate</b>, issued by the customs authority of the exporting country, or an origin declaration by the exporter on the invoice for shipments up to EUR 6,000 (above that only by an approved exporter). The proof is valid for ten months. Your product must still meet EU food safety, residue and labelling rules.</p>
+<h3>Other agreements</h3>
+<p>According to EZOTI, Suriname also has: the CARIFORUM-UK EPA (United Kingdom), CARICOM free trade agreements with Costa Rica, Cuba and the Dominican Republic, and a Partial Scope Agreement for rice with northern Brazil. EZOTI's International Trade sub-directorate can tell you which agreement gives the most benefit for your product and market.</p>
+<p class="note">The official guides we checked do not say who in Suriname issues the CARICOM certificate of origin. Ask EZOTI (402080) or the KKF before you plan your first shipment. The EUR.1 certificate is issued by Customs.</p>
+{% endif %}
+
+<h2>{{ 'Logistiek: haven en luchtvracht' if nl else 'Logistics: port and air cargo' }}</h2>
+{% if nl %}
+<p>Zeevracht gaat via de Dr. Jules Sedney Haven in Paramaribo (tot 2016 de Nieuwe Haven), beheerd door Havenbeheer Suriname. DP World exploiteert er een containerterminal met een capaciteit van 130.000 TEU per jaar, een koelstation met 119 aansluitingen en een container freight station voor het beladen van containers. Voor projectlading en stukgoed is er de terminal La Vigilantia. Luchtvracht gaat via de Johan Adolf Pengel luchthaven. Voor bederfelijke producten (vis, groente, fruit) is de koelketen het belangrijkste risico: plan keuring, laden en vertrek strak op elkaar.</p>
+{% else %}
+<p>Sea freight goes through the Dr. Jules Sedney Harbour in Paramaribo (Nieuwe Haven until 2016), managed by Havenbeheer Suriname. DP World runs a container terminal there with a capacity of 130,000 TEU a year, a reefer station with 119 plugs and a container freight station for stuffing containers. For project and general cargo there is the La Vigilantia terminal. Air cargo goes through Johan Adolf Pengel airport. For perishables (fish, vegetables, fruit) the cold chain is the main risk: plan inspection, loading and departure tightly.</p>
+{% endif %}
+
+<h2>{{ 'Wat Suriname exporteert' if nl else 'What Suriname exports' }}</h2>
+{% if nl %}
+<p>De economie draait op de export van ruwe olie, goud, rijst, vis, hout en bananen. Belangrijke bestemmingen in 2022 waren de Verenigde Arabische Emiraten, Zwitserland, Trinidad en Tobago, België en Nederland.</p>
+{% else %}
+<p>The economy runs on exports of crude oil, gold, rice, fish, timber and bananas. Key destinations in 2022 were the United Arab Emirates, Switzerland, Trinidad and Tobago, Belgium and the Netherlands.</p>
+{% endif %}
+
+<h2>{{ 'Hulp en financiering voor exporteurs' if nl else 'Support and funding for exporters' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>SITA</b> (Suriname Investment and Trade Agency, opgericht in 2021) promoot export en investeringen. Met NOB en financiering van de IDB loopt het programma Export Marketing Cost-Share Grant: tot 90% van de kosten van markttoetreding (beurzen, productcertificering, marketing), voor kmo's buiten de mijnbouw en olie, met voorrang voor eerste exporteurs en bedrijven van vrouwen. Via EIP fase II krijg je tot 85% vergoed van een exportmarketingplan met een gecertificeerde exportadviseur.</li>
+ <li><b>EZOTI</b>: de IUD voor vergunningen en het Onderdirectoraat Internationale Handel voor handelsakkoorden.</li>
+ <li><b>KKF</b>: inschrijving, uittreksels en brochures voor exporteurs.</li>
+ <li><b>SSB</b>: normen en de Certificate of Free Sale.</li>
+ <li><b>Financiering</b>: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>SITA</b> (Suriname Investment and Trade Agency, founded in 2021) promotes exports and investment. With NOB and IDB funding it runs the Export Marketing Cost-Share Grant programme: up to 90% of market entry costs (trade fairs, product certification, marketing), for SMEs outside mining and oil, with priority for first-time exporters and women-owned businesses. Through EIP Phase II you can get up to 85% of the cost of an export marketing plan with a certified export adviser.</li>
+ <li><b>EZOTI</b>: the IUD for licences and the International Trade sub-directorate for trade agreements.</li>
+ <li><b>KKF</b>: registration, extracts and brochures for exporters.</li>
+ <li><b>SSB</b>: standards and the Certificate of Free Sale.</li>
+ <li><b>Funding</b>: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Pas na de verkoop aan certificaten denken.</b> Een fytosanitair of veterinair certificaat vraagt voorbereiding: registratie, keuring, laboratorium. Begin vóór je een prijs afspreekt.</li>
+ <li><b>De opbrengst in het buitenland laten staan.</b> Dat is in strijd met de deviezenregels.</li>
+ <li><b>De verplichte verkoop van 35% niet in je prijs meenemen.</b> Reken in je marge met de koers die je bij verkoop aan de bank krijgt.</li>
+ <li><b>0% BTW toepassen zonder bewijs.</b> Zonder uitvoeraangifte in je administratie loop je het risico op een naheffing van 10% BTW.</li>
+ <li><b>Geen certificaat van oorsprong.</b> Dan betaalt je klant in CARICOM of de EU het volle tarief en ben je duurder dan je concurrent.</li>
+ <li><b>Ompakken als "Surinaams product" verkopen.</b> Dat voldoet meestal niet aan de oorsprongsregels.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Thinking about certificates only after the sale.</b> A phytosanitary or veterinary certificate needs preparation: registration, inspection, laboratory. Start before you agree a price.</li>
+ <li><b>Leaving proceeds abroad.</b> That breaches the foreign exchange rules.</li>
+ <li><b>Forgetting the 35% sale in your price.</b> Calculate your margin with the rate you get when selling to the bank.</li>
+ <li><b>Applying 0% VAT without proof.</b> Without an export declaration in your records you risk an assessment of 10% VAT.</li>
+ <li><b>No certificate of origin.</b> Your customer in CARICOM or the EU then pays the full rate and you are more expensive than your competitor.</li>
+ <li><b>Selling repacked goods as a "Surinamese product".</b> That usually does not meet the rules of origin.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik diensten exporteer en geen goederen?</b> Dan heb je geen uitvoeraangifte, maar valt outsourcing voor een buitenlandse klant wel onder 0% BTW, en geldt de repatriëring en 35% verkoop ook voor de opbrengst van diensten.</li>
+ <li><b>...ik ook importeer?</b> Zie <a href="{{ U('import') }}">{{ L('import') }}</a> en de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>...een buitenlandse investeerder mijn exportbedrijf wil financieren?</b> Zie <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I export services, not goods?</b> Then there is no export declaration, but outsourcing for a foreign customer is still 0% VAT, and the repatriation and 35% sale also apply to proceeds from services.</li>
+ <li><b>...I also import?</b> See <a href="{{ U('import') }}">{{ L('import') }}</a> and the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>...a foreign investor wants to fund my export business?</b> See <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://ssb.sr/media/1455/suriname-import-export-gids-final-nl.pdf" rel="noopener">EZOTI: Suriname Import-Export Gids (2024)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Algemene-Procedure-in-en-uitvoer.pdf" rel="noopener">Belastingdienst: algemene procedure in-, uit- en doorvoer (2026)</a></li>
+ <li><a href="https://belastingdienst.sr/douane-suriname/" rel="noopener">Belastingdienst: Douane Suriname (FIN, ASYCUDA)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf" rel="noopener">Wet BTW 2022, S.B. 2022 no. 121</a></li>
+ <li><a href="https://www.dna.sr/media/fsakplg4/besluit_negatieve_lijst_2003.pdf" rel="noopener">Besluit Negatieve Lijst 2003</a></li>
+ <li><a href="https://surinamenieuwscentrale.com/nieuwe-retentieregeling-35-goudexportopbrengsten-rechtstreeks-naar-cbvs" rel="noopener">Suriname Nieuws Centrale: nieuwe retentieregeling, A.B. no. 228 (17 augustus 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93534" rel="noopener">Starnieuws: VSB over verplichte verkoop exportdeviezen (22 augustus 2026)</a></li>
+ <li><a href="https://dagbladdewest.com/2026/10/02/shyamnarain-retentiebeleid-moet-ondernemerschap-stimuleren/" rel="noopener">De West: retentiebeleid (2 oktober 2026)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2023/08/LVV-IDB-Nieuwsbrief-uitgave-02.pdf" rel="noopener">LVV: nieuwsbrief over export van planten en dierlijke producten (2023)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Beschikking_heffing_uitvoerrecht_hout-29-nov-2023-laf-2718.pdf" rel="noopener">Beschikking heffing uitvoerrecht hout (29 november 2023)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/sb_2005__no_29_wet_uitvoerrecht_op_hout-1.pdf" rel="noopener">Wet uitvoerrecht op hout, S.B. 2005 no. 29</a></li>
+ <li><a href="https://www.timbertradeportal.com/en/suriname/111/key-documents" rel="noopener">Timber Trade Portal: Suriname key documents</a></li>
+ <li><a href="https://keynews.sr/geknoei-met-hoeveelheid-en-gehalte-bij-goudexporten" rel="noopener">Keynews: procedure bij goudexport (juli 2024)</a></li>
+ <li><a href="https://trade.ec.europa.eu/access-to-markets/nl/content/epa-caribbean-cariforum" rel="noopener">Europese Commissie, Access2Markets: EPA EU-CARIFORUM</a></li>
+ <li><a href="https://sita.sr/?p=7009" rel="noopener">SITA: Cost-Share Grant en EIP fase II (oktober 2025)</a></li>
+ <li><a href="https://www.trade.gov/country-commercial-guides/Suriname-market-overview" rel="noopener">trade.gov: Suriname market overview</a></li>
+ <li><a href="https://www.dpworld.com/nl-sr/ports-terminals/suriname/paramaribo" rel="noopener">DP World Paramaribo</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

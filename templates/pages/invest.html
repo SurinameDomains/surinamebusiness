@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Investeren in Suriname: gids voor buitenlandse en diaspora-investeerders' if nl else 'Investing in Suriname: a guide for foreign and diaspora investors' }}</h1>
+{% if nl %}
+<p class="lead">Suriname staat open voor buitenlands kapitaal: er zijn geen algemene grenzen aan buitenlands eigendom, behalve in olie en gas. De offshore olie (GranMorgu, eerste olie verwacht in 2028) trekt investeerders aan, maar je werkt met een zwevende munt, hoge staatsschuld, trage procedures en onduidelijke grondtitels. Deze gids zet de feiten, regels en risico's op een rij.</p>
+{% else %}
+<p class="lead">Suriname is open to foreign capital: there are no general limits on foreign ownership, except in oil and gas. Offshore oil (GranMorgu, first oil expected in 2028) is attracting investors, but you deal with a floating currency, high public debt, slow procedures and unclear land titles. This guide sets out the facts, rules and risks.</p>
+{% endif %}
+<div class="grid g3">
+<div class="card"><div class="eyebrow">{{ 'Groei 2026 (IMF-prognose)' if nl else 'Growth 2026 (IMF forecast)' }}</div><div class="big">{{ '3,9%' if nl else '3.9%' }}</div><div class="sub">{{ 'reëel bbp, januari 2026' if nl else 'real GDP, January 2026' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Inflatie augustus 2026' if nl else 'Inflation August 2026' }}</div><div class="big">{{ '8,0%' if nl else '8.0%' }}</div><div class="sub">{{ 'jaar op jaar, ABS' if nl else 'year on year, ABS' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Eerste olie GranMorgu' if nl else 'GranMorgu first oil' }}</div><div class="big">2028</div><div class="sub">{{ '220.000 vaten per dag' if nl else '220,000 barrels a day' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Buitenlanders mogen 100% van een Surinaams bedrijf bezitten. Alleen in olie en gas heeft Staatsolie het monopolie; buitenlandse bedrijven werken daar via contracten.</li>
+<li>Het investeringsagentschap is SITA (Suriname Investment and Trade Agency). Het formele startpunt is de directie International Business van het Ministerie van Buitenlandse Zaken.</li>
+<li>De Investeringswet 2001 geeft onder voorwaarden een belastingvrije periode, versneld afschrijven en vrijstelling van invoerrecht. Een nieuwe Investeringswet ligt in 2026 nog in De Nationale Assemblee.</li>
+<li>Winstbelasting voor een NV is 36%, dividendbelasting 25%. Met Nederland geldt een belastingverdrag uit 1975 met lagere dividendtarieven.</li>
+<li>Geld overmaken naar het buitenland mag, via de banken, maar kan goedkeuring van de Deviezencommissie vragen. De SRD zweeft sinds juni 2021.</li>
+</ul>
+{% else %}
+<li>Foreigners may own 100% of a Surinamese company. Only in oil and gas does Staatsolie hold the monopoly; foreign companies work there through contracts.</li>
+<li>The investment agency is SITA (Suriname Investment and Trade Agency). The formal entry point is the International Business directorate of the Ministry of Foreign Affairs.</li>
+<li>The Investment Act 2001 offers, under conditions, a tax holiday, accelerated depreciation and import duty exemption. A new Investment Act was still before parliament (De Nationale Assemblee) in 2026.</li>
+<li>Corporate income tax for an NV is 36%, dividend withholding tax 25%. A 1975 tax treaty with the Netherlands lowers dividend rates.</li>
+<li>Transfers abroad are allowed, through the banks, but may need approval from the Foreign Exchange Commission. The SRD has floated since June 2021.</li>
+</ul>
+{% endif %}
+</div>
+
+<h2>{{ 'Het investeringsklimaat in het kort' if nl else 'The investment climate in brief' }}</h2>
+{% if nl %}
+<p>Suriname komt uit een zware crisis. De inflatie lag in 2021 gemiddeld op 59,1% (ABS) en in 2024 werden de schulden bij onder meer de Club van Parijs en China geherstructureerd. Het IMF-programma (Extended Fund Facility uit 2021) werd in maart 2025 afgerond. De nieuwe regering koos daarna voor financiering via de kapitaalmarkt, met een staatsobligatie van USD 1,575 miljard eind 2025 en USD 265 miljoen in februari 2026.</p>
+<table class="tbl stack tx"><thead><tr><th>Indicator</th><th>Waarde</th><th>Bron en datum</th></tr></thead><tbody>
+<tr><td data-l="Indicator">Reële groei</td><td data-l="Waarde">1,5% in 2025; 3,9% verwacht in 2026; rond 30% in 2028 door olie</td><td data-l="Bron en datum">IMF, januari 2026</td></tr>
+<tr><td data-l="Indicator">Inflatie</td><td data-l="Waarde">9,2% gemiddeld in 2025; 8,0% in augustus 2026 (jaar op jaar)</td><td data-l="Bron en datum">ABS, 22 september 2026</td></tr>
+<tr><td data-l="Indicator">Staatsschuld</td><td data-l="Waarde">106% van het bbp in 2025; prognose 96% in 2026</td><td data-l="Bron en datum">IMF, januari 2026</td></tr>
+<tr><td data-l="Indicator">Begrotingstekort</td><td data-l="Waarde">10,0% van het bbp in 2025 (incl. herkapitalisatie Centrale Bank)</td><td data-l="Bron en datum">IMF, januari 2026</td></tr>
+<tr><td data-l="Indicator">Wisselkoers</td><td data-l="Waarde">Zwevend sinds 7 juni 2021; rond SRD 37 tot 38 per USD bij de banken op 21 oktober 2026</td><td data-l="Bron en datum">State Department 2026; bankkoersen</td></tr>
+<tr><td data-l="Indicator">Kredietwaardigheid</td><td data-l="Waarde">Moody's Caa1, vooruitzicht positief</td><td data-l="Bron en datum">State Department, september 2026</td></tr>
+</tbody></table>
+<p>Het IMF waarschuwde in januari 2026 dat de uitgaven in 2025 uit de hand liepen, wat de munt verzwakte en de inflatie weer boven 10% bracht. Sindsdien daalt de inflatie weer. De Centrale Bank (CBvS) publiceert dagelijks een officiële koers; daarnaast bestaat een parallelle markt. Volg de koersen met de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<p>Suriname is coming out of a deep crisis. Inflation averaged 59.1% in 2021 (ABS, the statistics bureau) and in 2024 debt was restructured with, among others, the Paris Club and China. The IMF programme (the 2021 Extended Fund Facility) was completed in March 2025. The new government then chose market financing, with a USD 1.575 billion sovereign bond in late 2025 and USD 265 million more in February 2026.</p>
+<table class="tbl stack tx"><thead><tr><th>Indicator</th><th>Value</th><th>Source and date</th></tr></thead><tbody>
+<tr><td data-l="Indicator">Real growth</td><td data-l="Value">1.5% in 2025; 3.9% expected in 2026; around 30% in 2028 from oil</td><td data-l="Source and date">IMF, January 2026</td></tr>
+<tr><td data-l="Indicator">Inflation</td><td data-l="Value">9.2% average in 2025; 8.0% in August 2026 (year on year)</td><td data-l="Source and date">ABS, 22 September 2026</td></tr>
+<tr><td data-l="Indicator">Public debt</td><td data-l="Value">106% of GDP in 2025; forecast 96% in 2026</td><td data-l="Source and date">IMF, January 2026</td></tr>
+<tr><td data-l="Indicator">Fiscal deficit</td><td data-l="Value">10.0% of GDP in 2025 (incl. Central Bank recapitalisation)</td><td data-l="Source and date">IMF, January 2026</td></tr>
+<tr><td data-l="Indicator">Exchange rate</td><td data-l="Value">Floating since 7 June 2021; around SRD 37 to 38 per USD at the banks on 21 October 2026</td><td data-l="Source and date">State Department 2026; bank rates</td></tr>
+<tr><td data-l="Indicator">Credit rating</td><td data-l="Value">Moody's Caa1, outlook positive</td><td data-l="Source and date">State Department, September 2026</td></tr>
+</tbody></table>
+<p>The IMF warned in January 2026 that spending slipped in 2025, which weakened the currency and pushed inflation back above 10%. Inflation has been falling again since. The Central Bank (CBvS) publishes an official rate every day; a parallel market also exists. Follow the rates with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Olie en gas: GranMorgu' if nl else 'Oil and gas: GranMorgu' }}</h2>
+{% if nl %}
+<p>Op 1 oktober 2024 namen TotalEnergies en APA het investeringsbesluit voor GranMorgu in Blok 58: ongeveer USD 10,5 miljard, een productieschip (FPSO) van 220.000 vaten per dag en meer dan 750 miljoen winbare vaten. Staatsolie heeft een belang van 20%, gefinancierd met obligaties en een lening van USD 1,6 miljard. In mei 2026 meldde Staatsolie dat het project op schema ligt, het productieschip ongeveer half af is en de eerste olie nog steeds in 2028 wordt verwacht.</p>
+<p>TotalEnergies schatte de lokale inhoud bij het besluit op meer dan USD 1 miljard en meer dan 6.000 banen (2.000 direct). Ook Chevron, Petronas, Shell en PetroChina zijn actief in offshore blokken. Een aparte local content-wet is er nog niet, maar productiedelingscontracten vragen lokale inkoop als leveranciers concurrerend zijn. Voor leveranciers: zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> en <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>On 1 October 2024 TotalEnergies and APA took the final investment decision for GranMorgu in Block 58: about USD 10.5 billion, a production vessel (FPSO) of 220,000 barrels a day and more than 750 million recoverable barrels. Staatsolie holds a 20% stake, financed with bonds and a USD 1.6 billion loan. In May 2026 Staatsolie reported that the project is on schedule, the vessel is about half built and first oil is still expected in 2028.</p>
+<p>At the decision TotalEnergies estimated local content at more than USD 1 billion and more than 6,000 jobs (2,000 direct). Chevron, Petronas, Shell and PetroChina are also active in offshore blocks. There is no separate local content law yet, but production sharing contracts require local procurement where suppliers are competitive. For suppliers: see <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> and <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wie helpt investeerders' if nl else 'Who helps investors' }}</h2>
+{% if nl %}
+<ul>
+<li><b>SITA, Suriname Investment and Trade Agency.</b> Opgericht eind 2021 als opvolger van Investsur en IDCS, eigendom van het Ministerie van Buitenlandse Zaken, Internationale Handel en Samenwerking. SITA wil het centrale loket voor investeerders zijn: informatie over wetten en procedures, begeleiding van investeerders, matchmaking en exportpromotie. Website: sita.sr.</li>
+<li><b>Directie International Business, Ministerie van Buitenlandse Zaken.</b> Volgens het Amerikaanse Investment Climate Statement 2026 het eerste aanspreekpunt. Je dient een intakeformulier in dat een beoordelingscommissie bekijkt. SITA bouwt capaciteit op om dit werk over te nemen.</li>
+<li><b>Sectorministeries.</b> Zij geven advies op aanvragen voor faciliteiten en beoordelen concessies (mijnbouw, hout, landbouw, toerisme).</li>
+<li><b>KKF (Kamer van Koophandel en Fabrieken).</b> Handelsregister, uittreksels, informatie over vergunningen.</li>
+</ul>
+<p>Er is geen openbaar, op regels gebaseerd toelatingsproces. De WTO noemde de goedkeuring van buitenlandse investeringen in 2019 discretionair. Reken op gesprekken en geduld.</p>
+{% else %}
+<ul>
+<li><b>SITA, Suriname Investment and Trade Agency.</b> Set up at the end of 2021 as successor to Investsur and IDCS, owned by the Ministry of Foreign Affairs, International Trade and Cooperation. SITA aims to be a one-stop shop: information on laws and procedures, investor support, matchmaking and export promotion. Website: sita.sr.</li>
+<li><b>International Business directorate, Ministry of Foreign Affairs.</b> According to the US 2026 Investment Climate Statement, the first point of entry. You file an intake form that an appraisal committee reviews. SITA is building capacity to take over this work.</li>
+<li><b>Sector ministries.</b> They advise on requests for incentives and assess concessions (mining, timber, agriculture, tourism).</li>
+<li><b>KKF (Chamber of Commerce and Industry).</b> Trade register, extracts (uittreksels), information on licences.</li>
+</ul>
+<p>There is no public, rules-based admission process. The WTO described approval of foreign investment as discretionary in 2019. Expect meetings and patience.</p>
+{% endif %}
+
+<h2>{{ 'De Investeringswet 2001 en de nieuwe wet' if nl else 'The Investment Act 2001 and the new law' }}</h2>
+{% if nl %}
+<p>De geldende wet is de Investeringswet 2001 (S.B. 2002 no. 42). Ze geldt voor binnenlandse en buitenlandse ondernemers die een regelmatige boekhouding voeren en investeren in landbouw, veeteelt, visserij, aquacultuur, mijnbouw, bosbouw, toerisme (geen casino's), industrie, handel, bouw, dienstverlening of beroepsvervoer.</p>
+<table class="tbl stack tx"><thead><tr><th>Faciliteit</th><th>Inhoud volgens de wet</th><th>Aanvragen</th></tr></thead><tbody>
+<tr><td data-l="Faciliteit">Belastingvrije periode (art. 9)</td><td data-l="Inhoud volgens de wet">Winst van een nieuwe onderneming vrijgesteld in het startjaar en de 9 jaren erna, onder voorwaarden bij staatsbesluit over geïnvesteerd vermogen en banen. Vervalt zodra de totale winst het dubbele van het geïnvesteerde vermogen overschrijdt.</td><td data-l="Aanvragen">Binnen 1 jaar na de start</td></tr>
+<tr><td data-l="Faciliteit">Willekeurig afschrijven (art. 4)</td><td data-l="Inhoud volgens de wet">Vrije afschrijving op bedrijfsmiddelen vanaf de tegenwaarde van USD 5.000 (niet op grond, woonhuizen of personenauto's)</td><td data-l="Aanvragen">Binnen 3 maanden na de investering</td></tr>
+<tr><td data-l="Faciliteit">Investeringsaftrek (art. 6)</td><td data-l="Inhoud volgens de wet">20% in door de regering aangewezen regio's (vanaf USD 20.000); 10% voor milieu-investeringen (vanaf USD 1.000)</td><td data-l="Aanvragen">Binnen 3 maanden na de investering</td></tr>
+<tr><td data-l="Faciliteit">Fiscale eenheid (art. 8)</td><td data-l="Inhoud volgens de wet">Verrekening tussen moeder-NV en 100%-dochter met een nieuwe onderneming, voor 5 jaar</td><td data-l="Aanvragen">Binnen 1 jaar na de start</td></tr>
+<tr><td data-l="Faciliteit">Invoerrecht (art. 10)</td><td data-l="Inhoud volgens de wet">Vrijstelling voor bedrijfsmiddelen vanaf USD 10.000 invoerwaarde</td><td data-l="Aanvragen">Minstens 2 maanden vóór de invoer</td></tr>
+</tbody></table>
+<p>Je kunt de belastingvrije periode niet combineren met afschrijving, aftrek of fiscale eenheid. Verzoeken gaan schriftelijk naar het instituut dat de wet Investsur noemt; dat stuurt ze binnen 14 dagen naar het sectorministerie voor advies. De Minister van Financiën beslist binnen 45 dagen (verlengbaar tot 60). Komt er geen beslissing, dan geldt het verzoek als afgewezen. Beroep gaat binnen 30 dagen naar de President. Wie een faciliteit krijgt, levert jaarlijks een accountantsverklaring in.</p>
+<p>Let op: enkele faciliteiten (de aftrek van fictieve rente, de vrijstelling van invoerrecht en omzetbelasting en de loonbelastingkorting) waren in de wet gekoppeld aan een aanvraagtermijn van vijf jaar na inwerkingtreding. Vraag bij SITA of de Belastingdienst welke faciliteiten nu nog worden toegekend en wie de aanvragen ontvangt, nu Investsur is opgevolgd door SITA.</p>
+<h3>Nieuwe Investeringswet 2026</h3>
+<p>In juni 2026 lagen een concept-Investeringswet en een Wet SITA voor. Ondernemersorganisaties (onder meer de VSB) vroegen in augustus 2026 om fundamentele aanpassing: objectieve criteria voor faciliteiten, beslistermijnen, gelijke behandeling van lokale, buitenlandse en diaspora-investeerders en bescherming bij onteigening en winstrepatriëring. Op het moment van schrijven was de wet niet aangenomen. Volg <a href="{{ U('news') }}">{{ L('news') }}</a> of vraag SITA naar de stand.</p>
+{% else %}
+<p>The law in force is the Investment Act 2001 (Investeringswet 2001, S.B. 2002 no. 42). It applies to domestic and foreign entrepreneurs who keep proper accounts and invest in agriculture, livestock, fishing, aquaculture, mining, forestry, tourism (not casinos), industry, trade, construction, services or commercial transport.</p>
+<table class="tbl stack tx"><thead><tr><th>Incentive</th><th>What the law says</th><th>Apply</th></tr></thead><tbody>
+<tr><td data-l="Incentive">Tax holiday (art. 9)</td><td data-l="What the law says">Profit of a new enterprise exempt in the start year and the following 9 years, under conditions set by state decree on capital invested and jobs. Ends once total profit exceeds twice the capital invested.</td><td data-l="Apply">Within 1 year of starting</td></tr>
+<tr><td data-l="Incentive">Accelerated depreciation (art. 4)</td><td data-l="What the law says">Free depreciation of business assets from the equivalent of USD 5,000 (not land, homes or passenger cars)</td><td data-l="Apply">Within 3 months of the investment</td></tr>
+<tr><td data-l="Incentive">Investment deduction (art. 6)</td><td data-l="What the law says">20% in regions designated by the government (from USD 20,000); 10% for environmental investments (from USD 1,000)</td><td data-l="Apply">Within 3 months of the investment</td></tr>
+<tr><td data-l="Incentive">Tax consolidation (art. 8)</td><td data-l="What the law says">Offsetting between a parent NV and a 100% subsidiary running a new enterprise, for 5 years</td><td data-l="Apply">Within 1 year of starting</td></tr>
+<tr><td data-l="Incentive">Import duty (art. 10)</td><td data-l="What the law says">Exemption for business assets from USD 10,000 import value</td><td data-l="Apply">At least 2 months before import</td></tr>
+</tbody></table>
+<p>You cannot combine the tax holiday with the depreciation, deduction or consolidation incentives. Requests go in writing to the institute the law calls Investsur, which forwards them within 14 days to the sector ministry for advice. The Minister of Finance decides within 45 days (extendable to 60). No decision means the request counts as refused. Appeals go to the President within 30 days. If you receive an incentive, you file an auditor's statement every year.</p>
+<p>Note: some incentives (the notional interest deduction, the import duty and turnover tax exemptions and the wage tax reduction) were tied in the law to an application window of five years after entry into force. Ask SITA or the tax office (Belastingdienst) which incentives are still granted and who receives requests, now that SITA has succeeded Investsur.</p>
+<h3>New Investment Act 2026</h3>
+<p>In June 2026 a draft Investment Act and a SITA Act were on the table. Business organisations (including the VSB, the Suriname Trade and Industry Association) asked in August 2026 for fundamental changes: objective criteria for incentives, decision deadlines, equal treatment of local, foreign and diaspora investors and protection against expropriation and on profit repatriation. At the time of writing the law had not been passed. Follow <a href="{{ U('news') }}">{{ L('news') }}</a> or ask SITA for the status.</p>
+{% endif %}
+
+<h2>{{ 'Rechtsvormen voor buitenlanders' if nl else 'Legal forms for foreigners' }}</h2>
+{% if nl %}
+<ul>
+<li><b>NV (naamloze vennootschap).</b> De gangbare vorm voor investeerders. Geen eis van een lokale partner of lokale bestuurders. Sinds 1 mei 2025 (nieuw Boek 2 Burgerlijk Wetboek) kan een NV met een standaardakte worden opgericht, en er is een aandeelhouderbestuurde NV die geschikt is voor één eigenaar. Een BV bestaat in Suriname niet. Aandelen aan toonder zijn afgeschaft; banken vragen het aandeelhoudersregister.</li>
+<li><b>Nevenvestiging van een buitenlandse vennootschap.</b> Inschrijving in het handelsregister met de gegevens van de buitenlandse rechtspersoon, bestuurders en de lokale beheerder, plus de oprichtingsakte en statuten met een beëdigde vertaling in het Nederlands of Engels (Handelsregisterbesluit, artikel 22).</li>
+<li><b>Eenmanszaak of VOF.</b> Mogelijk als je zelf in Suriname woont met een verblijfsvergunning. Je bent persoonlijk aansprakelijk.</li>
+</ul>
+<p>Stappen, kosten en de KKF-inschrijving staan in <a href="{{ U('start') }}">{{ L('start') }}</a>. Of je activiteit een vergunning vraagt: <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+{% else %}
+<ul>
+<li><b>NV (naamloze vennootschap, public limited company).</b> The usual form for investors. No requirement for a local partner or local directors. Since 1 May 2025 (new Book 2 of the Civil Code) an NV can be set up with a standard deed, and there is a shareholder-managed NV suited to a single owner. Suriname has no BV (private limited company). Bearer shares have been abolished; banks will ask for the share register.</li>
+<li><b>Branch of a foreign company.</b> Registration in the trade register with the details of the foreign legal entity, its directors and the local manager, plus the deed of incorporation and articles with a sworn translation into Dutch or English (Trade Register Decree, article 22).</li>
+<li><b>Sole trader or general partnership (VOF).</b> Possible if you live in Suriname yourself with a residence permit. You are personally liable.</li>
+</ul>
+<p>Steps, costs and KKF registration are in <a href="{{ U('start') }}">{{ L('start') }}</a>. Whether your activity needs a licence: <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Grond en vastgoed' if nl else 'Land and property' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Domeingrond (staatsgrond).</b> Grond zonder bewezen particulier eigendom is van de staat. Je krijgt die in grondhuur, voor minimaal 15 en maximaal 40 jaar, tegen een jaarlijkse canon. Grondhuur is alleen voor ingezetenen, inclusief rechtspersonen. Een buitenlandse investeerder krijgt dus grond via een Surinaamse NV. Het proces duurt lang.</li>
+<li><b>Inschrijving.</b> De beschikking moet binnen 4 maanden bij het Hypothekenkantoor worden ingeschreven, anders vervalt ze. Overdracht van grondhuur vraagt goedkeuring van het ministerie.</li>
+<li><b>Particulier eigendom.</b> Overdracht gaat via een notariële akte en inschrijving in de openbare registers. Laat altijd een hypothecair uittreksel en de perceelkaart controleren.</li>
+<li><b>Omzetten naar eigendom.</b> De grondconversie, waarmee grondhuurders hun titel konden omzetten in eigendom, is op 9 augustus 2025 stopgezet. Lopende dossiers worden per geval beoordeeld. Zie <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+<li><b>Rechten van inheemsen en tribale volken.</b> Hun collectieve grondrechten zijn grotendeels niet afgebakend en niet wettelijk erkend. Bij grond in het binnenland is dat een reëel risico.</li>
+</ul>
+<p>Meer over grondhuur, domeingrond en het kadaster: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% else %}
+<ul>
+<li><b>State land (domeingrond).</b> Land without proven private ownership belongs to the state. You get it in long lease (grondhuur), for at least 15 and at most 40 years, at an annual fee. Land lease is only for residents, including legal entities. A foreign investor therefore gets land through a Surinamese NV. The process is slow.</li>
+<li><b>Registration.</b> The allocation decision must be registered at the Mortgage Office within 4 months, or it lapses. Transferring a lease needs ministry approval.</li>
+<li><b>Private ownership.</b> Transfer is by notarial deed and registration in the public registers. Always have a mortgage register extract (hypothecair uittreksel) and the plot map checked.</li>
+<li><b>Converting to ownership.</b> Land conversion, which let leaseholders turn their title into freehold, was stopped on 9 August 2025. Pending files are assessed case by case. See <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+<li><b>Indigenous and tribal rights.</b> Their collective land rights are largely not demarcated and not recognised in law. For land in the interior this is a real risk.</li>
+</ul>
+<p>More on land lease, state land and the land registry: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Bankrekening en geldverkeer' if nl else 'Bank account and money transfers' }}</h2>
+{% if nl %}
+<p>Buitenlanders kunnen zonder beperking een bankrekening openen. De bank doet wel een volledig cliëntenonderzoek: identiteit van bestuurders en uiteindelijk belanghebbenden (UBO), herkomst van het geld en het doel van de rekening. Reken op meer vragen als het geld uit het buitenland komt. Documenten en tips: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+<h3>Geld binnenbrengen en winst uitkeren</h3>
+<ul>
+<li>Er is geen algemeen verbod op het overmaken van kapitaal, winst, rente, aflossingen of royalty's. Overmakingen gaan via de banken tegen marktkoers, maar kunnen goedkeuring van de Deviezencommissie vragen. De criteria zijn niet openbaar. Volgens het State Department duurt een overmaking een dag tot een week.</li>
+<li>Bewaar bewijs van elke kapitaalstorting uit het buitenland (bankafschriften, aandelenregister). Dat heb je later nodig om winst of kapitaal terug te sturen.</li>
+<li>Exporteurs moeten exportopbrengsten volledig via een lokale bank laten binnenkomen en minstens 35% binnen drie werkdagen aan een lokale bank verkopen (Algemene Beschikking no. 228 van de Deviezencommissie, sinds 17 augustus 2026). Importeurs betalen via het Surinaamse banksysteem.</li>
+<li>Bij een faciliteit onder de Investeringswet hoort ook een vergunning voor overmakingen van winst, dividend, rente en vergoedingen (artikel 14). Vraag die minstens 2 maanden vóór de overmaking aan.</li>
+</ul>
+{% else %}
+<p>Foreigners can open a bank account without restriction. The bank will do full due diligence: identity of directors and ultimate beneficial owners (UBO), source of funds and purpose of the account. Expect more questions when money comes from abroad. Documents and tips: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+<h3>Bringing money in and paying out profits</h3>
+<ul>
+<li>There is no general ban on transferring capital, profits, interest, loan repayments or royalties. Transfers go through the banks at market rates, but may need approval from the Foreign Exchange Commission (Deviezencommissie). The criteria are not public. According to the State Department a transfer takes a day to a week.</li>
+<li>Keep proof of every capital injection from abroad (bank statements, share register). You will need it later to send profit or capital back.</li>
+<li>Exporters must bring export proceeds in through a local bank in full and sell at least 35% to a local bank within three working days (General Decision no. 228 of the Foreign Exchange Commission, since 17 August 2026). Importers pay through the Surinamese banking system.</li>
+<li>An incentive under the Investment Act comes with a licence for transfers of profit, dividend, interest and fees (article 14). Apply at least 2 months before the transfer.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Belastingen, belastingverdragen en investeringsverdragen' if nl else 'Taxes, tax treaties and investment treaties' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Belasting</th><th>Tarief</th></tr></thead><tbody>
+<tr><td data-l="Belasting">Inkomstenbelasting NV (winst)</td><td data-l="Tarief">36%</td></tr>
+<tr><td data-l="Belasting">Dividendbelasting</td><td data-l="Tarief">25% van de opbrengst (Wet Dividendbelasting)</td></tr>
+<tr><td data-l="Belasting">BTW</td><td data-l="Tarief">{{ (F.VAT.standard*100)|round|int }}% standaard, 5% en 25% voor bepaalde goederen</td></tr>
+</tbody></table>
+<ul>
+<li><b>Nederland.</b> Het belastingverdrag van 25 november 1975 is sinds 13 april 1977 van kracht. Dividend uit Suriname naar Nederland: maximaal 7,5% bij een deelneming van minstens 25%, anders 15% of 20%.</li>
+<li><b>Curaçao.</b> Op 1 juli 2024 gesloten; in oktober 2025 voor goedkeuring naar het Nederlandse parlement gestuurd. Controleer of het al in werking is.</li>
+<li><b>CARICOM.</b> Suriname heeft het CARICOM-belastingverdrag van 1994 niet getekend. Voor investeerders uit bijvoorbeeld Trinidad en Tobago of Guyana is er dus geen verdragsbescherming tegen dubbele belasting.</li>
+<li><b>Investeringsverdragen.</b> Het bilaterale investeringsverdrag met Nederland is sinds 2006 van kracht. Vier andere zijn getekend maar niet in werking. Met de VS is er geen.</li>
+<li><b>Geschillen.</b> Suriname is geen partij bij het ICSID-verdrag, maar trad in 2022 toe tot het Verdrag van New York over erkenning van buitenlandse arbitrale uitspraken. Het Surinaams Arbitrage Instituut biedt arbitrage en mediation. Een aparte handelsrechtbank is er niet.</li>
+</ul>
+<p>Meer over belastingen voor bedrijven: <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> en <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Tax</th><th>Rate</th></tr></thead><tbody>
+<tr><td data-l="Tax">Income tax on an NV (profit)</td><td data-l="Rate">36%</td></tr>
+<tr><td data-l="Tax">Dividend withholding tax</td><td data-l="Rate">25% of the distribution (Dividend Tax Act)</td></tr>
+<tr><td data-l="Tax">VAT</td><td data-l="Rate">{{ (F.VAT.standard*100)|round|int }}% standard, 5% and 25% for certain goods</td></tr>
+</tbody></table>
+<ul>
+<li><b>Netherlands.</b> The tax treaty of 25 November 1975 has been in force since 13 April 1977. Dividends from Suriname to the Netherlands: at most 7.5% for a holding of at least 25%, otherwise 15% or 20%.</li>
+<li><b>Curaçao.</b> Concluded on 1 July 2024; sent to the Dutch parliament for approval in October 2025. Check whether it is in force yet.</li>
+<li><b>CARICOM.</b> Suriname has not signed the 1994 CARICOM double taxation agreement. Investors from, for example, Trinidad and Tobago or Guyana have no treaty protection against double taxation.</li>
+<li><b>Investment treaties.</b> The bilateral investment treaty with the Netherlands has been in force since 2006. Four others are signed but not in force. There is none with the US.</li>
+<li><b>Disputes.</b> Suriname is not a party to the ICSID Convention, but joined the New York Convention on recognition of foreign arbitral awards in 2022. The Suriname Arbitration Institute offers arbitration and mediation. There is no separate commercial court.</li>
+</ul>
+<p>More on business taxes: <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> and <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Personeel' if nl else 'Staff' }}</h2>
+{% if nl %}
+<p>Buitenlandse medewerkers hebben een verblijfsvergunning en een werkvergunning nodig, en het ministerie mag weigeren als er lokale kandidaten zijn. Sinds november 2024 is er een snellere One Stop Unit-route. Alles staat in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. Voor lokale werknemers gelden het minimumloon, loonbelasting en AOV; zie <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> en <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Ontslag vraagt in de meeste gevallen toestemming van het ministerie: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. De werkloosheid was 7,8% in 2025, met tekorten in de extractieve sector, zorg, horeca, houtverwerking en industrie.</p>
+{% else %}
+<p>Foreign staff need a residence permit and a work permit, and the ministry may refuse if local candidates are available. Since November 2024 there is a faster One Stop Unit route. Everything is in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. For local employees the minimum wage, wage tax and AOV (old-age pension contribution) apply; see <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> and <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Dismissal needs ministry permission in most cases: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. Unemployment was 7.8% in 2025, with shortages in extractive industries, healthcare, hospitality, wood processing and manufacturing.</p>
+{% endif %}
+
+<h2>{{ 'Sectoren met kansen' if nl else 'Sectors with opportunities' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Olie en gas.</b> Toelevering, logistiek, catering, onderhoud, opleiding en huisvesting rond GranMorgu en andere blokken. Registreer bij Staatsolie als leverancier.</li>
+<li><b>Energie en infrastructuur.</b> Opwekking en transmissie, wegen, havens.</li>
+<li><b>Mijnbouw.</b> Goud is de grootste bron van overheidsinkomsten (rond USD 200 tot 300 miljoen per jaar). Concessies vragen lange onderhandelingen; illegale goudexport is een groot probleem.</li>
+<li><b>Landbouw, visserij en hout.</b> Agro-verwerking, aquacultuur en houtverwerking, vaak voor export. Kijk ook naar <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+<li><b>Toerisme.</b> Eco- en natuurtoerisme in het binnenland, hotels in Paramaribo.</li>
+<li><b>ICT en fintech.</b> Sinds 2025 geen invoerrechten meer op computers en randapparatuur. Digitale betalingen groeien.</li>
+<li><b>Zorg en onderwijs.</b> Tekort aan personeel en voorzieningen.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Oil and gas.</b> Supply, logistics, catering, maintenance, training and housing around GranMorgu and other blocks. Register with Staatsolie as a supplier.</li>
+<li><b>Energy and infrastructure.</b> Generation and transmission, roads, ports.</li>
+<li><b>Mining.</b> Gold is the largest source of government revenue (around USD 200 to 300 million a year). Concessions involve long negotiations; illegal gold exports are a major problem.</li>
+<li><b>Agriculture, fisheries and timber.</b> Agro-processing, aquaculture and wood processing, often for export. See also <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+<li><b>Tourism.</b> Eco and nature tourism in the interior, hotels in Paramaribo.</li>
+<li><b>ICT and fintech.</b> Import duties on computers and peripherals were removed in 2025. Digital payments are growing.</li>
+<li><b>Healthcare and education.</b> Shortages of staff and facilities.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Risico\'s' if nl else 'Risks' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Bureaucratie.</b> Goedkeuring van investeringen is discretionair en niet transparant. Er is geen online portaal voor bedrijfsregistratie; een digitaal platform voor bedrijfsvergunningen startte in november 2024. De KKF noemt 30 dagen als snelste starttijd.</li>
+<li><b>Munt en inflatie.</b> De inflatie lag van 2021 tot en met 2023 boven 50% per jaar en liep in 2025 weer op. Houd buffers in USD of EUR, en prijs contracten waar mogelijk in harde valuta.</li>
+<li><b>Grondtitels.</b> Claims zijn vaak onduidelijk, en inheemse en tribale grondrechten zijn niet geregeld.</li>
+<li><b>Corruptie.</b> Het State Department noemt aanbestedingen, vergunningen, concessies, douane en belastingen als gevoelige gebieden. De aanbestedingswet van 2024 is grotendeels nog niet uitgevoerd.</li>
+<li><b>Rechtspraak.</b> Onafhankelijk, maar civiele zaken lopen vertraging op door een tekort aan rechters. Geen handelsrechtbank en geen algemene bestuursrechtspraak.</li>
+<li><b>Overheidsfinanciën.</b> Hoge schuld en een tekort van 10% in 2025. Beleid kan snel veranderen, ook belastingen en heffingen.</li>
+<li><b>Intellectueel eigendom.</b> Handhaving is zwak. Registreer je merk: <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+</ul>
+<p>Onteigening mag volgens de Grondwet alleen in het algemeen belang en met vergoeding vooraf. Volgens het State Department zijn er de afgelopen tien jaar geen onteigeningen geweest.</p>
+{% else %}
+<ul>
+<li><b>Bureaucracy.</b> Investment approval is discretionary and not transparent. There is no online portal for company registration; a digital platform for business licences started in November 2024. The KKF cites 30 days as the fastest start.</li>
+<li><b>Currency and inflation.</b> Inflation was above 50% a year from 2021 to 2023 and rose again in 2025. Keep buffers in USD or EUR, and price contracts in hard currency where you can.</li>
+<li><b>Land titles.</b> Claims are often unclear, and indigenous and tribal land rights are unresolved.</li>
+<li><b>Corruption.</b> The State Department names procurement, licences, concessions, customs and taxation as sensitive areas. The 2024 Procurement Act has largely not been implemented.</li>
+<li><b>Courts.</b> Independent, but civil cases are delayed by a shortage of judges. No commercial court and no general administrative court.</li>
+<li><b>Public finances.</b> High debt and a 10% deficit in 2025. Policy can change quickly, including taxes and levies.</li>
+<li><b>Intellectual property.</b> Enforcement is weak. Register your trademark: <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+</ul>
+<p>Under the Constitution, expropriation is only allowed in the public interest and with prior compensation. According to the State Department there have been no expropriations in the past ten years.</p>
+{% endif %}
+
+<h2>{{ 'Voor diaspora-investeerders' if nl else 'For diaspora investors' }}</h2>
+{% if nl %}
+<ul>
+<li>Met een PSA-document (Persoon van Surinaamse Afkomst) reis je visumvrij, mag je verblijven en werken zonder werkvergunning en een bankrekening openen. Kosten sinds februari 2026: EUR 120 voor volwassenen.</li>
+<li>Woon je in Nederland, kijk dan naar het belastingverdrag van 1975 voor dividend en ander inkomen uit Suriname, en laat je adviseren over je fiscale woonplaats.</li>
+<li>Investeer je via familie of een gemachtigde, leg afspraken schriftelijk vast en laat grond en aandelen op naam van jouw NV zetten, niet van een tussenpersoon.</li>
+<li>Bezoek eerst zelf. Spreek met de KKF, SITA, een notaris en een accountant voordat je geld overmaakt.</li>
+</ul>
+{% else %}
+<ul>
+<li>With a PSA document (Person of Surinamese Origin) you travel visa-free, may live and work without a work permit and can open a bank account. Cost since February 2026: EUR 120 for adults.</li>
+<li>If you live in the Netherlands, look at the 1975 tax treaty for dividends and other income from Suriname, and get advice on your tax residence.</li>
+<li>If you invest through family or an agent, put agreements in writing and register land and shares in the name of your own NV, not an intermediary.</li>
+<li>Visit first. Talk to the KKF, SITA, a notary and an accountant before you transfer money.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step-by-step plan' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Verkennen.</b> Lees de sectorinformatie van SITA en het Investment Climate Statement. Reken je businesscase door met verschillende koersen: <a href="{{ U('roi') }}">{{ L('roi') }}</a> en <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+<li><b>Contact leggen.</b> Dien het intakeformulier in bij de directie International Business of SITA, en spreek het sectorministerie.</li>
+<li><b>Adviseurs kiezen.</b> Een lokale notaris, advocaat en accountant. Laat ze grondtitels, vergunningen en belastingpositie controleren.</li>
+<li><b>Vennootschap oprichten.</b> NV of nevenvestiging, inschrijving bij de KKF, FIN-nummer bij de Belastingdienst.</li>
+<li><b>Bankrekening openen.</b> Stort kapitaal via de bank en bewaar alle bewijs.</li>
+<li><b>Faciliteiten aanvragen.</b> Let op de termijnen: invoerrecht minstens 2 maanden vóór invoer, afschrijving binnen 3 maanden, belastingvrije periode binnen 1 jaar na de start.</li>
+<li><b>Vergunningen en grond.</b> Bedrijfsvergunning, milieu- en bouwvergunningen, grondhuur via de NV.</li>
+<li><b>Personeel.</b> Lokaal werven, werkvergunningen voor sleutelfiguren tijdig regelen.</li>
+<li><b>Boekhouding op orde.</b> Een regelmatige boekhouding is voorwaarde voor elke faciliteit: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ol>
+{% else %}
+<ol class="steps">
+<li><b>Explore.</b> Read SITA's sector information and the Investment Climate Statement. Test your business case at different exchange rates: <a href="{{ U('roi') }}">{{ L('roi') }}</a> and <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+<li><b>Make contact.</b> File the intake form with the International Business directorate or SITA, and meet the sector ministry.</li>
+<li><b>Choose advisers.</b> A local notary, lawyer and accountant. Have them check land titles, licences and tax position.</li>
+<li><b>Set up the company.</b> NV or branch, registration at the KKF, FIN number (tax number) at the tax office.</li>
+<li><b>Open a bank account.</b> Inject capital through the bank and keep all proof.</li>
+<li><b>Apply for incentives.</b> Mind the deadlines: import duty at least 2 months before import, depreciation within 3 months, tax holiday within 1 year of starting.</li>
+<li><b>Licences and land.</b> Business licence, environmental and building permits, land lease through the NV.</li>
+<li><b>Staff.</b> Recruit locally, arrange work permits for key people in time.</li>
+<li><b>Keep proper books.</b> Proper accounts are a condition for every incentive: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ol>
+{% endif %}
+<p><a href="{{ U('resources') }}">{{ L('resources') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> &middot; <a href="{{ U('finance') }}">{{ L('finance') }}</a> &middot; <a href="{{ U('tenders') }}">{{ L('tenders') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.state.gov/reports/2026-investment-climate-statements/suriname" rel="noopener">U.S. Department of State: 2026 Investment Climate Statement Suriname</a></li>
+ <li><a href="https://www.imf.org/en/news/articles/2026/01/28/pr-26025-suriname-imf-executive-board-concludes-2025-article-iv-consultation" rel="noopener">IMF: 2025 Article IV {{ 'consultatie (januari 2026)' if nl else 'consultation (January 2026)' }}</a></li>
+ <li><a href="https://statistics-suriname.org/wp-content/uploads/2026/09/CPI-sheet-0821.pdf" rel="noopener">ABS: {{ 'consumentenprijzen en inflatie augustus 2026' if nl else 'consumer prices and inflation August 2026' }}</a></li>
+ <li><a href="https://corporate.totalenergies.no/news-overview/suriname-totalenergies-announces-final-investment-decision-granmorgu-development-block" rel="noopener">TotalEnergies: {{ 'investeringsbesluit GranMorgu (1 oktober 2024)' if nl else 'GranMorgu final investment decision (1 October 2024)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-2025-financial-statements-approved-strong-results-and-us-400-million-contribution-to-the-state-treasury/" rel="noopener">Staatsolie: {{ 'jaarrekening 2025 en stand GranMorgu (mei 2026)' if nl else '2025 financial statements and GranMorgu status (May 2026)' }}</a></li>
+ <li><a href="https://www.dna.sr/media/ggxkr25o/investeringswet.pdf" rel="noopener">Investeringswet 2001, S.B. 2002 no. 42 (DNA)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/92709" rel="noopener">Starnieuws: {{ 'concept-Investeringswet en Wet SITA (juni 2026)' if nl else 'draft Investment Act and SITA Act (June 2026)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws: {{ 'bedrijfsleven wil aanpassing wetsontwerpen (augustus 2026)' if nl else 'business wants bills amended (August 2026)' }}</a></li>
+ <li><a href="https://sita.sr/" rel="noopener">SITA, Suriname Investment and Trade Agency</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Dividendbelasting.pdf" rel="noopener">Wet Dividendbelasting (Belastingdienst)</a></li>
+ <li><a href="https://wetten.overheid.nl/BWBV0003461" rel="noopener">{{ 'Belastingverdrag Nederland en Suriname (1975)' if nl else 'Netherlands and Suriname tax treaty (1975)' }}</a></li>
+ <li><a href="https://www.rijksoverheid.nl/documenten/kamerstukken/2025/10/23/kamerbrief-ovk-tk-belasting-cu-suriname" rel="noopener">{{ 'Belastingverdrag Curaçao en Suriname (Kamerbrief oktober 2025)' if nl else 'Curaçao and Suriname tax treaty (letter to parliament, October 2025)' }}</a></li>
+ <li><a href="https://www.ibanet.org/the-caribbean-community-double-taxation-treaty" rel="noopener">IBA: CARICOM double taxation treaty</a></li>
+ <li><a href="{{ F.PORTALS.handelsregisterbesluit }}" rel="noopener">Handelsregisterbesluit, S.B. 2025 no. 46</a></li>
+ <li><a href="{{ F.PORTALS.frielink_bw }}" rel="noopener">Frielink: {{ 'nieuw Boek 2 BW Suriname' if nl else 'new Book 2 Civil Code Suriname' }}</a></li>
+ <li><a href="https://www.doingbusinessdutchcaribbean.com/suriname/real-estate-sur/long-term-land-lease-sur/land-lease/" rel="noopener">Doing Business Dutch Caribbean: land lease</a></li>
+ <li><a href="{{ F.PORTALS.staatsolie_tenders }}" rel="noopener">Staatsolie: procurement opportunities</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch, fiscaal of beleggingsadvies.' if nl else 'General information, not legal, tax or investment advice.' }}</p>
+</div>
+{% endblock %}

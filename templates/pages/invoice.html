@@ -89,8 +89,11 @@
  <li>{{ 'Naam en adres van de klant' if nl else 'The customer\'s name and address' }}</li>
  <li>{{ 'Omschrijving, aantal en prijs van wat je levert' if nl else 'Description, quantity and price of what you supply' }}</li>
  <li>{{ 'Bedrag zonder BTW, het BTW tarief, het BTW bedrag en het totaal' if nl else 'Amount excluding VAT, the VAT rate, the VAT amount and the total' }}</li>
+ <li>{{ 'Je KKF nummer: het ontbreken ervan kan een boete opleveren (Handelsregisterwet)' if nl else 'Your KKF number: leaving it off can lead to a fine (Trade Register Act)' }}</li>
+ <li>{{ 'Bij BTW: het FIN nummer van een zakelijke klant en de datum van levering als die afwijkt van de factuurdatum. Maak de factuur uiterlijk 15 dagen na het einde van de maand van levering (Wet BTW art. 27 en 28). Zet de leverdatum zo nodig bij Opmerkingen.' if nl else 'With VAT: the FIN number of a business customer and the date of supply if it differs from the invoice date. Issue the invoice within 15 days after the end of the month of supply (VAT Act art. 27 and 28). Put the supply date under Notes if needed.' }}</li>
 </ul>
-<p>{{ 'De BTW tarieven zijn 10% (algemeen), 5% (o.a. brandstof), 25% (luxe goederen) en 0%. Meer in' if nl else 'VAT rates are 10% (standard), 5% (e.g. fuel), 25% (luxury goods) and 0%. More in' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<p>{{ 'Alle regels voor facturen, creditnota\'s en bewaren:' if nl else 'All rules for invoices, credit notes and record keeping:' }} <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></p>
+<p>{{ 'De BTW tarieven zijn 10% (algemeen), 5% (water, stroom, kookgas, binnenlands goederenvervoer), 25% (luxe goederen), 0% (vooral export) en vrijgesteld. Meer in' if nl else 'VAT rates are 10% (standard), 5% (water, electricity, cooking gas, domestic freight), 25% (luxury goods), 0% (mainly exports) and exempt. More in' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
 {% elif key == 'quote' %}
 <h2>{{ 'Wat zet je in een offerte?' if nl else 'What goes in a quote?' }}</h2>
 <p>{{ 'Een duidelijke omschrijving van het werk of de producten, de prijs per eenheid, of de prijs inclusief of exclusief BTW is, hoe lang de offerte geldig is en de betalingsvoorwaarden. Bij prijzen in SRD die afhangen van de dollar is het verstandig de geldigheid kort te houden.' if nl else 'A clear description of the work or goods, the unit price, whether prices include VAT, how long the quote is valid and the payment terms. When SRD prices depend on the dollar, keep the validity short.' }}</p>

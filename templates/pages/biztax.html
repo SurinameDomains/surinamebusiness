@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set std = (F.VAT.standard * 100)|round|int %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Belastingen voor bedrijven in Suriname: het complete overzicht' if nl else 'Business taxes in Suriname: the complete overview' }}</h1>
+{% if nl %}
+<p class="lead">Een bedrijf in Suriname krijgt te maken met inkomstenbelasting over de winst (36% voor een NV), dividendbelasting (25%), loonbelasting en AOV voor personeel, BTW ({{ std }}% algemeen), invoerrechten en accijns bij import, en overdrachtsbelasting (4%) bij de aankoop van onroerend goed. Deze pagina zet ze allemaal op een rij, met de vaste data per jaar en waar je terecht kunt.</p>
+{% else %}
+<p class="lead">A business in Suriname deals with income tax on profit (36% for an NV), dividend tax (25%), wage tax and AOV for staff, VAT ({{ std }}% standard), import duties and excise on imports, and transfer tax (4%) when buying real estate. This page lists them all, with the fixed dates in a year and where to get help.</p>
+{% endif %}
+<div class="grid g3"><div class="card"><div class="eyebrow">{{ 'Winstbelasting lichamen' if nl else 'Corporate income tax' }}</div><div class="big">36%</div><div class="sub">{{ 'NV, coöperatie, stichting met bedrijf, filiaal' if nl else 'NV, cooperative, foundation with a business, branch' }}</div></div><div class="card"><div class="eyebrow">{{ 'Dividendbelasting' if nl else 'Dividend tax' }}</div><div class="big">25%</div><div class="sub">{{ 'Ingehouden door de NV' if nl else 'Withheld by the NV' }}</div></div><div class="card"><div class="eyebrow">BTW</div><div class="big">{{ std }}%</div><div class="sub">{{ 'Boven ' ~ srd(F.VAT.threshold_srd) ~ ' omzet' if nl else 'Above ' ~ srd(F.VAT.threshold_srd) ~ ' turnover' }}</div></div></div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Een NV betaalt 36% inkomstenbelasting over de winst. Een eenmanszaak betaalt geen aparte winstbelasting: de winst valt in de inkomstenbelasting van de eigenaar (0% tot 38%, plus 4% AOV).</li>
+<li>Keert een NV winst uit, dan houdt zij 25% dividendbelasting in en draagt die binnen een maand af. Een filiaal van een buitenlands bedrijf betaalt geen dividendbelasting.</li>
+<li>Met personeel houd je elke maand loonbelasting en 4% AOV in en draag je die af via het portaal.</li>
+<li>BTW is verplicht boven {{ srd(F.VAT.threshold_srd) }} belaste omzet per jaar; aangifte en betaling elke maand voor de 16e.</li>
+<li>Verliezen uit de eerste drie jaar mag je onbeperkt verrekenen, andere verliezen zeven jaar vooruit.</li>
+<li>Alle belastingen lopen via één FIN-nummer en het online portaal van de Belastingdienst.</li>
+{% else %}
+<li>An NV pays 36% income tax on its profit. A sole trader pays no separate profit tax: the profit falls under the owner's income tax (0% to 38%, plus 4% AOV).</li>
+<li>When an NV distributes profit, it withholds 25% dividend tax and remits it within a month. A branch of a foreign company pays no dividend tax.</li>
+<li>With staff you withhold wage tax and 4% AOV (state pension premium) every month and pay it through the portal.</li>
+<li>VAT is mandatory above {{ srd(F.VAT.threshold_srd) }} taxable turnover a year; return and payment every month before the 16th.</li>
+<li>Losses from the first three years can be carried forward without time limit, other losses for seven years.</li>
+<li>All taxes run through one FIN tax number and the Belastingdienst (tax office) online portal.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Alle belastingen op een rij' if nl else 'All taxes at a glance' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Belasting' if nl else 'Tax' }}</th><th>{{ 'Tarief' if nl else 'Rate' }}</th><th>{{ 'Wie betaalt, wanneer' if nl else 'Who pays, when' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Belasting">Inkomstenbelasting lichamen</td><td data-l="Tarief">36% van de winst</td><td data-l="Wie betaalt, wanneer">NV, coöperatie, stichting of vereniging met een bedrijf, filiaal. Voorlopig in vier termijnen, definitief binnen 6 maanden na het boekjaar.</td></tr>
+<tr><td data-l="Belasting">Inkomstenbelasting personen</td><td data-l="Tarief">0%, 8%, 18%, 28%, 38%</td><td data-l="Wie betaalt, wanneer">Eigenaar van een eenmanszaak, vennoten van een VOF. Definitief binnen 4 maanden na het jaar.</td></tr>
+<tr><td data-l="Belasting">Dividendbelasting</td><td data-l="Tarief">25%</td><td data-l="Wie betaalt, wanneer">Ingehouden door de uitkerende vennootschap, afdragen binnen een maand.</td></tr>
+<tr><td data-l="Belasting">Loonbelasting</td><td data-l="Tarief">0% tot 38% (maandtabel)</td><td data-l="Wie betaalt, wanneer">Werkgever houdt in op het loon, maandelijkse aangifte.</td></tr>
+<tr><td data-l="Belasting">AOV-premie</td><td data-l="Tarief">4%</td><td data-l="Wie betaalt, wanneer">Ingehouden op het loon van werknemers; ondernemers via hun inkomstenbelasting.</td></tr>
+<tr><td data-l="Belasting">BTW</td><td data-l="Tarief">{{ std }}%, 5%, 25%, 0% of vrijgesteld</td><td data-l="Wie betaalt, wanneer">Ondernemer boven {{ srd(F.VAT.threshold_srd) }} omzet, maandelijks; bij invoer aan de Douane.</td></tr>
+<tr><td data-l="Belasting">Invoerrechten, statistiekrecht, consentrecht</td><td data-l="Tarief">Per product (CARICOM-tarief)</td><td data-l="Wie betaalt, wanneer">Importeur, bij elke invoer via ASYCUDA.</td></tr>
+<tr><td data-l="Belasting">Accijns</td><td data-l="Tarief">Per product</td><td data-l="Wie betaalt, wanneer">Producent of importeur van alcohol, bier, tabak, frisdrank en motorbrandstof.</td></tr>
+<tr><td data-l="Belasting">Overdrachtsbelasting (zegelrecht)</td><td data-l="Tarief">4% (0,5% binnen de familie)</td><td data-l="Wie betaalt, wanneer">Bij de notariële akte van overdracht van onroerend goed.</td></tr>
+<tr><td data-l="Belasting">Huurwaardebelasting, vermogensbelasting</td><td data-l="Tarief">Zie hieronder</td><td data-l="Wie betaalt, wanneer">Navragen bij de Inspectie der Directe Belastingen.</td></tr>
+{% else %}
+<tr><td data-l="Tax">Corporate income tax</td><td data-l="Rate">36% of profit</td><td data-l="Who pays, when">NV, cooperative, foundation or association running a business, branch. Provisional in four instalments, final within 6 months after the financial year.</td></tr>
+<tr><td data-l="Tax">Personal income tax</td><td data-l="Rate">0%, 8%, 18%, 28%, 38%</td><td data-l="Who pays, when">Owner of a sole proprietorship, partners in a VOF. Final return within 4 months after the year.</td></tr>
+<tr><td data-l="Tax">Dividend tax</td><td data-l="Rate">25%</td><td data-l="Who pays, when">Withheld by the distributing company, remitted within one month.</td></tr>
+<tr><td data-l="Tax">Wage tax</td><td data-l="Rate">0% to 38% (monthly table)</td><td data-l="Who pays, when">Employer withholds it from wages, monthly return.</td></tr>
+<tr><td data-l="Tax">AOV premium</td><td data-l="Rate">4%</td><td data-l="Who pays, when">Withheld from employees' wages; business owners through their income tax.</td></tr>
+<tr><td data-l="Tax">VAT (BTW)</td><td data-l="Rate">{{ std }}%, 5%, 25%, 0% or exempt</td><td data-l="Who pays, when">Businesses above {{ srd(F.VAT.threshold_srd) }} turnover, monthly; on imports to Customs.</td></tr>
+<tr><td data-l="Tax">Import duty, statistical fee, consent fee</td><td data-l="Rate">Per product (CARICOM tariff)</td><td data-l="Who pays, when">Importer, at each import through ASYCUDA.</td></tr>
+<tr><td data-l="Tax">Excise (accijns)</td><td data-l="Rate">Per product</td><td data-l="Who pays, when">Producer or importer of alcohol, beer, tobacco, soft drinks and motor fuel.</td></tr>
+<tr><td data-l="Tax">Transfer tax (zegelrecht)</td><td data-l="Rate">4% (0.5% within the family)</td><td data-l="Who pays, when">With the notarial deed transferring real estate.</td></tr>
+<tr><td data-l="Tax">Rental value tax, wealth tax</td><td data-l="Rate">See below</td><td data-l="Who pays, when">Check with the Direct Taxes Inspectorate.</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Inkomstenbelasting over de winst' if nl else 'Income tax on profit' }}</h2>
+{% if nl %}
+<p>Suriname kent geen aparte vennootschapsbelasting. De Inkomstenbelasting 1922 belast lichamen (NV's, coöperaties, onderlinge verzekeraars en stichtingen of verenigingen die een bedrijf uitoefenen) tegen een vast tarief van <b>36%</b> over het belastbaar bedrag: de winst van het boekjaar min te verrekenen verliezen. Een filiaal van een buitenlands bedrijf betaalt hetzelfde tarief over de winst die aan Suriname toerekenbaar is. Een eenmanszaak of VOF betaalt geen winstbelasting; de winst gaat naar de inkomstenbelasting van de eigenaar of vennoten (zie <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>).</p>
+<ul class="check">
+<li><b>Verliezen.</b> Verliezen uit de eerste drie boekjaren na de start (aanloopverliezen) mag je onbeperkt vooruit verrekenen, mits je vanaf het begin een geregelde boekhouding voert. Andere verliezen verreken je met de winst van de volgende zeven jaar. Terugwenteling naar eerdere jaren kan niet.</li>
+<li><b>Deelnemingsvrijstelling.</b> Dividend van een andere Surinaamse vennootschap telt niet mee in je winst. Dividend van een buitenlandse dochter ook niet, als je minstens 10% van het kapitaal houdt, het belang bij je normale bedrijf hoort en de dochter in haar land winstbelasting betaalt.</li>
+<li><b>Niet aftrekbaar.</b> Winstuitkeringen, de inkomstenbelasting zelf, en winstdelingen (tantièmes) aan bestuurders en commissarissen boven de grenzen in de wet.</li>
+<li><b>Koersresultaten.</b> Gerealiseerde koerswinsten zijn belast; koersverliezen zijn ook ongerealiseerd aftrekbaar (volgens HBN Law &amp; Tax).</li>
+<li><b>Voorzieningen</b> voor bijvoorbeeld pensioen, onderhoud of garanties zijn aftrekbaar als ze aan voorwaarden voldoen; vraag je accountant.</li>
+<li><b>Boekhouden in USD.</b> Bedrijven die aan de voorwaarden van een staatsbesluit voldoen, kunnen op verzoek hun boekhouding, aangifte en betaling in een aangewezen vreemde munt doen.</li>
+</ul>
+<p>Bestuurders en vereffenaars zijn hoofdelijk aansprakelijk voor de inkomstenbelasting van het lichaam, tenzij ze aantonen dat het niet aan hen lag. De aangiften en termijnen zijn dezelfde als voor personen, maar de definitieve aangifte moet binnen 6 maanden na het boekjaar (30 juni bij een kalenderjaar), met balans en winst- en verliesrekening.</p>
+{% else %}
+<p>Suriname has no separate corporate tax law. The Income Tax Act 1922 taxes entities (NVs, cooperatives, mutual insurers and foundations or associations that run a business) at a flat rate of <b>36%</b> on the taxable amount: the profit of the financial year minus losses carried forward. A branch of a foreign company pays the same rate on the profit attributable to Suriname. A sole proprietorship or partnership (VOF) pays no profit tax; the profit goes to the owner's or partners' income tax (see <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>).</p>
+<ul class="check">
+<li><b>Losses.</b> Losses from the first three financial years after starting (start-up losses) can be carried forward without time limit, provided you keep proper books from the start. Other losses are offset against the profit of the next seven years. Carry-back is not possible.</li>
+<li><b>Participation exemption.</b> Dividends from another Surinamese company are not part of your profit. Neither are dividends from a foreign subsidiary, if you hold at least 10% of the capital, the holding fits your normal business and the subsidiary pays profit tax in its country.</li>
+<li><b>Not deductible.</b> Profit distributions, the income tax itself, and profit shares (tantièmes) to directors and supervisory board members above the limits in the law.</li>
+<li><b>Exchange results.</b> Realised exchange gains are taxable; exchange losses are deductible even when unrealised (according to HBN Law &amp; Tax).</li>
+<li><b>Provisions</b> for pensions, maintenance or warranties, for example, are deductible if they meet conditions; ask your accountant.</li>
+<li><b>Bookkeeping in USD.</b> Companies meeting the conditions of a state decree can, on request, keep their books, file and pay in a designated foreign currency.</li>
+</ul>
+<p>Directors and liquidators are jointly and severally liable for the entity's income tax, unless they show it was not their fault. Returns and instalments work as for individuals, but the final return is due within 6 months after the financial year (30 June for a calendar year), with balance sheet and profit and loss account.</p>
+{% endif %}
+
+<h2>{{ 'Dividendbelasting' if nl else 'Dividend tax' }}</h2>
+{% if nl %}
+<p>Keert een in Suriname gevestigde NV winst uit aan aandeelhouders, dan houdt zij <b>25%</b> dividendbelasting in en draagt die op aangifte af binnen een maand nadat het dividend ter beschikking is gesteld. Neemt de NV de belasting voor haar rekening, dan wordt het dividend voor de berekening opgehoogd met 100/75. Er wordt niet ingehouden op uitdelingen aan Surinaamse beleggingsmaatschappijen, en aan Surinaamse vennootschappen die al sinds het begin van het jaar onafgebroken aandeelhouder zijn (en niet wederzijds), onder voorwaarden van de Minister.</p>
+<p>Voor aandeelhouders die in Suriname wonen, is de dividendbelasting een voorheffing op hun inkomstenbelasting. Voor buitenlandse aandeelhouders kan een belastingverdrag het tarief verlagen: volgens HBN Law &amp; Tax tot 7,5% onder het verdrag met Nederland. Suriname heeft verdragen met Nederland en Indonesië; het verdrag met Curaçao (getekend 1 juli 2024) was eind 2025 nog niet in werking. Een filiaal (bijkantoor) betaalt geen dividendbelasting als het winst naar het hoofdkantoor overmaakt; olie- en gasbedrijven met een overeenkomst zijn vaak vrijgesteld.</p>
+{% else %}
+<p>When an NV established in Suriname distributes profit to shareholders, it withholds <b>25%</b> dividend tax and remits it with a return within one month after the dividend is made available. If the NV bears the tax itself, the dividend is grossed up by 100/75 for the calculation. No tax is withheld on distributions to Surinamese investment companies, or to Surinamese companies that have held the shares without interruption since the start of the year (and not reciprocally), under conditions set by the Minister.</p>
+<p>For shareholders living in Suriname, dividend tax is a prepayment on their income tax. For foreign shareholders a tax treaty can reduce the rate: according to HBN Law &amp; Tax to 7.5% under the treaty with the Netherlands. Suriname has treaties with the Netherlands and Indonesia; the treaty with Curaçao (signed 1 July 2024) was not yet in force at the end of 2025. A branch pays no dividend tax when it sends profit to its head office; oil and gas companies with an agreement are often exempt.</p>
+{% endif %}
+
+<h2>{{ 'Loonbelasting, AOV en andere werkgeverslasten' if nl else 'Wage tax, AOV and other employer costs' }}</h2>
+{% if nl %}
+<p>Heb je personeel, dan ben je inhoudingsplichtig. Je houdt elke maand <b>loonbelasting</b> in volgens de tabel (belastingvrij {{ srd(F.TAX.free_month) }} per maand, daarna 8% tot 38%) en <b>4% AOV-premie</b>, en je doet aangifte en betaalt via het portaal. Het portaal neemt de maandaangifte aan van de 26e tot en met de 10e van de volgende maand. Vakantietoelage en gratificatie zijn elk tot {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar vrij van loonbelasting. Aantoonbare kostenvergoedingen (representatie, vervoer, internet) horen niet tot het loon.</p>
+<p>Daarnaast betaal je premies voor het algemeen pensioen en de basiszorgverzekering van je werknemers. Hoeveel dat is en hoe je het afdraagt staat in <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Bereken loon en inhoudingen per werknemer met de <a href="{{ U('salary') }}">{{ L('salary') }}</a> en maak een loonstrook met de <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
+{% else %}
+<p>If you have staff, you must withhold tax. Every month you withhold <b>wage tax</b> according to the table (tax free {{ srd(F.TAX.free_month) }} a month, then 8% to 38%) and the <b>4% AOV premium</b>, and you file and pay through the portal. The portal accepts the monthly return from the 26th up to and including the 10th of the following month. Holiday allowance and bonus are each free of wage tax up to {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year. Documented expense allowances (representation, transport, internet) are not part of wages.</p>
+<p>On top of that you pay premiums for the general pension and the basic health insurance of your employees. How much, and how to pay, is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Calculate pay and deductions per employee with the <a href="{{ U('salary') }}">{{ L('salary') }}</a> and make a payslip with the <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'BTW' if nl else 'VAT' }}</h2>
+{% if nl %}
+<p>Boven {{ srd(F.VAT.threshold_srd) }} belaste omzet per kalenderjaar ben je BTW-plichtig. Je rekent {{ std }}% (of 5%, 25%, 0%) over je verkopen, trekt de BTW op je inkopen en invoer af, en doet elke maand aangifte en betaling voor de 16e. Sinds 2026 kost een te late aangifte minimaal SRD 2.500. Let op: veel basisgoederen en diensten zijn sinds oktober 2023 vrijgesteld, en dan mag je de BTW op je inkopen voor die omzet niet aftrekken. Alles over registratie, facturen, aftrek en boetes staat in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+{% else %}
+<p>Above {{ srd(F.VAT.threshold_srd) }} of taxable turnover in a calendar year you must register for VAT. You charge {{ std }}% (or 5%, 25%, 0%) on your sales, deduct the VAT on your purchases and imports, and file and pay every month before the 16th. Since 2026 a late return costs at least SRD 2,500. Note that many basic goods and services have been exempt since October 2023, and then you cannot deduct the VAT on purchases for that turnover. Registration, invoices, deductions and penalties are all in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Invoerrechten, accijns, statistiekrecht en consentrecht' if nl else 'Import duties, excise, statistical fee and consent fee' }}</h2>
+{% if nl %}
+<p>Bij elke invoer berekent het douanesysteem ASYCUDA de heffingen over de douanewaarde (CIF). Je betaalt per bank aan de Ontvanger der Invoerrechten en Accijnzen. Sinds 1 januari 2025 heb je voor zakelijke invoer en uitvoer een FIN-nummer nodig.</p>
+<ul>
+<li><b>Invoerrecht</b> volgens het gemeenschappelijk buitentarief van CARICOM, per HS-code. Grondstoffen meestal laag, eindproducten hoger. Goederen met CARICOM-oorsprong kunnen vrij zijn.</li>
+<li><b>Statistiekrecht en consentrecht</b>: volgens de handelsgids van de Amerikaanse overheid en het EITI-rapport 0,5% en 1,5% van de CIF-waarde, berekend in ASYCUDA. Controleer de actuele percentages bij je expediteur of de Douane. Zie <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+<li><b>Accijns</b> op tabak en sigaretten, gedistilleerd en andere alcoholhoudende dranken, bier, frisdrank, en een verbruiksbelasting op motorbrandstof. Ook lokale producenten betalen accijns.</li>
+<li><b>BTW bij invoer</b>: {{ std }}% (of 5% of 25%) over de douanewaarde plus de rechten en accijns. Aftrekbaar als je BTW-geregistreerd bent.</li>
+</ul>
+<p>Er bestaan gedeeltelijke vrijstellingen voor bedrijfsmiddelen, grondstoffen en verpakkingsmateriaal (Grondstoffenbesluit 1997). Volgens HBN Law &amp; Tax gold onder beschikking La.F.no. 1378 tot 27 juni 2026 een vrijstelling van 50% van het invoerrecht op bedrijfsmiddelen, 75% voor de productiesector en een gedeeltelijke vrijstelling van statistiekrecht tot SRD 1.000. Vraag bij de Douane of het Ministerie van Financiën of dit is verlengd, en regel het verzoek voordat de goederen aankomen. Reken je totale kosten uit met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>; de procedure staat in <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<p>On every import the customs system ASYCUDA calculates the levies on the customs value (CIF). You pay by bank to the Receiver of Import Duties and Excise. Since 1 January 2025 commercial importers and exporters need a FIN number.</p>
+<ul>
+<li><b>Import duty</b> under the CARICOM common external tariff, per HS code. Raw materials usually low, finished goods higher. Goods of CARICOM origin can be duty free.</li>
+<li><b>Statistical fee (statistiekrecht) and consent fee (consentrecht)</b>: according to the US government trade guide and the EITI report, 0.5% and 1.5% of the CIF value, calculated in ASYCUDA. Check the current rates with your broker or Customs. See <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+<li><b>Excise (accijns)</b> on tobacco and cigarettes, spirits and other alcoholic drinks, beer, soft drinks, and a consumption tax on motor fuel. Local producers pay excise too.</li>
+<li><b>Import VAT</b>: {{ std }}% (or 5% or 25%) on the customs value plus duties and excise. Deductible if you are VAT registered.</li>
+</ul>
+<p>Partial exemptions exist for business assets, raw materials and packaging (Raw Materials Decree 1997). According to HBN Law &amp; Tax, decree La.F.no. 1378 gave a 50% import duty exemption on business assets, 75% for the production sector and a partial statistical fee exemption up to SRD 1,000 until 27 June 2026. Ask Customs or the Ministry of Finance whether this was extended, and file the request before the goods arrive. Work out your landed cost with the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>; the procedure is in <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Onroerend goed: overdrachtsbelasting en huurwaardebelasting' if nl else 'Real estate: transfer tax and rental value tax' }}</h2>
+{% if nl %}
+<p><b>Overdrachtsbelasting</b> heet officieel zegelrecht (artikel 32 Zegelwet). Sinds oktober 2022 is het <b>4%</b> van de waarde van het onroerend goed of zakelijk recht (eigendom, grondhuur, opstal), bij een akte van overdracht of vestiging. Hypotheken vallen erbuiten. Bij overdracht aan bloed- of aanverwanten tot en met de tweede graad is het 0,5%. Bij ruil betaal je 4% over de helft van de waarde van de geruilde goederen samen, en bij een ruil of verkoop om de juridische situatie gelijk te trekken met de feitelijke 0,5% over de grondwaarde. De notaris berekent en int het. Meer in <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+<p><b>Huurwaardebelasting</b> (<a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Huurwaardebelasting.pdf" rel="noopener">Wet Huurwaardebelasting 1995</a>) is 6% van de huurwaarde van een gebouw, met een minimum van SRD 20 per jaar. Bij eigen gebruik is de huurwaarde 1% van de vrije verkoopwaarde na aftrek van SRD 50.000; bij verhuur de jaarlijkse huuropbrengst. De eigenaar betaalt, op domeingrond de grondhuurder. Gebouwen voor landbouw, fabrieken en werkplaatsen zijn vrijgesteld. Hoe de heffing in de praktijk loopt, vraag je bij de Inspectie der Directe Belastingen. Meer in <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% else %}
+<p><b>Transfer tax</b> is officially called stamp duty (zegelrecht, article 32 Stamp Act). Since October 2022 it is <b>4%</b> of the value of the property or property right (ownership, land lease, building right), on a deed of transfer or creation. Mortgages are excluded. For transfers to blood relatives or in-laws up to the second degree it is 0.5%. For an exchange you pay 4% on half the combined value of the exchanged properties, and for an exchange or sale to bring the legal situation in line with the actual one, 0.5% of the land value. The notary calculates and collects it. More in <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+<p><b>Rental value tax</b> (<a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Huurwaardebelasting.pdf" rel="noopener">Rental Value Tax Act 1995</a>) is 6% of a building's rental value, with a minimum of SRD 20 a year. For own use the rental value is 1% of the market value after deducting SRD 50,000; for a let building it is the annual rent. The owner pays, or on state land the leaseholder. Buildings used for agriculture, factories and workshops are exempt. Ask the Direct Taxes Inspectorate how it is collected in practice. More in <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Vermogensbelasting, bronheffing en verrekenprijzen' if nl else 'Wealth tax, withholding taxes and transfer pricing' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Vermogensbelasting.</b> Oudere overzichten noemen een vermogensbelasting voor natuurlijke personen, niet voor bedrijven. Actuele bedragen en of er aanslagen worden opgelegd, konden we niet bevestigen; vraag het na bij de Inspectie der Directe Belastingen.</li>
+<li><b>Bronheffing op betalingen naar het buitenland.</b> Behalve de 25% dividendbelasting heft Suriname volgens het overzicht van het ABS geen bronbelasting op rente, royalty's of management- en servicevergoedingen die naar het buitenland gaan. Wel kan een buitenlands bedrijf dat in Suriname werkt een vaste inrichting hebben en dan zelf inkomstenbelasting en loonbelasting verschuldigd zijn. Sinds februari 2023 valt ook de exclusieve economische zone (offshore) onder de Surinaamse heffing. Op diensten die je van een buitenlands bedrijf koopt, geef je wel zelf BTW aan (verlegging).</li>
+<li><b>Verrekenprijzen.</b> Suriname heeft geen uitgebreide documentatieregels zoals in OESO landen. De wet staat aftrek van rente en vergoedingen aan verbonden partijen alleen toe voor zover die zakelijk (at arm's length) zijn. Voor de BTW geldt tussen verbonden partijen de marktwaarde als de prijs lager is en de BTW niet volledig aftrekbaar. Leg je intragroeptarieven daarom schriftelijk vast.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Wealth tax (vermogensbelasting).</b> Older overviews mention a wealth tax for individuals, not for companies. We could not confirm current amounts or whether assessments are being issued; ask the Direct Taxes Inspectorate.</li>
+<li><b>Withholding on payments abroad.</b> Apart from the 25% dividend tax, according to the ABS overview Suriname levies no withholding tax on interest, royalties or management and service fees paid abroad. A foreign company working in Suriname can, however, have a permanent establishment and then owe income tax and wage tax itself. Since February 2023 the exclusive economic zone (offshore) also falls under Surinamese taxation. On services you buy from a foreign company, you do declare VAT yourself (reverse charge).</li>
+<li><b>Transfer pricing.</b> Suriname has no detailed documentation rules like OECD countries. The law only allows a deduction for interest and fees paid to related parties to the extent they are at arm's length. For VAT, market value applies between related parties if the price is lower and the VAT is not fully deductible. Put your intra-group pricing in writing.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Investeringswet en andere faciliteiten' if nl else 'Investment Act and other incentives' }}</h2>
+{% if nl %}
+<p>De Investeringswet 2001 biedt onder voorwaarden fiscale faciliteiten voor goedgekeurde investeringen. Volgens het overzicht van het ABS en HBN Law &amp; Tax gaat het om:</p>
+<ul class="check">
+<li>gedeeltelijke of volledige vrijstelling van invoerrechten op bedrijfsmiddelen en, voor de productiesector, op grondstoffen, hulpstoffen, halffabricaten en verpakkingsmateriaal;</li>
+<li>een belastingvakantie in het startjaar en de 9 jaar daarna voor goedgekeurde projecten (vooral toerisme en landbouw), met een mogelijke verlenging voor grote investeringen;</li>
+<li>versnelde afschrijving op bedrijfsmiddelen;</li>
+<li>niet-fiscale faciliteiten zoals vergunningen om deviezen over te maken voor winst, rente en aflossingen.</li>
+</ul>
+<p>Een nieuwe Investeringswet (ontwerp 2024) met onder meer investeringsaftrek, horizontale verliesverrekening en een aftrek voor rente over eigen vermogen was eind 2025 nog niet door De Nationale Assemblée aangenomen. Voor de olie- en gassector gelden aparte regels: onder meer 0% BTW op leveringen aan (sub)contractors en vrijstelling van invoerrechten en dividendbelasting via overeenkomsten (zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>). Vraag faciliteiten aan via het Ministerie van Financiën en Planning of EZOTI, vóór je investeert. Meer in <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% else %}
+<p>The Investment Act 2001 offers tax incentives for approved investments, subject to conditions. According to the ABS overview and HBN Law &amp; Tax they include:</p>
+<ul class="check">
+<li>partial or full exemption from import duty on business assets and, for the production sector, on raw materials, auxiliary materials, semi-finished goods and packaging;</li>
+<li>a tax holiday in the start year and the following 9 years for approved projects (mainly tourism and agriculture), with a possible extension for large investments;</li>
+<li>accelerated depreciation of business assets;</li>
+<li>non-tax incentives such as permits to transfer foreign currency for profit, interest and loan repayments.</li>
+</ul>
+<p>A new Investment Act (2024 draft) with an investment allowance, horizontal loss offset and a deduction for notional interest on equity, among other things, had not yet been passed by the National Assembly at the end of 2025. The oil and gas sector has separate rules: among others 0% VAT on supplies to (sub)contractors and exemption from import duties and dividend tax through agreements (see <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>). Apply for incentives through the Ministry of Finance and Planning or EZOTI before you invest. More in <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Belastingkalender van een jaar' if nl else 'Tax calendar for a year' }}</h2>
+{% if nl %}
+<p>Voor een bedrijf met een kalenderjaar als boekjaar. Valt een datum in het weekend of op een feestdag, dien dan eerder in.</p>
+{% else %}
+<p>For a business whose financial year is the calendar year. If a date falls on a weekend or holiday, file earlier.</p>
+{% endif %}
+<table class="tbl stack tx"><thead><tr><th>{{ 'Wanneer' if nl else 'When' }}</th><th>{{ 'Wat' if nl else 'What' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Wanneer">Elke maand, uiterlijk de 10e</td><td data-l="Wat">Aangifte en betaling loonbelasting en AOV over de vorige maand (portaal open vanaf de 26e).</td></tr>
+<tr><td data-l="Wanneer">Elke maand, de 1e tot de 15e</td><td data-l="Wat">BTW-aangifte en betaling over de vorige maand, ook nihil.</td></tr>
+<tr><td data-l="Wanneer">Binnen een maand na een dividend</td><td data-l="Wat">Aangifte en afdracht dividendbelasting.</td></tr>
+<tr><td data-l="Wanneer">Bij elke invoer</td><td data-l="Wat">Invoerrechten, statistiek- en consentrecht, accijns en BTW aan de Douane.</td></tr>
+<tr><td data-l="Wanneer">15 februari</td><td data-l="Wat">Laatste dag om een lagere voorlopige aanslag te vragen.</td></tr>
+<tr><td data-l="Wanneer">15 april</td><td data-l="Wat">Voorlopige aangifte inkomstenbelasting en eerste termijn.</td></tr>
+<tr><td data-l="Wanneer">30 april</td><td data-l="Wat">Definitieve aangifte inkomstenbelasting voor personen (eigenaren van een eenmanszaak).</td></tr>
+<tr><td data-l="Wanneer">30 juni</td><td data-l="Wat">Definitieve aangifte inkomstenbelasting voor NV's en andere lichamen, met jaarstukken.</td></tr>
+<tr><td data-l="Wanneer">15 juli en 15 oktober</td><td data-l="Wat">Tweede en derde termijn voorlopige aanslag.</td></tr>
+<tr><td data-l="Wanneer">31 december</td><td data-l="Wat">Vierde termijn; ook uiterste datum voor een voorlopige aangifte als je plicht pas na 15 april ontstond.</td></tr>
+{% else %}
+<tr><td data-l="When">Every month, by the 10th</td><td data-l="What">Wage tax and AOV return and payment for the previous month (portal opens on the 26th).</td></tr>
+<tr><td data-l="When">Every month, 1st to 15th</td><td data-l="What">VAT return and payment for the previous month, also nil returns.</td></tr>
+<tr><td data-l="When">Within a month after a dividend</td><td data-l="What">Dividend tax return and payment.</td></tr>
+<tr><td data-l="When">At every import</td><td data-l="What">Import duty, statistical and consent fees, excise and VAT to Customs.</td></tr>
+<tr><td data-l="When">15 February</td><td data-l="What">Last day to ask for a lower provisional assessment.</td></tr>
+<tr><td data-l="When">15 April</td><td data-l="What">Provisional income tax return and first instalment.</td></tr>
+<tr><td data-l="When">30 April</td><td data-l="What">Final income tax return for individuals (sole trader owners).</td></tr>
+<tr><td data-l="When">30 June</td><td data-l="What">Final income tax return for NVs and other entities, with financial statements.</td></tr>
+<tr><td data-l="When">15 July and 15 October</td><td data-l="What">Second and third provisional instalment.</td></tr>
+<tr><td data-l="When">31 December</td><td data-l="What">Fourth instalment; also the deadline for a provisional return if your obligation only started after 15 April.</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Zet alle data automatisch in je agenda met' if nl else 'Add all dates to your calendar with' }} <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</p>
+
+<h2>{{ 'Rekenvoorbeeld: een NV met SRD 1 miljoen winst' if nl else 'Worked example: an NV with SRD 1 million profit' }}</h2>
+{% if nl %}
+<table class="tbl"><tbody>
+<tr><td>Belastbare winst over 2026</td><td class="r">{{ srd(1000000) }}</td></tr>
+<tr><td>Inkomstenbelasting 36%</td><td class="r">- {{ srd(360000) }}</td></tr>
+<tr><td>Winst na belasting</td><td class="r">{{ srd(640000) }}</td></tr>
+<tr><td>Uitgekeerd als dividend: 25% dividendbelasting ingehouden</td><td class="r">- {{ srd(160000) }}</td></tr>
+<tr><td><b>Netto naar de aandeelhouder</b></td><td class="r"><b>{{ srd(480000) }}</b></td></tr>
+</tbody></table>
+<p>Samen is dat 52% van de winst. Woont de aandeelhouder in Suriname, dan telt het dividend in zijn eigen aangifte en wordt de 25% verrekend; bij een hoog inkomen kan er nog wat bij komen. Laat de NV de winst staan voor investeringen, dan blijft het bij 36%. De voorlopige aanslag 2027 is minstens {{ srd(360000) }}: vier termijnen van {{ srd(90000) }}. Dezelfde winst in een eenmanszaak geeft {{ srd(313760) }} inkomstenbelasting plus {{ srd(40000) }} AOV.</p>
+{% else %}
+<table class="tbl"><tbody>
+<tr><td>Taxable profit for 2026</td><td class="r">{{ srd(1000000) }}</td></tr>
+<tr><td>Income tax 36%</td><td class="r">- {{ srd(360000) }}</td></tr>
+<tr><td>Profit after tax</td><td class="r">{{ srd(640000) }}</td></tr>
+<tr><td>Paid out as dividend: 25% dividend tax withheld</td><td class="r">- {{ srd(160000) }}</td></tr>
+<tr><td><b>Net to the shareholder</b></td><td class="r"><b>{{ srd(480000) }}</b></td></tr>
+</tbody></table>
+<p>Together that is 52% of the profit. If the shareholder lives in Suriname, the dividend counts in their own return and the 25% is credited; on a high income a little more can be due. If the NV keeps the profit for investment, the total stays at 36%. The provisional assessment for 2027 is at least {{ srd(360000) }}: four instalments of {{ srd(90000) }}. The same profit in a sole proprietorship gives {{ srd(313760) }} income tax plus {{ srd(40000) }} AOV.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Denken dat een kleine NV geen aangifte hoeft te doen.</b> Elk lichaam doet voorlopige en definitieve aangifte, ook bij verlies en ook als je geen aangiftebiljet hebt ontvangen.</li>
+<li><b>Loonbelasting en AOV inhouden en het geld gebruiken voor de zaak.</b> Het hoort bij de fiscus, niet in je kas. Draag het elke maand af.</li>
+<li><b>Geen boekhouding vanaf dag één.</b> Zonder geregelde boekhouding vervalt de onbeperkte verrekening van aanloopverliezen.</li>
+<li><b>Winst opnemen via een rekening-courant zonder dividendbelasting.</b> De wet belast uitdelingen van winst "onder welke naam of in welke vorm ook".</li>
+<li><b>Vrijstellingen voor invoer te laat aanvragen.</b> De aanvraag moet rond zijn voordat de goederen in de haven liggen.</li>
+<li><b>Intragroepvergoedingen niet onderbouwen.</b> Zonder zakelijke onderbouwing kan de aftrek worden geweigerd.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Thinking a small NV need not file.</b> Every entity files provisional and final returns, even at a loss and even if no return form was sent.</li>
+<li><b>Withholding wage tax and AOV and using the money for the business.</b> It belongs to the tax office, not in your till. Remit it every month.</li>
+<li><b>No bookkeeping from day one.</b> Without proper books you lose the unlimited carry-forward of start-up losses.</li>
+<li><b>Taking out profit through a current account without dividend tax.</b> The law taxes distributions of profit "under whatever name or in whatever form".</li>
+<li><b>Applying for import exemptions too late.</b> The request must be settled before the goods are in port.</li>
+<li><b>Not supporting intra-group charges.</b> Without arm's length support the deduction can be refused.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Waar krijg je hulp?' if nl else 'Where to get help' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Inspectie der Directe Belastingen</b> (inkomsten-, loon- en dividendbelasting): Van Sommelsdijckstraat 27, Paramaribo, 1960 toestel 312 of 313.</li>
+<li><b>Inspectie Omzetbelasting</b> (BTW): zelfde adres, 1960 toestel 345.</li>
+<li><b>Ontvangkantoor der Directe Belastingen</b> (betalingen): zelfde adres, 1960 toestel 305.</li>
+<li><b>Douane</b>, Inspectie der Invoerrechten en Accijnzen: Havenlaan 1, Paramaribo, 1960 toestel 161 of 162.</li>
+<li><b>Hoofdkantoor Belastingdienst</b>: Kerkplein 12, 1960 toestel 231 of 232. Kantoortijden: {{ F.TAX_OFFICE_HOURS[0] }}.</li>
+</ul>
+<p>Voor je jaarstukken, de aangifte inkomstenbelasting en vragen over faciliteiten schakel je een accountant of belastingadviseur in. Kies iemand die de Surinaamse wet en het online portaal kent, en vraag vooraf om een prijsopgave. Alle adressen staan op <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> en een overzicht van instanties op <a href="{{ U('resources') }}">{{ L('resources') }}</a>. Hoe je je administratie inricht lees je in <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% else %}
+<ul>
+<li><b>Direct Taxes Inspectorate</b> (income, wage and dividend tax): Van Sommelsdijckstraat 27, Paramaribo, 1960 extension 312 or 313.</li>
+<li><b>VAT Inspectorate</b> (Inspectie Omzetbelasting): same address, 1960 extension 345.</li>
+<li><b>Direct Taxes Receiving Office</b> (payments): same address, 1960 extension 305.</li>
+<li><b>Customs</b>, Import Duties and Excise Inspectorate: Havenlaan 1, Paramaribo, 1960 extension 161 or 162.</li>
+<li><b>Tax office head office</b>: Kerkplein 12, 1960 extension 231 or 232. Office hours: {{ F.TAX_OFFICE_HOURS[1] }}.</li>
+</ul>
+<p>For your financial statements, the income tax return and questions about incentives, hire an accountant or tax adviser. Pick someone who knows Surinamese law and the online portal, and ask for a quote in advance. All addresses are on <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> and an overview of institutions on <a href="{{ U('resources') }}">{{ L('resources') }}</a>. How to set up your records is in <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Inkomstenbelasting.pdf" rel="noopener">Inkomstenbelasting 1922 (bijgewerkt tot S.B. 2024 no. 3)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Dividendbelasting.pdf" rel="noopener">Wet Dividendbelasting 1973</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-AOV.pdf" rel="noopener">Wet AOV</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf" rel="noopener">Wet BTW 2022 (S.B. 2022 no. 121)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2023-no.-126-nadere-wijziging-WET-BTW-5-September-2023.pdf" rel="noopener">Wijziging Wet BTW 5 september 2023 (S.B. 2023 no. 126)</a></li>
+<li><a href="https://www.dna.sr/media/c1sewtux/sb_2022___119.pdf" rel="noopener">S.B. 2022 no. 119, wijziging Zegelwet: overdrachtsbelasting 4%</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Algemene-Procedure-in-en-uitvoer.pdf" rel="noopener">Belastingdienst: algemene procedure in- en uitvoer (2026)</a></li>
+<li><a href="https://belastingdienst.sr/belastingen/inkomstenbelasting/" rel="noopener">Belastingdienst: inkomstenbelasting</a></li>
+<li><a href="https://hbnlawtax.com/?p=2162" rel="noopener">HBN Law &amp; Tax: end of the year tax alerts Suriname (1 december 2025)</a></li>
+<li><a href="https://hbnlawtax.com/tax-instant-news/end-of-the-year-tax-alerts-suriname-2/" rel="noopener">HBN Law &amp; Tax: end of the year tax alerts Suriname (18 november 2024)</a></li>
+<li><a href="https://statistics-suriname.org/wp-content/uploads/2021/05/Suriname-Taxes-English-version.pdf" rel="noopener">ABS: Suriname taxes, English version (ouder overzicht)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+</div>
+{% endblock %}

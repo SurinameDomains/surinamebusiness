@@ -3,29 +3,326 @@
 {% block content %}
 <div class="prose">
 <h1>{{ 'Personeel aannemen in Suriname' if nl else 'Hiring staff in Suriname' }}</h1>
-<p class="lead">{{ 'Je eerste werknemer aannemen? Dit moet je als werkgever regelen, met de rekentools om het goed te doen.' if nl else 'Hiring your first employee? This is what you have to arrange as an employer, with the calculators to do it right.' }}</p>
-<h2>{{ '1. Vacature en contract' if nl else '1. Vacancy and contract' }}</h2>
-<p>{{ 'Plaats je vacature gratis op onze vacaturebank. Leg daarna afspraken vast in een schriftelijke arbeidsovereenkomst: functie, loon, werktijden, proeftijd, vakantie en opzegging.' if nl else 'Post your vacancy for free on our job board. Then put the agreements in a written employment contract: job, pay, working hours, probation, leave and notice.' }} <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>. {{ 'Komt je werknemer uit het buitenland, dan is vaak een werkvergunning nodig:' if nl else 'If your employee comes from abroad, a work permit is often required:' }} <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
-<h2>{{ '2. Inschrijven als werkgever' if nl else '2. Register as an employer' }}</h2>
-<p>{{ 'Wie loon betaalt, moet loonbelasting en AOV-premie inhouden en afdragen. Regel je registratie en toegang tot het online portaal bij de Belastingdienst, voordat je het eerste loon betaalt.' if nl else 'Anyone who pays wages must withhold and pay wage tax and the AOV premium. Arrange your registration and access to the online portal with the tax office before paying the first wage.' }} <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
-<h2>{{ '3. Elke maand' if nl else '3. Every month' }}</h2>
-<table class="tbl"><tbody>
-<tr><td>{{ 'Loonbelasting' if nl else 'Wage tax' }}</td><td>{{ 'Inhouden op het loon met de tarieven van' if nl else 'Withheld from pay at the' }} {{ F.TAX.year }}{{ '.' if nl else ' rates.' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a></td></tr>
-<tr><td>AOV</td><td>{{ '4% van het zuiver loon, ingehouden bij werknemers jonger dan 60.' if nl else '4% of the net taxable wage, withheld from employees under 60.' }}</td></tr>
-<tr><td>{{ 'Aangifte' if nl else 'Return' }}</td><td>{{ 'Loonbelasting en AOV per maand via het portaal; het portaal neemt aangiftes aan van de 26e tot en met de 10e.' if nl else 'Wage tax and AOV monthly through the portal; it accepts returns from the 26th up to and including the 10th.' }} <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></td></tr>
-<tr><td>{{ 'Loonstrook' if nl else 'Payslip' }}</td><td><a href="{{ U('payslip') }}">{{ L('payslip') }}</a></td></tr>
-<tr><td>{{ 'Pensioen' if nl else 'Pension' }}</td><td>{{ 'Werknemers vallen onder de Wet Algemeen Pensioen (APF). Vraag het APF naar de actuele premie, de verdeling werkgever/werknemer en de termijnen.' if nl else 'Employees fall under the General Pension Act (APF). Ask the APF for the current premium, the employer/employee split and the deadlines.' }}</td></tr>
-<tr><td>{{ 'Zorgverzekering' if nl else 'Health insurance' }}</td><td>{{ 'Iedereen moet een basiszorgverzekering hebben (Wet Nationale Basiszorgverzekering). Bespreek met je verzekeraar of het SZF hoe je als werkgever bijdraagt.' if nl else 'Everyone must have basic health insurance (National Basic Health Insurance Act). Discuss with your insurer or the SZF how you contribute as an employer.' }}</td></tr>
-</tbody></table>
-<h2>{{ '4. Regels voor werktijd, loon en vakantie' if nl else '4. Rules on hours, pay and leave' }}</h2>
+{% if nl %}
+<p class="lead">Wie in Suriname iemand in dienst neemt, wordt werkgever met vaste plichten: een arbeidsovereenkomst volgens het nieuwe Burgerlijk Wetboek, maandelijks loonbelasting en AOV inhouden, pensioenpremie aan het APF, FVO-premie voor ouderschapsverlof, een basiszorgverzekering en een ongevallenverzekering. Deze gids zet alles op een rij voor je eerste werknemer, van vacature tot loonstrook.</p>
+<div class="tldr"><div class="eyebrow">In het kort</div><ul>
+<li>Regel vóór de eerste werkdag: registratie als inhoudingsplichtige bij de Belastingdienst, aanmelding bij het APF (pensioen) en het FVO, een basiszorgverzekering en een ongevallenverzekering.</li>
+<li>Een proeftijd is alleen geldig als die schriftelijk is afgesproken, voor beide partijen gelijk is en niet langer dan twee maanden duurt (art. 7:652 BW).</li>
+<li>Tijdelijke contracten worden vast na meer dan 24 maanden of bij het vierde contract, als de pauzes ertussen niet langer zijn dan drie maanden (art. 7:667c BW).</li>
+<li>Minimumloon: {{ srd(F.MIN_WAGE.hour, 2) }} per uur sinds 1 juli 2026. Loon betaal je minstens eens per maand, met een loonstrook.</li>
+<li>Bij ziekte betaal je het loon door, minstens zes weken. Zwangerschaps- en bevallingsverlof (16 weken) en vaderschapsverlof (8 dagen) worden vergoed door het FVO.</li>
+</ul></div>
+{% else %}
+<p class="lead">Taking someone on in Suriname makes you an employer with fixed duties: an employment contract under the new Civil Code, monthly wage tax and AOV withholding, a pension premium to the APF, an FVO premium for parental leave, basic health insurance and accident insurance. This guide covers everything for your first employee, from the vacancy to the payslip.</p>
+<div class="tldr"><div class="eyebrow">In short</div><ul>
+<li>Arrange before the first working day: registration as a withholding employer with the tax office, sign-up with the APF (pension) and the FVO, basic health insurance and accident insurance.</li>
+<li>A probation period is only valid if agreed in writing, equal for both sides and no longer than two months (art. 7:652 Civil Code).</li>
+<li>Fixed-term contracts become permanent after more than 24 months or at the fourth contract, if the gaps between them are no longer than three months (art. 7:667c Civil Code).</li>
+<li>Minimum wage: {{ srd(F.MIN_WAGE.hour, 2) }} an hour since 1 July 2026. Pay wages at least once a month, with a payslip.</li>
+<li>When an employee is ill you keep paying wages for at least six weeks. Pregnancy and maternity leave (16 weeks) and paternity leave (8 days) are reimbursed by the FVO.</li>
+</ul></div>
+{% endif %}
+
+<h2>{{ 'Personeel vinden' if nl else 'Finding staff' }}</h2>
+{% if nl %}
+<p>Begin met een duidelijke functieomschrijving: taken, werktijden, loon en startdatum. Daarmee schrijf je de vacature en later het contract.</p>
 <ul>
-<li>{{ 'Minimumloon:' if nl else 'Minimum wage:' }} {{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur sinds 1 juli 2026.' if nl else 'per hour since 1 July 2026.' }} <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></li>
-<li>{{ 'Maximaal' if nl else 'Maximum' }} {{ num(F.LABOUR.max_day, 1) }} {{ 'uur per dag en 48 uur per week; overwerk minimaal 150%, op rustdagen 200%.' if nl else 'hours a day and 48 hours a week; overtime at least 150%, 200% on rest days.' }} <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a> &middot; <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
-<li>{{ '12 vakantiedagen na een vol kalenderjaar, oplopend tot 18, plus een vakantietoelage van een halve dag loon per vakantiedag.' if nl else '12 leave days after a full calendar year, rising to 18, plus a leave allowance of half a day\'s pay per leave day.' }} <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
-<li>{{ 'Officiële feestdagen zijn vrij met behoud van loon.' if nl else 'Official public holidays are paid days off.' }} <a href="{{ U('holidays') }}">{{ L('holidays') }}</a></li>
+<li><b>Onze vacaturebank.</b> Plaats je vacature gratis: <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>. Werkzoekenden vinden haar in <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+<li><b>Arbeidsbemiddeling van de overheid.</b> Het Onderdirectoraat Arbeidsmarkt (ODAM) van het ministerie van Volksgezondheid, Welzijn en Arbeid (VWA) bemiddelt tussen werkzoekenden en werkgevers in de particuliere sector en publiceert vacatures op gov.sr. Bel het mobiele nummer 8815616 om een vacature te melden of kandidaten te vragen. Arbeidszaken vallen sinds de nieuwe regering onder dit ministerie, het vroegere ministerie van Arbeid (AWJ).</li>
+<li><b>Uitzendbureaus.</b> Bestaande bureaus werken door; nieuwe uitzendvergunningen worden sinds 27 juli 2026 tijdelijk niet behandeld. Wissel iemand niet af tussen een tijdelijk contract en inlening: dan ontstaat een vast contract (art. 7:667g BW).</li>
+<li><b>Interne vacatures.</b> Heb je werknemers met een tijdelijk contract, maak een vaste vacature dan ook intern bekend (art. 7:667f BW).</li>
 </ul>
+<p>Bij werving en selectie mag je geen onderscheid maken tussen mannen en vrouwen, ook niet vanwege zwangerschap (art. 7:633b BW). Komt je kandidaat uit het buitenland, dan heb je meestal een werkvergunning nodig: zie verderop.</p>
+{% else %}
+<p>Start with a clear job description: tasks, hours, pay and start date. You use it for the vacancy and later for the contract.</p>
+<ul>
+<li><b>Our job board.</b> Post your vacancy for free: <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>. Job seekers find it under <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+<li><b>Government job placement.</b> The Labour Market Sub-directorate (ODAM) of the Ministry of Health, Welfare and Labour (VWA) matches job seekers with private-sector employers and publishes vacancies on gov.sr. Call the mobile number 8815616 to register a vacancy or ask for candidates. Labour affairs moved to this ministry under the new government, from the former Ministry of Labour (AWJ).</li>
+<li><b>Staffing agencies.</b> Existing agencies continue; new agency licences are temporarily not processed since 27 July 2026. Do not alternate someone between a fixed-term contract and agency hire: that creates a permanent contract (art. 7:667g Civil Code).</li>
+<li><b>Internal vacancies.</b> If you have staff on fixed-term contracts, also announce permanent vacancies internally (art. 7:667f Civil Code).</li>
+</ul>
+<p>In recruitment you may not treat men and women differently, including on grounds of pregnancy (art. 7:633b Civil Code). If your candidate comes from abroad, you usually need a work permit: see below.</p>
+{% endif %}
+
+<h2>{{ 'De arbeidsovereenkomst onder het nieuwe BW' if nl else 'The employment contract under the new Civil Code' }}</h2>
+{% if nl %}
+<p>Sinds 1 mei 2025 staat het arbeidsrecht in Boek 7, titel 10 van het nieuwe Burgerlijk Wetboek (BW). Daar zijn ook de regels van de Wet Arbeidsbescherming Gezin en de omzetting van tijdelijke contracten in opgenomen. De belangrijkste punten voor een nieuwe werkgever:</p>
+<ul>
+<li><b>Mondeling mag, schriftelijk is verstandig.</b> Een arbeidsovereenkomst bestaat ook zonder papier. Wie drie maanden achter elkaar minstens 8 uur per week of 35 uur per maand tegen betaling voor je werkt, wordt vermoed een arbeidsovereenkomst te hebben (art. 7:610a). Maar veel afspraken gelden alleen als ze schriftelijk zijn: de proeftijd, een concurrentiebeding, boetes, tussentijdse opzegging van een tijdelijk contract en het recht om arbeidsvoorwaarden eenzijdig te wijzigen.</li>
+<li><b>Proeftijd.</b> Alleen schriftelijk, voor beide partijen even lang en maximaal twee maanden. Een tweede proeftijd die het totaal boven twee maanden brengt, is nietig (art. 7:652).</li>
+<li><b>Tijdelijk contract.</b> Een contract voor bepaalde tijd eindigt vanzelf op de einddatum. Tussentijds opzeggen kan alleen als dat voor beide partijen schriftelijk is afgesproken (art. 7:667 lid 3). Werkt de werknemer na de einddatum gewoon door, dan loopt het contract door voor dezelfde duur, maximaal een jaar (art. 7:668).</li>
+<li><b>Ketenregeling.</b> Volgen tijdelijke contracten elkaar op met pauzes van hoogstens drie maanden, dan wordt het contract vast zodra de keten langer is dan 24 maanden, of bij het vierde contract (art. 7:667c). Je moet de werknemer dan een getekende verklaring geven dat het contract voor onbepaalde tijd geldt (art. 7:667e). Dit geldt niet voor werknemers die de pensioenleeftijd van 60 jaar hebben bereikt.</li>
+<li><b>Afschrift.</b> De kosten van een schriftelijk contract zijn voor de werkgever, en je geeft de werknemer kosteloos een volledig, door jou getekend afschrift (art. 7:654 en 7:667d).</li>
+<li><b>Minderjarigen.</b> Vanaf 16 jaar mag iemand zelf een arbeidsovereenkomst sluiten (art. 7:612).</li>
+</ul>
+{% else %}
+<p>Since 1 May 2025 employment law is in Book 7, title 10 of the new Civil Code (Burgerlijk Wetboek, BW). It also absorbed the rules of the Family Labour Protection Act and the conversion of fixed-term contracts. The key points for a new employer:</p>
+<ul>
+<li><b>Oral is allowed, written is wise.</b> An employment contract exists without paper. Anyone who works for you for pay for three consecutive months, at least 8 hours a week or 35 hours a month, is presumed to have an employment contract (art. 7:610a). But many terms only count if they are in writing: probation, a non-compete clause, fines, early termination of a fixed-term contract and the right to change terms unilaterally.</li>
+<li><b>Probation (proeftijd).</b> Only in writing, the same length for both sides and at most two months. A second probation that takes the total over two months is void (art. 7:652).</li>
+<li><b>Fixed-term contract.</b> A fixed-term contract ends automatically on its end date. Early termination is only possible if agreed in writing for both sides (art. 7:667(3)). If the employee simply keeps working after the end date, the contract continues for the same term, at most one year (art. 7:668).</li>
+<li><b>Chain rule.</b> If fixed-term contracts follow each other with gaps of no more than three months, the contract becomes permanent once the chain exceeds 24 months, or at the fourth contract (art. 7:667c). You must then give the employee a signed statement that the contract is for an indefinite period (art. 7:667e). This does not apply to employees who have reached the pension age of 60.</li>
+<li><b>Copy.</b> The employer bears the costs of a written contract, and you give the employee a full copy signed by you, free of charge (art. 7:654 and 7:667d).</li>
+<li><b>Minors.</b> From age 16 a person may sign an employment contract themselves (art. 7:612).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat moet er in het contract?' if nl else 'What goes into the contract?' }}</h2>
+{% if nl %}
+<p>Op verzoek van de werknemer moet je deze gegevens schriftelijk geven (art. 7:655). Zet ze dus gewoon in het contract:</p>
+<ul class="check">
+<li>Naam en woonplaats van werkgever en werknemer</li>
+<li>Plaats(en) waar het werk wordt gedaan</li>
+<li>Functie of soort werk</li>
+<li>Datum van indiensttreding, en bij een tijdelijk contract de duur</li>
+<li>Proeftijd (maximaal twee maanden, voor beiden gelijk)</li>
+<li>Loon, toelagen en betaaltermijn (week, twee weken of maand)</li>
+<li>Gebruikelijke arbeidsduur per dag of per week</li>
+<li>Vakantiedagen of hoe die worden berekend</li>
+<li>Opzegtermijnen of hoe die worden berekend</li>
+<li>Pensioenregeling (APF of een eigen regeling) en ziektekostenregeling</li>
+<li>Een toepasselijke cao, als die er is</li>
+<li>Bij werk van meer dan een maand in het buitenland: duur, huisvesting, valuta, vergoedingen en terugkeer</li>
+</ul>
+<p>Een concurrentiebeding mag alleen schriftelijk en met een meerderjarige werknemer (art. 7:653). Boetes moeten met bedrag en bestemming in het contract of reglement staan, mogen jou niet zelf bevoordelen en zijn samen maximaal een half dagloon per week (art. 7:650).</p>
+{% else %}
+<p>On the employee's request you must give these details in writing (art. 7:655). So simply put them in the contract:</p>
+<ul class="check">
+<li>Name and place of residence of employer and employee</li>
+<li>Place(s) where the work is done</li>
+<li>Job title or type of work</li>
+<li>Start date, and for a fixed-term contract its duration</li>
+<li>Probation (at most two months, equal for both)</li>
+<li>Pay, allowances and pay period (week, fortnight or month)</li>
+<li>Usual working hours per day or week</li>
+<li>Leave days or how they are calculated</li>
+<li>Notice periods or how they are calculated</li>
+<li>Pension scheme (APF or your own scheme) and health insurance arrangement</li>
+<li>Any applicable collective agreement (cao)</li>
+<li>For work abroad longer than a month: duration, housing, currency, allowances and return</li>
+</ul>
+<p>A non-compete clause is only valid in writing and with an adult employee (art. 7:653). Fines must be stated with their amount and purpose in the contract or staff rules, may not benefit you personally and may not exceed half a day's wage per week in total (art. 7:650).</p>
+{% endif %}
+
+<h2>{{ 'Inschrijven als werkgever' if nl else 'Registering as an employer' }}</h2>
+{% if nl %}
+<p>Regel dit vóór de eerste loonbetaling. Een volledig overzicht van wat elke premie kost staat in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<ol class="steps">
+<li><b>Belastingdienst: loonbelasting en AOV.</b> Wie loon betaalt aan een of meer werknemers is inhoudingsplichtige (art. 6 Wet Loonbelasting). Registreer je in het online portaal van de Belastingdienst, met of zonder bestaand FIN-nummer (Fiscaal Identificatienummer). Je hebt nodig: naam en geboortedatum van de inhoudingsplichtige, adres, handelsnaam en bedrijfsadres, telefoonnummer, het aantal werknemers met hun startdatum en het loon per week, twee weken of maand. Elk bedrijf met personeel registreert apart en krijgt één FIN.</li>
+<li><b>APF: pensioen.</b> Elke werkgever moet zijn werknemers een pensioenregeling geven (Wet Algemeen Pensioen 2014). Meld je bedrijf aan in APF-MIS via pensioen.sr. Het APF heeft in juli 2026 een nieuw systeem in gebruik genomen: ook bedrijven die al waren aangesloten, moeten zich opnieuw registreren als bestaande klant.</li>
+<li><b>FVO: ouderschapsverlof.</b> Meld je werknemers aan bij het Bureau Fonds Voorzieningen Ouderschapsverlof. Het FVO verwerkt een uitkering pas als de premie minstens drie maanden vooraf is betaald.</li>
+<li><b>Basiszorgverzekering.</b> Sluit voor je werknemers een basiszorgverzekering af bij een erkende verzekeraar (bijvoorbeeld het SZF, het Staatsziekenfonds, of een particuliere verzekeraar). Je betaalt minstens de helft van de premie.</li>
+<li><b>Ongevallenverzekering.</b> Volgens de Ongevallenregeling verzeker je je werknemers vanaf de eerste werkdag tegen bedrijfsongevallen, bij een erkende verzekeraar. Je werknemer is niet automatisch verzekerd.</li>
+<li><b>Arbeidsinspectie.</b> De Ongevallenregeling verplicht je de start, wijzigingen en sluiting van je onderneming binnen een maand te melden (art. 22). Vraag de Arbeidsinspectie hoe dat nu gaat.</li>
+</ol>
+{% else %}
+<p>Arrange this before the first payday. A full overview of what each premium costs is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<ol class="steps">
+<li><b>Tax office: wage tax and AOV.</b> Anyone who pays wages to one or more employees is a withholding agent (art. 6 Wage Tax Act). Register in the tax office (Belastingdienst) online portal, with or without an existing FIN number (tax identification number). You need: name and date of birth of the withholding agent, address, trade name and business address, phone number, the number of employees with their start dates and the pay per week, fortnight or month. Every company with staff registers separately and gets one FIN.</li>
+<li><b>APF: pension.</b> Every employer must give employees a pension scheme (General Pension Act 2014). Register your company in APF-MIS through pensioen.sr. The APF (General Pension Fund) launched a new system in July 2026: companies that were already registered must also register again as an existing client.</li>
+<li><b>FVO: parental leave.</b> Register your employees with the Parental Leave Fund bureau (Fonds Voorzieningen Ouderschapsverlof, FVO). The FVO only processes a claim if the premium was paid at least three months in advance.</li>
+<li><b>Basic health insurance.</b> Take out basic health insurance (basiszorgverzekering, BZV) for your employees with a recognised insurer (for example the SZF, the state health fund, or a private insurer). You pay at least half the premium.</li>
+<li><b>Accident insurance.</b> Under the Accident Regulation (Ongevallenregeling) you insure your employees against workplace accidents from the first working day, with a recognised insurer. Your employee is not insured automatically.</li>
+<li><b>Labour Inspectorate.</b> The Accident Regulation requires you to report the start, changes and closure of your business within a month (art. 22). Ask the Labour Inspectorate (Arbeidsinspectie) how this works today.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Elke maand: loon, loonstrook en afdrachten' if nl else 'Every month: pay, payslip and payments' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Bereken het loon.</b> Brutoloon plus toelagen en eventueel overwerk. Overwerk heeft een eigen belastingtabel: <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>. Voor het nettoloon: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</li>
+<li><b>Houd in.</b> Loonbelasting volgens de tarieven van {{ F.TAX.year }}, AOV-premie van {{ (F.TAX.aov_pct * 100)|round|int }}% van het zuiver loon bij werknemers jonger dan 60, het werknemersdeel van APF- en FVO-premie en, als afgesproken, het werknemersdeel van de zorgpremie.</li>
+<li><b>Betaal uit en geef een loonstrook.</b> Op de loonstrook staan: naam van werkgever en werknemer, functie, datum van indiensttreding, de periode, de arbeidsduur, het brutoloon en waaruit het bestaat, toelagen, elke inhouding en premie, het wettelijk minimumloon voor die periode en, bij loon in vreemde valuta, de gebruikte koers (art. 7:626 en 7:667d BW). Maak hem met <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</li>
+<li><b>Doe aangifte loonbelasting en AOV.</b> Maandelijks in het portaal van de Belastingdienst. Het portaal neemt de aangifte aan van de 26e tot en met de 10e van de volgende maand: <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+<li><b>Draag de APF-premie af.</b> Maak eerst de loonopgave in APF-MIS en betaal dan, uiterlijk de 15e van de maand na de maand waarover de premie gaat. Vermeld je couponnummer, bedrijfsnaam en periode.</li>
+<li><b>Draag de FVO-premie af</b> op de rekening die het Bureau FVO opgeeft, en betaal de zorg- en ongevallenpremie aan je verzekeraar.</li>
+</ol>
+<p>Betaal op tijd. Wordt het loon later dan de derde werkdag na de betaaldag betaald en ligt dat aan jou, dan heeft de werknemer recht op een verhoging van 5% per dag voor de vierde tot en met de achtste werkdag en daarna 1% per dag, tot maximaal de helft van het bedrag (art. 7:625 BW). Na afloop van het jaar dien je de verzamelloonstaat in, sinds december 2025 ook online. Uiterlijk eind februari geef je elke werknemer een pensioenverklaring met het werkgevers- en werknemersdeel van de APF-premie.</p>
+{% else %}
+<ol class="steps">
+<li><b>Calculate pay.</b> Gross wage plus allowances and any overtime. Overtime has its own tax table: <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>. For net pay: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</li>
+<li><b>Withhold.</b> Wage tax at the {{ F.TAX.year }} rates, the AOV (old-age pension) premium of {{ (F.TAX.aov_pct * 100)|round|int }}% of the net taxable wage for employees under 60, the employee share of the APF and FVO premiums and, if agreed, the employee share of the health premium.</li>
+<li><b>Pay out and issue a payslip.</b> The payslip shows: employer and employee name, job title, start date, the period, working hours, gross pay and what it consists of, allowances, every deduction and premium, the statutory minimum wage for the period and, for pay in foreign currency, the exchange rate used (art. 7:626 and 7:667d Civil Code). Make one with <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</li>
+<li><b>File the wage tax and AOV return.</b> Monthly in the tax office portal. It accepts the return from the 26th up to and including the 10th of the next month: <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+<li><b>Pay the APF premium.</b> First file the payroll statement in APF-MIS, then pay by the 15th of the month after the month the premium covers. State your coupon number, company name and period.</li>
+<li><b>Pay the FVO premium</b> into the account the FVO bureau gives you, and pay the health and accident premiums to your insurer.</li>
+</ol>
+<p>Pay on time. If wages are paid later than the third working day after payday and that is your fault, the employee is entitled to an increase of 5% a day for the fourth to eighth working day and 1% a day after that, up to half the amount (art. 7:625 Civil Code). After the year you file the annual payroll summary (verzamelloonstaat), online since December 2025. By the end of February you give each employee a pension statement showing the employer and employee share of the APF premium.</p>
+{% endif %}
+
+<h2>{{ 'Loon, werktijden en overwerk' if nl else 'Pay, working hours and overtime' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Regel' if nl else 'Rule' }}</th><th>{{ 'Wat geldt' if nl else 'What applies' }}</th></tr></thead><tbody>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Minimumloon' if nl else 'Minimum wage' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur sinds 1 juli 2026, ook voor uitzendkrachten en thuiswerkers. Loon in natura telt mee tegen de werkelijke waarde.' if nl else 'an hour since 1 July 2026, also for agency and home workers. Pay in kind counts at its real value.' }} <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Betaaltermijn' if nl else 'Pay period' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minstens eens per maand en niet vaker dan eens per week (art. 7:623 BW). Loon in vreemde valuta mag als het is afgesproken, maar de werknemer kan SRD vragen.' if nl else 'At least once a month and not more often than once a week (art. 7:623 Civil Code). Pay in foreign currency is allowed if agreed, but the employee can ask for SRD.' }}</td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Werktijd' if nl else 'Working time' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Maximaal' if nl else 'At most' }} {{ num(F.LABOUR.max_day, 1) }} {{ 'uur per dag en' if nl else 'hours a day and' }} {{ F.LABOUR.max_week }} {{ 'uur per week (Arbeidswet).' if nl else 'hours a week (Labour Act).' }} <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Overwerk' if nl else 'Overtime' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minimaal 150% van het uurloon op werkdagen, 200% op rustdagen. Je hebt een overwerkvergunning van de Arbeidsinspectie nodig.' if nl else 'At least 150% of hourly pay on workdays, 200% on rest days. You need an overtime permit from the Labour Inspectorate.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Zondag' if nl else 'Sunday' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Geen werk op zondag, tenzij afgesproken of het volgt uit de aard van het werk (art. 7:657a BW). Daarnaast heb je voor zondagsarbeid en nachtarbeid een vergunning van de Arbeidsinspectie nodig (Arbeidswet art. 8 en 10).' if nl else 'No work on Sunday unless agreed or it follows from the nature of the work (art. 7:657a Civil Code). On top of that, Sunday work and night work need a permit from the Labour Inspectorate (Labour Act arts. 8 and 10).' }}</td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Kleine contracten' if nl else 'Small contracts' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minder dan 15 uur per week zonder vaste tijden: elke oproep wordt betaald als minstens 3 uur (art. 7:628a BW).' if nl else 'Under 15 hours a week without fixed times: every call-in is paid as at least 3 hours (art. 7:628a Civil Code).' }}</td></tr>
+</tbody></table>
+
+<h2>{{ 'Vakantie en feestdagen' if nl else 'Leave and public holidays' }}</h2>
+{% if nl %}
+<p>Volgens de Vakantiewet heeft een werknemer na een vol kalenderjaar recht op {{ F.LEAVE.first_year_days }} werkdagen vakantie met behoud van loon. Elk volgend onafgebroken jaar komen er {{ F.LEAVE.extra_per_year }} dagen bij, tot {{ F.LEAVE.max_days }}. In het eerste, onvolledige jaar is het één dag per volle maand. Bovenop het loon betaal je een vakantietoelage van de helft van het loon over de opgenomen dagen. Gaat de werknemer uit dienst, dan betaal je de niet-opgenomen dagen uit, met toelage. Zwangerschaps- en bevallingsverlof mogen niet van de vakantie worden afgetrokken (art. 7:633e BW). Rekenen: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
+<p>Officiële feestdagen zijn vrij met behoud van loon. Wie op een feestdag moet werken, krijgt minstens 200%, of 300% zonder vervangende rustdag: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+{% else %}
+<p>Under the Leave Act (Vakantiewet) an employee is entitled to {{ F.LEAVE.first_year_days }} working days of paid leave after a full calendar year. Each further unbroken year adds {{ F.LEAVE.extra_per_year }} days, up to {{ F.LEAVE.max_days }}. In the first, incomplete year it is one day per full month. On top of the wage you pay a leave allowance of half the wage for the days taken. When the employee leaves you pay out untaken days, with the allowance. Pregnancy and maternity leave may not be deducted from annual leave (art. 7:633e Civil Code). Calculate: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
+<p>Official public holidays are paid days off. Anyone who has to work on a holiday gets at least 200%, or 300% without a replacement rest day: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Ziekte en bedrijfsongevallen' if nl else 'Illness and workplace accidents' }}</h2>
+{% if nl %}
+<p><b>Wie betaalt bij ziekte?</b> De werkgever. Een zieke werknemer houdt recht op zijn loon "voor een betrekkelijk korte tijd, doch ten minste voor een periode van zes weken" (art. 7:629 BW). Ziekteperiodes met minder dan vier weken ertussen tellen samen. Je mag schriftelijk afspreken dat de eerste twee ziektedagen onbetaald zijn, maar verder niets ten nadele van de werknemer. Er is geen staatsuitkering die dit overneemt; een uitkering uit een verzekering of fonds mag je wel op het loon in mindering brengen.</p>
+<p>Geen loon is verschuldigd als de werknemer de ziekte opzettelijk veroorzaakte, zijn herstel vertraagt of zonder goede reden passend werk of redelijke voorschriften weigert. Jij moet op tijd maatregelen nemen zodat de werknemer zijn eigen of ander passend werk kan doen (art. 7:658a). Ontslag tijdens ziekte is verboden, behalve als de ongeschiktheid al minstens zes weken duurt (met een doktersverklaring) of begon nadat een ontslagvergunning was aangevraagd (art. 7:670 lid 3). Meer: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+<p><b>Bedrijfsongeval.</b> Meld een ongeval binnen 72 uur bij de Arbeidsinspectie als de werknemer langer dan 24 uur niet kan werken, en houd een ongevallenregister bij. Bij een verzekerd ongeval betaalt de verzekeraar onder de Ongevallenregeling de medische kosten en een uitkering van 80% van het dagloon zolang de werknemer volledig ongeschikt is, vanaf de dag na het ongeval. Ben je niet verzekerd, dan draag je die kosten zelf.</p>
+{% else %}
+<p><b>Who pays when an employee is ill?</b> The employer. A sick employee keeps the right to wages "for a relatively short time, but at least for six weeks" (art. 7:629 Civil Code). Sick periods less than four weeks apart are added together. You may agree in writing that the first two sick days are unpaid, but nothing else to the employee's disadvantage. No state benefit takes this over; a benefit from an insurance or fund may be deducted from the wage.</p>
+<p>No wage is due if the employee caused the illness on purpose, delays recovery or refuses suitable work or reasonable instructions without good reason. You must take timely measures so the employee can do their own or other suitable work (art. 7:658a). Dismissal during illness is prohibited, unless the incapacity has lasted at least six weeks (with a doctor's statement) or began after a dismissal permit was requested (art. 7:670(3)). More: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+<p><b>Workplace accident.</b> Report an accident to the Labour Inspectorate within 72 hours if the employee cannot work for more than 24 hours, and keep an accident register. For an insured accident, the insurer pays under the Accident Regulation the medical costs and a benefit of 80% of the daily wage while the employee is fully unfit, from the day after the accident. If you are not insured, you carry those costs yourself.</p>
+{% endif %}
+
+<h2>{{ 'Zwangerschap, bevalling en vaderschapsverlof' if nl else 'Pregnancy, maternity and paternity leave' }}</h2>
+{% if nl %}
+<p>De regels van de Wet Arbeidsbescherming Gezin 2019 staan nu in art. 7:633a tot en met 7:633h BW. Het loon tijdens het verlof komt uit het Fonds Voorzieningen Ouderschapsverlof (FVO), dat wordt gevuld met een premie van 1% van het brutoloon (zie <a href="{{ U('employer') }}">{{ L('employer') }}</a>).</p>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Verlof' if nl else 'Leave' }}</th><th>{{ 'Duur' if nl else 'Length' }}</th></tr></thead><tbody>
+<tr><td data-l="Verlof">Zwangerschapsverlof</td><td data-l="Duur">4 tot 6 weken vóór de vermoedelijke bevallingsdatum, de werknemer kiest</td></tr>
+<tr><td data-l="Verlof">Bevallingsverlof</td><td data-l="Duur">10 tot 12 weken na de bevalling, samen met zwangerschapsverlof 16 weken; bij drie of meer kinderen tot 24 weken</td></tr>
+<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 werkdagen: de dag van de bevalling, 3 dagen erna, 2 dagen na het bevallingsverlof en 2 dagen in de eerste 4 maanden</td></tr>
+<tr><td data-l="Verlof">Adoptie (kind jonger dan 18 maanden)</td><td data-l="Duur">Moeder 6 weken, vader minstens 5 werkdagen</td></tr>
+</tbody></table>
+<ul>
+<li>Het verlof is verplicht, voor de moeder én de vader, en je moet het geven. Tijdens het verlof mag de werknemer niet betaald werken.</li>
+<li>De werknemer meldt de zwangerschap uiterlijk aan het eind van week 20, met een verklaring van huisarts, verloskundige of specialist.</li>
+<li>Jij vraagt de uitkering eenmalig aan bij het FVO, samen ondertekend met de werknemer. Het FVO betaalt het brutoloon aan jou en jij betaalt het meteen door aan de werknemer. Toelagen bovenop het basisloon kunnen voor jouw rekening blijven: vraag het FVO.</li>
+<li>Ontslag tijdens de zwangerschap, het bevallingsverlof en de periode daarna mag alleen om dringende redenen. Na het verlof heeft de werknemer recht op dezelfde of een gelijkwaardige functie met hetzelfde loon.</li>
+<li>Een zwangere werknemer krijgt betaald vrij voor noodzakelijke controles die alleen onder werktijd kunnen, en met een doktersverklaring hoeft ze geen nachtwerk of staand werk te doen.</li>
+</ul>
+{% else %}
+<p>The rules of the Family Labour Protection Act 2019 (Wet Arbeidsbescherming Gezin) are now in art. 7:633a to 7:633h of the Civil Code. Wages during the leave come from the Parental Leave Fund (FVO), which is funded by a premium of 1% of gross wages (see <a href="{{ U('employer') }}">{{ L('employer') }}</a>).</p>
+<table class="tbl stack tx"><thead><tr><th>Leave</th><th>Length</th></tr></thead><tbody>
+<tr><td data-l="Leave">Pregnancy leave</td><td data-l="Length">4 to 6 weeks before the expected due date, the employee chooses</td></tr>
+<tr><td data-l="Leave">Maternity leave</td><td data-l="Length">10 to 12 weeks after the birth, 16 weeks together with pregnancy leave; up to 24 weeks for three or more babies</td></tr>
+<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 working days: the day of birth, 3 days after, 2 days after maternity leave and 2 days within the first 4 months</td></tr>
+<tr><td data-l="Leave">Adoption (child under 18 months)</td><td data-l="Length">Mother 6 weeks, father at least 5 working days</td></tr>
+</tbody></table>
+<ul>
+<li>The leave is compulsory, for both mother and father, and you must grant it. During the leave the employee may not do paid work.</li>
+<li>The employee reports the pregnancy by the end of week 20, with a statement from a GP, midwife or specialist.</li>
+<li>You apply once to the FVO for the benefit, co-signed by the employee. The FVO pays the gross wage to you and you pass it on to the employee immediately. Allowances on top of the basic wage may stay at your expense: ask the FVO.</li>
+<li>Dismissal during pregnancy, maternity leave and the period after it is only allowed for urgent reasons. After the leave the employee has the right to the same or an equivalent job at the same pay.</li>
+<li>A pregnant employee gets paid time off for necessary check-ups that can only take place during working hours, and with a doctor's statement she does not have to do night work or standing work.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zorgverzekering en pensioen' if nl else 'Health insurance and pension' }}</h2>
+{% if nl %}
+<p><b>Basiszorgverzekering (BZV).</b> Iedere ingezetene van Suriname, ook een buitenlander die hier woont, moet een basiszorgverzekering hebben (Wet Nationale Basiszorgverzekering, sinds 9 oktober 2014). Als werkgever betaal je minstens 50% van de premie en spreek je met de werknemer af hoe het werknemersdeel wordt ingehouden. De wettelijke minimumpremie voor 21 tot en met 59 jaar is SRD 165 per maand, maar verzekeraars rekenen in de praktijk meer. Vraag een offerte voor een collectieve polis bij het SZF of een particuliere verzekeraar.</p>
+<p><b>Pensioen (APF).</b> Werknemers van 18 tot 60 jaar bouwen pensioen op via het Algemeen Pensioenfonds (APF) of via een eigen regeling van de werkgever die minstens dezelfde rechten geeft. De premie is in 2026 8,5% van het basisloon zonder toelagen, over een loon van maximaal SRD 5.000 per maand. Jij betaalt minstens de helft; het werknemersdeel houd je in op het loon. Je mag de werknemer zijn deel niet zelf laten betalen. Bedragen en uitzonderingen: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% else %}
+<p><b>Basic health insurance (BZV).</b> Every resident of Suriname, including a foreigner living here, must have basic health insurance (National Basic Health Insurance Act, since 9 October 2014). As employer you pay at least 50% of the premium and agree with the employee how their share is withheld. The statutory minimum premium for ages 21 to 59 is SRD 165 a month, but insurers charge more in practice. Ask the SZF or a private insurer for a group (collectief) quote.</p>
+<p><b>Pension (APF).</b> Employees aged 18 to 60 build a pension through the General Pension Fund (APF) or through an employer scheme that gives at least the same rights. The premium in 2026 is 8.5% of the basic wage without allowances, on pay up to SRD 5,000 a month. You pay at least half; you withhold the employee share from wages. You may not let the employee pay their share themselves. Amounts and exceptions: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Buitenlandse werknemers' if nl else 'Foreign workers' }}</h2>
+{% if nl %}
+<p>Een buitenlander mag in Suriname alleen werken met een werkvergunning, en de werkgever vraagt die aan. Vrijgesteld zijn onder meer PSA-kaarthouders, buitenlanders getrouwd met een Surinamer en CARICOM-onderdanen met een Skills Certificate. Iemand laten werken zonder vergunning is strafbaar. Stappen, documenten en kosten: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p>Een buitenlandse werknemer die in Suriname woont, valt onder dezelfde regels als ieder ander: minimumloon, loonbelasting, AOV, APF, BZV en ongevallenverzekering. Het APF geeft geen premie terug bij vertrek.</p>
+{% else %}
+<p>A foreigner may only work in Suriname with a work permit, and the employer applies for it. Exempt are, among others, PSA card holders, foreigners married to a Surinamese citizen and CARICOM nationals with a Skills Certificate. Employing someone without a permit is an offence. Steps, documents and fees: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p>A foreign employee who lives in Suriname falls under the same rules as anyone else: minimum wage, wage tax, AOV, APF, BZV and accident insurance. The APF does not refund premiums when someone leaves.</p>
+{% endif %}
+
+<h2>{{ 'Administratie bijhouden' if nl else 'Record keeping' }}</h2>
+{% if nl %}
+<p>Elke ondernemer moet een administratie voeren waaruit zijn rechten en plichten blijken, en die tien jaar bewaren (art. 2:15 en 3:15i BW). Voor personeel betekent dat in ieder geval:</p>
+<ul class="check">
+<li>Getekende contracten, wijzigingen en de verklaring bij omzetting naar vast</li>
+<li>Kopie ID en adres van elke werknemer, bij buitenlanders de werk- en verblijfsvergunning</li>
+<li>Loonstroken, urenregistratie, vakantiedagen en ziekmeldingen</li>
+<li>Aangiftes en betaalbewijzen van loonbelasting, AOV, APF en FVO, en de pensioenverklaringen</li>
+<li>Verzekeringspolissen en het ongevallenregister</li>
+</ul>
+<p>De Arbeidsinspectie mag je loonadministratie inzien (Wet Minimumloon art. 4). Meer: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% else %}
+<p>Every business owner must keep records that show their rights and obligations, and keep them for ten years (art. 2:15 and 3:15i Civil Code). For staff that means at least:</p>
+<ul class="check">
+<li>Signed contracts, amendments and the statement on conversion to permanent</li>
+<li>Copy of ID and address of each employee, for foreigners the work and residence permit</li>
+<li>Payslips, time records, leave days and sick reports</li>
+<li>Returns and proof of payment for wage tax, AOV, APF and FVO, and the pension statements</li>
+<li>Insurance policies and the accident register</li>
+</ul>
+<p>The Labour Inspectorate may inspect your payroll records (Minimum Wage Act art. 4). More: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Proeftijd alleen mondeling of langer dan twee maanden.</b> Dan is er geen proeftijd en kun je niet zomaar opzeggen.</li>
+<li><b>Steeds weer een tijdelijk contract.</b> Het vierde contract, of een keten van meer dan 24 maanden, is automatisch vast.</li>
+<li><b>Geen ongevallenverzekering.</b> Na een ongeval betaal je dan zelf de medische kosten en de uitkering.</li>
+<li><b>APF-premie over het hele loon zonder maximum, of het werknemersdeel door de werknemer laten betalen.</b> De premie gaat over het basisloon tot SRD 5.000 en jij draagt alles af.</li>
+<li><b>FVO niet betaald.</b> Het FVO betaalt pas uit als de premie minstens drie maanden vooraf is betaald. Anders draai jij op voor het loon tijdens het verlof.</li>
+<li><b>Niet opnieuw geregistreerd bij het APF.</b> Sinds de overgang naar APF-MIS in juli 2026 werkt de oude login niet meer.</li>
+<li><b>Na een paar dagen ziekte stoppen met loon betalen.</b> Minstens zes weken doorbetalen is verplicht.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Probation only agreed orally or longer than two months.</b> Then there is no probation and you cannot simply terminate.</li>
+<li><b>Fixed-term contract after fixed-term contract.</b> The fourth contract, or a chain longer than 24 months, is automatically permanent.</li>
+<li><b>No accident insurance.</b> After an accident you then pay the medical costs and the benefit yourself.</li>
+<li><b>APF premium on the full wage without a cap, or letting the employee pay their share.</b> The premium is on the basic wage up to SRD 5,000 and you pay it all in.</li>
+<li><b>FVO not paid.</b> The FVO only pays out if the premium was paid at least three months in advance. Otherwise you carry the wage during the leave.</li>
+<li><b>Not registered again with the APF.</b> Since the move to APF-MIS in July 2026 the old login no longer works.</li>
+<li><b>Stopping sick pay after a few days.</b> Paying for at least six weeks is compulsory.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist eerste werknemer' if nl else 'First employee checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+<li>Bedrijf ingeschreven bij de KKF: <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+<li>Registratie als inhoudingsplichtige in het portaal van de Belastingdienst</li>
+<li>Aanmelding in APF-MIS (pensioen.sr)</li>
+<li>Werknemer aangemeld bij het Bureau FVO</li>
+<li>Basiszorgverzekering en ongevallenverzekering afgesloten</li>
+<li>Schriftelijk contract met proeftijd, getekend afschrift aan de werknemer</li>
+<li>Werkvergunning, als de werknemer buitenlander is</li>
+<li>Loonstrook en urenregistratie klaar: <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>, <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></li>
+<li>Data in je agenda: aangifte loonbelasting (26e tot 10e), APF (15e), pensioenverklaring (februari)</li>
+</ul>
+{% else %}
+<ul class="check">
+<li>Business registered at the KKF (chamber of commerce): <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+<li>Registration as withholding agent in the tax office portal</li>
+<li>Registration in APF-MIS (pensioen.sr)</li>
+<li>Employee registered with the FVO bureau</li>
+<li>Basic health insurance and accident insurance in place</li>
+<li>Written contract with probation, signed copy to the employee</li>
+<li>Work permit, if the employee is a foreigner</li>
+<li>Payslip and time sheet ready: <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>, <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></li>
+<li>Dates in your calendar: wage tax return (26th to 10th), APF (15th), pension statement (February)</li>
+</ul>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
-<ul>{% for n, u in F.TAX.sources[:1] + F.LEAVE.sources + F.LABOUR.sources[:1] + F.MIN_WAGE.sources[:1] %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}<li><a href="https://www.dna.sr/media/edbanrlx/wet_algemeen_pensioen_2014.pdf" rel="noopener">Wet Algemeen Pensioen 2014</a></li></ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }} <a href="{{ U('labour') }}">{{ L('labour') }}</a></p>
+<ul>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">Burgerlijk Wetboek, S.B. 2024 no. 164 (Boek 7, titel 10 Arbeidsovereenkomst)</a></li>
+<li><a href="https://belastingdienst.sr/registreren-bij-de-belastingdienst/" rel="noopener">Belastingdienst: registreren bij de Belastingdienst</a></li>
+<li><a href="https://belastingdienst.sr/belastingen/loonbelasting/algemeen/" rel="noopener">Belastingdienst: loonbelasting algemeen</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-AOV.pdf" rel="noopener">Wet AOV (art. 19 en 20)</a></li>
+<li><a href="https://www.dna.sr/media/edbanrlx/wet_algemeen_pensioen_2014.pdf" rel="noopener">Wet Algemeen Pensioen 2014</a></li>
+<li><a href="https://www.pensioen.sr/bekendmaking/percentage-pensioenpremie-2026/" rel="noopener">APF: percentage pensioenpremie 2026</a></li>
+<li><a href="https://www.pensioen.sr/veelgestelde-vragen/" rel="noopener">APF: veelgestelde vragen en APF-MIS registratie</a></li>
+<li><a href="https://gov.sr/fvo/" rel="noopener">Bureau Fonds Voorzieningen Ouderschapsverlof (FVO)</a></li>
+<li><a href="https://www.dna.sr/media/3bjewn4q/sb_2019___64.pdf" rel="noopener">Wet Arbeidsbescherming Gezin, S.B. 2019 no. 64</a></li>
+<li><a href="https://gov.sr/thema/basiszorgverzekering/" rel="noopener">Overheid: basiszorgverzekering</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/01/Ongevallenregeling-G.B.-1947-no.-45.pdf" rel="noopener">Ongevallenregeling 1947</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2022/09/infoblad_bedrijfsongeval_arbeids_inspektie.pdf" rel="noopener">Arbeidsinspectie: infoblad bedrijfsongeval</a></li>
+<li><a href="https://www.dna.sr/media/vm2mao52/sb_2019___101.pdf" rel="noopener">Wet Minimumloon, S.B. 2019 no. 101</a></li>
+<li><a href="https://gov.sr/bekendmaking/profielen-vacatures-20-juli-2026-odam/" rel="noopener">Ministerie VWA: vacatures Onderdirectoraat Arbeidsmarkt</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-arbeid-werkgelegenheid-en-jeugdzaken/" rel="noopener">Ministerie VWA, arbeidszaken: bekendmaking uitzendvergunningen 27 juli 2026</a></li>
+{% for n, u in F.LEAVE.sources + F.LABOUR.sources[:1] + F.MIN_WAGE.sources[:1] %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

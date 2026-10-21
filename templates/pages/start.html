@@ -3,33 +3,433 @@
 {% block content %}
 <div class="prose">
 <h1>{{ 'Een bedrijf starten in Suriname' if nl else 'How to start a business in Suriname' }}</h1>
-<p class="lead">{{ 'In vijf stappen: kies een rechtsvorm, schrijf in bij de KKF, regel een vergunning als dat nodig is, meld je aan bij de Belastingdienst en open een zakelijke rekening.' if nl else 'In five steps: choose a legal form, register at the KKF, get a licence if needed, register with the tax office and open a business account.' }}</p>
-<h2>1. {{ 'Kies een rechtsvorm' if nl else 'Choose a legal form' }}</h2>
-<table class="tbl"><thead><tr><th>{{ 'Vorm' if nl else 'Form' }}</th><th>{{ 'Voor wie' if nl else 'For whom' }}</th><th>{{ 'Aansprakelijkheid' if nl else 'Liability' }}</th></tr></thead><tbody>
-<tr><td>{{ 'Eenmanszaak' if nl else 'Sole trader (eenmanszaak)' }}</td><td>{{ 'Eén eigenaar, snel en goedkoop te starten' if nl else 'One owner, quick and cheap to start' }}</td><td>{{ 'Persoonlijk, met privévermogen' if nl else 'Personal, including private assets' }}</td></tr>
-<tr><td>VOF</td><td>{{ 'Twee of meer partners' if nl else 'Two or more partners' }}</td><td>{{ 'Elke vennoot hoofdelijk' if nl else 'Each partner jointly and severally' }}</td></tr>
-<tr><td>NV</td><td>{{ 'Groei, investeerders, grotere contracten' if nl else 'Growth, investors, larger contracts' }}</td><td>{{ 'Beperkt tot het kapitaal' if nl else 'Limited to the capital' }}</td></tr>
-<tr><td>{{ 'Stichting' if nl else 'Foundation (stichting)' }}</td><td>{{ 'Ideëel doel, geen winstuitkering' if nl else 'Non-profit purpose, no profit distribution' }}</td><td>{{ 'Beperkt' if nl else 'Limited' }}</td></tr>
+{% if nl %}
+<p class="lead">Je kiest een rechtsvorm, laat de handelsnaam goedkeuren, schrijft binnen een week na de start in bij de KKF, vraagt een vergunning aan als je activiteit op de lijst staat, registreert je bij de Belastingdienst en opent een zakelijke rekening. Voor een eenmanszaak zonder vergunningplicht kan dat in een paar dagen; met een NV of een vergunning reken je op enkele weken.</p>
+{% else %}
+<p class="lead">You choose a legal form, get the trade name approved, register at the KKF (Chamber of Commerce) within one week of starting, apply for a licence if your activity is on the list, register with the tax office (Belastingdienst) and open a business account. A sole trader without a licence can do this in a few days; with an NV or a licence, count on a few weeks.</p>
+{% endif %}
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Inschrijving in het Handelsregister van de KKF is verplicht binnen één week na de start, ook voor kleine bedrijven (Handelsregisterwet, S.B. 2024 no. 169). Niet inschrijven kan een boete tot SRD 50.000 opleveren.</li>
+<li>Sinds 1 mei 2025 geldt het nieuwe Burgerlijk Wetboek. Een NV kan door één persoon worden opgericht, er is een aandeelhouderbestuurde NV en een verklaring van geen bezwaar van de President is niet meer nodig.</li>
+<li>Naamsgoedkeuring en een uittreksel kosten bij de KKF elk SRD 300. Een eenmanszaak kan alleen door een ingezetene worden ingeschreven.</li>
+<li>Alleen activiteiten op de lijst hebben een bedrijfsvergunning nodig. De aanvraag loopt via de KKF; de wettelijke termijn is ongeveer 35 dagen.</li>
+<li>Bij de Belastingdienst krijg je een FIN (Fiscaal Identificatienummer) via het online portaal. BTW-registratie is verplicht boven SRD 1.000.000 omzet per jaar.</li>
+<li>Neem je personeel aan, registreer je dan eerst als inhoudingsplichtige en draag elke maand loonbelasting en AOV af.</li>
+{% else %}
+<li>Registration in the KKF trade register (Handelsregister) is mandatory within one week of starting, including for small businesses (Trade Register Act, S.B. 2024 no. 169). Failing to register can lead to a fine of up to SRD 50,000.</li>
+<li>A new Civil Code has applied since 1 May 2025. An NV can be set up by one person, there is a new shareholder-managed NV and approval by the President (verklaring van geen bezwaar) is no longer needed.</li>
+<li>Name approval and an extract each cost SRD 300 at the KKF. Only a resident can register a sole trader business (eenmanszaak).</li>
+<li>Only activities on the list need a business licence. You apply through the KKF; the legal processing time is about 35 days.</li>
+<li>The tax office gives you a FIN (tax identification number) through its online portal. VAT registration is mandatory above SRD 1,000,000 turnover a year.</li>
+<li>If you hire staff, first register as an employer and pay wage tax and AOV (old age pension premium) every month.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Stap voor stap' if nl else 'Step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Kies je rechtsvorm.</b> Eenmanszaak, openbare vennootschap, NV of een andere vorm. Dit bepaalt je aansprakelijkheid, je kosten en of je een notaris nodig hebt. Zie de tabel hieronder.</li>
+<li><b>Laat je handelsnaam goedkeuren.</b> Via de E-Services of aan de balie van de KKF. Kosten SRD 300; de goedkeuring is maximaal 3 maanden geldig.</li>
+<li><b>Richt de rechtspersoon op</b> (alleen NV, stichting, vereniging, coöperatie). Bij de notaris, of met een standaard modelakte waarvan de handtekeningen bij de KKF worden gelegaliseerd.</li>
+<li><b>Regel je bedrijfspand.</b> Huurcontract of eigendomsbewijs, en waar nodig een bouwvergunning en advies van de brandweer.</li>
+<li><b>Vraag een vergunning aan</b> als je activiteit vergunningplichtig is. Dat gaat via de One Stop Window of de E-Services van de KKF. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+<li><b>Schrijf in bij de KKF</b>, binnen één week na de start van je activiteiten. Je krijgt een inschrijfnummer en kunt een uittreksel opvragen.</li>
+<li><b>Registreer bij de Belastingdienst</b> via het online portaal en krijg je FIN. Registreer ook voor BTW als je omzet boven SRD 1.000.000 per jaar komt, en als werkgever voordat je het eerste loon betaalt.</li>
+<li><b>Open een zakelijke rekening</b> met je KKF-uittreksel, ID, statuten en (zo nodig) vergunning. Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+<li><b>Zet je administratie op</b>: facturen met je KKF-nummer, een kasboek en een BTW-register. Zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ol>
+{% else %}
+<ol class="steps">
+<li><b>Choose your legal form.</b> Sole trader, partnership, NV or another form. This decides your liability, your costs and whether you need a notary. See the table below.</li>
+<li><b>Get your trade name approved.</b> Through the E-Services or at the KKF counter. Cost SRD 300; the approval is valid for a maximum of 3 months.</li>
+<li><b>Set up the legal entity</b> (NV, foundation, association or cooperative only). At a notary, or with a government standard model deed (modelakte) whose signatures are legalised at the KKF.</li>
+<li><b>Arrange your premises.</b> A lease or proof of ownership and, where needed, a building permit and advice from the fire service.</li>
+<li><b>Apply for a licence</b> if your activity requires one. This goes through the KKF One Stop Window or E-Services. See <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+<li><b>Register at the KKF</b> within one week of starting your activities. You get a registration number and can order an extract (uittreksel).</li>
+<li><b>Register with the tax office</b> through the online portal and get your FIN. Also register for VAT if your turnover goes above SRD 1,000,000 a year, and as an employer before you pay the first wage.</li>
+<li><b>Open a business account</b> with your KKF extract, ID, articles of association and (if needed) licence. See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+<li><b>Set up your bookkeeping</b>: invoices showing your KKF number, a cash book and a VAT register. See <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Kies een rechtsvorm' if nl else 'Choose a legal form' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Vorm' if nl else 'Form' }}</th><th>{{ 'Geschikt voor' if nl else 'Suits' }}</th><th>{{ 'Aansprakelijkheid' if nl else 'Liability' }}</th><th>{{ 'Oprichting' if nl else 'Set up' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Vorm"><b>Eenmanszaak</b></td><td data-l="Geschikt voor">Eén eigenaar, snel en goedkoop starten. Alleen voor ingezetenen.</td><td data-l="Aansprakelijkheid">Volledig, ook met privévermogen</td><td data-l="Oprichting">Geen akte; alleen inschrijving bij de KKF</td></tr>
+<tr><td data-l="Vorm"><b>Openbare vennootschap</b> (voorheen VOF)</td><td data-l="Geschikt voor">Twee of meer partners die samen een bedrijf of beroep uitoefenen</td><td data-l="Aansprakelijkheid">Elke vennoot hoofdelijk voor het geheel</td><td data-l="Oprichting">Samenwerkingsovereenkomst, onderhands of bij de notaris</td></tr>
+<tr><td data-l="Vorm"><b>Commanditaire vennootschap</b> (CV, ook stille vennootschap)</td><td data-l="Geschikt voor">Partners plus een geldschieter die niet meebeslist</td><td data-l="Aansprakelijkheid">Beherende vennoten volledig; stille vennoot tot zijn inbreng, zolang hij niet naar buiten optreedt</td><td data-l="Oprichting">Samenwerkingsovereenkomst</td></tr>
+<tr><td data-l="Vorm"><b>NV</b></td><td data-l="Geschikt voor">Groei, investeerders, grotere contracten, olie en gas</td><td data-l="Aansprakelijkheid">Beperkt tot de NV; bestuurders bij ernstig verwijt</td><td data-l="Oprichting">Notariële akte in het Nederlands of standaard modelakte</td></tr>
+<tr><td data-l="Vorm"><b>Aandeelhouderbestuurde NV</b> (nieuw)</td><td data-l="Geschikt voor">Familiebedrijf of eenpersoons-NV zonder apart bestuur</td><td data-l="Aansprakelijkheid">Als bij de NV; alle aandeelhouders zijn bestuurder</td><td data-l="Oprichting">Als bij de NV</td></tr>
+<tr><td data-l="Vorm"><b>Stichting</b></td><td data-l="Geschikt voor">Ideëel of maatschappelijk doel, geen leden</td><td data-l="Aansprakelijkheid">Beperkt; bestuurders hoofdelijk zolang de stichting niet is ingeschreven</td><td data-l="Oprichting">Notariële akte of standaard modelakte</td></tr>
+<tr><td data-l="Vorm"><b>Vereniging</b></td><td data-l="Geschikt voor">Leden met een gezamenlijk doel, geen winstverdeling</td><td data-l="Aansprakelijkheid">Leden niet persoonlijk</td><td data-l="Oprichting">Notariële akte of modelakte voor volledige rechtsbevoegdheid</td></tr>
+<tr><td data-l="Vorm"><b>Coöperatie</b></td><td data-l="Geschikt voor">Boeren, vissers, inkoop- of verkoopcollectief</td><td data-l="Aansprakelijkheid">Leden dragen bij in tekorten als de statuten niets anders regelen</td><td data-l="Oprichting">Notariële akte of modelakte; ledenlijst bij de KKF</td></tr>
+<tr><td data-l="Vorm"><b>Filiaal buitenlands bedrijf</b></td><td data-l="Geschikt voor">Buitenlandse onderneming die in Suriname gaat werken</td><td data-l="Aansprakelijkheid">Het moederbedrijf</td><td data-l="Oprichting">Inschrijving van de nevenvestiging met beheerder in Suriname</td></tr>
+{% else %}
+<tr><td data-l="Form"><b>Sole trader</b> (eenmanszaak)</td><td data-l="Suits">One owner, quick and cheap to start. Residents only.</td><td data-l="Liability">Full, including private assets</td><td data-l="Set up">No deed; KKF registration only</td></tr>
+<tr><td data-l="Form"><b>General partnership</b> (openbare vennootschap, formerly VOF)</td><td data-l="Suits">Two or more partners running a business or profession together</td><td data-l="Liability">Each partner jointly and severally for the whole</td><td data-l="Set up">Partnership agreement, private or notarial</td></tr>
+<tr><td data-l="Form"><b>Limited partnership</b> (CV, also stille vennootschap)</td><td data-l="Suits">Partners plus a silent investor who does not manage</td><td data-l="Liability">Managing partners in full; silent partner up to his contribution, as long as he does not act for the firm</td><td data-l="Set up">Partnership agreement</td></tr>
+<tr><td data-l="Form"><b>NV</b> (company limited by shares)</td><td data-l="Suits">Growth, investors, larger contracts, oil and gas</td><td data-l="Liability">Limited to the NV; directors only for serious fault</td><td data-l="Set up">Notarial deed in Dutch or standard model deed</td></tr>
+<tr><td data-l="Form"><b>Shareholder-managed NV</b> (new)</td><td data-l="Suits">Family firm or one-person NV without a separate board</td><td data-l="Liability">As for the NV; all shareholders are directors</td><td data-l="Set up">As for the NV</td></tr>
+<tr><td data-l="Form"><b>Foundation</b> (stichting)</td><td data-l="Suits">Non-profit or social purpose, no members</td><td data-l="Liability">Limited; directors jointly liable until the foundation is registered</td><td data-l="Set up">Notarial deed or standard model deed</td></tr>
+<tr><td data-l="Form"><b>Association</b> (vereniging)</td><td data-l="Suits">Members with a shared aim, no profit distribution</td><td data-l="Liability">Members not personally</td><td data-l="Set up">Notarial deed or model deed for full legal capacity</td></tr>
+<tr><td data-l="Form"><b>Cooperative</b> (coöperatie)</td><td data-l="Suits">Farmers, fishers, buying or selling groups</td><td data-l="Liability">Members contribute to deficits unless the articles say otherwise</td><td data-l="Set up">Notarial deed or model deed; member list filed at the KKF</td></tr>
+<tr><td data-l="Form"><b>Branch of a foreign company</b></td><td data-l="Suits">A foreign business starting operations in Suriname</td><td data-l="Liability">The parent company</td><td data-l="Set up">Registration of the branch with a manager in Suriname</td></tr>
+{% endif %}
 </tbody></table>
-<p>{{ 'Sinds 1 mei 2025 geldt een nieuw Burgerlijk Wetboek. Een NV of stichting kan nu worden opgericht met een standaardakte van de overheid, waarbij de handtekeningen bij de KKF worden gelegaliseerd. Een notaris is alleen nodig voor afwijkende statuten. Er is ook een nieuwe aandeelhouderbestuurde NV, geschikt voor een bedrijf met één eigenaar. Een BV bestaat in Suriname niet.' if nl else 'A new Civil Code applies since 1 May 2025. An NV or foundation can now be set up with a government standard deed, with signatures legalised at the KKF. A notary is only needed for custom articles. There is also a new shareholder-managed NV, suitable for a one-owner company. Suriname has no BV.' }}</p>
-<h2>2. {{ 'Inschrijven bij de KKF' if nl else 'Register at the KKF' }}</h2>
-<p>{{ 'Inschrijving in het Handelsregister van de Kamer van Koophandel en Fabrieken is verplicht, binnen een week na de start. Neem mee: je ID, het ingevulde formulier, een huur- of eigendomsbewijs van het bedrijfspand en, bij een NV, de akte. De KKF biedt ook E-Services aan.' if nl else 'Registration in the trade register of the Chamber of Commerce (KKF) is mandatory, within one week of starting. Bring your ID, the completed form, proof of lease or ownership of the premises and, for an NV, the deed. The KKF also offers E-Services.' }}</p>
-<p class="note">{{ 'De tarieven van de KKF wijzigen regelmatig. Controleer de actuele kosten op de site van de KKF voordat je gaat.' if nl else 'KKF fees change regularly. Check the current fees on the KKF website before you go.' }} <a href="{{ F.PORTALS.kkf }}" rel="noopener">surinamechamber.com</a></p>
-<h2>3. {{ 'Vergunning, als je activiteit die vereist' if nl else 'A licence, if your activity requires one' }}</h2>
-<p>{{ 'Alleen activiteiten op de lijst van vergunningsplichtige bedrijven en beroepen hebben een vergunning nodig van het ministerie van Economische Zaken (soms via de districtscommissaris). Import en export zijn niet vergunningsplichtig.' if nl else 'Only activities on the list of licensed businesses and professions need a licence from the Ministry of Economic Affairs (sometimes via the district commissioner). Importing and exporting do not require one.' }}</p>
-<h2>4. {{ 'Belastingdienst' if nl else 'Tax office' }}</h2>
-<p>{{ 'Meld je bedrijf aan voor een FIN nummer. Heb je personeel, dan draag je maandelijks loonbelasting en AOV af. Boven SRD 1 miljoen omzet per jaar moet je je registreren voor de BTW.' if nl else 'Register your business for a FIN number. With staff you remit wage tax and AOV monthly. Above SRD 1 million turnover a year you must register for VAT.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
-<h2>5. {{ 'Zakelijke rekening' if nl else 'Business bank account' }}</h2>
-<p>{{ 'Met je KKF uittreksel en ID open je een zakelijke rekening bij een bank naar keuze. Vraag vooraf welke documenten de bank verlangt.' if nl else 'With your KKF extract and ID you open a business account at a bank of your choice. Ask in advance which documents the bank requires.' }}</p>
-<h2>{{ 'Personeel aannemen' if nl else 'Hiring staff' }}</h2>
-<p><a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
+{% if nl %}
+<h3>Wat er veranderde met het nieuwe Burgerlijk Wetboek (1 mei 2025)</h3>
+<ul>
+<li><b>Boek 2</b> regelt nu alle rechtspersonen: vereniging, coöperatie, onderlinge waarborgmaatschappij, stichting en NV. Het oude Wetboek van Koophandel (1936) en de Wet op Stichtingen (1968) zijn vervangen. Een BV is bewust niet ingevoerd.</li>
+<li><b>De aandeelhouderbestuurde NV</b> (art. 2:239 e.v.) heeft geen apart bestuur. Elke aandeelhouder is bestuurder en elke aandeelhoudersvergadering is ook een bestuursvergadering. Bedoeld voor familiebedrijven en eenpersoonsvennootschappen.</li>
+<li><b>Geen verklaring van geen bezwaar meer.</b> Oudere teksten, ook op sommige overheids- en KKF-pagina's, noemen nog goedkeuring door de President, publicatie in de Staatscourant en een minimum geplaatst kapitaal. Onder Boek 2 is de verklaring ook voor statutenwijziging afgeschaft. Aandelen kunnen zonder nominale waarde worden uitgegeven; bij aandelen met nominale waarde moet minstens die waarde worden gestort.</li>
+<li><b>Standaard modelakte.</b> Naast de notariële akte mag een NV, stichting, vereniging of coöperatie worden opgericht met een modelakte die de minister vaststelt. De handtekeningen worden in tweevoud bij de KKF gelegaliseerd. Wil je afwijkende statuten of later iets wijzigen, dan heb je een notaris nodig. Een juridische bijdrage van april 2026 meldde dat nieuwe modelakten onder Boek 2 toen nog niet waren vastgesteld. Vraag de KKF of er voor jouw rechtsvorm een modelakte beschikbaar is.</li>
+<li><b>Aandelen aan toonder</b> bestaan niet meer. Oude toonderaandelen die niet zijn ingeleverd, kunnen tot 1 mei 2027 nog worden omgeruild; daarna vervallen ze.</li>
+<li><b>De VOF heet nu openbare vennootschap</b> (Boek 7, titel 13). Zij kan wel of geen rechtspersoon zijn. De CV is een bijzondere vorm daarvan.</li>
+<li><b>De KKF kan slapende rechtspersonen ontbinden</b> (art. 2:25 e.v.). Houd je inschrijving dus actueel.</li>
+</ul>
+{% else %}
+<h3>What changed with the new Civil Code (1 May 2025)</h3>
+<ul>
+<li><b>Book 2</b> now governs all legal entities: association, cooperative, mutual insurance society, foundation and NV. The old Commercial Code (1936) and Foundations Act (1968) have been replaced. A BV (private limited company) was deliberately not introduced.</li>
+<li><b>The shareholder-managed NV</b> (art. 2:239 ff.) has no separate board. Every shareholder is a director and every shareholders' meeting is also a board meeting. It is meant for family businesses and one-person companies.</li>
+<li><b>No more presidential approval.</b> Older texts, including some government and KKF pages, still mention approval by the President (verklaring van geen bezwaar), publication in the Official Gazette and a minimum issued capital. Under Book 2 this approval is abolished, also for amending the articles. Shares can be issued without nominal value; for shares with a nominal value at least that value must be paid up.</li>
+<li><b>Standard model deed.</b> Besides a notarial deed, an NV, foundation, association or cooperative may be set up with a model deed set by the minister. The signatures are legalised in duplicate at the KKF. If you want different articles, or later want to change them, you need a notary. A legal article from April 2026 reported that new model deeds under Book 2 had not yet been adopted at that time. Ask the KKF whether a model deed is available for your legal form.</li>
+<li><b>Bearer shares</b> no longer exist. Old bearer shares that were not handed in can still be exchanged until 1 May 2027; after that they lapse.</li>
+<li><b>The VOF is now called openbare vennootschap</b> (Book 7, title 13). It may or may not be a legal entity. The CV is a special form of it.</li>
+<li><b>The KKF can dissolve dormant legal entities</b> (art. 2:25 ff.). Keep your registration up to date.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Handelsnaam kiezen en laten goedkeuren' if nl else 'Choosing and approving your trade name' }}</h2>
+{% if nl %}
+<p>Voordat je inschrijft, beoordeelt de KKF of je handelsnaam beschikbaar is. Je dient de naam in via de <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a> (onderdeel Naamsgoedkeuring) of aan de balie. Geef meteen een paar alternatieve namen op. Een derde mag de aanvraag voor je doen, als jouw gegevens op het formulier staan en die persoon zich legitimeert.</p>
+<ul class="check">
+<li>Kosten naamsgoedkeuring: SRD 300.</li>
+<li>Geldig: maximaal 3 maanden vanaf de datum van de brief. Schrijf binnen die tijd in, anders begin je opnieuw.</li>
+<li>Kijk ook of de naam als merk door een ander is vastgelegd. Een handelsnaam is geen merk. Zie <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+<li>Controleer of het domein en de namen op sociale media vrij zijn voordat je een logo laat maken.</li>
+</ul>
+{% else %}
+<p>Before you register, the KKF checks whether your trade name is available. You submit it through the <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a> (Name approval, naamsgoedkeuring) or at the counter. List a few alternative names straight away. Someone else may file it for you if your details are on the form and that person shows ID.</p>
+<ul class="check">
+<li>Name approval fee: SRD 300.</li>
+<li>Valid for a maximum of 3 months from the date of the letter. Register within that time or start again.</li>
+<li>Also check whether someone else has registered the name as a trademark. A trade name is not a trademark. See <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+<li>Check that the domain name and social media handles are free before you have a logo designed.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Inschrijven bij de KKF' if nl else 'Registering at the KKF' }}</h2>
+{% if nl %}
+<p>Het Handelsregister wordt gehouden door de Kamer van Koophandel en Fabrieken (KKF). Sinds 1 mei 2025 gelden de nieuwe Handelsregisterwet (S.B. 2024 no. 169) en het Handelsregisterbesluit (S.B. 2025 no. 46). Elke onderneming moet worden ingeschreven, ook een kleine; de nieuwe wet maakt daar bewust geen uitzondering voor.</p>
+<h3>Termijn</h3>
+<p>De eerste opgave doe je <b>binnen één week na de start</b> van je activiteiten (art. 8). Wijzigingen, zoals een nieuw adres, een nieuwe bestuurder of opheffing, geef je ook binnen één week door. Verkoop je de zaak, dan geldt de onderneming als opgeheven en schrijft de nieuwe eigenaar haar opnieuw in.</p>
+<h3>Wat je meeneemt</h3>
+<ul class="check">
+<li>Een geldig, origineel legitimatiebewijs: ID-kaart, rijbewijs of paspoort; buitenlanders een paspoort. Minimumleeftijd 18 jaar.</li>
+<li>Een recente kleurenpasfoto, of de KKF maakt een foto.</li>
+<li>Ingezetenen: bewijs van inschrijving in het bevolkingsregister, niet ouder dan zes maanden. Niet-ingezetenen: officieel bewijs van woonadres uit het land van herkomst.</li>
+<li>Een recent bewijs van je huidige woonadres.</li>
+<li>Bij een vergunningplichtige activiteit: de originele vergunning. Bij een vak dat diploma's vraagt: diploma of certificaat.</li>
+<li>Vervoersbedrijf: nummerbewijs, rijbewijs, keuringsbewijs, verzekeringsbewijs en eventueel een koopovereenkomst.</li>
+<li>Openbare vennootschap of CV: de originele samenwerkingsovereenkomst.</li>
+<li>NV, stichting, vereniging, coöperatie: de originele oprichtingsakte en statuten; bij een coöperatie ook een getekende ledenlijst.</li>
+<li>De inschrijfkosten. Staat er nog een jaarbijdrage open, dan betaal je die eerst.</li>
+</ul>
+<p>Buitenlandse documenten mogen niet ouder zijn dan zes maanden en moeten door een beëdigd vertaler in het Nederlands of Engels zijn vertaald. Laat je iemand anders opgeven, geef die dan een gelegaliseerde machtiging mee.</p>
+<h3>Online of aan de balie</h3>
+<p>Via de <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a> vraag je naamsgoedkeuring aan, schrijf je een eenmanszaak digitaal in, bestel je digitale uittreksels en dien je vergunningsaanvragen in. Je maakt een account aan, uploadt documenten en betaalt met KKF Credit (bankoverschrijving), Mope of Uni5Pay. Andere rechtsvormen schrijf je in aan de balie, of via de notaris. De KKF is open van maandag tot en met vrijdag, 08:00 tot 16:00. Het hoofdkantoor staat aan de Gravenberchstraat 33 in Paramaribo (telefoon 530311); er zijn filialen in Paramaribo Noord, Wanica (Kwatta en Vier Kinderenweg), Commewijne en Nickerie.</p>
+<h3>Wat is een uittreksel?</h3>
+<p>Een uittreksel is een officieel afschrift van je gegevens in het Handelsregister: naam, adres, activiteiten, eigenaar of bestuurders en wie mag tekenen. Banken, de Belastingdienst, overheidsaanbestedingen en leveranciers vragen erom, meestal niet ouder dan zes maanden. Het register is openbaar: iedereen kan een uittreksel van elk bedrijf opvragen met de naam of het dossiernummer. Een uittreksel kost SRD 300. Een Engels uittreksel vraag je telefonisch of aan de balie aan en duurt minstens een week.</p>
+<h3>Jaarbijdrage</h3>
+<p>Elk jaar na het jaar van inschrijving betaal je een bijdrage aan de KKF. Het bedrag wordt bij of krachtens staatsbesluit vastgesteld (art. 14). De KKF stuurt je een mededeling en je betaalt binnen een maand. Wie niet betaalt, krijgt dezelfde invordering als bij een belastingschuld. Vraag de KKF naar het actuele bedrag voor jouw rechtsvorm; wij vonden het niet gepubliceerd op de KKF-website.</p>
+<div class="note">Zet je KKF-nummer op al je brieven, offertes, orders en facturen. Dat is verplicht; wie het weglaat, riskeert een boete tot SRD 50.000 (art. 21 Handelsregisterwet). Opzettelijk onjuiste gegevens opgeven of niet inschrijven kost ook tot SRD 50.000.</div>
+{% else %}
+<p>The trade register (Handelsregister) is kept by the Chamber of Commerce and Industry (Kamer van Koophandel en Fabrieken, KKF). The new Trade Register Act (S.B. 2024 no. 169) and Trade Register Decree (S.B. 2025 no. 46) have applied since 1 May 2025. Every business must register, small ones too; the new law deliberately makes no exception.</p>
+<h3>Deadline</h3>
+<p>You file the first registration <b>within one week of starting</b> your activities (art. 8). Changes, such as a new address, a new director or closing down, must also be reported within one week. If you sell the business, it counts as closed and the new owner registers it again.</p>
+<h3>What to bring</h3>
+<ul class="check">
+<li>Valid original ID: ID card, driving licence or passport; foreigners a passport. Minimum age 18.</li>
+<li>A recent colour passport photo, or the KKF takes one.</li>
+<li>Residents: proof of registration in the population register, no older than six months. Non-residents: official proof of address from the home country.</li>
+<li>Recent proof of your current home address.</li>
+<li>For a licensed activity: the original licence. For a trade that requires qualifications: diploma or certificate.</li>
+<li>Transport business: registration certificate, driving licence, inspection certificate, insurance certificate and, if relevant, a purchase agreement.</li>
+<li>General or limited partnership: the original partnership agreement.</li>
+<li>NV, foundation, association, cooperative: the original deed of incorporation and articles; for a cooperative also a signed member list.</li>
+<li>The registration fee. Any outstanding annual contribution must be paid first.</li>
+</ul>
+<p>Foreign documents may not be older than six months and must be translated into Dutch or English by a sworn translator. If someone else registers for you, give that person a legalised power of attorney.</p>
+<h3>Online or at the counter</h3>
+<p>Through the <a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services</a> you apply for name approval, register a sole trader business online, order digital extracts and file licence applications. You create an account, upload documents and pay with KKF Credit (bank transfer), Mope or Uni5Pay. Other legal forms register at the counter or through the notary. The KKF is open Monday to Friday, 08:00 to 16:00. The head office is at Gravenberchstraat 33 in Paramaribo (phone 530311); there are branches in Paramaribo North, Wanica (Kwatta and Vier Kinderenweg), Commewijne and Nickerie.</p>
+<h3>What is an uittreksel?</h3>
+<p>An uittreksel (extract) is an official copy of your details in the trade register: name, address, activities, owner or directors and who may sign. Banks, the tax office, government tenders and suppliers ask for it, usually no older than six months. The register is public: anyone can order an extract of any business using its name or file number. An extract costs SRD 300. An English extract is ordered by phone or at the counter and takes at least a week.</p>
+<h3>Annual contribution</h3>
+<p>Every year after the year of registration you pay a contribution to the KKF. The amount is set by or under state decree (art. 14). The KKF sends you a notice and you pay within one month. Non-payment is collected like a tax debt. Ask the KKF for the current amount for your legal form; we did not find it published on the KKF website.</p>
+<div class="note">Put your KKF number on all your letters, quotes, orders and invoices. This is mandatory; leaving it out risks a fine of up to SRD 50,000 (art. 21 Trade Register Act). Knowingly giving false details or not registering also carries a fine of up to SRD 50,000.</div>
+{% endif %}
+
+<h2>{{ 'Vergunning: alleen als je activiteit op de lijst staat' if nl else 'Licence: only if your activity is on the list' }}</h2>
+{% if nl %}
+<p>Onder de Wet Bedrijven en Beroepen (S.B. 2017 no. 40) is ondernemen in beginsel vrij. Een vergunning is alleen nodig voor activiteiten op de lijst, zoals hotels en pensions, reisbureaus, pompstations, slagers, kapsalons, fabrikanten van voedingsmiddelen en winkels in bijvoorbeeld auto's, medicijnen of vlees. Eet- en drankgelegenheden hebben een vergunning van de districtscommissaris nodig. Banken, wisselkantoren en geldovermakers vallen onder de Centrale Bank. Gewone import en export zijn vrij na inschrijving bij de KKF, behalve voor goederen op de Negatieve Lijst.</p>
+<p>De aanvraag dien je in via de KKF (One Stop Window of E-Services); het ministerie beoordeelt. Bij de One Stop Window betaal je SRD 550 inclusief vergunningsrecht. De wet geeft het ministerie maximaal ongeveer 35 dagen. Lees alles over de lijst, de documenten en de sectorvergunningen in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<p>Let op de volgorde: de KKF vraagt bij inschrijving de originele vergunning voor een vergunningplichtige activiteit, terwijl de vergunningsaanvraag een KKF-uittreksel vraagt. De One Stop Window van de KKF regelt beide in de juiste volgorde; vraag daar hoe het voor jouw rechtsvorm loopt. Begin de vergunningplichtige activiteit pas als de vergunning er is.</p>
+{% else %}
+<p>Under the Businesses and Professions Act (Wet Bedrijven en Beroepen, S.B. 2017 no. 40), doing business is free in principle. A licence is only needed for activities on the list, such as hotels and guesthouses, travel agencies, petrol stations, butchers, hair salons, food manufacturers and shops selling for example cars, medicines or meat. Places that serve food and drinks need a licence from the district commissioner. Banks, exchange offices and money transfer businesses fall under the Central Bank. Ordinary importing and exporting is free after KKF registration, except for goods on the Negative List.</p>
+<p>You file the application through the KKF (One Stop Window or E-Services); the ministry decides. At the One Stop Window you pay SRD 550 including the licence fee. The law gives the ministry a maximum of about 35 days. Read all about the list, the documents and sector licences in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<p>Mind the order: the KKF asks for the original licence when you register a licensed activity, while the licence application asks for a KKF extract. The KKF One Stop Window handles both in the right order; ask there how it works for your legal form. Do not start the licensed activity until the licence is granted.</p>
+{% endif %}
+
+<h2>{{ 'Belastingdienst: FIN, loonbelasting en BTW' if nl else 'Tax office: FIN, wage tax and VAT' }}</h2>
+{% if nl %}
+<p>Na je KKF-inschrijving registreer je je bij de Belastingdienst. Voor BTW, loonbelasting, inkomstenbelasting voor lichamen en inkomstenbelasting/AOV voor personen gaat dat via het <a href="https://portaal.belastingdienst.sr/OPO" rel="noopener">online portaal</a>. Je krijgt daar een FIN (Fiscaal Identificatienummer), of je koppelt je bestaande FIN. Was je al belastingplichtig vóór 2025 (inkomstenbelasting) of vóór 2024 (loonbelasting), dan registreer je aan het registratieloket.</p>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Rechtsvorm' if nl else 'Legal form' }}</th><th>{{ 'Wat de Belastingdienst vraagt' if nl else 'What the tax office asks for' }}</th></tr></thead><tbody>
+<tr><td data-l="Rechtsvorm">Eenmanszaak, maatschap, openbare vennootschap</td><td data-l="Wat de Belastingdienst vraagt">Plaats en omschrijving van de activiteit, beginbalans en financiering, personeel en loonsom, ID, KKF-uittreksel, vergunning(en), huurovereenkomst, samenwerkingsovereenkomst, hypothecair uittreksel</td></tr>
+<tr><td data-l="Rechtsvorm">NV, stichting, vereniging, CV</td><td data-l="Wat de Belastingdienst vraagt">Plaats en omschrijving van de activiteit, startdatum, statuten, personeel en loonsom, recent KKF-uittreksel, huurovereenkomst, ID van directeuren en aandeelhouders</td></tr>
+<tr><td data-l="Rechtsvorm">Coöperatie</td><td data-l="Wat de Belastingdienst vraagt">Als bij de eenmanszaak, plus statuten en ID van de vertegenwoordiger</td></tr>
+</tbody></table>
+<ul>
+<li><b>Werkgever (inhoudingsplichtige).</b> Betaal je loon, dan ben je inhoudingsplichtig (art. 6 Wet Loonbelasting). Registreer vóór het eerste loon. Elke werkgever krijgt één FIN; je kunt geen werknemers van een ander bedrijf onder jouw FIN zetten, ook niet binnen een groep. Aangifte loonbelasting en AOV doe je maandelijks in het portaal; sinds december 2025 kan ook de jaarlijkse verzamelloonstaat online. Zie <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</li>
+<li><b>BTW.</b> Registratie is verplicht als je belastbare omzet boven SRD 1.000.000 per kalenderjaar komt. Het algemene tarief is 10%; aangifte en betaling gaan per maand. Zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+<li><b>Inkomstenbelasting.</b> Een eenmanszaak betaalt inkomstenbelasting via de eigenaar; een NV, stichting of coöperatie betaalt 36% over de winst. Zie <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> en <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</li>
+<li><b>Import en export.</b> Voor zakelijke import en export heb je een FIN nodig. Zie <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ul>
+{% else %}
+<p>After KKF registration you register with the tax office (Belastingdienst). For VAT, wage tax, corporate income tax and personal income tax/AOV this goes through the <a href="https://portaal.belastingdienst.sr/OPO" rel="noopener">online portal</a>. There you get a FIN (Fiscaal Identificatienummer, tax identification number) or link your existing FIN. If you were already liable for income tax before 2025 or wage tax before 2024, you register at the registration counter instead.</p>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Rechtsvorm' if nl else 'Legal form' }}</th><th>{{ 'Wat de Belastingdienst vraagt' if nl else 'What the tax office asks for' }}</th></tr></thead><tbody>
+<tr><td data-l="Legal form">Sole trader, professional partnership, general partnership</td><td data-l="What the tax office asks for">Place and description of the activity, opening balance and financing, staff and payroll, ID, KKF extract, licence(s), lease, partnership agreement, mortgage register extract</td></tr>
+<tr><td data-l="Legal form">NV, foundation, association, CV</td><td data-l="What the tax office asks for">Place and description of the activity, start date, articles, staff and payroll, recent KKF extract, lease, ID of directors and shareholders</td></tr>
+<tr><td data-l="Legal form">Cooperative</td><td data-l="What the tax office asks for">As for a sole trader, plus articles and ID of the representative</td></tr>
+</tbody></table>
+<ul>
+<li><b>Employer (inhoudingsplichtige).</b> If you pay wages you are a withholding agent (art. 6 Wage Tax Act). Register before the first payroll. Each employer gets one FIN; you cannot put another company's employees under your FIN, not even within a group. You file wage tax and AOV monthly in the portal; since December 2025 the annual payroll summary (verzamelloonstaat) can also be filed online. See <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</li>
+<li><b>VAT.</b> Registration is mandatory once your taxable turnover goes above SRD 1,000,000 per calendar year. The standard rate is 10%; you file and pay monthly. See <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+<li><b>Income tax.</b> A sole trader pays income tax through the owner; an NV, foundation or cooperative pays 36% on profit. See <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> and <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</li>
+<li><b>Import and export.</b> Commercial importers and exporters need a FIN. See <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zakelijke bankrekening' if nl else 'Business bank account' }}</h2>
+{% if nl %}
+<p>Met je KKF-uittreksel, ID, statuten (bij een rechtspersoon), een UBO-verklaring en zo nodig je vergunning open je een zakelijke rekening. Banken moeten vragen naar de herkomst van je startkapitaal en je verwachte omzet; bereid dat voor. Het ministerie van EZOTI tekende in 2026 een overeenkomst met Trustbank Amanah: wie via het ministerie een vergunning krijgt, kan daar binnen 48 uur een zakelijke rekening openen. Bestaande bedrijven zonder rekening kunnen zich bij het ministerie melden voor een doorverwijzing. Alle details: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+{% else %}
+<p>With your KKF extract, ID, articles (for a legal entity), a UBO (ultimate beneficial owner) declaration and, if needed, your licence you open a business account. Banks must ask about the source of your starting capital and expected turnover; prepare for that. In 2026 the Ministry of Economic Affairs (EZOTI) signed an agreement with Trustbank Amanah: businesses that receive a licence through the ministry can open a business account there within 48 hours. Existing businesses without an account can report to the ministry for a referral. Full details: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Personeel aannemen: premies en regels' if nl else 'Hiring staff: premiums and rules' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Loonbelasting en AOV.</b> Je houdt loonbelasting en {{ (F.TAX.aov_pct * 100)|round|int }}% AOV-premie in en draagt die maandelijks af. Het portaal neemt aangiftes aan van de 26e tot en met de 10e. Reken het uit met <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</li>
+<li><b>Pensioen (APF) en basiszorgverzekering.</b> Werknemers vallen onder de Wet Algemeen Pensioen en iedereen moet een basiszorgverzekering hebben. Wat je als werkgever betaalt, staat in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+<li><b>Minimumloon:</b> {{ srd(F.MIN_WAGE.hour, 2) }} per uur sinds 1 juli 2026. Zie <a href="{{ U('minwage') }}">{{ L('minwage') }}</a>.</li>
+<li><b>Contract en arbeidsrecht.</b> Sinds 1 mei 2025 staat de arbeidsovereenkomst in Boek 7 van het nieuwe BW. Zie <a href="{{ U('labour') }}">{{ L('labour') }}</a> en <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+<li><b>Buitenlandse werknemers</b> hebben meestal een werkvergunning nodig: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Wage tax and AOV.</b> You withhold wage tax and the {{ (F.TAX.aov_pct * 100)|round|int }}% AOV premium and pay them monthly. The portal accepts returns from the 26th up to and including the 10th. Calculate it with <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</li>
+<li><b>Pension (APF) and basic health insurance.</b> Employees fall under the General Pension Act and everyone must have basic health insurance. What you pay as an employer is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+<li><b>Minimum wage:</b> {{ srd(F.MIN_WAGE.hour, 2) }} an hour since 1 July 2026. See <a href="{{ U('minwage') }}">{{ L('minwage') }}</a>.</li>
+<li><b>Contract and labour law.</b> Since 1 May 2025 the employment contract has been in Book 7 of the new Civil Code. See <a href="{{ U('labour') }}">{{ L('labour') }}</a> and <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+<li><b>Foreign employees</b> usually need a work permit: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Je bedrijfspand: huur, bouw, brandweer en hygiëne' if nl else 'Your premises: lease, building, fire service and hygiene' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Huurcontract.</b> Leg de huur schriftelijk vast en laat de eigenaar verklaren dat je er je bedrijf mag uitoefenen. Voor een vergunning vraagt de KKF goedkeuring van de eigenaar of de huurovereenkomst, met gelegaliseerde handtekeningen, en een hypothecair uittreksel van het pand (bij MI-GLIS, het kadaster). Koop je grond of een pand: <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+<li><b>Bouwvergunning.</b> Bouw of verbouw je, dan vraag je een vergunning aan bij het ministerie van Openbare Werken (Bouwwet 1956). Je betaalt SRD 50 leges per aanvraag plus vergunningsrecht. Voor een zakenpand van één bouwlaag is dat 0,20% van een vaste bouwsom van SRD 15.000 per m², dus SRD 30 per m²: voor 100 m² SRD 3.000. Een woning tot 70 m² kost SRD 250. Bezorging van het vergunningspakket kost SRD 100.</li>
+<li><b>Brandweer.</b> Voor winkels, magazijnen, hotels, pensions, scholen, kinderdagverblijven, zalen en opslag van brandbare stoffen geeft de afdeling Preventie van het Korps Brandweer Suriname eerst advies, binnen 30 dagen. De vergunning volgt pas als je de voorschriften hebt uitgevoerd. Een winkel met vergunning moet een poederblusser van minstens 7 kg binnen bereik hebben.</li>
+<li><b>Eten en drinken.</b> Wie voedsel maakt of verkoopt, heeft een gezondheidsverklaring nodig van de huisarts, afgestempeld door het Bureau voor Openbare Gezondheidszorg (BOG). Voor vlees gelden veterinaire vergunningen en hygiëne-eisen. Een eet- of drankgelegenheid heeft een vergunning van de districtscommissaris nodig.</li>
+<li><b>Hinder en milieu.</b> Kan je bedrijf overlast geven (lawaai, stank, rook), dan heb je mogelijk een Hinderwetvergunning van de districtscommissaris nodig. Grotere projecten kunnen een milieueffectenanalyse bij de Nationale Milieu Autoriteit (NMA) vereisen. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Lease.</b> Put the lease in writing and have the owner confirm that you may run your business there. For a licence the KKF asks for the owner's approval or the lease, with legalised signatures, and a mortgage register extract of the property (from MI-GLIS, the land registry). Buying land or a building: <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+<li><b>Building permit.</b> If you build or renovate, apply to the Ministry of Public Works (Building Act 1956). You pay SRD 50 in fees per application plus a permit charge. For a one-storey business building that is 0.20% of a fixed building value of SRD 15,000 per m², so SRD 30 per m²: SRD 3,000 for 100 m². A home up to 70 m² costs SRD 250. Delivery of the permit package costs SRD 100.</li>
+<li><b>Fire service.</b> For shops, warehouses, hotels, guesthouses, schools, day care centres, halls and storage of flammable materials, the Prevention Department of the Suriname Fire Service gives advice first, within 30 days. The permit follows only after you have carried out its requirements. A licensed shop must keep a powder extinguisher of at least 7 kg within reach.</li>
+<li><b>Food and drink.</b> If you make or sell food, you need a health certificate from your GP, stamped by the Public Health Bureau (BOG). Meat requires veterinary permits and hygiene rules. A place that serves food or drinks needs a licence from the district commissioner.</li>
+<li><b>Nuisance and environment.</b> If your business may cause nuisance (noise, smell, smoke), you may need a Nuisance Act permit (Hinderwetvergunning) from the district commissioner. Larger projects can require an environmental impact assessment at the National Environmental Authority (NMA). See <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Buitenlands bedrijf of buitenlandse ondernemer' if nl else 'Foreign company or foreign entrepreneur' }}</h2>
+{% if nl %}
+<p>Een eenmanszaak kun je alleen als ingezetene inschrijven. Als buitenlander start je meestal met een NV of een filiaal (nevenvestiging) van je buitenlandse bedrijf. Een vergunning kan worden aangevraagd door een ingezetene, een burger van een ander CARICOM-land of een rechtspersoon.</p>
+<p>Voor een filiaal vraagt de KKF:</p>
+<ul class="check">
+<li>Een recent origineel uittreksel of registratiecertificaat uit het land van het moederbedrijf, met naam, adres en bestuur.</li>
+<li>De oprichtingsakte en statuten van het moederbedrijf.</li>
+<li>Een originele aanstellingsbrief voor de beheerder in Suriname, met gelegaliseerde handtekening van de bevoegde vertegenwoordiger van het moederbedrijf.</li>
+<li>Een gelegaliseerde kleurenkopie van het paspoort van degene die de aanstellingsbrief tekende.</li>
+<li>Beëdigde vertalingen in het Nederlands of Engels, niet ouder dan zes maanden.</li>
+</ul>
+<p>Meer over investeren, verblijf en werkvergunningen: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% else %}
+<p>Only a resident can register a sole trader business. As a foreigner you usually start with an NV or a branch of your foreign company. A licence can be applied for by a resident, a citizen of another CARICOM country or a legal entity.</p>
+<p>For a branch the KKF asks for:</p>
+<ul class="check">
+<li>A recent original extract or certificate of registration from the parent company's country, showing name, address and directors.</li>
+<li>The parent company's deed of incorporation and articles.</li>
+<li>An original letter appointing the manager in Suriname, with a legalised signature of the parent company's authorised representative.</li>
+<li>A legalised colour copy of the passport of the person who signed the appointment letter.</li>
+<li>Sworn translations into Dutch or English, no older than six months.</li>
+</ul>
+<p>More on investing, residence and work permits: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and timeline' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Onderdeel' if nl else 'Item' }}</th><th>{{ 'Kosten' if nl else 'Cost' }}</th><th>{{ 'Termijn' if nl else 'Time' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Onderdeel">Naamsgoedkeuring KKF</td><td data-l="Kosten">SRD 300</td><td data-l="Termijn">Geldig maximaal 3 maanden</td></tr>
+<tr><td data-l="Onderdeel">Akte NV, stichting, vereniging, coöperatie</td><td data-l="Kosten">Notaristarief; vraag een offerte. Bij een modelakte alleen de legalisatie bij de KKF</td><td data-l="Termijn">Afhankelijk van de notaris</td></tr>
+<tr><td data-l="Onderdeel">Inschrijving Handelsregister</td><td data-l="Kosten">Inschrijfkosten en jaarbijdrage, vastgesteld bij staatsbesluit; vraag de KKF</td><td data-l="Termijn">Binnen 1 week na de start</td></tr>
+<tr><td data-l="Onderdeel">Uittreksel KKF</td><td data-l="Kosten">SRD 300</td><td data-l="Termijn">Engels uittreksel: minstens 1 week</td></tr>
+<tr><td data-l="Onderdeel">Bedrijfsvergunning via One Stop Window</td><td data-l="Kosten">SRD 550 inclusief vergunningsrecht (SRD 304,50)</td><td data-l="Termijn">Wettelijk ongeveer 35 dagen</td></tr>
+<tr><td data-l="Onderdeel">Registratie Belastingdienst</td><td data-l="Kosten">Geen kosten vermeld</td><td data-l="Termijn">Online; vóór het eerste loon of de eerste BTW-aangifte</td></tr>
+<tr><td data-l="Onderdeel">Bouwvergunning</td><td data-l="Kosten">SRD 50 leges plus vergunningsrecht</td><td data-l="Termijn">Brandweeradvies binnen 30 dagen</td></tr>
+<tr><td data-l="Onderdeel">Zakelijke rekening</td><td data-l="Kosten">Tarieven van de bank</td><td data-l="Termijn">Trustbank Amanah: 48 uur na vergunning via EZOTI</td></tr>
+{% else %}
+<tr><td data-l="Item">KKF name approval</td><td data-l="Cost">SRD 300</td><td data-l="Time">Valid for a maximum of 3 months</td></tr>
+<tr><td data-l="Item">Deed for NV, foundation, association, cooperative</td><td data-l="Cost">Notary's fee; ask for a quote. With a model deed only legalisation at the KKF</td><td data-l="Time">Depends on the notary</td></tr>
+<tr><td data-l="Item">Trade register registration</td><td data-l="Cost">Registration fee and annual contribution, set by state decree; ask the KKF</td><td data-l="Time">Within 1 week of starting</td></tr>
+<tr><td data-l="Item">KKF extract</td><td data-l="Cost">SRD 300</td><td data-l="Time">English extract: at least 1 week</td></tr>
+<tr><td data-l="Item">Business licence via One Stop Window</td><td data-l="Cost">SRD 550 including licence fee (SRD 304.50)</td><td data-l="Time">About 35 days by law</td></tr>
+<tr><td data-l="Item">Tax office registration</td><td data-l="Cost">No fee mentioned</td><td data-l="Time">Online; before the first payroll or VAT return</td></tr>
+<tr><td data-l="Item">Building permit</td><td data-l="Cost">SRD 50 fee plus permit charge</td><td data-l="Time">Fire service advice within 30 days</td></tr>
+<tr><td data-l="Item">Business account</td><td data-l="Cost">Bank's fees</td><td data-l="Time">Trustbank Amanah: 48 hours after a licence via EZOTI</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>In de praktijk: een eenmanszaak zonder vergunning is binnen een week ingeschreven en geregistreerd. Een NV met notaris en een vergunning duurt eerder vier tot acht weken. Ondernemers moesten volgens het ministerie vroeger tot zeven maanden op een vergunning wachten; het ministerie zegt dat het traject nu binnen de wettelijke termijn van een maand moet blijven. Plan dus ruim.</p>
+{% else %}
+<p>In practice: a sole trader without a licence is registered within a week. An NV with a notary and a licence takes more like four to eight weeks. According to the ministry, entrepreneurs used to wait up to seven months for a licence; it says the process must now stay within the legal term of one month. Plan with a margin.</p>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+<li>Rechtsvorm gekozen; bij een NV of stichting notaris of modelakte geregeld</li>
+<li>Handelsnaam goedgekeurd (SRD 300, 3 maanden geldig)</li>
+<li>Huurcontract of eigendomsbewijs, met toestemming van de eigenaar</li>
+<li>Nagegaan of je activiteit vergunningplichtig is; zo ja, aanvraag via de KKF</li>
+<li>Bouwvergunning en brandweeradvies als je bouwt of een winkel, horecazaak of opslag opent</li>
+<li>Inschrijving KKF binnen een week na de start; uittreksel besteld</li>
+<li>FIN via het portaal van de Belastingdienst; registratie als werkgever en voor BTW waar nodig</li>
+<li>Zakelijke rekening geopend</li>
+<li>KKF-nummer op facturen, offertes en briefpapier</li>
+<li>Administratie ingericht: facturen, kasboek, BTW-register, loonstroken</li>
+<li>Agenda met alle belastingdeadlines: <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></li>
+</ul>
+{% else %}
+<ul class="check">
+<li>Legal form chosen; for an NV or foundation, notary or model deed arranged</li>
+<li>Trade name approved (SRD 300, valid 3 months)</li>
+<li>Lease or proof of ownership, with the owner's consent</li>
+<li>Checked whether your activity needs a licence; if so, applied through the KKF</li>
+<li>Building permit and fire service advice if you build or open a shop, restaurant or storage</li>
+<li>KKF registration within a week of starting; extract ordered</li>
+<li>FIN through the tax office portal; registered as employer and for VAT where needed</li>
+<li>Business account opened</li>
+<li>KKF number on invoices, quotes and letterheads</li>
+<li>Bookkeeping set up: invoices, cash book, VAT register, payslips</li>
+<li>Calendar with all tax deadlines: <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Je eerste jaar: wat wanneer moet' if nl else 'Your first year: what is due when' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Wanneer' if nl else 'When' }}</th><th>{{ 'Wat' if nl else 'What' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Wanneer">Binnen 1 week na start</td><td data-l="Wat">Inschrijving KKF</td></tr>
+<tr><td data-l="Wanneer">Binnen 1 week na elke wijziging</td><td data-l="Wat">Wijziging doorgeven aan de KKF (adres, bestuur, activiteiten, opheffing)</td></tr>
+<tr><td data-l="Wanneer">30 dagen vóór verhuizing of overdracht</td><td data-l="Wat">Wijziging van de vergunning aanvragen (plaatsgebonden vergunning)</td></tr>
+<tr><td data-l="Wanneer">Elke maand, 26e tot en met 10e</td><td data-l="Wat">Aangifte en betaling loonbelasting en AOV, als je personeel hebt</td></tr>
+<tr><td data-l="Wanneer">Elke maand, uiterlijk de 15e</td><td data-l="Wat">BTW-aangifte en betaling over de vorige maand, als je geregistreerd bent</td></tr>
+<tr><td data-l="Wanneer">15 april</td><td data-l="Wat">Voorlopige aangifte inkomstenbelasting en eerste termijn</td></tr>
+<tr><td data-l="Wanneer">30 april</td><td data-l="Wat">Definitieve aangifte inkomstenbelasting voor personen (ook eigenaar eenmanszaak)</td></tr>
+<tr><td data-l="Wanneer">30 juni</td><td data-l="Wat">Definitieve aangifte voor NV, stichting en coöperatie (6 maanden na een boekjaar gelijk aan het kalenderjaar)</td></tr>
+<tr><td data-l="Wanneer">15 juli, 15 oktober, 31 december</td><td data-l="Wat">Tweede, derde en vierde termijn voorlopige aanslag</td></tr>
+<tr><td data-l="Wanneer">Binnen 1 maand na de mededeling</td><td data-l="Wat">Jaarbijdrage KKF betalen</td></tr>
+<tr><td data-l="Wanneer">Eens per jaar</td><td data-l="Wat">Verzamelloonstaat indienen (online mogelijk sinds december 2025); vraag de Belastingdienst naar de uiterste datum</td></tr>
+{% else %}
+<tr><td data-l="When">Within 1 week of starting</td><td data-l="What">KKF registration</td></tr>
+<tr><td data-l="When">Within 1 week of any change</td><td data-l="What">Report the change to the KKF (address, directors, activities, closure)</td></tr>
+<tr><td data-l="When">30 days before moving or a transfer</td><td data-l="What">Apply to change the licence (location-bound licence)</td></tr>
+<tr><td data-l="When">Every month, 26th to 10th</td><td data-l="What">File and pay wage tax and AOV, if you have staff</td></tr>
+<tr><td data-l="When">Every month, by the 15th</td><td data-l="What">VAT return and payment for the previous month, if registered</td></tr>
+<tr><td data-l="When">15 April</td><td data-l="What">Provisional income tax return and first instalment</td></tr>
+<tr><td data-l="When">30 April</td><td data-l="What">Final income tax return for individuals (including sole trader owners)</td></tr>
+<tr><td data-l="When">30 June</td><td data-l="What">Final return for NV, foundation and cooperative (6 months after a calendar financial year)</td></tr>
+<tr><td data-l="When">15 July, 15 October, 31 December</td><td data-l="What">Second, third and fourth provisional tax instalment</td></tr>
+<tr><td data-l="When">Within 1 month of the notice</td><td data-l="What">Pay the KKF annual contribution</td></tr>
+<tr><td data-l="When">Once a year</td><td data-l="What">File the annual payroll summary (verzamelloonstaat, online since December 2025); ask the tax office for the deadline</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Zet alle belastingdata in één keer in je agenda met' if nl else 'Add all tax dates to your calendar at once with' }} <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</p>
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Te laat inschrijven.</b> De termijn is één week na de start, niet "als het loopt". De boete gaat tot SRD 50.000.</li>
+<li><b>Beginnen vóór de vergunning.</b> Een vergunningplichtig bedrijf zonder vergunning riskeert een bestuurlijke boete, een dwangsom en sluiting.</li>
+<li><b>Een vergunning op naam van een ander.</b> De vergunning is persoonlijk. Een ander het bedrijf laten uitoefenen op jouw vergunning, of een vergunning "huren", is verboden zonder toestemming van de directeur van het ministerie.</li>
+<li><b>Verhuizen zonder de vergunning aan te passen.</b> Bij een plaatsgebonden vergunning vervalt de vergunning als je verhuist. Vraag de wijziging 30 dagen vooraf aan.</li>
+<li><b>Werken met oude informatie.</b> Teksten over de verklaring van geen bezwaar, minimumkapitaal van een NV of een "VOF" zijn achterhaald sinds 1 mei 2025.</li>
+<li><b>Geen KKF-nummer op facturen.</b> Verplicht, en klanten en overheid letten erop.</li>
+<li><b>Privé en zaak door elkaar.</b> Zonder aparte rekening is je administratie lastig te controleren en krijg je moeilijker krediet.</li>
+<li><b>Personeel betalen zonder registratie als werkgever.</b> Registreer eerst; achteraf herstellen kost meer tijd.</li>
+<li><b>Goederen verschepen zonder importvergunning.</b> Voor goederen op de Negatieve Lijst moet je de vergunning hebben vóór verscheping.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Registering late.</b> The deadline is one week after starting, not "once things are going". The fine can reach SRD 50,000.</li>
+<li><b>Starting before the licence.</b> A licensed business operating without a licence risks an administrative fine, a penalty payment and closure.</li>
+<li><b>A licence in someone else's name.</b> The licence is personal. Letting someone else run the business on your licence, or "renting" a licence, is prohibited without consent from the ministry's director.</li>
+<li><b>Moving without changing the licence.</b> A location-bound licence lapses when you move. Apply for the change 30 days in advance.</li>
+<li><b>Relying on old information.</b> Texts about presidential approval, minimum capital for an NV or a "VOF" have been out of date since 1 May 2025.</li>
+<li><b>No KKF number on invoices.</b> It is mandatory, and customers and government check it.</li>
+<li><b>Mixing private and business money.</b> Without a separate account your books are hard to check and credit is harder to get.</li>
+<li><b>Paying staff without registering as an employer.</b> Register first; fixing it afterwards takes longer.</li>
+<li><b>Shipping goods without an import licence.</b> For goods on the Negative List you must have the licence before shipment.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<details class="more"><summary>Ik werk vanuit huis of alleen online</summary><p>Ook dan moet je inschrijven bij de KKF; het woonadres is dan je vestigingsadres. Een vergunning is alleen nodig als je activiteit op de lijst staat. Huur je, vraag dan de eigenaar om schriftelijke toestemming.</p></details>
+<details class="more"><summary>Ik ben al bezig zonder inschrijving</summary><p>Schrijf zo snel mogelijk in en geef de echte startdatum op. Registreer daarna bij de Belastingdienst. Wachten maakt het risico op een boete en naheffingen alleen groter.</p></details>
+<details class="more"><summary>Ik neem een bestaande zaak over</summary><p>Voor de KKF is een eigendomswijziging een opheffing plus een nieuwe inschrijving door de nieuwe eigenaar, binnen een week. Een vergunning vervalt bij overdracht; vraag 30 dagen vóór de overdracht een wijziging van de tenaamstelling aan. Bij tijdige aanvraag en dezelfde locatie mag je het bedrijf voortzetten tot de beslissing.</p></details>
+<details class="more"><summary>Ik wil van eenmanszaak naar NV</summary><p>Je richt een NV op en brengt het bedrijf in. Schrijf de NV in, hef de eenmanszaak op bij de KKF en vraag vergunningen op naam van de NV aan. Bespreek de fiscale gevolgen met een accountant.</p></details>
+<details class="more"><summary>Ik wil leveren aan Staatsolie of de overheid</summary><p>Zorg dat je inschrijving, FIN en eventuele vergunning op orde zijn; kopers vragen bijna altijd een recent KKF-uittreksel. Wat Staatsolie en de overheid nog meer vragen, lees je in <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> en <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p></details>
+{% else %}
+<details class="more"><summary>I work from home or only online</summary><p>You still have to register at the KKF; your home address is then your business address. You only need a licence if your activity is on the list. If you rent, ask the owner for written consent.</p></details>
+<details class="more"><summary>I have already started without registering</summary><p>Register as soon as possible and give the real start date. Then register with the tax office. Waiting only increases the risk of a fine and additional assessments.</p></details>
+<details class="more"><summary>I am taking over an existing business</summary><p>For the KKF a change of owner means closure plus a new registration by the new owner, within a week. A licence lapses on transfer; apply to change the name on the licence 30 days before the transfer. If you apply in time and keep the same location, you may continue the business until the decision.</p></details>
+<details class="more"><summary>I want to move from sole trader to NV</summary><p>You set up an NV and transfer the business into it. Register the NV, close the sole trader business at the KKF and apply for licences in the NV's name. Discuss the tax effects with an accountant.</p></details>
+<details class="more"><summary>I want to supply Staatsolie or the government</summary><p>Make sure your registration, FIN and any licence are in order; buyers almost always ask for a recent KKF extract. What Staatsolie and the government ask for beyond that is in <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> and <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p></details>
+{% endif %}
+<p>{{ 'Adressen en telefoonnummers van alle instanties:' if nl else 'Addresses and phone numbers of all offices:' }} <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a></p>
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
- <li><a href="{{ F.PORTALS.handelsregisterbesluit }}" rel="noopener">Handelsregisterbesluit, S.B. 2025 no. 46</a></li>
- <li><a href="{{ F.PORTALS.frielink_bw }}" rel="noopener">Frielink: nieuw Boek 2 BW Suriname</a></li>
- <li><a href="{{ F.PORTALS.rvo_start }}" rel="noopener">RVO: zo start u een bedrijf in Suriname</a></li>
- <li><a href="{{ F.PORTALS.license }}" rel="noopener">Doing Business Dutch Caribbean: business licence</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-169-Handelsregisterwet.pdf" rel="noopener">Handelsregisterwet, S.B. 2024 no. 169</a></li>
+<li><a href="{{ F.PORTALS.handelsregisterbesluit }}" rel="noopener">Handelsregisterbesluit, S.B. 2025 no. 46</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/03/S.B.-2024-no.-164-BOEK-2.pdf" rel="noopener">Burgerlijk Wetboek Boek 2 met toelichting, S.B. 2024 no. 164</a></li>
+<li><a href="{{ F.PORTALS.frielink_bw }}" rel="noopener">K. Frielink, Het nieuwe rechtspersonenrecht in Suriname (MvO, april 2026)</a></li>
+<li><a href="https://e-services.surinamechamber.com" rel="noopener">KKF E-Services: benodigdheden inschrijving en vergunningplichtige bedrijven</a></li>
+<li><a href="https://www.surinamechamber.com/index.php?r=site%2Ffaq" rel="noopener">KKF: veelgestelde vragen (tarieven, openingstijden)</a></li>
+<li><a href="https://www.surinamechamber.com/index.php?r=site%2Finfo" rel="noopener">KKF: One Stop Window en rechtsvormen</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2022/04/S.B.-2017-no.-40-Wet-Bedrijven-en-Beroepen.pdf" rel="noopener">Wet Bedrijven en Beroepen, S.B. 2017 no. 40</a></li>
+<li><a href="https://belastingdienst.sr/registreren-bij-de-belastingdienst/" rel="noopener">Belastingdienst: registreren bij de Belastingdienst</a></li>
+<li><a href="https://belastingdienst.sr/btw/algemeen/" rel="noopener">Belastingdienst: BTW algemeen</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/10/S.B.-2023-no.-92-Besluit-Vergunningsrecht.pdf" rel="noopener">Besluit Vergunningsrecht (bouwvergunning), S.B. 2023 no. 92</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2022/11/SB-2007-No-118-Brandveiligheid.pdf" rel="noopener">Beschikking Brandveiligheid, S.B. 2007 no. 118</a></li>
+<li><a href="https://www.srherald.com/suriname/2026/05/09/ez-verkort-vergunningstraject-naar-een-maand/" rel="noopener">Suriname Herald: EZ verkort vergunningstraject naar één maand (9 mei 2026)</a></li>
+<li><a href="{{ F.PORTALS.rvo_start }}" rel="noopener">RVO: zo start u een bedrijf in Suriname</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Dit is algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

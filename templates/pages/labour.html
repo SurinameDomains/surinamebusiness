@@ -1,26 +1,398 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
 {% set A = F.LABOUR %}
+{% set V = F.LEAVE %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'Arbeidsrecht in Suriname: de basis' if nl else 'Suriname labour law basics' }}</h1>
-<p class="lead">{{ 'De belangrijkste regels voor werkgevers en werknemers: werktijden, overwerk, vakantie en het minimumloon.' if nl else 'The key rules for employers and employees: working hours, overtime, annual leave and the minimum wage.' }}</p>
-<table class="tbl"><tbody>
-<tr><td>{{ 'Maximale werktijd' if nl else 'Maximum working time' }}</td><td>{{ num(A.max_day,1) }} {{ 'uur per dag, 48 uur per week' if nl else 'hours a day, 48 hours a week' }}</td></tr>
-<tr><td>{{ 'Pauze' if nl else 'Break' }}</td><td>{{ 'Minstens 30 minuten na 5 uur werk, bij werkdagen langer dan 6 uur' if nl else 'At least 30 minutes after 5 hours, on workdays longer than 6 hours' }}</td></tr>
-<tr><td>{{ 'Overwerk op werkdagen' if nl else 'Overtime on workdays' }}</td><td>{{ 'Minimaal 150% van het uurloon' if nl else 'At least 150% of hourly pay' }}</td></tr>
-<tr><td>{{ 'Werk op rustdagen' if nl else 'Work on rest days' }}</td><td>{{ 'Minimaal 200%' if nl else 'At least 200%' }}</td></tr>
-<tr><td>{{ 'Werk op zon- en feestdagen' if nl else 'Sunday and holiday work' }}</td><td>{{ 'Minimaal 200%, of 300% zonder vervangende rustdag' if nl else 'At least 200%, or 300% without a replacement rest day' }}</td></tr>
-<tr><td>{{ 'Overwerkvergunning' if nl else 'Overtime permit' }}</td><td>{{ 'Nodig van de Arbeidsinspectie, maximaal 64 uur per week' if nl else 'Required from the Labour Inspectorate, max 64 hours a week' }}</td></tr>
-<tr><td>{{ 'Vakantiedagen' if nl else 'Annual leave' }}</td><td>{{ A.vacation_days_first }} {{ 'werkdagen na een jaar dienst, +2 per extra jaar, wettelijk maximaal' if nl else 'working days after one year of service, +2 per extra year, statutory maximum' }} {{ A.vacation_days_max }}</td></tr>
-<tr><td>{{ 'Minimumloon' if nl else 'Minimum wage' }}</td><td><a href="{{ U('minwage') }}">{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur' if nl else 'per hour' }}</a></td></tr>
-<tr><td>{{ 'Doorbetaalde feestdagen' if nl else 'Paid public holidays' }}</td><td>{{ 'Niet gewerkte feestdagen worden doorbetaald' if nl else 'Holidays not worked are paid' }} (<a href="{{ U('holidays') }}">{{ L('holidays') }}</a>)</td></tr>
+<h1>{{ 'Arbeidsrecht in Suriname: de basis' if nl else 'Labour law in Suriname: the basics' }}</h1>
+{% if nl %}
+<p class="lead">Werktijden, overwerk, vakantie, ziekte, zwangerschapsverlof en minimumloon zijn in Suriname wettelijk geregeld, en van de meeste regels mag je niet ten nadele van de werknemer afwijken. Sinds 1 mei 2025 staat het arbeidscontract in Boek 7 van het nieuwe Burgerlijk Wetboek. Deze gids zet de regels op een rij voor werkgevers en werknemers, met de artikelnummers erbij.</p>
+{% else %}
+<p class="lead">Working hours, overtime, annual leave, sickness, maternity leave and the minimum wage are set by law in Suriname, and most rules cannot be changed to the employee's disadvantage. Since 1 May 2025 the employment contract is governed by Book 7 of the new Civil Code. This guide sets out the rules for employers and employees, with the article numbers.</p>
+{% endif %}
+<div class="grid g3">
+<div class="card"><div class="eyebrow">{{ 'Werktijd' if nl else 'Working time' }}</div><div class="big">{{ num(A.max_day,1) }} / {{ A.max_week }}</div><div class="sub">{{ 'uur per dag / per week, maximaal' if nl else 'hours a day / a week, maximum' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Minimumloon' if nl else 'Minimum wage' }}</div><div class="big">{{ srd(F.MIN_WAGE.hour, 2) }}</div><div class="sub">{{ 'per uur, sinds' if nl else 'per hour, since' }} {{ date(F.MIN_WAGE.effective) }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Bevallingsverlof' if nl else 'Maternity leave' }}</div><div class="big">16</div><div class="sub">{{ 'weken, met 100% loon via het Fonds' if nl else 'weeks, at 100% pay through the Fund' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Maximaal {{ num(A.max_day,1) }} uur per dag en {{ A.max_week }} uur per week. Meer mag alleen met een vergunning van de Arbeidsinspectie, tot 64 uur per week.</li>
+<li>Overwerk kost minstens 150% van het uurloon, op rustdagen 200%. Werk op zondag of een feestdag minstens 200%, of 300% zonder vervangende rustdag.</li>
+<li>Vakantie: {{ V.first_year_days }} werkdagen na een vol kalenderjaar, daarna +{{ V.extra_per_year }} per jaar tot {{ V.max_days }}, plus een vakantietoelage van de helft van het loon over die dagen.</li>
+<li>Bij ziekte loopt het loon minstens zes weken door. Zwangere werknemers hebben recht op 16 weken verlof, vaders op 8 dagen, betaald via het Fonds Voorzieningen Ouderschapsverlof.</li>
+<li>Minimumloon: {{ srd(F.MIN_WAGE.hour, 2) }} per uur. Discriminatie, geweld en seksuele intimidatie op het werk zijn verboden, met eigen meld- en klachtregels.</li>
+<li>Ontslag door de werkgever kan in de regel alleen met een ontslagvergunning. Zie <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+{% else %}
+<li>Maximum {{ num(A.max_day,1) }} hours a day and {{ A.max_week }} hours a week. More is only allowed with a Labour Inspectorate permit, up to 64 hours a week.</li>
+<li>Overtime costs at least 150% of hourly pay, 200% on rest days. Work on a Sunday or public holiday at least 200%, or 300% without a replacement rest day.</li>
+<li>Annual leave: {{ V.first_year_days }} working days after a full calendar year, then +{{ V.extra_per_year }} a year up to {{ V.max_days }}, plus a leave allowance of half the pay for those days.</li>
+<li>Pay continues for at least six weeks of sickness. Pregnant employees get 16 weeks of leave, fathers 8 days, paid through the Parental Leave Fund.</li>
+<li>Minimum wage: {{ srd(F.MIN_WAGE.hour, 2) }} an hour. Discrimination, violence and sexual harassment at work are prohibited, with their own reporting and complaint rules.</li>
+<li>An employer generally needs a dismissal permit to end a contract. See <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Welke wetten gelden' if nl else 'Which laws apply' }}</h2>
+{% if nl %}
+<p>Het Surinaamse arbeidsrecht staat niet in één wet. Dit zijn de belangrijkste regelingen voor werknemers in de particuliere sector. Voor ambtenaren (landsdienaren) geldt de Personeelswet; die valt buiten deze gids.</p>
+<table class="tbl stack tx"><thead><tr><th>Wet</th><th>Wat staat erin</th></tr></thead><tbody>
+<tr><td data-l="Wet">Burgerlijk Wetboek, Boek 7, titel 10 (S.B. 2024 no. 164)</td><td data-l="Wat">Het arbeidscontract: loon, ziekte, gezinsverlof, gelijke behandeling man/vrouw, proeftijd, opzegtermijnen, opzegverboden, ontslag op staande voet, getuigschrift</td></tr>
+<tr><td data-l="Wet">Arbeidswet 1963</td><td data-l="Wat">Werktijden, pauzes, rustdagen, nachtarbeid, overwerk en de toeslagen daarvoor, arbeidslijst en arbeidsregister</td></tr>
+<tr><td data-l="Wet">Vacantiewet 1975</td><td data-l="Wat">Vakantiedagen, vakantietoelage, vakantieregister, uitbetaling bij einde dienstverband</td></tr>
+<tr><td data-l="Wet">Wet Minimumloon (S.B. 2019 no. 101)</td><td data-l="Wat">Het wettelijk minimumuurloon en de Nationale Loonraad</td></tr>
+<tr><td data-l="Wet">Wet Arbeidsbescherming Gezin (S.B. 2019 no. 64)</td><td data-l="Wat">Het Fonds Voorzieningen Ouderschapsverlof en de premie van 1%. De verlofregels zelf staan sinds 1 mei 2025 in Boek 7.</td></tr>
+<tr><td data-l="Wet">Ontslagwet 2018 (S.B. 2018 no. 94)</td><td data-l="Wat">De ontslagvergunning, de Ontslagcommissie en de melding van ontslag op staande voet</td></tr>
+<tr><td data-l="Wet">Wet Gelijke Behandeling Arbeid (S.B. 2022 no. 137)</td><td data-l="Wat">Verbod op discriminatie bij werving, loon, promotie en ontslag; gelijk loon voor gelijkwaardig werk</td></tr>
+<tr><td data-l="Wet">Wet Geweld en Seksuele Intimidatie Arbeid (S.B. 2022 no. 136)</td><td data-l="Wat">Verbod op geweld, intimidatie en pesten; verplicht beleid en klachtencommissie</td></tr>
+<tr><td data-l="Wet">Wet Arbeid Kinderen en Jeugdige Personen (S.B. 2018 no. 76)</td><td data-l="Wat">Kinderarbeid en werk door jongeren onder 18</td></tr>
+<tr><td data-l="Wet">Veiligheidswet 1947 en Ongevallenregeling</td><td data-l="Wat">Veiligheid in de onderneming en bedrijfsongevallen</td></tr>
+<tr><td data-l="Wet">Wet Collectieve Arbeidsovereenkomst (S.B. 2016 no. 152) en Wet Vrijheid van Vakvereniging (S.B. 2016 no. 151)</td><td data-l="Wat">Cao's en het recht om lid te zijn van een vakbond</td></tr>
 </tbody></table>
-<h2>{{ 'Ontslag' if nl else 'Dismissal' }}</h2>
-<p>{{ 'Een werkgever heeft voor ontslag in de regel een vergunning nodig op grond van de Ontslagwet. De opzegtermijn hangt af van de duur van het dienstverband. Sinds het nieuwe Burgerlijk Wetboek van 1 mei 2025 kunnen regels zijn gewijzigd; laat je bij twijfel adviseren.' if nl else 'An employer generally needs a permit under the Dismissal Act to dismiss an employee. The notice period depends on the length of service. Rules may have changed with the new Civil Code of 1 May 2025; seek advice if in doubt.' }}</p>
-<p><a href="{{ U('overtime') }}">{{ L('overtime') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
+<p>Het toezicht ligt bij de Arbeidsinspectie. Let op: sinds 16 juli 2025 bestaat het Ministerie van Arbeid, Werkgelegenheid en Jeugdzaken (AWJ) niet meer in zijn oude vorm. Arbeidszaken vallen nu onder het Ministerie van Volksgezondheid, Welzijn en Arbeid (VWA) (S.B. 2025 no. 94). Oudere formulieren en folders noemen nog AWJ.</p>
+{% else %}
+<p>Surinamese labour law is not in one act. These are the main rules for employees in the private sector. Civil servants (landsdienaren) fall under the Personnel Act (Personeelswet), which this guide does not cover.</p>
+<table class="tbl stack tx"><thead><tr><th>Law</th><th>What it covers</th></tr></thead><tbody>
+<tr><td data-l="Law">Civil Code, Book 7, title 10 (S.B. 2024 no. 164)</td><td data-l="Covers">The employment contract: pay, sickness, family leave, equal treatment of men and women, probation, notice periods, dismissal bans, summary dismissal, reference letter</td></tr>
+<tr><td data-l="Law">Labour Act 1963 (Arbeidswet)</td><td data-l="Covers">Working hours, breaks, rest days, night work, overtime and its premiums, the working-hours list and staff register</td></tr>
+<tr><td data-l="Law">Annual Leave Act 1975 (Vacantiewet)</td><td data-l="Covers">Leave days, leave allowance, leave register, payout when employment ends</td></tr>
+<tr><td data-l="Law">Minimum Wage Act (S.B. 2019 no. 101)</td><td data-l="Covers">The statutory minimum hourly wage and the National Wage Council</td></tr>
+<tr><td data-l="Law">Family Labour Protection Act (Wet Arbeidsbescherming Gezin, S.B. 2019 no. 64)</td><td data-l="Covers">The Parental Leave Fund and its 1% contribution. The leave rules themselves have been in Book 7 since 1 May 2025.</td></tr>
+<tr><td data-l="Law">Dismissal Act 2018 (Ontslagwet, S.B. 2018 no. 94)</td><td data-l="Covers">The dismissal permit, the Dismissal Committee and reporting summary dismissals</td></tr>
+<tr><td data-l="Law">Equal Treatment in Employment Act (S.B. 2022 no. 137)</td><td data-l="Covers">No discrimination in hiring, pay, promotion or dismissal; equal pay for work of equal value</td></tr>
+<tr><td data-l="Law">Violence and Sexual Harassment at Work Act (S.B. 2022 no. 136)</td><td data-l="Covers">Ban on violence, harassment and bullying; mandatory policy and complaints committee</td></tr>
+<tr><td data-l="Law">Child and Youth Labour Act (S.B. 2018 no. 76)</td><td data-l="Covers">Child labour and work by people under 18</td></tr>
+<tr><td data-l="Law">Safety Act 1947 and Accidents Regulation (Ongevallenregeling)</td><td data-l="Covers">Workplace safety and work accidents</td></tr>
+<tr><td data-l="Law">Collective Agreements Act (S.B. 2016 no. 152) and Freedom of Association Act (S.B. 2016 no. 151)</td><td data-l="Covers">Collective agreements (CAO) and the right to join a union</td></tr>
+</tbody></table>
+<p>Enforcement is done by the Labour Inspectorate (Arbeidsinspectie). Note: since 16 July 2025 the Ministry of Labour, Employment and Youth Affairs (AWJ) no longer exists in its old form. Labour now falls under the Ministry of Health, Welfare and Labour (VWA) (S.B. 2025 no. 94). Older forms and leaflets still say AWJ.</p>
+{% endif %}
+
+<h2>{{ 'Wat veranderde met het nieuwe Burgerlijk Wetboek' if nl else 'What changed with the new Civil Code' }}</h2>
+{% if nl %}
+<p>Op 1 mei 2025 trad het nieuwe Burgerlijk Wetboek in werking. Het arbeidscontract staat nu in Boek 7, titel 10 (artikel 610 tot en met 690). Volgens de toelichting bij de Aanpassingswet (S.B. 2024 no. 168) zijn de civiele delen van de Ontslagwet 2018, de Wet Arbeidsbescherming Gezin en de Wet Omzetting Arbeidsovereenkomst grotendeels letterlijk naar Boek 7 overgebracht. De inhoud bleef dus veelal gelijk, maar de vindplaats en de artikelnummers veranderden.</p>
+<table class="tbl stack tx"><thead><tr><th>Onderwerp</th><th>Oud</th><th>Sinds 1 mei 2025</th></tr></thead><tbody>
+<tr><td data-l="Onderwerp">Definitie arbeidsovereenkomst</td><td data-l="Oud">art. 1613a BW</td><td data-l="Nu">art. 7:610</td></tr>
+<tr><td data-l="Onderwerp">Proeftijd</td><td data-l="Oud">art. 1615l BW</td><td data-l="Nu">art. 7:652</td></tr>
+<tr><td data-l="Onderwerp">Dringende reden (ontslag op staande voet)</td><td data-l="Oud">art. 1615p BW</td><td data-l="Nu">art. 7:678</td></tr>
+<tr><td data-l="Onderwerp">Opzegverboden (ziekte, zwangerschap, vakbond)</td><td data-l="Oud">art. 6 tot 9 Ontslagwet 2018</td><td data-l="Nu">art. 7:670 tot 670c</td></tr>
+<tr><td data-l="Onderwerp">Zwangerschaps- en vaderschapsverlof</td><td data-l="Oud">art. 2 tot 8 Wet Arbeidsbescherming Gezin</td><td data-l="Nu">art. 7:633a tot 633h</td></tr>
+<tr><td data-l="Onderwerp">Tijdelijk contract wordt vast</td><td data-l="Oud">Wet Omzetting (S.B. 2018 no. 93)</td><td data-l="Nu">art. 7:667a tot 667g</td></tr>
+</tbody></table>
+<p>Een paar regels in Boek 7 die in de praktijk vaak worden gemist:</p>
+<ul class="check">
+<li><b>Vermoeden van een arbeidscontract</b> (art. 7:610a): wie drie maanden achter elkaar tegen betaling voor een ander werkt, wekelijks minstens 8 uur of minstens 35 uur per maand, wordt vermoed in dienst te zijn. Het etiket "freelance" helpt dan weinig.</li>
+<li><b>Minimaal drie uur loon per oproep</b> (art. 7:628a) bij een contract van minder dan 15 uur per week zonder vaste tijden.</li>
+<li><b>Loonstrook bij elke betaling</b> (art. 7:626 en 7:667d), met brutoloon, toeslagen, inhoudingen, premies en de gebruikte koers als het loon in vreemde valuta is afgesproken.</li>
+<li><b>Schriftelijke opgave van de arbeidsvoorwaarden</b> op verzoek van de werknemer (art. 7:655): functie, plaats, begindatum, loon, werktijden, vakantie, opzegtermijnen, pensioen en de toepasselijke cao.</li>
+<li><b>Een bedrijfsreglement</b> bindt de werknemer alleen als het in het Nederlands is, de werknemer het schriftelijk heeft aanvaard, er een exemplaar ligt bij de griffie van het kantongerecht en het zichtbaar is opgehangen (art. 7:613a).</li>
+</ul>
+{% else %}
+<p>The new Civil Code took effect on 1 May 2025. The employment contract is now in Book 7, title 10 (articles 610 to 690). According to the explanatory memorandum to the Adaptation Act (S.B. 2024 no. 168), the civil-law parts of the Dismissal Act 2018, the Family Labour Protection Act and the Act on converting fixed-term contracts were moved into Book 7 largely word for word. Most content stayed the same, but the location and article numbers changed.</p>
+<table class="tbl stack tx"><thead><tr><th>Subject</th><th>Old</th><th>Since 1 May 2025</th></tr></thead><tbody>
+<tr><td data-l="Subject">Definition of employment contract</td><td data-l="Old">art. 1613a Civil Code</td><td data-l="Now">art. 7:610</td></tr>
+<tr><td data-l="Subject">Probation period</td><td data-l="Old">art. 1615l Civil Code</td><td data-l="Now">art. 7:652</td></tr>
+<tr><td data-l="Subject">Urgent reason (summary dismissal)</td><td data-l="Old">art. 1615p Civil Code</td><td data-l="Now">art. 7:678</td></tr>
+<tr><td data-l="Subject">Dismissal bans (sickness, pregnancy, union)</td><td data-l="Old">arts. 6 to 9 Dismissal Act 2018</td><td data-l="Now">arts. 7:670 to 670c</td></tr>
+<tr><td data-l="Subject">Maternity and paternity leave</td><td data-l="Old">arts. 2 to 8 Family Labour Protection Act</td><td data-l="Now">arts. 7:633a to 633h</td></tr>
+<tr><td data-l="Subject">Fixed-term contract becomes permanent</td><td data-l="Old">Conversion Act (S.B. 2018 no. 93)</td><td data-l="Now">arts. 7:667a to 667g</td></tr>
+</tbody></table>
+<p>A few Book 7 rules that are often missed in practice:</p>
+<ul class="check">
+<li><b>Presumed employment</b> (art. 7:610a): someone who works for pay for another person for three months in a row, at least 8 hours a week or at least 35 hours a month, is presumed to be an employee. Calling it "freelance" does not change much.</li>
+<li><b>At least three hours' pay per call-in</b> (art. 7:628a) on a contract of under 15 hours a week without fixed times.</li>
+<li><b>A payslip with every payment</b> (arts. 7:626 and 7:667d), showing gross pay, allowances, deductions, premiums and the exchange rate used if pay is agreed in foreign currency.</li>
+<li><b>A written statement of terms</b> at the employee's request (art. 7:655): job, place, start date, pay, hours, leave, notice periods, pension and the applicable CAO.</li>
+<li><b>Company rules (reglement)</b> only bind an employee if they are in Dutch, the employee accepted them in writing, a copy is lodged with the registry of the cantonal court and they are posted visibly (art. 7:613a).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Contract, proeftijd en loonbetaling' if nl else 'Contract, probation and paying wages' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Proeftijd</b>: alleen schriftelijk, voor beide partijen gelijk en maximaal twee maanden, ook als je meerdere proeftijden achter elkaar afspreekt (art. 7:652). Tijdens de proeftijd mogen beide partijen direct opzeggen.</li>
+<li><b>Tijdelijke contracten</b>: na meer dan drie opeenvolgende contracten, of na meer dan 24 maanden (tussenpozen van maximaal drie maanden tellen mee), geldt het laatste contract als vast (art. 7:667c). De werkgever moet dan een getekende verklaring geven dat het contract voor onbepaalde tijd is (art. 7:667e).</li>
+<li><b>Betaaltermijn</b>: loon per tijdvak wordt uitbetaald na afloop van dat tijdvak, minstens eens per maand en niet vaker dan eens per week (art. 7:623).</li>
+<li><b>Te laat betalen</b>: ligt het aan de werkgever, dan heeft de werknemer vanaf de vierde werkdag na de betaaldag recht op een verhoging van 5% per dag tot en met de achtste werkdag en daarna 1% per dag, tot maximaal de helft van het achterstallige loon (art. 7:625).</li>
+<li><b>Loon in USD of EUR</b> mag als het is afgesproken, maar de werknemer mag vanaf de tweede volgende betaaldag betaling in SRD verlangen (art. 7:620).</li>
+<li><b>Inhoudingen</b>: de werkgever mag alleen verrekenen met schadevergoeding, boetes uit een schriftelijk contract of reglement, schriftelijke voorschotten, te veel betaald loon en schriftelijk afgesproken huur (art. 7:632). Boetes zijn samen maximaal een half dagloon per week en mogen de werkgever zelf niet ten goede komen (art. 7:650).</li>
+<li><b>Concurrentiebeding</b>: alleen schriftelijk en met een meerderjarige werknemer. De rechter kan het matigen (art. 7:653).</li>
+</ul>
+<p>Bruto naar netto rekenen doe je met de <a href="{{ U('salary') }}">{{ L('salary') }}</a> en de <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>. Wat een werknemer de werkgever in totaal kost (AOV, pensioen, BZV, de 1% voor het Fonds) staat in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% else %}
+<ul>
+<li><b>Probation</b>: only in writing, the same for both parties and at most two months, including when several probation periods follow each other (art. 7:652). During probation either party can end the contract immediately.</li>
+<li><b>Fixed-term contracts</b>: after more than three consecutive contracts, or after more than 24 months (gaps of up to three months count), the last contract counts as permanent (art. 7:667c). The employer must then give a signed statement that the contract is open-ended (art. 7:667e).</li>
+<li><b>Pay period</b>: time-based pay is paid after the end of each period, at least once a month and not more often than weekly (art. 7:623).</li>
+<li><b>Late payment</b>: if the delay is the employer's fault, from the fourth working day after payday the employee is entitled to a surcharge of 5% a day up to the eighth working day, then 1% a day, up to half of the overdue pay (art. 7:625).</li>
+<li><b>Pay in USD or EUR</b> is allowed if agreed, but the employee may demand payment in SRD from the second following payday (art. 7:620).</li>
+<li><b>Deductions</b>: the employer may only set off damages owed, fines under a written contract or company rules, written advances, overpaid wages and rent agreed in writing (art. 7:632). Fines may not exceed half a day's pay per week in total and may not benefit the employer personally (art. 7:650).</li>
+<li><b>Non-compete clause</b>: only in writing and with an adult employee. A court can reduce it (art. 7:653).</li>
+</ul>
+<p>Work out gross to net with the <a href="{{ U('salary') }}">{{ L('salary') }}</a> and the <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>. The total cost of an employee (AOV, pension, basic health insurance, the 1% for the Fund) is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Werktijden, pauzes en rustdagen' if nl else 'Working hours, breaks and rest days' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Regel' if nl else 'Rule' }}</th><th>{{ 'Wat de Arbeidswet zegt' if nl else 'What the Labour Act says' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Regel">Maximale werktijd</td><td data-l="Arbeidswet">{{ num(A.max_day,1) }} uur per dag of {{ A.max_week }} uur per week (art. 3)</td></tr>
+<tr><td data-l="Regel">Bewakingsdienst</td><td data-l="Arbeidswet">Alleen bewaking: tot 12 uur per dag of 72 per week. Grotendeels bewaking: tot 10 uur per dag of 60 per week (art. 4)</td></tr>
+<tr><td data-l="Regel">Pauze</td><td data-l="Arbeidswet">Bij meer dan 6 uur werk: na uiterlijk 5 uur een onafgebroken pauze van minstens 30 minuten. Pauzes korter dan een kwartier tellen als werktijd (art. 9)</td></tr>
+<tr><td data-l="Regel">Zondag en feestdagen</td><td data-l="Arbeidswet">Geen werk, tenzij de Arbeidsinspectie een vergunning geeft. Elke gewerkte zondag wordt in dezelfde week vervangen door een rustdag van 24 uur (art. 8 en 10)</td></tr>
+<tr><td data-l="Regel">Nacht</td><td data-l="Arbeidswet">Geen werk tussen 19:00 en 06:00 uur, tenzij met vergunning (art. 8 en 10). Bewakers zijn uitgezonderd</td></tr>
+<tr><td data-l="Regel">Halve vrije dag</td><td data-l="Arbeidswet">Eén halve werkdag per week vrij (het deel voor of na 13:00 uur), aangewezen door de werkgever rekening houdend met de wensen van de werknemers (art. 8)</td></tr>
+<tr><td data-l="Regel">Twee banen</td><td data-l="Arbeidswet">Samen niet meer uren dan bij één werkgever mag. De werknemer moet zijn werkgevers inlichten (art. 5)</td></tr>
+{% else %}
+<tr><td data-l="Rule">Maximum working time</td><td data-l="Labour Act">{{ num(A.max_day,1) }} hours a day or {{ A.max_week }} hours a week (art. 3)</td></tr>
+<tr><td data-l="Rule">Security guards</td><td data-l="Labour Act">Guarding only: up to 12 hours a day or 72 a week. Mainly guarding: up to 10 hours a day or 60 a week (art. 4)</td></tr>
+<tr><td data-l="Rule">Break</td><td data-l="Labour Act">On days of more than 6 hours: an unbroken break of at least 30 minutes after no more than 5 hours. Breaks under 15 minutes count as working time (art. 9)</td></tr>
+<tr><td data-l="Rule">Sundays and public holidays</td><td data-l="Labour Act">No work unless the Labour Inspectorate grants a permit. Each Sunday worked is replaced by a 24-hour rest day in the same week (arts. 8 and 10)</td></tr>
+<tr><td data-l="Rule">Night</td><td data-l="Labour Act">No work between 19:00 and 06:00 unless under a permit (arts. 8 and 10). Security guards are exempt</td></tr>
+<tr><td data-l="Rule">Half day off</td><td data-l="Labour Act">One half working day off a week (the part before or after 13:00), chosen by the employer taking the employees' wishes into account (art. 8)</td></tr>
+<tr><td data-l="Rule">Two jobs</td><td data-l="Labour Act">Combined hours may not exceed what one employer may allow. The employee must inform both employers (art. 5)</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>De vergunning voor zondags- en nachtwerk is bedoeld voor onder meer industrie, horeca, bioscopen en garages (art. 10). Werk je structureel langer dan {{ num(A.max_day,1) }} uur per dag, dan heb je een werktijdenregeling nodig die de Arbeidsinspectie heeft goedgekeurd, telkens voor maximaal een jaar (art. 11).</p>
+<p><b>Administratie.</b> Elke onderneming moet een <b>arbeidslijst</b> hebben met begin- en eindtijden, pauzes en rustdagen per groep werknemers, zichtbaar opgehangen op de werkplek. Een getekend afschrift en elke wijziging gaan vóór ingang naar het Hoofd van de Arbeidsinspectie. Daarnaast hoort er een <b>arbeidsregister</b> te zijn met naam, geboortedatum en geslacht van alle werknemers (art. 24). Gewerkte uren bijhouden kan met de <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a>.</p>
+{% else %}
+<p>The Sunday and night work permit is meant for, among others, industry, hospitality, cinemas and garages (art. 10). If your staff routinely work more than {{ num(A.max_day,1) }} hours a day, you need a working-time schedule approved by the Labour Inspectorate, valid for up to one year at a time (art. 11).</p>
+<p><b>Records.</b> Every business must have a <b>working-hours list</b> (arbeidslijst) with start and end times, breaks and rest days per group of employees, posted visibly at the workplace. A signed copy and every change go to the Head of the Labour Inspectorate before they take effect. There must also be a <b>staff register</b> (arbeidsregister) with the name, date of birth and sex of every employee (art. 24). Track hours with the <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Overwerk' if nl else 'Overtime' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Situatie' if nl else 'Situation' }}</th><th>{{ 'Minimaal' if nl else 'At least' }}</th></tr></thead><tbody>
+<tr><td>{{ 'Overwerk op een gewone werkdag' if nl else 'Overtime on a normal working day' }}</td><td>{{ num(A.ot_normal*100,0) }}%</td></tr>
+<tr><td>{{ 'Werk buiten de afgesproken uren, binnen de wettelijke grens' if nl else 'Work outside agreed hours, within the legal limit' }}</td><td>{{ num(A.ot_normal*100,0) }}%</td></tr>
+<tr><td>{{ 'Overwerk op een rustdag' if nl else 'Overtime on a rest day' }}</td><td>{{ num(A.ot_rest*100,0) }}%</td></tr>
+<tr><td>{{ 'Werk op zondag of een feestdag' if nl else 'Work on a Sunday or public holiday' }}</td><td>{{ num(A.holiday_work*100,0) }}%</td></tr>
+<tr><td>{{ 'Feestdag gewerkt zonder vervangende rustdag (schriftelijk of in cao afgesproken)' if nl else 'Holiday worked without a replacement rest day (agreed in writing or by CAO)' }}</td><td>{{ num(A.holiday_work_no_rest*100,0) }}%</td></tr>
+</tbody></table>
+{% if nl %}
+<p>De percentages gelden over het basisloon per uur (art. 12, 13, 15 en 16 Arbeidswet). Ook een parttimer die meer uren maakt dan afgesproken krijgt dus 150%. Een cao mag hiervan afwijken; voor stafleden kan dat ook in een schriftelijk contract (art. 16).</p>
+<p>Overwerk boven {{ num(A.max_day,1) }} uur per dag of {{ A.max_week }} uur per week mag alleen met een vergunning van het Hoofd van de Arbeidsinspectie, tot maximaal 64 uur per week (art. 6). In uitzonderlijke gevallen kan de Minister tot 72 uur per week en 2.900 uur per jaar toestaan. Voor bedrijven met onverwachte spoedgevallen bestaat een machtiging van maximaal een jaar; elk gebruik meld je vooraf schriftelijk (art. 7). Bereken het bedrag met de <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>; op overwerkloon geldt een apart loonbelastingtarief, zie <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</p>
+{% else %}
+<p>The percentages apply to basic hourly pay (arts. 12, 13, 15 and 16 Labour Act). So a part-timer who works more hours than agreed also gets 150%. A collective agreement (CAO) may set different rules; for senior staff this can also be done in a written contract (art. 16).</p>
+<p>Overtime beyond {{ num(A.max_day,1) }} hours a day or {{ A.max_week }} hours a week requires a permit from the Head of the Labour Inspectorate, up to 64 hours a week (art. 6). In exceptional cases the Minister can allow up to 72 hours a week and 2,900 hours a year. Businesses facing sudden emergencies can get an authorisation for up to one year; each use must be reported in writing beforehand (art. 7). Calculate the amount with the <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>; overtime pay has its own wage tax rate, see <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Feestdagen' if nl else 'Public holidays' }}</h2>
+{% if nl %}
+<p>De officiële vrije dagen staan in het Besluit Rustdagen 1971 en zijn voor de Arbeidswet gelijkgesteld aan zondag. Valt een feestdag niet op zondag en werkt de werknemer niet, dan wordt het loon gewoon doorbetaald (art. 14 Arbeidswet). Wie wel werkt krijgt minstens 200%, of 300% als schriftelijk of in de cao is afgesproken dat er geen vervangende rustdag komt (art. 13). De data voor dit jaar en volgend jaar staan in <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>; werkdagen tussen twee data tel je met <a href="{{ U('workdays') }}">{{ L('workdays') }}</a>.</p>
+{% else %}
+<p>The official days off are listed in the Rest Days Decree 1971 (Besluit Rustdagen) and count as Sundays under the Labour Act. If a holiday does not fall on a Sunday and the employee does not work, pay continues as normal (art. 14 Labour Act). Anyone who works gets at least 200%, or 300% if it was agreed in writing or by CAO that no replacement rest day will be given (art. 13). This year's and next year's dates are in <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>; count working days between two dates with <a href="{{ U('workdays') }}">{{ L('workdays') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Vakantie en vakantietoelage' if nl else 'Annual leave and leave allowance' }}</h2>
+{% if nl %}
+<ul>
+<li>Na een vol kalenderjaar bij dezelfde werkgever: {{ V.first_year_days }} werkdagen. Elk volgend onafgebroken jaar +{{ V.extra_per_year }}, tot {{ V.max_days }} werkdagen (art. 7 Vacantiewet). In het eerste, onvolledige jaar: {{ V.per_month_first_year }} dag per volle maand.</li>
+<li>Vakantie wordt opgenomen in het jaar na het kalenderjaar waarover ze is opgebouwd. Wie meer dan zes dagen heeft, neemt minstens één aaneengesloten periode van zes werkdagen (art. 9).</li>
+<li>Over elke vakantiedag krijgt de werknemer naast zijn loon een <b>vakantietoelage</b> van de helft van het loon over die dag (art. 10). De toelage is niet vatbaar voor beslag of verrekening, behalve voor belastingschulden en alimentatie.</li>
+<li>Vakantie kan niet worden afgekocht of vervallen zolang het dienstverband loopt, en werken tegen betaling tijdens de vakantie is verboden (art. 3). Bij het einde van het dienstverband worden niet-opgenomen dagen uitbetaald met de toelage erbij, en mogen ze niet met de opzegtermijn worden verrekend (art. 12).</li>
+<li>De werkgever houdt een <b>vakantieregister</b> bij dat de werknemer elk jaar tekent (art. 14). Bij onenigheid over vakantie beslist de directeur van Arbeid (art. 15).</li>
+<li>Zwangerschaps- en bevallingsverlof mag niet van de vakantiedagen af (art. 7:633e).</li>
+</ul>
+<p>Rekenen: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
+{% else %}
+<ul>
+<li>After a full calendar year with the same employer: {{ V.first_year_days }} working days. Each further uninterrupted year +{{ V.extra_per_year }}, up to {{ V.max_days }} working days (art. 7 Annual Leave Act). In the first, incomplete year: {{ V.per_month_first_year }} day per full month.</li>
+<li>Leave is taken in the year after the calendar year in which it was earned. Anyone entitled to more than six days takes at least one unbroken period of six working days (art. 9).</li>
+<li>For each leave day the employee receives, on top of normal pay, a <b>leave allowance</b> (vakantietoelage) of half the pay for that day (art. 10). The allowance cannot be seized or set off, except for tax debts and maintenance.</li>
+<li>Leave cannot be bought out or forfeited while employment continues, and paid work during leave is prohibited (art. 3). When employment ends, untaken days are paid out with the allowance and may not be offset against the notice period (art. 12).</li>
+<li>The employer keeps a <b>leave register</b> that the employee signs every year (art. 14). In a dispute about leave, the Director of Labour decides (art. 15).</li>
+<li>Maternity leave may not be deducted from annual leave (art. 7:633e).</li>
+</ul>
+<p>Calculate: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Ziekte en bijzonder verlof' if nl else 'Sickness and special leave' }}</h2>
+{% if nl %}
+<p>Een zieke werknemer houdt recht op zijn loon "voor een betrekkelijk korte tijd, doch ten minste voor een periode van zes weken" (art. 7:629). In het contract mag worden afgesproken dat de eerste twee ziektedagen onbetaald zijn. Ziekteperiodes die minder dan vier weken uit elkaar liggen tellen samen. Geen recht op loon is er onder meer bij opzettelijk veroorzaakte ziekte, bij het vertragen van het herstel en bij weigering van passend werk zonder goede reden.</p>
+<p>De werkgever moet zo snel mogelijk maatregelen nemen zodat de zieke werknemer zijn eigen of ander passend werk kan doen (art. 7:658a); de werknemer moet meewerken (art. 7:660a). Opzeggen tijdens ziekte is in de eerste zes weken verboden (art. 7:670 lid 3), zie <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+<p><b>Kort bijzonder verlof met loon</b> (art. 7:629 lid 4 en 5) voor een korte, redelijke tijd bij onder meer: de bevalling van je echtgenote, overlijden en begrafenis van een huisgenoot of naaste familie, een wettelijke plicht die je niet in je vrije tijd kunt doen, en stemmen bij verkiezingen. Hoeveel dagen precies staat vaak in de cao of het reglement.</p>
+<p><b>Overlijden van een werknemer.</b> De werkgever betaalt de nabestaanden (partner, anders minderjarige kinderen) nog één maand loon vanaf de dag na het overlijden (art. 7:674).</p>
+{% else %}
+<p>A sick employee keeps the right to pay "for a relatively short time, but for at least six weeks" (art. 7:629). The contract may say the first two sick days are unpaid. Sickness periods less than four weeks apart are added together. There is no right to pay, among other cases, if the sickness was caused deliberately, if recovery is delayed by the employee, or if suitable work is refused without good reason.</p>
+<p>The employer must take steps as soon as possible so the sick employee can do his own or other suitable work (art. 7:658a); the employee must cooperate (art. 7:660a). Giving notice during the first six weeks of sickness is prohibited (art. 7:670(3)), see <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+<p><b>Short paid special leave</b> (art. 7:629(4) and (5)) for a short, reasonable time, for example: your spouse giving birth, the death and funeral of a household member or close relative, a legal duty that cannot be done in your own time, and voting in elections. The exact number of days is often set in the CAO or company rules.</p>
+<p><b>Death of an employee.</b> The employer pays the surviving partner (or else the minor children) one more month of pay from the day after death (art. 7:674).</p>
+{% endif %}
+
+<h2>{{ 'Zwangerschap, bevalling en vaderschapsverlof' if nl else 'Pregnancy, maternity and paternity leave' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Verlof</th><th>Duur</th></tr></thead><tbody>
+<tr><td data-l="Verlof">Zwangerschapsverlof</td><td data-l="Duur">4 tot 6 weken vóór de vermoedelijke bevallingsdatum</td></tr>
+<tr><td data-l="Verlof">Bevallingsverlof</td><td data-l="Duur">10 tot 12 weken na de bevalling; samen altijd 16 weken. Bij drie of meer kinderen tot 24 weken</td></tr>
+<tr><td data-l="Verlof">Miskraam of doodgeboren kind tijdens het verlof</td><td data-l="Duur">6 weken bevallingsverlof daarna; de vader 1 dag</td></tr>
+<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 dagen: de dag van de bevalling, 3 werkdagen direct daarna, 2 werkdagen na afloop van het bevallingsverlof en 2 werkdagen in de eerste 4 maanden</td></tr>
+<tr><td data-l="Verlof">Adoptie van een kind jonger dan 18 maanden</td><td data-l="Duur">Moeder 6 weken, vader minstens 5 werkdagen</td></tr>
+<tr><td data-l="Verlof">Moeder overlijdt of kan niet voor het kind zorgen</td><td data-l="Duur">De vader of een familielid krijgt het (resterende) bevallingsverlof</td></tr>
+</tbody></table>
+<p>Het verlof is verplicht, voor de werknemer én de werkgever (art. 7:633c en 633d). De werknemer meldt de zwangerschap uiterlijk aan het eind van week 20, met een verklaring van huisarts, verloskundige of specialist, en geeft dan ook schriftelijk door hoe het verlof wordt opgenomen. De geboorte meld je binnen 7 werkdagen met een geboorteakte van het CBB (art. 7:633f). Een vader die niet getrouwd is, heeft recht op verlof als de samenwoning met de moeder minstens 18 maanden bij de werkgever geregistreerd staat, aangetoond met een uittreksel van het CBB (art. 7:633a).</p>
+<p><b>Wie betaalt?</b> Het <b>Fonds Voorzieningen Ouderschapsverlof (FVO)</b> betaalt 100% van het loon. Werkgever en werknemer dragen samen 1% van het brutoloon af, waarvan de werknemer maximaal de helft betaalt; de werkgever houdt dat deel in op het loon. De werkgever vraagt de uitkering aan, mede ondertekend door de werknemer, uiterlijk 4 weken voor het verlof begint. Het Fonds betaalt aan de werkgever, die het meteen doorbetaalt (Wet Arbeidsbescherming Gezin, art. 12 en 14).</p>
+<p><b>Bescherming.</b> Opzeggen tijdens zwangerschap, verlof en na terugkeer is verboden, behalve om een dringende reden (art. 7:633g). Een zwangere werknemer hoeft met een doktersverklaring geen nachtwerk te doen (ook niet tot 4 weken na het verlof) en geen staand werk. Zwangerschapsonderzoeken onder werktijd worden doorbetaald (art. 7:633h). Na het verlof heeft zij recht op dezelfde of een gelijkwaardige functie met hetzelfde loon.</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Leave</th><th>Length</th></tr></thead><tbody>
+<tr><td data-l="Leave">Pregnancy leave</td><td data-l="Length">4 to 6 weeks before the expected due date</td></tr>
+<tr><td data-l="Leave">Maternity leave after birth</td><td data-l="Length">10 to 12 weeks after the birth; always 16 weeks in total. Up to 24 weeks for three or more babies</td></tr>
+<tr><td data-l="Leave">Miscarriage or stillbirth during leave</td><td data-l="Length">6 weeks of maternity leave afterwards; the father 1 day</td></tr>
+<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 days: the day of birth, 3 working days right after, 2 working days when maternity leave ends and 2 working days within the first 4 months</td></tr>
+<tr><td data-l="Leave">Adopting a child under 18 months</td><td data-l="Length">Mother 6 weeks, father at least 5 working days</td></tr>
+<tr><td data-l="Leave">Mother dies or cannot care for the baby</td><td data-l="Length">The father or a relative gets the (remaining) maternity leave</td></tr>
+</tbody></table>
+<p>The leave is compulsory, for the employee and the employer (arts. 7:633c and 633d). The employee reports the pregnancy by the end of week 20 with a statement from a GP, midwife or specialist, and states in writing how the leave will be taken. The birth is reported within 7 working days with a birth certificate from the CBB (civil registry) (art. 7:633f). An unmarried father qualifies if his household with the mother has been registered with the employer for at least 18 months, shown with an extract from the CBB (art. 7:633a).</p>
+<p><b>Who pays?</b> The <b>Parental Leave Fund</b> (Fonds Voorzieningen Ouderschapsverlof, FVO) pays 100% of wages. Employer and employee together contribute 1% of gross pay, of which the employee pays at most half; the employer withholds that part from wages. The employer applies for the benefit, co-signed by the employee, at least 4 weeks before the leave starts. The Fund pays the employer, who passes it on immediately (Family Labour Protection Act, arts. 12 and 14).</p>
+<p><b>Protection.</b> Giving notice during pregnancy, leave and after return is prohibited except for an urgent reason (art. 7:633g). With a doctor's statement a pregnant employee does not have to do night work (also up to 4 weeks after the leave) or standing work. Prenatal check-ups during working hours are paid (art. 7:633h). After the leave she has the right to the same or an equivalent job at the same pay.</p>
+{% endif %}
+
+<h2>{{ 'Minimumloon' if nl else 'Minimum wage' }}</h2>
+{% if nl %}
+<p>Het wettelijk minimumloon is <b>{{ srd(F.MIN_WAGE.hour, 2) }} per uur</b> sinds {{ date(F.MIN_WAGE.effective) }} (daarvoor {{ srd(F.MIN_WAGE.previous_hour, 2) }}). Het geldt voor elke werknemer, ook voor uitzendkrachten, thuiswerkers en wie "enkele diensten" verricht. Een sector-minimumloon mag nooit lager zijn. De Minister stelt het vast na advies van de Nationale Loonraad en goedkeuring door de Raad van Ministers (Wet Minimumloon, gewijzigd bij S.B. 2024 no. 31). Overwerk wordt minimaal berekend over het minimumuurloon.</p>
+<p>Krijg je minder, dan kun je dat melden bij het Hoofd van de Arbeidsinspectie. Je krijgt een schriftelijke bevestiging en binnen veertien werkdagen moet een onderzoek starten. Gebeurt dat niet, dan kun je binnen 7 werkdagen schriftelijk klagen bij de Minister (art. 5). Rekenen per maand of week: <a href="{{ U('minwage') }}">{{ L('minwage') }}</a>.</p>
+{% else %}
+<p>The statutory minimum wage has been <b>{{ srd(F.MIN_WAGE.hour, 2) }} an hour</b> since {{ date(F.MIN_WAGE.effective) }} (previously {{ srd(F.MIN_WAGE.previous_hour, 2) }}). It applies to every employee, including agency workers, home workers and people hired for "occasional services". A sector minimum may never be lower. The Minister sets it on the advice of the National Wage Council and with Council of Ministers approval (Minimum Wage Act, amended by S.B. 2024 no. 31). Overtime is calculated on at least the minimum hourly wage.</p>
+<p>If you are paid less, you can report it to the Head of the Labour Inspectorate. You get a written confirmation and an investigation must start within fourteen working days. If it does not, you can complain in writing to the Minister within 7 working days (art. 5). Monthly and weekly amounts: <a href="{{ U('minwage') }}">{{ L('minwage') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Gelijke behandeling, geweld en intimidatie' if nl else 'Equal treatment, violence and harassment' }}</h2>
+{% if nl %}
+<p><b>Gelijke behandeling.</b> De Wet Gelijke Behandeling Arbeid (2022) verbiedt onderscheid bij werving, selectie, loon, promotie, opleiding en ontslag op grond van onder meer ras, etniciteit, sekse, religie, politieke overtuiging, seksuele oriëntatie, genderidentiteit, beperking, hiv-status en andere chronische aandoeningen, zwangerschap, gezinsverantwoordelijkheid, leeftijd en burgerlijke staat. Een hiv-test of zwangerschapstest bij sollicitatie is verboden. Parttimers en tijdelijke krachten mogen niet zonder objectieve reden slechter worden behandeld. Voor gelijkwaardig werk geldt gelijk loon; de werkgever legt zijn beloningsbeleid schriftelijk vast en moet bij een geschil aantonen dat hij gelijk heeft betaald.</p>
+<p><b>Geweld en seksuele intimidatie.</b> De Wet Geweld en Seksuele Intimidatie Arbeid (2022) geldt op de werkplek, onderweg van en naar het werk, bij werkuitjes en in berichten via telefoon en internet. Wat de werkgever moet doen:</p>
+<ul class="check">
+<li>Na overleg met de vakbond (of anders met de werknemers) een <b>schriftelijk beleid</b> vastleggen tegen geweld, intimidatie en pesten, met een klachtenprocedure, geheimhouding en sancties. Een afschrift gaat naar alle werknemers en naar het Hoofd van de Arbeidsinspectie; het beleid wordt minstens één keer per jaar besproken (art. 4). De Arbeidsinspectie levert op verzoek een modelbeleid.</li>
+<li>Meer dan 30 werknemers: een <b>klachtencommissie</b> van minstens drie personen en een interne klachtenprocedure. Het advies van de commissie is bindend (art. 5).</li>
+<li>Minder dan 30 werknemers: kan de werkgever een klacht niet zelf behandelen, dan vraagt hij de Arbeidsinspectie om onderzoek en advies (art. 7).</li>
+</ul>
+<p>Een werknemer kan altijd rechtstreeks klagen bij het Hoofd van de Arbeidsinspectie (art. 8). Wie klaagt of getuigt mag niet worden benadeeld, en een werknemer mag zich terugtrekken uit een situatie waarin hij redelijkerwijs geweld of intimidatie verwacht, als hij dat meteen meldt (art. 3).</p>
+{% else %}
+<p><b>Equal treatment.</b> The Equal Treatment in Employment Act (2022) prohibits distinctions in recruitment, selection, pay, promotion, training and dismissal based on, among others, race, ethnicity, sex, religion, political opinion, sexual orientation, gender identity, disability, HIV status and other chronic conditions, pregnancy, family responsibilities, age and marital status. An HIV test or pregnancy test when hiring is prohibited. Part-time and temporary staff may not be treated worse without an objective reason. Work of equal value gets equal pay; the employer puts its pay policy in writing and, in a dispute, must prove it paid equally.</p>
+<p><b>Violence and sexual harassment.</b> The Violence and Sexual Harassment at Work Act (2022) applies at the workplace, on the way to and from work, at work events and in messages by phone and internet. What the employer must do:</p>
+<ul class="check">
+<li>After consulting the union (or else the employees), adopt a <b>written policy</b> against violence, harassment and bullying, with a complaints procedure, confidentiality and sanctions. A copy goes to every employee and to the Head of the Labour Inspectorate; the policy is discussed at least once a year (art. 4). The Labour Inspectorate provides a model policy on request.</li>
+<li>More than 30 employees: a <b>complaints committee</b> of at least three people and an internal complaints procedure. The committee's advice is binding (art. 5).</li>
+<li>Fewer than 30 employees: if the employer cannot handle a complaint itself, it asks the Labour Inspectorate to investigate and advise (art. 7).</li>
+</ul>
+<p>An employee can always complain directly to the Head of the Labour Inspectorate (art. 8). Complainants and witnesses may not be disadvantaged, and an employee may withdraw from a situation in which he reasonably expects violence or harassment, if he reports it immediately (art. 3).</p>
+{% endif %}
+
+<h2>{{ 'Jongeren en kinderarbeid' if nl else 'Young workers and child labour' }}</h2>
+{% if nl %}
+<p>Volgens de Wet Arbeid Kinderen en Jeugdige Personen (2018) is een <b>kind</b> iemand onder de 16 en een <b>jeugdige</b> iemand van 16 of 17. Kinderarbeid is verboden, met deze uitzonderingen:</p>
+<table class="tbl stack tx"><thead><tr><th>Leeftijd</th><th>Wat mag</th></tr></thead><tbody>
+<tr><td data-l="Leeftijd">13 en 14 jaar</td><td data-l="Wat mag">Licht hulpwerk, niet industrieel. Schoolweek maximaal 10 uur, 3 uur per schooldag; vakantie maximaal 7 uur per dag en 35 per week, hooguit 4 vakantieweken per jaar. Niet op zondag, niet tussen 19:00 en 07:00</td></tr>
+<tr><td data-l="Leeftijd">14 jaar en ouder</td><td data-l="Wat mag">Licht werk als stage of vakopleiding, maximaal 7 uur per dag en 35 per week, lestijd meegeteld</td></tr>
+<tr><td data-l="Leeftijd">15 jaar</td><td data-l="Wat mag">Licht werk, niet industrieel. Schoolweek maximaal 12 uur; vakantie maximaal 8 uur per dag en 40 per week</td></tr>
+<tr><td data-l="Leeftijd">16 en 17 jaar</td><td data-l="Wat mag">Maximaal 8 uur per dag en 40 per week. Geen nachtwerk (19:00 tot 06:00) en geen gevaarlijk werk (Besluit Gevaarlijke Arbeid, S.B. 2010 no. 175)</td></tr>
+</tbody></table>
+<p>Kinderen mogen geen overwerk doen en krijgen na 4,5 uur werk een pauze van een half uur. Het contract is schriftelijk en ouders of verzorgers tekenen mee. De werkgever houdt namen en leeftijden van alle werknemers en stagiairs bij.</p>
+{% else %}
+<p>Under the Child and Youth Labour Act (2018) a <b>child</b> is anyone under 16 and a <b>young person</b> is 16 or 17. Child labour is prohibited, with these exceptions:</p>
+<table class="tbl stack tx"><thead><tr><th>Age</th><th>What is allowed</th></tr></thead><tbody>
+<tr><td data-l="Age">13 and 14</td><td data-l="Allowed">Light, non-industrial helper work. School weeks up to 10 hours, 3 hours per school day; holidays up to 7 hours a day and 35 a week, at most 4 holiday weeks a year. Not on Sundays, not between 19:00 and 07:00</td></tr>
+<tr><td data-l="Age">14 and older</td><td data-l="Allowed">Light work as an internship or vocational training, up to 7 hours a day and 35 a week, class time included</td></tr>
+<tr><td data-l="Age">15</td><td data-l="Allowed">Light, non-industrial work. School weeks up to 12 hours; holidays up to 8 hours a day and 40 a week</td></tr>
+<tr><td data-l="Age">16 and 17</td><td data-l="Allowed">Up to 8 hours a day and 40 a week. No night work (19:00 to 06:00) and no hazardous work (Hazardous Work Decree, S.B. 2010 no. 175)</td></tr>
+</tbody></table>
+<p>Children may not work overtime and get a half-hour break after 4.5 hours. The contract is in writing and parents or guardians co-sign it. The employer keeps the names and ages of all employees and trainees.</p>
+{% endif %}
+
+<h2>{{ 'Veiligheid en gezondheid' if nl else 'Health and safety' }}</h2>
+{% if nl %}
+<p>De werkgever moet werkplek, machines en gereedschap zo inrichten en onderhouden en zulke instructies geven dat werknemers geen schade lijden. Lukt dat niet, dan is hij aansprakelijk, tenzij hij aantoont dat hij alles heeft gedaan of dat de schade vooral komt door opzet of bewuste roekeloosheid van de werknemer (art. 7:658). Dat geldt ook voor zzp'ers en ingeleende krachten die in jouw bedrijf werken.</p>
+<ul class="check">
+<li>Wijs schriftelijk een opzichthouder aan die aanwezig is als de leiding er niet is (art. 4 bis Veiligheidswet, sinds 2023).</li>
+<li>Houd het arbeidsregister, het vakantieregister en een register van ongevallen bij; de Arbeidsinspectie vraagt daar bij controles naar.</li>
+<li>Een werknemer mag zich onttrekken aan een situatie die zijn leven of gezondheid ernstig bedreigt, als hij dat meteen meldt bij de werkgever en de vakbond of de Arbeidsinspectie. Daarvoor ontslaan is verboden (art. 7:670 lid 6).</li>
+<li>Bij een bedrijfsongeval geldt daarnaast de Ongevallenregeling. Vraag je verzekeraar of de Arbeidsinspectie wat die voor jouw bedrijf betekent.</li>
+</ul>
+<p>De boetes voor overtreding van de Arbeidswet, Vacantiewet en Veiligheidswet zijn in 2023 verhoogd. Een boete kan per betrokken werknemer en per dag worden opgelegd.</p>
+{% else %}
+<p>The employer must set up and maintain the workplace, machines and tools, and give instructions, so that employees do not suffer harm. If harm occurs, the employer is liable unless it proves it did everything required or that the harm was mainly caused by the employee's intent or deliberate recklessness (art. 7:658). This also covers freelancers and hired-in workers working in your business.</p>
+<ul class="check">
+<li>Appoint a supervisor in writing who is present when management is not (art. 4 bis Safety Act, since 2023).</li>
+<li>Keep the staff register, the leave register and an accident register; the Labour Inspectorate asks for them during inspections.</li>
+<li>An employee may withdraw from a situation that seriously threatens his life or health, if he reports it immediately to the employer and the union or the Labour Inspectorate. Dismissing him for this is prohibited (art. 7:670(6)).</li>
+<li>Work accidents are also covered by the Accidents Regulation (Ongevallenregeling). Ask your insurer or the Labour Inspectorate what it means for your business.</li>
+</ul>
+<p>Fines under the Labour Act, Annual Leave Act and Safety Act were raised in 2023. A fine can be imposed per employee affected and per day.</p>
+{% endif %}
+
+<h2>{{ 'Cao en vakbond' if nl else 'Collective agreements and unions' }}</h2>
+{% if nl %}
+<p>Werknemers mogen lid worden van een vakbond en vakbondswerk doen buiten werktijd of met toestemming van de werkgever. Ontslag vanwege vakbondslidmaatschap, vakbondsactiviteiten of een rechtmatige staking is verboden (art. 7:670 lid 1 en 2). Een collectieve arbeidsovereenkomst (cao) kan op bepaalde punten afwijken van de wet, bijvoorbeeld bij overwerktoeslagen (art. 16 Arbeidswet) of het verkorten van de opzegtermijn van de werkgever (art. 7:672). Een cao mag nooit onder het minimumloon of de minimumvakantie gaan. Werk je onder een cao, lees die dan altijd naast deze gids.</p>
+{% else %}
+<p>Employees may join a union and do union work outside working hours or with the employer's permission. Dismissal for union membership, union activities or a lawful strike is prohibited (art. 7:670(1) and (2)). A collective agreement (CAO) may deviate from the law on certain points, such as overtime premiums (art. 16 Labour Act) or shortening the employer's notice period (art. 7:672). A CAO can never go below the minimum wage or the minimum leave. If you work under a CAO, always read it alongside this guide.</p>
+{% endif %}
+
+<h2>{{ 'Ontslag in het kort' if nl else 'Dismissal in brief' }}</h2>
+{% if nl %}
+<p>Een werkgever mag een werknemer in de regel alleen ontslaan met een ontslagvergunning van de Ontslagcommissie (Ontslagwet 2018). Uitzonderingen zijn onder meer de proeftijd, wederzijds goedvinden, het einde van een eerste tijdelijk contract en ontslag op staande voet om een dringende reden; dat laatste moet binnen vier werkdagen bij de Arbeidsinspectie worden gemeld. De opzegtermijn van de werkgever is één week per vol dienstjaar tot tien jaar, daarna vier en vanaf vijftien jaar zes maanden (art. 7:672). Alles over procedure, opzegverboden en wat je doet als je ontslagen bent staat in <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+{% else %}
+<p>An employer can generally only dismiss an employee with a dismissal permit from the Dismissal Committee (Dismissal Act 2018). Exceptions include the probation period, mutual consent, the end of a first fixed-term contract and summary dismissal for an urgent reason; the latter must be reported to the Labour Inspectorate within four working days. The employer's notice period is one week per full year of service up to ten years, then four months, and six months from fifteen years (art. 7:672). Procedure, dismissal bans and what to do if you were dismissed are in <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Waar krijg je hulp' if nl else 'Where to get help' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Arbeidsinspectie</b>: klachten over loon, minimumloon, werktijden, overwerk, vakantie, veiligheid, geweld en intimidatie, en de melding van ontslag op staande voet. De dienst valt sinds juli 2025 onder het Ministerie van Volksgezondheid, Welzijn en Arbeid. Het algemene contact van het ministerie op gov.sr is Rodekruislaan 22, Paramaribo, tel. 410441; vraag daar naar het kantoor van de Arbeidsinspectie bij jou in de buurt.</li>
+<li><b>Ontslagcommissie</b>: aanvragen voor een ontslagvergunning, via hetzelfde ministerie.</li>
+<li><b>Je vakbond</b>: ondersteuning bij een conflict, en bij het verweer voordat je wordt ontslagen (je mag je laten bijstaan, art. 7:670b).</li>
+<li><b>Kantonrechter</b>: loonvorderingen, kennelijk onredelijk ontslag, ontbinding van het contract. Laat je bijstaan door een advocaat.</li>
+<li><b>Werkgevers</b>: de werkgeversorganisaties en je accountant of payrollbureau. Voor het aannemen van personeel zie <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>; voor buitenlandse werknemers <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. Alle instanties staan in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Labour Inspectorate</b> (Arbeidsinspectie): complaints about pay, the minimum wage, hours, overtime, leave, safety, violence and harassment, and reports of summary dismissal. Since July 2025 it falls under the Ministry of Health, Welfare and Labour. The ministry's general contact on gov.sr is Rodekruislaan 22, Paramaribo, tel. 410441; ask there for the Labour Inspectorate office near you.</li>
+<li><b>Dismissal Committee</b> (Ontslagcommissie): dismissal permit applications, through the same ministry.</li>
+<li><b>Your union</b>: support in a dispute, and in your defence before a dismissal (you may bring someone to assist you, art. 7:670b).</li>
+<li><b>Cantonal court</b> (kantonrechter): wage claims, manifestly unreasonable dismissal, dissolving the contract. Get a lawyer.</li>
+<li><b>Employers</b>: the employers' organisations and your accountant or payroll provider. For hiring see <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>; for foreign staff <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. All institutions are listed in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li>Een proeftijd van drie maanden afspreken, of mondeling. Die is nietig; er geldt dan geen proeftijd.</li>
+<li>Steeds nieuwe tijdelijke contracten geven en denken dat het dienstverband dan vanzelf afloopt. Na drie contracten of 24 maanden is het contract vast, en alleen het eerste tijdelijke contract eindigt zonder ontslagvergunning.</li>
+<li>Geen arbeidslijst, arbeidsregister of vakantieregister bijhouden. Dat is het eerste wat de Arbeidsinspectie vraagt.</li>
+<li>Vakantiedagen "uitbetalen" in plaats van laten opnemen, of de vakantietoelage vergeten.</li>
+<li>Overwerk op zondag of feestdagen tegen 150% betalen in plaats van 200%.</li>
+<li>Een zwangere werknemer of een zieke werknemer in de eerste zes weken ontslaan. Dat is verboden en de opzegging kan worden vernietigd.</li>
+<li>Als kleine werkgever geen schriftelijk beleid tegen intimidatie hebben. Die plicht geldt voor elke werkgever, niet alleen boven de 30 werknemers.</li>
+</ul>
+{% else %}
+<ul>
+<li>Agreeing a three-month or verbal probation period. It is void, so there is no probation at all.</li>
+<li>Issuing one fixed-term contract after another and assuming they end automatically. After three contracts or 24 months the contract is permanent, and only the first fixed-term contract ends without a dismissal permit.</li>
+<li>Not keeping a working-hours list, staff register or leave register. That is the first thing the Labour Inspectorate asks for.</li>
+<li>"Paying out" leave instead of letting staff take it, or forgetting the leave allowance.</li>
+<li>Paying 150% instead of 200% for work on Sundays or public holidays.</li>
+<li>Dismissing a pregnant employee, or a sick employee in the first six weeks. That is prohibited and the notice can be annulled.</li>
+<li>Small employers without a written anti-harassment policy. That duty applies to every employer, not only those with more than 30 staff.</li>
+</ul>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
-<ul>{% for name, url in A.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+<ul>
+<li><a href="https://www.dna.sr/media/g1kjnrbj/s-b-_2024_no-_164__boek_7.pdf" rel="noopener">Burgerlijk Wetboek Boek 7 (S.B. 2024 no. 164), titel 10 Arbeidsovereenkomst</a></li>
+<li><a href="https://www.dna.sr/media/jblpbo4t/s-b-_2024_no-_168__wet_van_5_december_2024___aanpassing_bestaande_wetgeving_in_verband_met_de_invoering_van_het_nieuwe_burgerlijk_wetboek.pdf" rel="noopener">Aanpassingswet nieuw Burgerlijk Wetboek (S.B. 2024 no. 168)</a></li>
+<li><a href="https://www.dna.sr/media/cwabf0np/arbeidswet.pdf" rel="noopener">Arbeidswet 1963</a></li>
+<li><a href="https://www.dna.sr/media/egnb5dhm/vakantiewet.pdf" rel="noopener">Vacantiewet 1975</a></li>
+<li><a href="https://www.dna.sr/media/vm2mao52/sb_2019___101.pdf" rel="noopener">Wet Minimumloon (S.B. 2019 no. 101)</a></li>
+{% for name, url in F.MIN_WAGE.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}
+<li><a href="https://www.dna.sr/media/3bjewn4q/sb_2019___64.pdf" rel="noopener">Wet Arbeidsbescherming Gezin (S.B. 2019 no. 64)</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2022/12/Bekendmaking-Fonds-Voorzieningen-Ouderschapsverlof.pdf" rel="noopener">Bekendmaking Fonds Voorzieningen Ouderschapsverlof (december 2022)</a></li>
+<li><a href="https://www.dna.sr/media/ikeltftw/sb_2022___137.pdf" rel="noopener">Wet Gelijke Behandeling Arbeid (S.B. 2022 no. 137)</a></li>
+<li><a href="https://www.dna.sr/media/sorfelsu/sb_2022___136.pdf" rel="noopener">Wet Geweld en Seksuele Intimidatie Arbeid (S.B. 2022 no. 136)</a></li>
+<li><a href="https://www.dna.sr/media/4lfjc0fn/sb_2018___76.pdf" rel="noopener">Wet Arbeid Kinderen en Jeugdige Personen (S.B. 2018 no. 76)</a></li>
+<li><a href="https://www.dna.sr/media/nfqhwfvq/sb_2018___94.pdf" rel="noopener">Ontslagwet 2018 (S.B. 2018 no. 94)</a></li>
+<li><a href="https://www.dna.sr/media/bmfcgyu4/sb_2023___121.pdf" rel="noopener">Wijziging Veiligheidswet 1947 (S.B. 2023 no. 121)</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/09/PRESIDENTIEEL-BESLUIT-aanpassing-instelling-Departementen-van-Algemeen-Bestuur-S.B.-2025-no.-94.pdf" rel="noopener">Presidentieel Besluit departementen (S.B. 2025 no. 94)</a></li>
+<li><a href="https://gov.sr/ministeries/ministerie-van-volksgezondheid-welzijn-arbeid/contact/" rel="noopener">Ministerie van Volksgezondheid, Welzijn en Arbeid: contact</a></li>
+<li><a href="https://keynews.sr/arbeidsinspectie-voert-grootschalige-controles-uit-in-nickerie-na-klachten-over-arbeidsomstandigheden-en-illegale-tewerkstelling" rel="noopener">Key News: Arbeidsinspectie controleert in Nickerie (februari 2025)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

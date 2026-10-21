@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set APF_PCT = 0.085 %}{% set APF_MAX = 5000 %}{% set FVO_PCT = 0.01 %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Werkgeverslasten in Suriname: wat kost een werknemer?' if nl else 'Employer costs in Suriname: what does an employee cost?' }}</h1>
+{% if nl %}
+<p class="lead">Bovenop het brutoloon betaal je als werkgever in Suriname minstens de helft van de APF-pensioenpremie, minstens de helft van de FVO-premie voor ouderschapsverlof, minstens de helft van de basiszorgpremie, de hele ongevallenverzekering en een vakantietoelage. De AOV-premie en de loonbelasting betaalt de werknemer zelf; jij houdt ze alleen in.</p>
+{% else %}
+<p class="lead">On top of gross pay, an employer in Suriname pays at least half the APF pension premium, at least half the FVO parental leave premium, at least half the basic health insurance premium, all of the accident insurance and a leave allowance. The AOV premium and wage tax are paid by the employee; you only withhold them.</p>
+{% endif %}
+<div class="grid g3">
+<div class="card"><div class="eyebrow">{{ 'APF pensioen 2026' if nl else 'APF pension 2026' }}</div><div class="big">{{ '8,5%' if nl else '8.5%' }}</div><div class="sub">{{ 'van het basisloon tot SRD 5.000, werkgever minstens de helft' if nl else 'of basic pay up to SRD 5,000, employer at least half' }}</div></div>
+<div class="card"><div class="eyebrow">FVO</div><div class="big">1%</div><div class="sub">{{ 'van het brutoloon, werkgever minstens 0,5%' if nl else 'of gross pay, employer at least 0.5%' }}</div></div>
+<div class="card"><div class="eyebrow">AOV</div><div class="big">{{ (F.TAX.aov_pct * 100)|round|int }}%</div><div class="sub">{{ 'van het zuiver loon, betaald door de werknemer' if nl else 'of net taxable pay, paid by the employee' }}</div></div>
+</div>
+{% if nl %}
+<div class="tldr"><div class="eyebrow">In het kort</div><ul>
+<li>APF-pensioenpremie 2026: 8,5% van het basisloon zonder toelagen, over maximaal SRD 5.000 per maand. Werkgever minstens 50%, dus minstens SRD 212,50 per maand bij een loon van SRD 5.000 of meer.</li>
+<li>FVO-premie (Fonds Voorzieningen Ouderschapsverlof): 1% van het brutoloon, werkgever minstens 0,5% en werknemer hoogstens 0,5%.</li>
+<li>Basiszorgverzekering (BZV): werkgever betaalt minstens 50% van de premie. De werkelijke premie bepaalt je verzekeraar.</li>
+<li>Ongevallenverzekering: verplicht vanaf de eerste werkdag, premie volledig voor rekening van de werkgever, tarief van de verzekeraar.</li>
+<li>Vakantietoelage: de helft van het loon over elke opgenomen vakantiedag. Een 13e maand is niet wettelijk verplicht.</li>
+</ul></div>
+{% else %}
+<div class="tldr"><div class="eyebrow">In short</div><ul>
+<li>APF pension premium 2026: 8.5% of basic pay without allowances, on at most SRD 5,000 a month. Employer at least 50%, so at least SRD 212.50 a month on pay of SRD 5,000 or more.</li>
+<li>FVO premium (Parental Leave Fund): 1% of gross pay, employer at least 0.5% and employee at most 0.5%.</li>
+<li>Basic health insurance (BZV): the employer pays at least 50% of the premium. Your insurer sets the actual premium.</li>
+<li>Accident insurance: compulsory from the first working day, the employer pays the full premium, at the insurer's rate.</li>
+<li>Leave allowance: half the wage for each leave day taken. A 13th month is not required by law.</li>
+</ul></div>
+{% endif %}
+
+<h2>{{ 'Overzicht: wie betaalt wat?' if nl else 'Overview: who pays what?' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Post' if nl else 'Item' }}</th><th>{{ 'Werkgever' if nl else 'Employer' }}</th><th>{{ 'Werknemer' if nl else 'Employee' }}</th><th>{{ 'Naar' if nl else 'Paid to' }}</th></tr></thead><tbody>
+{% set c1 = 'Post' if nl else 'Item' %}{% set c2 = 'Werkgever' if nl else 'Employer' %}{% set c3 = 'Werknemer' if nl else 'Employee' %}{% set c4 = 'Naar' if nl else 'Paid to' %}
+<tr><td data-l="{{ c1 }}">{{ 'Loonbelasting' if nl else 'Wage tax' }}</td><td data-l="{{ c2 }}">{{ 'Nee, alleen inhouden' if nl else 'No, withhold only' }}</td><td data-l="{{ c3 }}">{{ 'Volgens tarief' if nl else 'Per rate table' }}</td><td data-l="{{ c4 }}">Belastingdienst</td></tr>
+<tr><td data-l="{{ c1 }}">AOV</td><td data-l="{{ c2 }}">{{ 'Nee, alleen inhouden' if nl else 'No, withhold only' }}</td><td data-l="{{ c3 }}">{{ (F.TAX.aov_pct * 100)|round|int }}% {{ 'van het zuiver loon (onder 60 jaar)' if nl else 'of net taxable pay (under 60)' }}</td><td data-l="{{ c4 }}">Belastingdienst</td></tr>
+<tr><td data-l="{{ c1 }}">{{ 'Pensioen (APF)' if nl else 'Pension (APF)' }}</td><td data-l="{{ c2 }}">{{ 'Minstens 4,25%' if nl else 'At least 4.25%' }}</td><td data-l="{{ c3 }}">{{ 'Hoogstens 4,25%' if nl else 'At most 4.25%' }}</td><td data-l="{{ c4 }}">APF</td></tr>
+<tr><td data-l="{{ c1 }}">FVO</td><td data-l="{{ c2 }}">{{ 'Minstens 0,5%' if nl else 'At least 0.5%' }}</td><td data-l="{{ c3 }}">{{ 'Hoogstens 0,5%' if nl else 'At most 0.5%' }}</td><td data-l="{{ c4 }}">Bureau FVO</td></tr>
+<tr><td data-l="{{ c1 }}">{{ 'Basiszorgverzekering' if nl else 'Basic health insurance' }}</td><td data-l="{{ c2 }}">{{ 'Minstens 50% van de premie' if nl else 'At least 50% of the premium' }}</td><td data-l="{{ c3 }}">{{ 'Hoogstens 50%' if nl else 'At most 50%' }}</td><td data-l="{{ c4 }}">{{ 'Verzekeraar (SZF of particulier)' if nl else 'Insurer (SZF or private)' }}</td></tr>
+<tr><td data-l="{{ c1 }}">{{ 'Ongevallenverzekering' if nl else 'Accident insurance' }}</td><td data-l="{{ c2 }}">{{ 'Hele premie' if nl else 'Full premium' }}</td><td data-l="{{ c3 }}">{{ 'Niets' if nl else 'Nothing' }}</td><td data-l="{{ c4 }}">{{ 'Verzekeraar' if nl else 'Insurer' }}</td></tr>
+<tr><td data-l="{{ c1 }}">{{ 'Vakantietoelage' if nl else 'Leave allowance' }}</td><td data-l="{{ c2 }}">{{ 'Halve dag loon per vakantiedag' if nl else 'Half a day\'s pay per leave day' }}</td><td data-l="{{ c3 }}">{{ 'Ontvangt' if nl else 'Receives' }}</td><td data-l="{{ c4 }}">{{ 'Werknemer' if nl else 'Employee' }}</td></tr>
+</tbody></table>
+{% if nl %}
+<p>Percentages van de APF-premie gaan over het basisloon zonder toelagen, tot SRD 5.000 per maand. Wat de werknemer netto overhoudt na loonbelasting, AOV en premies: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</p>
+{% else %}
+<p>APF percentages apply to basic pay without allowances, up to SRD 5,000 a month. What the employee keeps after wage tax, AOV and premiums: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Pensioen: de Wet Algemeen Pensioen en het APF' if nl else 'Pension: the General Pension Act and the APF' }}</h2>
+{% if nl %}
+<p>Sinds 9 december 2014 moet elke werkgever zijn werknemers een pensioenregeling geven (Wet Algemeen Pensioen 2014, WAP). De standaard is deelname aan het Algemeen Pensioenfonds (APF), een bij wet opgericht fonds voor de particuliere sector.</p>
+<ul>
+<li><b>Premie.</b> De premie begon in 2015 op 3% en stijgt elk jaar met een half procentpunt (art. 8 WAP). Het APF heeft de premie voor 2026 vastgesteld op <b>8,5% van het basisloon zonder toelagen</b> (2023: 7%, 2024: 7,5%, 2025: 8%). Reken voor 2027 op 9%, maar controleer de bekendmaking van het APF in januari.</li>
+<li><b>Verdeling.</b> De werkgever betaalt minstens 50%, de werknemer hoogstens 50% (art. 8 lid 7 en 8). Je mag meer dan de helft betalen, nooit minder.</li>
+<li><b>Grondslag.</b> Premie wordt berekend over minimaal SRD 500 en maximaal SRD 5.000 per maand. Boven SRD 5.000 is geen premie verschuldigd. Wie minder dan SRD 500 verdient, betaalt toch premie over SRD 500.</li>
+<li><b>Wie.</b> Ingezetenen van 18 tot 60 jaar, ook buitenlanders die in Suriname wonen en parttimers. Zelfstandigen betalen de hele premie zelf.</li>
+<li><b>Betalen.</b> Loonopgave in APF-MIS, dan betalen uiterlijk de 15e van de volgende maand. Betaal je op tijd, dan betaal je geen rente.</li>
+<li><b>Pensioenverklaring.</b> Uiterlijk 28 februari geef je elke werknemer een verklaring met het werkgeversdeel, het werknemersdeel en de totale premie over het vorige jaar, en ook bij uitdiensttreding.</li>
+<li><b>Boetes.</b> De wet kent een dwangsom van SRD 500 tot SRD 100.000 en een bestuurlijke boete van tien tot duizend keer de verschuldigde premie (art. 19 WAP).</li>
+</ul>
+<p><b>Eigen pensioenregeling.</b> Heb je al een pensioenregeling (bijvoorbeeld een eigen fonds of een verzekering) die minstens de wettelijke rechten geeft, dan hoef je niet bij het APF aan te sluiten (art. 10 lid 2 WAP). De regeling moet dan aan de eisen van de WAP voldoen; voldoet ze niet, dan pas je haar aan of stap je over naar het APF met behoud van opgebouwde rechten (art. 2). Laat je regeling toetsen voordat je ervan uitgaat dat je vrijgesteld bent.</p>
+<div class="note">In 2023 verhoogde een staatsbesluit (S.B. 2023 no. 118) de grondslag naar minimaal SRD 2.250 en maximaal SRD 22.500 per maand, met terugwerkende kracht tot 1 januari 2023. De regering heeft dat besluit eind oktober 2023 tot nader order opgeschort, en het APF noemt op zijn website nog SRD 500 tot SRD 5.000. Vraag het APF welke grondslag geldt voordat je je loonadministratie instelt.</div>
+{% else %}
+<p>Since 9 December 2014 every employer must give employees a pension scheme (General Pension Act 2014, Wet Algemeen Pensioen, WAP). The default is membership of the General Pension Fund (Algemeen Pensioenfonds, APF), a statutory fund for the private sector.</p>
+<ul>
+<li><b>Premium.</b> The premium started at 3% in 2015 and rises by half a percentage point each year (art. 8 WAP). The APF set the 2026 premium at <b>8.5% of basic pay without allowances</b> (2023: 7%, 2024: 7.5%, 2025: 8%). Expect 9% for 2027, but check the APF announcement in January.</li>
+<li><b>Split.</b> The employer pays at least 50%, the employee at most 50% (art. 8(7) and (8)). You may pay more than half, never less.</li>
+<li><b>Base.</b> The premium is calculated on at least SRD 500 and at most SRD 5,000 a month. No premium is due above SRD 5,000. Someone earning less than SRD 500 still pays premium on SRD 500.</li>
+<li><b>Who.</b> Residents aged 18 to 60, including foreigners living in Suriname and part-timers. Self-employed people pay the full premium themselves.</li>
+<li><b>Paying.</b> Payroll statement in APF-MIS, then pay by the 15th of the next month. If you pay on time, no interest is charged.</li>
+<li><b>Pension statement.</b> By 28 February you give each employee a statement with the employer share, employee share and total premium for the previous year, and also when they leave.</li>
+<li><b>Penalties.</b> The law allows a penalty payment of SRD 500 to SRD 100,000 and an administrative fine of ten to a thousand times the premium owed (art. 19 WAP).</li>
+</ul>
+<p><b>Your own pension scheme.</b> If you already have a pension scheme (for example your own fund or an insurance policy) that gives at least the statutory rights, you do not have to join the APF (art. 10(2) WAP). The scheme must then meet the WAP requirements; if it does not, you adjust it or move to the APF while keeping accrued rights (art. 2). Have your scheme checked before you assume you are exempt.</p>
+<div class="note">In 2023 a state decree (S.B. 2023 no. 118) raised the base to at least SRD 2,250 and at most SRD 22,500 a month, retroactive to 1 January 2023. The government suspended that decree until further notice at the end of October 2023, and the APF website still states SRD 500 to SRD 5,000. Ask the APF which base applies before you set up your payroll.</div>
+{% endif %}
+
+<h2>{{ 'FVO: het fonds voor ouderschapsverlof' if nl else 'FVO: the parental leave fund' }}</h2>
+{% if nl %}
+<p>Zoek je de "Wet Arbeid en Zorg"? In Suriname heet die regeling de <b>Wet Arbeidsbescherming Gezin</b> (S.B. 2019 no. 64). Sinds 1 mei 2025 staan de verlofregels in het nieuwe Burgerlijk Wetboek (art. 7:633a tot en met 7:633h); het fonds blijft geregeld in de wet van 2019. De wet geeft 16 weken betaald zwangerschaps- en bevallingsverlof, 8 werkdagen vaderschapsverlof en adoptieverlof. Zorgverlof of calamiteitenverlof regelt deze wet niet; voor bijzondere omstandigheden zoals een bevalling van de partner of een overlijden in de familie geldt art. 7:629 lid 4 en 5 BW (loon voor een korte, redelijke tijd).</p>
+<ul>
+<li><b>Premie.</b> 1% van het brutoloon (basisloon zonder toelagen). De werkgever betaalt minstens 0,5%, de werknemer hoogstens 0,5% (art. 12 lid 4). Jij houdt het werknemersdeel in en draagt het geheel maandelijks af aan het Bureau FVO, en je laat de werknemer het betaalbewijs zien.</li>
+<li><b>Uitkering.</b> Het FVO betaalt het brutoloon tijdens 16 weken zwangerschaps- en bevallingsverlof en 8 dagen vaderschapsverlof aan de werkgever, die het direct doorbetaalt. Toelagen en andere looncomponenten kunnen voor rekening van de werkgever blijven.</li>
+<li><b>Voorwaarde.</b> Een aanvraag wordt alleen behandeld als de premie minstens drie maanden vooraf is betaald.</li>
+<li><b>Contact.</b> Bureau FVO, Arabistraat 7, Geyersvlijt, telefoon 456-800 of 874-6156.</li>
+</ul>
+<p>Betaal je geen FVO-premie, dan kan het FVO de uitkering weigeren en blijf jij verplicht het verlof te geven. In de praktijk betaal je dan zelf het loon tijdens het verlof.</p>
+{% else %}
+<p>Looking for a "Work and Care Act"? In Suriname the scheme is the <b>Family Labour Protection Act</b> (Wet Arbeidsbescherming Gezin, S.B. 2019 no. 64). Since 1 May 2025 the leave rules are in the new Civil Code (art. 7:633a to 7:633h); the fund is still governed by the 2019 act. The act gives 16 weeks of paid pregnancy and maternity leave, 8 working days of paternity leave and adoption leave. It does not provide care leave or emergency leave; for special circumstances such as the birth of a partner's child or a death in the family, art. 7:629(4) and (5) of the Civil Code applies (pay for a short, reasonable time).</p>
+<ul>
+<li><b>Premium.</b> 1% of gross pay (basic pay without allowances). The employer pays at least 0.5%, the employee at most 0.5% (art. 12(4)). You withhold the employee share and pay the total monthly to the FVO bureau, and show the employee the proof of payment.</li>
+<li><b>Benefit.</b> The FVO pays the gross wage for 16 weeks of pregnancy and maternity leave and 8 days of paternity leave to the employer, who passes it on immediately. Allowances and other pay components may stay at the employer's expense.</li>
+<li><b>Condition.</b> A claim is only processed if the premium was paid at least three months in advance.</li>
+<li><b>Contact.</b> FVO bureau, Arabistraat 7, Geyersvlijt, phone 456-800 or 874-6156.</li>
+</ul>
+<p>If you do not pay the FVO premium, the FVO can refuse the benefit and you still have to grant the leave. In practice you then pay the wage during the leave yourself.</p>
+{% endif %}
+
+<h2>{{ 'AOV: alleen inhouden' if nl else 'AOV: withholding only' }}</h2>
+{% if nl %}
+<p>De AOV (Algemene Oudedagsvoorziening, de staatsouderdomsuitkering) wordt betaald door de werknemer: {{ (F.TAX.aov_pct * 100)|round|int }}% van het zuiver loon, voor ingezetenen jonger dan 60 jaar (Wet AOV art. 19 en 20). De werkgever betaalt geen eigen deel, maar houdt de premie in en draagt die samen met de loonbelasting af via het portaal van de Belastingdienst. Rekenen: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</p>
+{% else %}
+<p>The AOV (Algemene Oudedagsvoorziening, the state old-age pension) is paid by the employee: {{ (F.TAX.aov_pct * 100)|round|int }}% of net taxable pay, for residents under 60 (AOV Act art. 19 and 20). The employer pays no share of its own, but withholds the premium and pays it with the wage tax through the tax office portal. Calculate: <a href="{{ U('salary') }}">{{ L('salary') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Basiszorgverzekering (BZV)' if nl else 'Basic health insurance (BZV)' }}</h2>
+{% if nl %}
+<p>Volgens de Wet Nationale Basiszorgverzekering (S.B. 2014 no. 114) moet iedere ingezetene verzekerd zijn. De werkgever betaalt minstens 50% van de premie van zijn werknemers en spreekt met hen af hoe het werknemersdeel van het loon wordt ingehouden. Verzekeraars mogen niemand weigeren vanwege een bestaande ziekte.</p>
+<table class="tbl stack tx"><thead><tr><th>Leeftijd</th><th>Wettelijke minimumpremie per maand</th></tr></thead><tbody>
+<tr><td data-l="Leeftijd">0 tot en met 16 jaar</td><td data-l="Minimumpremie">SRD 55 (Surinaamse kinderen: betaald door de staat)</td></tr>
+<tr><td data-l="Leeftijd">17 tot en met 20 jaar</td><td data-l="Minimumpremie">SRD 75</td></tr>
+<tr><td data-l="Leeftijd">21 tot en met 59 jaar</td><td data-l="Minimumpremie">SRD 165</td></tr>
+<tr><td data-l="Leeftijd">60 jaar en ouder</td><td data-l="Minimumpremie">SRD 240 (Surinamers: betaald door de staat)</td></tr>
+</tbody></table>
+<p>Deze bedragen zijn sinds 2014 niet aangepast. Verzekeraars (Assuria, Parsasco, Self Reliance en het SZF voeren de BZV uit) rekenen in de praktijk meer; het Uitvoeringsorgaan Basiszorg meldt in zijn jaarverslag 2024 dat verzekeraars hun premies regelmatig verhogen. Je werkelijke kosten zijn dus 50% (of meer, als je dat afspreekt) van de premie die je verzekeraar vraagt. Vraag offertes voor een collectieve polis.</p>
+{% else %}
+<p>Under the National Basic Health Insurance Act (S.B. 2014 no. 114) every resident must be insured. The employer pays at least 50% of the premium for its employees and agrees with them how the employee share is withheld from pay. Insurers may not refuse anyone because of an existing illness.</p>
+<table class="tbl stack tx"><thead><tr><th>Age</th><th>Statutory minimum premium per month</th></tr></thead><tbody>
+<tr><td data-l="Age">0 to 16</td><td data-l="Minimum premium">SRD 55 (Surinamese children: paid by the state)</td></tr>
+<tr><td data-l="Age">17 to 20</td><td data-l="Minimum premium">SRD 75</td></tr>
+<tr><td data-l="Age">21 to 59</td><td data-l="Minimum premium">SRD 165</td></tr>
+<tr><td data-l="Age">60 and over</td><td data-l="Minimum premium">SRD 240 (Surinamese nationals: paid by the state)</td></tr>
+</tbody></table>
+<p>These amounts have not changed since 2014. Insurers (Assuria, Parsasco, Self Reliance and the SZF state health fund run the BZV) charge more in practice; the Basic Care Implementation Body (Uitvoeringsorgaan Basiszorg) reports in its 2024 annual report that insurers raise premiums regularly. Your real cost is therefore 50% (or more, if you agree to that) of the premium your insurer charges. Ask for group policy quotes.</p>
+{% endif %}
+
+<h2>{{ 'Ongevallenverzekering' if nl else 'Accident insurance' }}</h2>
+{% if nl %}
+<p>De Ongevallenregeling (1947) maakt de werkgever aansprakelijk voor bedrijfsongevallen en beroepsziekten van zijn werknemers, ook ongevallen op weg van en naar het werk. Je moet dat risico verzekeren bij een erkende verzekeraar (art. 10), vanaf de eerste werkdag; volgens de Arbeidsinspectie bijvoorbeeld bij Assuria, Fatum, Parsasco of Self Reliance. De premie is volledig voor rekening van de werkgever en hangt af van de verzekeraar, je branche en de loonsom. Er is geen vast wettelijk percentage: vraag een offerte.</p>
+<p>Wat de verzekering dekt: medische kosten en vervoer, 80% van het dagloon bij volledige arbeidsongeschiktheid, een uitkering bij blijvende invaliditeit en bij overlijden begrafeniskosten en uitkeringen aan nabestaanden. Ben je niet verzekerd, dan betaal je dit allemaal zelf, en de minister kan een onverzekerd bedrijf sluiten.</p>
+{% else %}
+<p>The Accident Regulation (Ongevallenregeling, 1947) makes the employer liable for workplace accidents and occupational diseases of its employees, including accidents on the way to and from work. You must insure that risk with a recognised insurer (art. 10), from the first working day; according to the Labour Inspectorate for example with Assuria, Fatum, Parsasco or Self Reliance. The employer pays the full premium, which depends on the insurer, your sector and the payroll. There is no fixed statutory rate: ask for a quote.</p>
+<p>What the insurance covers: medical costs and transport, 80% of the daily wage during full incapacity, a benefit for permanent disability and, in case of death, funeral costs and benefits to surviving relatives. If you are not insured you pay all of this yourself, and the minister can close an uninsured business.</p>
+{% endif %}
+
+<h2>{{ 'Vakantietoelage, 13e maand en overwerk' if nl else 'Leave allowance, 13th month and overtime' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Vakantietoelage.</b> Verplicht: de helft van het loon over elke opgenomen vakantiedag (Vacantiewet art. 10). Bij {{ F.LEAVE.first_year_days }} dagen is dat 6 dagen loon per jaar, oplopend tot 9 dagen loon bij {{ F.LEAVE.max_days }} vakantiedagen. Tot {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar is de toelage vrij van loonbelasting. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
+<li><b>13e maand of gratificatie.</b> Geen wet verplicht een 13e maand. Heb je die in het contract, een reglement of een cao beloofd, of betaal je hem jaar na jaar, dan kan de werknemer erop rekenen. Een gratificatie is tot {{ srd(F.TAX.bonus_exempt_year) }} per jaar vrij van loonbelasting.</li>
+<li><b>Overwerk.</b> Minimaal 150% van het uurloon op werkdagen en 200% op rustdagen, met een overwerkvergunning van de Arbeidsinspectie. Overwerkloon wordt apart belast tegen lagere tarieven. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+<li><b>Feestdagen.</b> Niet gewerkte feestdagen betaal je door. Werken op een feestdag kost minstens 200%, of 300% zonder vervangende rustdag.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Leave allowance.</b> Compulsory: half the wage for each leave day taken (Leave Act art. 10). With {{ F.LEAVE.first_year_days }} days that is 6 days' pay a year, rising to 9 days' pay at {{ F.LEAVE.max_days }} leave days. Up to {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year the allowance is free of wage tax. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
+<li><b>13th month or bonus.</b> No law requires a 13th month. If you promised one in the contract, staff rules or a collective agreement, or you pay it year after year, the employee can count on it. A bonus (gratificatie) is free of wage tax up to {{ srd(F.TAX.bonus_exempt_year) }} a year.</li>
+<li><b>Overtime.</b> At least 150% of hourly pay on workdays and 200% on rest days, with an overtime permit from the Labour Inspectorate. Overtime pay is taxed separately at lower rates. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+<li><b>Public holidays.</b> Holidays not worked are paid. Working on a holiday costs at least 200%, or 300% without a replacement rest day.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Rekenvoorbeeld: SRD 10.000 en SRD 20.000 bruto' if nl else 'Worked example: SRD 10,000 and SRD 20,000 gross' }}</h2>
+{% if nl %}
+<p>Uitgangspunten: brutoloon is basisloon zonder toelagen, werknemer van 21 tot 59 jaar, vijfdaagse werkweek, eerste volle jaar ({{ F.LEAVE.first_year_days }} vakantiedagen), APF-grondslag maximaal SRD 5.000, werkgever betaalt precies het wettelijke minimum van 50%. Het dagloon is het maandloon gedeeld door 20 (art. 7:618a BW). Bedragen per maand.</p>
+{% else %}
+<p>Assumptions: gross pay is basic pay without allowances, employee aged 21 to 59, five-day week, first full year ({{ F.LEAVE.first_year_days }} leave days), APF base capped at SRD 5,000, employer pays exactly the statutory minimum of 50%. The daily wage is the monthly wage divided by 20 (art. 7:618a Civil Code). Amounts per month.</p>
+{% endif %}
+{% set g1 = 10000 %}{% set g2 = 20000 %}
+{% set apf1 = ([g1, APF_MAX]|min) * APF_PCT / 2 %}{% set apf2 = ([g2, APF_MAX]|min) * APF_PCT / 2 %}
+{% set fvo1 = g1 * FVO_PCT / 2 %}{% set fvo2 = g2 * FVO_PCT / 2 %}
+{% set vt1 = g1 / 20 * 0.5 * F.LEAVE.first_year_days / 12 %}{% set vt2 = g2 / 20 * 0.5 * F.LEAVE.first_year_days / 12 %}
+{% set h1 = 'Post' if nl else 'Item' %}{% set ask_ins = 'vraag je verzekeraar of het SZF' if nl else 'ask your insurer or the SZF' %}{% set ask_acc = 'vraag je verzekeraar' if nl else 'ask your insurer' %}
+<table class="tbl stack tx"><thead><tr><th>{{ h1 }}</th><th>{{ srd(g1) }}</th><th>{{ srd(g2) }}</th></tr></thead><tbody>
+<tr><td data-l="{{ h1 }}">{{ 'Brutoloon' if nl else 'Gross pay' }}</td><td data-l="{{ srd(g1) }}">{{ srd(g1, 2) }}</td><td data-l="{{ srd(g2) }}">{{ srd(g2, 2) }}</td></tr>
+<tr><td data-l="{{ h1 }}">{{ 'APF werkgeversdeel (4,25% over SRD 5.000)' if nl else 'APF employer share (4.25% of SRD 5,000)' }}</td><td data-l="{{ srd(g1) }}">{{ srd(apf1, 2) }}</td><td data-l="{{ srd(g2) }}">{{ srd(apf2, 2) }}</td></tr>
+<tr><td data-l="{{ h1 }}">{{ 'FVO werkgeversdeel (0,5%)' if nl else 'FVO employer share (0.5%)' }}</td><td data-l="{{ srd(g1) }}">{{ srd(fvo1, 2) }}</td><td data-l="{{ srd(g2) }}">{{ srd(fvo2, 2) }}</td></tr>
+<tr><td data-l="{{ h1 }}">{{ 'Vakantietoelage (6 dagen loon per jaar, per maand)' if nl else 'Leave allowance (6 days\' pay a year, per month)' }}</td><td data-l="{{ srd(g1) }}">{{ srd(vt1, 2) }}</td><td data-l="{{ srd(g2) }}">{{ srd(vt2, 2) }}</td></tr>
+<tr><td data-l="{{ h1 }}">AOV</td><td data-l="{{ srd(g1) }}">{{ srd(0, 2) }}</td><td data-l="{{ srd(g2) }}">{{ srd(0, 2) }}</td></tr>
+<tr><td data-l="{{ h1 }}"><b>{{ 'Subtotaal bevestigde kosten' if nl else 'Subtotal confirmed costs' }}</b></td><td data-l="{{ srd(g1) }}"><b>{{ srd(g1 + apf1 + fvo1 + vt1, 2) }}</b></td><td data-l="{{ srd(g2) }}"><b>{{ srd(g2 + apf2 + fvo2 + vt2, 2) }}</b></td></tr>
+<tr><td data-l="{{ h1 }}">{{ 'Basiszorgverzekering, werkgeversdeel (minstens 50%)' if nl else 'Basic health insurance, employer share (at least 50%)' }}</td><td data-l="{{ srd(g1) }}">{{ ask_ins }}</td><td data-l="{{ srd(g2) }}">{{ ask_ins }}</td></tr>
+<tr><td data-l="{{ h1 }}">{{ 'Ongevallenverzekering (hele premie)' if nl else 'Accident insurance (full premium)' }}</td><td data-l="{{ srd(g1) }}">{{ ask_acc }}</td><td data-l="{{ srd(g2) }}">{{ ask_acc }}</td></tr>
+</tbody></table>
+{% if nl %}
+<p>De werknemer betaalt in dit voorbeeld zelf ook {{ srd(apf1, 2) }} APF, {{ srd(fvo1, 2) }} respectievelijk {{ srd(fvo2, 2) }} FVO, {{ (F.TAX.aov_pct * 100)|round|int }}% AOV en loonbelasting. Op de wettelijke minimumpremie van SRD 165 zou je BZV-deel minstens SRD 82,50 zijn, maar de premie van je verzekeraar is in de praktijk hoger. Geldt de opgeschorte grondslag van SRD 22.500 toch, dan wordt het APF-werkgeversdeel {{ srd(g1 * APF_PCT / 2, 2) }} bij SRD 10.000 en {{ srd(g2 * APF_PCT / 2, 2) }} bij SRD 20.000.</p>
+{% else %}
+<p>In this example the employee also pays {{ srd(apf1, 2) }} APF, {{ srd(fvo1, 2) }} or {{ srd(fvo2, 2) }} FVO, {{ (F.TAX.aov_pct * 100)|round|int }}% AOV and wage tax. On the statutory minimum premium of SRD 165 your BZV share would be at least SRD 82.50, but your insurer's premium is higher in practice. If the suspended base of SRD 22,500 applies after all, the APF employer share becomes {{ srd(g1 * APF_PCT / 2, 2) }} at SRD 10,000 and {{ srd(g2 * APF_PCT / 2, 2) }} at SRD 20,000.</p>
+{% endif %}
+
+<h2>{{ 'Kosten die je niet elke maand ziet' if nl else 'Costs you do not see every month' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Ziekte.</b> Je betaalt het loon door, minstens zes weken (art. 7:629 BW). Er is geen staatsuitkering voor ziekte. Je kunt schriftelijk twee wachtdagen afspreken.</li>
+<li><b>Vakantiedagen zelf.</b> Tijdens vakantie loopt het loon door: {{ F.LEAVE.first_year_days }} tot {{ F.LEAVE.max_days }} betaalde dagen zonder werk.</li>
+<li><b>Bijzonder verlof.</b> Bij bijvoorbeeld een bevalling van de partner, een overlijden in de familie of het stemmen behoudt de werknemer zijn loon voor een korte, redelijke tijd (art. 7:629 lid 4 en 5 BW).</li>
+<li><b>Overlijden.</b> Een maand loon aan de nabestaanden (art. 7:674 BW).</li>
+<li><b>Opzegging.</b> Bij ontslag geldt een opzegtermijn van een week per vol dienstjaar (tot tien jaar) en je hebt in de regel een ontslagvergunning nodig: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+<li><b>Te laat betalen.</b> Loon dat door jouw schuld te laat komt, kost 5% per dag voor de vierde tot en met de achtste werkdag en daarna 1% per dag, tot maximaal de helft van het bedrag (art. 7:625 BW).</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Illness.</b> You keep paying wages for at least six weeks (art. 7:629 Civil Code). There is no state sickness benefit. You can agree two unpaid waiting days in writing.</li>
+<li><b>The leave days themselves.</b> Wages continue during leave: {{ F.LEAVE.first_year_days }} to {{ F.LEAVE.max_days }} paid days without work.</li>
+<li><b>Special leave.</b> For example for a partner giving birth, a death in the family or voting, the employee keeps their pay for a short, reasonable time (art. 7:629(4) and (5) Civil Code).</li>
+<li><b>Death.</b> One month's wage to the surviving relatives (art. 7:674 Civil Code).</li>
+<li><b>Notice.</b> On dismissal the notice period is one week per full year of service (up to ten years) and you generally need a dismissal permit: <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
+<li><b>Paying late.</b> Wages that are late through your fault cost 5% a day for the fourth to eighth working day and 1% a day after that, up to half the amount (art. 7:625 Civil Code).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Minimumloon: geen fonds, geen extra premie' if nl else 'Minimum wage: no fund, no extra premium' }}</h2>
+{% if nl %}
+<p>De Wet Minimumloon (S.B. 2019 no. 101, gewijzigd in 2024) kent geen fonds en geen werkgeverspremie. Ze verplicht je alleen om minstens het minimumuurloon te betalen ({{ srd(F.MIN_WAGE.hour, 2) }} sinds 1 juli 2026), een loonstrook met de opbouw en inhoudingen te geven en de Arbeidsinspectie inzage te geven in je loonadministratie. Overwerk reken je vanaf het minimumuurloon. Het fonds met een werkgeversbijdrage dat je misschien zoekt, is het FVO voor ouderschapsverlof, en dat komt uit de Wet Arbeidsbescherming Gezin. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></p>
+{% else %}
+<p>The Minimum Wage Act (S.B. 2019 no. 101, amended in 2024) has no fund and no employer premium. It only requires you to pay at least the minimum hourly wage ({{ srd(F.MIN_WAGE.hour, 2) }} since 1 July 2026), give a payslip showing how pay is built up and what is deducted, and let the Labour Inspectorate see your payroll records. Overtime is calculated from the minimum hourly wage. The fund with an employer contribution you may be looking for is the FVO for parental leave, which comes from the Family Labour Protection Act. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Rekenen met het APF-percentage van vorig jaar.</b> De premie stijgt elk 1 januari met een half procentpunt.</li>
+<li><b>APF-premie over toelagen of boven SRD 5.000.</b> De grondslag is het basisloon zonder toelagen, met een maximum.</li>
+<li><b>De werknemer meer dan de helft laten betalen</b> van APF, FVO of BZV. Dat mag niet.</li>
+<li><b>FVO overslaan.</b> Dan betaal je bij een zwangerschap zelf 16 weken loon.</li>
+<li><b>Geen ongevallenverzekering.</b> Eén ongeval kan meer kosten dan jaren premie.</li>
+<li><b>Begroten met de wettelijke BZV-premie van SRD 165.</b> Verzekeraars vragen meer; begroot met een echte offerte.</li>
+<li><b>AOV als werkgeverslast boeken.</b> Het is een inhouding op het loon van de werknemer.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Using last year's APF rate.</b> The premium rises by half a percentage point every 1 January.</li>
+<li><b>APF premium on allowances or above SRD 5,000.</b> The base is basic pay without allowances, with a cap.</li>
+<li><b>Making the employee pay more than half</b> of the APF, FVO or BZV premium. That is not allowed.</li>
+<li><b>Skipping the FVO.</b> Then you pay 16 weeks of wages yourself when an employee is pregnant.</li>
+<li><b>No accident insurance.</b> One accident can cost more than years of premiums.</li>
+<li><b>Budgeting with the statutory BZV premium of SRD 165.</b> Insurers charge more; budget with a real quote.</li>
+<li><b>Booking AOV as an employer cost.</b> It is a deduction from the employee's pay.</li>
+</ul>
+{% endif %}
+<p><a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('payslip') }}">{{ L('payslip') }}</a> &middot; <a href="{{ U('hourly') }}">{{ L('hourly') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+<li><a href="https://www.dna.sr/media/edbanrlx/wet_algemeen_pensioen_2014.pdf" rel="noopener">Wet Algemeen Pensioen 2014 (S.B. 2014 no. 113)</a></li>
+<li><a href="https://www.pensioen.sr/bekendmaking/percentage-pensioenpremie-2026/" rel="noopener">APF: percentage pensioenpremie 2026</a></li>
+<li><a href="https://www.pensioen.sr/veelgestelde-vragen/" rel="noopener">APF: veelgestelde vragen</a></li>
+<li><a href="https://www.pensioen.sr/verplichtingen/" rel="noopener">APF: verplichtingen van werkgevers</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2023/09/S.B.-2023-no.-118-STAATSBESLUIT-van-7-augustus-ter-uitvoering-van-artikel-8-lid-6-van-de-Wet-Algemeen-Pensioen-2014-S.B.-2014-no.-113..pdf" rel="noopener">S.B. 2023 no. 118, staatsbesluit bijdragegrondslag (opgeschort)</a></li>
+<li><a href="https://www.celerypayroll.com/en/blog/general/suriname-major-changes-pension-scheme-of-algemeen-pensioenfonds-apf/" rel="noopener">Celery: opschorting wijziging APF-grondslag, oktober 2023</a></li>
+<li><a href="https://www.dna.sr/media/3bjewn4q/sb_2019___64.pdf" rel="noopener">Wet Arbeidsbescherming Gezin (S.B. 2019 no. 64)</a></li>
+<li><a href="https://gov.sr/fvo/" rel="noopener">Bureau Fonds Voorzieningen Ouderschapsverlof (FVO)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-AOV.pdf" rel="noopener">Wet AOV (art. 19 en 20)</a></li>
+<li><a href="https://gov.sr/thema/basiszorgverzekering/" rel="noopener">Overheid: basiszorgverzekering, premies en werkgeversbijdrage</a></li>
+<li><a href="https://www.basiszorg.sr/wp-content/uploads/2026/05/2024-JAARVERSLAG-PDF-24.04.2026-compressed.pdf" rel="noopener">Uitvoeringsorgaan Basiszorg: jaarverslag 2024</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2018/01/Ongevallenregeling-G.B.-1947-no.-45.pdf" rel="noopener">Ongevallenregeling 1947</a></li>
+<li><a href="https://gov.sr/wp-content/uploads/2022/09/infoblad_bedrijfsongeval_arbeids_inspektie.pdf" rel="noopener">Arbeidsinspectie: infoblad bedrijfsongeval</a></li>
+<li><a href="https://www.ssa.gov/policy/docs/progdesc/ssptw/2018-2019/americas/suriname.html" rel="noopener">US SSA: Social Security Programs Throughout the World, Suriname</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">Burgerlijk Wetboek, S.B. 2024 no. 164 (Boek 7, titel 10)</a></li>
+<li><a href="https://www.dna.sr/media/vm2mao52/sb_2019___101.pdf" rel="noopener">Wet Minimumloon (S.B. 2019 no. 101)</a></li>
+{% for n, u in F.LEAVE.sources + F.TAX.sources[1:2] + F.MIN_WAGE.sources[:1] %}<li><a href="{{ u }}" rel="noopener">{{ n }}</a></li>{% endfor %}
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

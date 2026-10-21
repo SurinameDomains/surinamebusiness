@@ -2,37 +2,386 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'Grond en huis kopen in Suriname' if nl else 'Buying land and property in Suriname' }}</h1>
-<p class="lead">{{ 'Veel grond in Suriname is domeingrond van de staat, uitgegeven in grondhuur. Je kunt ook eigendomsgrond kopen. Bij overdracht betaal je 4% overdrachtsbelasting en gaat alles via de notaris.' if nl else 'Much land in Suriname is state land, issued on land lease (grondhuur). You can also buy freehold land. On transfer you pay 4% transfer tax and everything goes through a notary.' }}</p>
-<h2>{{ 'Grondhuur of eigendom?' if nl else 'Land lease or freehold?' }}</h2>
-<table class="tbl"><thead><tr><th></th><th>{{ 'Grondhuur (domeingrond)' if nl else 'Land lease (state land)' }}</th><th>{{ 'Eigendom' if nl else 'Freehold' }}</th></tr></thead><tbody>
- <tr><td>{{ 'Duur' if nl else 'Term' }}</td><td>{{ '15 tot 40 jaar, met jaarlijkse canon' if nl else '15 to 40 years, with an annual fee (canon)' }}</td><td>{{ 'Onbeperkt' if nl else 'Unlimited' }}</td></tr>
- <tr><td>{{ 'Wie' if nl else 'Who' }}</td><td>{{ 'Surinamers in Suriname en Surinaamse rechtspersonen; anderen alleen met toestemming van de Raad van Ministers' if nl else 'Surinamese citizens living in Suriname and Surinamese legal entities; others only with Council of Ministers consent' }}</td><td>{{ 'Via aankoop van een eigenaar' if nl else 'Bought from an owner' }}</td></tr>
- <tr><td>{{ 'Doorverkopen' if nl else 'Reselling' }}</td><td>{{ 'Met toestemming van de minister, niet binnen 2 jaar' if nl else 'With ministerial consent, not within 2 years' }}</td><td>{{ 'Vrij, via de notaris' if nl else 'Free, through a notary' }}</td></tr>
+<h1>{{ 'Grond en huis kopen in Suriname: grondhuur, eigendom en overdracht' if nl else 'Buying land and property in Suriname: land lease, freehold and transfer' }}</h1>
+{% if nl %}
+<p class="lead">Veel grond in Suriname is domeingrond: grond van de Staat die je in grondhuur krijgt, niet in eigendom. Eigendomsgrond koop je van een eigenaar en de overdracht loopt altijd via een notaris en de openbare registers van MI-GLIS. Je betaalt 4% overdrachtsbelasting (zegelrecht), en de grondconversie van grondhuur naar eigendom staat sinds 9 augustus 2025 stil.</p>
+{% else %}
+<p class="lead">Much land in Suriname is state land (domeingrond): land you get on a land lease (grondhuur), not as freehold. Freehold land you buy from an owner, and the transfer always goes through a notary and the public registers of MI-GLIS. You pay 4% transfer tax (stamp duty), and the conversion of leases into freehold has been on hold since 9 August 2025.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Overdrachtsbelasting' if nl else 'Transfer tax' }}</div><div class="big">4%</div><div class="sub">{{ '0,5% bij familie tot de 2e graad' if nl else '0.5% between relatives up to the 2nd degree' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Grondhuur' if nl else 'Land lease' }}</div><div class="big">{{ '15 tot 40 jaar' if nl else '15 to 40 years' }}</div><div class="sub">{{ 'met jaarlijkse grondhuurvergoeding' if nl else 'with an annual lease fee' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Grondconversie' if nl else 'Land conversion' }}</div><div class="big">{{ 'Stil' if nl else 'On hold' }}</div><div class="sub">{{ 'sinds 9 augustus 2025' if nl else 'since 9 August 2025' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Grondhuur is een recht op domeingrond voor 15 tot 40 jaar, met een jaarlijkse vergoeding. De Staat blijft eigenaar.</li>
+ <li>Eigendom koop je via een notariële akte. Je bent pas eigenaar na inschrijving in de openbare registers van MI-GLIS.</li>
+ <li>Zegelrecht (overdrachtsbelasting) is 4% van de waarde, 0,5% tussen bloed- en aanverwanten tot en met de tweede graad.</li>
+ <li>De grondconversie (grondhuur omzetten in eigendom) is op 9 augustus 2025 stopgezet. De regering werkt aan nieuwe grondwetgeving.</li>
+ <li>Vraag altijd een recent hypothecair uittreksel bij MI-GLIS op en betaal nooit buiten de notaris om.</li>
+{% else %}
+ <li>A land lease (grondhuur) is a right to state land for 15 to 40 years, with an annual fee. The State stays the owner.</li>
+ <li>Freehold is bought by notarial deed. You only become the owner once the deed is entered in the public registers of MI-GLIS.</li>
+ <li>Stamp duty (transfer tax) is 4% of the value, or 0.5% between relatives by blood or marriage up to the second degree.</li>
+ <li>Land conversion (turning a lease into freehold) was halted on 9 August 2025. The government is working on new land legislation.</li>
+ <li>Always get a recent mortgage register extract from MI-GLIS and never pay outside the notary.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Domeingrond, grondhuur, erfpacht en eigendom' if nl else 'State land, land lease, long lease and freehold' }}</h2>
+{% if nl %}
+<p>Alle grond waarop niemand eigendom kan bewijzen, is domeingrond en dus van de Staat. Die grond geeft de minister belast met grondbeleid uit, nu het Ministerie van Grondbeleid en Bosbeheer (GBB). Wat je in Suriname koopt of krijgt, is daarom vaak geen eigendom maar een recht op grond van de Staat.</p>
+{% else %}
+<p>All land on which nobody can prove ownership is state land (domeingrond) and belongs to the State. It is issued by the minister in charge of land policy, currently the Ministry of Land Policy and Forest Management (Grondbeleid en Bosbeheer, GBB). What you buy or receive in Suriname is therefore often not ownership but a right to land owned by the State.</p>
+{% endif %}
+<table class="tbl stack tx"><thead><tr><th>{{ 'Titel' if nl else 'Title' }}</th><th>{{ 'Wat het is' if nl else 'What it is' }}</th><th>{{ 'Let op' if nl else 'Watch out' }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="Titel"><b>Grondhuur</b></td><td data-l="Wat het is">Zakelijk recht op domeingrond voor 15 tot 40 jaar, voor een vaste bestemming (wonen, landbouw, zakelijk, industrie). Jaarlijkse grondhuurvergoeding (canon).</td><td data-l="Let op">Overdracht alleen met toestemming van de minister en niet binnen 2 jaar na uitgifte. Vervalt als de termijn afloopt en je geen verlenging hebt gevraagd.</td></tr>
+ <tr><td data-l="Titel"><b>Erfpacht</b></td><td data-l="Wat het is">Oudere titel op domeingrond, vroeger voor tot 75 jaar uitgegeven. Wordt niet meer uitgegeven; grondhuur heeft dezelfde strekking.</td><td data-l="Let op">Controleer de einddatum. Na afloop keert de grond terug naar de Staat.</td></tr>
+ <tr><td data-l="Titel"><b>Eigendom</b></td><td data-l="Wat het is">Volledig recht: je mag de grond gebruiken, verkopen en nalaten zonder toestemming van de Staat. Oude titels als allodiale eigendom en erfelijk bezit gelden als eigendom.</td><td data-l="Let op">Alleen via notariële akte en inschrijving bij MI-GLIS. Een koopovereenkomst alleen maakt je geen eigenaar.</td></tr>
+{% else %}
+ <tr><td data-l="Title"><b>Land lease (grondhuur)</b></td><td data-l="What it is">Property right to state land for 15 to 40 years, for a set purpose (housing, agriculture, business, industry). Annual lease fee (canon).</td><td data-l="Watch out">Transfer only with the minister's consent and not within 2 years of issue. Lapses when the term ends and you did not ask for an extension.</td></tr>
+ <tr><td data-l="Title"><b>Long lease (erfpacht)</b></td><td data-l="What it is">Older title on state land, once issued for up to 75 years. No longer issued; grondhuur has the same effect.</td><td data-l="Watch out">Check the end date. When it ends, the land returns to the State.</td></tr>
+ <tr><td data-l="Title"><b>Freehold (eigendom)</b></td><td data-l="What it is">Full right: you may use, sell and leave the land to heirs without State consent. Old titles such as allodial ownership and hereditary possession count as ownership.</td><td data-l="Watch out">Only by notarial deed and registration at MI-GLIS. A purchase agreement alone does not make you the owner.</td></tr>
+{% endif %}
 </tbody></table>
-<h2>{{ 'Grondhuur omzetten naar eigendom' if nl else 'Converting lease to freehold' }}</h2>
-<p>{{ 'Met het Besluit Grondconversie 2023 kun je grondhuur voor wonen of tuinbouw omzetten in eigendom, tot 2.500 m². De prijs was SRD 25 per m² in het eerste jaar en kan jaarlijks worden aangepast. De notariskosten liggen tussen SRD 2.000 en 5.000, afhankelijk van de oppervlakte. Sinds mei 2025 kunnen ook houders van verlopen grondhuur met een lopende verlenging meedoen. Aanvragen bij de Conversie Unit; besluit binnen 2 maanden.' if nl else 'Under the 2023 Land Conversion Decree you can convert a housing or horticulture lease into freehold, up to 2,500 m². The price was SRD 25 per m² in the first year and can be adjusted yearly. Notary fees range from SRD 2,000 to 5,000 depending on the area. Since May 2025 holders of expired leases with a pending renewal can also apply. Apply at the Conversion Unit; decision within 2 months.' }}</p>
-<h2>{{ 'Kosten bij aankoop' if nl else 'Costs when buying' }}</h2>
-<ul>
- <li>{{ 'Overdrachtsbelasting: 4% van de waarde (sinds oktober 2022 verlaagd van 7%). 0,5% bij overdracht aan familie tot de tweede graad.' if nl else 'Transfer tax: 4% of the value (reduced from 7% in October 2022). 0.5% for transfers to relatives up to the second degree.' }}</li>
- <li>{{ 'Notariskosten en inschrijving in het kadaster.' if nl else 'Notary fees and registration in the land registry.' }}</li>
- <li>{{ 'Een eventuele hypotheek: rente is aftrekbaar voor de inkomstenbelasting tot een schuld van SRD 871.500.' if nl else 'A mortgage if any: interest is deductible for income tax up to a debt of SRD 871,500.' }} <a href="{{ U('incometax') }}">{{ L('incometax') }}</a></li>
-</ul>
-<h2>{{ 'Controleer voor je koopt' if nl else 'Check before you buy' }}</h2>
-<ol>
- <li>{{ 'Vraag een uittreksel uit het hypotheekregister bij MI-GLIS (kadaster): wie is eigenaar, rusten er hypotheken of beslagen op?' if nl else 'Get an extract from the mortgage register at MI-GLIS (land registry): who owns it, are there mortgages or seizures on it?' }}</li>
- <li>{{ 'Bij grondhuur: is de canon betaald en loopt de termijn nog?' if nl else 'For a lease: is the fee paid and is the term still running?' }}</li>
- <li>{{ 'Laat de grenzen meten en vergelijk met de kadastrale kaart.' if nl else 'Have the boundaries measured and compare with the cadastral map.' }}</li>
- <li>{{ 'Betaal nooit aan de verkoper zonder notaris.' if nl else 'Never pay the seller without a notary.' }}</li>
+
+<h2>{{ 'Domeingrond aanvragen in grondhuur' if nl else 'Applying for state land on a land lease' }}</h2>
+{% if nl %}
+<p>Grondhuur kan alleen worden verleend aan Surinamers die in Suriname wonen en aan rechtspersonen die naar Surinaams recht zijn opgericht en in Suriname gevestigd zijn. Anderen kunnen alleen grond krijgen met toestemming van de Raad van Ministers. Voor bebouwing en bewoning krijg je hooguit één toewijzing per persoon. De procedure staat in het Decreet Uitgifte Domeingrond:</p>
+<ol class="steps">
+ <li><b>Schriftelijke aanvraag aan de minister.</b> Met naam, adres, burgerlijke staat, nationaliteit, woonplaats en het doel. Een <i>specifieke</i> aanvraag (met een figuratieve kaart van een landmeter) gaat voor op een <i>algemene</i> aanvraag zonder kaart.</li>
+ <li><b>Ontvangstbericht.</b> Binnen zes maanden moet je een brief krijgen dat je aanvraag binnen is, met de termijn waarbinnen een beslissing te verwachten is.</li>
+ <li><b>Advies en bekendmaking via de districtscommissaris.</b> De minister vraagt advies aan de districtscommissaris (DC) van het district waar de grond ligt. De aanvraag wordt aangeplakt op het districtscommissariaat en de bestuurspost; gedurende 30 dagen kan iedereen bezwaar maken.</li>
+ <li><b>Bereidverklaring.</b> Gaat de minister akkoord, dan krijg je per aangetekende brief bericht dat je verzoek wordt ingewilligd mits je binnen een termijn de grond laat opmeten door een landmeter, de kaart in viervoud inlevert en de leges, zegelrechten en overschrijvingskosten betaalt. Mis je die termijn, dan vervalt je aanvraag.</li>
+ <li><b>Beschikking.</b> Na betaling volgt de beschikking (grondhuurtitel).</li>
+ <li><b>Inschrijving binnen 4 maanden.</b> Je moet de beschikking zelf binnen vier maanden ter overschrijving aanbieden bij het hypotheekkantoor (MI-GLIS). Doe je dat niet, dan vervalt de beschikking van rechtswege. Pas na overschrijving bestaat je grondhuurrecht.</li>
 </ol>
-<p><a href="{{ U('rates') }}">{{ 'Bedragen omrekenen van euro of dollar' if nl else 'Convert amounts from euro or dollar' }}</a> &middot; <a href="{{ U('workpermit') }}">{{ 'Wonen en werken in Suriname' if nl else 'Living and working in Suriname' }}</a></p>
+<p>Na uitgifte moet je binnen een jaar echt beginnen met het gebruik waarvoor je de grond kreeg (bouwplicht of cultuurplicht). Doe je dat niet, of betaal je drie jaar achter elkaar geen grondhuurvergoeding, dan kan de minister je recht vervallen verklaren. Wil je verlengen, dien dan uiterlijk zes maanden voor het einde van de termijn een schriftelijk verzoek in.</p>
+<h3>Grondhuurvergoeding (canon)</h3>
+<p>Sinds het Besluit Grondhuurvergoeding 2023 gelden deze jaarbedragen. Je betaalt per kalenderjaar, op de manier waarop belastingen worden geïnd. Achterstanden tot 1 juli 2021 zijn kwijtgescholden.</p>
+{% else %}
+<p>A land lease can only be granted to Surinamese citizens who live in Suriname and to legal entities incorporated under Surinamese law and based in Suriname. Others can only get land with the consent of the Council of Ministers. For housing you get at most one allocation per person. The procedure is in the State Land Issue Decree (Decreet Uitgifte Domeingrond):</p>
+<ol class="steps">
+ <li><b>Written application to the minister.</b> With your name, address, marital status, nationality, place of residence and the purpose. A <i>specific</i> application (with a sketch map from a land surveyor) takes priority over a <i>general</i> one without a map.</li>
+ <li><b>Acknowledgement.</b> Within six months you should get a letter confirming receipt, with the period in which a decision can be expected.</li>
+ <li><b>Advice and public notice via the district commissioner.</b> The minister asks the district commissioner (districtscommissaris, DC) of the district where the land is for advice. The application is posted at the district commissioner's office and the local administrative post; for 30 days anyone can object.</li>
+ <li><b>Letter of intent (bereidverklaring).</b> If the minister agrees, you get a registered letter saying your request will be granted provided that, within a set period, you have the land surveyed, hand in the map in four copies and pay the fees, stamp duties and registration costs. Miss that deadline and the application lapses.</li>
+ <li><b>Decision (beschikking).</b> After payment you receive the decision, which is your lease title.</li>
+ <li><b>Registration within 4 months.</b> You must offer the decision for registration at the mortgage office (MI-GLIS) within four months. If you do not, the decision lapses by law. Your lease only exists once it is registered.</li>
+</ol>
+<p>After issue you must actually start using the land for its purpose within one year (duty to build or cultivate). If you do not, or if you fail to pay the lease fee for three years in a row, the minister can declare your right forfeited. To extend, file a written request no later than six months before the term ends.</p>
+<h3>Annual lease fee (canon)</h3>
+<p>Since the Land Lease Fee Decree 2023 these annual amounts apply. You pay per calendar year, collected the same way as taxes. Arrears up to 1 July 2021 were written off.</p>
+{% endif %}
+<table class="tbl"><thead><tr><th>{{ 'Bestemming' if nl else 'Purpose' }}</th><th>{{ 'Per jaar' if nl else 'Per year' }}</th></tr></thead><tbody>
+ <tr><td>{{ 'Wonen, perceel tot 500 m²' if nl else 'Housing, plot up to 500 m²' }}</td><td>{{ 'SRD 1 per m²' }}</td></tr>
+ <tr><td>{{ 'Wonen, 500 tot 1.000 m²' if nl else 'Housing, 500 to 1,000 m²' }}</td><td>{{ 'SRD 1,50 per m²' if nl else 'SRD 1.50 per m²' }}</td></tr>
+ <tr><td>{{ 'Wonen, 1.000 tot 1.500 m²' if nl else 'Housing, 1,000 to 1,500 m²' }}</td><td>{{ 'SRD 1,75 per m²' if nl else 'SRD 1.75 per m²' }}</td></tr>
+ <tr><td>{{ 'Wonen, 1.500 m² en meer' if nl else 'Housing, 1,500 m² and more' }}</td><td>SRD 2 per m²</td></tr>
+ <tr><td>{{ 'Zakelijke doeleinden' if nl else 'Business purposes' }}</td><td>{{ 'SRD 2,50 per m²' if nl else 'SRD 2.50 per m²' }}</td></tr>
+ <tr><td>{{ 'Industriële doeleinden' if nl else 'Industrial purposes' }}</td><td>SRD 3 per m²</td></tr>
+ <tr><td>{{ 'Tuinbouw, veeteelt, visserij, landbouw tot 5 ha' if nl else 'Horticulture, livestock, fishing, farming up to 5 ha' }}</td><td>SRD 100 per ha</td></tr>
+ <tr><td>{{ 'Landbouw boven 5 ha' if nl else 'Farming above 5 ha' }}</td><td>SRD 150 per ha</td></tr>
+</tbody></table>
+{% if nl %}
+<p>In juli 2026 kondigde president Simons in Nickerie nieuwe wetgeving aan: grond alleen nog uitgeven voor een concreet doel, ongebruikte grond terug naar de Staat, overdracht en verlenging van grondhuur via notaris en Dienst der Domeinen in plaats van met handtekening van de minister, en geen verval na veertig jaar als er een woning op staat. Dit zijn plannen; tot een wet is aangenomen geldt de huidige regeling.</p>
+{% else %}
+<p>In July 2026, in Nickerie, President Simons announced new legislation: land only issued for a concrete purpose, unused land returned to the State, transfers and extensions of leases handled through a notary and the State Land Office (Dienst der Domeinen) instead of the minister's signature, and no lapse after forty years where a house stands on the land. These are plans; until a law is passed, the current rules apply.</p>
+{% endif %}
+
+<h2>{{ 'Grondconversie: grondhuur omzetten in eigendom' if nl else 'Land conversion: turning a lease into freehold' }}</h2>
+{% if nl %}
+<p>Met het Besluit Grondconversie 2023 kon je als grondhuurder of erfpachter de blote eigendom van de Staat kopen, zodat je volledig eigenaar werd. De regels zijn twee keer verruimd:</p>
+<ul>
+ <li><b>November 2023:</b> wonen of tuinbouw, tot 2.500 m², SRD 25 per m². Notarisloon vast: SRD 2.000 tot 5.000, afhankelijk van de oppervlakte.</li>
+ <li><b>November 2024 (S.B. 2024 no. 157):</b> maximaal 2 hectare, ook zakelijke en industriële grond (SRD 50 per m²). Toestemming van de hypotheekhouder was niet meer nodig.</li>
+ <li><b>Mei 2025 (S.B. 2025 no. 74):</b> ook grondhuurders van wie het recht was verlopen en die al verlenging hadden aangevraagd, konden de grond in volle eigendom kopen.</li>
+</ul>
+<p>Op 9 augustus 2025 stopte het ministerie van GBB op aanwijzing van president Simons per direct met de grondconversie, omdat het staatsbesluit volgens de regering te veel onduidelijkheden bevatte. In juni 2026 zei minister Soeropawiro in De Nationale Assemblee dat aanvragen die nog niet waren afgerond per geval worden beoordeeld en dat terugbetaling van betaalde bedragen niet is uitgesloten. Ook kondigde hij een herziening van de wetgeving over gronduitgifte aan.</p>
+{% else %}
+<p>Under the Land Conversion Decree 2023 (Besluit Grondconversie) a leaseholder could buy the State's bare ownership and so become full owner. The rules were widened twice:</p>
+<ul>
+ <li><b>November 2023:</b> housing or horticulture, up to 2,500 m², SRD 25 per m². Fixed notary fee: SRD 2,000 to 5,000 depending on the area.</li>
+ <li><b>November 2024 (S.B. 2024 no. 157):</b> up to 2 hectares, including business and industrial land (SRD 50 per m²). Consent of the mortgage holder was no longer required.</li>
+ <li><b>May 2025 (S.B. 2025 no. 74):</b> leaseholders whose right had expired and who had already applied for an extension could also buy the land as freehold.</li>
+</ul>
+<p>On 9 August 2025 the Ministry of GBB, on instructions from President Simons, stopped land conversion with immediate effect, because the government said the decree contained too many uncertainties. In June 2026 Minister Soeropawiro told the National Assembly (De Nationale Assemblee) that unfinished applications will be assessed case by case and that refunds of amounts paid are not ruled out. He also announced a revision of the land issue legislation.</p>
+{% endif %}
+<div class="note">{% if nl %}Je kunt nu geen nieuwe conversie aanvragen. Heb je al aangevraagd of betaald? Bewaar je ontvangstbewijs, beschikking en betalingsbewijs en vraag de stand van je dossier na bij het Ministerie van GBB. Koop geen grond van iemand die zegt dat hij &ldquo;nog snel kan converteren&rdquo;.{% else %}You cannot apply for a new conversion now. Already applied or paid? Keep your receipt, decision and proof of payment, and ask the Ministry of GBB about your file. Do not buy land from anyone who says they can &ldquo;still convert it quickly&rdquo;.{% endif %}</div>
+
+<h2>{{ 'Eigendom kopen: van bod tot transport' if nl else 'Buying freehold: from offer to transfer' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Onderhandel en spreek voorwaarden af.</b> Prijs, valuta, wat er bij de koop hoort, wie welke kosten betaalt en een ontbindende voorwaarde voor je financiering.</li>
+ <li><b>Kies zelf een notaris.</b> Alle akten van verkoop, verdeling of overdracht van onroerend goed en van zakelijke rechten erop moeten notarieel zijn, op straffe van nietigheid. De notaris onderzoekt de titel, maakt de akten op en schrijft ze in.</li>
+ <li><b>Onderzoek de titel.</b> Vraag zelf of via de notaris een recent hypothecair uittreksel en de perceelkaart op bij MI-GLIS. Zie hieronder.</li>
+ <li><b>Laat taxeren.</b> Banken eisen een taxatie door een erkende taxateur.</li>
+ <li><b>Teken de koopovereenkomst.</b> Bij de notaris, of eerst onderhands en daarna notarieel vastgelegd. Betaal een eventuele aanbetaling op de derdenrekening van de notaris.</li>
+ <li><b>Regel je hypotheek.</b> De hypotheekakte wordt tegelijk met de transportakte getekend.</li>
+ <li><b>Passeren en betalen.</b> Je tekent de transportakte; het geld loopt via de notaris, die ook het zegelrecht afdraagt.</li>
+ <li><b>Inschrijving.</b> De notaris schrijft de akte in bij de openbare registers van MI-GLIS. Pas dan ben je eigenaar.</li>
+</ol>
+<p>Gaat het om grondhuur in plaats van eigendom, dan is voor de overdracht ook toestemming van de minister nodig. Die kan lang duren. Koop- en volmachtconstructies om op die toestemming vooruit te lopen geven je geen zekerheid.</p>
+{% else %}
+<ol class="steps">
+ <li><b>Negotiate and agree conditions.</b> Price, currency, what is included, who pays which costs, and a condition that lets you cancel if financing fails.</li>
+ <li><b>Choose your own notary.</b> Every deed selling, dividing or transferring real estate, or creating or transferring a right in it, must be notarial or it is void. The notary checks the title, drafts the deeds and registers them.</li>
+ <li><b>Research the title.</b> Have a recent mortgage register extract and the parcel map requested from MI-GLIS. See below.</li>
+ <li><b>Have it valued.</b> Banks require a valuation by an approved valuer.</li>
+ <li><b>Sign the purchase agreement.</b> At the notary, or first privately and then recorded by the notary. Pay any deposit into the notary's client account.</li>
+ <li><b>Arrange your mortgage.</b> The mortgage deed is signed together with the transfer deed.</li>
+ <li><b>Signing and payment.</b> You sign the transfer deed; the money goes through the notary, who also pays the stamp duty.</li>
+ <li><b>Registration.</b> The notary registers the deed in the public registers of MI-GLIS. Only then are you the owner.</li>
+</ol>
+<p>If the title is a land lease rather than freehold, the transfer also needs the minister's consent. That can take a long time. Purchase-plus-power-of-attorney arrangements that try to get ahead of that consent give you no certainty.</p>
+{% endif %}
+
+<h2>{{ 'Onderzoek bij MI-GLIS, kadaster en hypotheekkantoor' if nl else 'Research at MI-GLIS: land registry and mortgage office' }}</h2>
+{% if nl %}
+<p>Het Management Instituut voor Grondregistratie en Land Informatie Systeem (MI-GLIS) beheert de openbare registers (het vroegere hypotheekkantoor) en de kadastrale gegevens. Er zijn kantoren in Paramaribo en sinds december 2024 in Nickerie. Vraag op:</p>
+<ul class="check">
+ <li><b>Hypothecair uittreksel:</b> wie de rechthebbende is, welke titel (eigendom, grondhuur, erfpacht) en of er hypotheken of beslagen op rusten. Hakrinbank vraagt bijvoorbeeld een uittreksel van hooguit een maand oud.</li>
+ <li><b>Perceelkaart met perceel-ID:</b> de kaart met perceelidentificatie volgens de Wet Grondregistratie en Land Informatie Systeem. Vergelijk de maten met wat je in het veld ziet.</li>
+ <li><b>Bij grondhuur:</b> de grondhuurbeschikking (looptijd, bestemming, voorwaarden) en bewijs dat de grondhuurvergoeding is betaald.</li>
+ <li><b>Verklaring van geen onroerend goed:</b> handig als je moet aantonen dat je nog geen grond hebt, bijvoorbeeld bij een grondaanvraag.</li>
+</ul>
+<p>De tarieven van MI-GLIS staan niet online. Vraag ze aan de balie of laat de notaris het onderzoek doen; hij rekent de kosten door.</p>
+{% else %}
+<p>The Management Institute for Land Registration and Land Information System (MI-GLIS) runs the public registers (the former mortgage office, hypotheekkantoor) and the cadastral data. It has offices in Paramaribo and, since December 2024, in Nickerie. Ask for:</p>
+<ul class="check">
+ <li><b>Mortgage register extract (hypothecair uittreksel):</b> who holds the right, which title (freehold, lease, long lease) and whether there are mortgages or seizures on it. Hakrinbank, for example, asks for an extract no more than a month old.</li>
+ <li><b>Parcel map with parcel ID:</b> the map with the parcel identification under the Land Registration and Land Information System Act. Compare the measurements with what you see on site.</li>
+ <li><b>For a lease:</b> the lease decision (term, purpose, conditions) and proof the lease fee has been paid.</li>
+ <li><b>Statement of no real estate (verklaring van geen onroerend goed):</b> useful when you must show you do not own land yet, for example for a land application.</li>
+</ul>
+<p>MI-GLIS fees are not published online. Ask at the counter or let the notary do the research and pass on the cost.</p>
+{% endif %}
+
+<h2>{{ 'Landmeting' if nl else 'Surveying' }}</h2>
+{% if nl %}
+<p>Een landmeter meet de grond op, zet de grenzen uit en maakt de kaart van uitmeting. Bij een grondaanvraag is dat verplicht voordat de beschikking wordt afgegeven. Bij een koop is opmeten verstandig als de grenzen in het veld niet duidelijk zijn of niet kloppen met de perceelkaart. In oude verkavelingen komt het voor dat mensen zonder het te weten op het perceel van een ander hebben gebouwd. Voor het rechtzetten daarvan via ruil of koop geldt een verlaagd zegelrecht van 0,5% over de waarde van alleen de grond. Vraag twee of drie landmeters om een offerte; tarieven zijn niet wettelijk vastgelegd.</p>
+{% else %}
+<p>A land surveyor measures the land, marks the boundaries and draws the survey map. For a land application this is required before you get your decision. When buying, a survey is sensible if the boundaries on site are unclear or do not match the parcel map. In old subdivisions people have built on someone else's plot without knowing it. Correcting that through an exchange or sale carries a reduced stamp duty of 0.5% on the value of the land alone. Ask two or three surveyors for a quote; fees are not set by law.</p>
+{% endif %}
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and timeline' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Kostenpost' if nl else 'Cost' }}</th><th>{{ 'Hoeveel' if nl else 'How much' }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="Kostenpost">Zegelrecht (overdrachtsbelasting)</td><td data-l="Hoeveel">4% van de waarde van het onroerend goed of zakelijk recht (sinds oktober 2022, daarvoor 7%). Geldt ook bij overdracht of vestiging van grondhuur en erfpacht, niet bij hypotheken.</td></tr>
+ <tr><td data-l="Kostenpost">Zegelrecht binnen de familie</td><td data-l="Hoeveel">0,5% bij overdracht aan een bloed- of aanverwant tot en met de tweede graad (bijvoorbeeld ouder aan kind of kleinkind).</td></tr>
+ <tr><td data-l="Kostenpost">Ruil</td><td data-l="Hoeveel">4% over de helft van de waarde van de geruilde goederen samen.</td></tr>
+ <tr><td data-l="Kostenpost">Notaris</td><td data-l="Hoeveel">Geen wettelijk tarief; notarissen hanteren onderling afgesproken tarieven voor onroerend goed. Vraag vooraf een offerte voor transport- en hypotheekakte.</td></tr>
+ <tr><td data-l="Kostenpost">MI-GLIS</td><td data-l="Hoeveel">Inschrijvings- en uittrekselkosten; vraag het actuele tarief.</td></tr>
+ <tr><td data-l="Kostenpost">Taxatie, landmeter</td><td data-l="Hoeveel">Op offertebasis.</td></tr>
+{% else %}
+ <tr><td data-l="Cost">Stamp duty (transfer tax)</td><td data-l="How much">4% of the value of the property or property right (since October 2022, 7% before). Also applies when a lease or long lease is transferred or created, not to mortgages.</td></tr>
+ <tr><td data-l="Cost">Stamp duty within the family</td><td data-l="How much">0.5% for a transfer to a relative by blood or marriage up to the second degree (for example parent to child or grandchild).</td></tr>
+ <tr><td data-l="Cost">Exchange</td><td data-l="How much">4% on half of the combined value of the exchanged properties.</td></tr>
+ <tr><td data-l="Cost">Notary</td><td data-l="How much">No statutory tariff; notaries use tariffs agreed among themselves for real estate. Ask for a quote for the transfer and mortgage deeds in advance.</td></tr>
+ <tr><td data-l="Cost">MI-GLIS</td><td data-l="How much">Registration and extract fees; ask for the current rate.</td></tr>
+ <tr><td data-l="Cost">Valuation, surveyor</td><td data-l="How much">By quote.</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Reken bij een normale koop op enkele weken tot een paar maanden, afhankelijk van de perceelkaart, de bank en de notaris. Bij grondhuur komt daar de toestemming van de minister bij. Een grondaanvraag duurt vaak jaren. Reken bedragen in dollars of euro's om met de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<p>For a normal purchase, expect a few weeks to a few months, depending on the parcel map, the bank and the notary. For a lease, add the minister's consent. A land application often takes years. Convert dollar or euro amounts with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Hypotheek: wat banken vragen' if nl else 'Mortgages: what banks ask for' }}</h2>
+{% if nl %}
+<p>Als voorbeeld de voorwaarden van Hakrinbank (oktober 2026). Vergelijk zelf met andere banken.</p>
+<ul>
+ <li>Koop van een perceel of bestaande woning: tot 90% van de koopprijs, dus minimaal 10% eigen inbreng. Bouw of renovatie: in principe tot 100% van de bouwkosten. Notariskosten kunnen worden meegefinancierd.</li>
+ <li>Looptijd tot 20 jaar; de lening moet zijn afgelost op je 60e. Maandlasten tot ongeveer 35% van je netto inkomen.</li>
+ <li>Niet-ingezetenen: tot 65% van de koopprijs of 75% van de bouwkosten.</li>
+ <li>Zekerheden: hypotheek op het pand en een looncessie of cessie van vorderingen.</li>
+</ul>
+<p><b>7%-hypotheek.</b> Voor een eerste eigen woning bestaat een faciliteit met lage rente onder het Algemeen Voorschrift 7%-hypotheken. Bij Hakrinbank: maximaal SRD 2.000.000, gezamenlijk bruto inkomen maximaal SRD 75.000, woning van 40 tot 150 m², looptijd tot 30 jaar (perceel: 5 jaar). De titel moet eigendom, erfpacht of grondhuur op je eigen naam zijn.</p>
+<p><b>SRD of USD?</b> Leen je in dollars of euro's terwijl je inkomen in SRD is, dan loop je koersrisico. Vraag de bank in welke valuta zij aan jou leent en reken je maandlast door met de <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+<p><b>Belasting.</b> Hypotheekrente voor je eigen woning is aftrekbaar voor de inkomstenbelasting tot een schuld van SRD 871.500 (met terugwerkende kracht tot 1 januari 2025). Zie <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</p>
+{% else %}
+<p>As an example, Hakrinbank's terms (October 2026). Compare with other banks yourself.</p>
+<ul>
+ <li>Buying a plot or existing home: up to 90% of the price, so at least 10% of your own money. Building or renovating: in principle up to 100% of the building cost. Notary costs can be included.</li>
+ <li>Term up to 20 years; the loan must be repaid by age 60. Monthly payments up to about 35% of net income.</li>
+ <li>Non-residents: up to 65% of the purchase price or 75% of the building cost.</li>
+ <li>Security: a mortgage on the property and an assignment of salary or receivables.</li>
+</ul>
+<p><b>7% mortgage.</b> For a first own home there is a low-interest facility under the General Regulation on 7% mortgages. At Hakrinbank: up to SRD 2,000,000, combined gross income up to SRD 75,000, home of 40 to 150 m², term up to 30 years (plot: 5 years). The title must be freehold, long lease or land lease in your own name.</p>
+<p><b>SRD or USD?</b> If you borrow in dollars or euros while you earn SRD, you carry exchange-rate risk. Ask the bank which currency it will lend you and check your monthly payment with the <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+<p><b>Tax.</b> Mortgage interest on your own home is deductible for income tax up to a debt of SRD 871,500 (backdated to 1 January 2025). See <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Bouwvergunning aanvragen' if nl else 'Getting a building permit' }}</h2>
+{% if nl %}
+<p>Bouwen zonder schriftelijke vergunning van de directeur Bouw- en Stedebouwkundige Werken van het Ministerie van Openbare Werken (OW) is verboden. Je dient de aanvraag in bij de One Stop Window van de afdeling Bouw- en Woningtoezicht (BWT), Mr. J. Lachmonstraat 167, Paramaribo. Sinds augustus 2024 kunnen alleen erkende en bij OW geregistreerde tekenbureaus aanvragen indienen.</p>
+<ul class="check">
+ <li>Tekeningen op schaal: situatie, plattegrond, fundering en riolering, doorsnede, gevels, kapplan, details. Voor complexe gebouwen ook beton- of staalberekeningen.</li>
+ <li>Perceelkaart en bewijs van je titel: hypothecair uittreksel, koopovereenkomst of grondbeschikking.</li>
+ <li>Foto's van het perceel; voor bedrijven een KKF-uittreksel of statuten.</li>
+ <li>Een architect is niet nodig voor een woning tot 100 m² vloeroppervlakte. Zakenpanden, winkels, kantoren en meer dan vier aaneengeschakelde woningen moeten door een erkend architecten- of ingenieursbureau worden ontworpen en ingediend.</li>
+</ul>
+<p><b>Kosten.</b> Leges SRD 50 per aanvraag plus vergunningsrecht volgens het Besluit Vergunningsrecht 2023: SRD 250 voor een nieuwe woning tot 70 m²; daarboven 0,25% van de vastgestelde bouwsom per m² (voor laagbouw in steen is de bouwsom SRD 12.000 per m², dus SRD 30 per m²). Zakenpanden: 0,20% van de bouwsom per m² per bouwlaag.</p>
+<p><b>Termijn.</b> OW beslist binnen twee maanden na een volledige aanvraag. Begin je niet binnen zes maanden met bouwen en vraag je geen verlenging, dan vervalt de vergunning; verlenging kost 10% van de heffing. Tegen een weigering kun je binnen twee weken in beroep bij de minister. Bel voor de status met BWT (464101) of de centrale (490666).</p>
+{% else %}
+<p>Building without written permission from the Director of Building and Urban Works of the Ministry of Public Works (Openbare Werken, OW) is prohibited. You apply at the One Stop Window of the Building and Housing Inspection department (Bouw- en Woningtoezicht, BWT), Mr. J. Lachmonstraat 167, Paramaribo. Since August 2024 only recognised drafting offices registered with OW can file applications.</p>
+<ul class="check">
+ <li>Scale drawings: site plan, floor plan, foundation and drainage, section, elevations, roof plan, details. For complex buildings also concrete or steel calculations.</li>
+ <li>Parcel map and proof of title: mortgage register extract, purchase agreement or land decision.</li>
+ <li>Photos of the plot; for businesses a KKF (Chamber of Commerce) extract or articles of association.</li>
+ <li>No architect is needed for a home up to 100 m² floor area. Commercial buildings, shops, offices and more than four linked homes must be designed and filed by a recognised architecture or engineering firm.</li>
+</ul>
+<p><b>Costs.</b> A SRD 50 fee per application plus the permit charge under the Permit Charge Decree 2023: SRD 250 for a new home up to 70 m²; above that 0.25% of the fixed building value per m² (for brick low-rise the building value is SRD 12,000 per m², so SRD 30 per m²). Commercial buildings: 0.20% of the building value per m² per floor.</p>
+<p><b>Timeline.</b> OW decides within two months of a complete application. If you do not start building within six months and do not ask for an extension, the permit lapses; an extension costs 10% of the charge. You can appeal a refusal to the minister within two weeks. Call BWT (464101) or the switchboard (490666) for the status.</p>
+{% endif %}
+
+<h2>{{ 'Huurwaardebelasting' if nl else 'Property tax: huurwaardebelasting' }}</h2>
+{% if nl %}
+<p>Suriname kent de Wet Huurwaardebelasting 1995. De belasting is 6% van de huurwaarde van een gebouw, met een minimum van SRD 20 per jaar. Voor een gebouw in eigen gebruik is de huurwaarde 1% van de vrije verkoopwaarde na aftrek van SRD 50.000. Voor een verhuurd gebouw is het de jaarlijkse huuropbrengst (minimaal 1% van de verkoopwaarde). De belasting is verschuldigd door de eigenaar of, op domeingrond, de grondhuurder. Gebouwen voor landbouw, fabrieken, werkplaatsen, onderwijs en eredienst zijn vrijgesteld. De Belastingdienst stelt de huurwaarde vast en stuurt een aanslag; je kunt binnen 60 dagen bezwaar maken. Vraag bij de Inspectie der Directe Belastingen hoe dit voor jouw pand wordt toegepast.</p>
+{% else %}
+<p>Suriname has the Rental Value Tax Act 1995 (Wet Huurwaardebelasting). The tax is 6% of a building's rental value, with a minimum of SRD 20 a year. For a building you use yourself, the rental value is 1% of the market value after deducting SRD 50,000. For a rented building it is the annual rent (at least 1% of the market value). The owner pays, or on state land the leaseholder. Buildings used for agriculture, factories, workshops, education and worship are exempt. The tax office sets the rental value and sends an assessment; you can object within 60 days. Ask the Direct Taxes Inspectorate how this is applied to your property.</p>
+{% endif %}
+
+<h2>{{ 'Kopen als buitenlander of vanuit de diaspora' if nl else 'Buying as a foreigner or from the diaspora' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Eigendom</b> mag je als buitenlander kopen. Je identificeert je bij de notaris met een geldig paspoort en een uittreksel uit je land van herkomst.</li>
+ <li><b>Domeingrond in grondhuur</b> is voor Surinamers die in Suriname wonen en voor in Suriname gevestigde Surinaamse rechtspersonen. Anderen hebben toestemming van de Raad van Ministers nodig, en een vreemdeling die Suriname metterwoon verlaat, verliest het recht. Wie geen Surinamer is, kan grondhuur dus in de praktijk alleen via een Surinaamse NV of stichting houden; reken op een lange procedure.</li>
+ <li><b>Surinamers die in het buitenland wonen</b> en domeingrond hebben, moeten in Suriname vertegenwoordigd zijn (gekozen woonplaats).</li>
+ <li><b>PSA-status</b> (Persoon van Surinaamse Afkomst) geeft je onder meer vrijstelling van de werkvergunning, maar maakt je geen Surinamer. Zie <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li>Een notaris kan de koop voorbereiden terwijl je in het buitenland bent, met een volmacht. Vraag de notaris welke bankroute en eventuele deviezenformaliteiten nodig zijn voor jouw betaling.</li>
+ <li>Een woning kopen geeft je niet automatisch een verblijfsvergunning; die vraag je apart aan. Investeer je zakelijk, lees ook <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Freehold</b> can be bought by foreigners. You identify yourself to the notary with a valid passport and an extract from your country of origin.</li>
+ <li><b>State land on a lease</b> is for Surinamese citizens living in Suriname and Surinamese legal entities based in Suriname. Others need consent from the Council of Ministers, and a foreigner who leaves Suriname to live elsewhere loses the right. In practice a non-citizen can only hold a lease through a Surinamese NV (company) or foundation; expect a long procedure.</li>
+ <li><b>Surinamese citizens living abroad</b> who hold state land must be represented in Suriname (an elected domicile).</li>
+ <li><b>PSA status</b> (Person of Surinamese Origin) exempts you from a work permit, among other things, but does not make you a citizen. See <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li>A notary can prepare the purchase while you are abroad, using a power of attorney. Ask the notary which bank route and any foreign exchange formalities apply to your payment.</li>
+ <li>Buying a home does not automatically give you a residence permit; you apply for that separately. If you invest in a business, also read <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Erfenis en onverdeelde boedels' if nl else 'Inheritance and undivided estates (boedels)' }}</h2>
+{% if nl %}
+<p>Veel percelen zitten in een onverdeelde boedel: de erflater is overleden, de erfgenamen zijn samen gerechtigd en niemand heeft de grond op zijn naam gezet. Je kunt zo'n perceel alleen kopen als <i>alle</i> erfgenamen meewerken. De notaris moet ze allemaal opsporen en hun toestemming hebben.</p>
+<ul>
+ <li><b>Grondhuur na overlijden:</b> zijn er meerdere gerechtigden, dan moeten zij binnen 18 maanden één van hen aanwijzen op wie het recht overgaat, met een notariële verklaring van erfrecht aan de hypotheekbewaarder. Gebeurt dat niet, dan vervalt de grondhuur van rechtswege (behalve bij overmacht).</li>
+ <li><b>Erfgenamen in het buitenland:</b> het verval wegens nationaliteit of woonplaats wordt één jaar opgeschort na het openvallen van de nalatenschap. Gebruik die tijd.</li>
+ <li><b>Nieuw BW:</b> sinds 1 mei 2025 kent het Burgerlijk Wetboek regels voor de langdurig onverdeeld gebleven gemeenschap met onroerend goed (artikel 3:200a en volgende). Wie de grond al minstens tien jaar gebruikt en rechtmatig in Suriname woont, kan de kantonrechter vragen hem het perceel toe te wijzen. Laat een advocaat of notaris beoordelen of deze regeling op jou van toepassing is.</li>
+ <li><b>Verdelen:</b> een akte van scheiding en deling valt onder het zegelrecht voor zover iemand meer krijgt dan zijn aandeel. Tussen familie tot de tweede graad geldt 0,5%.</li>
+</ul>
+{% else %}
+<p>Many plots sit in an undivided estate (onverdeelde boedel): the owner died, the heirs are jointly entitled and nobody put the land in their own name. You can only buy such a plot if <i>all</i> heirs cooperate. The notary must trace every one of them and get their consent.</p>
+<ul>
+ <li><b>Lease after death:</b> if there are several heirs, they must name one of them to take over the lease within 18 months, with a notarial certificate of inheritance sent to the mortgage registrar. If they do not, the lease lapses by law (except in case of force majeure).</li>
+ <li><b>Heirs abroad:</b> loss of the right because of nationality or residence is suspended for one year after the estate opens. Use that time.</li>
+ <li><b>New Civil Code:</b> since 1 May 2025 the Civil Code (Burgerlijk Wetboek) has rules for long-undivided estates containing real estate (article 3:200a onwards). A person who has used the land for at least ten years and lives lawfully in Suriname can ask the cantonal court to award them the plot. Have a lawyer or notary check whether this applies to you.</li>
+ <li><b>Dividing:</b> a deed of division is subject to stamp duty to the extent someone receives more than their share. Between relatives up to the second degree the rate is 0.5%.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Oplichting en veelgemaakte fouten' if nl else 'Scams and common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Betalen buiten de notaris.</b> Contant of per overschrijving aan de verkoper betalen voordat de akte is ingeschreven, is de grootste fout. Betaal alleen via de derdenrekening van de notaris.</li>
+ <li><b>Grondhuur verkocht als eigendom.</b> Iemand verkoopt &ldquo;grond&rdquo; die domeingrond is, of een grondhuur die al is verlopen of vervallen verklaard. Het uittreksel laat de echte titel zien.</li>
+ <li><b>Alleen een koopovereenkomst en een volmacht.</b> Bij grondhuur blijft de verkoper rechthebbende tot de minister toestemming geeft en de akte is ingeschreven. Overlijdt hij of verkoopt hij opnieuw, dan sta je zwak.</li>
+ <li><b>Een perceel dat twee keer is uitgegeven of verkocht.</b> Controleer het uittreksel vlak voor het passeren nog een keer.</li>
+ <li><b>Geen bouwvergunning.</b> OW kan sloop of herstel op jouw kosten bevelen, en je bank financiert niet.</li>
+ <li><b>&ldquo;Ik regel conversie of een grondpapier voor je.&rdquo;</b> Tussenpersonen die tegen betaling een beschikking beloven, kunnen dat niet waarmaken. Aanvragen gaan rechtstreeks naar het ministerie.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Paying outside the notary.</b> Paying the seller in cash or by transfer before the deed is registered is the biggest mistake. Pay only through the notary's client account.</li>
+ <li><b>A lease sold as freehold.</b> Someone sells &ldquo;land&rdquo; that is state land, or a lease that has already expired or been forfeited. The extract shows the real title.</li>
+ <li><b>Only a purchase agreement and a power of attorney.</b> With a lease, the seller remains the holder until the minister consents and the deed is registered. If the seller dies or sells again, your position is weak.</li>
+ <li><b>A plot issued or sold twice.</b> Check the extract again just before signing.</li>
+ <li><b>No building permit.</b> OW can order demolition or repair at your cost, and your bank will not finance.</li>
+ <li><b>&ldquo;I can get you a conversion or land title.&rdquo;</b> Middlemen who promise a decision for a fee cannot deliver. Applications go straight to the ministry.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bedrijfspand of woning huren' if nl else 'Renting a commercial property or home' }}</h2>
+{% if nl %}
+<p>De Huurwet Woonruimte 2020 geldt alleen voor woonruimte. Daarin staat onder meer: de verhuurder zegt een huur voor onbepaalde tijd op met minstens zes maanden, de huurder met drie maanden; opzegging gaat schriftelijk per aangetekende brief of exploot; de huur mag niet binnen een jaar na afspraak worden verhoogd en bij een gelijkblijvende woning alleen met de inflatie volgens het ABS; de huurprijs is in SRD, behalve bij een niet-ingezetene of een huurder met een vast inkomen in vreemde valuta. Bij een geschil over de huurprijs kun je de Huurcommissie om advies vragen; de kantonrechter beslist uiteindelijk.</p>
+<p>Voor een <b>bedrijfspand</b> geldt die wet niet. Dan gelden je huurcontract en de algemene huurregels van het Burgerlijk Wetboek. Leg daarom alles vast:</p>
+<ul class="check">
+ <li>Huurprijs, valuta en indexering; borg en wanneer je die terugkrijgt.</li>
+ <li>Looptijd, verlengingsoptie en opzegtermijn voor beide partijen.</li>
+ <li>Bestemming (winkel, kantoor, opslag, horeca) en of de verhuurder vergunningen toestaat. Vraag bij OW na of het pand geschikt is voor jouw gebruik.</li>
+ <li>Wie betaalt onderhoud, verbouwing, EBS en SWM, en wie de huurwaardebelasting draagt.</li>
+ <li>Of je mag onderverhuren of het contract mag overdragen als je je zaak verkoopt.</li>
+ <li>Een recent hypothecair uittreksel: is de verhuurder echt eigenaar of grondhuurder?</li>
+</ul>
+<p>Zie ook <a href="{{ U('licences') }}">{{ L('licences') }}</a> en <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% else %}
+<p>The Residential Rent Act 2020 (Huurwet Woonruimte) applies only to homes. Among other things: a landlord ends an open-ended lease with at least six months' notice, a tenant with three months; notice is given in writing by registered letter or bailiff's writ; rent may not be raised within a year of agreeing it, and for an unchanged home only by inflation as published by the statistics office (ABS); rent is set in SRD, except for a non-resident or a tenant with a fixed income in foreign currency. In a rent dispute you can ask the Rent Committee (Huurcommissie) for advice; the cantonal court has the final say.</p>
+<p>For a <b>commercial property</b> that act does not apply. Your lease contract and the general lease rules of the Civil Code apply instead. So put everything in writing:</p>
+<ul class="check">
+ <li>Rent, currency and indexation; deposit and when you get it back.</li>
+ <li>Term, renewal option and notice period for both sides.</li>
+ <li>Permitted use (shop, office, storage, food service) and whether the landlord allows permits. Check with OW that the building suits your use.</li>
+ <li>Who pays maintenance, alterations, EBS (electricity) and SWM (water), and who bears the rental value tax.</li>
+ <li>Whether you may sublet or transfer the lease if you sell your business.</li>
+ <li>A recent mortgage register extract: is the landlord really the owner or leaseholder?</li>
+</ul>
+<p>See also <a href="{{ U('licences') }}">{{ L('licences') }}</a> and <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Checklist voor kopers' if nl else 'Buyer checklist' }}</h2>
+<ul class="check">
+{% if nl %}
+ <li>Recent hypothecair uittreksel (titel, eigenaar, hypotheken, beslagen).</li>
+ <li>Perceelkaart met perceel-ID; grenzen in het veld gecontroleerd.</li>
+ <li>Bij grondhuur: beschikking, einddatum, bestemming, betaalde canon, toestemming minister voor overdracht.</li>
+ <li>Bij boedel: verklaring van erfrecht en medewerking van alle erfgenamen.</li>
+ <li>Taxatierapport en financieringstoezegging.</li>
+ <li>Offerte notaris; zegelrecht (4% of 0,5%) begroot.</li>
+ <li>Bouwvergunning van bestaande opstallen, of plan voor een nieuwe aanvraag.</li>
+ <li>Alle betalingen via de derdenrekening van de notaris.</li>
+{% else %}
+ <li>Recent mortgage register extract (title, owner, mortgages, seizures).</li>
+ <li>Parcel map with parcel ID; boundaries checked on site.</li>
+ <li>For a lease: decision, end date, purpose, fee paid, minister's consent for the transfer.</li>
+ <li>For an estate: certificate of inheritance and cooperation of all heirs.</li>
+ <li>Valuation report and financing approval.</li>
+ <li>Notary's quote; stamp duty (4% or 0.5%) budgeted.</li>
+ <li>Building permit for existing buildings, or a plan for a new application.</li>
+ <li>All payments through the notary's client account.</li>
+{% endif %}
+</ul>
+<p>{{ 'Adressen van overheidsinstanties vind je bij' if nl else 'Addresses of government offices are in' }} <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</p>
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
- <li><a href="https://www.sris.sr/wp-content/uploads/2018/02/decreet_uitgifte_domeingrond.pdf" rel="noopener">Decreet Uitgifte Domeingrond</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/02/decreet_uitgifte_domeingrond.pdf" rel="noopener">Decreet Uitgifte Domeingrond (S.B. 1982 no. 11)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/03/Besluit-Grondhuurvergoeding-2023-S.B.-2023-no.-50.pdf" rel="noopener">Besluit Grondhuurvergoeding 2023 (S.B. 2023 no. 50)</a></li>
  <li><a href="https://www.sris.sr/wp-content/uploads/2023/11/S.B.-2023-no.-159-Besluit-Grondconversie-2023.pdf" rel="noopener">Besluit Grondconversie 2023 (S.B. 2023 no. 159)</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2025/01/Staatsbesluit-houdende-wijziging-van-het-Besluit-Grondconversie-2023-S.B.-2024-no.-157.pdf" rel="noopener">Wijziging Besluit Grondconversie (S.B. 2024 no. 157)</a></li>
  <li><a href="https://www.sris.sr/wp-content/uploads/2025/07/S.B.-2025-no.-74-STAATSBESLUIT-van-22-mei-2025-houdende-nadere-wijziging-van-het-Besluit-Grondconversie-2023.pdf" rel="noopener">Wijziging Besluit Grondconversie (S.B. 2025 no. 74)</a></li>
- <li><a href="https://www.dna.sr/media/c1sewtux/sb_2022___119.pdf" rel="noopener">S.B. 2022 no. 119, overdrachtsbelasting 4%</a></li>
+ <li><a href="https://www.srherald.com/suriname/2025/08/09/grondconversie-per-direct-stopgezet/" rel="noopener">Suriname Herald: Grondconversie per direct stopgezet (9 augustus 2025)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/92612" rel="noopener">Starnieuws: lopende grondconversieaanvragen worden opnieuw beoordeeld (juni 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/92932" rel="noopener">Starnieuws: President wil grond alleen nog uitgeven voor concreet doel (12 juli 2026)</a></li>
+ <li><a href="https://www.dna.sr/media/c1sewtux/sb_2022___119.pdf" rel="noopener">Wijziging Zegelwet, zegelrecht 4% (S.B. 2022 no. 119)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/11/S.B.-2025-no.-130-STAATSBESLUIT-ter-uitvoering-van-artikel-52-h-van-de-Inkomstenbelasting-1922.pdf" rel="noopener">S.B. 2025 no. 130, hypotheekrenteaftrek tot SRD 871.500</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Huurwaardebelasting.pdf" rel="noopener">Wet Huurwaardebelasting 1995 (Belastingdienst)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/09/Handleiding-normenboek_Bouwwoningtoezicht-2022-v1.docx" rel="noopener">Ministerie van Openbare Werken: Normenboek bouwvergunningen (2022)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/10/S.B.-2023-no.-92-Besluit-Vergunningsrecht.pdf" rel="noopener">Besluit Vergunningsrecht (S.B. 2023 no. 92)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/07/Bekendmaking-registratie-tekenburos1.pdf" rel="noopener">Openbare Werken: registratie tekenbureaus (juli 2024)</a></li>
+ <li><a href="https://www.dna.sr/media/viupphip/sb_2020___53_huurwet_woonruimte_2020_.pdf" rel="noopener">Huurwet Woonruimte 2020 (S.B. 2020 no. 53)</a></li>
+ <li><a href="https://www.hakrinbank.com/particulier/lenen/hypothecaire-lening/" rel="noopener">Hakrinbank: hypothecaire lening</a> en <a href="https://www.hakrinbank.com/7-hypothecaire-lening/" rel="noopener">7% hypothecaire lening</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/06/Guide-For-Immigrants.pdf" rel="noopener">Guide for Immigrants (gov.sr, 2025)</a></li>
+ <li><a href="https://www.dna.sr/media/2qcl0ksc/njb-2025-800-het-nieuw-surinaams-burgerlijk-wetboek-2.pdf" rel="noopener">NJB 2025: Het Nieuw Surinaams Burgerlijk Wetboek</a></li>
+ <li><a href="https://keynews.sr/het-nieuw-bw-wel-of-geen-dreiging-voor-communaal-plantagegrondbezit" rel="noopener">Key News: het nieuw BW en onverdeelde plantagegrond</a></li>
+ <li><a href="https://keynews.sr/bvs-uitgereikt-in-nickerie-mi-glis-opent-kantoor" rel="noopener">Key News: MI-GLIS opent kantoor in Nickerie (december 2024)</a></li>
+ <li><a href="https://www.doingbusinessdutchcaribbean.com/suriname/real-estate-sur/ownership-sur/" rel="noopener">Guide to Doing Business: Suriname, ownership</a></li>
+ <li><a href="https://www.state.gov/reports/2026-investment-climate-statements/suriname" rel="noopener">US State Department: 2026 Investment Climate Statement Suriname</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies. Raadpleeg een notaris.' if nl else 'General information, not legal advice. Consult a notary.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies. Raadpleeg een notaris.' if nl else 'General information, not legal advice. Consult a notary.' }}</p>
 </div>
 {% endblock %}

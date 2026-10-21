@@ -2,7 +2,7 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'BTW berekenen' if nl else 'VAT calculator Suriname' }}</h1>
-<p class="lead">{{ 'Het algemene BTW tarief in Suriname is 10%. Brandstof valt onder 5%, luxe goederen zoals grote auto\'s onder 25%.' if nl else 'Suriname\'s standard VAT rate is 10%. Fuel is taxed at 5%, luxury goods such as large cars at 25%.' }}</p>
+<p class="lead">{{ 'Het algemene BTW tarief in Suriname is 10%. Water, stroom, kookgas en binnenlands goederenvervoer vallen onder 5%, luxe goederen zoals grote auto\'s onder 25%.' if nl else 'Suriname\'s standard VAT rate is 10%. Water, electricity, cooking gas and domestic freight are taxed at 5%, luxury goods such as large cars at 25%.' }}</p>
 <div class="cols">
  <form class="card calc" id="vat-form" onsubmit="return false">
   <label for="amount">{{ 'Bedrag (SRD)' if nl else 'Amount (SRD)' }}</label>
@@ -10,7 +10,7 @@
   <label for="dir">{{ 'Dit bedrag is' if nl else 'This amount is' }}</label>
   <select id="dir" name="dir"><option value="excl">{{ 'exclusief BTW' if nl else 'excluding VAT' }}</option><option value="incl">{{ 'inclusief BTW' if nl else 'including VAT' }}</option></select>
   <label for="rate">{{ 'Tarief' if nl else 'Rate' }}</label>
-  <select id="rate" name="rate"><option value="10">10% {{ 'algemeen' if nl else 'standard' }}</option><option value="5">5% {{ 'brandstof' if nl else 'fuel' }}</option><option value="25">25% {{ 'luxe goederen' if nl else 'luxury goods' }}</option><option value="0">0%</option></select>
+  <select id="rate" name="rate"><option value="10">10% {{ 'algemeen' if nl else 'standard' }}</option><option value="5">5% {{ 'water, stroom, kookgas' if nl else 'water, power, cooking gas' }}</option><option value="25">25% {{ 'luxe goederen' if nl else 'luxury goods' }}</option><option value="0">0%</option></select>
  </form>
  <div class="result" id="vat-out" aria-live="polite"></div>
 </div>

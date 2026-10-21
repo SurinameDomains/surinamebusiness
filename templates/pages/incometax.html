@@ -2,47 +2,300 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'Inkomstenbelasting in Suriname' if nl else 'Income tax in Suriname' }}</h1>
-<p class="lead">{{ 'Je doet voor 15 april een voorlopige aangifte en betaalt in vier termijnen. De definitieve aangifte volgt binnen 4 maanden na het jaar. Aangifte gaat online via het portaal van de Belastingdienst.' if nl else 'You file a provisional return by 15 April and pay in four instalments. The final return follows within 4 months after the year. Returns are filed online through the tax office portal.' }}</p>
-<h2>{{ 'Belangrijke datums' if nl else 'Key dates' }}</h2>
-<table class="tbl"><thead><tr><th>{{ 'Wanneer' if nl else 'When' }}</th><th>{{ 'Wat' if nl else 'What' }}</th></tr></thead><tbody>
- <tr><td>15 {{ 'februari' if nl else 'February' }}</td><td>{{ 'Uiterste datum om verlaging van de voorlopige aanslag te vragen' if nl else 'Last day to request a lower provisional assessment' }}</td></tr>
- <tr><td>15 {{ 'april' if nl else 'April' }}</td><td>{{ 'Voorlopige aangifte en eerste termijn' if nl else 'Provisional return and first instalment' }}</td></tr>
- <tr><td>30 {{ 'april' if nl else 'April' }}</td><td>{{ 'Definitieve aangifte particulieren over het vorige jaar' if nl else 'Final return for individuals over the previous year' }}</td></tr>
- <tr><td>30 {{ 'juni' if nl else 'June' }}</td><td>{{ 'Definitieve aangifte bedrijven (6 maanden na boekjaar)' if nl else 'Final return for companies (6 months after the financial year)' }}</td></tr>
- <tr><td>15 {{ 'juli' if nl else 'July' }}, 15 {{ 'oktober' if nl else 'October' }}, 31 {{ 'december' if nl else 'December' }}</td><td>{{ 'Tweede, derde en vierde termijn' if nl else 'Second, third and fourth instalment' }}</td></tr>
- <tr><td>{{ 'Elke maand' if nl else 'Every month' }}</td><td>{{ 'Loonbelasting en AOV (26e tot 10e), BTW (voor de 16e)' if nl else 'Wage tax and AOV (26th to 10th), VAT (by the 16th)' }}</td></tr>
+<h1>{{ 'Inkomstenbelasting in Suriname: aangifte, termijnen en tarieven' if nl else 'Income tax in Suriname: returns, deadlines and rates' }}</h1>
+{% if nl %}
+<p class="lead">Heb je in Suriname ander inkomen dan alleen loon, bijvoorbeeld winst uit een eenmanszaak of huurinkomsten, of heb je een NV, dan doe je twee aangiften per jaar. Voor 15 april de voorlopige aangifte over het lopende jaar, die je in vier termijnen betaalt, en na afloop van het jaar de definitieve aangifte: binnen 4 maanden voor personen, binnen 6 maanden voor bedrijven. Sinds 2025 gaat dat online via het portaal van de Belastingdienst.</p>
+{% else %}
+<p class="lead">If you have income in Suriname other than just wages, such as profit from a sole proprietorship or rental income, or if you own an NV (limited company), you file two returns a year. By 15 April the provisional return for the current year, paid in four instalments, and after the year ends the final return: within 4 months for individuals, within 6 months for companies. Since 2025 this is done online through the tax office (Belastingdienst) portal.</p>
+{% endif %}
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Tarief voor personen (sinds 2024): de eerste {{ srd(108000) }} van je zuiver inkomen is belastingvrij, daarboven 8%, 18%, 28% en 38% in schijven van {{ srd(42000) }}.</li>
+<li>Bedrijven (NV, stichting met een bedrijf, coöperatie): 36% over de winst. Dividend: 25% dividendbelasting.</li>
+<li>Voorlopige aangifte en eerste termijn uiterlijk 15 april; verdere termijnen 15 juli, 15 oktober en 31 december. Verlaging aanvragen kan tot 15 februari.</li>
+<li>Definitieve aangifte: personen uiterlijk 30 april, bedrijven met een kalenderjaar uiterlijk 30 juni.</li>
+<li>Alleen loon van één werkgever? Dan is de loonbelasting in de praktijk je eindheffing en krijg je geen aanslag.</li>
+<li>Bezwaar binnen 60 dagen bij de Inspecteur der Directe Belastingen, daarna beroep binnen 60 dagen bij de Raad van Beroep.</li>
+{% else %}
+<li>Rate for individuals (since 2024): the first {{ srd(108000) }} of your net income is tax free, then 8%, 18%, 28% and 38% in bands of {{ srd(42000) }}.</li>
+<li>Companies (NV, foundation running a business, cooperative): 36% on profit. Dividends: 25% dividend tax.</li>
+<li>Provisional return and first instalment by 15 April; further instalments 15 July, 15 October and 31 December. You can ask for a reduction until 15 February.</li>
+<li>Final return: individuals by 30 April, companies with a calendar year by 30 June.</li>
+<li>Only wages from one employer? Then in practice the wage tax is your final tax and you get no assessment.</li>
+<li>Objection within 60 days to the Direct Taxes Inspector, then appeal within 60 days to the Tax Appeals Board (Raad van Beroep).</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie moet aangifte doen?' if nl else 'Who must file?' }}</h2>
+{% if nl %}
+<table class="tbl"><thead><tr><th>Wie</th><th>Wat je doet</th></tr></thead><tbody>
+<tr><td>Werknemer met alleen loon van één werkgever</td><td>Meestal niets. De werkgever houdt loonbelasting en AOV in. Heb je naast je loon maximaal {{ srd(7500) }} aan ander inkomen, dan volgt geen aanslag.</td></tr>
+<tr><td>Werknemer met twee werkgevers tegelijk (langer dan een maand)</td><td>De Inspecteur legt zelf een aanslag op over je gezamenlijke loon, omdat elke werkgever de belastingvrije som toepast.</td></tr>
+<tr><td>Ondernemer met een eenmanszaak of in een VOF</td><td>Voorlopige en definitieve aangifte als natuurlijk persoon. De winst telt mee als inkomen.</td></tr>
+<tr><td>Iemand met huurinkomsten, rente, of loon plus ander inkomen</td><td>Voorlopige en definitieve aangifte als natuurlijk persoon.</td></tr>
+<tr><td>Niet in Suriname wonende persoon met Surinaams inkomen (bijvoorbeeld een verhuurd huis)</td><td>Definitieve aangifte over het binnenlands inkomen.</td></tr>
+<tr><td>NV, coöperatie, stichting of vereniging die een bedrijf uitoefent, en een filiaal van een buitenlands bedrijf</td><td>Voorlopige en definitieve aangifte als lichaam, ook als je geen aangiftebiljet hebt ontvangen.</td></tr>
 </tbody></table>
-<h2>{{ 'Tarieven particulieren' if nl else 'Rates for individuals' }}</h2>
-<table class="tbl"><thead><tr><th>{{ 'Belastbaar inkomen per jaar' if nl else 'Taxable income per year' }}</th><th class="r">{{ 'Tarief' if nl else 'Rate' }}</th></tr></thead><tbody>
- <tr><td>{{ 'Tot' if nl else 'Up to' }} {{ srd(108000) }}</td><td class="r">0%</td></tr>
- <tr><td>{{ srd(108000) }} {{ 'tot' if nl else 'to' }} {{ srd(150000) }}</td><td class="r">8%</td></tr>
- <tr><td>{{ srd(150000) }} {{ 'tot' if nl else 'to' }} {{ srd(192000) }}</td><td class="r">18%</td></tr>
- <tr><td>{{ srd(192000) }} {{ 'tot' if nl else 'to' }} {{ srd(234000) }}</td><td class="r">28%</td></tr>
- <tr><td>{{ 'Boven' if nl else 'Above' }} {{ srd(234000) }}</td><td class="r">38%</td></tr>
+<p>Je moet ook aangifte doen als je geen uitnodiging of biljet van de Belastingdienst hebt gekregen. Wie niet oplet, krijgt een ambtshalve aanslag met een verhoging (zie boetes).</p>
+{% else %}
+<table class="tbl"><thead><tr><th>Who</th><th>What you do</th></tr></thead><tbody>
+<tr><td>Employee with wages from one employer only</td><td>Usually nothing. Your employer withholds wage tax and AOV (state pension premium). If you have no more than {{ srd(7500) }} of other income, no assessment follows.</td></tr>
+<tr><td>Employee with two employers at the same time (longer than a month)</td><td>The Inspector issues an assessment on your combined wages, because each employer applies the tax-free amount.</td></tr>
+<tr><td>Sole trader (eenmanszaak) or partner in a VOF</td><td>Provisional and final return as an individual. The profit counts as income.</td></tr>
+<tr><td>Someone with rental income, interest, or wages plus other income</td><td>Provisional and final return as an individual.</td></tr>
+<tr><td>Non-resident with Surinamese income (for example a house that is rented out)</td><td>Final return on the Surinamese income.</td></tr>
+<tr><td>NV, cooperative, foundation or association running a business, and a branch of a foreign company</td><td>Provisional and final return as an entity, even if you received no return form.</td></tr>
 </tbody></table>
-<p>{{ 'Dit zijn dezelfde schijven als de loonbelasting, maar per jaar. Werknemers met alleen loon hebben hun belasting meestal al via de werkgever betaald.' if nl else 'These are the same brackets as wage tax, but per year. Employees with only a salary have usually paid their tax through the employer already.' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
-<h2>{{ 'Bedrijven en dividend' if nl else 'Companies and dividends' }}</h2>
+<p>You must also file when you have received no invitation or form from the tax office. If you do not file, you get an estimated assessment with a surcharge (see penalties).</p>
+{% endif %}
+
+<h2>{{ 'Voorlopige en definitieve aangifte: de termijnen' if nl else 'Provisional and final return: the deadlines' }}</h2>
+<table class="tbl stack tx"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Wat' if nl else 'What' }}</th><th>{{ 'Voor wie' if nl else 'Who' }}</th></tr></thead><tbody>
+{% if nl %}
+<tr><td data-l="Datum">15 februari</td><td data-l="Wat">Uiterste datum om schriftelijk en met reden te vragen om een lagere voorlopige aanslag dan vorig jaar. De Inspecteur beslist binnen twee weken; geen antwoord betekent toegewezen.</td><td data-l="Voor wie">Personen en bedrijven</td></tr>
+<tr><td data-l="Datum">15 april</td><td data-l="Wat">Voorlopige aangifte over het lopende jaar en betaling van de eerste termijn (een kwart).</td><td data-l="Voor wie">Personen en bedrijven met een kalenderjaar</td></tr>
+<tr><td data-l="Datum">30 april</td><td data-l="Wat">Definitieve aangifte over het vorige jaar; het restant betaal je bij het indienen.</td><td data-l="Voor wie">Personen</td></tr>
+<tr><td data-l="Datum">30 juni</td><td data-l="Wat">Definitieve aangifte over het vorige boekjaar, met balans en winst- en verliesrekening.</td><td data-l="Voor wie">Bedrijven met een kalenderjaar</td></tr>
+<tr><td data-l="Datum">15 juli, 15 oktober, 31 december</td><td data-l="Wat">Tweede, derde en vierde termijn van de voorlopige aanslag.</td><td data-l="Voor wie">Personen en bedrijven</td></tr>
+{% else %}
+<tr><td data-l="Date">15 February</td><td data-l="What">Last day to ask, in writing and with reasons, for a lower provisional assessment than last year. The Inspector decides within two weeks; no answer means granted.</td><td data-l="Who">Individuals and companies</td></tr>
+<tr><td data-l="Date">15 April</td><td data-l="What">Provisional return for the current year and payment of the first instalment (one quarter).</td><td data-l="Who">Individuals and companies with a calendar year</td></tr>
+<tr><td data-l="Date">30 April</td><td data-l="What">Final return for the previous year; pay any balance when you file.</td><td data-l="Who">Individuals</td></tr>
+<tr><td data-l="Date">30 June</td><td data-l="What">Final return for the previous financial year, with balance sheet and profit and loss account.</td><td data-l="Who">Companies with a calendar year</td></tr>
+<tr><td data-l="Date">15 July, 15 October, 31 December</td><td data-l="What">Second, third and fourth instalment of the provisional assessment.</td><td data-l="Who">Individuals and companies</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p><b>De voorlopige belasting</b> is minstens gelijk aan de belasting volgens je laatste definitieve aangifte. Verwacht je dit jaar minder te verdienen, dan vraag je voor 15 februari een verlaging aan. Een lagere voorlopige aangifte indienen zonder goedgekeurd verzoek kan leiden tot een aanslag met boete en rente. Op verzoek kan de Inspecteur andere termijnen toestaan, zolang alles uiterlijk 31 december betaald is. Ontstaat je aangifteplicht pas na 15 april (bijvoorbeeld omdat je later in het jaar start), dan doe je de voorlopige aangifte en betaling uiterlijk 31 december.</p>
+<p><b>Ander boekjaar?</b> Bedrijven met een boekjaar dat niet gelijk is aan het kalenderjaar doen voorlopige aangifte binnen tweeënhalve maand na het begin van het boekjaar en betalen daarna elke drie maanden een termijn. Een verlaging vragen ze binnen anderhalve maand na het begin van het boekjaar. De definitieve aangifte volgt binnen 6 maanden na het einde van het boekjaar.</p>
+<p><b>Na de definitieve aangifte.</b> Moet je bijbetalen, dan betaal je dat bij het indienen. Krijg je geld terug, dan stelt de Inspecteur een aanslag vast; gebeurt dat niet binnen twee maanden, dan moet hij je schriftelijk laten weten waarom. Is je aangifte onjuist of onvolledig, dan kan binnen twee jaar na indiening een correctie-aanslag volgen. Navordering kan tot vijf jaar na het einde van het belastingjaar.</p>
+{% else %}
+<p><b>The provisional tax</b> is at least equal to the tax according to your latest final return. If you expect to earn less this year, request a reduction before 15 February. Filing a lower provisional return without an approved request can lead to an assessment with penalty and interest. On request the Inspector can allow other instalments, as long as everything is paid by 31 December. If your filing obligation only starts after 15 April (for example because you start later in the year), file and pay the provisional return by 31 December.</p>
+<p><b>Different financial year?</b> Companies whose financial year is not the calendar year file the provisional return within two and a half months after the start of the financial year and then pay an instalment every three months. They ask for a reduction within one and a half months after the start of the year. The final return follows within 6 months after the end of the financial year.</p>
+<p><b>After the final return.</b> If you owe more, you pay it when you file. If you get money back, the Inspector issues an assessment; if that does not happen within two months, the Inspector must tell you in writing why. If your return is incorrect or incomplete, a corrected assessment can follow within two years after filing. Additional assessments (navordering) are possible up to five years after the end of the tax year.</p>
+{% endif %}
+
+<h2>{{ 'Tarieven voor personen' if nl else 'Rates for individuals' }}</h2>
+{% if nl %}
+<p>De belasting wordt berekend over je <b>zuiver inkomen</b>: al je inkomsten (loon, winst, huur, rente) min de aftrekposten. De tabel geldt sinds 1 januari 2024 (S.B. 2024 no. 3) en is voor 2025 en 2026 niet gewijzigd. Het zijn dezelfde schijven als bij de loonbelasting, maar per jaar.</p>
+{% else %}
+<p>Tax is calculated on your <b>net income</b> (zuiver inkomen): all your income (wages, profit, rent, interest) minus deductions. The table has applied since 1 January 2024 (S.B. 2024 no. 3) and was not changed for 2025 or 2026. These are the same bands as wage tax, but per year.</p>
+{% endif %}
+<table class="tbl"><thead><tr><th>{{ 'Zuiver inkomen per jaar' if nl else 'Net income per year' }}</th><th class="r">{{ 'Tarief' if nl else 'Rate' }}</th><th class="r">{{ 'Belasting over de hele schijf' if nl else 'Tax on the full band' }}</th></tr></thead><tbody>
+<tr><td>{{ 'Tot en met' if nl else 'Up to' }} {{ srd(108000) }}</td><td class="r">0%</td><td class="r">{{ srd(0) }}</td></tr>
+<tr><td>{{ srd(108000) }} {{ 'tot' if nl else 'to' }} {{ srd(150000) }}</td><td class="r">8%</td><td class="r">{{ srd(3360) }}</td></tr>
+<tr><td>{{ srd(150000) }} {{ 'tot' if nl else 'to' }} {{ srd(192000) }}</td><td class="r">18%</td><td class="r">{{ srd(7560) }}</td></tr>
+<tr><td>{{ srd(192000) }} {{ 'tot' if nl else 'to' }} {{ srd(234000) }}</td><td class="r">28%</td><td class="r">{{ srd(11760) }}</td></tr>
+<tr><td>{{ 'Boven' if nl else 'Above' }} {{ srd(234000) }}</td><td class="r">38%</td><td class="r">-</td></tr>
+</tbody></table>
+{% if nl %}
+<p>Aan het einde van de derde schijf ({{ srd(234000) }}) betaal je dus {{ srd(22680) }}. Daarnaast betaal je als inwoner jonger dan 60 jaar met winst of loon <b>AOV-premie</b> van 4% van je zuiver inkomen; het portaal rekent die in dezelfde aangifte uit. Werknemers betalen hun AOV via de werkgever.</p>
 <ul>
- <li>{{ 'NV\'s, stichtingen en coöperaties: 36% over de winst.' if nl else 'NVs, foundations and cooperatives: 36% on profit.' }}</li>
- <li>{{ 'Dividendbelasting: 25%.' if nl else 'Dividend withholding tax: 25%.' }}</li>
- <li>{{ 'Hypotheekrente is aftrekbaar tot een schuld van SRD 871.500 (sinds 2025).' if nl else 'Mortgage interest is deductible up to a debt of SRD 871,500 (since 2025).' }}</li>
+<li><b>Uitkeringen ineens</b> (een loonbetaling die niet bij een gewone loonperiode hoort) kunnen op verzoek apart worden belast tegen 5%, 15%, 25% en 35% in schijven van {{ srd(42000) }}.</li>
+<li><b>Stakingswinst</b>: winst bij het stoppen, overdragen of liquideren van je bedrijf kan op verzoek tegen 25% worden belast in plaats van tegen de tabel.</li>
+<li><b>Gehuwden</b> worden apart belast. De persoonlijke aftrekposten gaan naar de echtgenoot met het hoogste inkomen. Werkt je partner mee in je bedrijf, dan kun je een marktconforme beloning aftrekken als je die vooraf schriftelijk vastlegt en echt betaalt.</li>
 </ul>
-<h2>{{ 'Zo doe je aangifte' if nl else 'How to file' }}</h2>
-<ol>
- <li>{{ 'Zorg voor een FIN nummer en een account op het portaal van de Belastingdienst.' if nl else 'Get a FIN number and an account on the tax office portal.' }}</li>
- <li>{{ 'Vul de voorlopige aangifte in voor 15 april; de voorlopige belasting is minstens de laatste definitieve aanslag.' if nl else 'Fill in the provisional return by 15 April; the provisional tax is at least your last final assessment.' }}</li>
- <li>{{ 'Betaal in vier gelijke termijnen.' if nl else 'Pay in four equal instalments.' }}</li>
- <li>{{ 'Dien na afloop van het jaar de definitieve aangifte in.' if nl else 'File the final return after the year ends.' }}</li>
+<p>Nettoloon en loonbelasting per maand reken je uit met de <a href="{{ U('salary') }}">{{ L('salary') }}</a>; de maandtabel staat op <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</p>
+{% else %}
+<p>At the end of the third band ({{ srd(234000) }}) you therefore pay {{ srd(22680) }}. On top of that, residents under 60 with profit or wages pay an <b>AOV premium</b> (state old-age pension) of 4% of net income; the portal calculates it in the same return. Employees pay their AOV through the employer.</p>
+<ul>
+<li><b>Lump-sum payments</b> (a wage payment that does not belong to a normal pay period) can on request be taxed separately at 5%, 15%, 25% and 35% in bands of {{ srd(42000) }}.</li>
+<li><b>Business cessation profit</b>: profit when you stop, transfer or liquidate your business can on request be taxed at 25% instead of the table.</li>
+<li><b>Married couples</b> are taxed separately. Personal deductions go to the spouse with the higher income. If your spouse works in your business, you can deduct an arm's length salary if you agree it in writing in advance and actually pay it.</li>
+</ul>
+<p>Work out net pay and monthly wage tax with the <a href="{{ U('salary') }}">{{ L('salary') }}</a>; the monthly table is on <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Aftrekposten' if nl else 'Deductions' }}</h2>
+{% if nl %}
+<p>Deze posten mag je als inwoner van je inkomen aftrekken (artikel 18 Inkomstenbelasting 1922). Bewaar de bewijsstukken.</p>
+<table class="tbl"><thead><tr><th>Aftrekpost</th><th>Voorwaarde of grens</th></tr></thead><tbody>
+<tr><td>Hypotheekrente eigen woning</td><td>Rente op een hypotheekschuld tot maximaal {{ srd(871500) }} (sinds 1 januari 2025, was {{ srd(600000) }}), voor een woning waarin je zelf woont of gaat wonen.</td></tr>
+<tr><td>Buitenschilderwerk eigen woning</td><td>Eens in de drie jaar.</td></tr>
+<tr><td>Premies voor pensioen en lijfrente</td><td>Voor een redelijke voorziening bij ouderdom, overlijden of invaliditeit, tot maximaal 10% van je onzuiver inkomen. Je hebt een verklaring van de verzekeraar nodig dat de premie betaald is.</td></tr>
+<tr><td>Betaalde alimentatie, lijfrenten en pensioenen</td><td>Periodieke uitkeringen die je verplicht betaalt.</td></tr>
+<tr><td>Ziektekosten</td><td>Noodzakelijke kosten voor ziekte, bevalling, ongeval, invaliditeit of overlijden van jou, je echtgenoot en minderjarige kinderen, voor zover boven 10% van je onzuiver inkomen.</td></tr>
+<tr><td>Studiekosten kinderen</td><td>Opleiding voor een beroep, voor zover boven 10% van je onzuiver inkomen (niet kost, inwoning, kleding of zakgeld).</td></tr>
+<tr><td>Steun aan behoeftige familie</td><td>Familie in de eerste graad (ouders, kinderen, schoonouders, pleegkinderen) die niet bij je woont, voor zover boven 10% van je onzuiver inkomen.</td></tr>
+<tr><td>Kind met een handicap</td><td>{{ srd(8000) }} per inwonend kind van 18 jaar of ouder dat door een blijvende beperking niet in eigen onderhoud kan voorzien, als er geen uitkering voor is.</td></tr>
+<tr><td>Beroepskosten werknemers</td><td>Vast 4% van het loon, maximaal {{ srd(4800) }} per jaar. Dit zit al in de loonbelasting.</td></tr>
+</tbody></table>
+{% else %}
+<p>As a resident you may deduct these items from your income (article 18, Income Tax Act 1922). Keep the evidence.</p>
+<table class="tbl"><thead><tr><th>Deduction</th><th>Condition or limit</th></tr></thead><tbody>
+<tr><td>Mortgage interest on your own home</td><td>Interest on a mortgage debt of up to {{ srd(871500) }} (since 1 January 2025, previously {{ srd(600000) }}), for a home you live in or will live in.</td></tr>
+<tr><td>Exterior painting of your own home</td><td>Once every three years.</td></tr>
+<tr><td>Pension and annuity premiums</td><td>For reasonable provision for old age, death or disability, up to 10% of your gross income. You need a statement from the insurer that the premium was paid.</td></tr>
+<tr><td>Alimony, annuities and pensions you pay</td><td>Periodic payments you are obliged to make.</td></tr>
+<tr><td>Medical costs</td><td>Necessary costs for illness, childbirth, accident, disability or death of you, your spouse and minor children, to the extent above 10% of your gross income.</td></tr>
+<tr><td>Children's study costs</td><td>Training for a profession, to the extent above 10% of your gross income (not board, lodging, clothing or pocket money).</td></tr>
+<tr><td>Support for needy relatives</td><td>First-degree relatives (parents, children, parents-in-law, foster children) not living with you, to the extent above 10% of your gross income.</td></tr>
+<tr><td>Child with a disability</td><td>{{ srd(8000) }} per child aged 18 or over living with you who cannot support themselves because of a permanent disability, if no benefit is paid for it.</td></tr>
+<tr><td>Employee work expenses</td><td>A flat 4% of wages, maximum {{ srd(4800) }} a year. Already included in wage tax.</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Ondernemers: winst uit je eenmanszaak' if nl else 'Business owners: profit from a sole proprietorship' }}</h2>
+{% if nl %}
+<p>Als eenmanszaak of vennoot in een VOF betaal je geen aparte winstbelasting: je winst telt als inkomen in je eigen aangifte en valt onder de tabel hierboven, plus 4% AOV. Winst is alles wat je met je bedrijf verdient min de zakelijke kosten en afschrijvingen (bereken die met de <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a>).</p>
+<ul class="check">
+<li><b>Boekhoudplicht.</b> Is je winst {{ srd(1200) }} of meer, of zijn je bruto-inkomsten {{ srd(12000) }} of meer (bedragen uit de wet), dan moet je een administratie voeren waaruit je zuivere winst blijkt, in het Nederlands.</li>
+<li><b>Bij de voorlopige aangifte</b> lever je een gedateerd en ondertekend overzicht mee waaruit je winst over het vorige jaar ongeveer blijkt.</li>
+<li><b>Bij de definitieve aangifte</b> lever je een ondertekende balans en winst- en verliesrekening in, waarop de brutowinst en een specificatie van de kosten te zien zijn. Zonder deze stukken geldt de aangifte als niet gedaan.</li>
+<li><b>Aanloopverliezen</b> uit de eerste drie boekjaren mag je onbeperkt verrekenen met latere winst, mits je vanaf het begin een geregelde boekhouding voerde. Andere verliezen verreken je met de winst van de volgende zeven jaren.</li>
+<li><b>Ook BTW?</b> Boven {{ srd(F.VAT.threshold_srd) }} omzet per jaar moet je je ook voor de BTW registreren: zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+</ul>
+<p>Eenmanszaak of NV? Een NV betaalt 36% over de winst. Laat je de winst in het bedrijf, dan is dat minder dan het toptarief van 38% plus 4% AOV dat je als eenmanszaak over je hoogste schijf betaalt. Keer je de winst uit, dan houdt de NV 25% dividendbelasting in, en voor een aandeelhouder die in Suriname woont telt dividend als inkomen, waarop de dividendbelasting wordt verrekend. Over het geheel betaal je dan meestal meer dan als eenmanszaak. Laat een accountant het doorrekenen. Zie ook <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> en <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% else %}
+<p>As a sole trader or partner in a VOF you pay no separate profit tax: your profit counts as income in your own return, under the table above, plus 4% AOV. Profit is everything your business earns minus business costs and depreciation (work that out with the <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a>).</p>
+<ul class="check">
+<li><b>Bookkeeping duty.</b> If your profit is {{ srd(1200) }} or more, or your gross receipts are {{ srd(12000) }} or more (amounts in the law), you must keep records in Dutch that show your net profit.</li>
+<li><b>With the provisional return</b> you attach a dated and signed statement that shows your approximate profit for the previous year.</li>
+<li><b>With the final return</b> you attach a signed balance sheet and profit and loss account showing gross profit and a breakdown of costs. Without these documents the return counts as not filed.</li>
+<li><b>Start-up losses</b> from the first three financial years can be offset against later profit without time limit, provided you kept proper books from the start. Other losses are offset against the profit of the next seven years.</li>
+<li><b>VAT as well?</b> Above {{ srd(F.VAT.threshold_srd) }} turnover a year you must also register for VAT: see <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+</ul>
+<p>Sole trader or NV? An NV pays 36% on its profit. If you keep the profit in the company, that is less than the top rate of 38% plus 4% AOV you pay as a sole trader on your highest band. If you pay the profit out, the NV withholds 25% dividend tax, and for a shareholder living in Suriname the dividend counts as income, with the dividend tax credited against it. Overall you then usually pay more than as a sole trader. Have an accountant run the numbers. See also <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> and <a href="{{ U('start') }}">{{ L('start') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Zo doe je online aangifte' if nl else 'How to file online' }}</h2>
+{% if nl %}
+<p>Aangiften vanaf belastingjaar 2025 gaan via het online portaal en worden elektronisch ondertekend. Aangiften over 2024 en eerder dien je nog op papier in bij de Inspectie der Directe Belastingen. Kun je echt geen gebruik maken van het portaal, dan kan de Inspecteur toestemming geven voor een schriftelijke aangifte.</p>
+<ol class="steps">
+<li><b>Zorg voor een FIN-nummer en een portaalaccount.</b> Registreer je op het <a href="https://portaal.belastingdienst.sr/OPO/" rel="noopener">online portaal van de Belastingdienst</a>. Het FIN-nummer is je nummer voor alle belastingen.</li>
+<li><b>Open de aangifte.</b> Log in, kies <i>IB/AOV</i> en dan <i>Aangifte IB en premie AOV</i>, en klik op <i>Nieuwe aangifte IB</i>. Kies voorlopige of definitieve aangifte, het belastingjaar, en of je het hele jaar gehuwd was.</li>
+<li><b>Kies je soorten inkomen.</b> Beantwoord per soort (loon, winst uit onderneming, onroerend goed, lijfrenten, aanloopverliezen en andere) met Ja of Nee. Zonder eenmanszaak zet je de rubrieken voor ondernemingswinst op Nee. Vul elke gekozen rubriek volledig in; wat niet van toepassing is vul je in als 0.</li>
+<li><b>Controleer de berekening.</b> Het portaal rekent je inkomen, de inkomstenbelasting en de AOV-premie uit en toont de betalingstermijnen.</li>
+<li><b>Dien in en klik op Voltooien.</b> Pas dan is de aangifte echt ingediend. Je krijgt een bevestigingsmail en onder <i>Mijn documenten</i> de vaststelling.</li>
+<li><b>Betaal met de juiste betaalkenmerken.</b> Inkomstenbelasting en AOV hebben elk een eigen kenmerk. De rekeningnummers van het Ontvangkantoor der Directe Belastingen staan op de site van de Belastingdienst.</li>
+<li><b>Fout gemaakt?</b> Zolang de deadline niet voorbij is, kun je via <i>Aangifte corrigeren</i> een nieuwe versie indienen.</li>
 </ol>
-<p><a href="{{ U('tax') }}">{{ L('tax') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="/assets/feestdagen-suriname.ics">{{ 'Feestdagen in je agenda' if nl else 'Holidays in your calendar' }}</a></p>
+<p>Het portaal kan nog geen aangifte in een andere munt dan SRD verwerken. De Belastingdienst heeft stap-voor-stap handleidingen gepubliceerd (zie bronnen).</p>
+{% else %}
+<p>Returns from tax year 2025 onwards go through the online portal and are signed electronically. Returns for 2024 and earlier are still filed on paper at the Direct Taxes Inspectorate. If you really cannot use the portal, the Inspector can allow a paper return.</p>
+<ol class="steps">
+<li><b>Get a FIN number and a portal account.</b> Register on the <a href="https://portaal.belastingdienst.sr/OPO/" rel="noopener">tax office online portal</a>. The FIN number is your number for all taxes.</li>
+<li><b>Open the return.</b> Log in, choose <i>IB/AOV</i> and then <i>Aangifte IB en premie AOV</i>, and click <i>Nieuwe aangifte IB</i>. Choose provisional or final return, the tax year, and whether you were married the whole year.</li>
+<li><b>Pick your types of income.</b> Answer Yes or No per type (wages, business profit, real estate, annuities, start-up losses and others). Without a sole proprietorship, set the business profit sections to No. Complete every section you chose; enter 0 where something does not apply.</li>
+<li><b>Check the calculation.</b> The portal calculates your income, the income tax and the AOV premium and shows the instalments.</li>
+<li><b>Submit and click Voltooien (complete).</b> Only then is the return actually filed. You get a confirmation email and the assessment under <i>Mijn documenten</i>.</li>
+<li><b>Pay with the right payment references.</b> Income tax and AOV each have their own reference. The account numbers of the Direct Taxes Receiving Office are on the tax office website.</li>
+<li><b>Made a mistake?</b> As long as the deadline has not passed, you can file a new version through <i>Aangifte corrigeren</i>.</li>
+</ol>
+<p>The portal cannot yet process a return in a currency other than SRD. The tax office has published step-by-step guides (see sources).</p>
+{% endif %}
+
+<h2>{{ 'Boetes, verhogingen en rente' if nl else 'Penalties, surcharges and interest' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Geen of te late aangifte, of niet betalen bij de definitieve aangifte:</b> de Inspecteur legt een aanslag op. Na een aanmaning wordt de belasting met 100% verhoogd. Is het niet aan opzet of grove schuld te wijten, dan is de verhoging 10%.</li>
+<li><b>Te lage voorlopige aangifte</b> zonder goedgekeurd verzoek: de Inspecteur kan binnen drie maanden een hogere voorlopige aanslag opleggen.</li>
+<li><b>Te laat betalen:</b> je betaalt rente vanaf de dag na de uiterste betaaldatum tot de dag van betaling. Het percentage wordt bij staatsbesluit vastgesteld; vraag het actuele percentage na bij het Ontvangkantoor.</li>
+<li><b>Aanslag ineens invorderbaar:</b> bij een aanslag wegens niet aangeven, of als je Suriname wilt verlaten, kan de Ontvanger direct invorderen zonder aanmaning.</li>
+<li><b>Bezwaar schort de betaling niet op.</b> Ook als je bezwaar maakt, moet je op tijd betalen.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>No return, a late return, or not paying with the final return:</b> the Inspector issues an assessment. After a reminder the tax is increased by 100%. If it is not due to intent or gross negligence, the surcharge is 10%.</li>
+<li><b>Provisional return too low</b> without an approved request: the Inspector can impose a higher provisional assessment within three months.</li>
+<li><b>Late payment:</b> you pay interest from the day after the payment deadline to the day you pay. The rate is set by decree; ask the Receiving Office for the current rate.</li>
+<li><b>Immediate collection:</b> for an assessment because you did not file, or if you plan to leave Suriname, the Receiver can collect at once without a reminder.</li>
+<li><b>An objection does not suspend payment.</b> Even if you object, you must pay on time.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bezwaar en beroep' if nl else 'Objection and appeal' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Bezwaar binnen 60 dagen.</b> Ben je het niet eens met een aanslag, dien dan binnen 60 dagen na de datum op het aanslagbiljet een gemotiveerd bezwaarschrift in bij de Inspecteur der Directe Belastingen, zelf of via een schriftelijk gemachtigde. Kun je niet schrijven, dan kun je het bezwaar mondeling doen bij een aangewezen ambtenaar.</li>
+<li><b>Vraag om gehoord te worden.</b> Zet in je bezwaarschrift dat je gehoord wilt worden; dan gebeurt dat voor de beslissing. Houd je boeken en stukken klaar: de Inspecteur mag ze inzien.</li>
+<li><b>Uitspraak.</b> De Inspecteur doet een gemotiveerde uitspraak en stuurt die aangetekend of tegen ontvangstbewijs. Heb je geen aangifte gedaan of je stukken niet laten zien, dan blijft de aanslag staan tenzij jij bewijst dat hij onjuist is.</li>
+<li><b>Beroep binnen 60 dagen.</b> Tegen de uitspraak over de hoogte van de aanslag ga je binnen 60 dagen in beroep bij de Raad van Beroep met een gemotiveerd beroepschrift. De Raad bestaat uit drie leden en beslist in hoogste instantie. Je kunt je laten vertegenwoordigen.</li>
+</ol>
+{% else %}
+<ol class="steps">
+<li><b>Objection within 60 days.</b> If you disagree with an assessment, file a reasoned objection (bezwaarschrift) with the Direct Taxes Inspector within 60 days after the date on the assessment notice, yourself or through a written proxy. If you cannot write, you can object orally to a designated official.</li>
+<li><b>Ask to be heard.</b> State in your objection that you want to be heard; that then happens before the decision. Have your books and documents ready: the Inspector may inspect them.</li>
+<li><b>Decision.</b> The Inspector gives a reasoned decision, sent by registered mail or against receipt. If you did not file a return or did not show your records, the assessment stands unless you prove it is wrong.</li>
+<li><b>Appeal within 60 days.</b> Against the decision on the amount of the assessment you appeal within 60 days to the Tax Appeals Board (Raad van Beroep) with a reasoned notice of appeal. The Board has three members and decides as the final instance. You can be represented.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Rekenvoorbeelden' if nl else 'Worked examples' }}</h2>
+{% if nl %}
+<h3>1. Eenmanszaak met hypotheek en pensioen</h3>
+<p>Een loodgieter met een eenmanszaak maakt in 2026 een winst van {{ srd(300000) }}. Hij betaalt {{ srd(12000) }} premie voor een lijfrenteverzekering en {{ srd(30000) }} hypotheekrente voor zijn eigen woning (schuld onder {{ srd(871500) }}).</p>
+<table class="tbl"><tbody>
+<tr><td>Winst</td><td class="r">{{ srd(300000) }}</td></tr>
+<tr><td>Af: lijfrentepremie (onder 10% van het inkomen)</td><td class="r">- {{ srd(12000) }}</td></tr>
+<tr><td>Af: hypotheekrente</td><td class="r">- {{ srd(30000) }}</td></tr>
+<tr><td><b>Zuiver inkomen</b></td><td class="r"><b>{{ srd(258000) }}</b></td></tr>
+<tr><td>Belasting tot {{ srd(234000) }} (0 + 3.360 + 7.560 + 11.760)</td><td class="r">{{ srd(22680) }}</td></tr>
+<tr><td>38% over {{ srd(24000) }}</td><td class="r">{{ srd(9120) }}</td></tr>
+<tr><td><b>Inkomstenbelasting</b></td><td class="r"><b>{{ srd(31800) }}</b></td></tr>
+<tr><td>AOV-premie: 4% van {{ srd(258000) }}</td><td class="r">{{ srd(10320) }}</td></tr>
+</tbody></table>
+<p>De definitieve aangifte over 2026 dient hij uiterlijk 30 april 2027 in. Zijn voorlopige aangifte voor 2027 is minstens {{ srd(31800) }} inkomstenbelasting: vier termijnen van {{ srd(7950) }} op 15 april, 15 juli, 15 oktober en 31 december 2027. Verwacht hij een slechter jaar, dan vraagt hij voor 15 februari 2027 een verlaging aan.</p>
+<h3>2. Werknemer die een huis verhuurt</h3>
+<p>Een werknemer met één werkgever verhuurt daarnaast een appartement. Omdat de huurinkomsten hoger zijn dan {{ srd(7500) }} per jaar, moet hij aangifte doen. In het portaal kiest hij de rubrieken loon en onroerend goed. Het portaal telt loon en huur op, past de schijven toe en trekt de al ingehouden loonbelasting af. Omdat zijn loon al het grootste deel van de lage schijven gebruikt, valt de huur grotendeels in een hogere schijf.</p>
+{% else %}
+<h3>1. Sole trader with a mortgage and pension</h3>
+<p>A plumber with a sole proprietorship makes a profit of {{ srd(300000) }} in 2026. He pays {{ srd(12000) }} in annuity insurance premiums and {{ srd(30000) }} in mortgage interest on his own home (debt below {{ srd(871500) }}).</p>
+<table class="tbl"><tbody>
+<tr><td>Profit</td><td class="r">{{ srd(300000) }}</td></tr>
+<tr><td>Less: annuity premium (below 10% of income)</td><td class="r">- {{ srd(12000) }}</td></tr>
+<tr><td>Less: mortgage interest</td><td class="r">- {{ srd(30000) }}</td></tr>
+<tr><td><b>Net income</b></td><td class="r"><b>{{ srd(258000) }}</b></td></tr>
+<tr><td>Tax up to {{ srd(234000) }} (0 + 3,360 + 7,560 + 11,760)</td><td class="r">{{ srd(22680) }}</td></tr>
+<tr><td>38% on {{ srd(24000) }}</td><td class="r">{{ srd(9120) }}</td></tr>
+<tr><td><b>Income tax</b></td><td class="r"><b>{{ srd(31800) }}</b></td></tr>
+<tr><td>AOV premium: 4% of {{ srd(258000) }}</td><td class="r">{{ srd(10320) }}</td></tr>
+</tbody></table>
+<p>He files the final return for 2026 by 30 April 2027. His provisional return for 2027 is at least {{ srd(31800) }} of income tax: four instalments of {{ srd(7950) }} on 15 April, 15 July, 15 October and 31 December 2027. If he expects a weaker year, he asks for a reduction before 15 February 2027.</p>
+<h3>2. Employee who rents out a house</h3>
+<p>An employee with one employer also rents out an apartment. Because the rental income is more than {{ srd(7500) }} a year, he must file. In the portal he selects the wages and real estate sections. The portal adds wages and rent, applies the bands and deducts the wage tax already withheld. Because his wages already use most of the lower bands, the rent falls largely in a higher band.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Denken dat je niets hoeft te doen omdat je geen biljet kreeg.</b> De aangifteplicht geldt ook zonder uitnodiging.</li>
+<li><b>Een lagere voorlopige aangifte indienen zonder verzoek voor 15 februari.</b> Dat leidt tot een aanslag met boete en rente.</li>
+<li><b>De balans en winst- en verliesrekening vergeten</b> bij een definitieve aangifte met ondernemingswinst. Dan geldt de aangifte als niet gedaan.</li>
+<li><b>Op Voltooien vergeten te klikken</b> in het portaal. Zonder die laatste stap is er geen aangifte.</li>
+<li><b>Termijnen overslaan omdat je bezwaar hebt gemaakt.</b> Bezwaar schort de betaling niet op.</li>
+<li><b>Bewijs van aftrekposten niet bewaren</b>, zoals de verklaring van de verzekeraar voor lijfrentepremies.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Thinking you need not do anything because you received no form.</b> The duty to file applies without an invitation too.</li>
+<li><b>Filing a lower provisional return without a request before 15 February.</b> That leads to an assessment with penalty and interest.</li>
+<li><b>Forgetting the balance sheet and profit and loss account</b> with a final return that includes business profit. The return then counts as not filed.</li>
+<li><b>Forgetting to click Voltooien</b> in the portal. Without that last step there is no return.</li>
+<li><b>Skipping instalments because you objected.</b> An objection does not suspend payment.</li>
+<li><b>Not keeping proof of deductions</b>, such as the insurer's statement for annuity premiums.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Hulp en contact' if nl else 'Help and contact' }}</h2>
+{% if nl %}
+<p>Voor inkomstenbelasting en loonbelasting ga je naar de <b>Inspectie der Directe Belastingen</b>, Van Sommelsdijckstraat 27, Paramaribo, telefoon 1960 toestel 312 of 313. Betalen en vragen over betaalkenmerken: <b>Ontvangkantoor der Directe Belastingen</b>, zelfde adres, 1960 toestel 305. Kantoortijden: {{ F.TAX_OFFICE_HOURS[0] }}. Alle kantoren, ook in Commewijne en Nickerie, staan op <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Zet de vaste data in je agenda met <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</p>
+{% else %}
+<p>For income tax and wage tax go to the <b>Direct Taxes Inspectorate (Inspectie der Directe Belastingen)</b>, Van Sommelsdijckstraat 27, Paramaribo, phone 1960 extension 312 or 313. Payments and questions about payment references: <b>Direct Taxes Receiving Office (Ontvangkantoor der Directe Belastingen)</b>, same address, 1960 extension 305. Office hours: {{ F.TAX_OFFICE_HOURS[1] }}. All offices, including Commewijne and Nickerie, are on <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Put the fixed dates in your calendar with <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</p>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
- <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Inkomstenbelasting.pdf" rel="noopener">Wet Inkomstenbelasting 1922 (bijgewerkt tot S.B. 2024 no. 3)</a></li>
- <li><a href="https://belastingdienst.sr/belastingen/inkomstenbelasting/" rel="noopener">Belastingdienst: inkomstenbelasting</a></li>
- <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Dividendbelasting.pdf" rel="noopener">Wet Dividendbelasting</a></li>
- <li><a href="https://www.sris.sr/wp-content/uploads/2025/11/S.B.-2025-no.-130-STAATSBESLUIT-ter-uitvoering-van-artikel-52-h-van-de-Inkomstenbelasting-1922.pdf" rel="noopener">S.B. 2025 no. 130, hypotheekrente</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Inkomstenbelasting.pdf" rel="noopener">Inkomstenbelasting 1922 (bijgewerkt tot S.B. 2024 no. 3)</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2024/01/S.B.-2024-no.-3-STAATSBESLUIT-11-januari-2024-uitvoering-art-52-h-Inkomstenbelasting.pdf" rel="noopener">S.B. 2024 no. 3: tarieven en beroepskosten vanaf 2024</a></li>
+<li><a href="https://www.sris.sr/wp-content/uploads/2025/11/S.B.-2025-no.-130-STAATSBESLUIT-ter-uitvoering-van-artikel-52-h-van-de-Inkomstenbelasting-1922.pdf" rel="noopener">S.B. 2025 no. 130: hypotheekgrens {{ srd(871500) }}</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-AOV.pdf" rel="noopener">Wet AOV, artikel 19 en 20</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Dividendbelasting.pdf" rel="noopener">Wet Dividendbelasting 1973</a></li>
+<li><a href="https://belastingdienst.sr/belastingen/inkomstenbelasting/" rel="noopener">Belastingdienst: inkomstenbelasting en handleidingen</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/05/Handleiding_1-IB-Nat.-Pers._mei-2026_compressed.pdf" rel="noopener">Belastingdienst: handleiding definitieve aangifte natuurlijke personen (mei 2026)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/05/Handleiding-IB-Lichamen_mei-2026_compressed.pdf" rel="noopener">Belastingdienst: handleiding definitieve aangifte lichamen (mei 2026)</a></li>
+<li><a href="https://hbnlawtax.com/?p=2162" rel="noopener">HBN Law &amp; Tax: end of the year tax alerts Suriname (1 december 2025)</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
 </div>
 {% endblock %}

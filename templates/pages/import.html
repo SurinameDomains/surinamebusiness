@@ -1,38 +1,306 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% set fx = 37.85 %}
+{% set cif_usd = 5000 + 800 + 50 %}
+{% set cif = cif_usd * fx %}
+{% set duty = (cif * 0.20) | round(2) %}
+{% set stat = (cif * 0.005) | round(2) %}
+{% set cons = (cif * 0.015) | round(2) %}
+{% set vatbase = cif + duty + stat + cons %}
+{% set vat = (vatbase * F.VAT.standard) | round(2) %}
 {% block content %}
 <div class="prose">
 <h1>{{ 'Goederen importeren in Suriname' if nl else 'Importing goods into Suriname' }}</h1>
-<p class="lead">{{ 'Zakelijke import loopt via de Douane in het systeem ASYCUDA. Je hebt een FIN nummer nodig, een douane-expediteur doet de aangifte, en je betaalt invoerrechten plus 10% BTW.' if nl else 'Commercial imports go through Customs in the ASYCUDA system. You need a FIN tax number, a customs broker files the declaration, and you pay import duty plus 10% VAT.' }}</p>
-<h2>{{ 'Stap voor stap' if nl else 'Step by step' }}</h2>
-<ol>
- <li><b>{{ 'FIN nummer.' if nl else 'FIN number.' }}</b> {{ 'Sinds 1 januari 2025 verplicht voor zakelijke importeurs en exporteurs. Aanvragen via het portaal van de Belastingdienst.' if nl else 'Mandatory for commercial importers and exporters since 1 January 2025. Apply through the tax office portal.' }}</li>
- <li><b>{{ 'Registratie in ASYCUDA.' if nl else 'Register in ASYCUDA.' }}</b> {{ 'Eenmalig, bij de Douane.' if nl else 'Once, with Customs.' }}</li>
- <li><b>{{ 'Douane-expediteur.' if nl else 'Customs broker.' }}</b> {{ 'Die dient de aangifte in met HS code, oorsprong, waarde, factuur en vrachtbrief (B/L).' if nl else 'The broker files the declaration with HS code, origin, value, invoice and bill of lading.' }}</li>
- <li><b>{{ 'Betalen.' if nl else 'Pay.' }}</b> {{ 'ASYCUDA berekent de rechten; je betaalt per bank aan de Ontvanger der Invoerrechten en Accijnzen.' if nl else 'ASYCUDA calculates the duties; you pay by bank transfer to the Receiver of Import Duties and Excise.' }}</li>
- <li><b>{{ 'Controle en vrijgave.' if nl else 'Inspection and release.' }}</b> {{ 'ASYCUDA kiest een spoor: rood (fysieke controle), geel (documenten), blauw (controle achteraf) of groen (direct vrij).' if nl else 'ASYCUDA picks a lane: red (physical check), yellow (documents), blue (post-clearance audit) or green (released).' }}</li>
-</ol>
-<h2>{{ 'Wat betaal je?' if nl else 'What do you pay?' }}</h2>
-<table class="tbl"><tbody>
- <tr><td>{{ 'Invoerrechten' if nl else 'Import duty' }}</td><td>{{ 'Volgens het gemeenschappelijk CARICOM tarief, meestal 0% tot 50% afhankelijk van het product. Grondstoffen laag, eindproducten hoger; alcohol, tabak en sommige voedingsmiddelen tot 40% of 50%.' if nl else 'Based on the CARICOM common external tariff, usually 0% to 50% depending on the product. Raw materials low, finished goods higher; alcohol, tobacco and some foods up to 40% or 50%.' }}</td></tr>
- <tr><td>BTW</td><td>{{ '10% algemeen, ook bij invoer; 5% op brandstof, 25% op luxe goederen zoals grote auto\'s.' if nl else '10% standard, also on imports; 5% on fuel, 25% on luxury goods such as large cars.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></td></tr>
- <tr><td>{{ 'Overige heffingen' if nl else 'Other levies' }}</td><td>{{ 'Statistiekrecht en consentrecht over de CIF waarde, en accijns op alcohol en tabak. Vraag de actuele percentages aan je expediteur.' if nl else 'Statistical fee and consent fee on the CIF value, and excise on alcohol and tobacco. Ask your broker for the current percentages.' }}</td></tr>
+{% if nl %}
+<p class="lead">Iedereen die bij de KKF staat ingeschreven mag importeren; voor de meeste goederen heb je geen vergunning nodig. Je registreert je bij de Douane in ASYCUDA World, een douane-expediteur doet de aangifte en je betaalt invoerrecht (0% tot 50%), statistiekrecht, consentrecht, eventueel accijns en BTW over de CIF-waarde.</p>
+{% else %}
+<p class="lead">Anyone registered with the KKF (Chamber of Commerce) may import, and most goods need no licence. You register with Customs in ASYCUDA World, a customs broker files the declaration, and you pay import duty (0% to 50%), statistical fee, consent fee, excise where applicable and VAT on the CIF value.</p>
+{% endif %}
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Voorwaarden: KKF-inschrijving, een FIN-nummer (verplicht voor zakelijke importeurs sinds 1 januari 2025) en registratie in ASYCUDA.</li>
+ <li>Alleen goederen op de Negatieve Lijst hebben een H-03-vergunning nodig van de Dienst Invoer, Uitvoer en Deviezencontrole (IUD) van EZOTI.</li>
+ <li>Heffingen bij invoer: invoerrecht volgens het CARICOM-tarief, statistiekrecht 0,5% en consentrecht 1,5% van de CIF-waarde, accijns op onder meer alcohol, tabak en brandstof, en BTW (meestal 10%).</li>
+ <li>De Douane rekent vreemde valuta om met de douanekoers, die de Centrale Bank elke twee weken vaststelt.</li>
+ <li>Gebruikte personenauto's ouder dan 8 jaar en bussen ouder dan 15 jaar mogen niet worden ingevoerd.</li>
+{% else %}
+ <li>Requirements: KKF registration, a FIN tax number (mandatory for commercial importers since 1 January 2025) and registration in ASYCUDA.</li>
+ <li>Only goods on the Negative List need an H-03 licence from the Import, Export and Foreign Exchange Control Service (IUD) of the Ministry of Economic Affairs (EZOTI).</li>
+ <li>Charges at import: import duty under the CARICOM tariff, 0.5% statistical fee and 1.5% consent fee on the CIF value, excise on alcohol, tobacco and fuel among others, and VAT (usually 10%).</li>
+ <li>Customs converts foreign currency at the customs exchange rate (douanekoers), set every two weeks by the Central Bank.</li>
+ <li>Used passenger cars older than 8 years and buses older than 15 years may not be imported.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie mag importeren?' if nl else 'Who may import?' }}</h2>
+{% if nl %}
+<p>Sinds de liberalisatie van de handel in 1999 mag iedereen die bij de KKF staat ingeschreven importeren en exporteren. De basis is de Wet Goederenverkeer en het Besluit Negatieve Lijst 2003. Goederen die niet op de Negatieve Lijst staan, zijn vrij in te voeren. Je hebt dus geen aparte importvergunning nodig om importeur te worden. De KKF zegt het ook zo: een importeur of exporteur heeft geen vergunning nodig.</p>
+<p>De Negatieve Lijst kent drie soorten goederen:</p>
+<table class="tbl stack tx"><thead><tr><th>Categorie</th><th>Voorbeelden</th><th>Wat moet je doen?</th></tr></thead><tbody>
+ <tr><td data-l="Categorie"><b>Verboden</b></td><td data-l="Voorbeelden">Bepaalde pesticiden, chemisch afval, chemische en biologische wapens, gebruikte personenauto's ouder dan 8 jaar</td><td data-l="Wat moet je doen?">Niet invoeren</td></tr>
+ <tr><td data-l="Categorie"><b>Vergunningplichtig</b></td><td data-l="Voorbeelden">Onder meer vuurwerk, geneesmiddelen, gebruikte banden</td><td data-l="Wat moet je doen?">H-03-vergunning bij de IUD, in drievoud, na positief advies van het vakministerie</td></tr>
+ <tr><td data-l="Categorie"><b>Certificaatplichtig</b></td><td data-l="Voorbeelden">Vlees, dierlijke producten, planten, micro-organismen</td><td data-l="Wat moet je doen?">Certificaat of keuring van LVV, BOG of Volksgezondheid</td></tr>
 </tbody></table>
-<h2>{{ 'Vergunningen en verboden' if nl else 'Licences and bans' }}</h2>
-<ul>
- <li>{{ 'Vergunningplichtige goederen vraag je aan bij de Dienst Invoer-, Uitvoer- en Deviezencontrole van het ministerie van Economische Zaken.' if nl else 'Licensed goods are applied for at the Import, Export and Foreign Exchange Control service of the Ministry of Economic Affairs.' }}</li>
- <li>{{ 'Medicijnen, dierenartsmiddelen en planten of dierlijke producten hebben een certificaat nodig van Volksgezondheid of LVV.' if nl else 'Medicines, veterinary drugs and plant or animal products need a certificate from Health or Agriculture.' }}</li>
- <li>{{ 'Gebruikte auto\'s ouder dan 8 jaar en bussen ouder dan 15 jaar mogen niet worden ingevoerd. Uitzondering: een auto van een remigrant die minstens 2 jaar tot de verhuisboedel hoort, en klassiekers ouder dan 25 jaar.' if nl else 'Used cars older than 8 years and buses older than 15 years may not be imported. Exception: a returning migrant\'s car that has been part of the household goods for at least 2 years, and classics over 25 years.' }}</li>
- <li>{{ 'Verhuisboedel van remigranten kan vrijgesteld zijn van invoerrechten. Vraag de voorwaarden vooraf bij de Douane.' if nl else 'Household goods of returning migrants can be exempt from import duty. Check the conditions with Customs in advance.' }}</li>
+<p>Twijfel je of je product op de lijst staat? Vraag het bij de IUD van EZOTI (telefoon 402957 volgens de Amerikaanse handelsgids) voordat je bestelt. Een vergunning achteraf regelen lukt vaak niet, en dan blijft je zending staan.</p>
+{% else %}
+<p>Since trade was liberalised in 1999, anyone registered with the KKF may import and export. The legal basis is the Goods Traffic Act (Wet Goederenverkeer) and the Negative List Decree 2003. Goods that are not on the Negative List can be imported freely. So you do not need a separate import licence to become an importer. The KKF puts it the same way: an importer or exporter needs no licence.</p>
+<p>The Negative List has three types of goods:</p>
+<table class="tbl stack tx"><thead><tr><th>Category</th><th>Examples</th><th>What to do</th></tr></thead><tbody>
+ <tr><td data-l="Category"><b>Prohibited</b></td><td data-l="Examples">Certain pesticides, chemical waste, chemical and biological weapons, used passenger cars older than 8 years</td><td data-l="What to do">Do not import</td></tr>
+ <tr><td data-l="Category"><b>Licence required</b></td><td data-l="Examples">Among others fireworks, medicines, used tyres</td><td data-l="What to do">H-03 licence from the IUD, in triplicate, after a positive opinion from the relevant ministry</td></tr>
+ <tr><td data-l="Category"><b>Certificate required</b></td><td data-l="Examples">Meat, animal products, plants, micro-organisms</td><td data-l="What to do">Certificate or inspection by Agriculture (LVV), the Public Health Bureau (BOG) or Health</td></tr>
+</tbody></table>
+<p>Not sure whether your product is on the list? Ask the IUD at EZOTI (phone 402957 according to the US trade guide) before you order. Arranging a licence after the goods have shipped often fails, and your shipment then sits in the port.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap: een zakelijke zending inklaren' if nl else 'Step by step: clearing a commercial shipment' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zet je bedrijf op orde.</b> Inschrijving bij de KKF, een FIN-nummer via het portaal van de Belastingdienst en, als je boven SRD 1.000.000 omzet zit, een BTW-registratie. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Registreer je in ASYCUDA World.</b> Dit is eenmalig. Het kan via je douane-expediteur of via het Belastingportaal, met je ID of paspoort, een KKF-uittreksel en de statuten.</li>
+ <li><b>Regel vergunningen en certificaten vóór je bestelt.</b> Staat het product op de Negatieve Lijst, vraag dan eerst de H-03-vergunning aan. Voor planten vraag je bij LVV een fytosanitaire invoertoestemming aan, met een kopie van de (pro forma) factuur. Voor dieren en dierlijke producten heb je een veterinaire invoervergunning van het Directoraat Veeteelt nodig.</li>
+ <li><b>Kies en machtig een douane-expediteur.</b> Bij elke import is een expediteur (inklaarder) nodig. Jij machtigt hem in ASYCUDA om namens jou aangifte te doen.</li>
+ <li><b>Lever de documenten aan.</b> De expediteur uploadt ze digitaal (PDF of JPEG). Zie de checklist hieronder.</li>
+ <li><b>Aangifte en berekening.</b> De aangifte bevat de omschrijving, HS-code (tariefcode), oorsprong en waarde. ASYCUDA berekent zelf de rechten en belastingen.</li>
+ <li><b>Betalen.</b> Je maakt het bedrag giraal over; de Ontvanger der Invoerrechten en Accijnzen verwerkt de betaling in het systeem.</li>
+ <li><b>Selectie en controle.</b> ASYCUDA geeft de aangifte een kleur: rood (fysieke controle en documenten), geel (documentcontrole), blauw (controle achteraf) of groen (direct vrij). De Douane kan extra stukken opvragen.</li>
+ <li><b>Keuringen.</b> Voor planten meld je de aankomst minstens een week van tevoren bij LVV, voor dieren en dierlijke producten minstens 72 uur van tevoren bij de veterinaire dienst.</li>
+ <li><b>Vrijgave en ophalen.</b> Na goedkeuring wordt de zending vrijgegeven. Je betaalt de terminalkosten en laat de goederen vervoeren.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Get your company in order.</b> KKF registration, a FIN number through the tax office portal and, if your turnover is above SRD 1,000,000, VAT registration. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Register in ASYCUDA World.</b> This is done once. It can go through your customs broker or the tax portal, with your ID or passport, a KKF extract (uittreksel) and the articles of association.</li>
+ <li><b>Check licences and certificates before you order.</b> If the product is on the Negative List, apply for the H-03 licence first. For plants, request a phytosanitary import permit from Agriculture (LVV), with a copy of the (pro forma) invoice. For animals and animal products you need a veterinary import permit from the Directorate of Livestock.</li>
+ <li><b>Choose and authorise a customs broker.</b> Every import needs a broker (douane-expediteur or inklaarder). You authorise the broker in ASYCUDA to file on your behalf.</li>
+ <li><b>Supply the documents.</b> The broker uploads them digitally (PDF or JPEG). See the checklist below.</li>
+ <li><b>Declaration and calculation.</b> The declaration contains the description, HS code (tariff code), origin and value. ASYCUDA calculates the duties and taxes itself.</li>
+ <li><b>Pay.</b> You pay by bank transfer; the Receiver of Import Duties and Excise processes the payment in the system.</li>
+ <li><b>Selection and inspection.</b> ASYCUDA gives the declaration a colour: red (physical and document check), yellow (document check), blue (post-clearance audit) or green (released straight away). Customs may ask for more documents.</li>
+ <li><b>Inspections.</b> For plants, notify LVV at least one week before arrival; for animals and animal products, notify the veterinary service at least 72 hours before arrival.</li>
+ <li><b>Release and collection.</b> Once approved, the shipment is released. You pay the terminal its charges and arrange transport.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Documenten die je nodig hebt' if nl else 'Documents you need' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Handelsfactuur (origineel) van de leverancier, met omschrijving, aantallen, prijzen en leveringsconditie (Incoterm)</li>
+ <li>Paklijst met gewichten en colli</li>
+ <li>Vrachtdocument: Bill of Lading (zeevracht) of Airway Bill (luchtvracht)</li>
+ <li>Het Enig Document (ED, de douaneaangifte) en het IT-formulier (registratie van de handelstransactie), meestal ingevuld door je expediteur</li>
+ <li>Certificaat van oorsprong en CARICOM-factuur, als je CARICOM-tarief wilt voor goederen uit de regio</li>
+ <li>H-03-vergunning, alleen voor goederen op de Negatieve Lijst</li>
+ <li>Fytosanitair certificaat van het land van herkomst (planten en plantaardige producten; diepvriesgroenten en fruit zijn uitgezonderd)</li>
+ <li>Veterinair of gezondheidscertificaat (dieren, vlees, vis, voedingsmiddelen op de Negatieve Lijst)</li>
+ <li>Verzekeringspolis of -certificaat, als de verzekering niet op de factuur staat</li>
 </ul>
-<p>{{ 'Douane informatie: telefoon 402626.' if nl else 'Customs information: phone 402626.' }} {{ 'Leveren aan de overheid of olie en gas?' if nl else 'Supplying the government or oil and gas?' }} <a href="{{ U('tenders') }}">{{ L('tenders') }}</a></p>
+{% else %}
+<ul class="check">
+ <li>Original commercial invoice from the supplier, with description, quantities, prices and delivery term (Incoterm)</li>
+ <li>Packing list with weights and number of packages</li>
+ <li>Transport document: Bill of Lading (sea) or Air Waybill (air)</li>
+ <li>The Single Document (Enig Document, ED, the customs declaration) and the IT form (registration of the trade transaction), usually completed by your broker</li>
+ <li>Certificate of origin and CARICOM invoice, if you want the CARICOM rate for goods from the region</li>
+ <li>H-03 licence, only for goods on the Negative List</li>
+ <li>Phytosanitary certificate from the country of origin (plants and plant products; frozen vegetables and fruit are exempt)</li>
+ <li>Veterinary or health certificate (animals, meat, fish, foods on the Negative List)</li>
+ <li>Insurance policy or certificate, if insurance is not on the invoice</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Douanewaarde en douanekoers' if nl else 'Customs value and customs exchange rate' }}</h2>
+{% if nl %}
+<p>Rechten worden berekend over de <b>douanewaarde</b>: de waarde van de goederen plus vracht en verzekering tot Suriname. Dat heet de CIF-waarde (Cost, Insurance, Freight). Koop je FOB of EXW, dan telt de Douane de vracht en verzekering er dus bij op.</p>
+<p>Staat je factuur in dollars, euro's of een andere valuta, dan rekent de Douane om met de <b>douanekoers</b>. Volgens artikel 17 van de Wet Tarief van Invoerrechten 1996 is dat de verkoopkoers van de Centrale Bank op de tweede werkdag van de periode van twee weken waarin je aangifte doet. Het is dus niet de koers waartegen je bij de bank of cambio wisselt. De actuele lijst staat op <a href="{{ U('douane') }}">{{ L('douane') }}</a>.</p>
+{% else %}
+<p>Duties are calculated on the <b>customs value</b>: the value of the goods plus freight and insurance to Suriname. This is the CIF value (Cost, Insurance, Freight). If you buy FOB or EXW, Customs adds the freight and insurance.</p>
+<p>If your invoice is in dollars, euros or another currency, Customs converts it at the <b>customs exchange rate</b> (douanekoers). Under article 17 of the Import Duties Tariff Act 1996, this is the Central Bank selling rate on the second working day of the two-week period in which you file. It is not the rate at which you exchange money at a bank or cambio (exchange office). The current list is on <a href="{{ U('douane') }}">{{ L('douane') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Welke rechten en belastingen betaal je?' if nl else 'Which duties and taxes do you pay?' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Heffing</th><th>Tarief</th><th>Waarover</th></tr></thead><tbody>
+ <tr><td data-l="Heffing"><b>Invoerrecht</b></td><td data-l="Tarief">0% tot 50%, in negen schijven volgens het gemeenschappelijk buitentarief (CET) van CARICOM</td><td data-l="Waarover">CIF-waarde</td></tr>
+ <tr><td data-l="Heffing"><b>Statistiekrecht</b></td><td data-l="Tarief">0,5%</td><td data-l="Waarover">CIF-waarde</td></tr>
+ <tr><td data-l="Heffing"><b>Consentrecht</b></td><td data-l="Tarief">1,5%</td><td data-l="Waarover">CIF-waarde</td></tr>
+ <tr><td data-l="Heffing"><b>Accijns</b></td><td data-l="Tarief">Vast bedrag per eenheid, verschilt per product</td><td data-l="Waarover">Onder meer sterke drank, bier, tabak en sigaretten, frisdranken en motorbrandstof</td></tr>
+ <tr><td data-l="Heffing"><b>BTW bij invoer</b></td><td data-l="Tarief">{{ (F.VAT.standard*100)|int }}% algemeen, {{ (F.VAT.low*100)|int }}% water, stroom en kookgas, {{ (F.VAT.luxury*100)|int }}% luxe goederen, 0% voor goederen in bijlage 1</td><td data-l="Waarover">Douanewaarde plus invoerrecht, accijns en andere heffingen bij invoer</td></tr>
+</tbody></table>
+<h3>Invoerrecht: de schijven</h3>
+<p>Suriname past het gemeenschappelijk buitentarief van CARICOM toe. Grofweg: grondstoffen en kapitaalgoederen laag (0% of 5% tot 10%), halffabricaten 10%, eindproducten 15% tot 20%. De hoge schijven van 40% en 50% gelden onder meer voor alcoholische dranken, bier, tabak en sigaretten, levende dieren, vis, eieren, honing, groente, fruit, koffie, granen, (half)edelstenen en sommige motorvoertuigen. Pluimvee ging in 2017 van 20% naar 40%. Het exacte tarief hangt af van de HS-code: laat je expediteur die vooraf opzoeken.</p>
+<h3>Accijns</h3>
+<p>Accijns is een extra heffing per eenheid (liter, stuk, kilo) op sterke drank, bier, tabak, frisdranken en brandstof. De bedragen worden per beschikking aangepast. Vraag je expediteur of de Douane naar het actuele bedrag voor jouw product voordat je je verkoopprijs vaststelt.</p>
+<h3>BTW bij invoer</h3>
+<p>Volgens de Wet BTW 2022 (artikel 19) is de grondslag de douanewaarde, vermeerderd met invoerrecht, accijns en andere heffingen bij invoer. Het tarief van 25% geldt onder meer voor personenauto's met een cilinderinhoud boven 2.500 cc of een CIF-waarde van USD 40.000 of meer, motoren boven 125 cc, plezierboten, kleine vliegtuigen, wapens en vuurwerk. Ben je BTW-ondernemer, dan trek je de BTW bij invoer af als voorbelasting, mits je het invoerdocument bewaart (artikel 14). <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Charge</th><th>Rate</th><th>Charged on</th></tr></thead><tbody>
+ <tr><td data-l="Charge"><b>Import duty</b></td><td data-l="Rate">0% to 50%, in nine bands under the CARICOM Common External Tariff (CET)</td><td data-l="Charged on">CIF value</td></tr>
+ <tr><td data-l="Charge"><b>Statistical fee</b> (statistiekrecht)</td><td data-l="Rate">0.5%</td><td data-l="Charged on">CIF value</td></tr>
+ <tr><td data-l="Charge"><b>Consent fee</b> (consentrecht)</td><td data-l="Rate">1.5%</td><td data-l="Charged on">CIF value</td></tr>
+ <tr><td data-l="Charge"><b>Excise</b> (accijns)</td><td data-l="Rate">Fixed amount per unit, differs per product</td><td data-l="Charged on">Among others spirits, beer, tobacco and cigarettes, soft drinks and motor fuel</td></tr>
+ <tr><td data-l="Charge"><b>Import VAT</b></td><td data-l="Rate">{{ (F.VAT.standard*100)|int }}% standard, {{ (F.VAT.low*100)|int }}% water, electricity and cooking gas, {{ (F.VAT.luxury*100)|int }}% luxury goods, 0% for goods in annex 1</td><td data-l="Charged on">Customs value plus import duty, excise and other import charges</td></tr>
+</tbody></table>
+<h3>Import duty: the bands</h3>
+<p>Suriname applies the CARICOM Common External Tariff. Roughly: raw materials and capital goods low (0%, or 5% to 10%), semi-finished goods 10%, finished goods 15% to 20%. The high bands of 40% and 50% apply among others to alcoholic drinks, beer, tobacco and cigarettes, live animals, fish, eggs, honey, vegetables, fruit, coffee, cereals, precious and semi-precious stones and some motor vehicles. Poultry went from 20% to 40% in 2017. The exact rate depends on the HS code: ask your broker to look it up before you order.</p>
+<h3>Excise</h3>
+<p>Excise (accijns) is an extra charge per unit (litre, piece, kilo) on spirits, beer, tobacco, soft drinks and fuel. The amounts are adjusted by ministerial decree. Ask your broker or Customs for the current amount for your product before you set your selling price.</p>
+<h3>Import VAT</h3>
+<p>Under the VAT Act 2022 (article 19), the base is the customs value plus import duty, excise and other import charges. The 25% rate applies among others to passenger cars with an engine above 2,500 cc or a CIF value of USD 40,000 or more, motorcycles above 125 cc, pleasure boats, small aircraft, weapons and fireworks. If you are VAT registered, you deduct import VAT as input tax, provided you keep the import document (article 14). <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Rekenvoorbeeld: wat kost een zending?' if nl else 'Worked example: what does a shipment cost?' }}</h2>
+{% if nl %}
+<p>Je importeert 200 stuks gereedschap uit de Verenigde Staten. Factuurwaarde USD 5.000, zeevracht USD 800, verzekering USD 50. Stel dat het invoerrecht voor deze HS-code 20% is (eindproduct) en er geen accijns geldt. We rekenen met de douanekoers van 20 oktober 2026: SRD {{ num(fx) }} per USD.</p>
+<table class="tbl"><tbody>
+ <tr><td>CIF-waarde: USD {{ num(cif_usd, 0) }} x {{ num(fx) }}</td><td class="r"><b>{{ srd(cif, 2) }}</b></td></tr>
+ <tr><td>Invoerrecht 20%</td><td class="r">{{ srd(duty, 2) }}</td></tr>
+ <tr><td>Statistiekrecht 0,5%</td><td class="r">{{ srd(stat, 2) }}</td></tr>
+ <tr><td>Consentrecht 1,5%</td><td class="r">{{ srd(cons, 2) }}</td></tr>
+ <tr><td>Grondslag BTW (CIF plus heffingen)</td><td class="r">{{ srd(vatbase, 2) }}</td></tr>
+ <tr><td>BTW 10%</td><td class="r">{{ srd(vat, 2) }}</td></tr>
+ <tr><td><b>Te betalen aan de Douane</b></td><td class="r"><b>{{ srd(duty + stat + cons + vat, 2) }}</b></td></tr>
+</tbody></table>
+<p>Ben je BTW-ondernemer, dan krijg je de {{ srd(vat, 2) }} BTW terug via je aangifte. Je kostprijs is dan {{ srd(vatbase, 2) }}, ofwel {{ srd(vatbase / 200, 2) }} per stuk. Daar komen nog bij: het honorarium van de expediteur, terminal- en havenkosten, eventuele opslag en transport naar je magazijn. Vraag daar vooraf offertes voor. Met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> reken je je eigen zending door, inclusief lokale kosten en kostprijs per stuk.</p>
+{% else %}
+<p>You import 200 tools from the United States. Invoice value USD 5,000, sea freight USD 800, insurance USD 50. Assume the import duty for this HS code is 20% (finished good) and no excise applies. We use the customs rate of 20 October 2026: SRD {{ num(fx) }} per USD.</p>
+<table class="tbl"><tbody>
+ <tr><td>CIF value: USD {{ num(cif_usd, 0) }} x {{ num(fx) }}</td><td class="r"><b>{{ srd(cif, 2) }}</b></td></tr>
+ <tr><td>Import duty 20%</td><td class="r">{{ srd(duty, 2) }}</td></tr>
+ <tr><td>Statistical fee 0.5%</td><td class="r">{{ srd(stat, 2) }}</td></tr>
+ <tr><td>Consent fee 1.5%</td><td class="r">{{ srd(cons, 2) }}</td></tr>
+ <tr><td>VAT base (CIF plus charges)</td><td class="r">{{ srd(vatbase, 2) }}</td></tr>
+ <tr><td>VAT 10%</td><td class="r">{{ srd(vat, 2) }}</td></tr>
+ <tr><td><b>Payable to Customs</b></td><td class="r"><b>{{ srd(duty + stat + cons + vat, 2) }}</b></td></tr>
+</tbody></table>
+<p>If you are VAT registered, you get the {{ srd(vat, 2) }} VAT back through your return. Your cost is then {{ srd(vatbase, 2) }}, or {{ srd(vatbase / 200, 2) }} per item. On top of that come the broker's fee, terminal and port charges, any storage and transport to your warehouse. Get quotes for these in advance. With the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> you can work out your own shipment, including local costs and cost per item.</p>
+{% endif %}
+
+<h2>{{ 'Goederen uit CARICOM en andere voorkeuren' if nl else 'Goods from CARICOM and other preferences' }}</h2>
+{% if nl %}
+<p>Suriname is lid van CARICOM en de CARICOM Single Market and Economy (CSME). Goederen van CARICOM-oorsprong vallen onder het vrijhandelsregime en betalen veel minder of geen invoerrecht, vergeleken met dezelfde goederen van buiten de regio. Voorbeelden uit de Amerikaanse handelsgids: sappen en niet-alcoholische dranken uit CARICOM zijn vrij van invoerrecht, grondstoffen uit CARICOM betalen 5% tegen 10% voor dezelfde goederen van elders. Op grond van het Grondstoffenbesluit 1997 kunnen producenten bovendien vrijstelling krijgen voor grondstoffen.</p>
+<p>Belangrijk: het voordeel krijg je alleen met een <b>certificaat van oorsprong en een CARICOM-factuur</b>. Komt een product alleen via Trinidad of Barbados maar is het elders gemaakt, dan is het geen CARICOM-goed. Vraag je leverancier vooraf of hij het certificaat kan leveren.</p>
+{% else %}
+<p>Suriname is a member of CARICOM and the CARICOM Single Market and Economy (CSME). Goods of CARICOM origin fall under the free trade regime and pay much lower or no import duty compared with the same goods from outside the region. Examples from the US trade guide: juices and non-alcoholic drinks from CARICOM are duty free, and CARICOM raw materials pay 5% against 10% for the same goods from elsewhere. Under the Raw Materials Decree 1997, manufacturers can also get an exemption for raw materials.</p>
+<p>Important: you only get the preference with a <b>certificate of origin and a CARICOM invoice</b>. A product that is merely shipped via Trinidad or Barbados but made elsewhere is not a CARICOM good. Ask your supplier in advance whether they can provide the certificate.</p>
+{% endif %}
+
+<h2>{{ 'Auto\'s en andere voertuigen invoeren' if nl else 'Importing cars and other vehicles' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Leeftijdsgrens.</b> Op grond van het Besluit Negatieve Lijst, laatst gewijzigd bij S.B. 2026 no. 39 (in werking sinds 21 mei 2026), mogen personenauto's ouder dan 8 jaar en bussen voor tien of meer personen ouder dan 15 jaar niet worden ingevoerd.</li>
+ <li><b>Uitzonderingen.</b> Een auto die al meer dan twee jaar deel uitmaakt van de inboedel van een remigrant die toelating tot Suriname heeft aangevraagd of gekregen, en klassiekers ouder dan 35 jaar (collector's items, sinds 21 mei 2026).</li>
+ <li><b>Eenmalige regeling verlopen.</b> EZOTI gaf in november 2025 een eenmalige uitzondering voor personenauto's van bouwjaar 2017 en bussen van bouwjaar 2010 die vertraagd waren. Die moesten uiterlijk 31 december 2025 verscheept zijn en uiterlijk 30 april 2026 in Suriname aankomen. Die termijn is voorbij.</li>
+ <li><b>Rechten.</b> Sommige motorvoertuigen vallen in de hoge schijven van het invoerrecht. Daarnaast betaal je statistiek- en consentrecht en BTW: 25% voor personenauto's boven 2.500 cc of met een CIF-waarde vanaf USD 40.000, anders 10%.</li>
+ <li><b>Elektrisch en hybride.</b> Het invoerrecht op hybride en elektrische voertuigen was geschorst van 30 juni 2025 tot 28 februari 2026 (S.B. 2025 no. 126). Een verlenging hebben we niet kunnen vinden; vraag de Douane wat nu geldt.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Age limit.</b> Under the Negative List Decree, last amended by S.B. 2026 no. 39 (in force since 21 May 2026), passenger cars older than 8 years and buses for ten or more people older than 15 years may not be imported.</li>
+ <li><b>Exceptions.</b> A car that has been part of the household goods of a returning migrant (remigrant) for more than two years, where the migrant has applied for or obtained admission to Suriname, and classics older than 35 years (collector's items, since 21 May 2026).</li>
+ <li><b>One-off scheme expired.</b> In November 2025 EZOTI gave a one-off exception for delayed passenger cars of model year 2017 and buses of model year 2010. They had to be shipped by 31 December 2025 and arrive in Suriname by 30 April 2026. That window has closed.</li>
+ <li><b>Duties.</b> Some motor vehicles fall in the high import duty bands. You also pay statistical and consent fees and VAT: 25% for passenger cars above 2,500 cc or with a CIF value of USD 40,000 or more, otherwise 10%.</li>
+ <li><b>Electric and hybrid.</b> Import duty on hybrid and electric vehicles was suspended from 30 June 2025 to 28 February 2026 (S.B. 2025 no. 126). We could not find an extension; ask Customs what applies now.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Pakketjes, online bestellingen en persoonlijke invoer' if nl else 'Parcels, online orders and personal imports' }}</h2>
+{% if nl %}
+<p>Ook een pakket van een webwinkel of via een koeriersdienst is invoer. De koerier of zijn expediteur klaart het in en berekent je de rechten, BTW en een afhandelingsvergoeding. We hebben geen officieel gepubliceerde vrijstellingsgrens (de minimis) voor kleine zendingen kunnen vinden. Reken er dus op dat ook kleine pakketten belast kunnen zijn, en vraag de Douane (402626) of je koerier vooraf wat je gaat betalen.</p>
+<p>Verhuisboedel van remigranten kan vrijgesteld zijn van invoerrecht (artikel 29 Wet Tarief van Invoerrechten). Vraag de voorwaarden vóór het verschepen bij de Douane: een fout in de paklijst of de volgorde van documenten kan de vrijstelling kosten.</p>
+<p>Tijdelijke invoer: Suriname doet niet mee aan het ATA-carnet. Voor beurzen, demonstraties of werk kun je goederen tijdelijk invoeren tegen een borg ter hoogte van de normale rechten (contant, bankcheque of bankgarantie). Bij wederuitvoer krijg je die terug.</p>
+{% else %}
+<p>A parcel from a web shop or via a courier is also an import. The courier or its broker clears it and charges you duty, VAT and a handling fee. We could not find an officially published duty-free threshold (de minimis) for small shipments. So expect small parcels to be taxed too, and ask Customs (402626) or your courier in advance what you will pay.</p>
+<p>Household goods of returning migrants can be exempt from import duty (article 29 Import Duties Tariff Act). Check the conditions with Customs before shipping: a mistake in the packing list or the order of documents can cost you the exemption.</p>
+<p>Temporary imports: Suriname is not part of the ATA carnet system. For trade fairs, demonstrations or work, you can import goods temporarily against a deposit equal to the normal duties (cash, bank cheque or bank guarantee). You get it back when the goods are re-exported.</p>
+{% endif %}
+
+<h2>{{ 'Haven, opslag en doorlooptijd' if nl else 'Port, storage and lead times' }}</h2>
+{% if nl %}
+<p>De meeste zeecontainers komen binnen via de Dr. Jules Sedney Haven in Paramaribo, tot 2016 de Nieuwe Haven, beheerd door Havenbeheer Suriname. DP World exploiteert er een containerterminal met koelcontaineraansluitingen en een container freight station voor het laden en lossen van containers, en daarnaast de terminal La Vigilantia voor projectlading en stukgoed. Visitatieposten van de Douane zijn er ook in Albina en Nieuw-Nickerie.</p>
+<ul>
+ <li><b>Terminalkosten en opslag.</b> De terminal rekent handlingkosten en, na een aantal vrije dagen, opslaghuur per dag. Vraag de actuele tarieven en vrije dagen bij de terminal of je expediteur. Elke dag vertraging in je documenten kost geld.</li>
+ <li><b>Doorlooptijd.</b> Een groene aangifte met complete documenten kan snel gaan. Rood (fysieke controle) of ontbrekende certificaten kosten dagen. Een veterinaire invoervergunning duurt 3 tot 15 werkdagen: vraag die dus aan vóór het verschepen.</li>
+ <li><b>Betalen voor import.</b> Importeurs betalen hun leveranciers sinds de deviezenmaatregelen van 2021 via een Surinaamse bank. Bespreek met je bank hoe je aan deviezen komt; zie ook <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+</ul>
+{% else %}
+<p>Most sea containers arrive through the Dr. Jules Sedney Harbour in Paramaribo, called Nieuwe Haven until 2016 and managed by Havenbeheer Suriname (the port authority). DP World runs a container terminal there with reefer plugs and a container freight station for stuffing and stripping, plus the La Vigilantia terminal for project and general cargo. Customs also has posts in Albina and Nieuw-Nickerie.</p>
+<ul>
+ <li><b>Terminal charges and storage.</b> The terminal charges handling fees and, after a number of free days, storage per day. Ask the terminal or your broker for current rates and free days. Every day of delay in your documents costs money.</li>
+ <li><b>Lead time.</b> A green-lane declaration with complete documents can be quick. Red (physical inspection) or missing certificates cost days. A veterinary import permit takes 3 to 15 working days, so apply before shipping.</li>
+ <li><b>Paying for imports.</b> Since the foreign exchange measures of 2021, importers pay their suppliers through a Surinamese bank. Discuss with your bank how to obtain foreign currency; see also <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Vrijstellingen voor bedrijven' if nl else 'Exemptions for businesses' }}</h2>
+{% if nl %}
+<p>Er bestaan gedeeltelijke vrijstellingen, bijvoorbeeld voor bedrijfsmiddelen (in 2022 een vrijstelling van 75% van het invoerrecht, vanaf een drempel van USD 7.500), voor grondstoffen van producenten (Grondstoffenbesluit 1997) en tijdelijke schorsingen per beschikking voor specifieke goederen. De overheid heeft sinds 2022 een deel van deze vrijstellingen verlaagd of opgeschort. Een vrijstelling vraag je altijd vooraf aan; achteraf terugvragen gaat meestal niet. Vraag bij de Douane of het ministerie van Financiën en Planning wat nu geldt. <a href="{{ U('invest') }}">{{ L('invest') }}</a></p>
+{% else %}
+<p>Partial exemptions exist, for example for business assets (in 2022 a 75% exemption from import duty, above a threshold of USD 7,500), for manufacturers' raw materials (Raw Materials Decree 1997) and temporary suspensions by decree for specific goods. Since 2022 the government has reduced or suspended some of these exemptions. You always apply for an exemption in advance; claiming it back afterwards usually does not work. Ask Customs or the Ministry of Finance and Planning what applies now. <a href="{{ U('invest') }}">{{ L('invest') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Bestellen zonder de HS-code te controleren.</b> Het verschil tussen 10% en 40% invoerrecht bepaalt of je nog marge overhoudt.</li>
+ <li><b>Te lage waarde op de factuur.</b> De Douane kan de waarde corrigeren en je laten bijbetalen, en een onjuiste aangifte kan strafbaar zijn. Je krijgt bovendien vaker controle bij volgende zendingen.</li>
+ <li><b>Geen certificaat van oorsprong.</b> Zonder certificaat betaal je voor CARICOM-goederen het volle tarief.</li>
+ <li><b>Vergunning of fytosanitaire toestemming vergeten.</b> Dan blijft de zending staan, en bij planten of vlees kan ze worden vernietigd.</li>
+ <li><b>Rekenen met de bankkoers.</b> De Douane rekent met de douanekoers van de aangifteperiode, niet met de koers van de dag dat je betaalde.</li>
+ <li><b>Lokale kosten vergeten.</b> Expediteur, terminal, opslag en transport kunnen op een kleine zending zwaar wegen. Neem ze mee in je prijs: <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</li>
+ <li><b>Een auto kopen zonder het bouwjaar te controleren.</b> Een auto die net te oud is, mag niet in. Je zit dan met een auto die je terug moet sturen.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Ordering without checking the HS code.</b> The difference between 10% and 40% import duty makes or breaks your margin.</li>
+ <li><b>Under-declaring the value.</b> Customs can correct the value and make you pay the difference, and a false declaration can be an offence. You can also expect more inspections on later shipments.</li>
+ <li><b>No certificate of origin.</b> Without it you pay the full rate on CARICOM goods.</li>
+ <li><b>Forgetting the licence or phytosanitary permit.</b> The shipment then sits in the port, and plants or meat may be destroyed.</li>
+ <li><b>Using the bank rate.</b> Customs uses the customs rate of the filing period, not the rate on the day you paid.</li>
+ <li><b>Forgetting local costs.</b> Broker, terminal, storage and transport can weigh heavily on a small shipment. Include them in your price: <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</li>
+ <li><b>Buying a car without checking the model year.</b> A car that is just too old cannot come in, and you are left with a car you must ship back.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn aangifte wordt afgewezen?</b> Dan bevat ze een fout of ontbreken stukken. De expediteur corrigeert de aangifte onder toezicht van de Douane.</li>
+ <li><b>...ik het niet eens ben met de waarde of het tarief?</b> Vraag de Douane schriftelijk om uitleg en laat je expediteur bezwaar maken. Leg je onderbouwing vast: factuur, betaalbewijs, productspecificaties.</li>
+ <li><b>...ik voor de overheid of de olie- en gassector importeer?</b> Dan kan er een vrijstelling in je contract of de wet staan. Zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> en <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>...ik ook wil exporteren?</b> Zie <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+</ul>
+<p>Contactgegevens van de Douane, het Ontvangkantoor en de visitatieposten staan op <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Algemene vragen: Douane telefoon 402626.</p>
+{% else %}
+<ul>
+ <li><b>...my declaration is rejected?</b> It contains an error or documents are missing. The broker corrects the declaration under Customs supervision.</li>
+ <li><b>...I disagree with the value or the rate?</b> Ask Customs for an explanation in writing and have your broker file an objection. Keep your evidence: invoice, proof of payment, product specifications.</li>
+ <li><b>...I import for the government or the oil and gas sector?</b> An exemption may be in your contract or the law. See <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> and <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>...I also want to export?</b> See <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+</ul>
+<p>Contact details of Customs, the receiving office and the customs posts are on <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. General questions: Customs phone 402626.</p>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
- <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Algemene-Procedure-in-en-uitvoer.pdf" rel="noopener">Belastingdienst: algemene procedure in- en uitvoer (2026)</a></li>
- <li><a href="https://belastingdienst.sr/douane-suriname/" rel="noopener">Douane Suriname</a></li>
- <li><a href="https://trade.gov/country-commercial-guides/suriname-trade-barriers" rel="noopener">trade.gov: Suriname trade barriers</a></li>
- <li><a href="https://gov.sr/wp-content/uploads/2025/11/Import-van-voertuigen.pdf" rel="noopener">EZOTI: import van voertuigen (2025)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2026/06/Wijziging-besluit-negatieve-lijst-1.pdf" rel="noopener">EZOTI: wijziging Besluit Negatieve Lijst (S.B. 2026 no. 39)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/Algemene-Procedure-in-en-uitvoer.pdf" rel="noopener">Belastingdienst: algemene procedure in-, uit- en doorvoer (2026)</a></li>
+ <li><a href="https://belastingdienst.sr/douane-suriname/" rel="noopener">Belastingdienst: Douane Suriname (FIN, ASYCUDA)</a></li>
+ <li><a href="https://ssb.sr/media/1455/suriname-import-export-gids-final-nl.pdf" rel="noopener">EZOTI: Suriname Import-Export Gids (2024)</a></li>
+ <li><a href="https://www.dna.sr/media/fsakplg4/besluit_negatieve_lijst_2003.pdf" rel="noopener">Besluit Negatieve Lijst 2003</a></li>
+ <li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/exportregels-en-producteisen" rel="noopener">RVO: exportregels en producteisen Suriname (gecontroleerd 30 september 2026)</a></li>
+ <li><a href="https://trade.gov/country-commercial-guides/suriname-trade-barriers" rel="noopener">trade.gov: Suriname trade barriers (tarieven, statistiek- en consentrecht)</a></li>
+ <li><a href="https://www.trade.gov/country-commercial-guides/suriname-import-requirements-and-documentation" rel="noopener">trade.gov: Suriname import requirements and documentation</a></li>
+ <li><a href="https://eitisuriname.gov.sr/?p=642" rel="noopener">EITI Suriname: statistiekrecht 0,5% en consentrecht 1,5% van de CIF-waarde</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf" rel="noopener">Wet BTW 2022, S.B. 2022 no. 121</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2023/01/Wet-BTW-Bijlage-3-Tarief-25-na-wijziging.pdf" rel="noopener">Wet BTW bijlage 3: tarief 25%</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/11/Import-van-voertuigen.pdf" rel="noopener">EZOTI: import van voertuigen (17 november 2025)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/01/S.B.-2025-no.-126-Beschikking-electrisch-en-hybride-voertuigen.pdf" rel="noopener">S.B. 2025 no. 126: schorsing invoerrecht elektrische en hybride voertuigen</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/03/importvoorwen-planten-procedures-en-keuringen.pdf" rel="noopener">LVV: importvoorwaarden planten, procedures en keuringen</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2023/12/beleidsdocument-reductie-vrijstellingen.pdf" rel="noopener">Financiën en Planning: beleidsnota reductie vrijstellingen bij invoer (2022)</a></li>
+ <li><a href="https://www.dpworld.com/nl-sr/ports-terminals/suriname/paramaribo" rel="noopener">DP World Paramaribo</a></li>
+ <li><a href="https://www.state.gov/reports/2024-investment-climate-statements/suriname" rel="noopener">US State Department: 2024 Investment Climate Statement Suriname</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

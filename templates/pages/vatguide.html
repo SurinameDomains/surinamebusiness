@@ -1,25 +1,357 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% set std = (F.VAT.standard * 100)|round|int %}
+{% set lux = (F.VAT.luxury * 100)|round|int %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'BTW in Suriname' if nl else 'VAT in Suriname' }}</h1>
-<p class="lead">{{ 'Suriname heeft sinds 1 januari 2023 BTW. Het algemene tarief is 10%. Registratie is verplicht boven SRD 1 miljoen omzet per jaar en je doet maandelijks aangifte.' if nl else 'Suriname has had VAT since 1 January 2023. The standard rate is 10%. Registration is mandatory above SRD 1 million turnover a year and you file monthly.' }}</p>
-<h2>{{ 'Tarieven' if nl else 'Rates' }}</h2>
-<table class="tbl"><thead><tr><th>{{ 'Tarief' if nl else 'Rate' }}</th><th>{{ 'Geldt voor' if nl else 'Applies to' }}</th></tr></thead><tbody>
-<tr><td><b>10%</b></td><td>{{ 'Algemeen tarief: goederen, invoer en diensten' if nl else 'Standard rate: goods, imports and services' }}</td></tr>
-<tr><td><b>5%</b></td><td>{{ 'Motorbrandstof (benzine, diesel) en internationale ziektekostenverzekering' if nl else 'Motor fuel (gasoline, diesel) and international health insurance' }}</td></tr>
-<tr><td><b>25%</b></td><td>{{ 'Auto\'s boven 2.500 cc of met een CIF waarde vanaf USD 40.000, motoren boven 125 cc, plezierboten, jetski\'s, kleine vliegtuigen, wapens en vuurwerk' if nl else 'Cars over 2,500 cc or with a CIF value from USD 40,000, motorcycles over 125 cc, pleasure boats, jet skis, small aircraft, weapons and fireworks' }}</td></tr>
-<tr><td><b>0%</b></td><td>{{ 'Onder meer water, elektriciteit en kookgas voor huishoudens, huur van een hoofdwoning, binnenlands vervoer, medische zorg en medicijnen, onderwijs, kinderopvang, financiële diensten, een basispakket voedsel en hygiëne, en export' if nl else 'Among others household water, electricity and cooking gas, rent of a main residence, domestic transport, medical care and medicines, education, childcare, financial services, a basic food and hygiene basket, and exports' }}</td></tr>
+<h1>{{ 'BTW in Suriname: registratie, tarieven, aangifte en aftrek' if nl else 'VAT in Suriname: registration, rates, returns and input VAT' }}</h1>
+{% if nl %}
+<p class="lead">Suriname heft sinds 1 januari 2023 BTW (belasting over de toegevoegde waarde). Het algemene tarief is {{ std }}%. Boven {{ srd(F.VAT.threshold_srd) }} belaste omzet per kalenderjaar moet je je registreren, maandelijks aangifte doen en betalen voor de 16e van de volgende maand. Daar staat tegenover dat je de BTW op je inkopen en invoer mag aftrekken.</p>
+{% else %}
+<p class="lead">Suriname has levied VAT (BTW, belasting over de toegevoegde waarde) since 1 January 2023. The standard rate is {{ std }}%. Above {{ srd(F.VAT.threshold_srd) }} of taxable turnover in a calendar year you must register, file a monthly return and pay before the 16th of the following month. In return you can deduct the VAT on your purchases and imports.</p>
+{% endif %}
+<div class="grid g3"><div class="card"><div class="eyebrow">{{ 'Algemeen tarief' if nl else 'Standard rate' }}</div><div class="big">{{ std }}%</div><div class="sub">{{ 'Ook bij invoer' if nl else 'Also on imports' }}</div></div><div class="card"><div class="eyebrow">{{ 'Registratiedrempel' if nl else 'Registration threshold' }}</div><div class="big">{{ srd(F.VAT.threshold_srd) }}</div><div class="sub">{{ 'Belaste omzet per jaar, exclusief BTW' if nl else 'Taxable turnover a year, excluding VAT' }}</div></div><div class="card"><div class="eyebrow">{{ 'Aangifte en betaling' if nl else 'Return and payment' }}</div><div class="big">{{ '1e tot 15e' if nl else '1st to 15th' }}</div><div class="sub">{{ 'Van de maand na het tijdvak' if nl else 'Of the month after the period' }}</div></div></div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Tarieven: {{ std }}% algemeen, 5% op water, elektriciteit, kookgas en binnenlands goederenvervoer, {{ lux }}% op onder meer grote auto's, en 0% op export en leveringen aan de olie- en goudsector en de overheid.</li>
+<li>Sinds oktober 2023 zijn de meeste basisgoederen en sociale diensten <b>vrijgesteld</b> in plaats van 0%. Op motorbrandstof geldt nu {{ std }}%.</li>
+<li>Registreren is verplicht zodra je belaste omzet boven {{ srd(F.VAT.threshold_srd) }} per kalenderjaar komt. Daaronder mag je je vrijwillig laten registreren.</li>
+<li>Aangifte en betaling per maand via het online portaal van de Belastingdienst, uiterlijk de 15e van de volgende maand.</li>
+<li>Te laat? Sinds 2026 een verzuimboete van SRD 2.500 per maand vertraging (maximaal SRD 10.000), plus 50% van het openstaande bedrag (maximaal SRD 10.000) en 6% rente per jaar.</li>
+<li>Bewaar je administratie 10 jaar. Een factuur aan een ondernemer moet onder meer beide FIN-nummers, het tarief en het BTW-bedrag vermelden.</li>
+{% else %}
+<li>Rates: {{ std }}% standard, 5% on water, electricity, cooking gas and domestic freight transport, {{ lux }}% on large cars and some other goods, and 0% on exports and on supplies to the oil and gold sector and to government.</li>
+<li>Since October 2023 most basic foods and social services are <b>exempt</b> instead of zero-rated. Motor fuel now carries {{ std }}%.</li>
+<li>Registration is mandatory as soon as your taxable turnover goes above {{ srd(F.VAT.threshold_srd) }} in a calendar year. Below that you can register voluntarily.</li>
+<li>Return and payment every month through the Belastingdienst (tax office) online portal, by the 15th of the following month.</li>
+<li>Late? Since 2026 a penalty of SRD 2,500 per month of delay (maximum SRD 10,000), plus 50% of the unpaid amount (maximum SRD 10,000) and 6% interest a year.</li>
+<li>Keep your records for 10 years. An invoice to a business must show both FIN tax numbers, the rate and the VAT amount, among other things.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie moet zich registreren?' if nl else 'Who must register?' }}</h2>
+{% if nl %}
+<p>Je bent ondernemer voor de BTW als je in Suriname zelfstandig een bedrijf of beroep uitoefent. De rechtsvorm maakt niet uit: eenmanszaak, VOF, NV of stichting met een bedrijf. Of je moet registreren hangt af van je <b>belaste omzet</b>: het bedrag dat je van klanten ontvangt, exclusief BTW. Vrijgestelde omzet telt niet mee.</p>
+<table class="tbl"><thead><tr><th>Situatie</th><th>Wat geldt</th></tr></thead><tbody>
+<tr><td>Belaste omzet {{ srd(F.VAT.threshold_srd) }} of minder per kalenderjaar</td><td>Kleine ondernemer: geen aangifte, geen BTW rekenen, maar ook geen aftrek van BTW op je inkopen.</td></tr>
+<tr><td>Je komt in de loop van het jaar boven de drempel</td><td>Direct registreren. Over het deel boven de drempel betaal je BTW, en de twee volgende kalenderjaren blijf je BTW-plichtig, ook als je omzet weer daalt.</td></tr>
+<tr><td>Je wilt onder de drempel toch meedoen</td><td>Vrijwillige registratie met toestemming van de Inspecteur. Hij beslist binnen 30 dagen. Je zit dan de twee volgende kalenderjaren vast aan de BTW.</td></tr>
+<tr><td>Je omzet zakt een jaar onder de drempel</td><td>Op verzoek en met toestemming kun je het jaar daarna weer als kleine ondernemer werken.</td></tr>
 </tbody></table>
-<h2>{{ 'Registratie en aangifte' if nl else 'Registration and filing' }}</h2>
-<ul>
- <li>{{ 'Verplicht registreren bij een belastbare omzet boven SRD 1.000.000 per kalenderjaar, exclusief BTW.' if nl else 'Registration is mandatory above SRD 1,000,000 taxable turnover per calendar year, excluding VAT.' }}</li>
- <li>{{ 'Aangifte en betaling per maand, tussen de 1e en de 15e van de volgende maand.' if nl else 'File and pay monthly, between the 1st and the 15th of the following month.' }}</li>
- <li>{{ 'Registreren gaat via de E-Services van de Belastingdienst.' if nl else 'Register through the tax office E-Services.' }} <a href="{{ F.PORTALS.belastingdienst }}" rel="noopener">belastingdienst.sr</a></li>
+<p>Heb je meerdere bedrijven of activiteiten, dan tel je alle omzet bij elkaar op. Bedrijven die financieel, organisatorisch en economisch met elkaar verweven zijn, kunnen de Inspecteur vragen om als één ondernemer te worden behandeld (fiscale eenheid). De drempel geldt alleen voor ondernemers die in Suriname wonen of gevestigd zijn.</p>
+<p>Vrijwillig registreren kan slim zijn als je vooral aan andere BTW-ondernemers levert, of als je veel investeert: je krijgt dan de BTW op je inkopen en invoer terug. Verkoop je vooral aan consumenten, dan maakt registratie je prijzen meestal duurder.</p>
+{% else %}
+<p>You are a business for VAT purposes if you independently carry on a trade or profession in Suriname. The legal form does not matter: sole trader (eenmanszaak), partnership (VOF), limited company (NV) or a foundation that runs a business. Whether you must register depends on your <b>taxable turnover</b>: what customers pay you, excluding VAT. Exempt turnover does not count.</p>
+<table class="tbl"><thead><tr><th>Situation</th><th>What applies</th></tr></thead><tbody>
+<tr><td>Taxable turnover of {{ srd(F.VAT.threshold_srd) }} or less in a calendar year</td><td>Small business: no returns, no VAT on your sales, but also no deduction of VAT on your purchases.</td></tr>
+<tr><td>You pass the threshold during the year</td><td>Register immediately. You pay VAT on the part above the threshold, and you stay VAT registered for the next two calendar years, even if turnover drops again.</td></tr>
+<tr><td>You want to join below the threshold</td><td>Voluntary registration with the Inspector's consent. The Inspector decides within 30 days. You are then bound for the next two calendar years.</td></tr>
+<tr><td>Your turnover drops below the threshold for a year</td><td>On request and with consent you can go back to the small business status the following year.</td></tr>
+</tbody></table>
+<p>If you run several businesses or activities, add up all turnover. Companies that are financially, organisationally and economically linked can ask the Inspector to be treated as one business (fiscal unity). The threshold only applies to businesses resident or established in Suriname.</p>
+<p>Voluntary registration can pay off if you mostly sell to other VAT registered businesses or invest heavily: you get back the VAT on your purchases and imports. If you sell mainly to consumers, registration usually makes your prices higher.</p>
+{% endif %}
+
+<h2>{{ 'Tarieven, nultarief en vrijstellingen' if nl else 'Rates, zero rate and exemptions' }}</h2>
+{% if nl %}
+<p>De bijlagen bij de Wet BTW bepalen welk tarief geldt. Ze zijn op 5 september 2023 flink veranderd (S.B. 2023 no. 126). Veel lijstjes die nog rondgaan, ook op oude websites, gaan uit van de versie van januari 2023 en zijn achterhaald.</p>
+<table class="tbl"><thead><tr><th>Tarief</th><th>Geldt voor (samengevat)</th></tr></thead><tbody>
+<tr><td><b>{{ std }}%</b></td><td>Alles wat niet in een bijlage staat: de meeste goederen, invoer en diensten, ook motorbrandstof (benzine en diesel), internationale ziektekostenverzekering, binnenlands personenvervoer door de lucht, en elektrische auto's.</td></tr>
+<tr><td><b>5%</b> (bijlage 4)</td><td>Water van de waterleiding voor huishoudelijk gebruik en water in verpakking van minstens 5 gallon; elektriciteit en kookgas; binnenlands goederenvervoer over de weg, het water en door de lucht.</td></tr>
+<tr><td><b>{{ lux }}%</b> (bijlage 3)</td><td>Personenauto's boven 2.500 cc of met een CIF-waarde vanaf USD 40.000 (niet elektrisch); motoren boven 125 cc; speedboten, waterscooters en jachten; helikopters en vliegtuigen voor minder dan 10 personen; wapens en munitie; vuurwerk.</td></tr>
+<tr><td><b>0%</b> (art. 4 en bijlage 1)</td><td>Export van goederen; internationaal goederenvervoer per vliegtuig of schip; diensten voor uitgaande goederen; outsourcing voor een buitenlandse afnemer; invoer door en leveringen aan contractors onder de Petroleumwet en staatsoliebedrijven, goudwinningsbedrijven met een overeenkomst met kracht van wet, en publiekrechtelijke lichamen (ministeries, districtscommissariaten).</td></tr>
+<tr><td><b>Vrijgesteld</b> (bijlage 2)</td><td>Zie hieronder.</td></tr>
+</tbody></table>
+<h3>Wat is vrijgesteld?</h3>
+<ul class="check">
+<li>Zorg: artsen, tandartsen, fysiotherapeuten, psychologen en andere (para)medici; ziekenhuizen en laboratoria; geneesmiddelen en medische hulpmiddelen; zieken- en gewondenvervoer; ouderenzorg.</li>
+<li>Onderwijs door erkende instellingen onder toezicht van het ministerie van Onderwijs, plus leermiddelen, schoolspullen en schooluniformen; kinderopvang.</li>
+<li>Lokale ziektekostenverzekering en levensverzekering.</li>
+<li>Binnenlands personenvervoer over de weg en over het water.</li>
+<li>Financiële diensten: geldwisselen, betalingen en cheques, krediet, aandelen, obligaties en derivaten.</li>
+<li>Basisgoederen: verse groenten, verse kip, verse en onbewerkte vis, eieren, meel, brood en cassavebrood, rijst, padie, melk, sojaolie, lucifers, voorbehoedsmiddelen, wegwerpluiers, badzeep en toiletpapier.</li>
+<li>Binnenlandse levering van goud aan vergunninghoudende goudopkopers, van verse vis aan vergunninghoudende visverwerkers en visexporteurs, en van kunstwerken.</li>
+<li>Veevoer en grondstoffen daarvoor, insecticiden, kunstmest, bestrijdingsmiddelen en zaden.</li>
+<li>Casinospelen, en goederen en diensten van non-profitorganisaties met een sociaal, cultureel, charitatief, sportief of godsdienstig doel.</li>
 </ul>
-<p><a href="{{ U('vatcalc') }}"><b>{{ L('vatcalc') }} &rarr;</b></a></p>
+<div class="note"><b>Nultarief of vrijstelling: het verschil telt.</b> Bij 0% reken je geen BTW en mag je de BTW op je inkopen wel aftrekken. Bij een vrijstelling reken je ook geen BTW, maar mag je de BTW op je inkopen voor die omzet <b>niet</b> aftrekken. Die BTW wordt dan een kostenpost. Huur van een woning valt sinds 1 november 2023 niet meer onder het nultarief. Twijfel je over één product, vraag het dan schriftelijk na bij de Inspectie Omzetbelasting.</div>
+<p>De ministeriële specificatielijsten bij bijlage 2 en 3 (onder meer S.B. 2024 no. 7, S.B. 2024 no. 12 en S.B. 2025 no. 128) geven per goederencode aan wat eronder valt. Je vindt ze op de wetgevingspagina van de Belastingdienst.</p>
+{% else %}
+<p>The annexes (bijlagen) to the VAT Act decide which rate applies. They changed substantially on 5 September 2023 (S.B. 2023 no. 126). Many lists still in circulation, including on older websites, are based on the January 2023 version and are out of date.</p>
+<table class="tbl"><thead><tr><th>Rate</th><th>Applies to (summary)</th></tr></thead><tbody>
+<tr><td><b>{{ std }}%</b></td><td>Everything not listed in an annex: most goods, imports and services, including motor fuel (gasoline and diesel), international health insurance, domestic passenger air transport and electric cars.</td></tr>
+<tr><td><b>5%</b> (annex 4)</td><td>Piped water for household use and water in containers of at least 5 gallons; electricity and cooking gas; domestic freight transport by road, water and air.</td></tr>
+<tr><td><b>{{ lux }}%</b> (annex 3)</td><td>Passenger cars over 2,500 cc or with a CIF value from USD 40,000 (not electric); motorcycles over 125 cc; speedboats, jet skis and yachts; helicopters and aircraft for fewer than 10 people; weapons and ammunition; fireworks.</td></tr>
+<tr><td><b>0%</b> (art. 4 and annex 1)</td><td>Exports of goods; international freight by air or sea; services for outgoing goods; outsourcing for a foreign customer; imports by and supplies to contractors under the Petroleum Act and state oil companies, gold mining companies with an agreement that has the force of law, and public bodies (ministries, district commissioner offices).</td></tr>
+<tr><td><b>Exempt</b> (annex 2)</td><td>See below.</td></tr>
+</tbody></table>
+<h3>What is exempt?</h3>
+<ul class="check">
+<li>Health: doctors, dentists, physiotherapists, psychologists and other (para)medical professionals; hospitals and laboratories; medicines and medical aids; ambulance transport; care for the elderly.</li>
+<li>Education by recognised institutions supervised by the Ministry of Education, plus learning materials, school supplies and school uniforms; childcare.</li>
+<li>Local health insurance and life insurance.</li>
+<li>Domestic passenger transport by road and water.</li>
+<li>Financial services: currency exchange, payments and cheques, credit, shares, bonds and derivatives.</li>
+<li>Basic goods: fresh vegetables, fresh chicken, fresh unprocessed fish, eggs, flour, bread and cassava bread, rice, paddy, milk, soy oil, matches, contraceptives, disposable nappies, bath soap and toilet paper.</li>
+<li>Domestic supplies of gold to licensed gold buyers, of fresh fish to licensed fish processors and exporters, and of works of art.</li>
+<li>Animal feed and its raw materials, insecticides, fertiliser, pesticides and seeds.</li>
+<li>Casino gaming, and goods and services of non-profit organisations with a social, cultural, charitable, sports or religious purpose.</li>
+</ul>
+<div class="note"><b>Zero rate or exemption: the difference matters.</b> At 0% you charge no VAT and you can still deduct the VAT on your purchases. With an exemption you also charge no VAT, but you can <b>not</b> deduct the VAT on purchases for that turnover. That VAT becomes a cost. Rent of a home has not been zero-rated since 1 November 2023. If you are unsure about a product, ask the VAT Inspectorate (Inspectie Omzetbelasting) in writing.</div>
+<p>The ministerial specification lists for annexes 2 and 3 (among others S.B. 2024 no. 7, S.B. 2024 no. 12 and S.B. 2025 no. 128) show what falls under them per goods code. They are on the tax office legislation page.</p>
+{% endif %}
+
+<h2>{{ 'BTW bij invoer' if nl else 'VAT on imports' }}</h2>
+{% if nl %}
+<p>Bij invoer betaal je BTW aan de Douane, samen met de invoerrechten. Dat geldt voor iedereen, ook voor kleine ondernemers en particulieren. De BTW wordt berekend over de douanewaarde (CIF) <b>plus</b> het invoerrecht, de accijns en de andere invoerheffingen, zoals statistiekrecht en consentrecht. Je betaalt dus BTW over de rechten heen.</p>
+<p>Ben je BTW-geregistreerd, dan trek je de betaalde invoer-BTW af in de aangifte over de maand waarin je hebt betaald. Je hebt daarvoor het invoerdocument nodig waaruit blijkt dat de goederen voor jouw bedrijf zijn. Je douane-expediteur moet je binnen 15 dagen na de invoer een afrekening geven waarop de betaalde BTW apart staat, plus een kopie van het invoerdocument. Vraag daar actief naar.</p>
+<p>De Minister kan BTW-vrijstelling bij invoer geven voor grondstoffen onder het Grondstoffenbesluit 1997 en voor andere goederen die vrijgesteld zijn van invoerrechten (niet voor goederen met CARICOM-oorsprong). Reken de totale invoerkosten door met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> en de actuele <a href="{{ U('douane') }}">{{ L('douane') }}</a>. Meer over de procedure staat in <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<p>On imports you pay VAT to Customs together with the import duties. This applies to everyone, including small businesses and private persons. VAT is calculated on the customs value (CIF) <b>plus</b> the import duty, excise and other import levies such as the statistical fee (statistiekrecht) and consent fee (consentrecht). So you pay VAT on top of the duties.</p>
+<p>If you are VAT registered, you deduct the import VAT you paid in the return for the month you paid it. You need the import document showing that the goods are for your business. Your customs broker must give you, within 15 days after import, a statement showing the VAT paid separately, plus a copy of the import document. Ask for it.</p>
+<p>The Minister can grant a VAT exemption on import for raw materials under the Raw Materials Decree 1997 and for other goods that are exempt from import duty (not for goods of CARICOM origin). Work out the full landed cost with the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> and the current <a href="{{ U('douane') }}">{{ L('douane') }}</a>. The procedure is explained in <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Voorbelasting: welke BTW mag je aftrekken?' if nl else 'Input VAT: what can you deduct?' }}</h2>
+{% if nl %}
+<p>In je aangifte trek je de BTW af die andere ondernemers je in rekening brachten op een correcte factuur, de BTW die je bij invoer betaalde, en de BTW die je zelf verlegd moest aangeven. Voorwaarde: je gebruikt de inkopen voor omzet die met BTW belast is (ook tegen 0% of 5%). Voor vrijgestelde omzet is er geen aftrek.</p>
+<p><b>Niet aftrekbaar</b> is de BTW op:</p>
+<ul>
+<li>eten, drinken en tabak die je verstrekt (zakenlunches, kantinemaaltijden);</li>
+<li>relatiegeschenken en andere giften;</li>
+<li>loon in natura en ontspanning voor personeel;</li>
+<li>personenauto's en alles wat daarmee samenhangt (brandstof, onderhoud, onderdelen). Uitzondering: autodealers, autoleasebedrijven en voertuigen met een toegelaten massa boven 3.500 kg.</li>
+</ul>
+<p><b>Gemengd gebruik.</b> Gebruik je een inkoop voor zowel belaste als vrijgestelde omzet, dan mag je een deel aftrekken naar verhouding van je omzet. Je werkt met een voorlopig verhoudingsgetal en herziet dat in de aangifte over december. Voor gebouwen wordt de aftrek nog 9 jaar herzien, voor andere bedrijfsmiddelen waarop je afschrijft nog 4 jaar, als het gebruik meer dan 10% verandert.</p>
+<p><b>Klant betaalt niet?</b> Je kunt de BTW over een factuur die niet betaald wordt terugvragen in de aangifte over de maand waarin dat vaststaat. Omgekeerd: betaal je zelf een factuur niet binnen een jaar nadat die opeisbaar werd, dan moet je de afgetrokken BTW terugbetalen.</p>
+{% else %}
+<p>In your return you deduct the VAT other businesses charged you on a correct invoice, the VAT you paid on imports, and the VAT you had to declare yourself under the reverse charge. The condition is that you use the purchases for turnover that is subject to VAT (also at 0% or 5%). There is no deduction for exempt turnover.</p>
+<p><b>Not deductible</b> is the VAT on:</p>
+<ul>
+<li>food, drink and tobacco you provide (business lunches, canteen meals);</li>
+<li>business gifts and other gifts;</li>
+<li>wages in kind and recreation for staff;</li>
+<li>passenger cars and everything related to them (fuel, maintenance, parts). Exception: car dealers, car leasing companies and vehicles with a permitted mass above 3,500 kg.</li>
+</ul>
+<p><b>Mixed use.</b> If you use a purchase for both taxable and exempt turnover, you deduct a share based on your turnover ratio. You use a provisional ratio and correct it in the December return. For buildings the deduction is reviewed for another 9 years, for other assets you depreciate for another 4 years, if the use changes by more than 10%.</p>
+<p><b>Customer does not pay?</b> You can reclaim the VAT on an unpaid invoice in the return for the month in which that becomes clear. The other way round: if you do not pay a supplier's invoice within a year after it became due, you must repay the VAT you deducted.</p>
+{% endif %}
+
+<h2>{{ 'Wat moet er op een BTW-factuur?' if nl else 'What must be on a VAT invoice?' }}</h2>
+{% if nl %}
+<p>Lever je aan een andere ondernemer, dan ben je verplicht een gedateerde en doorlopend genummerde factuur uit te reiken, ook bij een vooruitbetaling. Dat moet binnen 15 dagen na het einde van de maand waarin je leverde. Je bewaart een kopie (dubbel) van elke factuur.</p>
+<ul class="check">
+<li>Factuurdatum en een uniek, opeenvolgend factuurnummer</li>
+<li>Jouw FIN-nummer (fiscaal identificatienummer) en dat van je klant</li>
+<li>Naam en adres van jou en van je klant</li>
+<li>Hoeveelheid en soort goederen, of omvang en soort dienst</li>
+<li>Datum van levering of datum waarop de dienst klaar was</li>
+<li>Bedrag exclusief BTW per tarief of vrijstelling, en de eenheidsprijs exclusief BTW</li>
+<li>Het toegepaste tarief en het BTW-bedrag</li>
+<li>Bij een vrijstelling: dat de levering vrijgesteld is</li>
+<li>Bij motorvoertuigen: merk, model, cilinderinhoud en chassisnummer; bij werk aan een voertuig de nummerplaat</li>
+<li>Bij verlegging: de tekst "BTW verlegd"</li>
+</ul>
+<p>Aan consumenten mag je een doorlopend genummerde kassabon geven, waarop ook het tarief staat. Heb je geen kassasysteem, dan geef je ook een consument een factuur. Elektronische facturen zijn toegestaan als je klant ze accepteert en echtheid en leesbaarheid gewaarborgd zijn. Je prijzen voor consumenten moeten inclusief BTW zijn; prijzen exclusief BTW aanbieden aan particulieren is strafbaar (boete tot SRD 10.000).</p>
+<p>Maak je factuur met de <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>, een correctie met de <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a>, en controleer het FIN-nummer van een leverancier in het openbare <a href="https://register.belastingdienst.sr/REG/btw-register/btw" rel="noopener">BTW-register van de Belastingdienst</a>.</p>
+{% else %}
+<p>When you supply another business, you must issue a dated invoice with a sequential number, also for an advance payment. You must do so within 15 days after the end of the month in which you delivered. Keep a copy of every invoice.</p>
+<ul class="check">
+<li>Invoice date and a unique, sequential invoice number</li>
+<li>Your FIN number (tax identification number) and your customer's</li>
+<li>Your name and address and your customer's</li>
+<li>Quantity and type of goods, or scope and type of service</li>
+<li>Date of delivery or date the service was completed</li>
+<li>Amount excluding VAT per rate or exemption, and the unit price excluding VAT</li>
+<li>The rate applied and the VAT amount</li>
+<li>For an exemption: a statement that the supply is exempt</li>
+<li>For motor vehicles: make, model, engine capacity and chassis number; for work on a vehicle the licence plate</li>
+<li>For a reverse charge: the words "BTW verlegd" (VAT reverse charged)</li>
+</ul>
+<p>For consumers you may issue a sequentially numbered till receipt that also shows the rate. Without a cash register you give consumers an invoice too. Electronic invoices are allowed if your customer accepts them and authenticity and legibility are guaranteed. Prices for consumers must include VAT; quoting prices excluding VAT to private customers is an offence (fine up to SRD 10,000).</p>
+<p>Make your invoice with the <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>, a correction with the <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a>, and check a supplier's FIN number in the public <a href="https://register.belastingdienst.sr/REG/btw-register/btw" rel="noopener">tax office VAT register</a>.</p>
+{% endif %}
+
+<h2>{{ 'Registreren en aangifte doen via het online portaal' if nl else 'Registering and filing through the online portal' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Verzamel je stukken.</b> Een e-mailadres waarop nog geen andere registratie staat, een scan of foto van je KKF-uittreksel (of contract of vergunning), bij een eenmanszaak een scan van je ID-kaart, paspoort of rijbewijs, en gegevens over je jaaromzet. Een SRD-bankrekening is nodig voor teruggaven.</li>
+<li><b>Vraag een account aan.</b> Via de E-registratie op belastingdienst.sr kom je in het <a href="https://portaal.belastingdienst.sr/OPO/Gebruikersregistratie/account-aanvragen" rel="noopener">online portaal</a>. Je FIN-nummer is je nummer voor alle belastingen; er is geen apart BTW-nummer.</li>
+<li><b>Doe elke maand aangifte.</b> Tussen de 1e en de 15e van de maand doe je aangifte over de vorige maand: omzet per tarief, vrijgestelde omzet, verschuldigde BTW, en je aftrek. Ook als er niets te betalen is (nihilaangifte) of als je geld terugkrijgt. De aangifte wordt elektronisch ondertekend.</li>
+<li><b>Betaal binnen dezelfde termijn.</b> Betaal naar de rekening van de Ontvanger (zie de pagina rekeningnummers van de Belastingdienst) met het juiste betaalkenmerk: FIN-nummer, middelcode 11 voor BTW, soort aangifte, jaar (drie cijfers, bijvoorbeeld 026) en tijdvak (01 tot 12).</li>
+<li><b>Corrigeer fouten.</b> Ben je het niet eens met wat je zelf hebt aangegeven en betaald, dan dien je binnen 60 dagen na de uiterste betaaldatum een gemotiveerd bezwaarschrift in bij de Inspecteur, met het bedrag, het tijdvak en de reden. De Belastingdienst neemt BTW-bezwaren per e-mail aan; zet "bezwaarschrift", je handelsnaam en FIN in het onderwerp.</li>
+</ol>
+<p>Zet de vaste data in je agenda met <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a> en houd je in- en verkoopfacturen per maand bij in het <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</p>
+{% else %}
+<ol class="steps">
+<li><b>Gather your documents.</b> An email address not used for another registration, a scan or photo of your KKF (Chamber of Commerce) extract (or contract or licence), for a sole trader a scan of your ID card, passport or driving licence, and details of your annual turnover. An SRD bank account is needed for refunds.</li>
+<li><b>Request an account.</b> The E-registration on belastingdienst.sr takes you to the <a href="https://portaal.belastingdienst.sr/OPO/Gebruikersregistratie/account-aanvragen" rel="noopener">online portal</a>. Your FIN number is your number for all taxes; there is no separate VAT number.</li>
+<li><b>File every month.</b> Between the 1st and the 15th of the month you file for the previous month: turnover per rate, exempt turnover, VAT due and your deduction. Also when nothing is due (nil return) or when you get money back. The return is signed electronically.</li>
+<li><b>Pay within the same window.</b> Pay to the Receiver's account (see the tax office account numbers page) with the correct payment reference: FIN number, tax code 11 for VAT, type of return, year (three digits, for example 026) and period (01 to 12).</li>
+<li><b>Correct mistakes.</b> If you disagree with what you declared and paid yourself, file a reasoned objection (bezwaarschrift) with the Inspector within 60 days after the payment deadline, stating the amount, the period and the reason. The tax office accepts VAT objections by email; put "bezwaarschrift", your trade name and FIN in the subject line.</li>
+</ol>
+<p>Put the fixed dates in your calendar with <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a> and keep your purchase and sales invoices per month in the <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Boetes en rente bij te laat' if nl else 'Penalties and interest for late filing' }}</h2>
+{% if nl %}
+<p>Sinds de beschikking boetebeleid (S.B. 2025 no. 140) legt de Inspecteur vaste verzuimboetes op. Volgens HBN Law &amp; Tax gelden ze voor tijdvakken vanaf 1 januari 2026. Elke te late maand wordt naar boven afgerond: 5 dagen te laat telt als een maand.</p>
+<table class="tbl"><thead><tr><th>Verzuim</th><th>Boete</th></tr></thead><tbody>
+<tr><td>Aangifte 1 maand te laat</td><td>SRD 2.500</td></tr>
+<tr><td>2 maanden te laat</td><td>SRD 5.000</td></tr>
+<tr><td>3 maanden te laat</td><td>SRD 7.500</td></tr>
+<tr><td>4 maanden of later, of geen aangifte</td><td>SRD 10.000</td></tr>
+<tr><td>Te laat, te weinig of niet betaald</td><td>50% van het openstaande bedrag, maximaal SRD 10.000</td></tr>
+<tr><td>Rente bij te late betaling</td><td>6% per jaar over het te laat betaalde bedrag</td></tr>
+<tr><td>Opzet of grove schuld</td><td>5% tot 100% van de niet betaalde BTW</td></tr>
+</tbody></table>
+<p>De aangifteboete geldt ook voor een te late nihilaangifte of teruggaafaangifte. Doe je helemaal geen aangifte, dan krijg je een ambtshalve aanslag met beide maximale boetes; dien je de aangifte alsnog in als bezwaar, dan worden de boetes heroverwogen. De Belastingdienst kan tot 5 jaar terug naheffen, bij opzet of grove schuld tot 10 jaar. Tegen een naheffing of boete maak je binnen 60 dagen bezwaar bij de Inspecteur; daarna kun je binnen 60 dagen in beroep bij de Raad van Beroep.</p>
+{% else %}
+<p>Under the penalty policy decree (S.B. 2025 no. 140) the Inspector imposes fixed penalties. According to HBN Law &amp; Tax they apply to periods from 1 January 2026. Every late month is rounded up: 5 days late counts as one month.</p>
+<table class="tbl"><thead><tr><th>Default</th><th>Penalty</th></tr></thead><tbody>
+<tr><td>Return 1 month late</td><td>SRD 2,500</td></tr>
+<tr><td>2 months late</td><td>SRD 5,000</td></tr>
+<tr><td>3 months late</td><td>SRD 7,500</td></tr>
+<tr><td>4 months or more, or no return</td><td>SRD 10,000</td></tr>
+<tr><td>Late, short or no payment</td><td>50% of the unpaid amount, maximum SRD 10,000</td></tr>
+<tr><td>Interest on late payment</td><td>6% a year on the amount paid late</td></tr>
+<tr><td>Intent or gross negligence</td><td>5% to 100% of the unpaid VAT</td></tr>
+</tbody></table>
+<p>The filing penalty also applies to a late nil return or refund return. If you file no return at all, you get an estimated assessment with both maximum penalties; if you then file the return as an objection, the penalties are reconsidered. The tax office can assess additional VAT up to 5 years back, or 10 years in case of intent or gross negligence. Against an assessment or penalty you object to the Inspector within 60 days; after that you can appeal to the Tax Appeals Board (Raad van Beroep) within 60 days.</p>
+{% endif %}
+
+<h2>{{ 'Teruggaaf van BTW' if nl else 'VAT refunds' }}</h2>
+{% if nl %}
+<p>Is je aftrek in een maand hoger dan de BTW die je verschuldigd bent, bijvoorbeeld door een grote investering of export, dan krijg je het verschil terug. Volgens de beschikking teruggaaf (S.B. 2025 no. 60) ontstaat het recht op de 16e van de maand na het tijdvak (bij een late aangifte op de dag na indiening). De Belastingdienst moet binnen een maand betalen. De Inspecteur kan dat met maximaal twee maanden opschorten, schriftelijk en met reden. Betaalt de fiscus te laat, dan krijg je 14% rente per jaar.</p>
+<p>Je krijgt alleen een teruggaaf als je geregistreerd bent, je eerdere aangiften op tijd en correct waren (de Belastingdienst kijkt naar de laatste 12 tijdvakken), alle BTW betaald is, en je administratie en facturen op orde zijn. Bedragen onder SRD 1.000 kan de Inspecteur laten verrekenen met een volgende aangifte. Openstaande schulden worden eerst verrekend.</p>
+{% else %}
+<p>If your deduction in a month is higher than the VAT you owe, for example after a large investment or because you export, you get the difference back. Under the refund decree (S.B. 2025 no. 60) the right arises on the 16th of the month after the period (for a late return, the day after filing). The tax office must pay within one month. The Inspector can suspend this by up to two months, in writing and with reasons. If the tax office pays late, you are entitled to 14% interest a year.</p>
+<p>You only get a refund if you are registered, your earlier returns were on time and correct (the tax office looks at the last 12 periods), all VAT has been paid, and your records and invoices are in order. The Inspector can have amounts below SRD 1,000 offset against a later return. Outstanding debts are offset first.</p>
+{% endif %}
+
+<h2>{{ 'Diensten uit het buitenland en naar het buitenland' if nl else 'Services from and to other countries' }}</h2>
+{% if nl %}
+<p>Koop je als Surinaamse ondernemer een dienst of goed van een buitenlands bedrijf zonder vestiging in Suriname, dan wordt de BTW <b>verlegd</b> naar jou: je geeft de BTW zelf aan in je aangifte. Gebruik je de dienst voor belaste omzet, dan trek je hetzelfde bedrag in dezelfde aangifte weer af, zodat het per saldo niets kost. Denk aan advies, softwarelicenties, reclame, telecom en andere elektronische diensten: die worden belast waar de afnemer gevestigd is.</p>
+<p>Omgekeerd vallen diensten zoals advies, reclame en gegevensverwerking voor een <b>buitenlandse zakelijke klant</b> niet onder de Surinaamse BTW. Outsourcingwerk dat je in Suriname doet voor een buitenlandse klant valt onder 0%. Diensten met betrekking tot onroerend goed in Suriname, vervoer, evenementen en restaurantdiensten worden belast waar ze plaatsvinden. Buitenlandse aanbieders van elektronische diensten aan Surinaamse consumenten vallen onder de Surinaamse BTW boven SRD 500.000 omzet per jaar. Hoe zij zich moeten registreren is in de praktijk nog niet uitgewerkt; vraag het na bij de Inspectie Omzetbelasting.</p>
+{% else %}
+<p>If you, as a Surinamese business, buy a service or goods from a foreign company without an establishment in Suriname, the VAT is <b>reverse charged</b> to you: you declare the VAT yourself in your return. If you use the service for taxable turnover, you deduct the same amount in the same return, so the net cost is nil. Think of consulting, software licences, advertising, telecom and other electronic services: these are taxed where the customer is established.</p>
+<p>The other way round, services such as consulting, advertising and data processing for a <b>foreign business customer</b> fall outside Surinamese VAT. Outsourcing work you do in Suriname for a foreign customer is zero-rated. Services relating to Surinamese real estate, transport, events and restaurant services are taxed where they take place. Foreign providers of electronic services to Surinamese consumers fall under Surinamese VAT above SRD 500,000 turnover a year. How they should register has not been worked out in practice; ask the VAT Inspectorate.</p>
+{% endif %}
+
+<h2>{{ 'Rekenvoorbeelden' if nl else 'Worked examples' }}</h2>
+{% if nl %}
+<h3>1. Een minimarkt met belaste en vrijgestelde verkoop</h3>
+<p>In maart verkoopt de winkel voor SRD 600.000 aan belaste artikelen (frisdrank, conserven, schoonmaakmiddelen) en voor SRD 200.000 aan vrijgestelde basisgoederen (rijst, brood, eieren, verse groenten). Bedragen exclusief BTW.</p>
+<table class="tbl"><tbody>
+<tr><td>BTW op belaste verkoop: 10% van SRD 600.000</td><td class="r">SRD 60.000</td></tr>
+<tr><td>BTW op inkoop van belaste artikelen (volledig aftrekbaar)</td><td class="r">- SRD 40.000</td></tr>
+<tr><td>BTW op algemene kosten (stroom, onderhoud, accountant): SRD 4.000, aftrekbaar naar verhouding 600/800 = 75%</td><td class="r">- SRD 3.000</td></tr>
+<tr><td>BTW op een kerstpakket voor personeel (niet aftrekbaar)</td><td class="r">SRD 0</td></tr>
+<tr><td><b>Te betalen uiterlijk 15 april</b></td><td class="r"><b>SRD 17.000</b></td></tr>
+</tbody></table>
+<h3>2. Een IT-dienstverlener</h3>
+<p>Omzet ruim boven SRD 1 miljoen per jaar. In mei factureert het bedrijf SRD 120.000 exclusief BTW aan lokale klanten en SRD 50.000 aan een bedrijf in Nederland. Het betaalt een cloudabonnement van een Amerikaanse aanbieder van omgerekend SRD 8.000.</p>
+<table class="tbl"><tbody>
+<tr><td>BTW op lokale facturen: 10% van SRD 120.000</td><td class="r">SRD 12.000</td></tr>
+<tr><td>Factuur aan Nederlandse zakelijke klant (plaats van dienst buiten Suriname)</td><td class="r">SRD 0</td></tr>
+<tr><td>Verlegde BTW cloudabonnement: 10% van SRD 8.000, aangegeven en afgetrokken</td><td class="r">SRD 800 - SRD 800</td></tr>
+<tr><td>BTW op nieuwe laptops (SRD 30.000 exclusief)</td><td class="r">- SRD 3.000</td></tr>
+<tr><td>BTW op brandstof en onderhoud van de personenauto (niet aftrekbaar)</td><td class="r">SRD 0</td></tr>
+<tr><td><b>Te betalen uiterlijk 15 juni</b></td><td class="r"><b>SRD 9.000</b></td></tr>
+</tbody></table>
+<h3>3. Een importeur van bouwmaterialen</h3>
+<p>Een groothandel voert tegels in met een douanewaarde van SRD 700.000. Stel dat het invoerrecht 20% is (het echte percentage hangt af van de HS-code) en dat de overige heffingen buiten beschouwing blijven.</p>
+<table class="tbl"><tbody>
+<tr><td>Invoerrecht: 20% van SRD 700.000</td><td class="r">SRD 140.000</td></tr>
+<tr><td>BTW bij invoer: 10% van (SRD 700.000 + SRD 140.000)</td><td class="r">SRD 84.000</td></tr>
+<tr><td>Verkoop van de tegels aan aannemers: SRD 1.200.000 exclusief, BTW 10%</td><td class="r">SRD 120.000</td></tr>
+<tr><td>Af: betaalde invoer-BTW (met invoerdocument)</td><td class="r">- SRD 84.000</td></tr>
+<tr><td><b>Te betalen</b></td><td class="r"><b>SRD 36.000</b></td></tr>
+</tbody></table>
+<p>Let op de kasstroom: de SRD 84.000 betaal je al bij de Douane, de aftrek volgt pas in de aangifte over de maand van betaling. Reken je eigen bedragen na met de <a href="{{ U('vatcalc') }}">{{ L('vatcalc') }}</a>.</p>
+{% else %}
+<h3>1. A mini-market with taxable and exempt sales</h3>
+<p>In March the shop sells SRD 600,000 of taxable items (soft drinks, canned food, cleaning products) and SRD 200,000 of exempt basics (rice, bread, eggs, fresh vegetables). Amounts exclude VAT.</p>
+<table class="tbl"><tbody>
+<tr><td>VAT on taxable sales: 10% of SRD 600,000</td><td class="r">SRD 60,000</td></tr>
+<tr><td>VAT on purchases of taxable items (fully deductible)</td><td class="r">- SRD 40,000</td></tr>
+<tr><td>VAT on general costs (power, maintenance, accountant): SRD 4,000, deductible pro rata 600/800 = 75%</td><td class="r">- SRD 3,000</td></tr>
+<tr><td>VAT on Christmas hampers for staff (not deductible)</td><td class="r">SRD 0</td></tr>
+<tr><td><b>Payable by 15 April</b></td><td class="r"><b>SRD 17,000</b></td></tr>
+</tbody></table>
+<h3>2. An IT service provider</h3>
+<p>Turnover well above SRD 1 million a year. In May the company invoices SRD 120,000 excluding VAT to local customers and SRD 50,000 to a company in the Netherlands. It pays a cloud subscription from a US provider worth SRD 8,000.</p>
+<table class="tbl"><tbody>
+<tr><td>VAT on local invoices: 10% of SRD 120,000</td><td class="r">SRD 12,000</td></tr>
+<tr><td>Invoice to Dutch business customer (place of supply outside Suriname)</td><td class="r">SRD 0</td></tr>
+<tr><td>Reverse charge on cloud subscription: 10% of SRD 8,000, declared and deducted</td><td class="r">SRD 800 - SRD 800</td></tr>
+<tr><td>VAT on new laptops (SRD 30,000 excluding VAT)</td><td class="r">- SRD 3,000</td></tr>
+<tr><td>VAT on fuel and maintenance of the passenger car (not deductible)</td><td class="r">SRD 0</td></tr>
+<tr><td><b>Payable by 15 June</b></td><td class="r"><b>SRD 9,000</b></td></tr>
+</tbody></table>
+<h3>3. An importer of building materials</h3>
+<p>A wholesaler imports tiles with a customs value of SRD 700,000. Assume an import duty of 20% (the real rate depends on the HS code) and leave the other levies aside.</p>
+<table class="tbl"><tbody>
+<tr><td>Import duty: 20% of SRD 700,000</td><td class="r">SRD 140,000</td></tr>
+<tr><td>Import VAT: 10% of (SRD 700,000 + SRD 140,000)</td><td class="r">SRD 84,000</td></tr>
+<tr><td>Sale of the tiles to contractors: SRD 1,200,000 excluding VAT, 10% VAT</td><td class="r">SRD 120,000</td></tr>
+<tr><td>Less: import VAT paid (with import document)</td><td class="r">- SRD 84,000</td></tr>
+<tr><td><b>Payable</b></td><td class="r"><b>SRD 36,000</b></td></tr>
+</tbody></table>
+<p>Watch your cash flow: you pay the SRD 84,000 at Customs first, and the deduction only follows in the return for the month of payment. Check your own figures with the <a href="{{ U('vatcalc') }}">{{ L('vatcalc') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Administratie en bewaarplicht' if nl else 'Records and retention' }}</h2>
+{% if nl %}
+<p>Je administratie laat alle in- en verkopen zien, de in- en uitvoer, de uitgereikte en ontvangen facturen en kassabonnen, de betalingen en de BTW die je hebt afgetrokken. Je voert haar in het Nederlands en bewaart alles <b>10 jaar</b>. Op schriftelijk verzoek kan de Minister toestaan dat je in een andere taal en munt boekhoudt. De Inspecteur mag je administratie controleren en je bedrijfspand bezoeken op werkdagen tussen 06:00 en 18:00 (of tijdens je openingsuren). Hoe je dit praktisch opzet lees je in <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% else %}
+<p>Your records must show all purchases and sales, imports and exports, invoices and till receipts issued and received, payments, and the VAT you deducted. Keep them in Dutch and keep everything for <b>10 years</b>. On written request the Minister can allow bookkeeping in another language and currency. The Inspector may audit your records and visit your premises on working days between 06:00 and 18:00 (or during your business hours). For a practical set-up, see <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Oude tarieflijsten gebruiken.</b> Rijst, brood en eieren zijn vrijgesteld, niet 0%. Brandstof is {{ std }}%, niet 5%. Woninghuur valt niet meer onder 0%.</li>
+<li><b>BTW aftrekken op auto's, lunches en geschenken.</b> Dat mag niet, behalve voor dealers, leasebedrijven en zware voertuigen.</li>
+<li><b>Geen aangifte doen als er niets te betalen is.</b> Ook een nihilaangifte moet op tijd; anders volgt sinds 2026 een boete van minimaal SRD 2.500.</li>
+<li><b>Facturen zonder FIN-nummer van de klant.</b> Je klant kan dan zijn BTW niet aftrekken, en bij een teruggaaf kijkt de Inspecteur juist naar je facturen.</li>
+<li><b>De drempel te laat opmerken.</b> Houd je omzet per maand bij. Je moet je direct registreren zodra je boven {{ srd(F.VAT.threshold_srd) }} komt, en je betaalt BTW over het deel daarboven, ook als je die nog niet aan klanten had gerekend.</li>
+<li><b>Invoer-BTW niet terugvragen</b> omdat het invoerdocument ontbreekt. Vraag de afrekening bij je expediteur op.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>Using old rate lists.</b> Rice, bread and eggs are exempt, not zero-rated. Fuel is {{ std }}%, not 5%. Residential rent is no longer zero-rated.</li>
+<li><b>Deducting VAT on cars, lunches and gifts.</b> Not allowed, except for dealers, leasing companies and heavy vehicles.</li>
+<li><b>Not filing when nothing is due.</b> A nil return must also be on time; since 2026 a late one costs at least SRD 2,500.</li>
+<li><b>Invoices without the customer's FIN number.</b> Your customer cannot deduct the VAT, and the Inspector checks your invoices before paying a refund.</li>
+<li><b>Noticing the threshold too late.</b> Track your turnover monthly. You must register as soon as you pass {{ srd(F.VAT.threshold_srd) }}, and you owe VAT on the part above it, even if you did not charge it to customers.</li>
+<li><b>Not reclaiming import VAT</b> because the import document is missing. Get the statement from your broker.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Hulp en contact' if nl else 'Help and contact' }}</h2>
+{% if nl %}
+<p>Vragen over BTW stel je aan de <b>Inspectie Omzetbelasting</b>, Van Sommelsdijckstraat 27, Paramaribo, telefoon 1960 toestel 345. Het hoofdkantoor van de Belastingdienst (Kerkplein 12) is bereikbaar via 1960 toestel 231 of 232. Kantoortijden: {{ F.TAX_OFFICE_HOURS[0] }}. Alle adressen staan op <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Voor bezwaar, een teruggaaf die blijft hangen of een fiscale eenheid is een belastingadviseur of accountant de moeite waard. Een overzicht van alle belastingen voor je bedrijf vind je in <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</p>
+{% else %}
+<p>Ask VAT questions at the <b>VAT Inspectorate (Inspectie Omzetbelasting)</b>, Van Sommelsdijckstraat 27, Paramaribo, phone 1960 extension 345. The tax office head office (Kerkplein 12) is on 1960 extension 231 or 232. Office hours: {{ F.TAX_OFFICE_HOURS[1] }}. All addresses are on <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. For an objection, a refund that stalls or a fiscal unity, a tax adviser or accountant is worth hiring. For an overview of every tax your business deals with, see <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</p>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
-<ul>{% for name, url in F.VAT.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
+<ul>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf" rel="noopener">Wet BTW 2022 (S.B. 2022 no. 121)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-148-nadere-wijziging-WET-BTW-30-december-2022.pdf" rel="noopener">Wijziging Wet BTW, 30 december 2022 (S.B. 2022 no. 148)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2023-no.-126-nadere-wijziging-WET-BTW-5-September-2023.pdf" rel="noopener">Wijziging Wet BTW, 5 september 2023: nieuwe bijlagen 1, 2 en 4 (S.B. 2023 no. 126)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2025/12/S.B.-2025-no.-140-BESCHIKKING-boetebeleid-verzuim-boeten.pdf" rel="noopener">Beschikking boetebeleid verzuimboeten (S.B. 2025 no. 140)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2023-no.-32-Beschikking-vaststelling-interest-bij-late-betaling.pdf" rel="noopener">Beschikking interest bij late betaling, 6% (S.B. 2023 no. 32)</a></li>
+<li><a href="https://belastingdienst.sr/wp-content/uploads/2025/12/S.B.-2025-no.-60-Beschikking-Teruggaaf-BTW-art-17-lid-8.pdf" rel="noopener">Beschikking teruggaaf BTW (S.B. 2025 no. 60)</a></li>
+<li><a href="https://belastingdienst.sr/btw/wetgeving/" rel="noopener">Belastingdienst: BTW wetgeving en specificatielijsten</a></li>
+<li><a href="https://belastingdienst.sr/btw/algemeen/" rel="noopener">Belastingdienst: BTW algemeen</a></li>
+<li><a href="https://belastingdienst.sr/belastingen/btw/registreren/" rel="noopener">Belastingdienst: BTW registreren</a></li>
+<li><a href="https://belastingdienst.sr/belastingen/btw/aangifte-en-betaling/" rel="noopener">Belastingdienst: aangifte en betaling</a></li>
+<li><a href="https://hbnlawtax.com/?p=2188" rel="noopener">HBN Law &amp; Tax: boetebeleid BTW vanaf 2026 (22 januari 2026)</a></li>
+<li><a href="https://hbnlawtax.com/tax-instant-news/end-of-the-year-tax-alerts-suriname-2/" rel="noopener">HBN Law &amp; Tax: end of the year tax alerts 2024 (brandstof naar 10%)</a></li>
+<li><a href="https://btw.sr/het-btw-tarief/" rel="noopener">btw.sr: het BTW-tarief</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen fiscaal advies.' if nl else 'General information, not tax advice.' }}</p>
 </div>
 {% endblock %}

@@ -3,59 +3,410 @@
 {% block content %}
 <div class="prose">
 <h1>{{ 'Werkvergunning en verblijf in Suriname' if nl else 'Work and residence permits in Suriname' }}</h1>
-<p class="lead">{{ 'Een buitenlander mag in Suriname alleen werken met een werkvergunning, en de werkgever vraagt die aan. Je hebt daarvoor eerst een verblijfsvergunning nodig, of het bewijs dat je die hebt aangevraagd.' if nl else 'A foreigner may only work in Suriname with a work permit, and the employer applies for it. You first need a residence permit, or proof that you applied for one.' }}</p>
+{% if nl %}
+<p class="lead">Een buitenlander mag in Suriname alleen in loondienst werken als de werkgever een werkvergunning heeft. Die vergunning vraagt de werkgever aan, samen met de werknemer, en daarvoor moet de werknemer al een verblijfsvergunning hebben of die hebben aangevraagd. Wie visumplichtig is en langer dan drie maanden blijft, regelt vóór vertrek eerst een MKV.</p>
+{% else %}
+<p class="lead">A foreigner may only work as an employee in Suriname if the employer holds a work permit for them. The employer applies, together with the worker, and the worker must already have a residence permit or have applied for one. If you need a visa and will stay longer than three months, you first arrange an MKV before you travel.</p>
+{% endif %}
+<div class="grid g3">
+<div class="card"><div class="eyebrow">{{ 'Werkvergunning' if nl else 'Work permit' }}</div><div class="big">USD 100</div><div class="sub">{{ 'USD 500 in goud, olie en hout' if nl else 'USD 500 in gold, oil and timber' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Beslistermijn' if nl else 'Decision period' }}</div><div class="big">{{ '30 dagen' if nl else '30 days' }}</div><div class="sub">{{ 'eenmaal te verlengen met 30 dagen' if nl else 'extendable once by 30 days' }}</div></div>
+<div class="card"><div class="eyebrow">{{ 'Verblijfsvergunning' if nl else 'Residence permit' }}</div><div class="big">USD 150</div><div class="sub">{{ 'plus plakzegel van SRD 1,50' if nl else 'plus an SRD 1.50 stamp' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Drie lagen: inreizen (entry fee of visum), verblijf (MKV en verblijfsvergunning bij Justitie en Veiligheid) en werk (werkvergunning bij het ministerie dat over Arbeid gaat).</li>
+<li>De werkgever vraagt de werkvergunning aan. Kosten USD 100 per aanvraag of verlenging, USD 500 in de goud-, olie- en houtsector. Niet terugbetaalbaar.</li>
+<li>Het ministerie beslist binnen 30 dagen, in bijzondere gevallen 30 dagen later. Bezwaar binnen 30 dagen bij de minister.</li>
+<li>Geen werkvergunning nodig voor onder meer PSA-houders, remigranten van Surinaamse afkomst, wie getrouwd is met een Surinamer en CARICOM skilled nationals.</li>
+<li>Werken zonder vergunning: tot 6 maanden hechtenis of een boete van de derde categorie, per werknemer en per dag.</li>
+</ul>
+{% else %}
+<li>Three layers: entry (entry fee or visa), stay (MKV and residence permit from the Ministry of Justice and Security) and work (work permit from the ministry responsible for Labour).</li>
+<li>The employer applies for the work permit. Fee USD 100 per application or extension, USD 500 in the gold, oil and timber sectors. Not refundable.</li>
+<li>The ministry decides within 30 days, in special cases 30 days later. Appeal to the Minister within 30 days.</li>
+<li>No work permit needed for, among others, PSA holders, returning migrants of Surinamese origin, spouses of Surinamese citizens and CARICOM skilled nationals.</li>
+<li>Working without a permit: up to 6 months detention or a third-category fine, per worker and per day.</li>
+</ul>
+{% endif %}
+</div>
+
+<h2>{{ 'Welke vergunningen heb je nodig?' if nl else 'Which permits do you need?' }}</h2>
+{% if nl %}
+<p>Veel mensen halen de stappen door elkaar. Het helpt om ze te zien als drie aparte lagen, elk met een eigen instantie.</p>
+<table class="tbl stack tx"><thead><tr><th>Stap</th><th>Wat</th><th>Wie regelt het</th></tr></thead><tbody>
+<tr><td data-l="Stap">1. Inreizen</td><td data-l="Wat">Entry fee, e-visum of visum, plus het gratis ICF-formulier</td><td data-l="Wie regelt het">Ministerie van Buitenlandse Zaken, Internationale Handel en Samenwerking, via VFS Global</td></tr>
+<tr><td data-l="Stap">2. Machtiging</td><td data-l="Wat">MKV (Machtiging tot Kort Verblijf) voor visumplichtigen die langer dan 3 maanden blijven</td><td data-l="Wie regelt het">Surinaamse ambassade of consulaat in het land van herkomst</td></tr>
+<tr><td data-l="Stap">3. Verblijf</td><td data-l="Wat">Verblijfsvergunning, daarna inschrijving bij het CBB</td><td data-l="Wie regelt het">Hoofdafdeling Vreemdelingenzaken, Ministerie van Justitie en Veiligheid</td></tr>
+<tr><td data-l="Stap">4. Werk</td><td data-l="Wat">Werkvergunning op naam van werknemer en bedrijf</td><td data-l="Wie regelt het">Afdeling Werkvergunning Vreemdelingen, nu onder het Ministerie van Volksgezondheid, Welzijn en Arbeid</td></tr>
+</tbody></table>
+<p>Het vroegere Ministerie van Arbeid, Werkgelegenheid en Jeugdzaken (AWJ) bestaat sinds 16 juli 2025 niet meer in die vorm. Arbeid valt nu onder het Ministerie van Volksgezondheid, Welzijn en Arbeid (S.B. 2025 no. 94). De afdeling Werkvergunning Vreemdelingen en de Arbeidsinspectie werken door. Formulieren en folders noemen soms nog AWJ.</p>
+{% else %}
+<p>Many people mix up the steps. It helps to see them as three separate layers, each with its own office.</p>
+<table class="tbl stack tx"><thead><tr><th>Step</th><th>What</th><th>Who handles it</th></tr></thead><tbody>
+<tr><td data-l="Step">1. Entry</td><td data-l="What">Entry fee, e-visa or visa, plus the free ICF form</td><td data-l="Who handles it">Ministry of Foreign Affairs, International Trade and Cooperation, through VFS Global</td></tr>
+<tr><td data-l="Step">2. Authorisation</td><td data-l="What">MKV (Machtiging tot Kort Verblijf, authorisation for temporary stay) for visa-required nationals staying more than 3 months</td><td data-l="Who handles it">Surinamese embassy or consulate in your home country</td></tr>
+<tr><td data-l="Step">3. Stay</td><td data-l="What">Residence permit, then registration with the CBB (civil registry)</td><td data-l="Who handles it">Aliens Affairs department (Vreemdelingenzaken), Ministry of Justice and Security</td></tr>
+<tr><td data-l="Step">4. Work</td><td data-l="What">Work permit naming the worker and the company</td><td data-l="Who handles it">Foreign Work Permits department, now under the Ministry of Health, Welfare and Labour</td></tr>
+</tbody></table>
+<p>The former Ministry of Labour, Employment and Youth Affairs (AWJ) ceased to exist in that form on 16 July 2025. Labour now falls under the Ministry of Health, Welfare and Labour (S.B. 2025 no. 94). The Foreign Work Permits department and the Labour Inspectorate continue. Forms and leaflets sometimes still say AWJ.</p>
+{% endif %}
+
+<h2>{{ 'Inreizen: entry fee, e-visum en zakenreis' if nl else 'Entry: entry fee, e-visa and business trips' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Entry fee.</b> De meeste nationaliteiten reizen visumvrij in voor toerisme of familiebezoek, tot 90 dagen, als ze vooraf online een entry fee betalen bij VFS Global. Sinds 15 mei 2024 is dat USD 50 of EUR 50. CARICOM-paspoorthouders, PSA-houders en ingezetenen betalen geen entry fee.</li>
+<li><b>Visumplicht voor 21 landen.</b> Sinds 1 mei 2023 hebben onder meer burgers van India, Ghana, Nigeria, Pakistan, Bangladesh, Egypte, Cuba, de Dominicaanse Republiek en Venezuela weer een visum nodig. Voor Cuba, Venezuela en de Dominicaanse Republiek bestaat ook weer een toeristenkaart naast het visum.</li>
+<li><b>Zakenreis.</b> Het VFS-portaal kent een e-visum voor zakelijke activiteiten, vergaderingen en conferenties, naast categorieën voor arbeid, studie en gezinshereniging. Kijk vóór je boekt op het portaal welke route voor jouw nationaliteit en doel geldt. Een zakenbezoek is geen toestemming om te werken.</li>
+<li><b>ICF.</b> Sinds 15 januari 2025 vult iedere reiziger van en naar Suriname het gratis Immigration Customs Form in op icf.sr. Het opent 7 dagen voor vertrek en geeft een QR-code.</li>
+<li><b>Paspoort.</b> Minstens 6 maanden geldig bij binnenkomst.</li>
+</ul>
+<p>Haïtianen krijgen geen visum en mogen ook niet doorreizen. De lijst van landen verandert geregeld; de VFS-site is leidend.</p>
+{% else %}
+<ul>
+<li><b>Entry fee.</b> Most nationalities can enter visa-free for tourism or family visits, for up to 90 days, if they pay an entry fee online at VFS Global first. Since 15 May 2024 it has been USD 50 or EUR 50. CARICOM passport holders, PSA holders and residents do not pay it.</li>
+<li><b>Visa required for 21 countries.</b> Since 1 May 2023 citizens of, among others, India, Ghana, Nigeria, Pakistan, Bangladesh, Egypt, Cuba, the Dominican Republic and Venezuela need a visa again. Cuba, Venezuela and the Dominican Republic also have a tourist card alongside the visa.</li>
+<li><b>Business trips.</b> The VFS portal has an e-visa for business activity, meetings and conferences, alongside categories for labour, study and family reunion. Check on the portal which route applies to your nationality and purpose before you book. A business visit is not permission to work.</li>
+<li><b>ICF.</b> Since 15 January 2025 every traveller to or from Suriname fills in the free Immigration Customs Form at icf.sr. It opens 7 days before the flight and gives you a QR code.</li>
+<li><b>Passport.</b> Valid for at least 6 months on arrival.</li>
+</ul>
+<p>Haitians are not issued visas and may not transit. The country list changes regularly; the VFS site is the reference.</p>
+{% endif %}
+
+<h2>{{ 'De MKV: machtiging tot kort verblijf' if nl else 'The MKV: authorisation for temporary stay' }}</h2>
+{% if nl %}
+<p>Ben je visumplichtig en wil je langer dan drie maanden in Suriname blijven, bijvoorbeeld om te werken? Dan vraag je vóór vertrek een MKV aan bij de Surinaamse ambassade of het consulaat in je land van herkomst (artikel 3 Vreemdelingenwet 1991). De documenten zijn dezelfde als voor een verblijfsvergunning. Omdat de beoordeling al in het buitenland is gedaan, gaat de verblijfsvergunning daarna sneller.</p>
+<ul class="check">
+<li>Een MKV kun je niet in Suriname aanvragen terwijl je met een toeristen- of zakenvisum in Suriname bent. Wie als toerist komt en wil blijven, moet terug naar het land van herkomst.</li>
+<li>Vrijgesteld van de MKV: personen van Surinaamse origine en hun gezin, burgers van landen waarmee Suriname het visum heeft afgeschaft, en burgers van andere CARICOM-landen. Zij melden zich na aankomst bij de Vreemdelingendienst en vragen tijdens hun legale verblijf de verblijfsvergunning aan.</li>
+<li>Plan ruim. In de gewone route komt eerst de MKV en daarna de rest. Fragomen meldde in juli 2025 dat dit vaak zes maanden of langer duurt.</li>
+</ul>
+{% else %}
+<p>If you need a visa and want to stay in Suriname for longer than three months, for example to work, you apply for an MKV at the Surinamese embassy or consulate in your home country before you travel (article 3 Aliens Act 1991). The documents are the same as for a residence permit. Because the check is done abroad, the residence permit is processed faster afterwards.</p>
+<ul class="check">
+<li>You cannot apply for an MKV in Suriname while you are on a tourist or business visa. If you came as a tourist and want to stay, you have to go back to your home country.</li>
+<li>Exempt from the MKV: people of Surinamese origin and their family, citizens of countries with which Suriname abolished the visa, and citizens of other CARICOM states. They report to the Aliens Service after arrival and apply for the residence permit during their legal stay.</li>
+<li>Plan ahead. In the standard route the MKV comes first and the rest follows. Fragomen reported in July 2025 that this often takes six months or more.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'De verblijfsvergunning' if nl else 'The residence permit' }}</h2>
+{% if nl %}
+<p>De Hoofdafdeling Vreemdelingenzaken van het Ministerie van Justitie en Veiligheid behandelt verblijf en vestiging. Aanvragen gaan naar de Loketdienst in het gebouw van het Ministerie van Openbare Werken, mr. J. Lachmonstraat 166-168, Paramaribo. Woon je in Nickerie, dan ga je naar het Districtscommissariaat Nickerie.</p>
+<h3>Soorten</h3>
+<ul>
+<li><b>Verblijf voor bepaalde tijd:</b> maximaal 2 jaar per keer, verlengbaar. Dit is de gewone vergunning voor buitenlandse werknemers.</li>
+<li><b>Verblijf voor onbepaalde tijd:</b> voor wie al langer legaal in Suriname woont. Personen van Surinaamse origine kunnen dit direct aanvragen.</li>
+</ul>
+<h3>Wat lever je in</h3>
+<ul class="check">
+<li>Verzoekschrift gericht aan de Minister van Justitie en Veiligheid</li>
+<li>Plakzegel van SRD 1,50</li>
+<li>Kopie van de beschreven pagina's van je paspoort</li>
+<li>Bewijs van middelen van bestaan: hoe je je inkomen verdient, bijvoorbeeld een arbeidsovereenkomst of werkgeversverklaring</li>
+<li>Stortingsbewijs van USD 150, of de tegenwaarde in SRD tegen de dagkoers van de Centrale Bank van Suriname</li>
+<li>De volledige documentenlijst verschilt per categorie (bijlagen 1 tot en met 5 bij de JusPol-folder). Vraag de lijst voor jouw situatie bij de Loketdienst.</li>
+</ul>
+<p>Heb je de aanvraag ingediend, dan krijg je een ontvangstbewijs (het VZ-strookje). Met dat bewijs kan de werkgever de werkvergunning al aanvragen. Na toekenning schrijf je je in bij het Centraal Bureau voor Burgerzaken (CBB).</p>
+{% else %}
+<p>The Aliens Affairs department (Hoofdafdeling Vreemdelingenzaken) of the Ministry of Justice and Security handles residence. Applications go to the counter (Loketdienst) in the building of the Ministry of Public Works, mr. J. Lachmonstraat 166-168, Paramaribo. If you live in Nickerie, you go to the Nickerie District Commissariat.</p>
+<h3>Types</h3>
+<ul>
+<li><b>Temporary residence:</b> up to 2 years at a time, renewable. This is the usual permit for foreign employees.</li>
+<li><b>Permanent residence:</b> for people who have lived in Suriname legally for longer. People of Surinamese origin can apply for it directly.</li>
+</ul>
+<h3>What you hand in</h3>
+<ul class="check">
+<li>A request letter addressed to the Minister of Justice and Security</li>
+<li>A stamp (plakzegel) of SRD 1.50</li>
+<li>A copy of the used pages of your passport</li>
+<li>Proof of means of support: how you earn your income, for example an employment contract or employer statement</li>
+<li>Proof of payment of USD 150, or the SRD equivalent at the Central Bank of Suriname daily rate</li>
+<li>The full document list differs per category (annexes 1 to 5 of the Justice and Police leaflet). Ask the counter for the list for your situation.</li>
+</ul>
+<p>When you file, you receive a receipt (the VZ-strookje). With that receipt the employer can already apply for the work permit. Once the permit is granted, you register with the Central Bureau for Civil Affairs (CBB).</p>
+{% endif %}
+
+<h2>{{ 'De werkvergunning stap voor stap' if nl else 'The work permit step by step' }}</h2>
+{% if nl %}
+<p>De werkvergunning is een vergunning voor de werkgever, op naam van één werknemer en één onderneming (Wet Werkvergunning Vreemdelingen, artikel 3 en 5). De werknemer kan haar niet zelf aanvragen.</p>
+<ol class="steps">
+<li><b>Controleer of je een buitenlander nodig hebt.</b> Het ministerie mag weigeren als er Surinaamse arbeidskrachten beschikbaar zijn of te verwachten zijn (artikel 7). Leg vast hoe je lokaal hebt gezocht, bijvoorbeeld een vacature op <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>.</li>
+<li><b>Zorg dat het verblijf loopt.</b> De werknemer heeft een verblijfsvergunning met nog minstens 2 maanden geldigheid, of het ontvangstbewijs van de aanvraag. Zonder dat geldt de aanvraag als niet ingediend.</li>
+<li><b>Laat de documenten eerst controleren.</b> De leges zijn niet terugbetaalbaar. De afdeling raadt aan de stukken te laten nakijken voordat je betaalt.</li>
+<li><b>Betaal de leges.</b> USD 100 of de tegenwaarde in SRD op de rekening van het ministerie die in de folder staat, met omschrijving "WERKVERGUNNING VREEMDELINGEN", de bedrijfsnaam en de naam van de werknemer. Voor goud, olie en hout USD 500 op de rekening bij de Centrale Bank, met ook de sector in de omschrijving.</li>
+<li><b>Dien fysiek in.</b> Bij de balie van de afdeling Werkvergunning Vreemdelingen. Werkgever en werknemer tekenen beiden het formulier. Een gemachtigde mag indienen met een machtigingsbrief en kopie ID.</li>
+<li><b>Wacht op de beslissing.</b> Binnen 30 dagen, eenmaal te verlengen met 30 dagen. Ontbreekt er iets, dan krijg je het formulier terug met een lijst van wat mist.</li>
+<li><b>Bewaar de beschikking.</b> Een weigering moet gemotiveerd zijn. Werkgever of werknemer kan binnen 30 dagen in beroep bij de minister.</li>
+</ol>
+<h3>Documenten</h3>
+<ul class="check">
+<li>Ingevuld aanvraagformulier, getekend door werkgever en werknemer</li>
+<li>Recente pasfoto van de werknemer</li>
+<li>Betalingsbewijs van de leges</li>
+<li>Verblijfsvergunning (nog minstens 2 maanden geldig) of het VZ-strookje; originelen meenemen</li>
+<li>Kopie paspoort, nog minstens 4 maanden geldig; origineel meenemen</li>
+<li>Werkgeversverklaring: openingstijden van het bedrijf, werktijden en startdatum, taken, functie-eisen en waarom een buitenlander en niet een Surinamer</li>
+<li>Bewijs dat het bedrijf legaal werkt: KKF-uittreksel, bedrijfsvergunning, statuten</li>
+<li>Diploma's, certificaten en cv in het Nederlands of Engels; vertaalde diploma's gelegaliseerd</li>
+</ul>
+<p>Het formulier vraagt ook naar het brutoloon, de werkplek en de periode waarvoor je de vergunning wilt. De contactpersoon van het bedrijf moet redelijk Nederlands of Sranantongo spreken.</p>
+{% else %}
+<p>The work permit is a permit for the employer, naming one worker and one company (Foreign Work Permits Act, articles 3 and 5). The worker cannot apply for it alone.</p>
+<ol class="steps">
+<li><b>Check that you really need a foreigner.</b> The ministry may refuse if Surinamese workers are available or can be expected (article 7). Keep proof of how you searched locally, for example a vacancy on <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>.</li>
+<li><b>Make sure residence is in order.</b> The worker has a residence permit with at least 2 months left, or the receipt of the application. Without it the application counts as not filed.</li>
+<li><b>Have the documents checked first.</b> The fee is not refundable. The department advises you to have the file checked before you pay.</li>
+<li><b>Pay the fee.</b> USD 100 or the SRD equivalent into the ministry account listed in the leaflet, with the reference "WERKVERGUNNING VREEMDELINGEN", the company name and the worker's name. For gold, oil and timber USD 500 into the account at the Central Bank, also stating the sector.</li>
+<li><b>File in person.</b> At the counter of the Foreign Work Permits department. Employer and worker both sign the form. A representative may file with a letter of authorisation and a copy of ID.</li>
+<li><b>Wait for the decision.</b> Within 30 days, extendable once by 30 days. If something is missing, the form comes back with a list of what is missing.</li>
+<li><b>Keep the decision.</b> A refusal must give reasons. Employer or worker can appeal to the Minister within 30 days.</li>
+</ol>
+<h3>Documents</h3>
+<ul class="check">
+<li>Completed application form, signed by employer and worker</li>
+<li>Recent passport photo of the worker</li>
+<li>Proof of fee payment</li>
+<li>Residence permit (at least 2 months left) or the VZ receipt; bring the originals</li>
+<li>Passport copy, valid for at least 4 more months; bring the original</li>
+<li>Employer statement: company opening hours, working hours and start date, tasks, job requirements and why a foreigner rather than a Surinamese</li>
+<li>Proof the company operates legally: KKF extract (trade register), business licence, articles of association</li>
+<li>Diplomas, certificates and CV in Dutch or English; translated diplomas legalised</li>
+</ul>
+<p>The form also asks for the gross wage, the place of work and the period for which you want the permit. The company contact person must speak reasonable Dutch or Sranan Tongo.</p>
+{% endif %}
+
+<h2>{{ 'De snelle route: One Stop Unit' if nl else 'The fast route: One Stop Unit' }}</h2>
+{% if nl %}
+<p>Sinds 1 november 2024 bestaat een versnelde procedure voor buitenlandse werknemers. In de One Stop Unit (OSU) behandelen medewerkers van Buitenlandse Zaken, Arbeid en Justitie en Veiligheid de MKV, werkvergunning en verblijfsvergunning tegelijk. Het doel bij de start was 21 dagen.</p>
+<ul>
+<li>De werkgever of gemachtigde dient digitaal in. Na goedkeuring krijgt de werknemer een MKV en mag hij volgens het ministerie direct na aankomst aan het werk.</li>
+<li>Na aankomst levert de werkgever alsnog de fysieke documenten in bij Werkvergunning Vreemdelingen. Daarna geeft de Directeur Arbeid de eigenlijke werkvergunning af.</li>
+<li>De afhandeling bij het CBB en de vreemdelingenpolitie bij aankomst loopt apart.</li>
+<li>Volgens Fragomen (juli 2025) en het Amerikaanse Investment Climate Statement 2026 kost de OSU-route USD 1.500 extra aan overheidsleges en duurt ze in de praktijk drie tot vier weken. Het State Department noemt de route bedoeld voor bedrijven met minstens 20 werknemers. Vraag de actuele voorwaarden bij het ministerie.</li>
+</ul>
+{% else %}
+<p>Since 1 November 2024 there is a faster procedure for foreign workers. In the One Stop Unit (OSU), staff from Foreign Affairs, Labour and Justice and Security handle the MKV, work permit and residence permit at the same time. The target at launch was 21 days.</p>
+<ul>
+<li>The employer or representative applies online. After approval the worker gets an MKV and, according to the ministry, may start work on arrival.</li>
+<li>After arrival the employer still hands in the physical documents at the Foreign Work Permits department. The Director of Labour then issues the actual work permit.</li>
+<li>Registration with the CBB and the aliens police on arrival is a separate step.</li>
+<li>According to Fragomen (July 2025) and the US 2026 Investment Climate Statement, the OSU route costs an extra USD 1,500 in government fees and takes three to four weeks in practice. The State Department describes it as intended for companies with at least 20 employees. Ask the ministry for the current conditions.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Kosten en doorlooptijd' if nl else 'Costs and processing times' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Onderdeel</th><th>Kosten</th><th>Doorlooptijd</th></tr></thead><tbody>
+<tr><td data-l="Onderdeel">Entry fee (toerisme, familie)</td><td data-l="Kosten">USD 50 of EUR 50, plus VFS-servicekosten</td><td data-l="Doorlooptijd">Direct online</td></tr>
+<tr><td data-l="Onderdeel">E-visum</td><td data-l="Kosten">Volgens de VFS-tarieflijst; niet terugbetaalbaar bij weigering</td><td data-l="Doorlooptijd">Meestal binnen 72 uur na betaling, volgens VFS</td></tr>
+<tr><td data-l="Onderdeel">MKV</td><td data-l="Kosten">Vraag het consulaat</td><td data-l="Doorlooptijd">Vaak maanden in de gewone route</td></tr>
+<tr><td data-l="Onderdeel">Verblijfsvergunning</td><td data-l="Kosten">USD 150 plus plakzegel SRD 1,50</td><td data-l="Doorlooptijd">Geen wettelijke termijn gepubliceerd; vraag de Loketdienst</td></tr>
+<tr><td data-l="Onderdeel">Werkvergunning</td><td data-l="Kosten">USD 100; USD 500 in goud, olie en hout</td><td data-l="Doorlooptijd">30 dagen, maximaal 60</td></tr>
+<tr><td data-l="Onderdeel">OSU-route (optioneel)</td><td data-l="Kosten">USD 1.500 extra</td><td data-l="Doorlooptijd">Doel 21 dagen; in de praktijk 3 tot 4 weken</td></tr>
+<tr><td data-l="Onderdeel">PSA-document</td><td data-l="Kosten">EUR 120 volwassene, EUR 70 kind</td><td data-l="Doorlooptijd">Online; soms 1 tot 2 weken bij een compleet dossier</td></tr>
+</tbody></table>
+<p>Leges in USD betaal je meestal in SRD tegen de koers van die dag. Reken het om met de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Item</th><th>Cost</th><th>Time</th></tr></thead><tbody>
+<tr><td data-l="Item">Entry fee (tourism, family)</td><td data-l="Cost">USD 50 or EUR 50, plus VFS service fee</td><td data-l="Time">Instant online</td></tr>
+<tr><td data-l="Item">E-visa</td><td data-l="Cost">Per the VFS fee list; not refunded if refused</td><td data-l="Time">Usually within 72 hours of payment, according to VFS</td></tr>
+<tr><td data-l="Item">MKV</td><td data-l="Cost">Ask the consulate</td><td data-l="Time">Often months in the standard route</td></tr>
+<tr><td data-l="Item">Residence permit</td><td data-l="Cost">USD 150 plus SRD 1.50 stamp</td><td data-l="Time">No statutory period published; ask the counter</td></tr>
+<tr><td data-l="Item">Work permit</td><td data-l="Cost">USD 100; USD 500 in gold, oil and timber</td><td data-l="Time">30 days, at most 60</td></tr>
+<tr><td data-l="Item">OSU route (optional)</td><td data-l="Cost">USD 1,500 extra</td><td data-l="Time">Target 21 days; 3 to 4 weeks in practice</td></tr>
+<tr><td data-l="Item">PSA document</td><td data-l="Cost">EUR 120 adult, EUR 70 child</td><td data-l="Time">Online; sometimes 1 to 2 weeks with a complete file</td></tr>
+</tbody></table>
+<p>Fees quoted in USD are usually paid in SRD at that day's rate. Convert with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Verlengen' if nl else 'Renewals' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Verblijfsvergunning:</b> dien de verlenging uiterlijk 3 maanden voor het verlopen in bij de Loketdienst. Voor personen van Surinaamse origine en voor overige vreemdelingen gelden verschillende documentenlijsten.</li>
+<li><b>Werkvergunning:</b> de wet noemt geen maximale looptijd; je vraagt een periode aan op het formulier. In de praktijk is een werkvergunning vaak een jaar geldig. Een verlenging kost opnieuw USD 100 (of USD 500) en loopt via dezelfde procedure. Vraag haar tijdig aan, want de verblijfsvergunning moet bij indiening nog minstens 2 maanden geldig zijn.</li>
+<li><b>PSA-document:</b> 5 jaar geldig, op verzoek te verlengen.</li>
+</ul>
+<p>Zet beide einddata in één agenda. Een verlopen verblijfsvergunning blokkeert ook de verlenging van de werkvergunning.</p>
+{% else %}
+<ul>
+<li><b>Residence permit:</b> file the renewal at the counter no later than 3 months before it expires. People of Surinamese origin and other foreigners have different document lists.</li>
+<li><b>Work permit:</b> the law sets no maximum term; you request a period on the form. In practice a work permit is often valid for one year. A renewal costs USD 100 (or USD 500) again and follows the same procedure. Apply in time, because the residence permit must still have at least 2 months left when you file.</li>
+<li><b>PSA document:</b> valid for 5 years, renewable on request.</li>
+</ul>
+<p>Put both expiry dates in one calendar. An expired residence permit also blocks the renewal of the work permit.</p>
+{% endif %}
 
 <h2>{{ 'Wie heeft geen werkvergunning nodig?' if nl else 'Who does not need a work permit?' }}</h2>
-<ul>
- <li>{{ 'Houders van een PSA kaart (Personen van Surinaamse Afkomst)' if nl else 'Holders of a PSA card (Persons of Surinamese Origin)' }}</li>
- <li>{{ 'Remigranten van Surinaamse afkomst' if nl else 'Returning migrants of Surinamese origin' }}</li>
- <li>{{ 'Buitenlanders getrouwd met een Surinamer' if nl else 'Foreigners married to a Surinamese citizen' }}</li>
- <li>{{ 'CARICOM skilled nationals (met een CARICOM Skills Certificate)' if nl else 'CARICOM skilled nationals (with a CARICOM Skills Certificate)' }}</li>
- <li>{{ 'Vluchtelingen en landsdienaren' if nl else 'Refugees and civil servants' }}</li>
+{% if nl %}
+<p>Volgens het ministerie is geen werkvergunning nodig voor een buitenlander die:</p>
+<ul class="check">
+<li>getrouwd is met een Surinaamse burger</li>
+<li>remigrant van Surinaamse afkomst is</li>
+<li>erkend vluchteling is</li>
+<li>landsdienaar is (in overheidsdienst onder de Personeelswet)</li>
+<li>CARICOM skilled national is, met een CARICOM Skills Certificate</li>
+<li>een PSA-kaart of PSA-document heeft</li>
 </ul>
-<p>{{ 'Let op: een Nederlands paspoort alleen geeft geen vrijstelling. Dat lukt alleen via PSA status of Surinaamse afkomst.' if nl else 'Note: a Dutch passport alone does not exempt you. Only PSA status or Surinamese origin does.' }}</p>
-
-<h2>{{ 'Werkvergunning aanvragen' if nl else 'Applying for a work permit' }}</h2>
-<table class="tbl"><tbody>
- <tr><td>{{ 'Waar' if nl else 'Where' }}</td><td>{{ 'Ministerie van Arbeid, Werkgelegenheid en Jeugdzaken, afdeling Werkvergunning Vreemdelingen, Lalla Rookhweg 25, Paramaribo (tel. 463543)' if nl else 'Ministry of Labour, Employment and Youth Affairs, Foreign Work Permits department, Lalla Rookhweg 25, Paramaribo (tel. 463543)' }}</td></tr>
- <tr><td>{{ 'Wie vraagt aan' if nl else 'Who applies' }}</td><td>{{ 'De werkgever of een gemachtigde. Werkgever en werknemer ondertekenen samen.' if nl else 'The employer or an authorised representative. Employer and employee both sign.' }}</td></tr>
- <tr><td>{{ 'Kosten' if nl else 'Fee' }}</td><td>{{ 'USD 100 per aanvraag of verlenging (in SRD). Goud, olie en hout: USD 500. Sinds 2 januari 2023.' if nl else 'USD 100 per application or extension (paid in SRD). Gold, oil and timber sectors: USD 500. Since 2 January 2023.' }}</td></tr>
- <tr><td>{{ 'Beslistermijn' if nl else 'Decision' }}</td><td>{{ 'Binnen 30 dagen, eenmaal te verlengen met 30 dagen' if nl else 'Within 30 days, extendable once by 30 days' }}</td></tr>
- <tr><td>{{ 'Bezwaar' if nl else 'Appeal' }}</td><td>{{ 'Bij de minister, binnen 30 dagen' if nl else 'To the Minister, within 30 days' }}</td></tr>
-</tbody></table>
-<h3>{{ 'Documenten' if nl else 'Documents' }}</h3>
-<ol>
- <li>{{ 'Ingevuld en ondertekend aanvraagformulier met pasfoto' if nl else 'Completed and signed application form with passport photo' }}</li>
- <li>{{ 'Betalingsbewijs van de leges' if nl else 'Proof of fee payment' }}</li>
- <li>{{ 'Geldige verblijfsvergunning (nog minstens 2 maanden) of bewijs van aanvraag' if nl else 'Valid residence permit (at least 2 months left) or proof of application' }}</li>
- <li>{{ 'Kopie paspoort, nog minstens 4 maanden geldig' if nl else 'Passport copy, valid for at least 4 more months' }}</li>
- <li>{{ 'Verklaring van de werkgever: functie, uren, startdatum en waarom een buitenlander nodig is' if nl else 'Employer statement: job, hours, start date and why a foreigner is needed' }}</li>
- <li>{{ 'Bewijs dat het bedrijf legaal actief is: KKF uittreksel en vergunning' if nl else 'Proof the company operates legally: KKF extract and licence' }}</li>
- <li>{{ 'Diploma\'s en CV in het Nederlands of Engels, vertalingen gelegaliseerd' if nl else 'Diplomas and CV in Dutch or English, translations legalised' }}</li>
-</ol>
-<p>{{ 'Werken zonder vergunning is strafbaar voor de werkgever: tot 6 maanden hechtenis of een boete.' if nl else 'Employing someone without a permit is an offence for the employer: up to 6 months detention or a fine.' }}</p>
-
-<h2>{{ 'Verblijfsvergunning' if nl else 'Residence permit' }}</h2>
-<ul>
- <li>{{ 'Aanvragen bij de Hoofdafdeling Vreemdelingenzaken van het Ministerie van Justitie en Politie, mr. J. Lachmonstraat 166-168, Paramaribo. In Nickerie via het Districtscommissariaat.' if nl else 'Apply at the Aliens Affairs department of the Ministry of Justice and Police, mr. J. Lachmonstraat 166-168, Paramaribo. In Nickerie through the District Commissariat.' }}</li>
- <li>{{ 'Nodig: verzoekbrief aan de minister, plakzegel van SRD 1,50, kopie van het paspoort, bewijs van middelen van bestaan en betalingsbewijs.' if nl else 'Needed: request letter to the Minister, SRD 1.50 stamp, passport copy, proof of means of support and proof of payment.' }}</li>
- <li>{{ 'Tijdelijke vergunning voor maximaal 2 jaar, verlengbaar. Vraag verlenging minstens 3 maanden voor het verlopen aan.' if nl else 'Temporary permit for up to 2 years, renewable. Apply for renewal at least 3 months before it expires.' }}</li>
- <li>{{ 'Visumplichtige buitenlanders die langer dan 3 maanden blijven, hebben vooraf een Machtiging Kort Verblijf (MKV) nodig via een ambassade of consulaat.' if nl else 'Visa-required foreigners staying longer than 3 months need an Authorisation for Temporary Stay (MKV) from an embassy or consulate before arrival.' }}</li>
+<p>Een Nederlands paspoort alleen geeft geen vrijstelling. Die komt alleen via PSA-status of Surinaamse afkomst.</p>
+<h3>PSA: Personen van Surinaamse Afkomst</h3>
+<p>De Wet PSA (S.B. 2014 no. 8) geeft Surinamers met een andere nationaliteit een bijzondere status. Je komt in aanmerking als je in Suriname bent geboren, of als een ouder of grootouder van Surinaamse afkomst is. Je wettige partner en minderjarige kinderen kunnen meekomen. De PSA geeft visumvrije toegang, verblijf, toegang tot de arbeidsmarkt zonder werkvergunning en het recht om een bankrekening te openen. Je vraagt het document volledig online aan via psa.gov.sr, met onder meer een (gelegaliseerde) geboorteakte. Sinds februari 2026 kost het EUR 120 voor volwassenen en EUR 70 voor kinderen. Het ministerie raadt af om via tussenpersonen te gaan.</p>
+<h3>CARICOM skilled nationals</h3>
+<p>Burgers van CARICOM-landen met een Skills Certificate mogen zonder werkvergunning werken. Het certificaat geldt voor vaste categorieën, zoals universitair afgestudeerden, verpleegkundigen, leraren, mediawerkers, kunstenaars, musici, sporters, ambachtslieden met een CVQ, houders van een associate degree, huishoudelijk personeel, landbouwwerkers en particuliere beveiligers. Het certificaat wordt uitgegeven door het daartoe aangewezen ministerie in een CARICOM-land. Vraag bij Werkvergunning Vreemdelingen hoe Suriname het certificaat controleert voordat je iemand laat beginnen.</p>
+<h3>Remigranten</h3>
+<p>Ben je Surinamer, dan heb je geen vergunning nodig. Heb je een andere nationaliteit maar Surinaamse wortels, dan is PSA meestal de makkelijkste weg. Personen van Surinaamse origine zijn ook vrijgesteld van de MKV en kunnen direct verblijf voor onbepaalde tijd aanvragen.</p>
+{% else %}
+<p>According to the ministry, no work permit is needed for a foreigner who:</p>
+<ul class="check">
+<li>is married to a Surinamese citizen</li>
+<li>is a returning migrant (remigrant) of Surinamese origin</li>
+<li>is a recognised refugee</li>
+<li>is a civil servant (landsdienaar) under the Civil Service Act</li>
+<li>is a CARICOM skilled national with a CARICOM Skills Certificate</li>
+<li>holds a PSA card or PSA document</li>
 </ul>
+<p>A Dutch passport alone does not exempt you. Only PSA status or Surinamese origin does.</p>
+<h3>PSA: Persons of Surinamese Origin</h3>
+<p>The PSA Act (S.B. 2014 no. 8) gives Surinamese people with another nationality a special status. You qualify if you were born in Suriname, or if a parent or grandparent is of Surinamese origin. Your legal spouse and minor children can be included. PSA gives visa-free entry, residence, access to the labour market without a work permit and the right to open a bank account. You apply fully online at psa.gov.sr, with among other things a (legalised) birth certificate. Since February 2026 it costs EUR 120 for adults and EUR 70 for children. The ministry advises against using intermediaries.</p>
+<h3>CARICOM skilled nationals</h3>
+<p>Citizens of CARICOM states with a Skills Certificate may work without a work permit. The certificate covers fixed categories, such as university graduates, nurses, teachers, media workers, artistes, musicians, sportspersons, artisans with a CVQ, associate degree holders, domestic workers, agricultural workers and private security officers. It is issued by the designated ministry in a CARICOM state. Ask the Foreign Work Permits department how Suriname verifies the certificate before the person starts.</p>
+<h3>Returning migrants</h3>
+<p>If you are a Surinamese national, you need no permit. If you have another nationality but Surinamese roots, PSA is usually the easiest route. People of Surinamese origin are also exempt from the MKV and can apply directly for permanent residence.</p>
+{% endif %}
 
-<h2>{{ 'PSA: voor mensen van Surinaamse afkomst' if nl else 'PSA: for people of Surinamese origin' }}</h2>
-<p>{{ 'Ben je in Suriname geboren, of is een ouder of grootouder dat? Dan kun je de PSA status aanvragen. Die geeft visumvrije toegang, recht op verblijf en het recht om te werken zonder werkvergunning. De kaart is 5 jaar geldig en verlengbaar. Aanvragen via psa.gov.sr.' if nl else 'Were you born in Suriname, or was a parent or grandparent? Then you can apply for PSA status. It gives visa-free entry, the right to reside and the right to work without a work permit. The card is valid for 5 years and renewable. Apply at psa.gov.sr.' }}</p>
+<h2>{{ 'Gezinsleden' if nl else 'Family members' }}</h2>
+{% if nl %}
+<ul>
+<li>Het VFS-portaal heeft een aparte e-visumcategorie voor gezinshereniging. Partner en kinderen hebben elk een eigen verblijfsvergunning nodig.</li>
+<li>Het gezin van een persoon van Surinaamse origine (partner en minderjarige kinderen die tot het gezin behoren) valt in dezelfde gunstige categorie en is vrijgesteld van de MKV.</li>
+<li>De partner van een buitenlandse werknemer mag niet automatisch werken. De vrijstelling geldt alleen voor wie met een Surinamer getrouwd is. Wil de partner werken, dan vraagt diens eigen werkgever een werkvergunning aan.</li>
+<li>Neem gelegaliseerde huwelijks- en geboorteakten mee, met een vertaling als ze niet in het Nederlands of Engels zijn.</li>
+</ul>
+{% else %}
+<ul>
+<li>The VFS portal has a separate e-visa category for family reunion. Spouse and children each need their own residence permit.</li>
+<li>The family of a person of Surinamese origin (spouse and minor children who belong to the household) falls in the same favourable category and is exempt from the MKV.</li>
+<li>The spouse of a foreign worker may not automatically work. The exemption only applies to people married to a Surinamese citizen. If the spouse wants to work, their own employer applies for a work permit.</li>
+<li>Bring legalised marriage and birth certificates, with a translation if they are not in Dutch or English.</li>
+</ul>
+{% endif %}
 
-<div class="note">{{ 'Regels en tarieven veranderen. Controleer altijd bij het ministerie voordat je indient.' if nl else 'Rules and fees change. Always check with the ministry before you file.' }}</div>
-<p style="margin-top:16px">{{ 'Na je aankomst:' if nl else 'After you arrive:' }} <a href="{{ U('salary') }}">{{ L('salary') }}</a> &middot; <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('jobs') }}">{{ L('jobs') }}</a> &middot; {{ 'Wonen en rondkijken:' if nl else 'Living and getting around:' }} <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a></p>
+<h2>{{ 'Wat de werkgever moet bijhouden' if nl else 'What the employer must keep on file' }}</h2>
+{% if nl %}
+<p>De Arbeidsinspectie controleert of buitenlanders een geldige werkvergunning hebben. In mei 2025 zijn inspecteurs extra getraind op de Wet Werkvergunning Vreemdelingen. Zorg dat je bij een bezoek alles direct kunt laten zien.</p>
+<ul class="check">
+<li>Kopie van de werkvergunning en de beschikking, met einddatum</li>
+<li>Kopie van de verblijfsvergunning of het VZ-strookje</li>
+<li>Kopie van het paspoort</li>
+<li>Arbeidsovereenkomst met functie, loon en werkplek zoals op de aanvraag</li>
+<li>Betalingsbewijzen van de leges</li>
+<li>Bewijs van je zoektocht naar lokale kandidaten</li>
+<li>Loonadministratie: loonbelasting en AOV, zoals voor iedere werknemer. Zie <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+</ul>
+<p>Gebruik je de vergunning niet, of vertrekt de werknemer, meld dat dan schriftelijk aan de Directeur Arbeid (artikel 9). Het ministerie kan de aanvraag ook weigeren als het bedrijf niet op het opgegeven adres te vinden is of als onderzoek wordt belemmerd.</p>
+<div class="note">Werken zonder vergunning is strafbaar voor de werkgever: hechtenis tot 6 maanden of een geldboete van de derde categorie (bij de wetswijziging van 2022 maximaal SRD 25.000). De straf kan per werknemer en per dag worden opgelegd. De Arbeidsinspectie kan, afhankelijk van de ernst, eerst de kans geven om het te herstellen.</div>
+<p>Arbeidsinspectie: Gemenelandsweg 83-85, Paramaribo, tel. 470614, 471660 of 472279 (laatst gepubliceerde gegevens, van voor de overgang naar het ministerie van VWA; bel vooraf).</p>
+{% else %}
+<p>The Labour Inspectorate checks whether foreigners hold a valid work permit. In May 2025 inspectors received extra training on the Foreign Work Permits Act. Make sure you can show everything straight away during a visit.</p>
+<ul class="check">
+<li>Copy of the work permit and the decision, with expiry date</li>
+<li>Copy of the residence permit or the VZ receipt</li>
+<li>Copy of the passport</li>
+<li>Employment contract with job, wage and workplace as on the application</li>
+<li>Proof of fee payments</li>
+<li>Proof of your search for local candidates</li>
+<li>Payroll records: wage tax and AOV (old-age pension contribution), as for every employee. See <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+</ul>
+<p>If you do not use the permit, or the worker leaves, notify the Director of Labour in writing (article 9). The ministry can also refuse an application if the company cannot be found at the address given or if the investigation is obstructed.</p>
+<div class="note">Employing someone without a permit is an offence for the employer: detention of up to 6 months or a third-category fine (at most SRD 25,000 at the time of the 2022 amendment). The penalty can be imposed per worker and per day. Depending on the seriousness, the Labour Inspectorate can first give you the chance to correct it.</div>
+<p>Labour Inspectorate: Gemenelandsweg 83-85, Paramaribo, tel. 470614, 471660 or 472279 (last published details, from before the move to the Ministry of VWA; call ahead).</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li>De werknemer laten beginnen voordat de vergunning er is. Buiten de OSU-route is dat niet toegestaan.</li>
+<li>Als toerist of op een zakenvisum komen en dan in Suriname een MKV willen aanvragen. Dat kan niet.</li>
+<li>Leges betalen voordat het dossier is gecontroleerd. Ze worden niet terugbetaald.</li>
+<li>Een verblijfsvergunning die binnen 2 maanden afloopt. Dan wordt de werkvergunningaanvraag niet in behandeling genomen.</li>
+<li>Diploma's in een andere taal dan Nederlands of Engels, of vertalingen zonder legalisatie.</li>
+<li>Denken dat de vergunning met de werknemer meegaat. Ze geldt voor één werkgever; een nieuwe werkgever vraagt een nieuwe aan.</li>
+<li>De verlenging te laat starten. Begin minstens 3 maanden voor de einddatum.</li>
+</ul>
+{% else %}
+<ul>
+<li>Letting the worker start before the permit is issued. Outside the OSU route that is not allowed.</li>
+<li>Arriving as a tourist or on a business visa and then trying to apply for an MKV in Suriname. That is not possible.</li>
+<li>Paying the fee before the file has been checked. It is not refunded.</li>
+<li>A residence permit that expires within 2 months. The work permit application will then not be processed.</li>
+<li>Diplomas in a language other than Dutch or English, or translations without legalisation.</li>
+<li>Assuming the permit moves with the worker. It is valid for one employer; a new employer applies for a new one.</li>
+<li>Starting the renewal too late. Start at least 3 months before the expiry date.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+<li><b>De aanvraag wordt geweigerd?</b> Lees de motivering. Werkgever of werknemer kan binnen 30 dagen na de bekendmaking in beroep bij de minister. Bij overmacht kan de minister een te laat beroep toch toelaten.</li>
+<li><b>Er komt na 30 dagen geen beslissing?</b> Het ministerie mag de termijn eenmaal met 30 dagen verlengen en moet je dat laten weten. Vraag schriftelijk naar de status.</li>
+<li><b>De werknemer wil van baan wisselen?</b> De nieuwe werkgever vraagt een nieuwe werkvergunning aan. De oude werkgever meldt dat de vergunning niet meer wordt gebruikt.</li>
+<li><b>De verblijfsvergunning wordt ingetrokken?</b> Dan trekt het ministerie de werkvergunning ook in (artikel 8).</li>
+<li><b>Je wilt een eigen bedrijf beginnen?</b> Een werkvergunning is voor loondienst. Voor een eigen zaak heb je een verblijfsvergunning nodig met bewijs van middelen van bestaan. Zie <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+<li><b>The application is refused?</b> Read the reasons. Employer or worker can appeal to the Minister within 30 days of notification. In case of force majeure the Minister may accept a late appeal.</li>
+<li><b>No decision after 30 days?</b> The ministry may extend the period once by 30 days and must tell you. Ask for the status in writing.</li>
+<li><b>The worker wants to change jobs?</b> The new employer applies for a new work permit. The old employer reports that the permit is no longer used.</li>
+<li><b>The residence permit is withdrawn?</b> The ministry then also withdraws the work permit (article 8).</li>
+<li><b>You want to start your own business?</b> A work permit is for employment. For your own business you need a residence permit with proof of means of support. See <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Adressen' if nl else 'Addresses' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Werkvergunning Vreemdelingen</b> (Ministerie van Volksgezondheid, Welzijn en Arbeid): Lalla Rookhweg 25, Paramaribo, tel. 463543. Bel vooraf voor de actuele balie en openingstijden.</li>
+<li><b>Vreemdelingenzaken, Loketdienst</b> (Ministerie van Justitie en Veiligheid): mr. J. Lachmonstraat 166-168, Paramaribo. Onderdirectoraat Vreemdelingenzaken: Verlengde Keizerstraat 7, tel. 427197.</li>
+<li><b>Arbeidsinspectie</b>: Gemenelandsweg 83-85, tel. 470614.</li>
+<li>Meer instanties: <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</li>
+</ul>
+<p><a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a> &middot; <a href="{{ U('jobs') }}">{{ L('jobs') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a> &middot; Wonen en rondkijken: <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a></p>
+{% else %}
+<ul>
+<li><b>Foreign Work Permits department</b> (Ministry of Health, Welfare and Labour): Lalla Rookhweg 25, Paramaribo, tel. 463543. Call ahead for the current counter and opening hours.</li>
+<li><b>Aliens Affairs counter</b> (Ministry of Justice and Security): mr. J. Lachmonstraat 166-168, Paramaribo. Aliens Affairs head office: Verlengde Keizerstraat 7, tel. 427197.</li>
+<li><b>Labour Inspectorate</b>: Gemenelandsweg 83-85, tel. 470614.</li>
+<li>More offices: <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</li>
+</ul>
+<p><a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a> &middot; <a href="{{ U('jobs') }}">{{ L('jobs') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a> &middot; Living and getting around: <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a></p>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
- <li><a href="https://www.dna.sr/media/c0higvnc/werkvergunning_vreemdelingen.pdf" rel="noopener">Wet Werkvergunning Vreemdelingen (DNA)</a></li>
- <li><a href="https://gov.sr/wp-content/uploads/2025/03/WV-folder-Nederlandse-versie-2024pdf.pdf" rel="noopener">Ministerie AWJ: folder werkvergunning 2024</a></li>
- <li><a href="https://gov.sr/wp-content/uploads/2022/12/Bekendmaking-WV-vastelling-aangepast-tarief-met-rek-nummers-291222.pdf" rel="noopener">Ministerie AWJ: tarieven werkvergunning 2023</a></li>
- <li><a href="https://gov.sr/wp-content/uploads/2024/10/Verblijfsvergunningen.pdf" rel="noopener">Ministerie JusPol: verblijfsvergunningen</a></li>
+ <li><a href="https://www.dna.sr/media/c0higvnc/werkvergunning_vreemdelingen.pdf" rel="noopener">Wet Werkvergunning Vreemdelingen, S.B. 1981 no. 162 (DNA)</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/03/WVS.B.-2022-no.-144_-WET-1-december-2022-houdende-nadere-wijziging-Wet-Werkvergunning-Vreemdelingen-S.B.-1981-no.-162-zoals-gewijzigd-bij-S.B.-2002-no.-23.pdf" rel="noopener">{{ 'Wijziging Wet Werkvergunning Vreemdelingen, S.B. 2022 no. 144' if nl else 'Amendment of the Foreign Work Permits Act, S.B. 2022 no. 144' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/03/WV-folder-Nederlandse-versie-2024pdf.pdf" rel="noopener">{{ 'Folder werkvergunning 2024' if nl else 'Work permit leaflet 2024' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/12/Bekendmaking-WV-vastelling-aangepast-tarief-met-rek-nummers-291222.pdf" rel="noopener">{{ 'Bekendmaking tarief werkvergunning per 2 januari 2023' if nl else 'Work permit fee notice from 2 January 2023' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/10/Verblijfsvergunningen.pdf" rel="noopener">{{ 'Ministerie van Justitie en Politie: verblijfsvergunningen' if nl else 'Ministry of Justice and Police: residence permits' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/09/PRESIDENTIEEL-BESLUIT-aanpassing-instelling-Departementen-van-Algemeen-Bestuur-S.B.-2025-no.-94.pdf" rel="noopener">{{ 'Presidentieel Besluit ministeries, S.B. 2025 no. 94' if nl else 'Presidential decree on ministries, S.B. 2025 no. 94' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-volksgezondheid-welzijn-arbeid/contact-2/" rel="noopener">{{ 'Ministerie van Volksgezondheid, Welzijn en Arbeid: contact' if nl else 'Ministry of Health, Welfare and Labour: contact' }}</a></li>
+ <li><a href="https://gov.sr/introductie-versoepelde-procedure-voor-werk-en-verblijfsvergunningen-buitenlandse-werknemers/" rel="noopener">{{ 'GOV.SR: versoepelde procedure en One Stop Unit (oktober 2024)' if nl else 'GOV.SR: simplified procedure and One Stop Unit (October 2024)' }}</a></li>
+ <li><a href="https://gov.sr/awj-geeft-toelichting-op-versnelde-procedure-werkvergunningen/" rel="noopener">{{ 'GOV.SR: toelichting versnelde procedure (mei 2025)' if nl else 'GOV.SR: fast-track procedure explained (May 2025)' }}</a></li>
+ <li><a href="https://gov.sr/arbeidsinspecteurs-versterkt-in-handhaving-wet-werkvergunning-vreemdelingen/" rel="noopener">{{ 'GOV.SR: arbeidsinspecteurs en handhaving (mei 2025)' if nl else 'GOV.SR: labour inspectors and enforcement (May 2025)' }}</a></li>
+ <li><a href="https://suriname.vfsevisa.com/suriname/online/home/entry-fee" rel="noopener">VFS Global Suriname: entry fee {{ 'en e-visum' if nl else 'and e-visa' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/12/2024.03.27-Announcement-Entry-Fee-Adjustment.pdf" rel="noopener">{{ 'Buitenlandse Zaken: aanpassing entry fee per 15 mei 2024' if nl else 'Foreign Affairs: entry fee adjustment from 15 May 2024' }}</a></li>
+ <li><a href="https://icf.sr/" rel="noopener">Immigration Customs Form (ICF)</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-buitenlandse-zaken-internationale-handel-samenwerking/personen-van-surinaamse-afkomst-psa/" rel="noopener">{{ 'Buitenlandse Zaken: Personen van Surinaamse Afkomst (PSA)' if nl else 'Foreign Affairs: Persons of Surinamese Origin (PSA)' }}</a></li>
+ <li><a href="https://psa.gov.sr/" rel="noopener">{{ 'PSA aanvraagportaal' if nl else 'PSA application portal' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2026/02/05/psa-aanvragen-schieten-omhoog-diaspora-profiteert-van-lagere-kosten-en-snellere-online-procedure/" rel="noopener">{{ 'Waterkant: lagere PSA-kosten (februari 2026)' if nl else 'Waterkant: lower PSA fees (February 2026)' }}</a></li>
+ <li><a href="https://caricom.org/wp-content/uploads/DEFINITIONS-of-Categories-of-Skilled-Nationals-as-at-December-2025.pdf" rel="noopener">{{ 'CARICOM: categorieën skilled nationals (december 2025)' if nl else 'CARICOM: categories of skilled nationals (December 2025)' }}</a></li>
+ <li><a href="https://www.fragomen.com/insights/suriname-fast-track-service-now-in-effect-for-immigration-filings.html" rel="noopener">Fragomen: fast-track service (juli 2025)</a></li>
+ <li><a href="https://www.fragomen.com/countries/suriname-highlight.html" rel="noopener">Fragomen: Suriname immigration</a></li>
+ <li><a href="https://www.state.gov/reports/2026-investment-climate-statements/suriname" rel="noopener">U.S. Department of State: 2026 Investment Climate Statement Suriname</a></li>
  <li><a href="https://www.doingbusinessdutchcaribbean.com/suriname/immigration-sur/foreign-nationals-sur/" rel="noopener">Doing Business Dutch Caribbean: foreign nationals</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

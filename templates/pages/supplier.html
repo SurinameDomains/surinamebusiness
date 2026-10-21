@@ -1,22 +1,264 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
+{% set G = F.GRANMORGU %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'Leverancier worden in de olie en gas sector' if nl else 'Become a supplier to Suriname\'s oil and gas sector' }}</h1>
-<p class="lead">{{ 'Er zijn twee registraties. Het Suriname Supplier Registration Portal (SSRP) is voor alle offshore operators en is gratis. SAP Ariba is alleen voor leveringen aan Staatsolie zelf.' if nl else 'There are two registrations. The Suriname Supplier Registration Portal (SSRP) serves all offshore operators and is free. SAP Ariba is only for supplying Staatsolie itself.' }}</p>
-<h2>{{ 'Stap voor stap' if nl else 'Step by step' }}</h2>
-<ol>
- <li><b>{{ 'Zorg dat je bedrijf op orde is.' if nl else 'Get your company in order.' }}</b> {{ 'Inschrijving bij de KKF, een FIN nummer van de Belastingdienst en waar nodig een bedrijfsvergunning.' if nl else 'KKF registration, a tax (FIN) number and a business licence where required.' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
- <li><b>{{ 'Registreer in het SSRP.' if nl else 'Register in the SSRP.' }}</b> {{ 'Via het portaal krijg je toegang tot tenders, RFI\'s en andere inkoop van alle bedrijven die offshore actief zijn.' if nl else 'The portal gives access to tenders, RFIs and other procurement by all companies active offshore.' }} <a href="{{ F.PORTALS.ssrp }}" rel="noopener">{{ 'Naar het SSRP' if nl else 'Go to the SSRP' }}</a></li>
- <li><b>{{ 'Wil je aan Staatsolie leveren? Registreer ook in SAP Ariba.' if nl else 'Supplying Staatsolie? Also register in SAP Ariba.' }}</b> <a href="{{ F.PORTALS.ariba }}" rel="noopener">{{ 'Ariba registratie' if nl else 'Ariba registration' }}</a></li>
- <li><b>{{ 'Volg de open tenders.' if nl else 'Watch open tenders.' }}</b> {{ 'Staatsolie publiceert verzoeken om interesse (EOI) met een sluitingsdatum, vaak binnen twee tot drie weken.' if nl else 'Staatsolie publishes expressions of interest (EOI) with a deadline, often within two to three weeks.' }} <a href="{{ U('tenders') }}">{{ 'Bekijk de lijst' if nl else 'See the list' }}</a></li>
- <li><b>{{ 'Bouw aan je kwalificaties.' if nl else 'Build your qualifications.' }}</b> {{ 'Operators letten op HSE (veiligheid), kwaliteitssystemen en referenties. Het Blue Wave programma van Staatsolie helpt lokale leveranciers zich te ontwikkelen.' if nl else 'Operators look at HSE (safety), quality systems and references. Staatsolie\'s Blue Wave programme helps local suppliers develop.' }}</li>
+<h1>{{ 'Leverancier worden in de olie- en gassector' if nl else 'Become a supplier to Suriname\'s oil and gas sector' }}</h1>
+{% if nl %}
+<p class="lead">Je registreert je gratis in het Suriname Supplier Registration Portal (SSRP), dat alle offshore operators en hun onderaannemers gebruiken om lokale leveranciers te vinden. Wil je aan Staatsolie zelf leveren, dan registreer je ook in SAP Ariba. Registratie is geen contract: je wint werk door snel en volledig te reageren op verzoeken om interesse (EOI) en door aan te tonen dat je veilig, betrouwbaar en op niveau levert.</p>
+{% else %}
+<p class="lead">You register for free in the Suriname Supplier Registration Portal (SSRP), which all offshore operators and their subcontractors use to find local suppliers. To supply Staatsolie itself, you also register in SAP Ariba. Registration is not a contract: you win work by responding quickly and completely to expressions of interest (EOI) and by showing that you deliver safely, reliably and to standard.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Lokaal besteed in 2025' if nl else 'Spent locally in 2025' }}</div><div class="big">USD 367 {{ 'mln' if nl else 'm' }}</div><div class="sub">{{ 'door de hele olie- en gasindustrie' if nl else 'by the whole oil and gas industry' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Nieuwe leveranciers 2025' if nl else 'New suppliers 2025' }}</div><div class="big">{{ num(G.new_suppliers_2025, 0) }}</div><div class="sub">{{ 'geregistreerd in het portaal' if nl else 'registered in the portal' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste olie GranMorgu' if nl else 'GranMorgu first oil' }}</div><div class="big">{{ G.first_oil }}</div><div class="sub">{{ 'regering: medio 2028' if nl else 'government: mid-2028' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>SSRP: gratis, beheerd door het Staatsolie Hydrocarbon Institute (SHI), voor werk bij alle offshore operators en hun onderaannemers. Ook een eenmanszaak mag zich registreren.</li>
+ <li>SAP Ariba: alleen voor leveringen aan Staatsolie. Je kunt je in beide portalen registreren.</li>
+ <li>Staatsolie publiceert EOI's op haar website, met een sluitingstermijn van vaak twee tot drie weken. Daarna volgt een shortlist en een Request for Proposal.</li>
+ <li>Er is nog geen wet voor local content. Een Local Content Board werkt aan een ontwerp dat in 2027 naar De Nationale Assemblee moet.</li>
+ <li>In 2025 besteedde Staatsolie USD {{ G.staatsolie_local_2025_musd }} miljoen lokaal en de offshore partners met hun onderaannemers circa USD {{ G.partners_local_2025_musd }} miljoen.</li>
+{% else %}
+ <li>SSRP: free, run by the Staatsolie Hydrocarbon Institute (SHI), for work with all offshore operators and their subcontractors. A sole trader (eenmanszaak) can register too.</li>
+ <li>SAP Ariba: only for supplying Staatsolie. You can register in both portals.</li>
+ <li>Staatsolie publishes EOIs on its website, often with a deadline of two to three weeks. A shortlist and a Request for Proposal follow.</li>
+ <li>There is no Local Content Act yet. A Local Content Board is drafting a bill that is to go to the National Assembly in 2027.</li>
+ <li>In 2025 Staatsolie spent USD {{ G.staatsolie_local_2025_musd }} million locally and the offshore partners and their subcontractors about USD {{ G.partners_local_2025_musd }} million.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie koopt er in?' if nl else 'Who is buying?' }}</h2>
+{% if nl %}
+<p>Je klant is niet altijd de oliemaatschappij zelf. Een groot deel van het werk loopt via hoofdaannemers (tier 1), die op hun beurt lokale onderaannemers zoeken.</p>
+<table class="tbl stack tx"><thead><tr><th>Koper</th><th>Project of blok</th><th>Stand van zaken</th></tr></thead><tbody>
+ <tr><td data-l="Koper"><b>Staatsolie</b></td><td data-l="Project of blok">Onshore olie (Saramacca), raffinaderij, energie, kantoren</td><td data-l="Stand van zaken">Doorlopend inkoop via SAP Ariba en EOI's</td></tr>
+ <tr><td data-l="Koper"><b>TotalEnergies</b> (operator) met APA en Staatsolie</td><td data-l="Project of blok">{{ G.block }}, GranMorgu</td><td data-l="Stand van zaken">In uitvoering; eerste olie {{ G.first_oil }}</td></tr>
+ <tr><td data-l="Koper"><b>Hoofdaannemers GranMorgu</b></td><td data-l="Project of blok">SBM Offshore (FPSO), TechnipFMC (subsea), Saipem (pijpleidingen, SURF), Halliburton (boren en afwerken van putten)</td><td data-l="Stand van zaken">Contracten gegund; zoeken lokale logistiek, opslag, mariene diensten en personeel</td></tr>
+ <tr><td data-l="Koper"><b>Petronas</b></td><td data-l="Project of blok">Blok 52 (gas, Sloanea) en blokken 48, 53, 63, 64, 66; operator van blok 9</td><td data-l="Stand van zaken">Commercialiteit voor Sloanea verklaard in november 2025; ontwikkelingsplan en mogelijk investeringsbesluit in voorbereiding</td></tr>
+ <tr><td data-l="Koper"><b>Chevron</b></td><td data-l="Project of blok">Blokken 5, 7 en 42; operator van blok 10</td><td data-l="Stand van zaken">Exploratie</td></tr>
+ <tr><td data-l="Koper"><b>Shell</b> en <b>QatarEnergy</b></td><td data-l="Project of blok">Shell operator van blok 65; QatarEnergy partner in onder meer blokken 5, 6, 8, 64 en 65</td><td data-l="Stand van zaken">Exploratie; de put Araku Deep-1 in blok 65 vond geen commerciële hoeveelheden</td></tr>
+</tbody></table>
+<p>Staatsolie biedt sinds november 2025 via een Open Door Offering ook nog vrij offshoregebied aan, dus er kunnen meer operators bijkomen. Achtergrond: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% else %}
+<p>Your customer is not always the oil company itself. Much of the work runs through main contractors (tier 1), who in turn look for local subcontractors.</p>
+<table class="tbl stack tx"><thead><tr><th>Buyer</th><th>Project or block</th><th>Status</th></tr></thead><tbody>
+ <tr><td data-l="Buyer"><b>Staatsolie</b></td><td data-l="Project or block">Onshore oil (Saramacca), refinery, power, offices</td><td data-l="Status">Ongoing procurement through SAP Ariba and EOIs</td></tr>
+ <tr><td data-l="Buyer"><b>TotalEnergies</b> (operator) with APA and Staatsolie</td><td data-l="Project or block">{{ G.block }}, GranMorgu</td><td data-l="Status">In execution; first oil {{ G.first_oil }}</td></tr>
+ <tr><td data-l="Buyer"><b>GranMorgu main contractors</b></td><td data-l="Project or block">SBM Offshore (FPSO), TechnipFMC (subsea), Saipem (pipelines, SURF), Halliburton (drilling and well completion)</td><td data-l="Status">Contracts awarded; looking for local logistics, warehousing, marine services and staff</td></tr>
+ <tr><td data-l="Buyer"><b>Petronas</b></td><td data-l="Project or block">Block 52 (gas, Sloanea) and blocks 48, 53, 63, 64, 66; operator of block 9</td><td data-l="Status">Commerciality declared for Sloanea in November 2025; development plan and possible investment decision in preparation</td></tr>
+ <tr><td data-l="Buyer"><b>Chevron</b></td><td data-l="Project or block">Blocks 5, 7 and 42; operator of block 10</td><td data-l="Status">Exploration</td></tr>
+ <tr><td data-l="Buyer"><b>Shell</b> and <b>QatarEnergy</b></td><td data-l="Project or block">Shell operates block 65; QatarEnergy partner in blocks 5, 6, 8, 64 and 65 among others</td><td data-l="Status">Exploration; the Araku Deep-1 well in block 65 found no commercial quantities</td></tr>
+</tbody></table>
+<p>Since November 2025 Staatsolie has also offered open offshore acreage through an Open Door Offering, so more operators may arrive. Background: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'GranMorgu: tijdlijn en waar de kansen zitten' if nl else 'GranMorgu: timeline and where the opportunities are' }}</h2>
+{% if nl %}
+<table class="tbl"><tbody>
+ <tr><td><b>1 oktober 2024</b></td><td>Investeringsbesluit (FID), circa USD {{ num(G.investment_bn_usd, 1) }} miljard, productie tot {{ num(G.capacity_bpd, 0) }} vaten per dag</td></tr>
+ <tr><td><b>November 2024</b></td><td>Grote contracten gegund: SBM Offshore (FPSO, met Technip Energies), TechnipFMC (subsea), Saipem (circa 100 km productieleidingen en 90 km injectieleidingen)</td></tr>
+ <tr><td><b>April 2026</b></td><td>FPSO voor 50% klaar volgens TotalEnergies; subseasystemen in test in Maleisië</td></tr>
+ <tr><td><b>Juli 2026</b></td><td>Halliburton krijgt het contract voor boren en afwerken van de putten</td></tr>
+ <tr><td><b>Vanaf september 2026</b></td><td>Subsea-apparatuur komt in Suriname aan</td></tr>
+ <tr><td><b>Eind 2026 of begin 2027</b></td><td>Start ontwikkelingsboringen, tot 32 putten; booreilanden werken tot 2030</td></tr>
+ <tr><td><b>2028</b></td><td>Eerste olie (regering: medio 2028)</td></tr>
+</tbody></table>
+<p>De grote pakketten (FPSO, subsea, pijpleidingen, boren) zijn gegund aan internationale bedrijven. De kansen voor Surinaamse bedrijven zitten nu in wat die hoofdaannemers en de operator lokaal nodig hebben, nu en tijdens de productie: havenlogistiek en opslag, douane-afhandeling, mariene diensten, transport van personeel, catering en kampen, beveiliging, schoonmaak, afvalbeheer, onderhoud en reparatie, kraan- en materieelverhuur, IT en telecom, uitzendkrachten en training. Volgens TotalEnergies gaat het over de komende tien jaar om ongeveer een half miljard dollar aan contracten voor Surinaamse bedrijven, en verwachtte het bedrijf 600 tot 700 banen in 2026.</p>
+{% else %}
+<table class="tbl"><tbody>
+ <tr><td><b>1 October 2024</b></td><td>Final investment decision (FID), about USD {{ num(G.investment_bn_usd, 1) }} billion, production up to {{ num(G.capacity_bpd, 0) }} barrels a day</td></tr>
+ <tr><td><b>November 2024</b></td><td>Major contracts awarded: SBM Offshore (FPSO, with Technip Energies), TechnipFMC (subsea), Saipem (about 100 km of production flowlines and 90 km of injection lines)</td></tr>
+ <tr><td><b>April 2026</b></td><td>FPSO 50% complete according to TotalEnergies; subsea systems being tested in Malaysia</td></tr>
+ <tr><td><b>July 2026</b></td><td>Halliburton awarded the drilling and completion contract</td></tr>
+ <tr><td><b>From September 2026</b></td><td>Subsea equipment arrives in Suriname</td></tr>
+ <tr><td><b>Late 2026 or early 2027</b></td><td>Development drilling starts, up to 32 wells; rigs working until 2030</td></tr>
+ <tr><td><b>2028</b></td><td>First oil (government: mid-2028)</td></tr>
+</tbody></table>
+<p>The big packages (FPSO, subsea, pipelines, drilling) have gone to international companies. The opportunities for Surinamese companies are now in what those main contractors and the operator need locally, now and during production: port logistics and warehousing, customs clearance, marine services, crew transport, catering and camps, security, cleaning, waste management, maintenance and repair, crane and equipment hire, IT and telecom, temporary staff and training. According to TotalEnergies, about half a billion dollars in contracts for Surinamese companies is involved over the next ten years, and the company expected 600 to 700 jobs in 2026.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap: van registratie naar contract' if nl else 'Step by step: from registration to contract' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zet je bedrijf op orde.</b> Inschrijving bij de KKF, een FIN-nummer bij de Belastingdienst, een BTW-registratie als je boven de omzetgrens zit, een vergunning als je activiteit die vereist, en een nette administratie. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Registreer in het SSRP.</b> Klik op "Register" onder de inlogknop, vul het formulier in met bedrijfs- en eigendomsgegevens, bevestig je account via de e-mail, log in en upload je documenten. Bekijk eerst de instructievideo en "How to register" op de startpagina. <a href="{{ F.PORTALS.ssrp }}" rel="noopener">Naar het SSRP</a></li>
+ <li><b>Maak je profiel 100% compleet.</b> Het portaal toont een percentage. Geef precies aan welke goederen en diensten je levert. Zusterbedrijven registreren zich elk apart. Voeg collega's toe als extra gebruikers.</li>
+ <li><b>Leveren aan Staatsolie? Registreer ook in SAP Ariba.</b> Via de self-registration link, met een stapvideo van Staatsolie. <a href="{{ F.PORTALS.ariba }}" rel="noopener">Registratie in Ariba</a></li>
+ <li><b>Lees de spelregels van Staatsolie.</b> De Algemene Inkoopvoorwaarden (juli 2024), de Code of Conduct en de factuurinstructies. Wie levert, wordt gezien als deel van de "extended enterprise" en moet zich aan de code houden.</li>
+ <li><b>Volg de kansen.</b> Je krijgt een e-mail bij een nieuwe Business Notice in het SSRP. Staatsolie zet EOI's op haar website; wij verzamelen ze ook op <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Reageer op EOI's.</b> Via het formulier op de site van Staatsolie, vóór de deadline (Surinaamse tijd). Zie de tips hieronder.</li>
+ <li><b>Prekwalificatie en RFP.</b> Na beoordeling komt er een shortlist. Die bedrijven krijgen een Request for Proposal: dan pas geef je een prijs en voorwaarden.</li>
+ <li><b>Lever en bouw een staat van dienst op.</b> Elk afgerond contract is een referentie voor het volgende, ook bij andere operators.</li>
 </ol>
-<h2>{{ 'Waar is vraag naar?' if nl else 'Where is the demand?' }}</h2>
-<p>{{ 'Naast gespecialiseerde diensten (FPSO, EPC, putdiensten) zoeken operators vooral algemene ondersteuning: catering, beveiliging, transport, logistiek en douane-afhandeling, uitzendkrachten, onderhoud en reparatie.' if nl else 'Besides specialised services (FPSO, EPC, well services), operators mostly need general support: catering, security, transport, logistics and customs clearance, temporary labour, maintenance and repair.' }}</p>
-<p><a href="{{ U('oilgas') }}">{{ 'GranMorgu in feiten' if nl else 'GranMorgu in facts' }} &rarr;</a></p>
+{% else %}
+<ol class="steps">
+ <li><b>Get your company in order.</b> KKF registration, a FIN tax number, VAT registration if you are above the turnover threshold, a business licence if your activity requires one, and proper books. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Register in the SSRP.</b> Click "Register" below the login button, fill in the form with company and ownership details, confirm your account through the email, log in and upload your documents. Watch the instruction video and read "How to register" on the home page first. <a href="{{ F.PORTALS.ssrp }}" rel="noopener">Go to the SSRP</a></li>
+ <li><b>Complete your profile to 100%.</b> The portal shows a percentage. State exactly which goods and services you supply. Affiliated companies each register separately. Add colleagues as extra users.</li>
+ <li><b>Supplying Staatsolie? Also register in SAP Ariba.</b> Through the self-registration link, with a step-by-step video from Staatsolie. <a href="{{ F.PORTALS.ariba }}" rel="noopener">Ariba registration</a></li>
+ <li><b>Read Staatsolie's rules.</b> The General Procurement Terms (July 2024), the Code of Conduct and the invoicing instructions. Suppliers are treated as part of the "extended enterprise" and must follow the code.</li>
+ <li><b>Watch for opportunities.</b> You get an email when a new Business Notice is posted in the SSRP. Staatsolie posts EOIs on its website; we also collect them on <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Respond to EOIs.</b> Through the form on Staatsolie's website, before the deadline (Suriname time). See the tips below.</li>
+ <li><b>Prequalification and RFP.</b> After evaluation there is a shortlist. Those companies receive a Request for Proposal: only then do you give a price and terms.</li>
+ <li><b>Deliver and build a track record.</b> Every completed contract is a reference for the next one, including with other operators.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat operators en Staatsolie van je verwachten' if nl else 'What operators and Staatsolie expect from you' }}</h2>
+{% if nl %}
+<p>Staatsolie beoordeelt leveranciers op duurzaamheid, compliance, kwaliteit, tijdige levering en totale kosten. Het Blue Wave-programma, dat lokale leveranciers klaarstoomt voor de sector, laat goed zien waar operators op letten. Gebruik het als checklist:</p>
+<ul class="check">
+ <li><b>HSSE</b> (gezondheid, veiligheid, beveiliging, milieu): een veiligheidsbeleid, risico-inventarisatie, incidentregistratie, opgeleid en gecertificeerd personeel. Staatsolie voerde in 2025 een nieuwe procedure in voor HSE-management van aannemers.</li>
+ <li><b>Kwaliteit</b>: vaste werkwijzen, controles en klachtafhandeling. ISO-certificering wordt per opdracht gevraagd; voor een EOI voor kantinediensten moest een leverancier bijvoorbeeld ISO 22000-gecertificeerd zijn of in het traject zitten. Bekende normen zijn ISO 9001 (kwaliteit), ISO 14001 (milieu) en ISO 45001 (gezondheid en veiligheid). Kijk per EOI welk certificaat vereist is.</li>
+ <li><b>Financiën</b>: een gezonde, controleerbare administratie, belastingen en premies betaald. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+ <li><b>Bedrijfsbeleid</b>: integriteit en anti-corruptie, arbeidsvoorwaarden, gedragscode. <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Cybersecurity</b>: veilige omgang met data en systemen van de klant.</li>
+ <li><b>Technische capaciteit</b>: materieel, mensen en referenties van vergelijkbare opdrachten.</li>
+ <li><b>ESG</b>: milieu, sociale impact en goed bestuur.</li>
+ <li><b>Verzekeringen</b>: welke polissen en dekkingen nodig zijn, staat in de RFP of het contract. Vraag het tijdig na bij je verzekeraar.</li>
+</ul>
+{% else %}
+<p>Staatsolie assesses suppliers on sustainability, compliance, quality, on-time delivery and total cost. The Blue Wave programme, which prepares local suppliers for the sector, shows clearly what operators look for. Use it as a checklist:</p>
+<ul class="check">
+ <li><b>HSSE</b> (health, safety, security, environment): a safety policy, risk assessment, incident recording, trained and certified staff. In 2025 Staatsolie introduced a new procedure for contractor HSE management.</li>
+ <li><b>Quality</b>: fixed procedures, checks and complaint handling. ISO certification is asked per assignment; for an EOI for canteen services, for example, suppliers had to be ISO 22000 certified or in the process. Well-known standards are ISO 9001 (quality), ISO 14001 (environment) and ISO 45001 (health and safety). Check in each EOI which certificate is required.</li>
+ <li><b>Finance</b>: sound, auditable books, taxes and contributions paid. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+ <li><b>Company policies</b>: integrity and anti-corruption, employment conditions, code of conduct. <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Cybersecurity</b>: safe handling of the customer's data and systems.</li>
+ <li><b>Technical capability</b>: equipment, people and references from comparable work.</li>
+ <li><b>ESG</b>: environment, social impact and governance.</li>
+ <li><b>Insurance</b>: which policies and cover are needed is set in the RFP or contract. Check with your insurer in good time.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Local content: wat de wet nu zegt en wat er komt' if nl else 'Local content: what the law says now and what is coming' }}</h2>
+{% if nl %}
+<p>Suriname heeft (oktober 2026) <b>nog geen wet voor local content</b>. Wat er wel is:</p>
+<ul>
+ <li><b>Petroleumwet 1990</b> (herzien, van kracht sinds 1 januari 2023). Het begrip local content staat er niet in, maar de wet bevat bepalingen over kennisoverdracht, opleiding en de inzet van Surinaamse werknemers. Buitenlandse bedrijven moeten onder meer een kantoor in Suriname hebben.</li>
+ <li><b>Productiedelingscontracten (PSC's)</b> met de operators. Die verplichten tot het in dienst nemen van Surinamers, opleiding waar de kennis lokaal ontbreekt en rapportage over training en capaciteitsopbouw.</li>
+ <li><b>Het SSRP</b> zelf: bedoeld om operators te helpen lokale leveranciers te vinden die passen bij hun verplichtingen voor local content.</li>
+</ul>
+<p>Wat er komt: een <b>Local Content Board</b>, ingesteld in november 2025, heeft een voorontwerp gemaakt. Na een nationale validatiesessie moet het wetsontwerp in 2027 naar De Nationale Assemblee, zodat de basis er staat vóór de eerste olie. De Board adviseert ook over een Local Content Authority. President Simons noemde in haar jaarrede (september 2026) twee uitgangspunten: de positie van de Surinaamse werknemer bij internationale bedrijven moet veilig zijn, en lokale deskundigen mogen niet worden overgeslagen. Er is dus nog geen wettelijke definitie van "lokaal bedrijf" of verplichte percentages. Houd de wetgeving in de gaten via ons <a href="{{ U('news') }}">{{ L('news') }}</a>.</p>
+{% else %}
+<p>As of October 2026, Suriname has <b>no Local Content Act yet</b>. What does exist:</p>
+<ul>
+ <li><b>Petroleum Act 1990</b> (revised, in force since 1 January 2023). The term local content does not appear, but the act contains provisions on knowledge transfer, training and the use of Surinamese workers. Foreign companies must, among other things, keep an office in Suriname.</li>
+ <li><b>Production sharing contracts (PSCs)</b> with the operators. These require hiring Surinamese staff, training where expertise is not available locally, and reporting on training and capacity building.</li>
+ <li><b>The SSRP</b> itself: meant to help operators find local suppliers that fit their local content obligations.</li>
+</ul>
+<p>What is coming: a <b>Local Content Board</b>, set up in November 2025, has produced a preliminary draft. After a national validation session the bill is to go to the National Assembly in 2027, so the framework is in place before first oil. The Board is also advising on a Local Content Authority. In her annual address (September 2026), President Simons set two principles: the position of Surinamese workers at international companies must be secured, and local experts must not be passed over. So there is no legal definition of a "local company" or mandatory percentages yet. Follow the legislation through our <a href="{{ U('news') }}">{{ L('news') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Ontwikkelprogramma\'s voor leveranciers' if nl else 'Supplier development programmes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Blue Wave Supplier Development Program</b> (Staatsolie). Zes maanden training en workshops door experts over HSSE, kwaliteit, financiën, bedrijfsbeleid, cybersecurity, technische capaciteit en ESG, met een digitaal platform met een assessmenttool en sjablonenbibliotheek. Je sluit af met een digitale badge en een diploma-uitreiking waar operators en hoofdaannemers bij zijn. De eerste groep (2023) telde 25 bedrijven, de tweede (2024) 29. Aanmelden: registreer in het SSRP, dan krijg je bericht over nieuwe rondes.</li>
+ <li><b>NATIN Oil &amp; Gas-programma</b>. Opleiding aan het Natuurtechnisch Instituut (NATIN) voor technisch personeel in de sector. Handig als je mensen nodig hebt. <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+ <li><b>Suriname Energy Chamber</b>. Organiseerde in 2025 de Local Content Conference en brengt bedrijven uit de sector bij elkaar.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Blue Wave Supplier Development Program</b> (Staatsolie). Six months of expert-led training and workshops on HSSE, quality, finance, company policies, cybersecurity, technical capability and ESG, with a digital platform including an assessment tool and template library. You finish with a digital badge and a graduation ceremony attended by operators and main contractors. The first cohort (2023) had 25 companies, the second (2024) 29. To join: register in the SSRP and you will be notified of new rounds.</li>
+ <li><b>NATIN Oil &amp; Gas programme</b>. Training at the Natural Technical Institute (NATIN) for technical staff in the sector. Useful if you need people. <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+ <li><b>Suriname Energy Chamber</b>. Organised the 2025 Local Content Conference and brings companies in the sector together.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Tips voor een sterke EOI' if nl else 'Tips for a strong EOI' }}</h2>
+{% if nl %}
+<p>Een EOI (Expression of Interest) is geen offerte en geen aanbesteding. Het is de eerste schifting: Staatsolie vraagt om bewijs dat je gekwalificeerd bent en maakt daarna een shortlist. Bij recente EOI's moest je via het formulier op de website uploaden: je EOI-brief, een bedrijfsprofiel, je officiële inschrijvingsbewijs (KKF) en het jobnummer waarop je reageert.</p>
+<ul class="check">
+ <li>Noem het <b>jobnummer</b> (bijvoorbeeld SCM-D 2026-001) in de onderwerpregel en in de brief. Reageer je op meer jobs, noem ze allemaal.</li>
+ <li>Beantwoord precies de gevraagde scope. Schrijf geen algemeen verhaal over je bedrijf.</li>
+ <li>Toon <b>vergelijkbare opdrachten</b>: klant, jaar, omvang, wat je deed. Liefst met een contactpersoon als referentie.</li>
+ <li>Laat zien dat je de <b>middelen</b> hebt: personeel (aantal, certificaten), materieel, werkplaats, voertuigen.</li>
+ <li>Voeg <b>HSE-gegevens</b> toe: veiligheidsbeleid, aantal incidenten, opleidingen. Een leverancier zonder veiligheidsverhaal valt snel af.</li>
+ <li>Lever <b>certificaten</b> mee die in de EOI worden genoemd (bijvoorbeeld ISO 22000, gecertificeerd personeel, ANSI-klassen).</li>
+ <li>Houd het bedrijfsprofiel kort: twee tot vier pagina's, met KKF-nummer, eigenaren, aantal werknemers, kernactiviteiten en contactpersoon.</li>
+ <li>Lever <b>ruim vóór de deadline</b> in. Sluitingstijden zijn exact, in Surinaamse tijd, en de termijn is vaak maar twee weken.</li>
+</ul>
+{% else %}
+<p>An EOI (Expression of Interest) is not a quote and not a tender. It is the first filter: Staatsolie asks for evidence that you are qualified and then draws up a shortlist. For recent EOIs you uploaded through the form on the website: your EOI letter, a company profile, your official registration certificate (KKF) and the job number you are responding to.</p>
+<ul class="check">
+ <li>State the <b>job number</b> (for example SCM-D 2026-001) in the subject line and in the letter. If you respond to several jobs, list them all.</li>
+ <li>Answer exactly the scope requested. Do not write a general story about your company.</li>
+ <li>Show <b>comparable assignments</b>: client, year, size, what you did. Ideally with a contact person as reference.</li>
+ <li>Show that you have the <b>resources</b>: staff (number, certificates), equipment, workshop, vehicles.</li>
+ <li>Add <b>HSE data</b>: safety policy, number of incidents, training. A supplier without a safety track record is quickly dropped.</li>
+ <li>Include the <b>certificates</b> named in the EOI (for example ISO 22000, certified personnel, ANSI classes).</li>
+ <li>Keep the company profile short: two to four pages, with KKF number, owners, number of employees, core activities and contact person.</li>
+ <li>Submit <b>well before the deadline</b>. Closing times are exact, in Suriname time, and the window is often only two weeks.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Samenwerken met een internationale aannemer' if nl else 'Partnering with an international contractor' }}</h2>
+{% if nl %}
+<p>Voor werk dat te groot of te technisch is om alleen te doen, kan een samenwerking met een buitenlandse aannemer de route zijn: jij brengt lokale kennis, personeel, vergunningen en netwerk, de partner de techniek en de referenties. Let daarbij op:</p>
+<ul>
+ <li><b>Leg de afspraken schriftelijk vast</b>: wie is contractpartij, wie doet wat, hoe worden winst en risico verdeeld, wie houdt het personeel in dienst, wat gebeurt er als de samenwerking stopt.</li>
+ <li><b>Kies de vorm bewust</b>: een onderaannemingscontract, een samenwerkingsovereenkomst per project of een gezamenlijke NV. Sinds 1 mei 2025 geldt het nieuwe Burgerlijk Wetboek (Boek 2) voor rechtspersonen. Laat je adviseren door een advocaat of notaris.</li>
+ <li><b>Zorg dat je echt bijdraagt</b>. Operators kijken naar wat er lokaal gebeurt: Surinaams personeel, training en investeringen. Een "naambordje" levert op termijn weinig op.</li>
+ <li><b>Regel belasting en personeel goed</b>: loonbelasting, premies en werkvergunningen voor buitenlandse specialisten. <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a></li>
+ <li><b>Fiscale faciliteiten</b>: de herziene Petroleumwet kent faciliteiten voor contractors en subcontractors in de sector. Vraag na of en hoe die voor jouw opdracht gelden, bijvoorbeeld bij invoer van materieel. <a href="{{ U('import') }}">{{ L('import') }}</a></li>
+</ul>
+{% else %}
+<p>For work that is too big or too technical to do alone, a partnership with a foreign contractor can be the route: you bring local knowledge, staff, licences and network, the partner brings technology and references. Watch out for:</p>
+<ul>
+ <li><b>Put the agreement in writing</b>: who is the contracting party, who does what, how profit and risk are shared, who employs the staff, what happens when the partnership ends.</li>
+ <li><b>Choose the structure deliberately</b>: a subcontract, a project cooperation agreement or a joint NV (public limited company). Since 1 May 2025 the new Civil Code (Book 2) applies to legal entities. Get advice from a lawyer or notary.</li>
+ <li><b>Make sure you really contribute</b>. Operators look at what happens locally: Surinamese staff, training and investment. A front company brings little in the long run.</li>
+ <li><b>Handle tax and staff properly</b>: wage tax, contributions and work permits for foreign specialists. <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a></li>
+ <li><b>Tax facilities</b>: the revised Petroleum Act has facilities for contractors and subcontractors in the sector. Check whether and how they apply to your assignment, for example when importing equipment. <a href="{{ U('import') }}">{{ L('import') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Registreren en dan afwachten.</b> Registratie geeft geen recht op uitnodigingen of opdrachten. Je moet zelf EOI's volgen en reageren.</li>
+ <li><b>Een half profiel.</b> Een profiel zonder documenten en zonder duidelijke diensten wordt niet gevonden.</li>
+ <li><b>Alleen in Ariba registreren.</b> Ariba is alleen voor Staatsolie. Voor TotalEnergies, Petronas en hun aannemers heb je het SSRP nodig.</li>
+ <li><b>Te breed inschrijven.</b> "Wij doen alles" overtuigt niet. Kies de diensten waarin je aantoonbaar sterk bent.</li>
+ <li><b>Geen HSE-basis.</b> Zonder veiligheidsbeleid en opgeleide mensen kom je niet door de prekwalificatie.</li>
+ <li><b>Administratie niet op orde.</b> Achterstallige belastingen of een ontbrekend KKF-uittreksel kunnen je de opdracht kosten.</li>
+ <li><b>Deadline missen.</b> Te laat inleveren wordt niet geaccepteerd.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Registering and then waiting.</b> Registration gives no right to invitations or contracts. You must follow and respond to EOIs yourself.</li>
+ <li><b>A half-finished profile.</b> A profile without documents and without clear services will not be found.</li>
+ <li><b>Only registering in Ariba.</b> Ariba is only for Staatsolie. For TotalEnergies, Petronas and their contractors you need the SSRP.</li>
+ <li><b>Registering too broadly.</b> "We do everything" does not convince. Choose the services where you can prove you are strong.</li>
+ <li><b>No HSE basics.</b> Without a safety policy and trained staff you will not pass prequalification.</li>
+ <li><b>Books not in order.</b> Tax arrears or a missing KKF extract can cost you the contract.</li>
+ <li><b>Missing the deadline.</b> Late submissions are not accepted.</li>
+</ul>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
-<ul><li><a href="https://www.staatsolie.com/en/local-content" rel="noopener">Staatsolie: opportunities for local suppliers</a></li><li><a href="{{ F.PORTALS.staatsolie_tenders }}" rel="noopener">Staatsolie procurement opportunities</a></li></ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+<ul>
+ <li><a href="https://www.staatsolie.com/en/local-content/" rel="noopener">Staatsolie: local content and supplier registration</a></li>
+ <li><a href="https://www.staatsolie.com/en/local-content" rel="noopener">Staatsolie: local content, SSRP en Ariba</a></li>
+ <li><a href="https://www.staatsolie.com/en/procurement/" rel="noopener">Staatsolie: Doing Business with Staatsolie</a></li>
+ <li><a href="{{ F.PORTALS.staatsolie_tenders }}" rel="noopener">Staatsolie: procurement opportunities</a></li>
+ <li><a href="https://www.staatsolie.com/en/procurement-opportunities/request-for-expression-of-interest-for-canteen-services/" rel="noopener">Staatsolie: voorbeeld EOI kantinediensten (2026)</a></li>
+ <li><a href="https://www.staatsolie.com/en/local-content/supplier-development/the-blue-wave-program/" rel="noopener">Staatsolie: Blue Wave Program</a></li>
+ <li><a href="https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf" rel="noopener">Staatsolie Sustainability Report 2025</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94140" rel="noopener">Starnieuws: Local Content-wet moet in 2027 naar parlement (30 september 2026)</a></li>
+ <li><a href="https://abcsuriname.com/simons-first-oil-medio-2028-local-content-wet-in-2027-naar-dna/" rel="noopener">ABC Suriname: first oil medio 2028, Local Content wet in 2027 naar DNA</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/08/basis-voor-local-content-is-er-maar-wetgeving-kan-verder-worden-uitgewerkt/" rel="noopener">De West: basis voor local content is er (8 september 2026)</a></li>
+ <li><a href="https://www.offshore-mag.com/field-development/news/55243131/totalenergies-totalenergies-awards-fpso-subsea-contracts-for-granmorgu-project-offshore-suriname" rel="noopener">Offshore Magazine: FPSO en subsea contracten GranMorgu (november 2024)</a></li>
+ <li><a href="https://prospect-intel.com/surinames-granmorgu-fpso-50-complete-first-oil-on-track-for-2028/" rel="noopener">Prospect: GranMorgu FPSO 50% klaar (april 2026)</a></li>
+ <li><a href="https://worldoil.com/news/2026/8/13/suriname-offshore-oil-and-gas-momentum-builds-as-granmorgu-advances/" rel="noopener">World Oil: GranMorgu advances (augustus 2026)</a></li>
+ <li><a href="https://www.offshore-mag.com/special-reports/article/55383533/suriname-emerges-as-a-high-potential-offshore-ep-frontier" rel="noopener">Offshore Magazine: Suriname offshore blokken</a></li>
+ <li><a href="https://www.industrialinfo.com/iirenergy/industry-news/article/petronas-chevron-secure-two-new-blocks-offshore-suriname--348824" rel="noopener">Industrial Info: Petronas en Chevron, blokken 9 en 10 (november 2025)</a></li>
+ <li><a href="https://www.caribbeanenergyweek.com/news/surinames-offshore-oil-momentum-builds-iocs-eye-2026-opportunities" rel="noopener">Caribbean Energy Week: operators in 2026</a></li>
+ <li><a href="https://www.state.gov/reports/2024-investment-climate-statements/suriname" rel="noopener">US State Department: 2024 Investment Climate Statement Suriname</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
 </div>
 {% endblock %}

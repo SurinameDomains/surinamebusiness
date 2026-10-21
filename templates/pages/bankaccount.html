@@ -3,36 +3,329 @@
 {% block content %}
 <div class="prose">
 <h1>{{ 'Zakelijke bankrekening openen in Suriname' if nl else 'Opening a business bank account in Suriname' }}</h1>
-<p class="lead">{{ 'Met een aparte zakelijke rekening houd je privé en zaak gescheiden, krijg je makkelijker krediet en kun je betalingen van bedrijven en de overheid ontvangen. Dit heb je meestal nodig.' if nl else 'A separate business account keeps private and business money apart, makes credit easier and lets you receive payments from companies and government. This is what you usually need.' }}</p>
-<h2>{{ 'Eerst geregeld' if nl else 'Arranged first' }}</h2>
-<ol>
-<li>{{ 'Inschrijving bij de KKF (handelsregister).' if nl else 'Registration with the KKF (trade register).' }} <a href="{{ U('start') }}">{{ L('start') }}</a></li>
-<li>{{ 'Een bedrijfsvergunning, als je activiteit er een nodig heeft.' if nl else 'A business licence, if your activity requires one.' }}</li>
-<li>{{ 'Registratie bij de Belastingdienst; boven SRD 1 miljoen omzet per jaar ook voor de BTW.' if nl else 'Registration with the tax office; above SRD 1 million turnover a year also for VAT.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></li>
+{% if nl %}
+<p class="lead">Voor een zakelijke rekening heb je meestal een KKF-uittreksel, een geldig ID van iedereen die tekent, de statuten (bij een NV of stichting), een UBO-verklaring en een eerste inleg nodig. De bank moet onder de anti-witwaswet (WMTF) weten wie achter het bedrijf zit en waar het geld vandaan komt. Hoe completer je dossier, hoe sneller het gaat.</p>
+{% else %}
+<p class="lead">For a business account you usually need a KKF extract, valid ID for everyone who signs, the articles of association (for an NV or foundation), a UBO declaration and a first deposit. Under the anti money laundering act (WMTF) the bank must know who is behind the company and where the money comes from. The more complete your file, the faster it goes.</p>
+{% endif %}
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+<li>Regel eerst je KKF-inschrijving, eventuele bedrijfsvergunning en FIN-nummer.</li>
+<li>Iedere bank vraagt een UBO-verklaring: wie uiteindelijk eigenaar is of zeggenschap heeft. Zonder volledig cliëntenonderzoek mag de bank geen rekening openen (WMTF, artikel 9).</li>
+<li>Je kunt rekeningen openen in SRD, USD en EUR. Overmakingen tussen Surinaamse banken in SRD en USD lopen via SNEPS.</li>
+<li>Banken melden transacties vanaf USD 10.000 (of de tegenwaarde) aan de FIU. Dat is een standaardmelding, geen beschuldiging. Houd bewijs van herkomst van contant geld bij.</li>
+<li>Vergelijk kosten zelf: rekeningkosten, overboekingen, buitenlandse overmakingen, contante USD-stortingen en POS-tarieven.</li>
+</ul>
+{% else %}
+<li>First arrange your KKF registration, any business licence and your FIN number (tax number).</li>
+<li>Every bank asks for a UBO declaration: who ultimately owns or controls the business. Without complete due diligence the bank may not open an account (WMTF, article 9).</li>
+<li>You can open accounts in SRD, USD and EUR. Transfers between Surinamese banks in SRD and USD run through SNEPS, the national payment system.</li>
+<li>Banks report transactions from USD 10,000 (or the equivalent) to the FIU. That is a standard report, not an accusation. Keep proof of where cash comes from.</li>
+<li>Compare costs yourself: account fees, transfers, foreign transfers, USD cash deposits and POS rates.</li>
+</ul>
+{% endif %}
+</div>
+
+<h2>{{ 'Eerst regelen' if nl else 'Arrange first' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Inschrijving bij de KKF.</b> Je krijgt een uittreksel uit het handelsregister. De meeste banken willen een uittreksel dat niet ouder is dan 1 tot 3 maanden. Zie <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+<li><b>Bedrijfsvergunning.</b> Alleen als je activiteit vergunningplichtig is. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+<li><b>Belastingdienst.</b> Een FIN-nummer voor je bedrijf. Boven SRD 1.000.000 omzet per jaar ook registratie voor de BTW: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+<li><b>Bedrijfsadres.</b> Een huurcontract of eigendomsbewijs. De bank kan het adres controleren.</li>
 </ol>
-<h2>{{ 'Documenten die banken vragen' if nl else 'Documents banks ask for' }}</h2>
-<ul>
-<li>{{ 'Recent uittreksel uit het handelsregister van de KKF' if nl else 'Recent extract from the KKF trade register' }}</li>
-<li>{{ 'Geldig identiteitsbewijs (ID-kaart, rijbewijs of paspoort; voor buitenlanders een paspoort) van de eigenaar, bestuurders en tekenbevoegden' if nl else 'Valid ID (ID card, driving licence or passport; a passport for foreigners) of the owner, directors and signatories' }}</li>
-<li>{{ 'UBO-verklaring: wie de uiteindelijke eigenaar is' if nl else 'UBO declaration: who the ultimate owner is' }}</li>
-<li>{{ 'Bedrijfsvergunning, als je activiteit er een nodig heeft' if nl else 'Business licence, if your activity requires one' }}</li>
-<li>{{ 'Voor een NV of stichting: de statuten, en voor een NV de publicatie in de Staatscourant' if nl else 'For an NV or foundation: the articles, and for an NV the publication in the Official Gazette' }}</li>
-<li>{{ 'Vaak ook: bewijs van adres van de zaak (huurcontract of eigendomsbewijs)' if nl else 'Often also: proof of the business address (lease or title deed)' }}</li>
+{% else %}
+<ol class="steps">
+<li><b>Register with the KKF.</b> You get an extract (uittreksel) from the trade register. Most banks want an extract no older than 1 to 3 months. See <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+<li><b>Business licence.</b> Only if your activity requires one. See <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+<li><b>Tax office (Belastingdienst).</b> A FIN number for your business. Above SRD 1,000,000 turnover a year also VAT registration: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+<li><b>Business address.</b> A lease or title deed. The bank may check the address.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Documenten per rechtsvorm' if nl else 'Documents per legal form' }}</h2>
+{% if nl %}
+<p>Dit is wat banken op hun eigen sites vragen (oktober 2026). Elke bank heeft eigen formulieren en kan meer vragen.</p>
+<table class="tbl stack tx"><thead><tr><th>Rechtsvorm</th><th>Gebruikelijke documenten</th></tr></thead><tbody>
+<tr><td data-l="Rechtsvorm">Eenmanszaak</td><td data-l="Gebruikelijke documenten">ID van de eigenaar, KKF-uittreksel, bedrijfsvergunning (indien nodig), soms een CBB-uittreksel of, voor buitenlanders, de verblijfsvergunning</td></tr>
+<tr><td data-l="Rechtsvorm">VOF</td><td data-l="Gebruikelijke documenten">Als eenmanszaak, voor elke vennoot, plus de onderhandse of notariële akte van de VOF</td></tr>
+<tr><td data-l="Rechtsvorm">NV</td><td data-l="Gebruikelijke documenten">Statuten of oprichtingsakte, aandeelhouderslijst, ID van directie, commissarissen en aandeelhouders, UBO-verklaring, procuratieregeling, jaarrekening of prognose</td></tr>
+<tr><td data-l="Rechtsvorm">Stichting</td><td data-l="Gebruikelijke documenten">Statuten, uittreksel uit het register, ID van bestuurders en tekenbevoegden, UBO-verklaring, jaarverslag</td></tr>
+<tr><td data-l="Rechtsvorm">Nevenvestiging buitenlands bedrijf</td><td data-l="Gebruikelijke documenten">KKF-inschrijving van de nevenvestiging, statuten en registeruittreksel van het moederbedrijf met vertaling, structuurschema tot aan de natuurlijke personen, ID van de lokale beheerder</td></tr>
+</tbody></table>
+<h3>Wat vrijwel elke bank vraagt</h3>
+<ul class="check">
+<li>Volledig ingevuld en ondertekend aanvraagformulier en KYC-vragenlijst</li>
+<li>Geldig legitimatiebewijs (ID-kaart, paspoort of rijbewijs; voor buitenlanders een paspoort)</li>
+<li>Recent KKF-uittreksel</li>
+<li>UBO-verklaring</li>
+<li>Procuratie of volmacht: wie mag tekenen en tot welk bedrag</li>
+<li>Verklaring van bedrijfsactiviteiten, verwachte omzet en herkomst van het startkapitaal</li>
+<li>Een eerste inleg. Op de sites van banken lag die in oktober 2026 tussen SRD 150 en SRD 1.000, of USD/EUR 100 tot 250</li>
 </ul>
-<p>{{ 'Elke bank heeft eigen formulieren en kan om meer vragen, bijvoorbeeld een ondernemingsplan, verwachte omzet of de herkomst van het startkapitaal. Banken moeten dat vragen onder de regels tegen witwassen. Bel vooraf en vraag naar de actuele lijst en kosten.' if nl else 'Each bank has its own forms and may ask for more, such as a business plan, expected turnover or the source of the starting capital. Banks must ask this under anti money laundering rules. Call ahead and ask for the current list and fees.' }}</p>
-<h2>{{ 'Kiezen' if nl else 'Choosing' }}</h2>
-<ul>
-<li>{{ 'Kosten: maandelijkse rekeningkosten, kosten per overboeking en voor een betaalautomaat (POS).' if nl else 'Costs: monthly account fees, fees per transfer and for a card terminal (POS).' }}</li>
-<li>{{ 'Internetbankieren en een app voor bedrijven, met meerdere gebruikers.' if nl else 'Internet banking and a business app, with multiple users.' }}</li>
-<li>{{ 'Rekeningen in SRD, USD en EUR als je importeert of exporteert.' if nl else 'Accounts in SRD, USD and EUR if you import or export.' }}</li>
-<li>{{ 'Mobiel betalen en betaallinks, zodat klanten makkelijk kunnen betalen.' if nl else 'Mobile payments and payment links, so customers can pay easily.' }}</li>
+<p>Een NV die is opgericht vóór 1 mei 2025 kan nog aandelen aan toonder in de statuten hebben. Die zijn afgeschaft en moeten op naam staan. De bank wil zien wie de aandeelhouders zijn.</p>
+{% else %}
+<p>This is what banks ask for on their own sites (October 2026). Each bank has its own forms and may ask for more.</p>
+<table class="tbl stack tx"><thead><tr><th>Legal form</th><th>Usual documents</th></tr></thead><tbody>
+<tr><td data-l="Legal form">Sole trader (eenmanszaak)</td><td data-l="Usual documents">Owner's ID, KKF extract, business licence (if required), sometimes a CBB extract (civil registry) or, for foreigners, the residence permit</td></tr>
+<tr><td data-l="Legal form">General partnership (VOF)</td><td data-l="Usual documents">As for a sole trader, for each partner, plus the private or notarial partnership deed</td></tr>
+<tr><td data-l="Legal form">NV (limited company)</td><td data-l="Usual documents">Articles or deed of incorporation, shareholder list, ID of directors, supervisory directors and shareholders, UBO declaration, signing authority rules, annual accounts or forecast</td></tr>
+<tr><td data-l="Legal form">Foundation (stichting)</td><td data-l="Usual documents">Articles, register extract, ID of board members and signatories, UBO declaration, annual report</td></tr>
+<tr><td data-l="Legal form">Branch of a foreign company</td><td data-l="Usual documents">KKF registration of the branch, articles and register extract of the parent with translation, structure chart up to the natural persons, ID of the local manager</td></tr>
+</tbody></table>
+<h3>What almost every bank asks for</h3>
+<ul class="check">
+<li>Completed and signed application form and KYC questionnaire</li>
+<li>Valid ID (ID card, passport or driving licence; a passport for foreigners)</li>
+<li>Recent KKF extract</li>
+<li>UBO declaration</li>
+<li>Power of attorney (procuratie): who may sign and up to what amount</li>
+<li>Statement of business activities, expected turnover and source of the starting capital</li>
+<li>A first deposit. On bank websites in October 2026 this ranged from SRD 150 to SRD 1,000, or USD/EUR 100 to 250</li>
 </ul>
-<p><a href="{{ U('loan') }}">{{ L('loan') }}</a> &middot; <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+<p>An NV set up before 1 May 2025 may still have bearer shares in its articles. These have been abolished and must be registered shares. The bank wants to see who the shareholders are.</p>
+{% endif %}
+
+<h2>{{ 'UBO-verklaring en cliëntenonderzoek' if nl else 'UBO declaration and due diligence' }}</h2>
+{% if nl %}
+<p>Sinds 2022 geldt de Wet ter voorkoming en bestrijding van Money Laundering en Terrorismefinanciering (WMTF, S.B. 2022 no. 138). Die verving de Wet Melding Ongebruikelijke Transacties (Wet MOT) en de Wet Identificatieplicht Dienstverleners. In augustus 2024 is de WMTF aangescherpt. Wat dit voor jou betekent:</p>
+<ul>
+<li><b>UBO.</b> De uiteindelijk belanghebbende is de natuurlijke persoon die eigenaar is van of zeggenschap heeft over je bedrijf. Bij een keten van vennootschappen gaat de bank door tot de natuurlijke persoon aan het eind.</li>
+<li><b>Risicoprofiel.</b> De bank stelt een profiel op van het bedrijf en de UBO. Hogere risico's (contant geld, goud, buitenlandse structuren, politiek prominente personen) betekenen meer vragen en meer bewijsstukken.</li>
+<li><b>Geen rekening zonder onderzoek.</b> Kan de bank het cliëntenonderzoek niet afronden, dan mag ze geen rekening openen. Blijkt later dat het niet meer klopt, dan moet ze de relatie beëindigen (artikel 9).</li>
+<li><b>Bewaren.</b> Banken bewaren je gegevens minstens zeven jaar na het einde van de relatie.</li>
+<li><b>Actueel houden.</b> Geef wijzigingen in bestuur, aandeelhouders of adres direct door, ook aan de KKF.</li>
+</ul>
+{% else %}
+<p>Since 2022 the Money Laundering and Terrorist Financing Prevention Act applies (WMTF, S.B. 2022 no. 138). It replaced the Unusual Transactions Reporting Act (Wet MOT) and the Identification Act for Service Providers. The WMTF was tightened in August 2024. What this means for you:</p>
+<ul>
+<li><b>UBO.</b> The ultimate beneficial owner is the natural person who owns or controls your business. With a chain of companies the bank goes all the way to the natural person at the end.</li>
+<li><b>Risk profile.</b> The bank builds a profile of the business and the UBO. Higher risks (cash, gold, foreign structures, politically exposed persons) mean more questions and more evidence.</li>
+<li><b>No account without due diligence.</b> If the bank cannot complete due diligence, it may not open an account. If it later turns out the information no longer holds, it must end the relationship (article 9).</li>
+<li><b>Record keeping.</b> Banks keep your data for at least seven years after the relationship ends.</li>
+<li><b>Keep it current.</b> Report changes in directors, shareholders or address straight away, to the KKF as well.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Buitenlandse aandeelhouders en bestuurders' if nl else 'Foreign shareholders and directors' }}</h2>
+{% if nl %}
+<p>Buitenlanders mogen zonder beperking een rekening openen, maar ze moeten meer stukken aanleveren.</p>
+<ul class="check">
+<li>Paspoort van iedere bestuurder, tekenbevoegde en UBO</li>
+<li>Bewijs van woonadres in het buitenland (bijvoorbeeld een recente nutsrekening of bankafschrift)</li>
+<li>Bij een buitenlandse aandeelhouder-vennootschap: registeruittreksel, statuten en aandeelhoudersregister, gelegaliseerd en vertaald als ze niet in het Nederlands of Engels zijn</li>
+<li>Herkomst van het geld: bankafschriften van de rekening waarvan het kapitaal komt, jaarrekening van de moeder of verkoopakte</li>
+<li>Voor een bestuurder die in Suriname woont: verblijfsvergunning en zo nodig werkvergunning. Zie <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></li>
+<li>Voor Amerikaanse staatsburgers en belastingplichtigen: FATCA-formulieren</li>
+</ul>
+<p>Moet een bestuurder in het buitenland tekenen, vraag dan vooraf of de bank een volmacht accepteert en of handtekeningen gelegaliseerd moeten worden. Investeer je als buitenlander, lees dan ook <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% else %}
+<p>Foreigners can open an account without restriction, but they need to supply more documents.</p>
+<ul class="check">
+<li>Passport of every director, signatory and UBO</li>
+<li>Proof of home address abroad (for example a recent utility bill or bank statement)</li>
+<li>For a foreign corporate shareholder: register extract, articles and share register, legalised and translated if not in Dutch or English</li>
+<li>Source of funds: statements of the account the capital comes from, the parent's annual accounts or a sale deed</li>
+<li>For a director living in Suriname: residence permit and, if needed, work permit. See <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></li>
+<li>For US citizens and US taxpayers: FATCA forms</li>
+</ul>
+<p>If a director must sign from abroad, ask beforehand whether the bank accepts a power of attorney and whether signatures need legalisation. If you invest as a foreigner, also read <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'SRD, USD en EUR' if nl else 'SRD, USD and EUR' }}</h2>
+{% if nl %}
+<ul>
+<li>Banken bieden zakelijke rekeningen in SRD, USD en EUR. Veel bedrijven houden er twee of drie aan: SRD voor lokale kosten en lonen, USD of EUR voor import, export en buffers.</li>
+<li>Binnenlandse overmakingen in SRD en USD lopen via SNEPS, het nationale betalingssysteem van de Centrale Bank en de banken. EUR-betalingen en overmakingen naar het buitenland gaan via internationale (SWIFT-)overmaking en kosten meer.</li>
+<li>Exporteurs moeten exportopbrengsten via een lokale bank laten binnenkomen en minstens 35% binnen drie werkdagen aan een lokale bank verkopen (Algemene Beschikking no. 228 van de Deviezencommissie, sinds 17 augustus 2026). Zie <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+<li>Omwisselen gaat tegen de koers van je bank. Vergelijk met de <a href="{{ U('rates') }}">{{ L('rates') }}</a>. Een groot verschil tussen aan- en verkoopkoers is ook een kostenpost.</li>
+<li>Cheques bestaan niet meer: banken schaften ze per 1 augustus 2020 af.</li>
+</ul>
+{% else %}
+<ul>
+<li>Banks offer business accounts in SRD, USD and EUR. Many businesses hold two or three: SRD for local costs and wages, USD or EUR for imports, exports and buffers.</li>
+<li>Domestic transfers in SRD and USD run through SNEPS, the national payment system of the Central Bank and the banks. EUR payments and transfers abroad go by international (SWIFT) transfer and cost more.</li>
+<li>Exporters must bring export proceeds in through a local bank and sell at least 35% to a local bank within three working days (General Decision no. 228 of the Foreign Exchange Commission, since 17 August 2026). See <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+<li>Currency exchange is at your bank's rate. Compare with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>. A wide gap between buying and selling rates is also a cost.</li>
+<li>Cheques no longer exist: banks abolished them from 1 August 2020.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'De banken' if nl else 'The banks' }}</h2>
+{% if nl %}
+<p>Dit zijn de banken die lid zijn van de Surinaamse Bankiersvereniging, in alfabetische volgorde. We geven geen voorkeur of rangorde. De Centrale Bank van Suriname houdt toezicht en publiceert het officiële register.</p>
+{% else %}
+<p>These are the banks that are members of the Suriname Bankers Association (Surinaamse Bankiersvereniging), in alphabetical order. We give no preference or ranking. The Central Bank of Suriname supervises the banks and publishes the official register.</p>
+{% endif %}
+<table class="tbl"><thead><tr><th>Bank</th><th>{{ 'Zakelijke pagina' if nl else 'Business page' }}</th></tr></thead><tbody>
+<tr><td>De Surinaamsche Bank (DSB)</td><td><a href="https://www.dsb.sr/nl/zakelijk" rel="noopener">dsb.sr</a></td></tr>
+<tr><td>Finabank</td><td><a href="https://www.finabanknv.com/zakelijk/voorwaarden-en-benodigdheden/" rel="noopener">finabanknv.com</a></td></tr>
+<tr><td>GODO Bank</td><td><a href="https://www.godobanknv.com/zakelijke-girorekening/" rel="noopener">godobanknv.com</a></td></tr>
+<tr><td>Hakrinbank</td><td><a href="https://www.hakrinbank.com/bedrijven/binnenland/zakelijke-girorekening/" rel="noopener">hakrinbank.com</a></td></tr>
+<tr><td>Republic Bank Suriname</td><td><a href="https://www.republicbanksr.com/business" rel="noopener">republicbanksr.com</a></td></tr>
+<tr><td>SCB Bank (Surichange Bank)</td><td><a href="https://scbbank.sr/open-een-rekening/" rel="noopener">scbbank.sr</a></td></tr>
+<tr><td>Southern Commercial Bank (SCOM)</td><td><a href="https://scombank.sr/zakelijk/" rel="noopener">scombank.sr</a></td></tr>
+<tr><td>Surinaamse Postspaarbank (SPSB)</td><td><a href="https://spsbbank.sr/zakelijk/zakelijk-betalen/" rel="noopener">spsbbank.sr</a></td></tr>
+<tr><td>Trustbank Amanah</td><td><a href="https://www.trustbankamanah.com/zakelijk/" rel="noopener">trustbankamanah.com</a></td></tr>
+<tr><td>Volkscredietbank (VCB)</td><td><a href="https://vcbbank.sr/girorekening-zakelijk/" rel="noopener">vcbbank.sr</a></td></tr>
+</tbody></table>
+{% if nl %}
+<p>De Nationale Ontwikkelingsbank (NOB) is ook lid van de bankiersvereniging; zij richt zich op ontwikkelingsfinanciering. Voor leningen en kredieten: <a href="{{ U('finance') }}">{{ L('finance') }}</a> en <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+{% else %}
+<p>The National Development Bank (NOB) is also a member of the bankers association; it focuses on development finance. For loans and credit: <a href="{{ U('finance') }}">{{ L('finance') }}</a> and <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Kosten: waar je naar moet vragen' if nl else 'Fees: what to ask about' }}</h2>
+{% if nl %}
+<p>Tarieven veranderen en verschillen per bank en per pakket. Vraag een actuele tarievenlijst en vergelijk op jouw verwachte gebruik, niet alleen op de maandprijs.</p>
+<ul class="check">
+<li>Maandelijkse rekeningkosten per valuta, en het minimumsaldo</li>
+<li>Eerste inleg</li>
+<li>Kosten per binnenlandse overboeking, per salarisbetaling en per bulkbestand</li>
+<li>Kosten van buitenlandse overmakingen, inkomend en uitgaand, plus correspondentbankkosten</li>
+<li>Kosten van contante stortingen, vooral in USD en EUR</li>
+<li>Pinpas en opnamekosten. Volgens de bankiersvereniging kost opnemen bij een andere bank SRD 5 en bij je eigen bank SRD 2,50 tot SRD 5 (tarief sinds 15 november 2021)</li>
+<li>Internetbankieren: kosten per gebruiker, token of app, en limieten per gebruiker</li>
+<li>POS-apparaat: huur, aansluitkosten en commissie per transactie, en hoe snel het geld op je rekening staat</li>
+<li>Koersverschil bij omwisselen tussen SRD, USD en EUR</li>
+<li>Kosten van bankverklaringen, bankgaranties en rekeningafschriften</li>
+</ul>
+{% else %}
+<p>Fees change and differ per bank and per package. Ask for a current fee schedule and compare on your expected use, not just the monthly price.</p>
+<ul class="check">
+<li>Monthly account fees per currency, and the minimum balance</li>
+<li>First deposit</li>
+<li>Fees per domestic transfer, per salary payment and per bulk file</li>
+<li>Fees for foreign transfers, incoming and outgoing, plus correspondent bank charges</li>
+<li>Fees for cash deposits, especially in USD and EUR</li>
+<li>Debit card and withdrawal fees. According to the bankers association a withdrawal at another bank's ATM costs SRD 5 and at your own bank SRD 2.50 to SRD 5 (rate since 15 November 2021)</li>
+<li>Internet banking: cost per user, token or app, and limits per user</li>
+<li>POS terminal: rent, set-up fee and commission per transaction, and how fast the money reaches your account</li>
+<li>Exchange rate spread when converting between SRD, USD and EUR</li>
+<li>Fees for bank reference letters, bank guarantees and statements</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Doorlooptijd en stappen' if nl else 'Timeline and steps' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Vraag de lijst op.</b> Bel of mail de bank, of kijk op de zakelijke pagina. Vraag ook naar de kosten.</li>
+<li><b>Stel het dossier samen.</b> Let op de geldigheid: KKF-uittreksel en CBB-uittreksel zijn vaak maar 1 tot 6 maanden bruikbaar.</li>
+<li><b>Dien in.</b> Bij een kantoor, per e-mail of online, afhankelijk van de bank. Sommige banken willen alle tekenbevoegden persoonlijk zien.</li>
+<li><b>Beantwoord vervolgvragen snel.</b> Het cliëntenonderzoek bepaalt vooral hoe lang het duurt.</li>
+<li><b>Activeer.</b> Eerste inleg, pinpas, internetbankieren en eventueel POS aanvragen.</li>
+</ol>
+<p>Banken publiceren geen vaste doorlooptijd. Een eenvoudige eenmanszaak met een compleet dossier gaat sneller dan een NV met buitenlandse aandeelhouders. Vraag bij indiening hoe lang het duurt en wie je contactpersoon is.</p>
+{% else %}
+<ol class="steps">
+<li><b>Get the list.</b> Call or email the bank, or check its business page. Ask about fees as well.</li>
+<li><b>Build the file.</b> Mind validity: KKF and CBB extracts are often only accepted for 1 to 6 months.</li>
+<li><b>Submit.</b> At a branch, by email or online, depending on the bank. Some banks want to see all signatories in person.</li>
+<li><b>Answer follow-up questions quickly.</b> Due diligence takes up most of the time.</li>
+<li><b>Activate.</b> First deposit, debit card, internet banking and, if needed, a POS terminal.</li>
+</ol>
+<p>Banks do not publish a fixed processing time. A simple sole trader with a complete file goes faster than an NV with foreign shareholders. Ask when you submit how long it will take and who your contact is.</p>
+{% endif %}
+
+<h2>{{ 'Internetbankieren, POS en mobiel betalen' if nl else 'Internet banking, POS and mobile payments' }}</h2>
+{% if nl %}
+<ul>
+<li><b>Zakelijk internetbankieren.</b> Vraag naar meerdere gebruikers met eigen limieten, dubbele goedkeuring (de één voert in, de ander keurt goed), bulkbetalingen voor salarissen en het downloaden van afschriften voor je boekhouding.</li>
+<li><b>POS (pinautomaat).</b> Klanten betalen met hun pinpas. De bankiersvereniging meldde dat klanten tot SRD 100.000 per dag kunnen pinnen; limieten verschillen per bank en per pas. Vraag of de terminal ook creditcards accepteert.</li>
+<li><b>Mobiel betalen en QR.</b> Banken en betaalbedrijven bieden wallets en QR-betalingen. Kies wat jouw klanten gebruiken; je kunt er meer dan één aanbieden.</li>
+<li><b>Betaallinks en online verkoop.</b> Vraag naar e-commerce of betaallinks als je online verkoopt.</li>
+</ul>
+<p>Maak facturen met je rekeningnummers erop: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>. Voor een QR-code met je betaalgegevens: <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</p>
+{% else %}
+<ul>
+<li><b>Business internet banking.</b> Ask for multiple users with their own limits, dual approval (one enters, another approves), bulk payments for salaries and statement downloads for your bookkeeping.</li>
+<li><b>POS (card terminal).</b> Customers pay with their debit card. The bankers association reported that customers can pay up to SRD 100,000 a day by card; limits differ per bank and per card. Ask whether the terminal also takes credit cards.</li>
+<li><b>Mobile and QR payments.</b> Banks and payment companies offer wallets and QR payments. Choose what your customers use; you can offer more than one.</li>
+<li><b>Payment links and online sales.</b> Ask about e-commerce or payment links if you sell online.</li>
+</ul>
+<p>Make invoices with your account numbers on them: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>. For a QR code with your payment details: <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Contant geld storten' if nl else 'Depositing cash' }}</h2>
+{% if nl %}
+<ul>
+<li>Banken moeten ongebruikelijke transacties melden aan FIU Suriname. Voor banken geldt een objectieve meldgrens van USD 10.000 of de tegenwaarde; die meldingen gaan binnen 14 dagen naar de FIU. Daarnaast meldt de bank alles wat ze verdacht vindt, ongeacht het bedrag.</li>
+<li>Bij een losse transactie vanaf USD 15.000 doet de bank een cliëntenonderzoek, ook als je geen vaste klant bent.</li>
+<li>Kun je de herkomst van een grote contante storting niet aantonen, dan kan de bank weigeren of de relatie beëindigen.</li>
+<li>Houd bewijs bij: kassabonnen, kasboek, verkoopfacturen en Z-rapporten. Tel je kas met de <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a>.</li>
+<li>Splits stortingen niet bewust op om onder de grens te blijven. Dat is zelf een reden voor een melding.</li>
+<li>Vraag naar kosten van contante USD- en EUR-stortingen; die kunnen hoger zijn dan voor SRD.</li>
+</ul>
+{% else %}
+<ul>
+<li>Banks must report unusual transactions to FIU Suriname. For banks the objective reporting threshold is USD 10,000 or the equivalent; those reports go to the FIU within 14 days. The bank also reports anything it finds suspicious, whatever the amount.</li>
+<li>For a one-off transaction from USD 15,000 the bank does due diligence, even if you are not a regular customer.</li>
+<li>If you cannot show where a large cash deposit comes from, the bank can refuse it or end the relationship.</li>
+<li>Keep proof: receipts, cash book, sales invoices and Z reports. Count your till with the <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a>.</li>
+<li>Do not split deposits on purpose to stay under the threshold. That in itself is a reason to report.</li>
+<li>Ask about fees for USD and EUR cash deposits; they can be higher than for SRD.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als de bank je weigert?' if nl else 'What if the bank refuses you?' }}</h2>
+{% if nl %}
+<ol class="steps">
+<li><b>Vraag wat er ontbreekt.</b> Vaak gaat het om een verlopen uittreksel, een onduidelijke UBO of onvoldoende bewijs van herkomst van geld.</li>
+<li><b>Vul aan en dien opnieuw in.</b> Een accountant kan een prognose of vermogensopstelling maken die de bank wel accepteert.</li>
+<li><b>Gebruik de klachtenprocedure</b> van de bank als je vindt dat je onterecht bent geweigerd. Vraag om een schriftelijke reactie.</li>
+<li><b>Probeer een andere bank.</b> Elke bank maakt een eigen risicoafweging.</li>
+</ol>
+<p>Een bank mag niet altijd uitleggen waarom ze weigert: als er een melding aan de FIU is gedaan, mag ze dat niet aan de klant vertellen. De Centrale Bank van Suriname houdt toezicht op de banken.</p>
+{% else %}
+<ol class="steps">
+<li><b>Ask what is missing.</b> Often it is an expired extract, an unclear UBO or insufficient proof of source of funds.</li>
+<li><b>Complete and reapply.</b> An accountant can prepare a forecast or statement of assets the bank will accept.</li>
+<li><b>Use the bank's complaints procedure</b> if you think you were wrongly refused. Ask for a written response.</li>
+<li><b>Try another bank.</b> Each bank makes its own risk assessment.</li>
+</ol>
+<p>A bank cannot always explain why it refuses: if a report has been made to the FIU, it may not tell the customer. The Central Bank of Suriname supervises the banks.</p>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+<li>Zakelijke inkomsten op een privérekening laten binnenkomen. Dat maakt je boekhouding en belastingaangifte lastig en kan bij de bank vragen oproepen. Zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+<li>Een KKF-uittreksel meenemen dat te oud is.</li>
+<li>Een UBO-verklaring die niet klopt met het aandeelhoudersregister.</li>
+<li>Geen bewijs van de herkomst van het startkapitaal.</li>
+<li>Alleen naar de maandprijs kijken en de kosten van buitenlandse overmakingen en contante USD vergeten.</li>
+<li>Wijzigingen in bestuur of tekenbevoegdheid niet doorgeven, waardoor betalingen blijven hangen.</li>
+<li>Eén gebruiker met volledige rechten in internetbankieren. Gebruik dubbele goedkeuring.</li>
+</ul>
+<p><a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> &middot; <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+{% else %}
+<ul>
+<li>Receiving business income into a personal account. It complicates your bookkeeping and tax return and can raise questions at the bank. See <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+<li>Bringing a KKF extract that is too old.</li>
+<li>A UBO declaration that does not match the share register.</li>
+<li>No proof of where the starting capital came from.</li>
+<li>Looking only at the monthly price and forgetting the cost of foreign transfers and USD cash.</li>
+<li>Not reporting changes in directors or signing authority, so payments get stuck.</li>
+<li>One user with full rights in internet banking. Use dual approval.</li>
+</ul>
+<p><a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> &middot; <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a></p>
+{% endif %}
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
 <ul>
-<li><a href="https://www.finabanknv.com/media/150052/Rekening_openen_Rechtspersonen_en_Surinaamse_ondernemingen.pdf" rel="noopener">Finabank: {{ 'rekening openen voor rechtspersonen en Surinaamse ondernemingen' if nl else 'opening an account for legal entities and Surinamese businesses' }}</a></li>
-<li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/zo-start-u-een-bedrijf-suriname" rel="noopener">RVO: {{ 'zo start u een bedrijf in Suriname' if nl else 'how to start a business in Suriname' }}</a></li>
+<li><a href="https://fiusuriname.org/wetgeving/S-B-2022-no-138-WET-van-19-november-2022-vaststelling-regels-voorkomen-bestrijden-money-laundering-en-financiering-terrorisme.pdf" rel="noopener">WMTF, S.B. 2022 no. 138 (FIU Suriname)</a></li>
+<li><a href="https://www.fiusuriname.org/" rel="noopener">FIU Suriname: {{ 'richtlijn voor het melden (juli 2025)' if nl else 'reporting guideline (July 2025)' }}</a></li>
+<li><a href="https://www.sbv.sr/over-sbv/leden/" rel="noopener">{{ 'Surinaamse Bankiersvereniging: leden' if nl else 'Suriname Bankers Association: members' }}</a></li>
+<li><a href="https://www.sbv.sr/nieuws/uitfaseren-van-cheques/" rel="noopener">{{ 'SBV: uitfaseren van cheques en SNEPS' if nl else 'SBV: phasing out cheques and SNEPS' }}</a></li>
+<li><a href="https://www.sbv.sr/nieuws/tarief-contante-opnames-bij-atms-per-15-november-aangepast/" rel="noopener">{{ 'SBV: tarief contante opnames bij ATM\'s' if nl else 'SBV: ATM withdrawal fees' }}</a></li>
+<li><a href="https://www.sbv.sr/nieuws/pos-limieten-zijn-verhoogd/" rel="noopener">{{ 'SBV: POS-limieten verhoogd' if nl else 'SBV: POS limits raised' }}</a></li>
+<li><a href="https://www.finabanknv.com/zakelijk/voorwaarden-en-benodigdheden/" rel="noopener">Finabank: {{ 'voorwaarden en benodigdheden zakelijk' if nl else 'business account requirements' }}</a></li>
+<li><a href="https://www.trustbankamanah.com/zakelijk/zakelijke-girorekening/" rel="noopener">Trustbank Amanah: {{ 'zakelijke girorekening' if nl else 'business current account' }}</a></li>
+<li><a href="https://vcbbank.sr/girorekening-zakelijk/" rel="noopener">VCB: {{ 'girorekening zakelijk' if nl else 'business current account' }}</a></li>
+<li><a href="https://www.state.gov/reports/2026-investment-climate-statements/suriname" rel="noopener">U.S. Department of State: 2026 Investment Climate Statement Suriname</a></li>
+<li><a href="{{ F.PORTALS.frielink_bw }}" rel="noopener">Frielink: {{ 'nieuw Boek 2 BW Suriname (toonderaandelen)' if nl else 'new Book 2 Civil Code Suriname (bearer shares)' }}</a></li>
+<li><a href="{{ F.PORTALS.rvo_start }}" rel="noopener">RVO: {{ 'zo start u een bedrijf in Suriname' if nl else 'how to start a business in Suriname' }}</a></li>
 </ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}. {{ 'Algemene informatie; de bank bepaalt welke documenten nodig zijn.' if nl else 'General information; the bank decides which documents are needed.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie; de bank bepaalt welke documenten nodig zijn. Deze site is onafhankelijk en beveelt geen bank aan.' if nl else 'General information; the bank decides which documents are needed. This site is independent and does not recommend any bank.' }}</p>
 </div>
 {% endblock %}

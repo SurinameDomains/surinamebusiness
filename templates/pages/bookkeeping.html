@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Administratie, facturen en bewaarplicht in Suriname' if nl else 'Bookkeeping, invoices and record keeping in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Iedereen die in Suriname een bedrijf of zelfstandig beroep uitoefent, moet een administratie voeren en die tien jaar bewaren. Ben je BTW-plichtig, dan gelden daarnaast strikte regels voor je facturen. Een NV moet binnen zes maanden na het boekjaar een jaarrekening opmaken, en grotere bedrijven moeten die laten controleren door een accountant.</p>
+{% else %}
+<p class="lead">Anyone who runs a business or works as a self-employed professional in Suriname must keep records and keep them for ten years. If you are VAT registered, strict rules also apply to your invoices. An NV (limited company) must prepare annual accounts within six months after the financial year, and larger companies must have them audited.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Bewaarplicht' if nl else 'Retention' }}</div><div class="big">{{ '10 jaar' if nl else '10 years' }}</div><div class="sub">{{ 'BW boek 2 en 3, Wet BTW' if nl else 'Civil Code books 2 and 3, VAT Act' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Factuur uitreiken' if nl else 'Issue invoice' }}</div><div class="big">{{ '15 dagen' if nl else '15 days' }}</div><div class="sub">{{ 'na het einde van de maand van levering' if nl else 'after the end of the month of supply' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Jaarrekening' if nl else 'Annual accounts' }}</div><div class="big">{{ '6 mnd' if nl else '6 months' }}</div><div class="sub">{{ 'na afloop van het boekjaar' if nl else 'after the end of the financial year' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Sinds het nieuwe Burgerlijk Wetboek (1 mei 2025) geldt de administratieplicht voor elke ondernemer en elke zelfstandige beroepsbeoefenaar, ook voor de eenmanszaak (art. 3:15i BW).</li>
+ <li>Je bewaart boeken, facturen, bonnen en bestanden <b>tien jaar</b>. Digitaal bewaren mag, behalve de op papier gestelde balans en winst- en verliesrekening.</li>
+ <li>BTW-plichtig? Facturen aan ondernemers zijn verplicht, doorlopend genummerd, met het FIN van jou en van je klant, en uiterlijk 15 dagen na het einde van de maand van levering.</li>
+ <li>Fouten herstel je met een creditnota (kredietnota), nooit door een factuur aan te passen of weg te gooien.</li>
+ <li>Voor een NV en andere rechtspersonen geldt de Wet op de Jaarrekening: middelgrote en grote bedrijven moeten een accountantscontrole laten doen.</li>
+ <li>De administratie voor de belasting voer je in het Nederlands (Inkomstenbelasting 1922 en Wet BTW).</li>
+{% else %}
+ <li>Since the new Civil Code took effect (1 May 2025), every business owner and self-employed professional must keep records, including sole traders (art. 3:15i Civil Code).</li>
+ <li>You keep books, invoices, receipts and files for <b>ten years</b>. Digital storage is allowed, except for the balance sheet and profit and loss statement drawn up on paper.</li>
+ <li>VAT registered? Invoices to businesses are mandatory, numbered in sequence, show your FIN (tax number) and your customer's, and must be issued within 15 days after the end of the month of supply.</li>
+ <li>You correct mistakes with a credit note, never by changing or throwing away an invoice.</li>
+ <li>The Annual Accounts Act (Wet op de Jaarrekening) applies to an NV and other legal entities: medium-sized and large companies must have their accounts audited.</li>
+ <li>Records for tax purposes are kept in Dutch (Income Tax Act 1922 and VAT Act).</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie moet een administratie voeren?' if nl else 'Who must keep records?' }}</h2>
+{% if nl %}
+<p>Het nieuwe Burgerlijk Wetboek is op 1 mei 2025 in werking getreden. De oude regels uit het Wetboek van Koophandel (artikelen 2 tot en met 4) zijn overgebracht naar artikel 15i van Boek 3. Dat artikel zegt: wie een bedrijf of zelfstandig een beroep uitoefent, voert een administratie en bewaart de boeken, bescheiden en andere gegevensdragers zo, dat <b>te allen tijde</b> zijn rechten en verplichtingen kunnen worden gekend.</p>
+<p>Twee dingen zijn nieuw ten opzichte van het oude Wetboek van Koophandel:</p>
+<ul>
+ <li><b>Ook vrije beroepen</b> vallen er nu onder, zoals advocaten, notarissen, artsen en andere zelfstandigen.</li>
+ <li><b>Elektronische bestanden</b> worden uitdrukkelijk genoemd. Een boekhoudprogramma, Excel of een app is dus een geldige administratie, zolang je alles terug kunt vinden.</li>
+</ul>
+<p>Voor rechtspersonen (NV, stichting, vereniging, coöperatie) staat dezelfde plicht in artikel 15 van Boek 2. Het bestuur moet daar bovendien binnen zes maanden na afloop van het boekjaar een jaarrekening en een bestuursverslag opmaken. Het boekjaar is het kalenderjaar, tenzij de statuten iets anders zeggen.</p>
+<div class="note"><b>Persoonlijk risico voor bestuurders.</b> Gaat een rechtspersoon failliet en is de administratie niet op orde of de jaarrekening niet op tijd opgemaakt, dan neemt de wet aan dat er sprake was van onbehoorlijk bestuur. De bestuurder kan dan persoonlijk aansprakelijk worden gesteld voor het tekort (art. 2:16 BW). Een goede boekhouding beschermt dus ook jezelf.</div>
+<h3>Wat de Belastingdienst eist</h3>
+<p>De Inkomstenbelasting 1922 (artikel 42 lid 3) eist dat vennootschappen zo boekhouden dat de jaarlijkse winst eruit blijkt. Andere ondernemers voeren een administratie waaruit de zuivere winst te berekenen is zodra de winst of de omzet boven de (oude, lage) grensbedragen in de wet komt; in de praktijk geldt dat voor vrijwel elk actief bedrijf. De boekhouding wordt gevoerd in de Nederlandse taal. Bij je definitieve aangifte voeg je een gedagtekende en ondertekende balans en winst- en verliesrekening (artikel 44 lid 5). De inspecteur mag je boeken, aantekeningen en computerbestanden inzien en kopiëren (artikel 82a).</p>
+{% else %}
+<p>The new Civil Code took effect on 1 May 2025. The old rules in the Commercial Code (articles 2 to 4) moved to article 15i of Book 3. That article says: anyone who runs a business or works independently in a profession keeps records, and keeps the books, documents and other data carriers so that their rights and obligations can be known <b>at all times</b>.</p>
+<p>Two things are new compared with the old Commercial Code:</p>
+<ul>
+ <li><b>Liberal professions</b> are now covered too, such as lawyers, notaries, doctors and other self-employed people.</li>
+ <li><b>Electronic files</b> are named explicitly. Accounting software, Excel or an app is a valid record, as long as you can retrieve everything.</li>
+</ul>
+<p>For legal entities (NV, foundation, association, cooperative) the same duty is in article 15 of Book 2. The board must also prepare annual accounts and a directors' report within six months after the end of the financial year. The financial year is the calendar year unless the articles of association say otherwise.</p>
+<div class="note"><b>Personal risk for directors.</b> If a legal entity goes bankrupt and its records are not in order or the annual accounts were not prepared in time, the law presumes mismanagement. The director can then be held personally liable for the shortfall (art. 2:16 Civil Code). Good bookkeeping protects you too.</div>
+<h3>What the tax office requires</h3>
+<p>The Income Tax Act 1922 (article 42(3)) requires companies to keep books that show the annual profit. Other business owners keep records from which net profit can be calculated once profit or turnover passes the (old, low) thresholds in the act; in practice that covers almost every active business. Books are kept in Dutch. With your final return you attach a dated and signed balance sheet and profit and loss statement (article 44(5)). The inspector may inspect and copy your books, notes and computer files (article 82a).</p>
+{% endif %}
+
+<h2>{{ 'Hoe lang bewaren, en mag het digitaal?' if nl else 'How long to keep records, and may they be digital?' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Wat</th><th>Termijn</th><th>Bron</th></tr></thead><tbody>
+<tr><td>Boeken, bescheiden en gegevensdragers van je bedrijf</td><td data-l="Termijn">10 jaar</td><td data-l="Bron">art. 2:15 lid 3 en 3:15i BW</td></tr>
+<tr><td>BTW-administratie, facturen, kopieën van verstuurde facturen</td><td data-l="Termijn">10 jaar</td><td data-l="Bron">art. 30 Wet BTW</td></tr>
+<tr><td>Gegevens van het kassasysteem (kassabonnen en rapporten)</td><td data-l="Termijn">minimaal 10 jaar</td><td data-l="Bron">BTW-brochure Belastingdienst 2025</td></tr>
+<tr><td>Werknemersverklaring voor de loonbelasting</td><td data-l="Termijn">tot 5 jaar na het jaar waarin de dienstbetrekking eindigde</td><td data-l="Bron">Uitvoeringsbeschikking Loonbelasting, art. 10</td></tr>
+</tbody></table>
+<p>Je mag papieren stukken scannen en alleen digitaal bewaren, mits de overzetting juist en volledig is, de gegevens de hele bewaartermijn beschikbaar blijven en je ze binnen redelijke tijd leesbaar kunt maken (art. 2:15 lid 4 BW). De uitzondering: <b>de op papier gestelde balans en staat van baten en lasten</b> (winst- en verliesrekening). Die bewaar je op papier, ondertekend.</p>
+<p>Praktisch: maak elke maand een back-up op een tweede plek (externe schijf of cloud), en controleer één keer per jaar of oude bestanden nog opengaan. Een bestand in een programma dat je over acht jaar niet meer hebt, telt niet als "leesbaar binnen redelijke tijd".</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>What</th><th>Period</th><th>Source</th></tr></thead><tbody>
+<tr><td>Books, documents and data carriers of your business</td><td data-l="Period">10 years</td><td data-l="Source">art. 2:15(3) and 3:15i Civil Code</td></tr>
+<tr><td>VAT records, invoices, copies of invoices sent</td><td data-l="Period">10 years</td><td data-l="Source">art. 30 VAT Act</td></tr>
+<tr><td>Cash register data (till receipts and reports)</td><td data-l="Period">at least 10 years</td><td data-l="Source">Tax office VAT brochure 2025</td></tr>
+<tr><td>Employee statement for wage tax</td><td data-l="Period">until 5 years after the year employment ended</td><td data-l="Source">Wage Tax Implementing Order, art. 10</td></tr>
+</tbody></table>
+<p>You may scan paper documents and keep them only in digital form, provided the transfer is correct and complete, the data stay available for the full retention period and you can make them readable within a reasonable time (art. 2:15(4) Civil Code). The exception: <b>the balance sheet and statement of income and expenses drawn up on paper</b> (profit and loss account). Keep those on paper, signed.</p>
+<p>In practice: back up every month to a second place (external drive or cloud), and once a year check that old files still open. A file in software you will not have in eight years does not count as "readable within a reasonable time".</p>
+{% endif %}
+
+<h2>{{ 'Wat moet er op een factuur?' if nl else 'What must be on an invoice?' }}</h2>
+{% if nl %}
+<p>De Wet BTW (artikel 27) verplicht een BTW-plichtige ondernemer om <b>gedagtekende en doorlopend genummerde facturen</b> uit te reiken aan afnemers die ondernemer zijn, ook voor vooruitbetalingen. Je reikt de factuur uit binnen <b>15 dagen na het einde van de maand</b> waarin je hebt geleverd. Bij een vooruitbetaling reik je de factuur uit voordat de betaling opeisbaar is. Van elke factuur bewaar je een kopie. Artikel 28 en de BTW-brochure van de Belastingdienst noemen deze verplichte gegevens:</p>
+<ul class="check">
+ <li>de datum van uitreiking en een uniek, opeenvolgend factuurnummer</li>
+ <li>naam, adres en fiscaal identificatienummer (FIN) van jou als leverancier</li>
+ <li>naam, adres en FIN van je klant (de afnemer)</li>
+ <li>hoeveelheid en aard van de goederen, of omvang en aard van de diensten</li>
+ <li>de datum van de levering of dienst</li>
+ <li>het bedrag exclusief BTW per tarief, het toegepaste tarief (0%, 5%, 10% of 25%) en het BTW-bedrag</li>
+ <li>bij een vrijstelling: dat de levering is vrijgesteld</li>
+ <li>bij verlegging: de vermelding "BTW verlegd"</li>
+ <li>het totaalbedrag inclusief BTW</li>
+ <li>bij voertuigen extra gegevens zoals merk, type, cilinderinhoud en chassisnummer</li>
+</ul>
+<p>Niet of te laat factureren, of een onjuiste factuur uitreiken, is strafbaar. De Wet BTW noemt boetes tot SRD 50.000 (artikelen 58 en 59). En je klant mag de BTW alleen aftrekken met een correcte factuur. Een slordige factuur kost hem dus geld, en jou klanten.</p>
+<p>Niet BTW-plichtig (omzet onder SRD {{ num(F.VAT.threshold_srd, 0) }} per jaar)? Dan zet je geen BTW op de factuur. Een duidelijke, genummerde factuur met je naam, adres, FIN, datum, omschrijving en bedrag is dan nog steeds de basis van je administratie. Meer over de drempel en de tarieven in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<h3>Nummering</h3>
+<ul>
+ <li>Eén doorlopende reeks zonder gaten, bijvoorbeeld 2026-001, 2026-002. Een nieuwe reeks per jaar mag, zolang elk nummer uniek is.</li>
+ <li>Een geannuleerde factuur gooi je niet weg en nummer je niet opnieuw: je maakt er een creditnota tegenover.</li>
+ <li>Proforma's en offertes krijgen een eigen reeks, los van je facturen. Zie <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+</ul>
+<p><a href="{{ U('invoice') }}"><b>{{ L('invoice') }} &rarr;</b></a> &middot; <a href="{{ U('quote') }}">{{ L('quote') }}</a> &middot; <a href="{{ U('deliverynote') }}">{{ L('deliverynote') }}</a></p>
+{% else %}
+<p>The VAT Act (article 27) requires a VAT registered business to issue <b>dated invoices numbered in sequence</b> to customers that are businesses, including for advance payments. You issue the invoice within <b>15 days after the end of the month</b> in which you supplied. For an advance payment you issue the invoice before the payment falls due. You keep a copy of every invoice. Article 28 and the tax office VAT brochure list these mandatory details:</p>
+<ul class="check">
+ <li>the date of issue and a unique, sequential invoice number</li>
+ <li>name, address and tax identification number (FIN) of you as supplier</li>
+ <li>name, address and FIN of your customer</li>
+ <li>quantity and nature of the goods, or extent and nature of the services</li>
+ <li>the date of supply</li>
+ <li>the amount excluding VAT per rate, the rate applied (0%, 5%, 10% or 25%) and the VAT amount</li>
+ <li>for an exempt supply: a note that it is exempt</li>
+ <li>for reverse charge: the words "BTW verlegd"</li>
+ <li>the total including VAT</li>
+ <li>for vehicles extra details such as make, model, engine capacity and chassis number</li>
+</ul>
+<p>Not invoicing, invoicing late or issuing an incorrect invoice is an offence. The VAT Act sets fines of up to SRD 50,000 (articles 58 and 59). And your customer can only deduct VAT with a correct invoice, so a sloppy invoice costs them money and costs you customers.</p>
+<p>Not VAT registered (turnover under SRD {{ num(F.VAT.threshold_srd, 0) }} a year)? Then you charge no VAT. A clear, numbered invoice with your name, address, FIN, date, description and amount is still the basis of your records. More on the threshold and rates in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<h3>Numbering</h3>
+<ul>
+ <li>One continuous series without gaps, for example 2026-001, 2026-002. A new series each year is fine, as long as every number is unique.</li>
+ <li>You do not throw away or reuse the number of a cancelled invoice: you issue a credit note against it.</li>
+ <li>Proformas and quotes get their own series, separate from your invoices. See <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+</ul>
+<p><a href="{{ U('invoice') }}"><b>{{ L('invoice') }} &rarr;</b></a> &middot; <a href="{{ U('quote') }}">{{ L('quote') }}</a> &middot; <a href="{{ U('deliverynote') }}">{{ L('deliverynote') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Creditnota, kwitantie en kassabon' if nl else 'Credit notes, receipts and till receipts' }}</h2>
+{% if nl %}
+<h3>Creditnota (kredietnota)</h3>
+<p>Geef je korting achteraf, neemt je klant goederen terug of wordt de overeenkomst ontbonden, dan maak je een creditnota (de wet noemt het een kredietnota, art. 23 Wet BTW). De creditnota krijgt een eigen nummer, verwijst naar de oorspronkelijke factuur en vermeldt het bedrag en de BTW die je terugdraait. De BTW op de creditnota verlaagt je af te dragen BTW in de maand waarin je hem uitreikt. Daarna maak je zo nodig een nieuwe, juiste factuur. <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a></p>
+<h3>Kwitantie</h3>
+<p>Een kwitantie is een betalingsbewijs: "ik heb dit bedrag ontvangen". Het is geen factuur en vervangt die niet als je klant een ondernemer is en jij BTW-plichtig bent. Een kwitantie is handig voor huur, contante betalingen en aanbetalingen. Zet erop: nummer, datum, naam van wie betaalt, het bedrag in cijfers en in woorden, waarvoor, en een handtekening. Bewaar een kopie in je administratie. <a href="{{ U('receipt') }}">{{ L('receipt') }}</a> &middot; <a href="{{ U('amountwords') }}">{{ L('amountwords') }}</a></p>
+<h3>Kassabon</h3>
+<p>Verkoop je aan particulieren, dan mag je in plaats van een factuur een kassasysteem gebruiken (art. 27 lid 7 Wet BTW). De klant moet een afschrift van de kassabon kunnen krijgen en jij bewaart een exemplaar. Volgens de Belastingdienst moet een kassabon bevatten: een opeenvolgend nummer, je naam, adres en FIN, de datum, wat je verkocht (hoeveelheid en aard), het totaal exclusief BTW, het BTW-bedrag en het totaal inclusief BTW, het tarief en zo nodig de vermelding van een vrijstelling. Verkoop je aan een bedrijf, dan blijft een factuur verplicht.</p>
+{% else %}
+<h3>Credit note</h3>
+<p>If you give a discount afterwards, take goods back or the contract is cancelled, you issue a credit note (the law calls it a kredietnota, art. 23 VAT Act). The credit note has its own number, refers to the original invoice and shows the amount and VAT you reverse. The VAT on the credit note reduces the VAT you owe in the month you issue it. Then you issue a new, correct invoice if needed. <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a></p>
+<h3>Receipt (kwitantie)</h3>
+<p>A kwitantie is a proof of payment: "I received this amount". It is not an invoice and does not replace one when your customer is a business and you are VAT registered. It is useful for rent, cash payments and deposits. Put on it: number, date, name of the payer, the amount in figures and in words, what it is for, and a signature. Keep a copy in your records. <a href="{{ U('receipt') }}">{{ L('receipt') }}</a> &middot; <a href="{{ U('amountwords') }}">{{ L('amountwords') }}</a></p>
+<h3>Till receipt (kassabon)</h3>
+<p>If you sell to consumers, you may use a cash register system instead of invoices (art. 27(7) VAT Act). The customer must be able to get a copy of the receipt and you keep one. According to the tax office a till receipt shows: a sequential number, your name, address and FIN, the date, what you sold (quantity and nature), the total excluding VAT, the VAT amount and the total including VAT, the rate and, where relevant, a note of an exemption. If you sell to a business, an invoice is still required.</p>
+{% endif %}
+
+<h2>{{ 'Jaarrekening en accountantscontrole voor een NV' if nl else 'Annual accounts and audit for an NV' }}</h2>
+{% if nl %}
+<p>Boek 2 BW verwijst voor de inhoud van de jaarrekening naar de <b>Wet op de Jaarrekening</b> (S.B. 2017 no. 84, in werking sinds 6 oktober 2017). Die wet geldt voor de NV, de coöperatie en de onderlinge waarborgmaatschappij, voor stichtingen en verenigingen met een onderneming in het handelsregister, voor formeel buitenlandse vennootschappen en voor instellingen onder toezicht van de CBvS. Een eenmanszaak valt er niet onder; die heeft wel de administratieplicht van Boek 3.</p>
+<p>De wet deelt rechtspersonen in naar grootte. Je valt in een klasse als je op twee opeenvolgende balansdata aan minstens twee van de drie criteria voldoet:</p>
+<table class="tbl stack tx"><thead><tr><th>Klasse</th><th>Activa</th><th>Netto-omzet</th><th>Personeel</th></tr></thead><tbody>
+<tr><td>Groot</td><td data-l="Activa">meer dan SRD 12 miljoen</td><td data-l="Netto-omzet">meer dan SRD 24 miljoen</td><td data-l="Personeel">meer dan 50</td></tr>
+<tr><td>Middelgroot</td><td data-l="Activa">meer dan SRD 3 miljoen</td><td data-l="Netto-omzet">meer dan SRD 6 miljoen</td><td data-l="Personeel">meer dan 20 en minder dan 50</td></tr>
+<tr><td>Klein</td><td data-l="Activa">tot en met SRD 3 miljoen</td><td data-l="Netto-omzet">tot en met SRD 6 miljoen</td><td data-l="Personeel">tot en met 20</td></tr>
+</tbody></table>
+<p>Let op: deze bedragen staan sinds 2017 vast in SRD. Door de koersdaling van de SRD is SRD 6 miljoen omzet nu veel minder dan toen (bekijk de actuele <a href="{{ U('rates') }}">{{ L('rates') }}</a>). Veel bedrijven die zichzelf klein noemen, zijn voor deze wet middelgroot.</p>
+<table class="tbl stack tx"><thead><tr><th>Verplichting</th><th>Klein</th><th>Middelgroot</th><th>Groot</th></tr></thead><tbody>
+<tr><td>Jaarrekening opmaken binnen 6 maanden (verlenging tot 6 maanden mogelijk)</td><td data-l="Klein">ja</td><td data-l="Middelgroot">ja</td><td data-l="Groot">ja</td></tr>
+<tr><td>Verslaggevingsstandaard</td><td data-l="Klein">minimaal fiscale grondslagen (zie hieronder)</td><td data-l="Middelgroot">IFRS for SMEs</td><td data-l="Groot">IFRS</td></tr>
+<tr><td>Accountantscontrole verplicht</td><td data-l="Klein">nee, vrijwillig</td><td data-l="Middelgroot">ja</td><td data-l="Groot">ja</td></tr>
+<tr><td>Openbaarmaking binnen 8 werkdagen na vaststelling</td><td data-l="Klein">ter inzage op kantoor, melding bij het handelsregister</td><td data-l="Middelgroot">ter inzage op kantoor, melding bij het handelsregister</td><td data-l="Groot">deponeren bij het handelsregister (KKF)</td></tr>
+</tbody></table>
+<p>De jaarrekening bevat ten minste de balans, de winst- en verliesrekening, het kasstroomoverzicht, het verloopoverzicht van het eigen vermogen en een toelichting, in het Nederlands of Engels. Alle bestuurders (en commissarissen) tekenen; bij een NV stelt de algemene vergadering van aandeelhouders de jaarrekening vast. De controle doet een onafhankelijke gecertificeerde accountant. Organisaties van openbaar belang (banken, verzekeraars, pensioenfondsen, beursgenoteerde NV's en parastatalen) zijn altijd controleplichtig.</p>
+<p><b>Boetes.</b> Het ministerie van Economische Zaken kan een boete opleggen tot SRD 10.000 als de jaarrekening niet op tijd is opgemaakt, en tot SRD 100.000 als je niet deponeert of ter inzage legt, of geen verplichte controle laat doen.</p>
+<details class="more"><summary>Wijziging van de wet in 2022</summary><p>De Nationale Assemblée heeft op 27 oktober 2022 een wijziging goedgekeurd die de invoeringsdata een jaar opschoof en kleine rechtspersonen verplicht algemeen aanvaarde verslaggevingsstandaarden te gebruiken in plaats van fiscale grondslagen (bron: De West, 30 oktober 2022). We konden de gepubliceerde tekst van die wijziging niet inzien. Vraag je accountant welke standaard voor jouw boekjaar geldt.</p></details>
+{% else %}
+<p>Book 2 of the Civil Code refers to the <b>Annual Accounts Act</b> (Wet op de Jaarrekening, S.B. 2017 no. 84, in force since 6 October 2017) for what annual accounts must contain. The act applies to the NV, the cooperative and the mutual insurance society, to foundations and associations that run a business entered in the trade register, to formally foreign companies and to institutions supervised by the Central Bank (CBvS). A sole trader is not covered, but does have the record keeping duty of Book 3.</p>
+<p>The act classifies legal entities by size. You fall in a class if you meet at least two of the three criteria on two consecutive balance sheet dates:</p>
+<table class="tbl stack tx"><thead><tr><th>Class</th><th>Assets</th><th>Net turnover</th><th>Staff</th></tr></thead><tbody>
+<tr><td>Large</td><td data-l="Assets">over SRD 12 million</td><td data-l="Net turnover">over SRD 24 million</td><td data-l="Staff">over 50</td></tr>
+<tr><td>Medium</td><td data-l="Assets">over SRD 3 million</td><td data-l="Net turnover">over SRD 6 million</td><td data-l="Staff">over 20 and under 50</td></tr>
+<tr><td>Small</td><td data-l="Assets">up to SRD 3 million</td><td data-l="Net turnover">up to SRD 6 million</td><td data-l="Staff">up to 20</td></tr>
+</tbody></table>
+<p>Note: these amounts have been fixed in SRD since 2017. Because the SRD has lost value, SRD 6 million turnover is worth far less now than then (see current <a href="{{ U('rates') }}">{{ L('rates') }}</a>). Many businesses that call themselves small are medium-sized under this act.</p>
+<table class="tbl stack tx"><thead><tr><th>Obligation</th><th>Small</th><th>Medium</th><th>Large</th></tr></thead><tbody>
+<tr><td>Prepare accounts within 6 months (extension of up to 6 months possible)</td><td data-l="Small">yes</td><td data-l="Medium">yes</td><td data-l="Large">yes</td></tr>
+<tr><td>Reporting standard</td><td data-l="Small">at least tax valuation rules (see below)</td><td data-l="Medium">IFRS for SMEs</td><td data-l="Large">IFRS</td></tr>
+<tr><td>Audit required</td><td data-l="Small">no, voluntary</td><td data-l="Medium">yes</td><td data-l="Large">yes</td></tr>
+<tr><td>Publication within 8 working days after adoption</td><td data-l="Small">available at the office, notify the trade register</td><td data-l="Medium">available at the office, notify the trade register</td><td data-l="Large">file with the trade register (KKF)</td></tr>
+</tbody></table>
+<p>The accounts contain at least the balance sheet, profit and loss account, cash flow statement, statement of changes in equity and notes, in Dutch or English. All directors (and supervisory board members) sign; in an NV the general meeting of shareholders adopts the accounts. The audit is done by an independent certified accountant. Public interest entities (banks, insurers, pension funds, listed NVs and state-owned companies) must always be audited.</p>
+<p><b>Fines.</b> The Ministry of Economic Affairs can impose a fine of up to SRD 10,000 if the accounts are not prepared on time, and up to SRD 100,000 if you do not file or make them available, or skip a mandatory audit.</p>
+<details class="more"><summary>2022 amendment of the act</summary><p>On 27 October 2022 the National Assembly approved an amendment that pushed the start dates back by a year and requires small entities to use generally accepted reporting standards instead of tax valuation rules (source: De West, 30 October 2022). We could not inspect the published text of that amendment. Ask your accountant which standard applies to your financial year.</p></details>
+{% endif %}
+
+<h2>{{ 'Loonadministratie' if nl else 'Payroll records' }}</h2>
+{% if nl %}
+<p>Heb je personeel, dan ben je inhoudingsplichtige voor de loonbelasting en AOV. De Wet Loonbelasting (artikel 37) verplicht je een loonadministratie te voeren. De Uitvoeringsbeschikking Loonbelasting maakt dat concreet:</p>
+<ol class="steps">
+ <li><b>Werknemersverklaring.</b> Laat elke nieuwe werknemer voor de eerste loonbetaling een werknemersverklaring invullen en tekenen. Bewaar die tot vijf jaar na het jaar waarin de dienstbetrekking eindigde.</li>
+ <li><b>Loonstaat per werknemer.</b> Leg voor de eerste loonbetaling in een kalenderjaar per werknemer een loonstaat aan en houd die bij: loon, ingehouden loonbelasting en AOV per betaling.</li>
+ <li><b>Loonstrook.</b> Geef je werknemer per betaling een duidelijke loonstrook. <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li><b>Maandelijks afdragen.</b> Doe aangifte en betaal de ingehouden belasting en premie op tijd. De data staan in <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+ <li><b>Na het jaar.</b> Lever binnen een maand na het einde van het kalenderjaar de verzamelloonstaat en de loonbelastingkaarten van je werknemers in bij de inspecteur. Geef werknemers op verzoek een opgave van hun jaarloon en de ingehouden belasting.</li>
+</ol>
+<p>De loonadministratie hoort op de plaats waar je in Suriname kantoor houdt. Bewaar ook arbeidscontracten, urenregistratie en verlofadministratie; die heb je nodig bij een geschil of controle. <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a> &middot; <a href="{{ U('vacation') }}">{{ L('vacation') }}</a> &middot; <a href="{{ U('employer') }}">{{ L('employer') }}</a></p>
+{% else %}
+<p>If you have staff, you are the withholding agent for wage tax and AOV (old age pension contribution). The Wage Tax Act (article 37) requires you to keep payroll records. The Wage Tax Implementing Order makes this concrete:</p>
+<ol class="steps">
+ <li><b>Employee statement.</b> Have every new employee fill in and sign a werknemersverklaring before the first pay. Keep it until five years after the year in which employment ended.</li>
+ <li><b>Pay record per employee.</b> Before the first pay in a calendar year, open a loonstaat (pay record) for each employee and keep it up to date: wage, wage tax and AOV withheld per payment.</li>
+ <li><b>Payslip.</b> Give your employee a clear payslip with each payment. <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li><b>Pay monthly.</b> File and pay the tax and contribution you withheld on time. The dates are in <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+ <li><b>After the year.</b> Within one month after the end of the calendar year, submit the summary pay record (verzamelloonstaat) and the wage tax cards of your employees to the inspector. Give employees a statement of their annual wage and tax withheld on request.</li>
+</ol>
+<p>Payroll records belong at the place where you have your office in Suriname. Also keep employment contracts, time records and leave records; you need them in a dispute or audit. <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a> &middot; <a href="{{ U('vacation') }}">{{ L('vacation') }}</a> &middot; <a href="{{ U('employer') }}">{{ L('employer') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Een eenvoudige maandroutine' if nl else 'A simple monthly routine' }}</h2>
+{% if nl %}
+<p>Een kleine zaak hoeft geen dure software te hebben. Wat telt is dat je elke maand hetzelfde doet. Reken op één tot drie uur per maand.</p>
+<ol class="steps">
+ <li><b>Dagelijks of wekelijks: alles op één plek.</b> Verkoopfacturen, inkoopfacturen, bonnen en kwitanties in één map (papier of digitaal) per maand. Fotografeer bonnen direct; thermisch papier vervaagt.</li>
+ <li><b>Kas tellen.</b> Tel aan het eind van de dag of week de kas en vergelijk met je kasboek. Verschillen schrijf je op met een reden. <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a></li>
+ <li><b>Bank afstemmen.</b> Zet elke bij- en afschrijving op je bankafschrift tegenover een factuur of bon. Wat je niet kunt verklaren, zoek je meteen uit.</li>
+ <li><b>BTW-register bijwerken.</b> Boek verkopen en inkopen per tarief en bereken de af te dragen BTW. Dien de aangifte in en betaal voor de 16e van de volgende maand, ook als het saldo nul is. <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a></li>
+ <li><b>Debiteuren nalopen.</b> Welke facturen zijn over de vervaldatum? Stuur een herinnering. <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> &middot; <a href="{{ U('reminder') }}">{{ L('reminder') }}</a></li>
+ <li><b>Voorraad.</b> Tel of controleer je voorraad, zeker de dure artikelen. <a href="{{ U('stock') }}">{{ L('stock') }}</a></li>
+ <li><b>Kasstroom vooruitkijken.</b> Wat komt er de komende drie maanden binnen en wat gaat eruit? <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a></li>
+ <li><b>Back-up.</b> Kopieer de maandmap naar een tweede plek.</li>
+</ol>
+<h3>Rekeningschema: de basis</h3>
+<p>Een rekeningschema is de lijst van "potjes" waarin je elke boeking zet. Voor een kleine zaak is dit genoeg:</p>
+<table class="tbl stack tx"><thead><tr><th>Groep</th><th>Voorbeelden</th></tr></thead><tbody>
+<tr><td>Vaste activa</td><td data-l="Voorbeelden">inventaris, machines, voertuigen, computers (met afschrijving: <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a>)</td></tr>
+<tr><td>Geldmiddelen</td><td data-l="Voorbeelden">kas, bank SRD, bank USD, bank EUR (elke valuta een eigen rekening)</td></tr>
+<tr><td>Vorderingen en schulden</td><td data-l="Voorbeelden">debiteuren, crediteuren, te betalen BTW, te betalen loonbelasting en AOV, leningen</td></tr>
+<tr><td>Eigen vermogen</td><td data-l="Voorbeelden">kapitaal, privéstortingen en privéopnames (eenmanszaak)</td></tr>
+<tr><td>Kosten</td><td data-l="Voorbeelden">inkoop goederen, lonen, huur, elektriciteit en water, telefoon en internet, transport, bankkosten, rente</td></tr>
+<tr><td>Opbrengsten</td><td data-l="Voorbeelden">omzet per tarief (10%, 5%, 25%, 0%), omzet vrijgesteld, overige opbrengsten</td></tr>
+</tbody></table>
+{% else %}
+<p>A small business does not need expensive software. What matters is doing the same thing every month. Plan for one to three hours a month.</p>
+<ol class="steps">
+ <li><b>Daily or weekly: everything in one place.</b> Sales invoices, purchase invoices, receipts and kwitanties in one folder (paper or digital) per month. Photograph receipts right away; thermal paper fades.</li>
+ <li><b>Count the cash.</b> At the end of the day or week, count the till and compare it with your cash book. Write down differences with a reason. <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a></li>
+ <li><b>Reconcile the bank.</b> Match every credit and debit on your bank statement with an invoice or receipt. Investigate anything you cannot explain at once.</li>
+ <li><b>Update the VAT register.</b> Record sales and purchases per rate and calculate the VAT due. File and pay before the 16th of the following month, even if the balance is zero. <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a></li>
+ <li><b>Chase receivables.</b> Which invoices are past due? Send a reminder. <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> &middot; <a href="{{ U('reminder') }}">{{ L('reminder') }}</a></li>
+ <li><b>Stock.</b> Count or check your stock, at least the expensive items. <a href="{{ U('stock') }}">{{ L('stock') }}</a></li>
+ <li><b>Look ahead at cash flow.</b> What comes in and goes out over the next three months? <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a></li>
+ <li><b>Back up.</b> Copy the month folder to a second place.</li>
+</ol>
+<h3>Chart of accounts: the basics</h3>
+<p>A chart of accounts is the list of "buckets" you post each entry to. For a small business this is enough:</p>
+<table class="tbl stack tx"><thead><tr><th>Group</th><th>Examples</th></tr></thead><tbody>
+<tr><td>Fixed assets</td><td data-l="Examples">furniture, machines, vehicles, computers (with depreciation: <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a>)</td></tr>
+<tr><td>Cash and bank</td><td data-l="Examples">cash, bank SRD, bank USD, bank EUR (a separate account per currency)</td></tr>
+<tr><td>Receivables and payables</td><td data-l="Examples">debtors, creditors, VAT payable, wage tax and AOV payable, loans</td></tr>
+<tr><td>Equity</td><td data-l="Examples">capital, owner's contributions and drawings (sole trader)</td></tr>
+<tr><td>Expenses</td><td data-l="Examples">purchases, wages, rent, electricity and water, phone and internet, transport, bank charges, interest</td></tr>
+<tr><td>Income</td><td data-l="Examples">sales per rate (10%, 5%, 25%, 0%), exempt sales, other income</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Een accountant of administratiekantoor kiezen' if nl else 'Choosing an accountant or bookkeeper' }}</h2>
+{% if nl %}
+<p>De titel <b>accountant</b> is beschermd. Volgens de Wet Suriname Chartered Accountants Institute (S.B. 2018 no. 92) mag alleen wie is ingeschreven in het accountantsregister zich accountant noemen; ingeschrevenen voeren de titel Chartered Accountant (CA). Het register wordt bijgehouden door het <b>Suriname Chartered Accountants Institute (SCAI)</b>, de opvolger van de SUVA. Voor een wettelijke controle van de jaarrekening heb je een onafhankelijke gecertificeerde accountant nodig. Een administratiekantoor of boekhouder zonder die titel mag wel je boekhouding en aangiften verzorgen, maar geen controleverklaring afgeven.</p>
+<p>SCAI: Tapanahonystraat 2, Paramaribo, telefoon +597 895 5707, info@scai.sr. Vraag daar of iemand ingeschreven staat.</p>
+<p>Vragen die je een kantoor stelt:</p>
+<ul class="check">
+ <li>Staat de accountant ingeschreven bij SCAI, of is het een administratiekantoor?</li>
+ <li>Wat zit in het vaste maandbedrag: boekingen, BTW-aangifte, loonadministratie, jaarrekening, aangifte inkomstenbelasting?</li>
+ <li>Wanneer moeten jouw stukken binnen zijn, en wanneer levert het kantoor de aangifte in?</li>
+ <li>Krijg je zelf toegang tot je administratie, en wie is eigenaar van de bestanden als je overstapt?</li>
+ <li>Hebben ze ervaring met jouw branche en met boekhouden in meerdere valuta?</li>
+</ul>
+{% else %}
+<p>The title <b>accountant</b> is protected. Under the Suriname Chartered Accountants Institute Act (S.B. 2018 no. 92) only people entered in the accountants register may call themselves accountant; registered members use the title Chartered Accountant (CA). The register is kept by the <b>Suriname Chartered Accountants Institute (SCAI)</b>, the successor of SUVA. A statutory audit of annual accounts needs an independent certified accountant. A bookkeeping firm without that title may keep your books and file returns, but may not issue an audit opinion.</p>
+<p>SCAI: Tapanahonystraat 2, Paramaribo, phone +597 895 5707, info@scai.sr. Ask them whether someone is registered.</p>
+<p>Questions to ask a firm:</p>
+<ul class="check">
+ <li>Is the accountant registered with SCAI, or is it a bookkeeping office?</li>
+ <li>What does the fixed monthly fee cover: postings, VAT return, payroll, annual accounts, income tax return?</li>
+ <li>When must your documents be in, and when do they file the return?</li>
+ <li>Do you get access to your own records, and who owns the files if you switch?</li>
+ <li>Do they know your sector and bookkeeping in several currencies?</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Privé en zaak door elkaar.</b> Eén rekening voor alles maakt je administratie onleesbaar. Open een zakelijke rekening: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Facturen zonder FIN van de klant</b> of zonder leverdatum. Je zakelijke klant kan dan de BTW niet aftrekken.</li>
+ <li><b>Een factuur aanpassen of opnieuw nummeren</b> in plaats van een creditnota te maken.</li>
+ <li><b>Te laat factureren.</b> De termijn is 15 dagen na het einde van de maand van levering.</li>
+ <li><b>Contante inkopen zonder bon.</b> Zonder bewijs geen kostenaftrek en geen BTW-aftrek.</li>
+ <li><b>Geen nul-aangifte voor de BTW</b> in een maand zonder omzet. Ook dan moet je aangifte doen.</li>
+ <li><b>Valuta door elkaar.</b> Boek USD- en EUR-bedragen apart en noteer de koers die je gebruikt.</li>
+ <li><b>Denken dat je "klein" bent</b> voor de Wet op de Jaarrekening, terwijl je omzet boven SRD 6 miljoen ligt.</li>
+ <li><b>Stukken weggooien na vijf jaar.</b> De termijn is tien jaar.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Mixing private and business money.</b> One account for everything makes your records unreadable. Open a business account: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Invoices without the customer's FIN</b> or without a supply date. Your business customer then cannot deduct the VAT.</li>
+ <li><b>Changing or renumbering an invoice</b> instead of issuing a credit note.</li>
+ <li><b>Invoicing late.</b> The deadline is 15 days after the end of the month of supply.</li>
+ <li><b>Cash purchases without a receipt.</b> No proof means no expense deduction and no VAT deduction.</li>
+ <li><b>No nil VAT return</b> in a month without sales. You must still file.</li>
+ <li><b>Mixing currencies.</b> Record USD and EUR amounts separately and note the exchange rate you used.</li>
+ <li><b>Thinking you are "small"</b> under the Annual Accounts Act while your turnover is above SRD 6 million.</li>
+ <li><b>Throwing documents away after five years.</b> The period is ten years.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<p><b>...ik in USD factureer?</b> Dat mag in de praktijk, maar vermeld de valuta duidelijk. Vraag de Belastingdienst of je accountant tegen welke koers je de BTW in je aangifte omrekent, en noteer die koers bij de factuur.</p>
+<p><b>...ik jaren geen administratie heb gevoerd?</b> Begin nu. Vraag bankafschriften op bij je bank, verzamel facturen van leveranciers en reconstrueer per jaar. Een accountant kan helpen met een vermogensopstelling. Wacht niet op een controle.</p>
+<p><b>...mijn kassasysteem kapotgaat?</b> Noteer de verkopen met de hand tot het gerepareerd is, met doorlopend genummerde bonnen, en bewaar de oude gegevens van het kassasysteem.</p>
+<p><b>...er een zegel op mijn kwitantie moet?</b> De Zegelwet uit 1872 noemt nog zegelrecht op kwitanties, met bedragen in oude guldens. Vraag de Belastingdienst of dit voor jouw situatie geldt.</p>
+{% else %}
+<p><b>...I invoice in USD?</b> That is common in practice, but state the currency clearly. Ask the tax office or your accountant which exchange rate to use to convert the VAT in your return, and note that rate with the invoice.</p>
+<p><b>...I have kept no records for years?</b> Start now. Request bank statements from your bank, collect supplier invoices and rebuild year by year. An accountant can help with a statement of assets and liabilities. Do not wait for an audit.</p>
+<p><b>...my cash register breaks down?</b> Record sales by hand until it is fixed, with receipts numbered in sequence, and keep the old cash register data.</p>
+<p><b>...does my kwitantie need a stamp?</b> The Stamp Duty Act of 1872 still mentions stamp duty on receipts, with amounts in old guilders. Ask the tax office whether it applies to you.</p>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.dna.sr/media/na5dn2xm/s-b-_2024_no-_164__boek_3.pdf" rel="noopener">Burgerlijk Wetboek Boek 3 (S.B. 2024 no. 164), art. 15i</a></li>
+ <li><a href="https://www.dna.sr/media/avzdei43/s-b-_2024_no-_164__boek_2.pdf" rel="noopener">Burgerlijk Wetboek Boek 2 (S.B. 2024 no. 164), art. 15 en 16</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-168-Aanpassingswet-nieuw-Burgerlijk-Wetboek.pdf" rel="noopener">Aanpassingswet nieuw Burgerlijk Wetboek (S.B. 2024 no. 168)</a></li>
+ <li><a href="https://www.curacao-law.com/wp-content/uploads/2026/07/Frielink-Nieuw-Boek-2-BW-Suriname-MvO-april-2026.pdf" rel="noopener">Frielink: nieuw Boek 2 BW Suriname ({{ 'in werking 1 mei 2025' if nl else 'in force 1 May 2025' }})</a></li>
+ <li><a href="https://www.dna.sr/media/0vtdzf3a/sb_2017___84_wet_op_de_jaarrekening.pdf" rel="noopener">Wet op de Jaarrekening (S.B. 2017 no. 84)</a></li>
+ <li><a href="https://dagbladdewest.com/2022/10/30/wijziging-wet-op-de-jaarrekening/" rel="noopener">De West: {{ 'wijziging Wet op de Jaarrekening' if nl else 'amendment of the Annual Accounts Act' }} (30-10-2022)</a></li>
+ <li><a href="https://btw.sr/wet-belasting-over-de-toegevoegde-waarde/" rel="noopener">Wet Belasting over de Toegevoegde Waarde ({{ 'geldende tekst' if nl else 'current text' }}), art. 23, 26 tot 30, 58 en 59</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2025/06/Brochure-met-een-beschrijving-van-de-BTW-wetgeving-op-hoofdlijnen-2025.pdf" rel="noopener">Belastingdienst: {{ 'BTW-brochure' if nl else 'VAT brochure' }} ({{ 'versie' if nl else 'version' }} 28-04-2025)</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Inkomstenbelasting.pdf" rel="noopener">Inkomstenbelasting 1922, art. 42, 44 en 82a</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2024/10/Wet-Loonbelasting.pdf" rel="noopener">Wet Loonbelasting {{ 'en Uitvoeringsbeschikking' if nl else 'and Implementing Order' }}</a></li>
+ <li><a href="https://www.dna.sr/media/aiob1nud/sb_2018_no_92.pdf" rel="noopener">Wet Suriname Chartered Accountants Institute (S.B. 2018 no. 92)</a></li>
+ <li><a href="https://www.scai.sr/contact" rel="noopener">Suriname Chartered Accountants Institute (SCAI)</a></li>
+ <li><a href="https://www.dna.sr/media/d05dxdin/zegelwet.pdf" rel="noopener">Zegelwet 1872</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-21') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}
