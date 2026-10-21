@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-21T21:02:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "ECD en LVV nemen landbouwchemicaliën in beslag; vervallen partij vernietigd",
+   "url": "https://dwtonline.com/ecd-en-lvv-nemen-landbouwchemicalien-in-beslag-vervallen-partij-vernietigd/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-21T21:00:46+00:00",
+   "source": "Suriname Herald",
+   "title": "Brandstofprijsplafond steeds moeilijker te handhaven",
+   "url": "https://www.srherald.com/suriname/2026/10/21/brandstofprijsplafond-steeds-moeilijker-te-handhaven/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-21T19:44:04+00:00",
+   "source": "Suriname Herald",
+   "title": "Landveld: RvC en directie TAS moeten conform schrijven handelen",
+   "url": "https://www.srherald.com/suriname/2026/10/21/landveld-rvc-en-directie-tas-moeten-conform-schrijven-handelen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-21T18:35:13+00:00",
    "source": "Dagblad Suriname",
    "title": "Bewoners Witagron vragen steun voor landbouw met mennonieten",
@@ -398,30 +419,9 @@
    "source": "Suriname Herald",
    "title": "Wereldbank verwacht 21,5 procent economische groei voor Suriname in 2028, sneller dan Guyana",
    "url": "https://www.srherald.com/economie/2026/10/09/wereldbank-verwacht-215-procent-economische-groei-voor-suriname-in-2028-sneller-dan-guyana/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-08T11:04:28+00:00",
-   "source": "Suriname Herald",
-   "title": "Scheepvaartgigant Maersk verhoogt brandstoftoeslag naar 20 procent",
-   "url": "https://www.srherald.com/economie/2026/10/08/scheepvaartgigant-maersk-verhoogt-brandstoftoeslag-naar-20-procent/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-07T19:07:43+00:00",
-   "source": "de Ware Tijd",
-   "title": "Regering wil begrotingstekort terugdringen met beheersing uitgaven en extra inkomsten",
-   "url": "https://dwtonline.com/regering-wil-begrotingstekort-terugdringen-met-beheersing-uitgaven-en-extra-inkomsten/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-07T09:44:24+00:00",
-   "source": "Suriname Herald",
-   "title": "ExxonMobil wil Guyana-succes herhalen voor kust Trinidad en Tobago",
-   "url": "https://www.srherald.com/economie/2026/10/07/exxonmobil-wil-guyana-succes-herhalen-voor-kust-trinidad-en-tobago/"
   }
  ],
- "fetched_at": "2026-10-21T19:35:24+00:00",
+ "fetched_at": "2026-10-21T22:45:09+00:00",
  "oil": [
   {
    "econ": false,
@@ -469,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-21T19:35:21+00:00",
+   "fetched_at": "2026-10-21T22:45:07+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-10-21T19:35:16+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-21T22:45:04+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-21T19:35:20+00:00",
+   "fetched_at": "2026-10-21T22:45:06+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T19:35:22+00:00",
+   "fetched_at": "2026-10-21T22:45:08+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-21T19:35:18+00:00",
+   "fetched_at": "2026-10-21T22:45:06+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T19:35:24+00:00",
+   "fetched_at": "2026-10-21T22:45:09+00:00",
    "ok": true
   }
  }

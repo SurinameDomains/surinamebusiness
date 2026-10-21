@@ -1,6 +1,23 @@
 {
- "fetched_at": "2026-10-21T19:35:35+00:00",
+ "fetched_at": "2026-10-21T22:45:19+00:00",
  "notices": [
+  {
+   "date": "2026-10-18",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=487ff9c50d174aa7b1ea64acb6e74e54",
+   "slots": [
+    {
+     "areas": "GEDEELTE LIVORNO BEEKHUIZENWEG TUSSEN TOEKOMSTWEG EN ARAKAKASTRAAT, GEDEELTE PANDIT PALTAN TEWARIEWEG TUSSEN AITKANTIWEG EN VERVUURTWEG, AITKANTIWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-18",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "15:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zondag 18 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1630/gepland-onderhoud-zondag-18-oktober-2026"
+  },
   {
    "date": "2026-10-19",
    "kind": "planned",
@@ -17,15 +34,6 @@
    "text": "",
    "title": "Gepland onderhoud maandag 19 oktober 2026",
    "url": "https://nvebs.com/nieuws/1633/gepland-onderhoud-maandag-19-oktober-2026"
-  },
-  {
-   "date": "2026-10-21",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE AQUARIUSSTRAAT TUSSEN SOEKHANSTRAAT EN PEU ET CONTENTSTRAAT, GEDEELTE RINGWEG – NOORD TUSSEN CURITIBASTRAAT EN SIPER JANUSSTRAAT, NOORDWIJKWEG, MARTINUSSTRAAT, HELOUISESTRAAT, CURITIBASTRAAT, RIO NEGROSTRAAT, BOMBAYSTRAAT, MONTEVIDEOSTRAAT, SANTIAGOSTRAAT, LIMASTRAAT, ASUNCIONSTRAAT, BOGOTASTRAAT, GUMMELSWEG, PEU ET CONTENTSTRAAT, HAFLINGERSTRAAT, LAAN VAN LOUSISEHOF, BELLADONNASTRAAT, RICANAUSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED. GEDEELTE MORGENSTONDSTRAAT TUSSEN PAPAJAFOWROESTRAAT EN SABAKOESTRAAT, ROWTISTRAAT, BASJAFOWROESTRAAT, PAPAJAFOWROESTRAAT, BAGA BAGA STRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud woensdag 21 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1634/gepland-onderhoud-woensdag-21-oktober-2026"
   },
   {
    "date": "2026-10-22",
