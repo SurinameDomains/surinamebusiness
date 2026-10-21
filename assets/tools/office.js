@@ -63,9 +63,13 @@
       items.push({ k: 'wage', d: ny + '-' + pad(nm + 1) + '-10', t: T('Loonbelasting en AOV aangifte', 'Wage tax and AOV return'), p: MN[pm] + ' ' + py });
     }
     [y, y + 1].forEach(function (yy) {
-      items.push({ k: 'ib', d: yy + '-04-15', t: T('Voorlopige aangifte inkomstenbelasting', 'Provisional income tax return'), p: String(yy) });
+      items.push({ k: 'ib', d: yy + '-04-15', t: T('Voorlopige aangifte inkomstenbelasting en eerste termijn', 'Provisional income tax return and first instalment'), p: String(yy) });
       items.push({ k: 'ib', d: yy + '-04-30', t: T('Definitieve aangifte inkomstenbelasting (personen)', 'Final income tax return (individuals)'), p: String(yy - 1) });
       items.push({ k: 'ib', d: yy + '-06-30', t: T('Definitieve aangifte bedrijven (boekjaar = kalenderjaar)', 'Final return for companies (calendar financial year)'), p: String(yy - 1) });
+      items.push({ k: 'ib', d: yy + '-02-15', t: T('Laatste dag om verlaging van de voorlopige aanslag te vragen', 'Last day to request a lower provisional assessment'), p: String(yy) });
+      items.push({ k: 'ib', d: yy + '-07-15', t: T('Inkomstenbelasting: tweede termijn', 'Income tax: second instalment'), p: String(yy) });
+      items.push({ k: 'ib', d: yy + '-10-15', t: T('Inkomstenbelasting: derde termijn', 'Income tax: third instalment'), p: String(yy) });
+      items.push({ k: 'ib', d: yy + '-12-31', t: T('Inkomstenbelasting: vierde termijn', 'Income tax: fourth instalment'), p: String(yy) });
     });
     var today = S.today(), end = S.addDays(today, 366);
     items = items.filter(function (x) { return x.d >= today && x.d <= end; }).sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
