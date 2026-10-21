@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/beschouwing-regering-poetst-de-etalage-op-maar-het-fundament-is-nog-broos/"
   }
  ],
- "fetched_at": "2026-10-21T04:37:34+00:00",
+ "fetched_at": "2026-10-21T09:40:51+00:00",
  "oil": [
   {
    "econ": false,
@@ -469,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-21T04:37:32+00:00",
+   "fetched_at": "2026-10-21T09:40:45+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-10-21T04:37:30+00:00",
+   "fetched_at": "2026-10-21T09:40:24+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-21T04:37:32+00:00",
+   "fetched_at": "2026-10-21T09:40:45+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T04:37:33+00:00",
+   "fetched_at": "2026-10-21T09:40:50+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-21T04:37:31+00:00",
+   "fetched_at": "2026-10-21T09:40:25+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T04:37:34+00:00",
+   "fetched_at": "2026-10-21T09:40:51+00:00",
    "ok": true
   }
  }
