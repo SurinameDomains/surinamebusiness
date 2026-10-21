@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-10-20T23:50:42+00:00",
+ "fetched_at": "2026-10-21T04:37:43+00:00",
  "notices": [
-  {
-   "date": "2026-10-17",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=4e389ae2af67419bb0173f0a5aafa9ec",
-   "slots": [
-    {
-     "areas": "GEDEELTE MAGENTAKANAAL WEG TUSSEN HELENA CHRISTINAWEG EN WELGEDACHT A WEG, WELGEDACHT A WEG TUSSEN INDIRA GANDHIWEG EN MAWAKABOWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-10-17",
-     "district": "Wanica",
-     "from": "08:30",
-     "to": "15:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud zaterdag 17 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1632/gepland-onderhoud-zaterdag-17-oktober-2026"
-  },
   {
    "date": "2026-10-18",
    "kind": "planned",

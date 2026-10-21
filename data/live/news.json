@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-21T04:06:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-21T03:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Kloof van 12,6 ton in Surinames goudexportcijfers",
+   "url": "https://dwtonline.com/kloof-van-126-ton-in-surinames-goudexportcijfers/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-20T23:44:21+00:00",
    "source": "Dagblad Suriname",
    "title": "Uitbreiding goudproject vraagt om 3600 nieuwe arbeidskrachten",
@@ -405,24 +419,17 @@
    "source": "de Ware Tijd",
    "title": "BESCHOUWING — Regering poetst de etalage op, maar het fundament is nog broos",
    "url": "https://dwtonline.com/beschouwing-regering-poetst-de-etalage-op-maar-het-fundament-is-nog-broos/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-05T13:33:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "BESCHOUWING — Jaarrede 2026: Koffiedik kijken en heel veel hopen",
-   "url": "https://dwtonline.com/beschouwing-jaarrede-2026-koffiedik-kijken-en-heel-veel-hopen/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-02T10:02:26+00:00",
-   "source": "Suriname Herald",
-   "title": "TotalEnergies trekt US$ 10 miljard uit voor olie en gas in Argentinië",
-   "url": "https://www.srherald.com/economie/2026/10/02/totalenergies-trekt-us-10-miljard-uit-voor-olie-en-gas-in-argentinie/"
   }
  ],
- "fetched_at": "2026-10-20T23:50:24+00:00",
+ "fetched_at": "2026-10-21T04:37:34+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-21T04:06:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
+  },
   {
    "econ": false,
    "published": "2026-10-20T03:05:03+00:00",
@@ -462,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-20T23:50:22+00:00",
+   "fetched_at": "2026-10-21T04:37:32+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 19,
-   "fetched_at": "2026-10-20T23:50:20+00:00",
+   "count": 18,
+   "fetched_at": "2026-10-21T04:37:30+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-20T23:50:22+00:00",
+   "fetched_at": "2026-10-21T04:37:32+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T23:50:23+00:00",
+   "fetched_at": "2026-10-21T04:37:33+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-20T23:50:21+00:00",
+   "fetched_at": "2026-10-21T04:37:31+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-20T23:50:24+00:00",
+   "fetched_at": "2026-10-21T04:37:34+00:00",
    "ok": true
   }
  }

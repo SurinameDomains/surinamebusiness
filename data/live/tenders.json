@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T23:50:05+00:00",
+ "fetched_at": "2026-10-21T04:37:14+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -141,17 +141,6 @@
    "source": "gov.sr",
    "title": "Het leveren van vuilcontainers en afvalkorven ten behoeve van de afdeling Vuilophaal van het Ministerie van Openbare Werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-vuilcontainers-en-afvalkorven-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
-  },
-  {
-   "buyer": "Consolidating Access to Inclusive Quality Education in Suriname",
-   "deadline": "2026-10-20",
-   "id": "idb-39248",
-   "kind": "Consulting Firms",
-   "lang": "en",
-   "published": "2026-10-07",
-   "source": "IDB",
-   "title": "AMENDMENT - Consultancy firm for Implementation Multilingualism Policy",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1967619452-972"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -492,22 +481,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-20T23:50:05+00:00",
+   "fetched_at": "2026-10-21T04:37:14+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-20T23:50:04+00:00",
+   "fetched_at": "2026-10-21T04:37:13+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 18,
-   "fetched_at": "2026-10-20T23:50:04+00:00",
+   "fetched_at": "2026-10-21T04:37:13+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-20T23:50:04+00:00",
+   "fetched_at": "2026-10-21T04:37:13+00:00",
    "ok": true
   }
  }
