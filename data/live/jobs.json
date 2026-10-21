@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-10-21T16:26:20+00:00",
+ "fetched_at": "2026-10-21T19:35:16+00:00",
  "items": [
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45167",
+   "location": "Paramaribo",
+   "published": "2026-10-21",
+   "source": "Newmont",
+   "title": "Advisor Exploration Drilling",
+   "url": "https://jobs.newmont.com/us/en/job/45167"
+  },
   {
    "deadline": null,
    "employer": "Newmont Suriname",
@@ -129,38 +139,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 4,
-   "fetched_at": "2026-10-21T16:26:10+00:00",
+   "count": 5,
+   "fetched_at": "2026-10-21T19:35:05+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-10-21T16:26:08+00:00",
+   "fetched_at": "2026-10-21T19:35:04+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 4,
-   "fetched_at": "2026-10-21T16:26:14+00:00",
+   "fetched_at": "2026-10-21T19:35:10+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-21T16:26:20+00:00",
+   "fetched_at": "2026-10-21T19:35:16+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 1,
-   "fetched_at": "2026-10-21T16:26:17+00:00",
+   "fetched_at": "2026-10-21T19:35:12+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 2,
-   "fetched_at": "2026-10-21T16:26:18+00:00",
+   "fetched_at": "2026-10-21T19:35:13+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-21T16:26:18+00:00",
+   "fetched_at": "2026-10-21T19:35:14+00:00",
    "ok": true
   }
  }
