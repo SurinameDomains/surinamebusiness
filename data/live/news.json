@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-22T00:21:56+00:00",
+   "source": "Suriname Herald",
+   "title": "Uitbreiding goudproject moet 3600 banen opleveren, maar bedrijven vrezen tekort aan personeel",
+   "url": "https://www.srherald.com/suriname/2026/10/21/uitbreiding-goudproject-moet-3600-banen-opleveren-maar-bedrijven-vrezen-tekort-aan-personeel/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-21T21:02:00+00:00",
    "source": "de Ware Tijd",
    "title": "ECD en LVV nemen landbouwchemicaliën in beslag; vervallen partij vernietigd",
@@ -412,16 +419,9 @@
    "source": "de Ware Tijd",
    "title": "BESCHOUWING — Een sterke fiscus, een sterke burger",
    "url": "https://dwtonline.com/beschouwing-een-sterke-fiscus-een-sterke-burger/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-09T11:00:50+00:00",
-   "source": "Suriname Herald",
-   "title": "Wereldbank verwacht 21,5 procent economische groei voor Suriname in 2028, sneller dan Guyana",
-   "url": "https://www.srherald.com/economie/2026/10/09/wereldbank-verwacht-215-procent-economische-groei-voor-suriname-in-2028-sneller-dan-guyana/"
   }
  ],
- "fetched_at": "2026-10-21T22:45:09+00:00",
+ "fetched_at": "2026-10-22T01:28:07+00:00",
  "oil": [
   {
    "econ": false,
@@ -469,32 +469,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-21T22:45:07+00:00",
+   "fetched_at": "2026-10-22T01:28:06+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-21T22:45:04+00:00",
+   "count": 18,
+   "fetched_at": "2026-10-22T01:28:04+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-21T22:45:06+00:00",
+   "fetched_at": "2026-10-22T01:28:05+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T22:45:08+00:00",
+   "fetched_at": "2026-10-22T01:28:06+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-21T22:45:06+00:00",
+   "fetched_at": "2026-10-22T01:28:05+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-21T22:45:09+00:00",
+   "fetched_at": "2026-10-22T01:28:07+00:00",
    "ok": true
   }
  }
