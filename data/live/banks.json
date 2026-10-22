@@ -1,35 +1,35 @@
 {
  "banks": [
   {
-   "date": "21-10-2026",
+   "date": "22-10-2026",
    "eur": [
     41.8,
-    42.67
+    42.623
    ],
-   "fetched_at": "2026-10-22T06:34:11+00:00",
+   "fetched_at": "2026-10-22T12:25:12+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
    "url": "https://www.finabanknv.com/service-desk/koersen-rates/",
    "usd": [
     37.4,
-    37.908
+    37.917
    ]
   },
   {
    "date": "",
    "eur": [
     41.75,
-    42.67
+    42.62
    ],
-   "fetched_at": "2026-10-22T06:34:12+00:00",
+   "fetched_at": "2026-10-22T12:25:14+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
    "url": "https://www.hakrinbank.com/en/private/foreign-exchange/",
    "usd": [
     37.4,
-    37.91
+    37.92
    ]
   },
   {
@@ -65,21 +65,21 @@
    ]
   },
   {
-   "date": "Woensdag 21 oktober 2026",
+   "date": "Donderdag 22 oktober 2026",
    "eur": [
-    41.873,
-    42.67
+    41.962,
+    42.623
    ],
-   "fetched_at": "2026-10-22T06:34:17+00:00",
+   "fetched_at": "2026-10-22T12:25:16+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
    "url": "https://www.godo.sr/",
    "usd": [
-    37.433,
-    37.908
+    37.547,
+    37.917
    ]
   }
  ],
- "fetched_at": "2026-10-22T06:34:17+00:00"
+ "fetched_at": "2026-10-22T12:25:16+00:00"
 }

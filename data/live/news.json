@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-22T11:10:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Krin Kondre Handhavingsteam treedt op tegen ondernemingen",
+   "url": "https://dwtonline.com/krin-kondre-handhavingsteam-treedt-op-tegen-ondernemingen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-22T10:57:09+00:00",
+   "source": "Suriname Herald",
+   "title": "Ali wil Guyanese gezinnen laten meeprofiteren van olierijkdom via investeringsfonds",
+   "url": "https://www.srherald.com/buitenland/2026/10/22/ali-wil-guyanese-gezinnen-laten-meeprofiteren-van-olierijkdom-via-investeringsfonds/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-22T06:06:00+00:00",
    "source": "de Ware Tijd",
    "title": "Digicel wil meeliften in olie-boom Suriname",
@@ -405,24 +419,17 @@
    "source": "de Ware Tijd",
    "title": "Wereldvoedseldag: LVV wil jongeren stimuleren om kansen in de landbouw te benutten",
    "url": "https://dwtonline.com/wereldvoedseldag-lvv-wil-jongeren-stimuleren-om-kansen-in-de-landbouw-te-benutten/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-16T12:05:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Chinese premier zet zich af tegen protectionisme",
-   "url": "https://dwtonline.com/chinese-premier-zet-zich-af-tegen-protectionisme/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-16T08:55:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Business community erkent: ‘Samenwerking tussen Suriname en Guyana is noodzaak’",
-   "url": "https://dwtonline.com/business-community-erkent-samenwerking-tussen-suriname-en-guyana-is-noodzaak/"
   }
  ],
- "fetched_at": "2026-10-22T06:34:09+00:00",
+ "fetched_at": "2026-10-22T12:24:46+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-22T10:57:09+00:00",
+   "source": "Suriname Herald",
+   "title": "Ali wil Guyanese gezinnen laten meeprofiteren van olierijkdom via investeringsfonds",
+   "url": "https://www.srherald.com/buitenland/2026/10/22/ali-wil-guyanese-gezinnen-laten-meeprofiteren-van-olierijkdom-via-investeringsfonds/"
+  },
   {
    "econ": false,
    "published": "2026-10-22T06:06:00+00:00",
@@ -483,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-22T06:34:07+00:00",
+   "fetched_at": "2026-10-22T12:24:44+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-22T06:34:05+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-22T12:24:42+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-22T06:34:07+00:00",
+   "fetched_at": "2026-10-22T12:24:44+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T06:34:08+00:00",
+   "fetched_at": "2026-10-22T12:24:45+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-22T06:34:06+00:00",
+   "fetched_at": "2026-10-22T12:24:43+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T06:34:09+00:00",
+   "fetched_at": "2026-10-22T12:24:46+00:00",
    "ok": true
   }
  }
