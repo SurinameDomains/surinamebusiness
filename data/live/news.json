@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-22T22:21:18+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons wil binnen enkele maanden einde maken aan slepende knelpunten voor ondernemers",
+   "url": "https://www.srherald.com/suriname/2026/10/22/simons-wil-binnen-enkele-maanden-einde-maken-aan-slepende-knelpunten-voor-ondernemers/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-22T21:11:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "SPWE leidt micro- en kleine ondernemers op",
+   "url": "https://dwtonline.com/spwe-leidt-micro-en-kleine-ondernemers-op/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-22T18:17:04+00:00",
    "source": "Dagblad Suriname",
    "title": "ABS: Jaarlijkse inflatie daalt naar 7,3 procent",
@@ -405,23 +419,9 @@
    "source": "de Ware Tijd",
    "title": "President Geerlings-Simons: ‘Onze ambitie gaat verder dan economisch herstel’",
    "url": "https://dwtonline.com/president-geerlings-simons-onze-ambitie-gaat-verder-dan-economisch-herstel/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-17T21:23:00+00:00",
-   "source": "Starnieuws",
-   "title": "Man met illegale revolver aangehouden in goudnederzetting 21 Pasi",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94419"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-17T19:02:00+00:00",
-   "source": "Starnieuws",
-   "title": "SBV: Tien banken maken gezamenlijke afspraken over cyberbeveiliging; sectorbreed protocol",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94418"
   }
  ],
- "fetched_at": "2026-10-22T20:49:57+00:00",
+ "fetched_at": "2026-10-22T23:58:59+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-22T20:49:55+00:00",
+   "fetched_at": "2026-10-22T23:58:58+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-22T20:49:53+00:00",
+   "count": 16,
+   "fetched_at": "2026-10-22T23:58:56+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-22T20:49:55+00:00",
+   "fetched_at": "2026-10-22T23:58:57+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T20:49:56+00:00",
+   "fetched_at": "2026-10-22T23:58:58+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-22T20:49:54+00:00",
+   "fetched_at": "2026-10-22T23:58:57+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T20:49:57+00:00",
+   "fetched_at": "2026-10-22T23:58:59+00:00",
    "ok": true
   }
  }
