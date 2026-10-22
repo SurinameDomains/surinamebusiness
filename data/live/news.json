@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-22T18:17:04+00:00",
+   "source": "Dagblad Suriname",
+   "title": "ABS: Jaarlijkse inflatie daalt naar 7,3 procent",
+   "url": "https://www.dbsuriname.com/2026/10/22/abs-jaarlijkse-inflatie-daalt-naar-73-procent/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-22T16:12:43+00:00",
    "source": "Suriname Herald",
    "title": "Simons: brandstof kan fors duurder worden als overheid prijsplafond niet langer kan handhaven",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "SBV: Tien banken maken gezamenlijke afspraken over cyberbeveiliging; sectorbreed protocol",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94418"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-17T14:11:20+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Suriname en Vietnam zetten in op versterken economische samenwerking",
-   "url": "https://www.dbsuriname.com/2026/10/17/suriname-en-vietnam-zetten-in-op-versterken-economische-samenwerking/"
   }
  ],
- "fetched_at": "2026-10-22T17:37:06+00:00",
+ "fetched_at": "2026-10-22T20:49:57+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-22T17:37:05+00:00",
+   "fetched_at": "2026-10-22T20:49:55+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-22T17:37:03+00:00",
+   "fetched_at": "2026-10-22T20:49:53+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-22T17:37:04+00:00",
+   "fetched_at": "2026-10-22T20:49:55+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T17:37:05+00:00",
+   "fetched_at": "2026-10-22T20:49:56+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-22T17:37:04+00:00",
+   "fetched_at": "2026-10-22T20:49:54+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T17:37:06+00:00",
+   "fetched_at": "2026-10-22T20:49:57+00:00",
    "ok": true
   }
  }
