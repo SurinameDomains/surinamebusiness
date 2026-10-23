@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-23T15:00:31+00:00",
+   "source": "de Ware Tijd",
+   "title": "Groente-export én volksgezondheid",
+   "url": "https://dwtonline.com/groente-export-en-volksgezondheid/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T12:31:00+00:00",
+   "source": "Starnieuws",
+   "title": "Abiamofo: SWM mist geld voor noodzakelijke investeringen in drinkwater",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94502"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T10:59:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "President Simons pleit voor concrete uitvoeringsagenda ter versterking van ondernemerschap",
+   "url": "https://dwtonline.com/president-simons-pleit-voor-concrete-uitvoeringsagenda-ter-versterking-van-ondernemerschap/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T10:33:00+00:00",
+   "source": "Starnieuws",
+   "title": "Energie en geld uit het binnenland: alleen met governance en benefit-sharing",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94484"
+  },
+  {
+   "econ": false,
    "published": "2026-10-23T06:21:08+00:00",
    "source": "Suriname Herald",
    "title": "Venezuela zoekt miljardensteun bij Qatar om toegang tot internationale leningen te herstellen",
@@ -13,6 +41,13 @@
    "source": "Starnieuws",
    "title": "Inflatie daalt naar 7,3 procent; groenten en fruit blijven fors duurder",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94499"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-22T23:50:00+00:00",
+   "source": "Starnieuws",
+   "title": "President Simons wil actieplan voor beter ondernemingsklimaat",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94497"
   },
   {
    "econ": false,
@@ -384,44 +419,9 @@
    "source": "Starnieuws",
    "title": "China wil export van 40 strategische technologieën beperken",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94417"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T04:04:00+00:00",
-   "source": "Starnieuws",
-   "title": "President roept banken op meer te investeren in productieve sectoren",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94421"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T03:00:00+00:00",
-   "source": "Starnieuws",
-   "title": "Simons wil waterbeschermingswet en investeringen om drinkwatervoorziening veilig te stellen",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94415"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T01:44:42+00:00",
-   "source": "Dagblad Suriname",
-   "title": "President Simons: “Vertrouwen in onze sterkste valuta”",
-   "url": "https://www.dbsuriname.com/2026/10/17/president-simons-vertrouwen-in-onze-sterkste-valuta/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T01:30:53+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Guyana verbiedt import e-sigaretten voor recreatief gebruik",
-   "url": "https://www.dbsuriname.com/2026/10/17/guyana-verbiedt-import-e-sigaretten-voor-recreatief-gebruik/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T01:08:54+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Goudzoekers in Masonia-gebied aangezegd te ontruimen uiterlijk vrijdag 23 oktober",
-   "url": "https://www.dbsuriname.com/2026/10/17/goudzoekers-in-masonia-gebied-aangezegd-te-ontruimen-uiterlijk-vrijdag-23-oktober/"
   }
  ],
- "fetched_at": "2026-10-23T09:59:57+00:00",
+ "fetched_at": "2026-10-23T15:00:50+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-23T09:59:55+00:00",
+   "fetched_at": "2026-10-23T15:00:49+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-10-23T09:59:53+00:00",
+   "fetched_at": "2026-10-23T15:00:47+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-23T09:59:55+00:00",
+   "fetched_at": "2026-10-23T15:00:48+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T09:59:56+00:00",
+   "fetched_at": "2026-10-23T15:00:49+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-23T09:59:54+00:00",
+   "fetched_at": "2026-10-23T15:00:48+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T09:59:57+00:00",
+   "fetched_at": "2026-10-23T15:00:50+00:00",
    "ok": true
   }
  }
