@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-22T23:50:00+00:00",
+   "source": "Starnieuws",
+   "title": "President Simons wil binnen enkele maanden actieplan voor beter ondernemingsklimaat",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94497"
+  },
+  {
+   "econ": false,
    "published": "2026-10-22T22:21:18+00:00",
    "source": "Suriname Herald",
    "title": "Simons wil binnen enkele maanden einde maken aan slepende knelpunten voor ondernemers",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "VSB wil knelpunten bij toelating buitenlandse arbeidskrachten in kaart brengen",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94405"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-17T21:45:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "President Geerlings-Simons: ‘Onze ambitie gaat verder dan economisch herstel’",
-   "url": "https://dwtonline.com/president-geerlings-simons-onze-ambitie-gaat-verder-dan-economisch-herstel/"
   }
  ],
- "fetched_at": "2026-10-22T23:58:59+00:00",
+ "fetched_at": "2026-10-23T04:41:08+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-22T23:58:58+00:00",
+   "fetched_at": "2026-10-23T04:41:07+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-10-22T23:58:56+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-23T04:41:05+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-22T23:58:57+00:00",
+   "fetched_at": "2026-10-23T04:41:06+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T23:58:58+00:00",
+   "fetched_at": "2026-10-23T04:41:07+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-22T23:58:57+00:00",
+   "fetched_at": "2026-10-23T04:41:06+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-22T23:58:59+00:00",
+   "fetched_at": "2026-10-23T04:41:08+00:00",
    "ok": true
   }
  }

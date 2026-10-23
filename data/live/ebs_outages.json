@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-10-22T23:59:14+00:00",
+ "fetched_at": "2026-10-23T04:41:16+00:00",
  "notices": [
-  {
-   "date": "2026-10-19",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=2863b3d0e8f84ad881141111e9263770",
-   "slots": [
-    {
-     "areas": "TISRIWEG, COLETTELAAN EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-10-19",
-     "district": "Wanica",
-     "from": "08:30",
-     "to": "12:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud maandag 19 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1633/gepland-onderhoud-maandag-19-oktober-2026"
-  },
   {
    "date": "2026-10-22",
    "kind": "planned",

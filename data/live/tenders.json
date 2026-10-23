@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-22T23:58:41+00:00",
+ "fetched_at": "2026-10-23T04:40:51+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -162,17 +162,6 @@
    "source": "gov.sr",
    "title": "Het maken van een houten beschoeiing bij het nannieverdeelwerk in het district Nickerie",
    "url": "https://gov.sr/aanbestedingen/het-maken-van-een-houten-beschoeiing-bij-het-nannieverdeelwerk-in-het-district-nickerie/"
-  },
-  {
-   "buyer": "Consolidating Access to Inclusive Quality Education in Suriname",
-   "deadline": "2026-10-22",
-   "id": "idb-39237",
-   "kind": "Consulting Firms",
-   "lang": "en",
-   "published": "2026-10-06",
-   "source": "IDB",
-   "title": "Consultancy firm for Implementation Multilingualism Policy",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1967619452-971"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -492,22 +481,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-22T23:58:41+00:00",
+   "fetched_at": "2026-10-23T04:40:51+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-22T23:58:40+00:00",
+   "fetched_at": "2026-10-23T04:40:50+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-22T23:58:41+00:00",
+   "fetched_at": "2026-10-23T04:40:51+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-22T23:58:40+00:00",
+   "fetched_at": "2026-10-23T04:40:50+00:00",
    "ok": true
   }
  }
