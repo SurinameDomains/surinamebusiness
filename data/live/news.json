@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-23T22:04:33+00:00",
+   "source": "Suriname Herald",
+   "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
+   "url": "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T19:30:00+00:00",
+   "source": "Starnieuws",
+   "title": "Volksgezondheid waarschuwt voor herintroductie malaria door stijging importgevallen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94508"
+  },
+  {
+   "econ": false,
    "published": "2026-10-23T17:28:00+00:00",
    "source": "Starnieuws",
    "title": "De echte crisis zit niet in de kouseband, maar in het landbouwmodel",
@@ -405,24 +419,17 @@
    "source": "de Ware Tijd",
    "title": "Negentig binnenlandbewoners op landbouwopleiding",
    "url": "https://dwtonline.com/negentig-binnenlandbewoners-op-landbouwopleiding/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T13:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Scheidende Vietnamese ambassadeur: Economische handel met Suriname verder versterken",
-   "url": "https://dwtonline.com/scheidende-vietnamese-ambassadeur-economische-handel-met-suriname-verder-versterken/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-18T11:58:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Lagarde waarschuwt voor aanhoudend hoge inflatie door energiecrisis",
-   "url": "https://dwtonline.com/lagarde-waarschuwt-voor-aanhoudend-hoge-inflatie-door-energiecrisis/"
   }
  ],
- "fetched_at": "2026-10-23T19:09:22+00:00",
+ "fetched_at": "2026-10-23T22:37:12+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-23T22:04:33+00:00",
+   "source": "Suriname Herald",
+   "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
+   "url": "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"
+  },
   {
    "econ": false,
    "published": "2026-10-22T10:57:09+00:00",
@@ -490,32 +497,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-23T19:09:20+00:00",
+   "fetched_at": "2026-10-23T22:37:11+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-10-23T19:09:14+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-23T22:37:08+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-23T19:09:15+00:00",
+   "fetched_at": "2026-10-23T22:37:10+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T19:09:21+00:00",
+   "fetched_at": "2026-10-23T22:37:11+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-23T19:09:15+00:00",
+   "fetched_at": "2026-10-23T22:37:10+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T19:09:22+00:00",
+   "fetched_at": "2026-10-23T22:37:12+00:00",
    "ok": true
   }
  }
