@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-23T06:21:08+00:00",
+   "source": "Suriname Herald",
+   "title": "Venezuela zoekt miljardensteun bij Qatar om toegang tot internationale leningen te herstellen",
+   "url": "https://www.srherald.com/buitenland/2026/10/23/venezuela-zoekt-miljardensteun-bij-qatar-om-toegang-tot-internationale-leningen-te-herstellen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T04:34:00+00:00",
+   "source": "Starnieuws",
+   "title": "Inflatie daalt naar 7,3 procent; groenten en fruit blijven fors duurder",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94499"
+  },
+  {
+   "econ": false,
    "published": "2026-10-22T23:50:00+00:00",
    "source": "Starnieuws",
    "title": "President Simons wil binnen enkele maanden actieplan voor beter ondernemingsklimaat",
@@ -405,23 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Goudzoekers in Masonia-gebied aangezegd te ontruimen uiterlijk vrijdag 23 oktober",
    "url": "https://www.dbsuriname.com/2026/10/17/goudzoekers-in-masonia-gebied-aangezegd-te-ontruimen-uiterlijk-vrijdag-23-oktober/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-17T23:49:16+00:00",
-   "source": "Suriname Herald",
-   "title": "Simons wil banken meer laten investeren in Surinaamse economie",
-   "url": "https://www.srherald.com/suriname/2026/10/17/simons-wil-banken-meer-laten-investeren-in-surinaamse-economie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-17T23:26:00+00:00",
-   "source": "Starnieuws",
-   "title": "VSB wil knelpunten bij toelating buitenlandse arbeidskrachten in kaart brengen",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94405"
   }
  ],
- "fetched_at": "2026-10-23T04:41:08+00:00",
+ "fetched_at": "2026-10-23T09:59:57+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-23T04:41:07+00:00",
+   "fetched_at": "2026-10-23T09:59:55+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-23T04:41:05+00:00",
+   "count": 16,
+   "fetched_at": "2026-10-23T09:59:53+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-23T04:41:06+00:00",
+   "fetched_at": "2026-10-23T09:59:55+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T04:41:07+00:00",
+   "fetched_at": "2026-10-23T09:59:56+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-23T04:41:06+00:00",
+   "fetched_at": "2026-10-23T09:59:54+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T04:41:08+00:00",
+   "fetched_at": "2026-10-23T09:59:57+00:00",
    "ok": true
   }
  }
