@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-23T15:01:09+00:00",
+ "fetched_at": "2026-10-23T19:09:30+00:00",
  "notices": [
   {
    "date": "2026-10-22",
@@ -26,6 +26,23 @@
    "text": "GEDEELTE COESEWIJNESTRAAT TUSSEN DUISBURGLAAN EN TYRONNEWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED. GEDEELTE WEG NAAR MENSA (UNIVERSITEITSCOMPLEX) EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
    "title": "Gepland onderhoud zondag 25 oktober 2026",
    "url": "https://nvebs.com/nieuws/1635/gepland-onderhoud-zondag-25-oktober-2026"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=85bdacf9c8e64f99aa2ca9f05a83fd69",
+   "slots": [
+    {
+     "areas": "GEHEEL LIBANONWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-27",
+     "district": "Wanica",
+     "from": "09:00",
+     "to": "13:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud dinsdag 27 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1636/gepland-onderhoud-dinsdag-27-oktober-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

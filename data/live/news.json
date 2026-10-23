@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-23T17:28:00+00:00",
+   "source": "Starnieuws",
+   "title": "De echte crisis zit niet in de kouseband, maar in het landbouwmodel",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94491"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-23T15:34:51+00:00",
+   "source": "Suriname Herald",
+   "title": "Inflatie daalt, maar boodschappen blijven peperduur: groenten en fruit 35,7 procent duurder",
+   "url": "https://www.srherald.com/suriname/2026/10/23/inflatie-daalt-maar-boodschappen-blijven-peperduur-groenten-en-fruit-357-procent-duurder/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-23T15:00:31+00:00",
    "source": "de Ware Tijd",
    "title": "Groente-export én volksgezondheid",
@@ -405,23 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Lagarde waarschuwt voor aanhoudend hoge inflatie door energiecrisis",
    "url": "https://dwtonline.com/lagarde-waarschuwt-voor-aanhoudend-hoge-inflatie-door-energiecrisis/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T09:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Sieraden en geld gestolen uit bedrijfspand Ladesmastraat",
-   "url": "https://dwtonline.com/sieraden-en-geld-gestolen-uit-bedrijfspand-ladesmastraat/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T06:01:00+00:00",
-   "source": "Starnieuws",
-   "title": "China wil export van 40 strategische technologieën beperken",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94417"
   }
  ],
- "fetched_at": "2026-10-23T15:00:50+00:00",
+ "fetched_at": "2026-10-23T19:09:22+00:00",
  "oil": [
   {
    "econ": false,
@@ -490,32 +490,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-23T15:00:49+00:00",
+   "fetched_at": "2026-10-23T19:09:20+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-10-23T15:00:47+00:00",
+   "fetched_at": "2026-10-23T19:09:14+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-23T15:00:48+00:00",
+   "fetched_at": "2026-10-23T19:09:15+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T15:00:49+00:00",
+   "fetched_at": "2026-10-23T19:09:21+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-23T15:00:48+00:00",
+   "fetched_at": "2026-10-23T19:09:15+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T15:00:50+00:00",
+   "fetched_at": "2026-10-23T19:09:22+00:00",
    "ok": true
   }
  }
