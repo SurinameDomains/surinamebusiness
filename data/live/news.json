@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/negentig-binnenlandbewoners-op-landbouwopleiding/"
   }
  ],
- "fetched_at": "2026-10-23T22:37:12+00:00",
+ "fetched_at": "2026-10-24T01:08:05+00:00",
  "oil": [
   {
    "econ": false,
@@ -497,32 +497,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-23T22:37:11+00:00",
+   "fetched_at": "2026-10-24T01:08:03+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-23T22:37:08+00:00",
+   "fetched_at": "2026-10-24T01:08:01+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-23T22:37:10+00:00",
+   "fetched_at": "2026-10-24T01:08:03+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T22:37:11+00:00",
+   "fetched_at": "2026-10-24T01:08:04+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-23T22:37:10+00:00",
+   "fetched_at": "2026-10-24T01:08:02+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-23T22:37:12+00:00",
+   "fetched_at": "2026-10-24T01:08:05+00:00",
    "ok": true
   }
  }
