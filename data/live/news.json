@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-24T14:41:05+00:00",
+   "source": "Suriname Herald",
+   "title": "Ruzie tussen goudzoekers in Sarakreek eindigt in dodelijke schietpartij",
+   "url": "https://www.srherald.com/suriname/2026/10/24/ruzie-tussen-goudzoekers-in-sarakreek-eindigt-in-dodelijke-schietpartij/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-24T11:43:00+00:00",
    "source": "Starnieuws",
    "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
@@ -412,16 +419,9 @@
    "source": "de Ware Tijd",
    "title": "ECD: Eigenaar NG Electronics maakt zich onbereikbaar",
    "url": "https://dwtonline.com/ecd-eigenaar-ng-electronics-maakt-zich-onbereikbaar/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-18T19:04:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "VSB wil duidelijkheid over uitvoering ‘Negatieve Lijst’",
-   "url": "https://dwtonline.com/vsb-wil-duidelijkheid-over-uitvoering-negatieve-lijst/"
   }
  ],
- "fetched_at": "2026-10-24T14:21:16+00:00",
+ "fetched_at": "2026-10-24T14:54:06+00:00",
  "oil": [
   {
    "econ": false,
@@ -504,32 +504,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-24T14:21:15+00:00",
+   "fetched_at": "2026-10-24T14:54:03+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-24T14:21:13+00:00",
+   "fetched_at": "2026-10-24T14:54:01+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-24T14:21:14+00:00",
+   "fetched_at": "2026-10-24T14:54:02+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T14:21:15+00:00",
+   "fetched_at": "2026-10-24T14:54:03+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-24T14:21:14+00:00",
+   "fetched_at": "2026-10-24T14:54:02+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T14:21:16+00:00",
+   "fetched_at": "2026-10-24T14:54:06+00:00",
    "ok": true
   }
  }
