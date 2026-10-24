@@ -30,7 +30,7 @@
   --sh-2:0 12px 32px rgba(16,20,40,.10),0 2px 6px rgba(16,20,40,.05);
   --font:"Source Sans 3","SS3 Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --max:1140px;
-  --head-h:0px;              /* sticky header height: 0 on desktop (header scrolls away), 56px on phones */
+  --head-h:64px;             /* part of the header that stays in view: the 64px bar on desktop, 56px on phones */
   --tabbar:0px;              /* set on phones, pads the page above the bottom tab bar */
   --focus:0 0 0 3px rgba(47,52,136,.22);
 }
@@ -65,13 +65,16 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 /* ---------------------------------------------------------------- header
    Desktop: indigo bar (wordmark, site search, today's rate) + white navigation row; the header scrolls away.
    Phones (<=1000px): a sticky 56px indigo bar (wordmark, search, menu); the navigation row becomes a full-height drawer. */
-.top{position:relative;z-index:40}
+.top{position:sticky;top:0;z-index:40}   /* the header is only the 64px bar: it stays in view; the navigation row below it scrolls away */
 .bar{background:var(--brand);color:#fff}
 .bar .wrap{display:flex;align-items:center;gap:22px;min-height:64px}
 .logo{display:flex;align-items:center;flex:none;padding:6px 0;border-radius:4px}
 .wm-img{display:block;height:20px;width:auto}
 .bar :focus-visible{outline-color:#fff}
 .hs-bar{flex:1 1 auto;max-width:540px;margin-left:8px}
+.hs-bar input{padding-right:30px}
+.hs-late{visibility:hidden;opacity:0;transition:opacity .15s}
+.hs-late.on,.hs-late:focus-within{visibility:visible;opacity:1}
 .hs-key{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:600 .78rem/1 var(--font);color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 7px;pointer-events:none}
 .hs-bar:focus-within .hs-key{display:none}
 .rate-chip{margin-left:auto;display:inline-flex;align-items:baseline;gap:5px;color:#fff;text-decoration:none;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap;padding:8px 10px;border-radius:8px;font-size:.97rem}
@@ -79,7 +82,7 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .rate-chip i{font-style:normal;color:#8f94c4;margin:0 3px}
 .rate-chip:hover{background:rgba(255,255,255,.08);color:#fff}
 .hd-search,.menu-btn{display:none}
-.nav{background:var(--card);border-bottom:1px solid var(--line)}
+.nav{background:var(--card);border-bottom:1px solid var(--line);position:relative;z-index:39}
 .nav-in{display:flex;align-items:center;gap:2px;min-height:50px;position:relative}
 .dd-btn,.nav-link{color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:8px;font:inherit;font-weight:600;font-size:.98rem;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;min-height:40px;line-height:1.2}
 .dd-btn:hover,.nav-link:hover,.dd.open .dd-btn{background:var(--paper-2);color:var(--ink)}
@@ -881,3 +884,37 @@ a.ti:has(> .ic) b,a.ti:has(> .ic) span{grid-column:2}
 /* buttons that used to sit on the indigo result panel */
 .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--field)}
 .btn.ghost:hover{background:var(--line-3);color:var(--ink);border-color:var(--ink-2)}
+
+/* ---------------------------------------------------------------- audit 24 Oct (v4.1): phone ergonomics */
+@media (max-width:1000px){
+  /* while typing, the bottom bars step aside so they never sit on top of the field or the keyboard suggestions */
+  body:has(:is(input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),textarea,select):focus) .tabbar,
+  body:has(:is(input:not([type=checkbox]):not([type=radio]),textarea,select):focus) .sb-sticky{display:none}
+  body:has(:is(input:not([type=checkbox]):not([type=radio]),textarea,select):focus){padding-bottom:0}
+  /* 16px or more in every field: iOS does not zoom the page when a field gets focus */
+  .calc input,.calc select,.calc textarea,.lines input,.lines select,.ts-row input,.cf-row input,.cf-row select,
+  .filters input,.filters select,.pj input,.pj select,.pj textarea,.acts input,.acct-page input,.acct-page select,.adm input,.adm select,.adm textarea{font-size:16px}
+}
+@media (max-width:600px){
+  .prose{margin-left:0;margin-right:0}
+  .filters input[type=search],.filters input{flex-basis:100%}
+}
+/* home: counts only on phones (on desktop the "Alle N" link carries it); quick actions as an even grid */
+@media (min-width:601px){.cat h3 .cnt{display:none}.qa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:640px}.qa a{display:flex}}
+/* section list on narrow screens: one tap opens it, it no longer pushes the guide down */
+.toc-m{display:none}
+@media (max-width:1099px){
+  .prose:has(> .toc-m) > .toc{display:none}
+  .toc-m{display:block;margin:6px 0 26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:40em}
+  .toc-m > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;padding:12px 0;font-weight:650;min-height:44px}
+  .toc-m > summary::-webkit-details-marker{display:none}
+  .toc-m > summary::after{content:"";margin-left:auto!important;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 6px 4px 0;transition:transform .15s}
+  .toc-m[open] > summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+  .toc-m ul{list-style:none;margin:0 0 12px;padding:0;columns:2;column-gap:24px;font-size:.96rem}
+  .toc-m li{padding:6px 0;break-inside:avoid}
+  .toc-m a{text-decoration:none;color:var(--ink-2)}
+}
+@media (max-width:600px){.toc-m ul{columns:1}}
+@media print{.toc-m{display:none}}
+/* long lists: rows below the first screen are laid out only when they come near the viewport (faster first paint on phones) */
+#t-list > li,#j-list > li,#n-list > li{content-visibility:auto;contain-intrinsic-size:auto 96px}
