@@ -349,13 +349,96 @@ ICONS = {
     "calc": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/>',
     "trend": '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
 }
+# 24px stroke icons (Lucide-style geometry, drawn for this site). One distinct icon per tool or section, so a list can be
+# scanned by shape as well as by word. Keys in ICON_OF are page keys; names refer to ICONS.
+ICONS.update({
+    "file-pen": '<path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M13 3v6h6v2"/><path d="M18.4 13.6a1.9 1.9 0 0 1 2.7 2.7L16 21.4l-3.4.9.9-3.4z"/>',
+    "file-minus": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 15h6"/>',
+    "file-check": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 15l2 2 4-4"/>',
+    "files": '<path d="M15 2H9a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7z"/><path d="M15 2v5h5M4 7v13a2 2 0 0 0 2 2h10"/>',
+    "clipboard": '<rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 2h6v4H9zM9 11h6M9 15h6M9 19h3"/>',
+    "truck": '<path d="M2 6h11v10H2zM13 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+    "wallet": '<path d="M19 7V5a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-4a2 2 0 0 0 0 4h4v2a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V6"/><path d="M21 13v4"/>',
+    "timer": '<circle cx="12" cy="13" r="8"/><path d="M10 2h4M12 9v4l2 2"/>',
+    "list-check": '<path d="M11 6h10M11 12h10M11 18h10M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/>',
+    "palm": '<path d="M12 22V11"/><path d="M12 11C10 7 6 6 3 8c3 0 6 1 9 3zM12 11c2-4 6-5 9-3-3 0-6 1-9 3zM12 11c-1-4-4-7-7-7 2 2 5 4 7 7zM12 11c1-4 4-7 7-7-2 2-5 4-7 7z"/><path d="M8 22h8"/>',
+    "target": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    "piggy": '<path d="M19 9.5c0-.9-.2-1.7-.5-2.5l1.8-2.2a.6.6 0 0 0-.6-1L17 4.6A8 8 0 0 0 13 4H10a7 7 0 0 0-7 7c0 2.2 1 4.2 2.6 5.5V20h3v-2h5v2h3v-3.2A7 7 0 0 0 19 13h2v-3.5z"/><circle cx="15" cy="9.5" r=".6"/>',
+    "trend-down": '<path d="M3 7l6 6 4-4 8 8"/><path d="M15 17h6v-6"/>',
+    "inbox": '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/>',
+    "box": '<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>',
+    "flow": '<path d="M3 8h13l-3-3M21 16H8l3 3"/>',
+    "car": '<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M3 12h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/>',
+    "list": '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+    "gift": '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8S10.5 3 8 4s0 4 4 4zM12 8s1.5-5 4-4 0 4-4 4z"/>',
+    "pen": '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    "coins-user": '<circle cx="9" cy="7" r="4"/><path d="M2 21v-1a6 6 0 0 1 10-4.5"/><circle cx="17.5" cy="17.5" r="4"/><path d="M17.5 15.5v4"/>',
+    "clock-plus": '<path d="M21 12a9 9 0 1 0-9 9"/><path d="M12 7v5l3 2M19 16v6M16 19h6"/>',
+    "floor": '<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>',
+    "cal-check": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/>',
+    "cal-clock": '<path d="M21 10V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="17" cy="17" r="4"/><path d="M17 15.5V17l1 1"/>',
+    "flag": '<path d="M5 22V4M5 4h11l-2 4 2 4H5"/>',
+    "exchange": '<path d="M7 4L3 8l4 4M3 8h14M17 12l4 4-4 4M21 16H7"/>',
+    "basket": '<path d="M3 10h18l-2 10H5z"/><path d="M8 10l3-6M16 10l-3-6M9 14v3M15 14v3"/>',
+    "briefcase": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
+    "gavel": '<path d="M14 13l-7.5 7.5a2.1 2.1 0 0 1-3-3L11 10"/><path d="M16 16l6-6M8 8l6-6M9 7l8 8M21 11l-8-8"/>',
+    "store": '<path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9M10 21v-5h4v5"/>',
+    "book-open": '<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
+    "news": '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9h4"/><path d="M10 6h8M10 10h8M10 14h5"/>',
+    "drop": '<path d="M12 2.7l5.7 6.6a7.5 7.5 0 1 1-11.4 0z"/>',
+    "coins": '<circle cx="8" cy="8" r="6"/><path d="M18.1 10.4A6 6 0 1 1 10.3 18"/><path d="M7 6h1v4M16.7 13.9l.7.7-2.8 2.8"/>',
+    "zap-off": '<path d="M12.4 6.6L13 2 8.3 8.3M16.5 12.6L20 10h-6.6M2 2l20 20M8 8l-5 6h7l-1 8 5-6"/>',
+    "stamp": '<path d="M5 22h14M19.3 14.3a2.5 2.5 0 0 0-1.8-.8H6.5A2.5 2.5 0 0 0 4 16v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1a2.5 2.5 0 0 0-.7-1.7z"/><path d="M14 13.5V12a3 3 0 0 1 1-2.2 4 4 0 1 0-6 0A3 3 0 0 1 10 12v1.5"/>',
+    "building": '<rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>',
+    "users": '<circle cx="9" cy="7" r="4"/><path d="M2 21v-1a7 7 0 0 1 14 0v1M16 3.1a4 4 0 0 1 0 7.8M22 21v-1a7 7 0 0 0-4-6.3"/>',
+    "shield": '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    "map": '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    "link": '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+    "globe": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    "plane": '<path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+    "home": '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+    "search": '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+    "plus": '<path d="M12 5v14M5 12h14"/>',
+})
+ICON_OF = {
+    # invoices and documents
+    "invoice": "doc", "quote": "file-pen", "receipt": "receipt", "reminder": "bell", "proforma": "file-check",
+    "deliverynote": "truck", "creditnote": "file-minus", "purchaseorder": "clipboard", "letter": "mail",
+    # bookkeeping and cash
+    "btwregister": "book", "amountwords": "text", "cashcount": "cash", "deadlines": "cal-clock", "receivables": "inbox",
+    "stock": "box", "cashflow": "flow", "vatcalc": "calc",
+    # staff and payroll
+    "payslip": "wallet", "vacation": "palm", "timesheet": "list-check", "hourly": "timer", "salary": "coins-user",
+    "overtime": "clock-plus", "minwage": "floor", "workdays": "cal-check",
+    # pricing, import and finance
+    "pricing": "tag", "importcost": "ship", "loan": "bank", "breakeven": "target", "unitprice": "scale", "percentage": "pct",
+    "savings": "piggy", "depreciation": "trend-down", "roi": "trend", "tripcost": "car", "rates": "exchange", "maxprices": "basket",
+    # office and marketing
+    "pdftools": "files", "imagetools": "img", "qrcode": "qr", "barcode": "bar", "businesscard": "card", "signature": "pen",
+    "walink": "chat", "pricelist": "list", "voucher": "gift", "datecalc": "cal", "holidays": "flag",
+    # sections and guides
+    "tools": "calc", "jobs": "briefcase", "postjob": "plus", "tenders": "gavel", "companies": "store", "addbiz": "plus",
+    "guides": "book-open", "news": "news", "oilgas": "drop", "gold": "coins", "outages": "zap-off", "douane": "stamp",
+    "start": "flag", "licences": "file-check", "hiring": "users", "employer": "building", "biztax": "receipt",
+    "vatguide": "pct", "bookkeeping": "book", "finance": "bank", "import": "ship", "export": "plane", "labour": "scale",
+    "dismissal": "file-minus", "workpermit": "globe", "invest": "trend", "resources": "link", "contacts": "building",
+    "supplier": "truck", "trademark": "shield", "land": "map", "incometax": "receipt", "bankaccount": "bank", "tax": "pct",
+    "home": "home", "search": "search",
+}
+GROUP_ICON = {"paper": "doc", "admin": "book", "staff": "users", "money": "tag", "office": "briefcase"}
+
+
+def kicon(key, size=20):
+    return icon(ICON_OF.get(key, "calc"), size)
+
+
 EXISTING_ICON = {"vatcalc": "pct", "salary": "calc", "overtime": "clock", "minwage": "clock", "workdays": "cal",
                  "rates": "trend", "holidays": "cal", "maxprices": "tag"}
 
 
-def icon(name):
-    return ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+def icon(name, size=18):
+    return ('<svg class="ic" width="%d" height="%d" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' % (size, size)
             + ICONS.get(name, ICONS["calc"]) + "</svg>")
 
 

@@ -5,6 +5,7 @@ Reads facts.py (hand-checked values) and data/live/*.json (written by fetch.py),
 renders templates/pages/<key>.html in Dutch (root) and English (/en/).
 Self-contained: no data or files from any other site are used.
 """
+from markupsafe import Markup
 import datetime as dt
 import hashlib
 import json
@@ -548,7 +549,9 @@ def add_toc(html, lang):
     lead_end = html.find("</p>", html.find('<p class="lead">')) if '<p class="lead">' in html else -1
     if lead_end < 0:
         return html
-    body = html[lead_end:]
+    foot = html.find('<footer class="site-foot">')
+    tail = html[foot:] if foot > lead_end else ""
+    body = html[lead_end:foot] if foot > lead_end else html[lead_end:]
     heads = [m for m in _H2.finditer(body)]
     if len(heads) < 4:
         return html
@@ -582,8 +585,8 @@ def add_toc(html, lang):
                 end = start + t.end()
                 break
         if end > 0 and ('class="big' in rest[start:end] or m.group(1).startswith(("today", "tldr"))):
-            return html[:lead_end + 4] + rest[:end] + nav + rest[end:]
-    return html[:lead_end + 4] + nav + rest
+            return html[:lead_end + 4] + rest[:end] + nav + rest[end:] + tail
+    return html[:lead_end + 4] + nav + rest + tail
 
 
 # ---------------------------------------------------------------- schema
@@ -808,11 +811,14 @@ def build_company_pages(render, lang, U, L, co):
     for r in co["recs"]:
         url = (("/bedrijf/" if nl else "/en/company/") + r["slug"]) if r["page"] else cat_url[r["group"]]
         meta = " · ".join(x for x in [lab[r["group"]], r["street"], r["place"]] if x)
-        search.append([r["name"], meta, url, (r["name"] + " " + meta).lower()])
+        search.append([r["name"], meta, url])
     for g in co["groups"]:
-        search.append([lab[g["key"]], f'{g["count"]}', cat_url[g["key"]], lab[g["key"]].lower()])
+        search.append([lab[g["key"]], f'{g["count"]}', cat_url[g["key"]]])
+    # the directory search list (about 2,500 rows) is a separate file, fetched on first use: the page itself stays small
+    with open(os.path.join(OUT, "assets", f"companies-{lang}.json"), "w", encoding="utf-8") as f:
+        json.dump(search, f, ensure_ascii=False, separators=(",", ":"))
     render("companies.html", "companies", title, desc, "/bedrijven/", "/en/companies/", crumbs,
-           extra={"co": dict(co, search_json=json.dumps(search, ensure_ascii=False).replace("</", "<\\/"))})
+           extra={"co": dict(co, search_json="")})
     for gr in co["groups"]:
         label = gr["nl"] if nl else gr["en"]
         t = f"{label} in Suriname ({gr['count']})"
@@ -1043,7 +1049,7 @@ def main():
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             recent=(TODAY - dt.timedelta(days=2)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
-            TM=TM, RES=RES, tool_icon=TM.icon, maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
+            TM=TM, RES=RES, tool_icon=TM.icon, kicon=lambda k, size=20: Markup(TM.kicon(k, size)), gicon=lambda g: Markup(TM.icon(TM.GROUP_ICON.get(g, "calc"), 20)), maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
             account_api=ACCOUNT_API, google_client_id=GOOGLE_CLIENT_ID, dev_login=bool(os.environ.get("SB_DEV_LOGIN")),
             sbc=SBC, settings=SBC["settings"], cgroups=CGROUPS,
@@ -1181,6 +1187,8 @@ def main():
     os.replace(PAGE_DATES_FILE + ".tmp", PAGE_DATES_FILE)
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    if os.path.exists(os.path.join(ROOT, "assets", "favicon.ico")):
+        shutil.copyfile(os.path.join(ROOT, "assets", "favicon.ico"), os.path.join(OUT, "favicon.ico"))
     with open(os.path.join(OUT, "CNAME"), "w") as f:
         f.write("surinamebusiness.com\n")
     with open(os.path.join(OUT, ".nojekyll"), "w") as f:
