@@ -572,8 +572,11 @@ def add_toc(html, lang):
         out.append(body[pos:m.start()]); out.append(new); pos = m.end()
     out.append(body[pos:])
     label = "Op deze pagina" if lang == "nl" else "On this page"
+    links = "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items)
+    # wide screens: a list in the right margin that follows the reader; narrow screens: a closed list that opens on tap
     nav = (f'<nav class="toc" aria-label="{label}"><div class="toc-in"><div class="eyebrow">{label}</div><ul>'
-           + "".join(f'<li><a href="#{h}">{t}</a></li>' for h, t in items) + "</ul></div></nav>")
+           + links + "</ul></div></nav>"
+           + f'<details class="toc-m"><summary>{label} <span class="sub">({len(items)})</span></summary><ul>' + links + "</ul></details>")
     rest = "".join(out)[4:]
     # key figures right after the lead stay first; the list goes after them
     m = re.match(r'\s*<div class="(today[^"]*|grid[^"]*|tldr[^"]*)"', rest)
