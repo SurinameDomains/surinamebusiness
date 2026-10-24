@@ -98,11 +98,11 @@ MENU = [
 ]
 
 FOOTER_GROUPS = [
-    ("Geld & salaris", "Pay & money", ["salary", "tax", "overtime", "minwage", "vatcalc", "rates", "payslip", "hourly"]),
-    ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "receipt", "pricing", "importcost", "loan", "stock", "pdftools"]),
-    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "addbiz", "douane", "gold", "maxprices", "outages", "news"]),
-    ("Gidsen", "Guides", ["guides", "start", "licences", "hiring", "employer", "biztax", "vatguide", "bookkeeping", "finance", "import", "export", "labour", "dismissal", "workpermit", "invest", "resources"]),
-    ("Over", "About", ["about", "sources", "contact", "privacy", "terms", "account"]),
+    ("Geld & salaris", "Pay & money", ["salary", "tax", "minwage", "rates", "payslip"]),
+    ("Gratis tools", "Free tools", ["tools", "invoice", "quote", "pricing", "importcost", "pdftools"]),
+    ("Werk & handel", "Work & trade", ["tenders", "jobs", "postjob", "companies", "addbiz", "news"]),
+    ("Gidsen", "Guides", ["guides", "start", "licences", "hiring", "biztax", "vatguide"]),
+    ("Over", "About", ["about", "sources", "contact", "privacy", "terms"]),
 ]
 
 

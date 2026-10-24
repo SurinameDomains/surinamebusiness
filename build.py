@@ -1049,6 +1049,7 @@ def main():
             sbc=SBC, settings=SBC["settings"], cgroups=CGROUPS,
             page_keys=[k for k in PAGES if k not in DYNAMIC and k not in PRIVATE_PAGES],
             tool_keys=sorted({t["key"] for t in TM.TOOLS} | {k for v in TM.EXISTING.values() for k in v}),
+            guide_keys=sorted(k for k, v in PAGES.items() if v[2] == "guides"),
             banners=[b for b in SBC["items"] if b["kind"] == "banner" and b.get("lang") in ("all", lang, None)],
             notices=[b for b in SBC["items"] if b["kind"] == "notice" and b.get("lang") in ("all", lang, None)],
             own_links=[b for b in SBC["items"] if b["kind"] == "link" and b.get("lang") in ("all", lang, None)],
