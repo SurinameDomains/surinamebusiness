@@ -37,7 +37,7 @@
  <div class="bar">
   <div class="wrap">
    <a class="logo" href="{{ home_url }}"><img class="wm-img" src="/assets/wordmark-light.svg" width="246" height="20" alt="Suriname Business"></a>
-   {% if key != 'home' %}<form class="hs hs-bar" action="{{ S_URL }}" method="get" role="search">
+   {% if key != 'search' %}<form class="hs hs-bar{% if key == 'home' %} hs-late{% endif %}" action="{{ S_URL }}" method="get" role="search">
     <svg class="hs-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
     <input type="search" name="q" placeholder="{{ 'Zoek een tool, bedrijf of gids' if lang=='nl' else 'Find a tool, company or guide' }}" aria-label="{{ 'Zoeken op Suriname Business' if lang=='nl' else 'Search Suriname Business' }}" autocomplete="off">
     <kbd class="hs-key" aria-hidden="true">/</kbd>
@@ -47,7 +47,8 @@
    <button class="menu-btn" aria-expanded="false" aria-controls="nav" id="menu-btn" aria-label="Menu" data-close="{{ 'Menu sluiten' if lang=='nl' else 'Close menu' }}"><span class="hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
  </div>
- <nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
+</header>
+<nav class="nav" id="nav" aria-label="{{ 'Hoofdmenu' if lang=='nl' else 'Main' }}">
   <div class="wrap nav-in">
    <div class="drawer-head"><form class="hs hs-drawer" action="{{ S_URL }}" method="get" role="search"><svg class="hs-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" name="q" placeholder="{{ 'Zoek een tool, bedrijf of gids' if lang=='nl' else 'Find a tool, company or guide' }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}" autocomplete="off"></form></div>
    {% if rates and not rates.stale %}<div class="drawer-today"><a href="{{ R_URL }}"><span class="k">USD {{ 'verkoop' if lang=='nl' else 'sell' }}</span><span class="v">{{ num(rates.usd.sell) }}<small>SRD</small></span></a><a href="{{ R_URL }}"><span class="k">EUR {{ 'verkoop' if lang=='nl' else 'sell' }}</span><span class="v">{{ num(rates.eur.sell) }}<small>SRD</small></span></a></div>{% endif %}
@@ -69,8 +70,7 @@
     {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}" lang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
    </div>
   </div>
- </nav>
-</header>
+</nav>
 {% for b in banners %}<div class="site-banner lv-{{ (b.data or {}).get('level', 'info') }}" data-id="{{ b.id }}"><div class="wrap"><span>{{ ctext(b) }}</span>{% if b.url %} <a href="{{ b.url }}">{{ ctext(b, 'body') or ('Lees meer' if lang=='nl' else 'Read more') }} &rarr;</a>{% endif %}<button type="button" class="x" aria-label="{{ 'Sluiten' if lang=='nl' else 'Close' }}">&times;</button></div></div>
 {% endfor %}
 <main id="main">
@@ -113,9 +113,10 @@ function close(except){dds.forEach(function(d){if(d!==except){d.classList.remove
 dds.forEach(function(d){var b=d.querySelector('.dd-btn');b.addEventListener('click',function(e){e.stopPropagation();var o=!d.classList.contains('open');close(d);d.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});});
 document.addEventListener('click',function(e){if(!nav.contains(e.target))close();});
 dds.forEach(function(d){d.addEventListener('mouseenter',function(){if(window.innerWidth>1000)close(d);});});
-function setDrawer(o){nav.classList.toggle('open',o);document.body.classList.toggle('nav-open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?mb.getAttribute('data-close'):'Menu');if(tb)tb.setAttribute('aria-expanded',o);if(o){var f=nav.querySelector('input[type=search]');if(f&&window.innerWidth>600)f.focus();}else close();}
+function setDrawer(o){nav.classList.toggle('open',o);document.body.classList.toggle('nav-open',o);['main','.site-foot'].forEach(function(q){[].forEach.call(document.querySelectorAll(q),function(x){if(o)x.setAttribute('inert','');else x.removeAttribute('inert');});});mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?mb.getAttribute('data-close'):'Menu');if(tb)tb.setAttribute('aria-expanded',o);if(o){var f=nav.querySelector('input[type=search]');if(f&&window.innerWidth>600)f.focus();}else close();}
 function toggle(e){e.stopPropagation();setDrawer(!nav.classList.contains('open'));}
 mb.addEventListener('click',toggle);if(tb)tb.addEventListener('click',toggle);
+var hs=document.querySelector('.hd-search');if(hs)hs.addEventListener('click',function(e){var f=nav.querySelector('.drawer-head input');if(!f||window.innerWidth>1000)return;e.preventDefault();e.stopPropagation();setDrawer(true);f.focus();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();if(nav.classList.contains('open')){setDrawer(false);mb.focus();}}});
 window.addEventListener('resize',function(){if(window.innerWidth>1000&&nav.classList.contains('open'))setDrawer(false);});
 /* the current section opens by itself in the drawer, so one tap shows where you are */
@@ -162,7 +163,7 @@ fs.addEventListener('invalid',function(){set(true);},true);var f=fs.form||fs.clo
 /* share links open the phone's own share sheet when there is one; "/" jumps to search like on GitHub and Gmail */
 (function(){var S='{{ '/zoeken' if lang=='nl' else '/en/search' }}';
 document.addEventListener('click',function(e){if(!navigator.share)return;var a=e.target.closest&&e.target.closest('a[data-share]');if(!a)return;var m=/text=([^&]*)/.exec(a.getAttribute('href'));if(!m)return;e.preventDefault();navigator.share({text:decodeURIComponent(m[1])}).catch(function(){});});
-document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#tool-q,#q,.filters input[type=search],.hs-hero input,.hs-bar input');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
+document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#tool-q,#q,.filters input[type=search]')||document.querySelector('.hs-hero input')||document.querySelector('.hs-bar input');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
 </script>
 <script>
 /* long guides on wide screens: the "on this page" list sits in the right margin and marks the section you are reading */
@@ -200,7 +201,10 @@ q.addEventListener('focus',function(){load(function(){})});q.addEventListener('i
 q.addEventListener('keydown',function(e){var n=rows.length;if(e.key==='Escape'){close();return}if(ul.hidden||!n)return;
 if(e.key==='ArrowDown'){e.preventDefault();sel=(sel+1)%n;paint()}else if(e.key==='ArrowUp'){e.preventDefault();sel=(sel-1+n)%n;paint()}
 else if(e.key==='Enter'&&sel>=0){e.preventDefault();ul.querySelectorAll('[role=option] a')[sel].click()}});
-document.addEventListener('click',function(e){if(!f.contains(e.target))close()});});})();
+f.addEventListener('focusout',function(e){if(!e.relatedTarget||!f.contains(e.relatedTarget))setTimeout(function(){if(!f.contains(document.activeElement))close()},120)});
+document.addEventListener('click',function(e){if(!f.contains(e.target))close()});});
+/* home: the header search shows once the big search has scrolled out of view */
+var late=document.querySelector('.hs-late'),hero=document.querySelector('.hs-hero');if(late&&hero&&'IntersectionObserver' in window)new IntersectionObserver(function(es){late.classList.toggle('on',!es[0].isIntersecting)},{rootMargin:'-64px 0px 0px 0px'}).observe(hero);})();
 </script>
 <script>
 /* every form label points at its field (screen readers, bigger click target), also for rows that tools add later */
