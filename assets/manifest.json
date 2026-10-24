@@ -1,29 +1,80 @@
 {
  "name": "Suriname Business",
  "short_name": "SB",
- "description": "Werken, handelen en investeren in Suriname, in cijfers.",
+ "description": "Gratis tools, de koers, vacatures en aanbestedingen voor ondernemers in Suriname.",
  "start_url": "/?source=pwa",
  "scope": "/",
  "display": "standalone",
- "background_color": "#f8f6f2",
+ "background_color": "#1f2251",
  "theme_color": "#1f2251",
  "lang": "nl",
  "icons": [
   {
    "src": "/assets/icon-192.png",
    "sizes": "192x192",
-   "type": "image/png"
+   "type": "image/png",
+   "purpose": "any"
   },
   {
    "src": "/assets/icon-512.png",
    "sizes": "512x512",
-   "type": "image/png"
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "/assets/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "maskable"
   },
   {
    "src": "/assets/icon-512-maskable.png",
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "id": "/",
+ "shortcuts": [
+  {
+   "name": "Factuur maken",
+   "url": "/factuur-maken?source=pwa",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Netto salaris",
+   "url": "/netto-salaris-berekenen?source=pwa",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Wisselkoers",
+   "url": "/wisselkoers?source=pwa",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Vacatures",
+   "url": "/vacatures?source=pwa",
+   "icons": [
+    {
+     "src": "/assets/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
   }
  ]
 }
