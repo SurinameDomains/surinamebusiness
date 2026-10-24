@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ 'nl_SR' if lang=='nl' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1f2251">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/assets/manifest.json">
@@ -149,7 +149,7 @@ fs.addEventListener('invalid',function(){set(true);},true);var f=fs.form||fs.clo
 /* share links open the phone's own share sheet when there is one; "/" jumps to search like on GitHub and Gmail */
 (function(){var S='{{ '/zoeken' if lang=='nl' else '/en/search' }}';
 document.addEventListener('click',function(e){if(!navigator.share)return;var a=e.target.closest&&e.target.closest('a[data-share]');if(!a)return;var m=/text=([^&]*)/.exec(a.getAttribute('href'));if(!m)return;e.preventDefault();navigator.share({text:decodeURIComponent(m[1])}).catch(function(){});});
-document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#tool-q,#q,.filters input[type=search]');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
+document.addEventListener('keydown',function(e){if(e.key!=='/'||e.ctrlKey||e.metaKey||e.altKey)return;var t=e.target,tag=(t.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='select'||t.isContentEditable)return;var f=document.querySelector('#hs-q,#tool-q,#q,.filters input[type=search]');e.preventDefault();if(f){f.focus();f.select&&f.select();}else location.href=S;});})();
 </script>
 <script>
 /* long guides on wide screens: the "on this page" list sits in the right margin and marks the section you are reading */
