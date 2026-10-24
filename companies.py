@@ -140,16 +140,30 @@ def _phone(t):
     return p.split(";")[0].strip() if p else None
 
 
+# Websites in OpenStreetMap that were checked by hand (24 Oct 2026). WEB_FIX: the business's real
+# site; WEB_DEAD: the domain no longer resolves, has a broken certificate or now hosts something else.
+WEB_FIX = {"wwe.innovativesr.com": "https://www.innovativesr.com/", "dsbbank.sr": "https://www.dsb.sr/",
+           "ambafrance-sr.org": "https://sr.ambafrance.org/"}
+WEB_DEAD = {"hamdarduitvaartzorg.com", "kusteroptique.com", "stc1660.com", "nesotec.net", "interfundgroup.com",
+            "highprorectionsecurity.com", "itbach.com", "sweetiecoffee.com"}
+
+
 def _web(t):
     w = t.get("website") or t.get("contact:website") or t.get("url")
     if not w:
         return None
     w = w.split(";")[0].strip()
-    if not w.startswith("http"):
-        w = "https://" + w
-    if re.search(r"facebook\.com|instagram\.com", w):
+    # repair "http://https//example.com", "https:/example.com" and bare domains
+    m = re.match(r"(?i)^(https?)(?::/*|/+)(?:(https?)(?::/*|/+))?(.+)$", w)
+    if m:
+        w = f"{(m.group(2) or m.group(1)).lower()}://{m.group(3)}"
+    else:
+        w = "https://" + w.lstrip("/")
+    host = re.sub(r"^www\.", "", w.split("/")[2].split(":")[0].lower())
+    if "." not in host or host in WEB_DEAD or re.search(r"facebook\.com|instagram\.com", host):
         return None
-    return w
+    full = w.split("/")[2].lower()
+    return WEB_FIX.get(full) or WEB_FIX.get(host) or w
 
 
 REDIRECTS = {}  # duplicate OSM entries: slug -> slug of the record we keep

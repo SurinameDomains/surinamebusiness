@@ -234,7 +234,7 @@ META["hiring"] = (("Personeel aannemen in Suriname: wat moet je regelen als werk
                   ("Hiring staff in Suriname: what an employer has to arrange",
                    "Registering as an employer, withholding wage tax and AOV, minimum wage, working hours, annual leave, payslips and the monthly return. With calculators."))
 META["tools"] = (("Gratis zakelijke tools voor Suriname: factuur, offerte, loonstrook en meer",
-                  "Meer dan 45 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR code, PDF samenvoegen. Zonder account."),
+                  "Meer dan 45 gratis tools voor ondernemers in Suriname: factuur en offerte maken, loonstrook, BTW-register, invoerkosten, lening, QR-code, PDF samenvoegen. Zonder account."),
                  ("Free business tools for Suriname: invoice, quote, payslip and more",
                   "Over 45 free tools for doing business in Suriname: invoice and quote generator, payslip, VAT register, import cost, loan, QR code, PDF merge. No account needed."))
 for _k, _g in GM.GUIDES.items():
@@ -539,6 +539,18 @@ def py_salary(gross, pension_pct=0.0, aov=True):
 # ---------------------------------------------------------------- "Op deze pagina" for long guides
 _H2 = re.compile(r"<h2(\s[^>]*)?>(.*?)</h2>", re.S)
 _TAG = re.compile(r"<[^>]+>")
+
+
+NL_MONTHS = {"januari": "January", "februari": "February", "maart": "March", "april": "April", "mei": "May",
+             "juni": "June", "juli": "July", "augustus": "August", "september": "September", "oktober": "October",
+             "november": "November", "december": "December"}
+_NL_DATE = re.compile(r"\((\d{1,2} )?(" + "|".join(NL_MONTHS) + r")( \d{4})\)")
+
+
+def en_dates(html):
+    """Source lists are shared by both languages and carry dates like "(9 mei 2026)"; on English pages
+    the date in brackets is written in English."""
+    return _NL_DATE.sub(lambda m: "(" + (m.group(1) or "") + NL_MONTHS[m.group(2)] + m.group(3) + ")", html)
 
 
 def add_toc(html, lang):
@@ -863,8 +875,11 @@ def build_company_pages(render, lang, U, L, co):
                 lb["openingHours"] = r["hours"]
             graph = [{"@type": "WebPage", "url": canonical, "name": t, "inLanguage": lang,
                       "mainEntity": {"@id": canonical + "#business"}}, lb]
+            # a listing with only opening hours is too thin for search engines: the page stays for
+            # visitors and site search, but is kept out of Google and the sitemap
+            thin = not (r["phone"] or r["website"] or r["email"])
             render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
-                   extra={"r": r, "gr": gr}, graph=graph)
+                   extra={"r": r, "gr": gr}, graph=graph, robots="noindex,follow" if thin else None)
 
 # ---------------------------------------------------------------- posted vacancies
 JOB_TYPES = {"FULL_TIME": ("Fulltime", "Full-time"), "PART_TIME": ("Parttime", "Part-time"),
@@ -1083,6 +1098,8 @@ def main():
             if extra:
                 ctx.update(extra)
             html_out = add_toc(env.get_template(tpl_name).render(**ctx), _lang)
+            if _lang == "en":
+                html_out = en_dates(html_out)
             lastmod = page_lastmod(canonical, html_out)
             html_out = html_out.replace(LASTMOD_TOKEN, lastmod)
             rel = (path_nl if _lang == "nl" else path_en).lstrip("/")
@@ -1095,7 +1112,7 @@ def main():
                 sitemap.append((canonical, None, None, lastmod) if single else
                                (canonical, SITE_URL + path_nl, SITE_URL + path_en, lastmod))
             kind = tpl_name.split("/")[-1][:-5]
-            if nav_key in PRIVATE_PAGES or (robots and "noindex" in robots):
+            if nav_key in PRIVATE_PAGES or (robots and "noindex" in robots and kind != "company"):
                 return
             search_index[_lang].append([title.split(":")[0] if kind == "company" else title,
                                         (path_nl if _lang == "nl" else path_en), kind])

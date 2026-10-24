@@ -28,7 +28,7 @@ def faqs(key, lang, salary_py):
              ("What is the tax-free amount in 2026?", f"The tax-free amount is {_srd(T['free_month'], lang)} per month, {_srd(T['free_month']*12, lang)} per year. No wage tax is due on pay below it.")),
             (("Wat is netto bij SRD 15.000 bruto?", f"Bij {_srd(15000, lang)} bruto per maand is je netto loon ongeveer {_srd(r15['net'], lang, 2)}: {_srd(r15['tax'], lang, 2)} loonbelasting en {_srd(r15['aov'], lang, 2)} AOV."),
              ("What is the net pay on SRD 15,000 gross?", f"On {_srd(15000, lang)} gross per month your net pay is about {_srd(r15['net'], lang, 2)}: {_srd(r15['tax'], lang, 2)} wage tax and {_srd(r15['aov'], lang, 2)} AOV.")),
-            (("Hoeveel AOV premie betaal ik?", "De AOV premie is 4% van het zuiver loon (bruto min forfaitaire aftrek en eigen pensioenpremie), voor ingezetenen jonger dan 60 jaar."),
+            (("Hoeveel AOV-premie betaal ik?", "De AOV-premie is 4% van het zuiver loon (bruto min forfaitaire aftrek en eigen pensioenpremie), voor ingezetenen jonger dan 60 jaar."),
              ("How much AOV premium do I pay?", "The AOV premium is 4% of the net taxable wage (gross minus the flat deduction and your own pension premium), for residents under 60.")),
         ],
         "minwage": [
@@ -48,8 +48,8 @@ def faqs(key, lang, salary_py):
         "tax": [
             (("Wat zijn de loonbelasting tarieven in 2026?", "8% tot SRD 3.500, 18% tot SRD 7.000, 28% tot SRD 10.500 en 38% daarboven, per maand over het loon na de belastingvrije som van SRD 9.000."),
              ("What are the wage tax rates in 2026?", "8% up to SRD 3,500, 18% up to SRD 7,000, 28% up to SRD 10,500 and 38% above, per month on pay after the SRD 9,000 tax-free amount.")),
-            (("Is vakantietoelage belast?", "Vakantietoelage en gratificatie zijn elk vrijgesteld tot SRD 19.500 per jaar."),
-             ("Is holiday allowance taxed?", "Holiday allowance and bonus are each exempt up to SRD 19,500 per year.")),
+            (("Is vakantietoelage belast?", "Vakantietoelage en gratificatie zijn elk vrijgesteld tot één maandloon, met een maximum van SRD 19.500 per jaar."),
+             ("Is holiday allowance taxed?", "Holiday allowance and bonus are each exempt up to one month's wage, capped at SRD 19,500 per year.")),
         ],
         "rates": [
             (("Wat is het verschil tussen aankoop en verkoop?", "De aankoopkoers krijg je als je dollars of euro's inlevert bij een cambio. De verkoopkoers betaal je als je ze koopt."),

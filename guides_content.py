@@ -19,7 +19,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                            'of zeggenschap heeft. Banken moeten dit onder de WMTF vaststellen en controleren.'),
                           ('What is a UBO declaration?',
                            'A statement of who the ultimate beneficial owner of the business is: the natural person who owns or controls '
-                           'it. Banks must establish and verify this under the WMTF anti money laundering act.')),
+                           'it. Banks must establish and verify this under the WMTF anti-money laundering act.')),
                          (('Bestaat de Wet MOT nog?',
                            'Nee. De Wet Melding Ongebruikelijke Transacties en de Wet Identificatieplicht Dienstverleners zijn vervangen '
                            'door de WMTF (S.B. 2022 no. 138), die in augustus 2024 is aangescherpt. Banken melden ongebruikelijke '
@@ -77,12 +77,12 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                       '25% of the dividend paid. The NV withholds it and pays it over within a month. A treaty can reduce the rate for '
                       'foreign shareholders, and a branch sending profit to its head office pays no dividend tax.')),
                     (('Betaalt een eenmanszaak winstbelasting?',
-                      'Nee. De winst van een eenmanszaak of VOF valt in de inkomstenbelasting van de eigenaar of vennoten, tegen 0% tot '
-                      '38%, plus 4% AOV premie.'),
+                      'Nee. De winst van een eenmanszaak of openbare vennootschap valt in de inkomstenbelasting van de eigenaar of vennoten, tegen 0% tot '
+                      '38%, plus 4% AOV-premie.'),
                      ('Does a sole proprietorship pay corporate tax?',
                       "No. The profit of a sole proprietorship or partnership falls under the owner's or partners' income tax, at 0% to "
                       '38%, plus a 4% AOV premium.')),
-                    (('Hoe lang mag ik verliezen verrekenen?',
+                    (('Hoelang mag ik verliezen verrekenen?',
                       'Verliezen uit de eerste drie boekjaren na de start mag je onbeperkt vooruit verrekenen als je vanaf het begin een '
                       'geregelde boekhouding voert. Andere verliezen verreken je met de winst van de volgende zeven jaar. Terugwenteling '
                       'kan niet.'),
@@ -111,14 +111,14 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                       'Plus dividend tax within a month after every distribution.'))]},
  'bookkeeping': {'label': ('Administratie en facturen', 'Bookkeeping and invoices'),
                  'meta': (('Administratie en factuureisen in Suriname: bewaarplicht en BTW',
-                           'Wat moet er op een factuur in Suriname, hoe lang bewaar je je administratie (10 jaar), wanneer moet een NV een '
+                           'Wat moet er op een factuur in Suriname, hoelang bewaar je je administratie (10 jaar), wanneer moet een NV een '
                            'jaarrekening en accountant? Met maandroutine.'),
                           ('Bookkeeping and invoice rules in Suriname: records, VAT, audit',
                            'What a Suriname invoice must show, how long to keep records (10 years), when an NV needs annual accounts and '
                            'an audit, payroll records and a monthly routine.')),
-                 'faq': [(('Hoe lang moet ik mijn administratie bewaren in Suriname?',
+                 'faq': [(('Hoelang moet ik mijn administratie bewaren in Suriname?',
                            'Tien jaar. Dat staat in het Burgerlijk Wetboek (art. 2:15 en 3:15i, sinds 1 mei 2025) en in de Wet BTW (art. '
-                           '30). Je mag stukken digitaal bewaren, behalve de op papier gestelde balans en winst- en verliesrekening.'),
+                           '30). Je mag stukken digitaal bewaren, behalve de op papier gestelde balans en winst-en-verliesrekening.'),
                           ('How long must I keep my records in Suriname?',
                            'Ten years. This is in the Civil Code (art. 2:15 and 3:15i, since 1 May 2025) and the VAT Act (art. 30). You '
                            'may keep documents digitally, except the balance sheet and profit and loss statement drawn up on paper.')),
@@ -182,7 +182,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                          'Yes, as a rule. The Dismissal Act 2018 prohibits dismissal by the employer without a permit from the Dismissal '
                          'Committee. Exceptions include probation, mutual consent, the end of a first fixed-term contract and summary '
                          'dismissal.')),
-                       (('Hoe lang is de opzegtermijn in Suriname?',
+                       (('Hoelang is de opzegtermijn in Suriname?',
                          'Voor de werkgever één week per vol dienstjaar tot tien jaar, vier maanden bij tien tot vijftien jaar en zes '
                          'maanden daarboven. Voor de werknemer één week per twee dienstjaren, twee maanden en drie maanden (art. 7:672 '
                          'BW).'),
@@ -190,7 +190,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                          'For the employer one week per full year of service up to ten years, four months for ten to fifteen years and six '
                          'months above that. For the employee one week per two years of service, two months and three months (art. 7:672 '
                          'Civil Code).')),
-                       (('Hoe lang duurt het om een ontslagvergunning te krijgen?',
+                       (('Hoelang duurt het om een ontslagvergunning te krijgen?',
                          'De Ontslagcommissie beslist binnen 30 dagen na ontvangst van de aanvraag. Een verleende vergunning is 8 weken '
                          'geldig vanaf de schriftelijke bekendmaking.'),
                         ('How long does a dismissal permit take?',
@@ -215,7 +215,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         ('Can you be dismissed while sick or pregnant?',
                          'Notice is prohibited in the first six weeks of sickness and during pregnancy, maternity leave and right after, '
                          'except for an urgent reason. The employee can annul notice given during sickness within two months.')),
-                       (('Hoe lang mag een proeftijd zijn in Suriname?',
+                       (('Hoelang mag een proeftijd zijn in Suriname?',
                          'Maximaal twee maanden, schriftelijk en voor beide partijen gelijk. Tijdens een geldige proeftijd mag je zonder '
                          'vergunning en zonder opzegtermijn opzeggen.'),
                         ('How long can a probation period be in Suriname?',
@@ -341,11 +341,11 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                        'How to finance a business in Suriname: what banks ask, current SRD and USD rates, NOB funds from 5%, the guarantee '
                        'fund, a bankable plan and a checklist.')),
              'faq': [(('Hoeveel rente betaal je op een zakelijke lening in Suriname?',
-                       'De gemiddelde leenrente bij banken was 14,5% in juli 2025 (CBvS). Finabank noemde in oktober 2026 indicatief 14% '
+                       'De gemiddelde leenrente bij banken was 14,0% in april 2026 (CBvS). Finabank noemde in oktober 2026 indicatief 14% '
                        'voor een investeringskrediet en 20% voor rekening-courantkrediet in SRD, en 9% tot 10% in USD of EUR. De NOB '
                        'rekent voor eigen kredieten vanaf 10% in SRD en vanaf 5% in USD, plus een risico-opslag tot 3%.'),
                       ('What interest do you pay on a business loan in Suriname?',
-                       'The average bank lending rate was 14.5% in July 2025 (CBvS). In October 2026 Finabank listed indicative rates of '
+                       'The average bank lending rate was 14.0% in April 2026 (CBvS). In October 2026 Finabank listed indicative rates of '
                        '14% for an investment loan and 20% for an overdraft in SRD, and 9% to 10% in USD or EUR. The NOB charges from 10% '
                        'in SRD and from 5% in USD on its own loans, plus a risk margin of up to 3%.')),
                      (('Wat is het Productie Krediet Fonds van de NOB?',
@@ -405,7 +405,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                      ('Hiring staff in Suriname: contract, probation, premiums and payroll',
                       'Your first employee in Suriname: contract and probation under the new Civil Code, registering with the tax office, '
                       'APF and FVO, payslips, sick pay and leave.')),
-            'faq': [(('Hoe lang mag een proeftijd in Suriname zijn?',
+            'faq': [(('Hoelang mag een proeftijd in Suriname zijn?',
                       'Maximaal twee maanden. De proeftijd moet schriftelijk zijn afgesproken en voor werkgever en werknemer even lang '
                       'zijn, anders is hij nietig (art. 7:652 BW).'),
                      ('How long can a probation period be in Suriname?',
@@ -465,7 +465,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                       'No, anyone registered with the KKF may import. Only goods on the Negative List need an H-03 licence from the '
                       'Import, Export and Foreign Exchange Control Service (IUD) of the Ministry of Economic Affairs (EZOTI).')),
                     (('Hoeveel invoerrecht betaal je in Suriname?',
-                      'Het invoerrecht volgt het CARICOM buitentarief en ligt tussen 0% en 50%, afhankelijk van de HS code. Daarbovenop '
+                      'Het invoerrecht volgt het CARICOM buitentarief en ligt tussen 0% en 50%, afhankelijk van de HS-code. Daarbovenop '
                       'komen statistiekrecht (0,5%) en consentrecht (1,5%) over de CIF waarde, eventueel accijns, en BTW.'),
                      ('How much import duty do you pay in Suriname?',
                       'Import duty follows the CARICOM external tariff and ranges from 0% to 50%, depending on the HS code. On top come '
@@ -504,7 +504,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                       'invoice.'))]},
  'incometax': {'label': ('Inkomstenbelasting en aangifte', 'Income tax and returns'),
                'meta': (('Inkomstenbelasting Suriname 2026: aangifte, termijnen en tarieven',
-                         'Voorlopige aangifte voor 15 april, definitief voor 30 april of 30 juni, tarieven 0% tot 38%, aftrekposten, '
+                         'Voorlopige aangifte uiterlijk 15 april, definitief uiterlijk 30 april of 30 juni, tarieven 0% tot 38%, aftrekposten, '
                          'online aangifte, boetes en bezwaar.'),
                         ('Suriname income tax 2026: returns, deadlines and rates',
                          'Provisional return by 15 April, final by 30 April or 30 June, rates 0% to 38%, deductions, filing online, '
@@ -535,15 +535,15 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                          'De eerste SRD 108.000 zuiver inkomen is belastingvrij. Daarboven 8% tot SRD 150.000, 18% tot SRD 192.000, 28% '
                          'tot SRD 234.000 en 38% daarboven. Bedrijven betalen 36% over de winst.'),
                         ('What are the income tax rates in 2026?',
-                         'The first SRD 108,000 of net income is tax free. Above that 8% up to SRD 150,000, 18% up to SRD 192,000, 28% up '
+                         'The first SRD 108,000 of net income is tax-free. Above that 8% up to SRD 150,000, 18% up to SRD 192,000, 28% up '
                          'to SRD 234,000 and 38% above. Companies pay 36% on profit.')),
                        (('Kan ik mijn voorlopige aanslag laten verlagen?',
                          'Ja. De voorlopige belasting is minstens gelijk aan je laatste definitieve aanslag. Verwacht je minder inkomen, '
-                         'stuur dan voor 15 februari een schriftelijk en gemotiveerd verzoek aan de Inspecteur der Directe Belastingen. '
+                         'stuur dan uiterlijk 15 februari een schriftelijk en gemotiveerd verzoek aan de Inspecteur der Directe Belastingen. '
                          'Antwoordt hij niet binnen twee weken, dan is het verzoek toegewezen.'),
                         ('Can I get my provisional assessment reduced?',
                          'Yes. Provisional tax is at least your last final assessment. If you expect lower income, send a written, '
-                         'reasoned request to the Direct Taxes Inspector before 15 February. If there is no answer within two weeks, the '
+                         'reasoned request to the Direct Taxes Inspector by 15 February. If there is no answer within two weeks, the '
                          'request is granted.')),
                        (('Hoeveel hypotheekrente mag ik aftrekken?',
                          'De rente op een hypotheekschuld tot SRD 871.500 voor je eigen woning, sinds 1 januari 2025 (daarvoor SRD '
@@ -642,10 +642,10 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                       'up to 64 hours a week.')),
                     (('Hoeveel krijg je voor overwerk in Suriname?',
                       'Minstens 150% van het basisuurloon op een gewone werkdag en 200% op een rustdag. Werk op zondag of een feestdag '
-                      'kost minstens 200%, of 300% als er geen vervangende rustdag komt.'),
+                      'kost minstens 200%, of 300% als in het contract of de cao staat dat er geen vervangende rustdag komt.'),
                      ('How much is overtime pay in Suriname?',
                       'At least 150% of basic hourly pay on a normal working day and 200% on a rest day. Work on a Sunday or public '
-                      'holiday costs at least 200%, or 300% if no replacement rest day is given.')),
+                      'holiday costs at least 200%, or 300% if the contract or collective agreement says no replacement rest day is given.')),
                     (('Hoeveel vakantiedagen heb je in Suriname?',
                       'Na een vol kalenderjaar bij dezelfde werkgever 12 werkdagen, daarna 2 dagen extra per jaar tot maximaal 18. Over '
                       'elke vakantiedag krijg je ook een vakantietoelage van de helft van je loon.'),
@@ -658,7 +658,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                      ('Do you get paid when you are sick in Suriname?',
                       'Yes. Under article 7:629 of the Civil Code pay continues for at least six weeks. The contract may say the first two '
                       'sick days are unpaid.')),
-                    (('Hoe lang is zwangerschapsverlof in Suriname?',
+                    (('Hoelang is zwangerschapsverlof in Suriname?',
                       'Samen 16 weken: 4 tot 6 weken voor de vermoedelijke bevallingsdatum en 10 tot 12 weken erna, met 100% loon via het '
                       'Fonds Voorzieningen Ouderschapsverlof. Vaders krijgen 8 dagen vaderschapsverlof.'),
                      ('How long is maternity leave in Suriname?',
@@ -690,11 +690,11 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                     'State land, land lease or freehold, MI-GLIS checks, 4% transfer tax, notary, mortgages, building permits and the '
                     'halted land conversion. Also for buyers abroad.')),
           'faq': [(('Kan ik mijn grondhuur nog omzetten in eigendom?',
-                    'Op dit moment niet. Het Ministerie van Grondbeleid en Bosbeheer heeft de grondconversie op 9 augustus 2025 op '
+                    'Op dit moment niet. Het Ministerie van Grond- en Bosbeheer heeft de grondconversie op 9 augustus 2025 op '
                     'aanwijzing van president Simons stopgezet. De regering beoordeelt lopende aanvragen per geval en werkt aan nieuwe '
                     'grondwetgeving.'),
                    ('Can I still convert my land lease into freehold?',
-                    'Not at the moment. The Ministry of Land Policy and Forest Management stopped land conversion on 9 August 2025 on the '
+                    'Not at the moment. The Ministry of Land and Forest Management stopped land conversion on 9 August 2025 on the '
                     'instructions of President Simons. The government is assessing pending applications case by case and is working on new '
                     'land legislation.')),
                   (('Hoeveel overdrachtsbelasting betaal je bij het kopen van grond in Suriname?',
@@ -710,7 +710,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                    ('Can a foreigner buy land in Suriname?',
                     'A foreigner can buy freehold land or a house through a notary. State land on a lease is meant for Surinamese citizens '
                     'living in Suriname and Surinamese legal entities; others need consent from the Council of Ministers.')),
-                  (('Hoe lang duurt grondhuur in Suriname?',
+                  (('Hoelang duurt grondhuur in Suriname?',
                     'Grondhuur wordt uitgegeven voor minimaal 15 en maximaal 40 jaar. Je moet uiterlijk zes maanden voor het einde '
                     'schriftelijk verlenging aanvragen bij de minister.'),
                    ('How long does a land lease in Suriname last?',
@@ -727,7 +727,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                     'vastgestelde bouwsom per m². Je vraagt de vergunning aan bij de One Stop Window van het Ministerie van Openbare '
                     'Werken.'),
                    ('How much does a building permit cost in Suriname?',
-                    'You pay a SRD 50 fee plus a permit charge: SRD 250 for a new home up to 70 m², above that 0.25% of the fixed building '
+                    'You pay an SRD 50 fee plus a permit charge: SRD 250 for a new home up to 70 m², above that 0.25% of the fixed building '
                     'value per m². You apply at the One Stop Window of the Ministry of Public Works.')),
                   (('Wat gebeurt er met grondhuur als de grondhuurder overlijdt?',
                     'Zijn er meerdere erfgenamen, dan moeten zij binnen 18 maanden één van hen aanwijzen op wie het recht overgaat, met '
@@ -752,7 +752,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         'activities on the list, such as hotels, travel agencies, petrol stations, butchers, food production, restaurants '
                         'and bars, exchange offices and bus services. KKF registration is always required.')),
                       (('Waar vraag ik een bedrijfsvergunning aan?',
-                        'Bij de KKF, aan de balie van de One Stop Window of online via de KKF E-Services. De KKF is het front office; het '
+                        'Bij de KKF, aan de balie van de One Stop Window of online via de KKF E-Services. De KKF is de frontoffice; het '
                         'ministerie van EZOTI beoordeelt en beslist. Horeca-, standplaats- en Hinderwetvergunningen vraag je aan bij de '
                         'districtscommissaris.'),
                        ('Where do I apply for a business licence?',
@@ -765,7 +765,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                        ('How much does a business licence cost in Suriname?',
                         'The licence fee is SRD 304.50. Through the KKF One Stop Window you pay SRD 550 in total, including the licence '
                         'fee and other costs. Check the current amount with the KKF.')),
-                      (('Hoe lang duurt een vergunningsaanvraag?',
+                      (('Hoelang duurt een vergunningsaanvraag?',
                         'Wettelijk ongeveer 35 dagen: publicatie binnen 7 dagen, 14 dagen voor bedenkingen en een besluit binnen 14 dagen '
                         'daarna. Beslist het ministerie niet op tijd, dan stuur je een aangetekende brief en moet binnen 14 dagen worden '
                         'beslist.'),
@@ -851,7 +851,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                     ('What is a FIN number?',
                      'The tax identification number (Fiscaal Identificatie Nummer) issued by the tax office. You get it when you register '
                      'in the online portal. You need it for tax returns, as an employer and for commercial imports and exports.')),
-                   (('Hoe lang duurt het om een bedrijf te starten in Suriname?',
+                   (('Hoelang duurt het om een bedrijf te starten in Suriname?',
                      'Een eenmanszaak zonder vergunningplicht is binnen een week ingeschreven en geregistreerd. Met een NV, notaris en '
                      'bedrijfsvergunning duurt het eerder vier tot acht weken; de wettelijke beslistermijn voor een vergunning is ongeveer '
                      '35 dagen.'),
@@ -933,13 +933,13 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         ('Is Suriname a member of the Madrid Protocol?',
                          'No. An international trademark registration through WIPO does not cover Suriname. You must file a national '
                          'application, through a local agent if you are a foreign applicant.')),
-                       (('Hoe lang duurt een merkregistratie in Suriname?',
+                       (('Hoelang duurt een merkregistratie in Suriname?',
                          'Nieuwe aanvragen worden gemiddeld in 3 tot 4 jaar afgehandeld door de achterstand bij het BIE. Je depotdatum '
                          'geldt vanaf de dag van indienen.'),
                         ('How long does trademark registration take in Suriname?',
                          'New applications take 3 to 4 years on average because of the BIE backlog. Your filing date counts from the day '
                          'you file.')),
-                       (('Hoe lang is een merk in Suriname geldig?',
+                       (('Hoelang is een merk in Suriname geldig?',
                          'Een inschrijving geldt 10 jaar en kan telkens voor 10 jaar worden vernieuwd. Na de vervaldatum heb je 6 maanden '
                          'respijt; daarna is herstel niet mogelijk.'),
                         ('How long is a trademark valid in Suriname?',
@@ -951,7 +951,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         ('Does my KKF registration protect my brand?',
                          'No. The KKF registration covers your trade name under the Trade Name Act 1931. A trademark for your goods and '
                          'services is registered separately with the BIE.')),
-                       (('Kan ik in Suriname octrooi aanvragen?',
+                       (('Kan ik in Suriname een octrooi aanvragen?',
                          'Op dit moment niet. Het BIE registreert alleen merken en neemt tot nader bericht geen octrooiaanvragen aan. '
                          'Uitvinders beschermen hun uitvinding in het buitenland.'),
                         ('Can I apply for a patent in Suriname?',
@@ -964,7 +964,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                        ('VAT in Suriname: registration, rates, returns and deductions (2026)',
                         'Suriname VAT: 10% standard, 5%, 25% and 0%, exemptions since 2023, SRD 1 million threshold, monthly return by the '
                         '15th, penalties, invoice rules and refunds.')),
-              'faq': [(('Wat is het BTW tarief in Suriname?',
+              'faq': [(('Wat is het BTW-tarief in Suriname?',
                         'Het algemene tarief is 10%. Water, elektriciteit, kookgas en binnenlands goederenvervoer vallen onder 5%, grote '
                         "auto's, motoren, boten, wapens en vuurwerk onder 25%, en export en leveringen aan de olie- en goudsector en de "
                         'overheid onder 0%. Veel basisgoederen en diensten zoals zorg en onderwijs zijn vrijgesteld.'),
@@ -980,13 +980,13 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         'As soon as your taxable turnover in a calendar year exceeds SRD 1,000,000 excluding VAT, you must register '
                         "immediately. Below that it is optional, but with the Inspector's consent you can register voluntarily; you are "
                         'then bound for two years.')),
-                      (('Wanneer moet ik BTW aangifte doen en betalen?',
+                      (('Wanneer moet ik BTW-aangifte doen en betalen?',
                         'Elke maand, tussen de 1e en de 15e van de maand na het tijdvak, via het online portaal van de Belastingdienst. '
                         'Ook als er niets te betalen is, moet je een nihilaangifte doen.'),
                        ('When must I file and pay VAT?',
                         'Every month, between the 1st and the 15th of the month after the period, through the tax office online portal. '
                         'You must file a nil return even when nothing is due.')),
-                      (('Wat is de boete voor een te late BTW aangifte?',
+                      (('Wat is de boete voor een te late BTW-aangifte?',
                         'Sinds de beschikking boetebeleid (S.B. 2025 no. 140) is het SRD 2.500 per maand vertraging, tot maximaal SRD '
                         '10.000. Voor te late of te lage betaling komt daar 50% van het openstaande bedrag bij, maximaal SRD 10.000, plus '
                         '6% rente per jaar.'),
@@ -1009,15 +1009,15 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                         'VAT on food, drink and tobacco you provide, on business gifts, on wages in kind and staff outings, and on '
                         'passenger cars and everything related to them, such as fuel and maintenance. Exceptions apply to car dealers, '
                         'leasing companies and vehicles above 3,500 kg.')),
-                      (('Wat moet er op een BTW factuur staan?',
+                      (('Wat moet er op een BTW-factuur staan?',
                         'Onder meer de datum, een doorlopend nummer, het FIN nummer van jou en van je klant, beide namen en adressen, wat '
-                        'je leverde en wanneer, het bedrag exclusief BTW, het tarief en het BTW bedrag. Je reikt de factuur uit binnen 15 '
+                        'je leverde en wanneer, het bedrag exclusief BTW, het tarief en het BTW-bedrag. Je reikt de factuur uit binnen 15 '
                         'dagen na het einde van de maand van levering.'),
                        ('What must be on a VAT invoice?',
                         "Among other things the date, a sequential number, your FIN number and your customer's, both names and addresses, "
                         'what you supplied and when, the amount excluding VAT, the rate and the VAT amount. Issue the invoice within 15 '
                         'days after the end of the month of supply.')),
-                      (('Hoe snel krijg ik een BTW teruggaaf?',
+                      (('Hoe snel krijg ik een BTW-teruggaaf?',
                         'De Belastingdienst moet binnen een maand betalen nadat het recht is ontstaan (de 16e van de maand na het '
                         'tijdvak). De Inspecteur kan dat met maximaal twee maanden opschorten. Bij te late betaling heb je recht op 14% '
                         'rente per jaar, maar alleen als je aangiften, betalingen en administratie op orde zijn.'),
@@ -1044,7 +1044,7 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                          ('Who applies for the work permit, the employer or the worker?',
                           'The employer, or a representative with a letter of authorisation. Employer and worker sign the application form '
                           'together; the worker cannot apply alone.')),
-                        (('Hoe lang duurt een werkvergunning?',
+                        (('Hoelang duurt een werkvergunning?',
                           'Het ministerie beslist binnen 30 dagen na een complete aanvraag en mag dat eenmaal met 30 dagen verlengen. Via '
                           'de One Stop Unit worden MKV, werk- en verblijfsvergunning samen behandeld, met als doel 21 dagen en in de '
                           'praktijk drie tot vier weken.'),
@@ -1092,10 +1092,10 @@ ENTRIES = {'bankaccount': {'label': ('Zakelijke bankrekening openen', 'Opening a
                          'Every ministry, the tax office, KKF chamber of commerce, Central Bank, banks, funds, utilities, port and '
                          'business associations in Suriname, with their official website and what each does.')),
                'faq': [(('Wat is de website van de Belastingdienst in Suriname?',
-                         'De officiële site is belastingdienst.sr. Aangifte doe je via het online portaal portaal.belastingdienst.sr, '
+                         'De officiële site is belastingdienst.sr. Aangifte doe je via het online portaal (portaal.belastingdienst.sr), '
                          'douaneaangiftes gaan via ASYCUDA World.'),
                         ('What is the website of the Suriname tax office?',
-                         'The official site is belastingdienst.sr. Returns are filed through the online portal portaal.belastingdienst.sr; '
+                         'The official site is belastingdienst.sr. Returns are filed through the online portal (portaal.belastingdienst.sr); '
                          'customs declarations go through ASYCUDA World.')),
                        (('Wat is de website van de KKF?',
                          'De Kamer van Koophandel en Fabrieken zit op surinamechamber.com (kkf.sr stuurt daarheen door). Inschrijven en '
