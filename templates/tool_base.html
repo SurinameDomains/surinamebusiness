@@ -9,11 +9,13 @@
 {% block tool %}{% endblock %}
 {% block info %}{% endblock %}
 {% if tool and TM.RELATED.get(key) %}
+<section class="tool-group related">
 <h2>{{ 'Ook handig' if nl else 'Also useful' }}</h2>
 <div class="tindex c4">
-{% for k in TM.RELATED[key] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b>{% if k in TM.BY_KEY %}<span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span>{% elif k in TM.EXISTING_BLURB %}<span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span>{% endif %}</a>{% endfor %}
+{% for k in TM.RELATED[key] %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b>{% if k in TM.BY_KEY %}<span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span>{% elif k in TM.EXISTING_BLURB %}<span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span>{% endif %}</a>{% endfor %}
 </div>
-<p style="margin-top:14px"><a href="{{ U('tools') }}"><b>{{ 'Alle gratis tools' if nl else 'All free tools' }} &rarr;</b></a></p>
+<p class="more-link"><a href="{{ U('tools') }}">{{ 'Alle gratis tools' if nl else 'All free tools' }} &rarr;</a></p>
+</section>
 {% endif %}
 {% block sources %}{% endblock %}
 <p class="asof" style="margin-top:18px">{{ 'Een hulpmiddel, geen fiscaal of juridisch advies. Controleer belangrijke bedragen.' if nl else 'A helpful tool, not tax or legal advice. Check important amounts.' }}</p>

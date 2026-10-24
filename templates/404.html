@@ -4,10 +4,10 @@
 <p class="lead">Deze pagina bestaat niet (meer). Zoek wat je nodig hebt, of begin bij een van deze pagina's.<br><span class="sub">This page does not exist. Search, or start from one of these pages.</span></p>
 <form class="filters" action="/zoeken" method="get" role="search"><input type="search" name="q" placeholder="Zoek een tool, bedrijf of gids" aria-label="Zoeken" autocomplete="off"></form>
 <div class="tindex c4" style="margin-top:10px">
- <a class="tool ti" href="/tools"><b>Gratis tools</b><span>Factuur, offerte, loonstrook en meer</span></a>
- <a class="tool ti" href="/netto-salaris-berekenen"><b>Netto salaris</b><span>Bruto naar netto, tarieven 2026</span></a>
- <a class="tool ti" href="/wisselkoers"><b>Wisselkoers</b><span>Dollar en euro vandaag</span></a>
- <a class="tool ti" href="/vacatures"><b>Vacatures</b><span>Open banen in Suriname</span></a>
+ <a class="tool ti" href="/tools">{{ kicon('tools') }}<b>Gratis tools</b><span>Factuur, offerte, loonstrook en meer</span></a>
+ <a class="tool ti" href="/netto-salaris-berekenen">{{ kicon('salary') }}<b>Netto salaris</b><span>Bruto naar netto, tarieven 2026</span></a>
+ <a class="tool ti" href="/wisselkoers">{{ kicon('rates') }}<b>Wisselkoers</b><span>Dollar en euro vandaag</span></a>
+ <a class="tool ti" href="/vacatures">{{ kicon('jobs') }}<b>Vacatures</b><span>Open banen in Suriname</span></a>
 </div>
 <p style="margin-top:18px"><a href="/">Home</a> &middot; <a href="/en/">English</a></p>
 {% endblock %}

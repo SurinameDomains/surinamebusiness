@@ -9,15 +9,18 @@
 </div>
 <div class="card" id="co-results" hidden style="margin-top:16px"><ul class="list" id="co-list"></ul></div>
 <div class="grid g2" style="margin-top:24px">
- <div class="card"><h3>{{ 'Staat jouw bedrijf er niet bij, of klopt iets niet?' if nl else 'Missing, or wrong details?' }}</h3><p>{{ 'Meld je bedrijf gratis aan of werk je gegevens bij. We bellen of appen even om te controleren en zetten het binnen een paar dagen online.' if nl else 'Add your business for free or update your details. We call or message you to check, and it goes online within a few days.' }}</p><p><a class="btn" href="{{ U('addbiz') }}">{{ L('addbiz') }}</a></p></div>
- <div class="card"><h3>{{ 'Zaken doen met de overheid of Staatsolie?' if nl else 'Selling to government or Staatsolie?' }}</h3><p><a href="{{ U('tenders') }}">{{ L('tenders') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a></p></div>
+ <div class="card"><h2 class="h3">{{ 'Staat jouw bedrijf er niet bij, of klopt iets niet?' if nl else 'Missing, or wrong details?' }}</h2><p>{{ 'Meld je bedrijf gratis aan of werk je gegevens bij. We bellen of appen even om te controleren en zetten het binnen een paar dagen online.' if nl else 'Add your business for free or update your details. We call or message you to check, and it goes online within a few days.' }}</p><p><a class="btn" href="{{ U('addbiz') }}">{{ L('addbiz') }}</a></p></div>
+ <div class="card"><h2 class="h3">{{ 'Zaken doen met de overheid of Staatsolie?' if nl else 'Selling to government or Staatsolie?' }}</h2><p><a href="{{ U('tenders') }}">{{ L('tenders') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a></p></div>
 </div>
 <p class="asof" style="margin-top:14px">{{ 'Bron' if nl else 'Source' }}: &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>, ODbL. {{ 'Wekelijks bijgewerkt' if nl else 'Updated weekly' }}{% if co.fetched_at %}, {{ 'laatst' if nl else 'last' }} {{ date(co.fetched_at[:10]) }}{% endif %}.</p>
 {% endblock %}
 {% block scripts %}
 <script>
-(function(){var D={{ co.search_json|safe }};var q=document.getElementById('co-q'),box=document.getElementById('co-results'),ul=document.getElementById('co-list'),g=document.getElementById('co-groups');
-q.addEventListener('input',function(){var v=q.value.toLowerCase().trim();if(v.length<2){box.hidden=true;g.hidden=false;return}var out=[];for(var i=0;i<D.length&&out.length<60;i++){if(D[i][3].indexOf(v)>=0)out.push(D[i])}
-ul.innerHTML=out.length?out.map(function(r){return '<li><a href="'+r[2]+'">'+r[0].replace(/</g,'&lt;')+'</a><div class="meta"><span>'+r[1].replace(/</g,'&lt;')+'</span></div></li>'}).join(''):'<li class="empty">{{ 'Niets gevonden.' if nl else 'Nothing found.' }}</li>';box.hidden=false;g.hidden=true})})();
+(function(){var D=null,q=document.getElementById('co-q'),box=document.getElementById('co-results'),ul=document.getElementById('co-list'),g=document.getElementById('co-groups');
+function norm(x){return x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function load(cb){if(D){cb();return}fetch('/assets/companies-{{ lang }}.json?v={{ build_id }}').then(function(r){return r.json()}).then(function(d){D=d.map(function(r){return [r[0],r[1],r[2],norm(r[0]+' '+r[1])]});cb()}).catch(function(){})}
+function run(){var v=norm(q.value.trim());if(v.length<2){box.hidden=true;g.hidden=false;return}var w=v.split(/\s+/),out=[];for(var i=0;i<D.length&&out.length<60;i++){if(w.every(function(x){return D[i][3].indexOf(x)>=0}))out.push(D[i])}
+ul.innerHTML=out.length?out.map(function(r){return '<li><a href="'+r[2]+'">'+r[0].replace(/</g,'&lt;')+'</a><div class="meta"><span>'+r[1].replace(/</g,'&lt;')+'</span></div></li>'}).join(''):'<li class="empty">{{ 'Niets gevonden.' if nl else 'Nothing found.' }}</li>';box.hidden=false;g.hidden=true}
+q.addEventListener('focus',function(){load(function(){})});q.addEventListener('input',function(){load(run)});})();
 </script>
 {% endblock %}
