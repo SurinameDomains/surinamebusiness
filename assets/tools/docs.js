@@ -25,7 +25,7 @@
         '<div class="dh" style="font-size:2rem">' + E(f.title.value) + '</div><div style="letter-spacing:.2em;text-transform:uppercase;color:' + E(c1) + ';font-weight:700;font-size:.8rem;margin-top:4px">' + E(f.sub.value) + '</div></div>' +
         '<div style="column-count:' + (+f.cols.value) + ';column-gap:32px">';
       cats.forEach(function (c) {
-        h += '<div style="break-inside:avoid;margin-bottom:16px">' + (c.name ? '<div style="font-family:var(--serif);font-size:1.25rem;font-weight:650;color:' + E(c1) + ';border-bottom:2px solid ' + E(c1) + ';padding-bottom:3px;margin-bottom:6px">' + E(c.name) + '</div>' : '');
+        h += '<div style="break-inside:avoid;margin-bottom:16px">' + (c.name ? '<div style="font-size:1.25rem;font-weight:650;color:' + E(c1) + ';border-bottom:2px solid ' + E(c1) + ';padding-bottom:3px;margin-bottom:6px">' + E(c.name) + '</div>' : '');
         c.items.forEach(function (it) {
           h += '<div style="display:flex;gap:8px;align-items:baseline;padding:4px 0"><span style="font-weight:600">' + E(it.n) + '</span><span style="flex:1;border-bottom:1px dotted #b9bccb;transform:translateY(-4px)"></span><span style="font-weight:700;white-space:nowrap" class="tnum">' + price(it.p) + '</span></div>' +
             (it.d ? '<div style="color:#5b6078;font-size:.82rem;margin:-3px 0 3px">' + E(it.d) + '</div>' : '');
@@ -70,7 +70,7 @@
         h += '<div style="position:relative;background:' + c1 + ';color:#fff;border-radius:14px;padding:22px 24px;margin-bottom:12px;overflow:hidden;min-height:190px;break-inside:avoid">' +
           '<div style="position:absolute;right:-40px;top:-40px;width:170px;height:170px;border-radius:50%;background:' + c2 + ';opacity:.25"></div>' +
           '<div style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.8">' + T('Cadeaubon', 'Gift voucher') + '</div>' +
-          '<div style="font-family:var(--serif);font-size:1.5rem;font-weight:650;margin:2px 0 10px">' + E(v.biz.value) + '</div>' +
+          '<div style="font-size:1.5rem;font-weight:650;margin:2px 0 10px">' + E(v.biz.value) + '</div>' +
           '<div style="font-size:2.1rem;font-weight:800;color:' + c2 + ';line-height:1.1">' + E(v.val.value) + '</div>' +
           (v.to.value ? '<div style="margin-top:6px">' + T('Voor', 'For') + ': <b>' + E(v.to.value) + '</b></div>' : '') +
           '<div style="margin-top:6px;opacity:.9">' + E(v.msg.value) + '</div>' +
@@ -144,7 +144,7 @@
     var render = function () {
       var c = L.color.value || '#1f2251', v = function (k) { return E(L[k].value.trim()); };
       var h = '<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:3px solid ' + E(c) + ';padding-bottom:12px;margin-bottom:28px">' +
-        '<div>' + (biz.logo ? '<img src="' + biz.logo + '" alt="" style="max-height:60px;display:block;margin-bottom:6px">' : '') + '<div style="font-family:var(--serif);font-size:1.4rem;font-weight:650;color:' + E(c) + '">' + (v('s_name') || T('Je bedrijfsnaam', 'Your business name')) + '</div></div>' +
+        '<div>' + (biz.logo ? '<img src="' + biz.logo + '" alt="" style="max-height:60px;display:block;margin-bottom:6px">' : '') + '<div style="font-size:1.4rem;font-weight:650;color:' + E(c) + '">' + (v('s_name') || T('Je bedrijfsnaam', 'Your business name')) + '</div></div>' +
         '<div class="pm" style="text-align:right">' + [v('s_addr'), v('s_phone'), v('s_email')].filter(Boolean).join('<br>') + '</div></div>' +
         '<div style="white-space:pre-wrap;margin-bottom:24px">' + v('to') + '</div>' +
         '<div style="margin-bottom:6px">' + v('place') + (v('place') ? ', ' : '') + E(S.dateLong(L.date.value)) + '</div>' +
