@@ -2,7 +2,7 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'Netto salaris berekenen 2026' if nl else 'Net salary calculator Suriname 2026' }}</h1>
-<p class="lead">{{ 'Vul je bruto maandloon in en zie direct je netto loon, de loonbelasting en de AOV premie. Met de tarieven die gelden voor 2026.' if nl else 'Enter your gross monthly wage and see your net pay, wage tax and AOV premium straight away. Using the rates that apply in 2026.' }}</p>
+<p class="lead">{{ 'Vul je bruto maandloon in en zie direct je netto loon, de loonbelasting en de AOV-premie. Met de tarieven die gelden voor 2026.' if nl else 'Enter your gross monthly wage and see your net pay, wage tax and AOV premium straight away. Using the rates that apply in 2026.' }}</p>
 
 <div class="cols">
  <form class="card calc" id="salary-form" onsubmit="return false">
@@ -18,7 +18,7 @@
   <label for="allow">{{ 'Belastingvrije toelagen per maand (SRD)' if nl else 'Tax-free allowances per month (SRD)' }}</label>
   <input id="allow" name="allow" inputmode="decimal" value="0">
   <div class="hint">{{ 'Bijvoorbeeld kinderbijslag van de werkgever.' if nl else 'For example child allowance paid by the employer.' }}</div>
-  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV premie inhouden (jonger dan 60)' if nl else 'Deduct AOV premium (under 60)' }}</label>
+  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV-premie inhouden (jonger dan 60)' if nl else 'Deduct AOV premium (under 60)' }}</label>
  </form>
  <div class="result" id="salary-out" aria-live="polite"></div>
 </div>
@@ -30,7 +30,7 @@
  <li>{{ 'Ook je eigen pensioenpremie gaat eraf. Wat overblijft is het zuiver loon.' if nl else 'Your own pension premium is deducted as well. What remains is the net taxable wage (zuiver loon).' }}</li>
  <li>{{ 'De eerste' if nl else 'The first' }} {{ srd(F.TAX.free_month) }} {{ 'per maand is belastingvrij (belastingvrije som).' if nl else 'per month is tax-free (the tax-free amount).' }}</li>
  <li>{{ 'Over de rest betaal je loonbelasting in vier schijven: 8%, 18%, 28% en 38%.' if nl else 'The rest is taxed in four brackets: 8%, 18%, 28% and 38%.' }} <a href="{{ U('tax') }}">{{ 'Zie de tarieventabel.' if nl else 'See the bracket table.' }}</a></li>
- <li>{{ 'De AOV premie is 4% van het zuiver loon en wordt ingehouden op je loon.' if nl else 'The AOV (state pension) premium is 4% of the net taxable wage and is withheld from your pay.' }}</li>
+ <li>{{ 'De AOV-premie is 4% van het zuiver loon en wordt ingehouden op je loon.' if nl else 'The AOV (state pension) premium is 4% of the net taxable wage and is withheld from your pay.' }}</li>
 </ol>
 
 <h2>{{ 'Netto salaris tabel 2026' if nl else 'Net salary table 2026' }}</h2>

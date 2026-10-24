@@ -61,7 +61,7 @@
 {% endif %}
 {% if M.cbvs and (M.cbvs.omo or M.cbvs.lending) %}
  <div class="card"><div class="eyebrow">{{ 'Rente Centrale Bank' if nl else 'Central Bank interest rates' }}</div>
-  {% if M.cbvs.omo %}<div class="rate-row"><span>{{ 'OMO rente (gewogen gemiddelde)' if nl else 'OMO rate (weighted average)' }}</span><b class="tnum">{{ num(M.cbvs.omo[0][2], 1) }}%</b></div>{% endif %}
+  {% if M.cbvs.omo %}<div class="rate-row"><span>{{ 'OMO-rente (gewogen gemiddelde)' if nl else 'OMO rate (weighted average)' }}</span><b class="tnum">{{ num(M.cbvs.omo[0][2], 1) }}%</b></div>{% endif %}
   {% if M.cbvs.lending %}<div class="rate-row"><span>{{ 'Beleningsfaciliteit' if nl else 'Lending facility' }}</span><b class="tnum">{{ num(M.cbvs.lending[0][2], 1) }}%</b></div>{% endif %}
   <div class="sub">{{ 'Veiling van' if nl else 'Auction of' }} {{ date(M.cbvs.omo[0][1]) if M.cbvs.omo else '' }}. {{ 'Vorige weken' if nl else 'Previous weeks' }}: {% for r in M.cbvs.omo[1:4] %}{{ num(r[2], 1) }}%{% if not loop.last %}, {% endif %}{% endfor %}</div></div>
 {% endif %}

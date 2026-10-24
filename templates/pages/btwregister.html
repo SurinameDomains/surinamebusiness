@@ -36,7 +36,7 @@
 {% endblock %}
 {% block info %}
 <section class="prose" style="margin-top:28px">
-<h2>{{ 'Hoe werkt de BTW afdracht?' if nl else 'How does paying VAT work?' }}</h2>
+<h2>{{ 'Hoe werkt de BTW-afdracht?' if nl else 'How does paying VAT work?' }}</h2>
 <p>{{ 'Over je verkopen breng je BTW in rekening. De BTW die je zelf betaalt op zakelijke inkopen mag je daar in de regel van aftrekken (voorbelasting). Het verschil draag je af. Aangifte en betaling gaan per maand, voor de 16e van de volgende maand.' if nl else 'You charge VAT on your sales. VAT you pay on business purchases can generally be deducted (input tax). You pay the difference. Returns and payment are monthly, by the 16th of the following month.' }}</p>
 <p>{{ 'Niet alle inkopen geven recht op aftrek, en vrijgestelde omzet telt anders. Bij twijfel: vraag je boekhouder of de Belastingdienst.' if nl else 'Not every purchase allows a deduction, and exempt turnover is treated differently. If in doubt, ask your accountant or the tax office.' }} <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></p>
 </section>

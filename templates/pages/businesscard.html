@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% block lead %}{{ 'Ontwerp een visitekaartje met je naam, functie, contactgegevens, logo en een QR code naar je WhatsApp of website. Download als PNG voor de drukker of print zelf een vel van 10 kaartjes op A4.' if nl else 'Design a business card with your name, title, contact details, logo and a QR code to your WhatsApp or website. Download as PNG for the printer or print a sheet of 10 cards on A4 yourself.' }}{% endblock %}
+{% block lead %}{{ 'Ontwerp een visitekaartje met je naam, functie, contactgegevens, logo en een QR-code naar je WhatsApp of website. Download als PNG voor de drukker of print zelf een vel van 10 kaartjes op A4.' if nl else 'Design a business card with your name, title, contact details, logo and a QR code to your WhatsApp or website. Download as PNG for the printer or print a sheet of 10 cards on A4 yourself.' }}{% endblock %}
 {% block tool %}
 <div class="cols">
  <form class="card calc" id="bk" onsubmit="return false" autocomplete="off">
@@ -12,7 +12,7 @@
    <div><label for="c1">{{ 'Hoofdkleur' if nl else 'Main colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div>
    <div><label for="c2">{{ 'Accent' if nl else 'Accent' }}</label><input id="c2" name="c2" type="color" value="#e4572e"></div>
   </div>
-  <div class="two"><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div><div><label for="qrto">{{ 'QR code naar' if nl else 'QR code to' }}</label><select id="qrto" name="qrto"><option value="none">{{ 'Geen QR' if nl else 'No QR' }}</option><option value="wa">WhatsApp</option><option value="web">Website</option><option value="vcard">{{ 'Contact opslaan (vCard)' if nl else 'Save contact (vCard)' }}</option></select></div></div>
+  <div class="two"><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div><div><label for="qrto">{{ 'QR-code naar' if nl else 'QR code to' }}</label><select id="qrto" name="qrto"><option value="none">{{ 'Geen QR' if nl else 'No QR' }}</option><option value="wa">WhatsApp</option><option value="web">Website</option><option value="vcard">{{ 'Contact opslaan (vCard)' if nl else 'Save contact (vCard)' }}</option></select></div></div>
  </form>
  <div><div class="bcard"><canvas id="bk-c" width="1004" height="650" aria-label="{{ 'Voorbeeld visitekaartje' if nl else 'Business card preview' }}"></canvas></div>
   <div class="btns"><button type="button" class="btn" id="bk-png">{{ 'Download PNG (drukwerk)' if nl else 'Download PNG (print)' }}</button><button type="button" class="btn alt" id="bk-sheet">{{ 'Print vel van 10 (A4)' if nl else 'Print sheet of 10 (A4)' }}</button></div>

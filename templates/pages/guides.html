@@ -42,7 +42,7 @@
 {% for gnl, gen, items in groups %}
 <section class="tool-group">
 <h2>{{ gnl if nl else gen }}</h2>
-<div class="tindex">{% for k, snl, sen in items %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
+<div class="tindex">{% for k, snl, sen in items %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
 </section>
 {% endfor %}
 <section class="tool-group">

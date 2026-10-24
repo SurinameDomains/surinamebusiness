@@ -21,7 +21,7 @@
 <li>Bewaar je administratie 10 jaar. Een factuur aan een ondernemer moet onder meer beide FIN-nummers, het tarief en het BTW-bedrag vermelden.</li>
 {% else %}
 <li>Rates: {{ std }}% standard, 5% on water, electricity, cooking gas and domestic freight transport, {{ lux }}% on large cars and some other goods, and 0% on exports and on supplies to the oil and gold sector and to government.</li>
-<li>Since October 2023 most basic foods and social services are <b>exempt</b> instead of zero-rated. Motor fuel now carries {{ std }}%.</li>
+<li>Since October 2023 most basic goods and social services are <b>exempt</b> instead of zero-rated. Motor fuel now carries {{ std }}%.</li>
 <li>Registration is mandatory as soon as your taxable turnover goes above {{ srd(F.VAT.threshold_srd) }} in a calendar year. Below that you can register voluntarily.</li>
 <li>Return and payment every month through the Belastingdienst (tax office) online portal, by the 15th of the following month.</li>
 <li>Late? Since 2026 a penalty of SRD 2,500 per month of delay (maximum SRD 10,000), plus 50% of the unpaid amount (maximum SRD 10,000) and 6% interest a year.</li>
@@ -31,7 +31,7 @@
 
 <h2>{{ 'Wie moet zich registreren?' if nl else 'Who must register?' }}</h2>
 {% if nl %}
-<p>Je bent ondernemer voor de BTW als je in Suriname zelfstandig een bedrijf of beroep uitoefent. De rechtsvorm maakt niet uit: eenmanszaak, VOF, NV of stichting met een bedrijf. Of je moet registreren hangt af van je <b>belaste omzet</b>: het bedrag dat je van klanten ontvangt, exclusief BTW. Vrijgestelde omzet telt niet mee.</p>
+<p>Je bent ondernemer voor de BTW als je in Suriname zelfstandig een bedrijf of beroep uitoefent. De rechtsvorm maakt niet uit: eenmanszaak, openbare vennootschap, NV of stichting met een bedrijf. Of je moet registreren hangt af van je <b>belaste omzet</b>: het bedrag dat je van klanten ontvangt, exclusief BTW. Vrijgestelde omzet telt niet mee.</p>
 <table class="tbl"><thead><tr><th>Situatie</th><th>Wat geldt</th></tr></thead><tbody>
 <tr><td>Belaste omzet {{ srd(F.VAT.threshold_srd) }} of minder per kalenderjaar</td><td>Kleine ondernemer: geen aangifte, geen BTW rekenen, maar ook geen aftrek van BTW op je inkopen.</td></tr>
 <tr><td>Je komt in de loop van het jaar boven de drempel</td><td>Direct registreren. Over het deel boven de drempel betaal je BTW, en de twee volgende kalenderjaren blijf je BTW-plichtig, ook als je omzet weer daalt.</td></tr>
@@ -41,7 +41,7 @@
 <p>Heb je meerdere bedrijven of activiteiten, dan tel je alle omzet bij elkaar op. Bedrijven die financieel, organisatorisch en economisch met elkaar verweven zijn, kunnen de Inspecteur vragen om als één ondernemer te worden behandeld (fiscale eenheid). De drempel geldt alleen voor ondernemers die in Suriname wonen of gevestigd zijn.</p>
 <p>Vrijwillig registreren kan slim zijn als je vooral aan andere BTW-ondernemers levert, of als je veel investeert: je krijgt dan de BTW op je inkopen en invoer terug. Verkoop je vooral aan consumenten, dan maakt registratie je prijzen meestal duurder.</p>
 {% else %}
-<p>You are a business for VAT purposes if you independently carry on a trade or profession in Suriname. The legal form does not matter: sole trader (eenmanszaak), partnership (VOF), limited company (NV) or a foundation that runs a business. Whether you must register depends on your <b>taxable turnover</b>: what customers pay you, excluding VAT. Exempt turnover does not count.</p>
+<p>You are a business for VAT purposes if you independently carry on a trade or profession in Suriname. The legal form does not matter: sole trader (eenmanszaak), partnership (openbare vennootschap), limited company (NV) or a foundation that runs a business. Whether you must register depends on your <b>taxable turnover</b>: what customers pay you, excluding VAT. Exempt turnover does not count.</p>
 <table class="tbl"><thead><tr><th>Situation</th><th>What applies</th></tr></thead><tbody>
 <tr><td>Taxable turnover of {{ srd(F.VAT.threshold_srd) }} or less in a calendar year</td><td>Small business: no returns, no VAT on your sales, but also no deduction of VAT on your purchases.</td></tr>
 <tr><td>You pass the threshold during the year</td><td>Register immediately. You pay VAT on the part above the threshold, and you stay VAT registered for the next two calendar years, even if turnover drops again.</td></tr>
@@ -308,7 +308,7 @@
 <p>Your records must show all purchases and sales, imports and exports, invoices and till receipts issued and received, payments, and the VAT you deducted. Keep them in Dutch and keep everything for <b>10 years</b>. On written request the Minister can allow bookkeeping in another language and currency. The Inspector may audit your records and visit your premises on working days between 06:00 and 18:00 (or during your business hours). For a practical set-up, see <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Waar het bij de BTW misgaat' if nl else 'Where VAT goes wrong' }}</h2>
 {% if nl %}
 <ul>
 <li><b>Oude tarieflijsten gebruiken.</b> Rijst, brood en eieren zijn vrijgesteld, niet 0%. Brandstof is {{ std }}%, niet 5%. Woninghuur valt niet meer onder 0%.</li>
@@ -344,7 +344,7 @@
 <li><a href="https://belastingdienst.sr/wp-content/uploads/2025/12/S.B.-2025-no.-140-BESCHIKKING-boetebeleid-verzuim-boeten.pdf" rel="noopener">Beschikking boetebeleid verzuimboeten (S.B. 2025 no. 140)</a></li>
 <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2023-no.-32-Beschikking-vaststelling-interest-bij-late-betaling.pdf" rel="noopener">Beschikking interest bij late betaling, 6% (S.B. 2023 no. 32)</a></li>
 <li><a href="https://belastingdienst.sr/wp-content/uploads/2025/12/S.B.-2025-no.-60-Beschikking-Teruggaaf-BTW-art-17-lid-8.pdf" rel="noopener">Beschikking teruggaaf BTW (S.B. 2025 no. 60)</a></li>
-<li><a href="https://belastingdienst.sr/btw/wetgeving/" rel="noopener">Belastingdienst: BTW wetgeving en specificatielijsten</a></li>
+<li><a href="https://belastingdienst.sr/btw/wetgeving/" rel="noopener">Belastingdienst: BTW-wetgeving en specificatielijsten</a></li>
 <li><a href="https://belastingdienst.sr/btw/algemeen/" rel="noopener">Belastingdienst: BTW algemeen</a></li>
 <li><a href="https://belastingdienst.sr/belastingen/btw/registreren/" rel="noopener">Belastingdienst: BTW registreren</a></li>
 <li><a href="https://belastingdienst.sr/belastingen/btw/aangifte-en-betaling/" rel="noopener">Belastingdienst: aangifte en betaling</a></li>

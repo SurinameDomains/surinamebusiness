@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% block lead %}{{ 'Zie in één oogopslag wie je nog moet betalen, hoeveel en hoe lang al. Markeer betalingen, en stuur met één klik een herinnering via WhatsApp. Je lijst blijft op je eigen toestel.' if nl else 'See at a glance who still owes you money, how much and for how long. Mark payments and send a WhatsApp reminder in one click. Your list stays on your own device.' }}{% endblock %}
+{% block lead %}{{ 'Zie in één oogopslag wie je nog moet betalen, hoeveel en hoelang al. Markeer betalingen, en stuur met één klik een herinnering via WhatsApp. Je lijst blijft op je eigen toestel.' if nl else 'See at a glance who still owes you money, how much and for how long. Mark payments and send a WhatsApp reminder in one click. Your list stays on your own device.' }}{% endblock %}
 {% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Je gegevens blijven op dit toestel, in deze browser. Maak af en toe een back-up.' if nl else 'Your data stays on this device, in this browser. Make a backup now and then.' }}</p>{% endblock %}
 {% block tool %}
 <div class="cols">

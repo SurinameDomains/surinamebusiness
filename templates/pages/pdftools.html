@@ -12,7 +12,7 @@
 </div>
 <div class="cols">
  <div class="card calc">
-  <label class="drop" id="pdf-drop" for="pdf-in"><b id="drop-t">{{ 'Kies PDF bestanden of sleep ze hierheen' if nl else 'Choose PDF files or drag them here' }}</b><span class="sub" id="drop-s">{{ 'Meerdere bestanden mogelijk' if nl else 'Several files allowed' }}</span></label>
+  <label class="drop" id="pdf-drop" for="pdf-in"><b id="drop-t">{{ 'Kies PDF-bestanden of sleep ze hierheen' if nl else 'Choose PDF files or drag them here' }}</b><span class="sub" id="drop-s">{{ 'Meerdere bestanden mogelijk' if nl else 'Several files allowed' }}</span></label>
   <input type="file" id="pdf-in" multiple accept="application/pdf" hidden>
   <ul class="filelist" id="pdf-files"></ul>
   <div id="opt-pages" hidden><label for="range">{{ 'Welke pagina\'s?' if nl else 'Which pages?' }}</label><input id="range" placeholder="1-3, 5, 8-10"><label for="keep">{{ 'Wat doen we ermee?' if nl else 'What to do with them?' }}</label><select id="keep"><option value="keep">{{ 'Alleen deze pagina\'s houden' if nl else 'Keep only these pages' }}</option><option value="drop">{{ 'Deze pagina\'s verwijderen' if nl else 'Remove these pages' }}</option></select></div>

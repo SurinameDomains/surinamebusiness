@@ -18,14 +18,14 @@
 <div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
 {% if nl %}
 <li>Maximaal {{ num(A.max_day,1) }} uur per dag en {{ A.max_week }} uur per week. Meer mag alleen met een vergunning van de Arbeidsinspectie, tot 64 uur per week.</li>
-<li>Overwerk kost minstens 150% van het uurloon, op rustdagen 200%. Werk op zondag of een feestdag minstens 200%, of 300% zonder vervangende rustdag.</li>
+<li>Overwerk kost minstens 150% van het uurloon, op rustdagen 200%. Werk op zondag of een feestdag minstens 200%, of 300% als in het contract of de cao staat dat er geen vervangende rustdag komt.</li>
 <li>Vakantie: {{ V.first_year_days }} werkdagen na een vol kalenderjaar, daarna +{{ V.extra_per_year }} per jaar tot {{ V.max_days }}, plus een vakantietoelage van de helft van het loon over die dagen.</li>
 <li>Bij ziekte loopt het loon minstens zes weken door. Zwangere werknemers hebben recht op 16 weken verlof, vaders op 8 dagen, betaald via het Fonds Voorzieningen Ouderschapsverlof.</li>
 <li>Minimumloon: {{ srd(F.MIN_WAGE.hour, 2) }} per uur. Discriminatie, geweld en seksuele intimidatie op het werk zijn verboden, met eigen meld- en klachtregels.</li>
 <li>Ontslag door de werkgever kan in de regel alleen met een ontslagvergunning. Zie <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>.</li>
 {% else %}
 <li>Maximum {{ num(A.max_day,1) }} hours a day and {{ A.max_week }} hours a week. More is only allowed with a Labour Inspectorate permit, up to 64 hours a week.</li>
-<li>Overtime costs at least 150% of hourly pay, 200% on rest days. Work on a Sunday or public holiday at least 200%, or 300% without a replacement rest day.</li>
+<li>Overtime costs at least 150% of hourly pay, 200% on rest days. Work on a Sunday or public holiday at least 200%, or 300% if the contract or collective agreement says no replacement rest day is given.</li>
 <li>Annual leave: {{ V.first_year_days }} working days after a full calendar year, then +{{ V.extra_per_year }} a year up to {{ V.max_days }}, plus a leave allowance of half the pay for those days.</li>
 <li>Pay continues for at least six weeks of sickness. Pregnant employees get 16 weeks of leave, fathers 8 days, paid through the Parental Leave Fund.</li>
 <li>Minimum wage: {{ srd(F.MIN_WAGE.hour, 2) }} an hour. Discrimination, violence and sexual harassment at work are prohibited, with their own reporting and complaint rules.</li>
@@ -111,7 +111,7 @@
 {% if nl %}
 <ul>
 <li><b>Proeftijd</b>: alleen schriftelijk, voor beide partijen gelijk en maximaal twee maanden, ook als je meerdere proeftijden achter elkaar afspreekt (art. 7:652). Tijdens de proeftijd mogen beide partijen direct opzeggen.</li>
-<li><b>Tijdelijke contracten</b>: na meer dan drie opeenvolgende contracten, of na meer dan 24 maanden (tussenpozen van maximaal drie maanden tellen mee), geldt het laatste contract als vast (art. 7:667c). De werkgever moet dan een getekende verklaring geven dat het contract voor onbepaalde tijd is (art. 7:667e).</li>
+<li><b>Tijdelijke contracten</b>: bij een vierde opeenvolgend contract, of na meer dan 24 maanden (tussenpozen van maximaal drie maanden tellen mee), geldt het laatste contract als vast (art. 7:667c). De werkgever moet dan een getekende verklaring geven dat het contract voor onbepaalde tijd is (art. 7:667e).</li>
 <li><b>Betaaltermijn</b>: loon per tijdvak wordt uitbetaald na afloop van dat tijdvak, minstens eens per maand en niet vaker dan eens per week (art. 7:623).</li>
 <li><b>Te laat betalen</b>: ligt het aan de werkgever, dan heeft de werknemer vanaf de vierde werkdag na de betaaldag recht op een verhoging van 5% per dag tot en met de achtste werkdag en daarna 1% per dag, tot maximaal de helft van het achterstallige loon (art. 7:625).</li>
 <li><b>Loon in USD of EUR</b> mag als het is afgesproken, maar de werknemer mag vanaf de tweede volgende betaaldag betaling in SRD verlangen (art. 7:620).</li>
@@ -122,7 +122,7 @@
 {% else %}
 <ul>
 <li><b>Probation</b>: only in writing, the same for both parties and at most two months, including when several probation periods follow each other (art. 7:652). During probation either party can end the contract immediately.</li>
-<li><b>Fixed-term contracts</b>: after more than three consecutive contracts, or after more than 24 months (gaps of up to three months count), the last contract counts as permanent (art. 7:667c). The employer must then give a signed statement that the contract is open-ended (art. 7:667e).</li>
+<li><b>Fixed-term contracts</b>: at a fourth consecutive contract, or after more than 24 months (gaps of up to three months count), the last contract counts as permanent (art. 7:667c). The employer must then give a signed statement that the contract is open-ended (art. 7:667e).</li>
 <li><b>Pay period</b>: time-based pay is paid after the end of each period, at least once a month and not more often than weekly (art. 7:623).</li>
 <li><b>Late payment</b>: if the delay is the employer's fault, from the fourth working day after payday the employee is entitled to a surcharge of 5% a day up to the eighth working day, then 1% a day, up to half of the overdue pay (art. 7:625).</li>
 <li><b>Pay in USD or EUR</b> is allowed if agreed, but the employee may demand payment in SRD from the second following payday (art. 7:620).</li>
@@ -225,19 +225,19 @@
 <tr><td data-l="Verlof">Zwangerschapsverlof</td><td data-l="Duur">4 tot 6 weken vóór de vermoedelijke bevallingsdatum</td></tr>
 <tr><td data-l="Verlof">Bevallingsverlof</td><td data-l="Duur">10 tot 12 weken na de bevalling; samen altijd 16 weken. Bij drie of meer kinderen tot 24 weken</td></tr>
 <tr><td data-l="Verlof">Miskraam of doodgeboren kind tijdens het verlof</td><td data-l="Duur">6 weken bevallingsverlof daarna; de vader 1 dag</td></tr>
-<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 dagen: de dag van de bevalling, 3 werkdagen direct daarna, 2 werkdagen na afloop van het bevallingsverlof en 2 werkdagen in de eerste 4 maanden</td></tr>
+<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 dagen: de dag van de bevalling plus 7 werkdagen (3 direct daarna, 2 na afloop van het bevallingsverlof en 2 in de eerste 4 maanden)</td></tr>
 <tr><td data-l="Verlof">Adoptie van een kind jonger dan 18 maanden</td><td data-l="Duur">Moeder 6 weken, vader minstens 5 werkdagen</td></tr>
 <tr><td data-l="Verlof">Moeder overlijdt of kan niet voor het kind zorgen</td><td data-l="Duur">De vader of een familielid krijgt het (resterende) bevallingsverlof</td></tr>
 </tbody></table>
 <p>Het verlof is verplicht, voor de werknemer én de werkgever (art. 7:633c en 633d). De werknemer meldt de zwangerschap uiterlijk aan het eind van week 20, met een verklaring van huisarts, verloskundige of specialist, en geeft dan ook schriftelijk door hoe het verlof wordt opgenomen. De geboorte meld je binnen 7 werkdagen met een geboorteakte van het CBB (art. 7:633f). Een vader die niet getrouwd is, heeft recht op verlof als de samenwoning met de moeder minstens 18 maanden bij de werkgever geregistreerd staat, aangetoond met een uittreksel van het CBB (art. 7:633a).</p>
-<p><b>Wie betaalt?</b> Het <b>Fonds Voorzieningen Ouderschapsverlof (FVO)</b> betaalt 100% van het loon. Werkgever en werknemer dragen samen 1% van het brutoloon af, waarvan de werknemer maximaal de helft betaalt; de werkgever houdt dat deel in op het loon. De werkgever vraagt de uitkering aan, mede ondertekend door de werknemer, uiterlijk 4 weken voor het verlof begint. Het Fonds betaalt aan de werkgever, die het meteen doorbetaalt (Wet Arbeidsbescherming Gezin, art. 12 en 14).</p>
+<p><b>Wie betaalt?</b> Het <b>Fonds Voorzieningen Ouderschapsverlof (FVO)</b> betaalt 100% van het loon. Werkgever en werknemer dragen samen 1% van het brutoloon af, waarvan de werknemer maximaal de helft betaalt; de werkgever houdt dat deel in op het loon. De werkgever vraagt de uitkering aan, medeondertekend door de werknemer, uiterlijk 4 weken voor het verlof begint. Het Fonds betaalt aan de werkgever, die het meteen doorbetaalt (Wet Arbeidsbescherming Gezin, art. 12 en 14).</p>
 <p><b>Bescherming.</b> Opzeggen tijdens zwangerschap, verlof en na terugkeer is verboden, behalve om een dringende reden (art. 7:633g). Een zwangere werknemer hoeft met een doktersverklaring geen nachtwerk te doen (ook niet tot 4 weken na het verlof) en geen staand werk. Zwangerschapsonderzoeken onder werktijd worden doorbetaald (art. 7:633h). Na het verlof heeft zij recht op dezelfde of een gelijkwaardige functie met hetzelfde loon.</p>
 {% else %}
 <table class="tbl stack tx"><thead><tr><th>Leave</th><th>Length</th></tr></thead><tbody>
 <tr><td data-l="Leave">Pregnancy leave</td><td data-l="Length">4 to 6 weeks before the expected due date</td></tr>
 <tr><td data-l="Leave">Maternity leave after birth</td><td data-l="Length">10 to 12 weeks after the birth; always 16 weeks in total. Up to 24 weeks for three or more babies</td></tr>
 <tr><td data-l="Leave">Miscarriage or stillbirth during leave</td><td data-l="Length">6 weeks of maternity leave afterwards; the father 1 day</td></tr>
-<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 days: the day of birth, 3 working days right after, 2 working days when maternity leave ends and 2 working days within the first 4 months</td></tr>
+<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 days: the day of birth plus 7 working days (3 right after, 2 when maternity leave ends and 2 within the first 4 months)</td></tr>
 <tr><td data-l="Leave">Adopting a child under 18 months</td><td data-l="Length">Mother 6 weeks, father at least 5 working days</td></tr>
 <tr><td data-l="Leave">Mother dies or cannot care for the baby</td><td data-l="Length">The father or a relative gets the (remaining) maternity leave</td></tr>
 </tbody></table>
@@ -280,7 +280,7 @@
 {% if nl %}
 <p>Volgens de Wet Arbeid Kinderen en Jeugdige Personen (2018) is een <b>kind</b> iemand onder de 16 en een <b>jeugdige</b> iemand van 16 of 17. Kinderarbeid is verboden, met deze uitzonderingen:</p>
 <table class="tbl stack tx"><thead><tr><th>Leeftijd</th><th>Wat mag</th></tr></thead><tbody>
-<tr><td data-l="Leeftijd">13 en 14 jaar</td><td data-l="Wat mag">Licht hulpwerk, niet industrieel. Schoolweek maximaal 10 uur, 3 uur per schooldag; vakantie maximaal 7 uur per dag en 35 per week, hooguit 4 vakantieweken per jaar. Niet op zondag, niet tussen 19:00 en 07:00</td></tr>
+<tr><td data-l="Leeftijd">13 en 14 jaar</td><td data-l="Wat mag">Licht hulpwerk, niet industrieel. Schoolweek maximaal 10 uur, 3 uur per schooldag; vakantie maximaal 7 uur per dag en 35 per week, hooguit 4 vakantieweken per jaar. Niet op zondag; niet tussen 19:00 en 07:00 in schoolweken en niet tussen 21:00 en 07:00 in vakantieweken</td></tr>
 <tr><td data-l="Leeftijd">14 jaar en ouder</td><td data-l="Wat mag">Licht werk als stage of vakopleiding, maximaal 7 uur per dag en 35 per week, lestijd meegeteld</td></tr>
 <tr><td data-l="Leeftijd">15 jaar</td><td data-l="Wat mag">Licht werk, niet industrieel. Schoolweek maximaal 12 uur; vakantie maximaal 8 uur per dag en 40 per week</td></tr>
 <tr><td data-l="Leeftijd">16 en 17 jaar</td><td data-l="Wat mag">Maximaal 8 uur per dag en 40 per week. Geen nachtwerk (19:00 tot 06:00) en geen gevaarlijk werk (Besluit Gevaarlijke Arbeid, S.B. 2010 no. 175)</td></tr>
@@ -289,7 +289,7 @@
 {% else %}
 <p>Under the Child and Youth Labour Act (2018) a <b>child</b> is anyone under 16 and a <b>young person</b> is 16 or 17. Child labour is prohibited, with these exceptions:</p>
 <table class="tbl stack tx"><thead><tr><th>Age</th><th>What is allowed</th></tr></thead><tbody>
-<tr><td data-l="Age">13 and 14</td><td data-l="Allowed">Light, non-industrial helper work. School weeks up to 10 hours, 3 hours per school day; holidays up to 7 hours a day and 35 a week, at most 4 holiday weeks a year. Not on Sundays, not between 19:00 and 07:00</td></tr>
+<tr><td data-l="Age">13 and 14</td><td data-l="Allowed">Light, non-industrial helper work. School weeks up to 10 hours, 3 hours per school day; holidays up to 7 hours a day and 35 a week, at most 4 holiday weeks a year. Not on Sundays; not between 19:00 and 07:00 in school weeks and not between 21:00 and 07:00 in holiday weeks</td></tr>
 <tr><td data-l="Age">14 and older</td><td data-l="Allowed">Light work as an internship or vocational training, up to 7 hours a day and 35 a week, class time included</td></tr>
 <tr><td data-l="Age">15</td><td data-l="Allowed">Light, non-industrial work. School weeks up to 12 hours; holidays up to 8 hours a day and 40 a week</td></tr>
 <tr><td data-l="Age">16 and 17</td><td data-l="Allowed">Up to 8 hours a day and 40 a week. No night work (19:00 to 06:00) and no hazardous work (Hazardous Work Decree, S.B. 2010 no. 175)</td></tr>
@@ -306,7 +306,7 @@
 <li>Een werknemer mag zich onttrekken aan een situatie die zijn leven of gezondheid ernstig bedreigt, als hij dat meteen meldt bij de werkgever en de vakbond of de Arbeidsinspectie. Daarvoor ontslaan is verboden (art. 7:670 lid 6).</li>
 <li>Bij een bedrijfsongeval geldt daarnaast de Ongevallenregeling. Vraag je verzekeraar of de Arbeidsinspectie wat die voor jouw bedrijf betekent.</li>
 </ul>
-<p>De boetes voor overtreding van de Arbeidswet, Vacantiewet en Veiligheidswet zijn in 2023 verhoogd. Een boete kan per betrokken werknemer en per dag worden opgelegd.</p>
+<p>De boetes in de Veiligheidswet zijn in 2023 verhoogd. Een boete kan per betrokken werknemer en per dag worden opgelegd.</p>
 {% else %}
 <p>The employer must set up and maintain the workplace, machines and tools, and give instructions, so that employees do not suffer harm. If harm occurs, the employer is liable unless it proves it did everything required or that the harm was mainly caused by the employee's intent or deliberate recklessness (art. 7:658). This also covers freelancers and hired-in workers working in your business.</p>
 <ul class="check">
@@ -315,7 +315,7 @@
 <li>An employee may withdraw from a situation that seriously threatens his life or health, if he reports it immediately to the employer and the union or the Labour Inspectorate. Dismissing him for this is prohibited (art. 7:670(6)).</li>
 <li>Work accidents are also covered by the Accidents Regulation (Ongevallenregeling). Ask your insurer or the Labour Inspectorate what it means for your business.</li>
 </ul>
-<p>Fines under the Labour Act, Annual Leave Act and Safety Act were raised in 2023. A fine can be imposed per employee affected and per day.</p>
+<p>Fines under the Safety Act were raised in 2023. A fine can be imposed per employee affected and per day.</p>
 {% endif %}
 
 <h2>{{ 'Cao en vakbond' if nl else 'Collective agreements and unions' }}</h2>
@@ -351,11 +351,11 @@
 </ul>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Waar werkgevers de mist ingaan' if nl else 'Where employers slip up' }}</h2>
 {% if nl %}
 <ul>
 <li>Een proeftijd van drie maanden afspreken, of mondeling. Die is nietig; er geldt dan geen proeftijd.</li>
-<li>Steeds nieuwe tijdelijke contracten geven en denken dat het dienstverband dan vanzelf afloopt. Na drie contracten of 24 maanden is het contract vast, en alleen het eerste tijdelijke contract eindigt zonder ontslagvergunning.</li>
+<li>Steeds nieuwe tijdelijke contracten geven en denken dat het dienstverband dan vanzelf afloopt. Bij een vierde contract of na meer dan 24 maanden is het contract vast, en alleen het eerste tijdelijke contract eindigt zonder ontslagvergunning.</li>
 <li>Geen arbeidslijst, arbeidsregister of vakantieregister bijhouden. Dat is het eerste wat de Arbeidsinspectie vraagt.</li>
 <li>Vakantiedagen "uitbetalen" in plaats van laten opnemen, of de vakantietoelage vergeten.</li>
 <li>Overwerk op zondag of feestdagen tegen 150% betalen in plaats van 200%.</li>
@@ -365,7 +365,7 @@
 {% else %}
 <ul>
 <li>Agreeing a three-month or verbal probation period. It is void, so there is no probation at all.</li>
-<li>Issuing one fixed-term contract after another and assuming they end automatically. After three contracts or 24 months the contract is permanent, and only the first fixed-term contract ends without a dismissal permit.</li>
+<li>Issuing one fixed-term contract after another and assuming they end automatically. At a fourth contract or after more than 24 months the contract is permanent, and only the first fixed-term contract ends without a dismissal permit.</li>
 <li>Not keeping a working-hours list, staff register or leave register. That is the first thing the Labour Inspectorate asks for.</li>
 <li>"Paying out" leave instead of letting staff take it, or forgetting the leave allowance.</li>
 <li>Paying 150% instead of 200% for work on Sundays or public holidays.</li>

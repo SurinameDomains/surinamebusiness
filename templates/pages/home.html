@@ -28,7 +28,7 @@
    {% endif %}
    <a class="tp-row" href="{{ U('jobs') }}"><span>{{ 'Open vacatures' if nl else 'Open jobs' }}</span><b>{{ jobs['items']|length }}</b></a>
    <a class="tp-row" href="{{ U('tenders') }}"><span>{{ 'Open aanbestedingen' if nl else 'Open tenders' }}</span><b>{{ tenders.count }}</b></a>
-   {% if hol.next %}<a class="tp-row" href="{{ U('holidays') }}"><span>{{ 'Volgende vrije dag' if nl else 'Next holiday' }}</span><b class="tp-txt">{{ hol.next.name }}, {{ date(hol.next.date, year=False) }}</b></a>{% endif %}
+   {% if hol.next %}<a class="tp-row" href="{{ U('holidays') }}"><span>{{ 'Volgende vrije dag' if nl else 'Next holiday' }}</span><b class="tp-txt">{{ hol.next.name }}, {{ date(hol.next.date, year=False) }}{% if hol.next.status == 'expected' %} <span class="sub">({{ 'verwacht' if nl else 'expected' }})</span>{% endif %}</b></a>{% endif %}
    {% set ups = (outages.notices if outages else [])|selectattr('date','ge',today)|selectattr('slots')|list %}
    {% if ups %}{% set n = ups[0] %}{% set s = n.slots[0] %}<a class="tp-row" href="{{ U('outages') }}"><span>{{ 'Stroomonderbreking' if nl else 'Power outage' }}</span><b class="tp-txt">{% if n.date == today %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ date(n.date, year=False) }}{% endif %}, {{ s.district }}</b></a>{% endif %}
    <p class="tp-src">{% if rates %}{{ 'Koers' if nl else 'Rate' }}: CME, {{ date(rates.business_date, year=False) }} &middot; {% endif %}{{ 'bijgewerkt' if nl else 'updated' }} {{ built_sr[-5:] }}</p>
@@ -62,7 +62,7 @@
 {# 2. What is open right now. #}
 <div class="home-sec feeds">
  <section class="panel" aria-labelledby="h-tenders">
-  <div class="panel-h"><h2 id="h-tenders">{{ kicon('tenders') }}{{ 'Aanbestedingen' if nl else 'Tenders' }}</h2><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} &rarr;</a></div>
+  <div class="panel-h"><h2 id="h-tenders">{{ 'Aanbestedingen' if nl else 'Tenders' }}</h2><a href="{{ U('tenders') }}">{{ 'Alle' if nl else 'All' }} {{ tenders.count }} &rarr;</a></div>
   {% set closing = tenders['items']|selectattr('days_left','ne',none)|selectattr('days_left','le',7)|sort(attribute='days_left')|list %}
   {% set rest = tenders['items']|reject('in', closing[:2])|list %}
   <ul class="list feed cap4">
@@ -74,7 +74,7 @@
   <p class="more-link"><a href="{{ U('supplier') }}">{{ 'Leverancier worden voor overheid en olie' if nl else 'Become a supplier to government and oil' }} &rarr;</a></p>
  </section>
  <section class="panel" aria-labelledby="h-jobs">
-  <div class="panel-h"><h2 id="h-jobs">{{ kicon('jobs') }}{{ 'Vacatures' if nl else 'Jobs' }}</h2><a href="{{ U('jobs') }}">{{ 'Alle' if nl else 'All' }} {{ jobs['items']|length }} &rarr;</a></div>
+  <div class="panel-h"><h2 id="h-jobs">{{ 'Vacatures' if nl else 'Jobs' }}</h2><a href="{{ U('jobs') }}">{{ 'Alle' if nl else 'All' }} {{ jobs['items']|length }} &rarr;</a></div>
   <ul class="list feed cap4">
   {% for j in jobs['items'][:5] %}<li><a href="{{ j.url }}"{% if j.ext %} rel="noopener nofollow" target="_blank"{% endif %}>{{ j.title }}</a><div class="meta"><span class="clip">{{ j.employer }}</span>{% if j.published %}<span>{{ date(j.published, year=False) }}</span>{% endif %}</div></li>
   {% else %}<li class="empty">{{ 'Geen open vacatures gevonden.' if nl else 'No open vacancies found.' }}</li>{% endfor %}
@@ -82,7 +82,7 @@
   <p class="more-link"><a href="{{ U('postjob') }}">{{ 'Zelf een vacature plaatsen, gratis' if nl else 'Post a job yourself, free' }} &rarr;</a></p>
  </section>
  <section class="panel" aria-labelledby="h-news">
-  <div class="panel-h"><h2 id="h-news">{{ kicon('news') }}{{ 'Zakennieuws' if nl else 'Business news' }}</h2><a href="{{ U('news') }}">{{ 'Meer' if nl else 'More' }} &rarr;</a></div>
+  <div class="panel-h"><h2 id="h-news">{{ 'Zakennieuws' if nl else 'Business news' }}</h2><a href="{{ U('news') }}">{{ 'Meer' if nl else 'More' }} &rarr;</a></div>
   <ul class="list feed cap4">
   {% for n in news.business[:5] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span class="clip">{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
   {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
@@ -93,19 +93,19 @@
 {# 3. Reference: guides, the directory and market data. #}
 <div class="home-sec refs">
  <section class="panel" aria-labelledby="h-guides">
-  <div class="panel-h"><h2 id="h-guides">{{ kicon('guides') }}{{ 'Gidsen voor ondernemers' if nl else 'Guides for business owners' }}</h2><a href="{{ U('guides') }}">{{ 'Alle gidsen' if nl else 'All guides' }} &rarr;</a></div>
+  <div class="panel-h"><h2 id="h-guides">{{ 'Gidsen voor ondernemers' if nl else 'Guides for business owners' }}</h2><a href="{{ U('guides') }}">{{ 'Alle gidsen' if nl else 'All guides' }} &rarr;</a></div>
   <ul class="ilinks">
-   {% for k in ['start','licences','hiring','employer','biztax','vatguide','import','export','labour','resources'] %}<li><a href="{{ U(k) }}">{{ kicon(k, 18) }}{{ L(k) }}</a></li>{% endfor %}
+   {% for k in ['start','licences','hiring','employer','biztax','vatguide','import','export','labour','resources'] %}<li><a href="{{ U(k) }}">{{ L(k) }}</a></li>{% endfor %}
   </ul>
  </section>
  <section class="panel" aria-labelledby="h-market">
-  <div class="panel-h"><h2 id="h-market">{{ kicon('companies') }}{{ 'Bedrijven en markt' if nl else 'Companies and market' }}</h2></div>
+  <div class="panel-h"><h2 id="h-market">{{ 'Bedrijven en markt' if nl else 'Companies and market' }}</h2></div>
   <ul class="ilinks">
-   <li><a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ kicon('companies', 18) }}{{ 'Bedrijvengids' if nl else 'Business directory' }}<span class="cnt">{{ co.count }}</span></a></li>
-   <li><a href="{{ U('addbiz') }}">{{ kicon('addbiz', 18) }}{{ 'Je bedrijf aanmelden, gratis' if nl else 'Add your business, free' }}</a></li>
-   <li><a href="{{ U('oilgas') }}">{{ kicon('oilgas', 18) }}{{ 'Olie en gas: GranMorgu' if nl else 'Oil and gas: GranMorgu' }}</a></li>
-   <li><a href="{{ U('maxprices') }}">{{ kicon('maxprices', 18) }}{{ L('maxprices') }}</a></li>
-   <li><a href="{{ U('douane') }}">{{ kicon('douane', 18) }}{{ L('douane') }}</a></li>
+   <li><a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Bedrijvengids' if nl else 'Business directory' }}<span class="cnt">{{ co.count }}</span></a></li>
+   <li><a href="{{ U('addbiz') }}">{{ 'Je bedrijf aanmelden, gratis' if nl else 'Add your business, free' }}</a></li>
+   <li><a href="{{ U('oilgas') }}">{{ 'Olie en gas: GranMorgu' if nl else 'Oil and gas: GranMorgu' }}</a></li>
+   <li><a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a></li>
+   <li><a href="{{ U('douane') }}">{{ L('douane') }}</a></li>
   </ul>
  </section>
 </div>

@@ -15,7 +15,7 @@
 <h2>{{ 'Ontwikkeling' if nl else 'History' }}</h2>
 <table class="tbl"><thead><tr><th>{{ 'Ingangsdatum' if nl else 'Effective' }}</th><th class="r">{{ 'Per uur' if nl else 'Per hour' }}</th></tr></thead>
 <tbody><tr><td>{{ date(F.MIN_WAGE.effective) }}</td><td class="r"><b>{{ srd(h, 2) }}</b></td></tr><tr><td>{{ date(F.MIN_WAGE.previous_effective) }}</td><td class="r">{{ srd(F.MIN_WAGE.previous_hour, 2) }}</td></tr></tbody></table>
-<h2>{{ 'Goed om te weten' if nl else 'Good to know' }}</h2>
+<h2>{{ 'Wie het vaststelt en wat erbovenop komt' if nl else 'Who sets it and what comes on top' }}</h2>
 <ul>
  <li>{{ 'Het minimumuurloon geldt voor alle werknemers en wordt vastgesteld door de minister van Volksgezondheid, Welzijn en Arbeid (VWA), die sinds juli 2025 over arbeid gaat.' if nl else 'The minimum hourly wage applies to all employees and is set by the Minister of Health, Welfare and Labour (VWA), who has been responsible for labour since July 2025.' }}</li>
  <li>{{ 'Overuren worden daarbovenop betaald tegen minstens 150%.' if nl else 'Overtime is paid on top at a minimum of 150%.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>

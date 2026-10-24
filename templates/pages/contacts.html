@@ -12,7 +12,7 @@
 <div class="grid g2">
 {% for c in F.CONTACTS if c.group == g %}
 <div class="card"><b>{{ c.name[i] }}</b>
-<div class="meta" style="margin-top:6px;display:block"><div>{{ c.addr }}</div><div>{{ 'Telefoon' if nl else 'Phone' }}: {{ c.phone }}</div>{% if c.web %}<div><a href="{{ c.web }}" rel="noopener">{{ c.web.replace('https://','').rstrip('/') }}</a></div>{% endif %}</div></div>
+<div class="meta" style="margin-top:6px;display:block"><div>{{ c.addr }}</div><div>{{ 'Telefoon' if nl else 'Phone' }}: {{ c.phone if nl else c.phone.replace('toestel', 'ext.') }}</div>{% if c.web %}<div><a href="{{ c.web }}" rel="noopener">{{ c.web.replace('https://','').rstrip('/') }}</a></div>{% endif %}</div></div>
 {% endfor %}
 </div>
 {% endfor %}

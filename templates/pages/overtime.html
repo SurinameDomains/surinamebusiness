@@ -2,7 +2,7 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <h1>{{ 'Overuren berekenen' if nl else 'Overtime calculator' }}</h1>
-<p class="lead">{{ 'Overwerk wordt betaald tegen minstens 150% op gewone dagen en 200% op rustdagen en feestdagen. Sinds juli 2025 geldt voor overwerkloon een lager belastingtarief.' if nl else 'Overtime is paid at least 150% on normal days and 200% on rest days and public holidays. Since July 2025 overtime pay has a lower wage tax table.' }}</p>
+<p class="lead">{{ 'Overwerk wordt betaald tegen minstens 150% op gewone dagen en 200% op rustdagen en feestdagen. Op verzoek van de werknemer wordt overwerkloon apart belast, tegen een lager tarief.' if nl else 'Overtime is paid at least 150% on normal days and 200% on rest days and public holidays. At the employee\'s request, overtime pay is taxed separately at a lower rate.' }}</p>
 <div class="cols">
  <form class="card calc" id="ot-form" onsubmit="return false">
   <label for="hourly">{{ 'Uurloon (SRD)' if nl else 'Hourly wage (SRD)' }}</label>
@@ -12,9 +12,9 @@
   <input id="h150" name="h150" inputmode="decimal" value="10">
   <label for="h200">{{ 'Uren tegen 200% (rustdag, zon- of feestdag)' if nl else 'Hours at 200% (rest day, Sunday or holiday)' }}</label>
   <input id="h200" name="h200" inputmode="decimal" value="0">
-  <label for="h300">{{ 'Uren tegen 300% (feestdag zonder vervangende rustdag)' if nl else 'Hours at 300% (holiday without replacement rest day)' }}</label>
+  <label for="h300">{{ 'Uren tegen 300% (zon- of feestdag zonder vervangende rustdag, schriftelijk afgesproken)' if nl else 'Hours at 300% (Sunday or holiday without replacement rest day, agreed in writing)' }}</label>
   <input id="h300" name="h300" inputmode="decimal" value="0">
-  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV premie 4% inhouden' if nl else 'Deduct 4% AOV premium' }}</label>
+  <label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" name="aov" checked style="width:auto"> {{ 'AOV-premie 4% inhouden' if nl else 'Deduct 4% AOV premium' }}</label>
  </form>
  <div class="result" id="ot-out" aria-live="polite"></div>
 </div>
@@ -22,9 +22,9 @@
 <h2>{{ 'Regels voor overwerk' if nl else 'Overtime rules' }}</h2>
 <ul>
  <li>{{ 'Maximaal 8,5 uur per dag en 48 uur per week normale arbeid (Arbeidswet artikel 3).' if nl else 'Normal work is at most 8.5 hours a day and 48 hours a week (Labour Act article 3).' }}</li>
- <li>{{ 'Overwerk mag alleen met vergunning van de Arbeidsinspectie, tot maximaal 64 uur per week.' if nl else 'Overtime needs a permit from the Labour Inspectorate, up to 64 hours a week.' }}</li>
- <li>{{ 'Toeslag: minimaal 150% op gewone dagen, 200% op rustdagen (artikel 12). Werk op zon- en feestdagen minimaal 200%, of 300% als er geen vervangende rustdag is (artikel 13).' if nl else 'Premium: at least 150% on normal days, 200% on rest days (article 12). Sunday and holiday work at least 200%, or 300% without a replacement rest day (article 13).' }}</li>
- <li>{{ 'Loonbelasting op overwerk: 5% tot SRD 2.500, 15% tot SRD 7.500 en 25% daarboven, per maand (S.B. 2025 no. 129).' if nl else 'Wage tax on overtime: 5% up to SRD 2,500, 15% up to SRD 7,500 and 25% above, per month (S.B. 2025 no. 129).' }}</li>
+ <li>{{ 'Werk boven die grenzen mag alleen met vergunning van de Arbeidsinspectie, tot maximaal 64 uur per week (artikel 64). Extra uren boven je afgesproken uren maar binnen de wettelijke grenzen kosten ook minimaal 150% (artikel 15).' if nl else 'Work beyond those limits needs a permit from the Labour Inspectorate, up to 64 hours a week (article 64). Extra hours above the agreed hours but within the legal limits also cost at least 150% (article 15).' }}</li>
+ <li>{{ 'Toeslag: minimaal 150% op gewone dagen, 200% op rustdagen (artikel 12). Werk op zon- en feestdagen minimaal 200%, of 300% als in het contract of de cao staat dat er geen vervangende rustdag komt (artikel 13).' if nl else 'Premium: at least 150% on normal days, 200% on rest days (article 12). Sunday and holiday work at least 200%, or 300% if the contract or collective agreement says no replacement rest day is given (article 13).' }}</li>
+ <li>{{ 'Loonbelasting op overwerk, op verzoek van de werknemer: 5% tot SRD 2.500, 15% tot SRD 7.500 en 25% daarboven, per maand (art. 17c, grenzen sinds 1 juli 2025, S.B. 2025 no. 129).' if nl else 'Wage tax on overtime, at the employee\'s request: 5% up to SRD 2,500, 15% up to SRD 7,500 and 25% above, per month (art. 17c, bands since 1 July 2025, S.B. 2025 no. 129).' }}</li>
 </ul>
 <p><a href="{{ U('labour') }}">{{ L('labour') }} &rarr;</a></p>
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>

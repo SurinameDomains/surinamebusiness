@@ -19,7 +19,7 @@
   <table class="tbl stack"><thead><tr><th>{{ 'Karaat' if nl else 'Carat' }}</th><th class="r">{{ 'Zuiverheid' if nl else 'Purity' }}</th><th class="r">USD / gram</th><th class="r">SRD / gram</th></tr></thead><tbody>
   {% for k in [24, 22, 21, 18, 14, 10, 9] %}{% set p = C.gold.price / OZ * k / 24 %}<tr><td><b>{{ k }} {{ 'karaat' if nl else 'carat' }}</b></td><td class="r" data-l="{{ 'Zuiverheid' if nl else 'Purity' }}">{{ num(k / 24 * 1000, 0) }}</td><td class="r" data-l="USD / gram">{{ num(p) }}</td><td class="r" data-l="SRD / gram">{{ srd(p * fx, 0) if fx else '-' }}</td></tr>{% endfor %}
   </tbody></table>
-  <p class="asof" style="margin-top:8px">{{ 'Wereldprijs zonder marge. Opkopers en juweliers betalen minder en rekenen meer.' if nl else 'World price without margin. Buyers and jewellers pay less and charge more.' }}{% if fx %} {{ 'SRD tegen CME aankoopkoers' if nl else 'SRD at the CME buy rate' }} {{ num(fx) }}.{% endif %}</p></div>
+  <p class="asof" style="margin-top:8px">{{ 'Wereldprijs zonder marge. Opkopers en juweliers betalen minder en rekenen meer.' if nl else 'World price without margin. Buyers and jewellers pay less and charge more.' }}{% if fx %} {{ 'SRD tegen CME-aankoopkoers' if nl else 'SRD at the CME buy rate' }} {{ num(fx) }}.{% endif %}</p></div>
  </div>
  <form class="card calc" id="gv" onsubmit="return false">
   <div class="eyebrow">{{ 'Wat is mijn goud waard?' if nl else 'What is my gold worth?' }}</div>
@@ -31,7 +31,7 @@
 {% endif %}
 {% if CB and CB.gold and CB.gold.coupons %}
 <h2>{{ 'Goudcertificaten Centrale Bank' if nl else 'Central Bank gold certificates' }}</h2>
-<p>{{ 'De Centrale Bank van Suriname verkoopt goudcertificaten in coupures van 5 tot 1.000 gram. Verkoopprijzen in SRD zoals gepubliceerd door de CBvS' if nl else 'The Central Bank of Suriname sells gold certificates in denominations of 5 to 1,000 grams. Selling prices in SRD as published by the CBvS' }}{% if CB.gold.date %}, {{ CB.gold.date }}{% endif %}{% if CB.gold.lbma_usd_oz %}, {{ 'op basis van de LBMA goudprijs van' if nl else 'based on the LBMA gold price of' }} USD {{ num(CB.gold.lbma_usd_oz) }} {{ 'per troy ounce' }}{% endif %}.</p>
+<p>{{ 'De Centrale Bank van Suriname verkoopt goudcertificaten in coupures van 5 tot 1.000 gram. Verkoopprijzen in SRD zoals gepubliceerd door de CBvS' if nl else 'The Central Bank of Suriname sells gold certificates in denominations of 5 to 1,000 grams. Selling prices in SRD as published by the CBvS' }}{% if CB.gold.date %}, {{ CB.gold.date }}{% endif %}{% if CB.gold.lbma_usd_oz %}, {{ 'op basis van de LBMA-goudprijs van' if nl else 'based on the LBMA gold price of' }} USD {{ num(CB.gold.lbma_usd_oz) }} {{ 'per troy ounce' }}{% endif %}.</p>
 <div class="card"><table class="tbl stack"><thead><tr><th>{{ 'Coupure' if nl else 'Denomination' }}</th><th class="r">{{ 'Verkoopprijs' if nl else 'Selling price' }}</th></tr></thead><tbody>
 {% for g, p in CB.gold.coupons %}<tr><td><b>{{ num(g, 0) }} gram</b></td><td class="r" data-l="{{ 'Verkoopprijs' if nl else 'Selling price' }}">{{ srd(p, 2) }}</td></tr>{% endfor %}
 </tbody></table></div>
@@ -46,7 +46,7 @@
 </div>
 {% endif %}
 <div class="prose">
-<h2>{{ 'Goed om te weten' if nl else 'Good to know' }}</h2>
+<h2>{{ 'Ounces, karaten en olie' if nl else 'Ounces, carats and oil' }}</h2>
 <ul>
 <li>{{ 'Een troy ounce is 31,1035 gram. Goudprijzen op de wereldmarkt gaan altijd per troy ounce, in dollars.' if nl else 'A troy ounce is 31.1035 grams. World gold prices are always per troy ounce, in dollars.' }}</li>
 <li>{{ '24 karaat is puur goud. 18 karaat is 75% goud, 14 karaat 58,3%.' if nl else '24 carat is pure gold. 18 carat is 75% gold, 14 carat 58.3%.' }}</li>

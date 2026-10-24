@@ -5,7 +5,7 @@
 <div class="prose">
 <h1>{{ 'Belastingen voor bedrijven in Suriname: het complete overzicht' if nl else 'Business taxes in Suriname: the complete overview' }}</h1>
 {% if nl %}
-<p class="lead">Een bedrijf in Suriname krijgt te maken met inkomstenbelasting over de winst (36% voor een NV), dividendbelasting (25%), loonbelasting en AOV voor personeel, BTW ({{ std }}% algemeen), invoerrechten en accijns bij import, en overdrachtsbelasting (4%) bij de aankoop van onroerend goed. Deze pagina zet ze allemaal op een rij, met de vaste data per jaar en waar je terecht kunt.</p>
+<p class="lead">Een bedrijf in Suriname krijgt te maken met inkomstenbelasting over de winst (36% voor een NV), dividendbelasting (25%), loonbelasting en AOV voor personeel, BTW ({{ std }}% algemeen), invoerrechten en accijns bij import, en overdrachtsbelasting (4%) bij de aankoop van onroerend goed. Deze pagina zet ze allemaal op een rij, met de vaste data per jaar en waar je terechtkunt.</p>
 {% else %}
 <p class="lead">A business in Suriname deals with income tax on profit (36% for an NV), dividend tax (25%), wage tax and AOV for staff, VAT ({{ std }}% standard), import duties and excise on imports, and transfer tax (4%) when buying real estate. This page lists them all, with the fixed dates in a year and where to get help.</p>
 {% endif %}
@@ -32,7 +32,7 @@
 <table class="tbl stack tx"><thead><tr><th>{{ 'Belasting' if nl else 'Tax' }}</th><th>{{ 'Tarief' if nl else 'Rate' }}</th><th>{{ 'Wie betaalt, wanneer' if nl else 'Who pays, when' }}</th></tr></thead><tbody>
 {% if nl %}
 <tr><td data-l="Belasting">Inkomstenbelasting lichamen</td><td data-l="Tarief">36% van de winst</td><td data-l="Wie betaalt, wanneer">NV, coöperatie, stichting of vereniging met een bedrijf, filiaal. Voorlopig in vier termijnen, definitief binnen 6 maanden na het boekjaar.</td></tr>
-<tr><td data-l="Belasting">Inkomstenbelasting personen</td><td data-l="Tarief">0%, 8%, 18%, 28%, 38%</td><td data-l="Wie betaalt, wanneer">Eigenaar van een eenmanszaak, vennoten van een VOF. Definitief binnen 4 maanden na het jaar.</td></tr>
+<tr><td data-l="Belasting">Inkomstenbelasting personen</td><td data-l="Tarief">0%, 8%, 18%, 28%, 38%</td><td data-l="Wie betaalt, wanneer">Eigenaar van een eenmanszaak, vennoten van een openbare vennootschap (voorheen VOF). Definitief binnen 4 maanden na het jaar.</td></tr>
 <tr><td data-l="Belasting">Dividendbelasting</td><td data-l="Tarief">25%</td><td data-l="Wie betaalt, wanneer">Ingehouden door de uitkerende vennootschap, afdragen binnen een maand.</td></tr>
 <tr><td data-l="Belasting">Loonbelasting</td><td data-l="Tarief">0% tot 38% (maandtabel)</td><td data-l="Wie betaalt, wanneer">Werkgever houdt in op het loon, maandelijkse aangifte.</td></tr>
 <tr><td data-l="Belasting">AOV-premie</td><td data-l="Tarief">4%</td><td data-l="Wie betaalt, wanneer">Ingehouden op het loon van werknemers; ondernemers via hun inkomstenbelasting.</td></tr>
@@ -43,7 +43,7 @@
 <tr><td data-l="Belasting">Huurwaardebelasting, vermogensbelasting</td><td data-l="Tarief">Zie hieronder</td><td data-l="Wie betaalt, wanneer">Navragen bij de Inspectie der Directe Belastingen.</td></tr>
 {% else %}
 <tr><td data-l="Tax">Corporate income tax</td><td data-l="Rate">36% of profit</td><td data-l="Who pays, when">NV, cooperative, foundation or association running a business, branch. Provisional in four instalments, final within 6 months after the financial year.</td></tr>
-<tr><td data-l="Tax">Personal income tax</td><td data-l="Rate">0%, 8%, 18%, 28%, 38%</td><td data-l="Who pays, when">Owner of a sole proprietorship, partners in a VOF. Final return within 4 months after the year.</td></tr>
+<tr><td data-l="Tax">Personal income tax</td><td data-l="Rate">0%, 8%, 18%, 28%, 38%</td><td data-l="Who pays, when">Owner of a sole proprietorship, partners in a general partnership (openbare vennootschap, formerly VOF). Final return within 4 months after the year.</td></tr>
 <tr><td data-l="Tax">Dividend tax</td><td data-l="Rate">25%</td><td data-l="Who pays, when">Withheld by the distributing company, remitted within one month.</td></tr>
 <tr><td data-l="Tax">Wage tax</td><td data-l="Rate">0% to 38% (monthly table)</td><td data-l="Who pays, when">Employer withholds it from wages, monthly return.</td></tr>
 <tr><td data-l="Tax">AOV premium</td><td data-l="Rate">4%</td><td data-l="Who pays, when">Withheld from employees' wages; business owners through their income tax.</td></tr>
@@ -66,7 +66,7 @@
 <li><b>Voorzieningen</b> voor bijvoorbeeld pensioen, onderhoud of garanties zijn aftrekbaar als ze aan voorwaarden voldoen; vraag je accountant.</li>
 <li><b>Boekhouden in USD.</b> Bedrijven die aan de voorwaarden van een staatsbesluit voldoen, kunnen op verzoek hun boekhouding, aangifte en betaling in een aangewezen vreemde munt doen.</li>
 </ul>
-<p>Bestuurders en vereffenaars zijn hoofdelijk aansprakelijk voor de inkomstenbelasting van het lichaam, tenzij ze aantonen dat het niet aan hen lag. De aangiften en termijnen zijn dezelfde als voor personen, maar de definitieve aangifte moet binnen 6 maanden na het boekjaar (30 juni bij een kalenderjaar), met balans en winst- en verliesrekening.</p>
+<p>Bestuurders en vereffenaars zijn hoofdelijk aansprakelijk voor de inkomstenbelasting van het lichaam, tenzij ze aantonen dat het niet aan hen lag. De aangiften en termijnen zijn dezelfde als voor personen, maar de definitieve aangifte moet binnen 6 maanden na het boekjaar (30 juni bij een kalenderjaar), met balans en winst-en-verliesrekening.</p>
 {% else %}
 <p>Suriname has no separate corporate tax law. The Income Tax Act 1922 taxes entities (NVs, cooperatives, mutual insurers and foundations or associations that run a business) at a flat rate of <b>36%</b> on the taxable amount: the profit of the financial year minus losses carried forward. A branch of a foreign company pays the same rate on the profit attributable to Suriname. A sole proprietorship or partnership (VOF) pays no profit tax; the profit goes to the owner's or partners' income tax (see <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>).</p>
 <ul class="check">
@@ -91,10 +91,10 @@
 
 <h2>{{ 'Loonbelasting, AOV en andere werkgeverslasten' if nl else 'Wage tax, AOV and other employer costs' }}</h2>
 {% if nl %}
-<p>Heb je personeel, dan ben je inhoudingsplichtig. Je houdt elke maand <b>loonbelasting</b> in volgens de tabel (belastingvrij {{ srd(F.TAX.free_month) }} per maand, daarna 8% tot 38%) en <b>4% AOV-premie</b>, en je doet aangifte en betaalt via het portaal. Het portaal neemt de maandaangifte aan van de 26e tot en met de 10e van de volgende maand. Vakantietoelage en gratificatie zijn elk tot {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar vrij van loonbelasting. Aantoonbare kostenvergoedingen (representatie, vervoer, internet) horen niet tot het loon.</p>
+<p>Heb je personeel, dan ben je inhoudingsplichtig. Je houdt elke maand <b>loonbelasting</b> in volgens de tabel (belastingvrij {{ srd(F.TAX.free_month) }} per maand, daarna 8% tot 38%) en <b>4% AOV-premie</b>, en je doet aangifte en betaalt via het portaal. Het portaal neemt de maandaangifte aan van de 26e tot en met de 10e van de volgende maand. Vakantietoelage en gratificatie zijn elk vrij van loonbelasting tot één maandloon, maximaal {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar. Aantoonbare kostenvergoedingen (representatie, vervoer, internet) horen niet tot het loon.</p>
 <p>Daarnaast betaal je premies voor het algemeen pensioen en de basiszorgverzekering van je werknemers. Hoeveel dat is en hoe je het afdraagt staat in <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Bereken loon en inhoudingen per werknemer met de <a href="{{ U('salary') }}">{{ L('salary') }}</a> en maak een loonstrook met de <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
 {% else %}
-<p>If you have staff, you must withhold tax. Every month you withhold <b>wage tax</b> according to the table (tax free {{ srd(F.TAX.free_month) }} a month, then 8% to 38%) and the <b>4% AOV premium</b>, and you file and pay through the portal. The portal accepts the monthly return from the 26th up to and including the 10th of the following month. Holiday allowance and bonus are each free of wage tax up to {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year. Documented expense allowances (representation, transport, internet) are not part of wages.</p>
+<p>If you have staff, you must withhold tax. Every month you withhold <b>wage tax</b> according to the table (tax-free {{ srd(F.TAX.free_month) }} a month, then 8% to 38%) and the <b>4% AOV premium</b>, and you file and pay through the portal. The portal accepts the monthly return from the 26th up to and including the 10th of the following month. Holiday allowance and bonus are each free of wage tax up to one month's wage, capped at {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year. Documented expense allowances (representation, transport, internet) are not part of wages.</p>
 <p>On top of that you pay premiums for the general pension and the basic health insurance of your employees. How much, and how to pay, is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Calculate pay and deductions per employee with the <a href="{{ U('salary') }}">{{ L('salary') }}</a> and make a payslip with the <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
 {% endif %}
 
@@ -140,7 +140,7 @@
 <ul>
 <li><b>Vermogensbelasting.</b> Oudere overzichten noemen een vermogensbelasting voor natuurlijke personen, niet voor bedrijven. Actuele bedragen en of er aanslagen worden opgelegd, konden we niet bevestigen; vraag het na bij de Inspectie der Directe Belastingen.</li>
 <li><b>Bronheffing op betalingen naar het buitenland.</b> Behalve de 25% dividendbelasting heft Suriname volgens het overzicht van het ABS geen bronbelasting op rente, royalty's of management- en servicevergoedingen die naar het buitenland gaan. Wel kan een buitenlands bedrijf dat in Suriname werkt een vaste inrichting hebben en dan zelf inkomstenbelasting en loonbelasting verschuldigd zijn. Sinds februari 2023 valt ook de exclusieve economische zone (offshore) onder de Surinaamse heffing. Op diensten die je van een buitenlands bedrijf koopt, geef je wel zelf BTW aan (verlegging).</li>
-<li><b>Verrekenprijzen.</b> Suriname heeft geen uitgebreide documentatieregels zoals in OESO landen. De wet staat aftrek van rente en vergoedingen aan verbonden partijen alleen toe voor zover die zakelijk (at arm's length) zijn. Voor de BTW geldt tussen verbonden partijen de marktwaarde als de prijs lager is en de BTW niet volledig aftrekbaar. Leg je intragroeptarieven daarom schriftelijk vast.</li>
+<li><b>Verrekenprijzen.</b> Suriname heeft geen uitgebreide documentatieregels zoals in OESO-landen. De wet staat aftrek van rente en vergoedingen aan verbonden partijen alleen toe voor zover die zakelijk (at arm's length) zijn. Voor de BTW geldt tussen verbonden partijen de marktwaarde als de prijs lager is en de BTW niet volledig aftrekbaar. Leg je intragroeptarieven daarom schriftelijk vast.</li>
 </ul>
 {% else %}
 <ul>
@@ -225,7 +225,7 @@
 <p>Together that is 52% of the profit. If the shareholder lives in Suriname, the dividend counts in their own return and the 25% is credited; on a high income a little more can be due. If the NV keeps the profit for investment, the total stays at 36%. The provisional assessment for 2027 is at least {{ srd(360000) }}: four instalments of {{ srd(90000) }}. The same profit in a sole proprietorship gives {{ srd(313760) }} income tax plus {{ srd(40000) }} AOV.</p>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Waar ondernemers de fout in gaan' if nl else 'Where businesses go wrong' }}</h2>
 {% if nl %}
 <ul>
 <li><b>Denken dat een kleine NV geen aangifte hoeft te doen.</b> Elk lichaam doet voorlopige en definitieve aangifte, ook bij verlies en ook als je geen aangiftebiljet hebt ontvangen.</li>

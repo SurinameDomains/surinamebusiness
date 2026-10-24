@@ -139,17 +139,17 @@
 <h2>{{ 'Vakantietoelage, 13e maand en overwerk' if nl else 'Leave allowance, 13th month and overtime' }}</h2>
 {% if nl %}
 <ul>
-<li><b>Vakantietoelage.</b> Verplicht: de helft van het loon over elke opgenomen vakantiedag (Vacantiewet art. 10). Bij {{ F.LEAVE.first_year_days }} dagen is dat 6 dagen loon per jaar, oplopend tot 9 dagen loon bij {{ F.LEAVE.max_days }} vakantiedagen. Tot {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar is de toelage vrij van loonbelasting. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
-<li><b>13e maand of gratificatie.</b> Geen wet verplicht een 13e maand. Heb je die in het contract, een reglement of een cao beloofd, of betaal je hem jaar na jaar, dan kan de werknemer erop rekenen. Een gratificatie is tot {{ srd(F.TAX.bonus_exempt_year) }} per jaar vrij van loonbelasting.</li>
-<li><b>Overwerk.</b> Minimaal 150% van het uurloon op werkdagen en 200% op rustdagen, met een overwerkvergunning van de Arbeidsinspectie. Overwerkloon wordt apart belast tegen lagere tarieven. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
-<li><b>Feestdagen.</b> Niet gewerkte feestdagen betaal je door. Werken op een feestdag kost minstens 200%, of 300% zonder vervangende rustdag.</li>
+<li><b>Vakantietoelage.</b> Verplicht: de helft van het loon over elke opgenomen vakantiedag (Vacantiewet art. 10). Bij {{ F.LEAVE.first_year_days }} dagen is dat 6 dagen loon per jaar, oplopend tot 9 dagen loon bij {{ F.LEAVE.max_days }} vakantiedagen. Tot één maandloon, met een maximum van {{ srd(F.TAX.holiday_allowance_exempt_year) }} per jaar, is de toelage vrij van loonbelasting. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
+<li><b>13e maand of gratificatie.</b> Geen wet verplicht een 13e maand. Heb je die in het contract, een reglement of een cao beloofd, of betaal je hem jaar na jaar, dan kan de werknemer erop rekenen. Een gratificatie is tot één maandloon, maximaal {{ srd(F.TAX.bonus_exempt_year) }} per jaar, vrij van loonbelasting.</li>
+<li><b>Overwerk.</b> Minimaal 150% van het uurloon op werkdagen en 200% op rustdagen, met een vergunning van de Arbeidsinspectie voor werk boven 8,5 uur per dag of 48 uur per week. Op verzoek van de werknemer wordt overwerkloon apart belast tegen lagere tarieven. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+<li><b>Feestdagen.</b> Niet gewerkte feestdagen betaal je door. Werken op een feestdag kost minstens 200%, of 300% als in het contract of de cao staat dat er geen vervangende rustdag komt.</li>
 </ul>
 {% else %}
 <ul>
-<li><b>Leave allowance.</b> Compulsory: half the wage for each leave day taken (Leave Act art. 10). With {{ F.LEAVE.first_year_days }} days that is 6 days' pay a year, rising to 9 days' pay at {{ F.LEAVE.max_days }} leave days. Up to {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year the allowance is free of wage tax. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
-<li><b>13th month or bonus.</b> No law requires a 13th month. If you promised one in the contract, staff rules or a collective agreement, or you pay it year after year, the employee can count on it. A bonus (gratificatie) is free of wage tax up to {{ srd(F.TAX.bonus_exempt_year) }} a year.</li>
-<li><b>Overtime.</b> At least 150% of hourly pay on workdays and 200% on rest days, with an overtime permit from the Labour Inspectorate. Overtime pay is taxed separately at lower rates. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
-<li><b>Public holidays.</b> Holidays not worked are paid. Working on a holiday costs at least 200%, or 300% without a replacement rest day.</li>
+<li><b>Leave allowance.</b> Compulsory: half the wage for each leave day taken (Leave Act art. 10). With {{ F.LEAVE.first_year_days }} days that is 6 days' pay a year, rising to 9 days' pay at {{ F.LEAVE.max_days }} leave days. Up to one month's wage, capped at {{ srd(F.TAX.holiday_allowance_exempt_year) }} a year, the allowance is free of wage tax. <a href="{{ U('vacation') }}">{{ L('vacation') }}</a></li>
+<li><b>13th month or bonus.</b> No law requires a 13th month. If you promised one in the contract, staff rules or a collective agreement, or you pay it year after year, the employee can count on it. A bonus (gratificatie) is free of wage tax up to one month's wage, capped at {{ srd(F.TAX.bonus_exempt_year) }} a year.</li>
+<li><b>Overtime.</b> At least 150% of hourly pay on workdays and 200% on rest days, with a Labour Inspectorate permit for work beyond 8.5 hours a day or 48 hours a week. At the employee's request, overtime pay is taxed separately at lower rates. <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></li>
+<li><b>Public holidays.</b> Holidays not worked are paid. Working on a holiday costs at least 200%, or 300% if the contract or collective agreement says no replacement rest day is given.</li>
 </ul>
 {% endif %}
 
@@ -208,7 +208,7 @@
 <p>The Minimum Wage Act (S.B. 2019 no. 101, amended in 2024) has no fund and no employer premium. It only requires you to pay at least the minimum hourly wage ({{ srd(F.MIN_WAGE.hour, 2) }} since 1 July 2026), give a payslip showing how pay is built up and what is deducted, and let the Labour Inspectorate see your payroll records. Overtime is calculated from the minimum hourly wage. The fund with an employer contribution you may be looking for is the FVO for parental leave, which comes from the Family Labour Protection Act. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></p>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Fouten die werkgevers maken' if nl else 'Mistakes employers make' }}</h2>
 {% if nl %}
 <ul>
 <li><b>Rekenen met het APF-percentage van vorig jaar.</b> De premie stijgt elk 1 januari met een half procentpunt.</li>

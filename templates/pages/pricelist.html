@@ -1,5 +1,5 @@
 {% extends "tool_base.html" %}
-{% block lead %}{{ 'Typ je producten en prijzen, en je krijgt een nette prijslijst of menukaart om op te hangen, uit te delen of als PDF te delen via WhatsApp. Met categorieën, je logo en een QR code naar je WhatsApp of website.' if nl else 'Type your products and prices and get a clean price list or menu to put up, hand out or share as PDF on WhatsApp. With categories, your logo and a QR code to your WhatsApp or website.' }}{% endblock %}
+{% block lead %}{{ 'Typ je producten en prijzen, en je krijgt een nette prijslijst of menukaart om op te hangen, uit te delen of als PDF te delen via WhatsApp. Met categorieën, je logo en een QR-code naar je WhatsApp of website.' if nl else 'Type your products and prices and get a clean price list or menu to put up, hand out or share as PDF on WhatsApp. With categories, your logo and a QR code to your WhatsApp or website.' }}{% endblock %}
 {% block tool %}
 <div class="wide-cols">
  <form class="card calc" id="pl" onsubmit="return false" autocomplete="off">
@@ -12,7 +12,7 @@
    <div><label for="c1">{{ 'Kleur' if nl else 'Colour' }}</label><input id="c1" name="c1" type="color" value="#1f2251"></div>
    <div><label for="cur">{{ 'Valuta' if nl else 'Currency' }}</label><select id="cur" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
   </div>
-  <div class="two"><div><label for="qrl">{{ 'QR code naar (link of WhatsApp nummer)' if nl else 'QR code to (link or WhatsApp number)' }}</label><input id="qrl" name="qrl" placeholder="8xx xxxx {{ 'of' if nl else 'or' }} https://..."></div><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div></div>
+  <div class="two"><div><label for="qrl">{{ 'QR-code naar (link of WhatsApp-nummer)' if nl else 'QR code to (link or WhatsApp number)' }}</label><input id="qrl" name="qrl" placeholder="8xx xxxx {{ 'of' if nl else 'or' }} https://..."></div><div><label for="logo">Logo</label><input id="logo" type="file" accept="image/*"></div></div>
   <label for="foot">{{ 'Onderschrift' if nl else 'Footer' }}</label><input id="foot" name="foot" value="{{ 'Prijzen inclusief BTW. Bestellen via WhatsApp.' if nl else 'Prices include VAT. Order via WhatsApp.' }}">
  </form>
  <div class="sticky"><div class="paper print-area" id="pl-out"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button></div></div>

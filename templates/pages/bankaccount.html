@@ -6,7 +6,7 @@
 {% if nl %}
 <p class="lead">Voor een zakelijke rekening heb je meestal een KKF-uittreksel, een geldig ID van iedereen die tekent, de statuten (bij een NV of stichting), een UBO-verklaring en een eerste inleg nodig. De bank moet onder de anti-witwaswet (WMTF) weten wie achter het bedrijf zit en waar het geld vandaan komt. Hoe completer je dossier, hoe sneller het gaat.</p>
 {% else %}
-<p class="lead">For a business account you usually need a KKF extract, valid ID for everyone who signs, the articles of association (for an NV or foundation), a UBO declaration and a first deposit. Under the anti money laundering act (WMTF) the bank must know who is behind the company and where the money comes from. The more complete your file, the faster it goes.</p>
+<p class="lead">For a business account you usually need a KKF extract, valid ID for everyone who signs, the articles of association (for an NV or foundation), a UBO declaration and a first deposit. Under the anti-money laundering act (WMTF) the bank must know who is behind the company and where the money comes from. The more complete your file, the faster it goes.</p>
 {% endif %}
 <div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
 {% if nl %}
@@ -48,7 +48,7 @@
 <p>Dit is wat banken op hun eigen sites vragen (oktober 2026). Elke bank heeft eigen formulieren en kan meer vragen.</p>
 <table class="tbl stack tx"><thead><tr><th>Rechtsvorm</th><th>Gebruikelijke documenten</th></tr></thead><tbody>
 <tr><td data-l="Rechtsvorm">Eenmanszaak</td><td data-l="Gebruikelijke documenten">ID van de eigenaar, KKF-uittreksel, bedrijfsvergunning (indien nodig), soms een CBB-uittreksel of, voor buitenlanders, de verblijfsvergunning</td></tr>
-<tr><td data-l="Rechtsvorm">VOF</td><td data-l="Gebruikelijke documenten">Als eenmanszaak, voor elke vennoot, plus de onderhandse of notariële akte van de VOF</td></tr>
+<tr><td data-l="Rechtsvorm">Openbare vennootschap (voorheen VOF)</td><td data-l="Gebruikelijke documenten">Als eenmanszaak, voor elke vennoot, plus de onderhandse of notariële akte van de vennootschap</td></tr>
 <tr><td data-l="Rechtsvorm">NV</td><td data-l="Gebruikelijke documenten">Statuten of oprichtingsakte, aandeelhouderslijst, ID van directie, commissarissen en aandeelhouders, UBO-verklaring, procuratieregeling, jaarrekening of prognose</td></tr>
 <tr><td data-l="Rechtsvorm">Stichting</td><td data-l="Gebruikelijke documenten">Statuten, uittreksel uit het register, ID van bestuurders en tekenbevoegden, UBO-verklaring, jaarverslag</td></tr>
 <tr><td data-l="Rechtsvorm">Nevenvestiging buitenlands bedrijf</td><td data-l="Gebruikelijke documenten">KKF-inschrijving van de nevenvestiging, statuten en registeruittreksel van het moederbedrijf met vertaling, structuurschema tot aan de natuurlijke personen, ID van de lokale beheerder</td></tr>
@@ -63,12 +63,12 @@
 <li>Verklaring van bedrijfsactiviteiten, verwachte omzet en herkomst van het startkapitaal</li>
 <li>Een eerste inleg. Op de sites van banken lag die in oktober 2026 tussen SRD 150 en SRD 1.000, of USD/EUR 100 tot 250</li>
 </ul>
-<p>Een NV die is opgericht vóór 1 mei 2025 kan nog aandelen aan toonder in de statuten hebben. Die zijn afgeschaft en moeten op naam staan. De bank wil zien wie de aandeelhouders zijn.</p>
+<p>Oudere statuten kunnen nog aandelen aan toonder noemen. Die zijn sinds 2016 afgeschaft (S.B. 2016 no. 103); niet omgezette aandelen werden in 2019 van rechtswege aandelen op naam. De bank wil zien wie de aandeelhouders zijn.</p>
 {% else %}
 <p>This is what banks ask for on their own sites (October 2026). Each bank has its own forms and may ask for more.</p>
 <table class="tbl stack tx"><thead><tr><th>Legal form</th><th>Usual documents</th></tr></thead><tbody>
 <tr><td data-l="Legal form">Sole trader (eenmanszaak)</td><td data-l="Usual documents">Owner's ID, KKF extract, business licence (if required), sometimes a CBB extract (civil registry) or, for foreigners, the residence permit</td></tr>
-<tr><td data-l="Legal form">General partnership (VOF)</td><td data-l="Usual documents">As for a sole trader, for each partner, plus the private or notarial partnership deed</td></tr>
+<tr><td data-l="Legal form">General partnership (openbare vennootschap, formerly VOF)</td><td data-l="Usual documents">As for a sole trader, for each partner, plus the private or notarial partnership deed</td></tr>
 <tr><td data-l="Legal form">NV (limited company)</td><td data-l="Usual documents">Articles or deed of incorporation, shareholder list, ID of directors, supervisory directors and shareholders, UBO declaration, signing authority rules, annual accounts or forecast</td></tr>
 <tr><td data-l="Legal form">Foundation (stichting)</td><td data-l="Usual documents">Articles, register extract, ID of board members and signatories, UBO declaration, annual report</td></tr>
 <tr><td data-l="Legal form">Branch of a foreign company</td><td data-l="Usual documents">KKF registration of the branch, articles and register extract of the parent with translation, structure chart up to the natural persons, ID of the local manager</td></tr>
@@ -83,7 +83,7 @@
 <li>Statement of business activities, expected turnover and source of the starting capital</li>
 <li>A first deposit. On bank websites in October 2026 this ranged from SRD 150 to SRD 1,000, or USD/EUR 100 to 250</li>
 </ul>
-<p>An NV set up before 1 May 2025 may still have bearer shares in its articles. These have been abolished and must be registered shares. The bank wants to see who the shareholders are.</p>
+<p>Older articles may still mention bearer shares. These were abolished in 2016 (S.B. 2016 no. 103); shares not converted became registered shares by law in 2019. The bank wants to see who the shareholders are.</p>
 {% endif %}
 
 <h2>{{ 'UBO-verklaring en cliëntenonderzoek' if nl else 'UBO declaration and due diligence' }}</h2>
@@ -113,7 +113,7 @@
 <ul class="check">
 <li>Paspoort van iedere bestuurder, tekenbevoegde en UBO</li>
 <li>Bewijs van woonadres in het buitenland (bijvoorbeeld een recente nutsrekening of bankafschrift)</li>
-<li>Bij een buitenlandse aandeelhouder-vennootschap: registeruittreksel, statuten en aandeelhoudersregister, gelegaliseerd en vertaald als ze niet in het Nederlands of Engels zijn</li>
+<li>Bij een buitenlandse vennootschap als aandeelhouder: registeruittreksel, statuten en aandeelhoudersregister, gelegaliseerd en vertaald als ze niet in het Nederlands of Engels zijn</li>
 <li>Herkomst van het geld: bankafschriften van de rekening waarvan het kapitaal komt, jaarrekening van de moeder of verkoopakte</li>
 <li>Voor een bestuurder die in Suriname woont: verblijfsvergunning en zo nodig werkvergunning. Zie <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></li>
 <li>Voor Amerikaanse staatsburgers en belastingplichtigen: FATCA-formulieren</li>
@@ -172,7 +172,7 @@
 {% if nl %}
 <p>De Nationale Ontwikkelingsbank (NOB) is ook lid van de bankiersvereniging; zij richt zich op ontwikkelingsfinanciering. Voor leningen en kredieten: <a href="{{ U('finance') }}">{{ L('finance') }}</a> en <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
 {% else %}
-<p>The National Development Bank (NOB) is also a member of the bankers association; it focuses on development finance. For loans and credit: <a href="{{ U('finance') }}">{{ L('finance') }}</a> and <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
+<p>The National Development Bank (NOB) is also a member of the bankers' association; it focuses on development finance. For loans and credit: <a href="{{ U('finance') }}">{{ L('finance') }}</a> and <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</p>
 {% endif %}
 
 <h2>{{ 'Kosten: waar je naar moet vragen' if nl else 'Fees: what to ask about' }}</h2>
@@ -198,7 +198,7 @@
 <li>Fees per domestic transfer, per salary payment and per bulk file</li>
 <li>Fees for foreign transfers, incoming and outgoing, plus correspondent bank charges</li>
 <li>Fees for cash deposits, especially in USD and EUR</li>
-<li>Debit card and withdrawal fees. According to the bankers association a withdrawal at another bank's ATM costs SRD 5 and at your own bank SRD 2.50 to SRD 5 (rate since 15 November 2021)</li>
+<li>Debit card and withdrawal fees. According to the bankers' association a withdrawal at another bank's ATM costs SRD 5 and at your own bank SRD 2.50 to SRD 5 (rate since 15 November 2021)</li>
 <li>Internet banking: cost per user, token or app, and limits per user</li>
 <li>POS terminal: rent, set-up fee and commission per transaction, and how fast the money reaches your account</li>
 <li>Exchange rate spread when converting between SRD, USD and EUR</li>
@@ -212,10 +212,10 @@
 <li><b>Vraag de lijst op.</b> Bel of mail de bank, of kijk op de zakelijke pagina. Vraag ook naar de kosten.</li>
 <li><b>Stel het dossier samen.</b> Let op de geldigheid: KKF-uittreksel en CBB-uittreksel zijn vaak maar 1 tot 6 maanden bruikbaar.</li>
 <li><b>Dien in.</b> Bij een kantoor, per e-mail of online, afhankelijk van de bank. Sommige banken willen alle tekenbevoegden persoonlijk zien.</li>
-<li><b>Beantwoord vervolgvragen snel.</b> Het cliëntenonderzoek bepaalt vooral hoe lang het duurt.</li>
+<li><b>Beantwoord vervolgvragen snel.</b> Het cliëntenonderzoek bepaalt vooral hoelang het duurt.</li>
 <li><b>Activeer.</b> Eerste inleg, pinpas, internetbankieren en eventueel POS aanvragen.</li>
 </ol>
-<p>Banken publiceren geen vaste doorlooptijd. Een eenvoudige eenmanszaak met een compleet dossier gaat sneller dan een NV met buitenlandse aandeelhouders. Vraag bij indiening hoe lang het duurt en wie je contactpersoon is.</p>
+<p>Banken publiceren geen vaste doorlooptijd. Een eenvoudige eenmanszaak met een compleet dossier gaat sneller dan een NV met buitenlandse aandeelhouders. Vraag bij indiening hoelang het duurt en wie je contactpersoon is.</p>
 {% else %}
 <ol class="steps">
 <li><b>Get the list.</b> Call or email the bank, or check its business page. Ask about fees as well.</li>
@@ -239,7 +239,7 @@
 {% else %}
 <ul>
 <li><b>Business internet banking.</b> Ask for multiple users with their own limits, dual approval (one enters, another approves), bulk payments for salaries and statement downloads for your bookkeeping.</li>
-<li><b>POS (card terminal).</b> Customers pay with their debit card. The bankers association reported that customers can pay up to SRD 100,000 a day by card; limits differ per bank and per card. Ask whether the terminal also takes credit cards.</li>
+<li><b>POS (card terminal).</b> Customers pay with their debit card. The bankers' association reported that customers can pay up to SRD 100,000 a day by card; limits differ per bank and per card. Ask whether the terminal also takes credit cards.</li>
 <li><b>Mobile and QR payments.</b> Banks and payment companies offer wallets and QR payments. Choose what your customers use; you can offer more than one.</li>
 <li><b>Payment links and online sales.</b> Ask about e-commerce or payment links if you sell online.</li>
 </ul>
@@ -286,7 +286,7 @@
 <p>A bank cannot always explain why it refuses: if a report has been made to the FIU, it may not tell the customer. The Central Bank of Suriname supervises the banks.</p>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Waardoor een rekening vastloopt' if nl else 'What gets an account stuck' }}</h2>
 {% if nl %}
 <ul>
 <li>Zakelijke inkomsten op een privérekening laten binnenkomen. Dat maakt je boekhouding en belastingaangifte lastig en kan bij de bank vragen oproepen. Zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>

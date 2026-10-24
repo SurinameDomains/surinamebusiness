@@ -33,7 +33,7 @@
 <li>{{ 'Bij uit dienst gaan (niet wegens een dringende reden) heeft de werknemer recht op vakantie naar rato van de volle maanden van dit jaar. Niet opgenomen dagen worden uitbetaald, met de toelage (art. 12).' if nl else 'When the employee leaves (not for an urgent reason) they are entitled to leave in proportion to the full months worked this year. Untaken days are paid out, with the allowance (art. 12).' }}</li>
 <li>{{ 'Een CAO of arbeidsovereenkomst mag meer geven, nooit minder.' if nl else 'A collective agreement or contract may give more, never less.' }}</li>
 </ul>
-<p>{{ 'Een vakantietoelage is tot SRD 19.500 per jaar vrij van loonbelasting.' if nl else 'A holiday allowance is exempt from wage tax up to SRD 19,500 a year.' }} <a href="{{ U('tax') }}">{{ L('tax') }}</a></p>
+<p>{{ 'Een vakantietoelage is vrij van loonbelasting tot één maandloon, maximaal' if nl else 'A holiday allowance is exempt from wage tax up to one month\'s wage, at most' }} {{ srd(F.TAX.holiday_allowance_exempt_year) }} {{ 'per jaar.' if nl else 'a year.' }} <a href="{{ U('tax') }}">{{ L('tax') }}</a></p>
 </section>
 {% endblock %}
 {% block sources %}<p class="asof">{{ 'Bron' if nl else 'Source' }}: {% for name, url in V.sources %}<a href="{{ url }}" rel="noopener">{{ name }}</a>{% endfor %}. {{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-18') }}.</p>{% endblock %}

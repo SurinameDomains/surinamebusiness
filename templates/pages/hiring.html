@@ -113,7 +113,7 @@
 <li><b>FVO: ouderschapsverlof.</b> Meld je werknemers aan bij het Bureau Fonds Voorzieningen Ouderschapsverlof. Het FVO verwerkt een uitkering pas als de premie minstens drie maanden vooraf is betaald.</li>
 <li><b>Basiszorgverzekering.</b> Sluit voor je werknemers een basiszorgverzekering af bij een erkende verzekeraar (bijvoorbeeld het SZF, het Staatsziekenfonds, of een particuliere verzekeraar). Je betaalt minstens de helft van de premie.</li>
 <li><b>Ongevallenverzekering.</b> Volgens de Ongevallenregeling verzeker je je werknemers vanaf de eerste werkdag tegen bedrijfsongevallen, bij een erkende verzekeraar. Je werknemer is niet automatisch verzekerd.</li>
-<li><b>Arbeidsinspectie.</b> De Ongevallenregeling verplicht je de start, wijzigingen en sluiting van je onderneming binnen een maand te melden (art. 22). Vraag de Arbeidsinspectie hoe dat nu gaat.</li>
+<li><b>Melding van je onderneming.</b> De Ongevallenregeling verplicht je de start, wijzigingen en sluiting van je onderneming binnen een maand te melden bij de Directeur van Sociale Zaken, buiten Paramaribo bij de districtscommissaris (art. 22). Vraag de Arbeidsinspectie hoe dat nu in de praktijk gaat.</li>
 </ol>
 {% else %}
 <p>Arrange this before the first payday. A full overview of what each premium costs is in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
@@ -123,7 +123,7 @@
 <li><b>FVO: parental leave.</b> Register your employees with the Parental Leave Fund bureau (Fonds Voorzieningen Ouderschapsverlof, FVO). The FVO only processes a claim if the premium was paid at least three months in advance.</li>
 <li><b>Basic health insurance.</b> Take out basic health insurance (basiszorgverzekering, BZV) for your employees with a recognised insurer (for example the SZF, the state health fund, or a private insurer). You pay at least half the premium.</li>
 <li><b>Accident insurance.</b> Under the Accident Regulation (Ongevallenregeling) you insure your employees against workplace accidents from the first working day, with a recognised insurer. Your employee is not insured automatically.</li>
-<li><b>Labour Inspectorate.</b> The Accident Regulation requires you to report the start, changes and closure of your business within a month (art. 22). Ask the Labour Inspectorate (Arbeidsinspectie) how this works today.</li>
+<li><b>Notifying your business.</b> The Accident Regulation requires you to report the start, changes and closure of your business within a month to the Director of Social Affairs, or outside Paramaribo to the district commissioner (art. 22). Ask the Labour Inspectorate (Arbeidsinspectie) how this works in practice today.</li>
 </ol>
 {% endif %}
 
@@ -155,7 +155,7 @@
 <tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Minimumloon' if nl else 'Minimum wage' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ srd(F.MIN_WAGE.hour, 2) }} {{ 'per uur sinds 1 juli 2026, ook voor uitzendkrachten en thuiswerkers. Loon in natura telt mee tegen de werkelijke waarde.' if nl else 'an hour since 1 July 2026, also for agency and home workers. Pay in kind counts at its real value.' }} <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></td></tr>
 <tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Betaaltermijn' if nl else 'Pay period' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minstens eens per maand en niet vaker dan eens per week (art. 7:623 BW). Loon in vreemde valuta mag als het is afgesproken, maar de werknemer kan SRD vragen.' if nl else 'At least once a month and not more often than once a week (art. 7:623 Civil Code). Pay in foreign currency is allowed if agreed, but the employee can ask for SRD.' }}</td></tr>
 <tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Werktijd' if nl else 'Working time' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Maximaal' if nl else 'At most' }} {{ num(F.LABOUR.max_day, 1) }} {{ 'uur per dag en' if nl else 'hours a day and' }} {{ F.LABOUR.max_week }} {{ 'uur per week (Arbeidswet).' if nl else 'hours a week (Labour Act).' }} <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></td></tr>
-<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Overwerk' if nl else 'Overtime' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minimaal 150% van het uurloon op werkdagen, 200% op rustdagen. Je hebt een overwerkvergunning van de Arbeidsinspectie nodig.' if nl else 'At least 150% of hourly pay on workdays, 200% on rest days. You need an overtime permit from the Labour Inspectorate.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></td></tr>
+<tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Overwerk' if nl else 'Overtime' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minimaal 150% van het uurloon op werkdagen, 200% op rustdagen. Voor werk boven 8,5 uur per dag of 48 uur per week heb je een vergunning van de Arbeidsinspectie nodig.' if nl else 'At least 150% of hourly pay on workdays, 200% on rest days. Work beyond 8.5 hours a day or 48 hours a week needs a Labour Inspectorate permit.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></td></tr>
 <tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Zondag' if nl else 'Sunday' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Geen werk op zondag, tenzij afgesproken of het volgt uit de aard van het werk (art. 7:657a BW). Daarnaast heb je voor zondagsarbeid en nachtarbeid een vergunning van de Arbeidsinspectie nodig (Arbeidswet art. 8 en 10).' if nl else 'No work on Sunday unless agreed or it follows from the nature of the work (art. 7:657a Civil Code). On top of that, Sunday work and night work need a permit from the Labour Inspectorate (Labour Act arts. 8 and 10).' }}</td></tr>
 <tr><td data-l="{{ 'Regel' if nl else 'Rule' }}">{{ 'Kleine contracten' if nl else 'Small contracts' }}</td><td data-l="{{ 'Wat geldt' if nl else 'What applies' }}">{{ 'Minder dan 15 uur per week zonder vaste tijden: elke oproep wordt betaald als minstens 3 uur (art. 7:628a BW).' if nl else 'Under 15 hours a week without fixed times: every call-in is paid as at least 3 hours (art. 7:628a Civil Code).' }}</td></tr>
 </tbody></table>
@@ -163,10 +163,10 @@
 <h2>{{ 'Vakantie en feestdagen' if nl else 'Leave and public holidays' }}</h2>
 {% if nl %}
 <p>Volgens de Vakantiewet heeft een werknemer na een vol kalenderjaar recht op {{ F.LEAVE.first_year_days }} werkdagen vakantie met behoud van loon. Elk volgend onafgebroken jaar komen er {{ F.LEAVE.extra_per_year }} dagen bij, tot {{ F.LEAVE.max_days }}. In het eerste, onvolledige jaar is het één dag per volle maand. Bovenop het loon betaal je een vakantietoelage van de helft van het loon over de opgenomen dagen. Gaat de werknemer uit dienst, dan betaal je de niet-opgenomen dagen uit, met toelage. Zwangerschaps- en bevallingsverlof mogen niet van de vakantie worden afgetrokken (art. 7:633e BW). Rekenen: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
-<p>Officiële feestdagen zijn vrij met behoud van loon. Wie op een feestdag moet werken, krijgt minstens 200%, of 300% zonder vervangende rustdag: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+<p>Officiële feestdagen zijn vrij met behoud van loon. Wie op een feestdag moet werken, krijgt minstens 200%, of 300% als in het contract of de cao staat dat er geen vervangende rustdag komt: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
 {% else %}
 <p>Under the Leave Act (Vakantiewet) an employee is entitled to {{ F.LEAVE.first_year_days }} working days of paid leave after a full calendar year. Each further unbroken year adds {{ F.LEAVE.extra_per_year }} days, up to {{ F.LEAVE.max_days }}. In the first, incomplete year it is one day per full month. On top of the wage you pay a leave allowance of half the wage for the days taken. When the employee leaves you pay out untaken days, with the allowance. Pregnancy and maternity leave may not be deducted from annual leave (art. 7:633e Civil Code). Calculate: <a href="{{ U('vacation') }}">{{ L('vacation') }}</a>.</p>
-<p>Official public holidays are paid days off. Anyone who has to work on a holiday gets at least 200%, or 300% without a replacement rest day: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+<p>Official public holidays are paid days off. Anyone who has to work on a holiday gets at least 200%, or 300% if the contract or collective agreement says no replacement rest day is given: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
 {% endif %}
 
 <h2>{{ 'Ziekte en bedrijfsongevallen' if nl else 'Illness and workplace accidents' }}</h2>
@@ -186,7 +186,7 @@
 <table class="tbl stack tx"><thead><tr><th>{{ 'Verlof' if nl else 'Leave' }}</th><th>{{ 'Duur' if nl else 'Length' }}</th></tr></thead><tbody>
 <tr><td data-l="Verlof">Zwangerschapsverlof</td><td data-l="Duur">4 tot 6 weken vóór de vermoedelijke bevallingsdatum, de werknemer kiest</td></tr>
 <tr><td data-l="Verlof">Bevallingsverlof</td><td data-l="Duur">10 tot 12 weken na de bevalling, samen met zwangerschapsverlof 16 weken; bij drie of meer kinderen tot 24 weken</td></tr>
-<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 werkdagen: de dag van de bevalling, 3 dagen erna, 2 dagen na het bevallingsverlof en 2 dagen in de eerste 4 maanden</td></tr>
+<tr><td data-l="Verlof">Vaderschapsverlof</td><td data-l="Duur">8 dagen: de dag van de bevalling plus 7 werkdagen (3 direct daarna, 2 na afloop van het bevallingsverlof en 2 in de eerste 4 maanden)</td></tr>
 <tr><td data-l="Verlof">Adoptie (kind jonger dan 18 maanden)</td><td data-l="Duur">Moeder 6 weken, vader minstens 5 werkdagen</td></tr>
 </tbody></table>
 <ul>
@@ -201,7 +201,7 @@
 <table class="tbl stack tx"><thead><tr><th>Leave</th><th>Length</th></tr></thead><tbody>
 <tr><td data-l="Leave">Pregnancy leave</td><td data-l="Length">4 to 6 weeks before the expected due date, the employee chooses</td></tr>
 <tr><td data-l="Leave">Maternity leave</td><td data-l="Length">10 to 12 weeks after the birth, 16 weeks together with pregnancy leave; up to 24 weeks for three or more babies</td></tr>
-<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 working days: the day of birth, 3 days after, 2 days after maternity leave and 2 days within the first 4 months</td></tr>
+<tr><td data-l="Leave">Paternity leave</td><td data-l="Length">8 days: the day of birth plus 7 working days (3 right after, 2 when maternity leave ends and 2 within the first 4 months)</td></tr>
 <tr><td data-l="Leave">Adoption (child under 18 months)</td><td data-l="Length">Mother 6 weeks, father at least 5 working days</td></tr>
 </tbody></table>
 <ul>
@@ -254,7 +254,7 @@
 <p>The Labour Inspectorate may inspect your payroll records (Minimum Wage Act art. 4). More: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
 {% endif %}
 
-<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+<h2>{{ 'Fouten bij je eerste werknemer' if nl else 'Mistakes with your first employee' }}</h2>
 {% if nl %}
 <ul>
 <li><b>Proeftijd alleen mondeling of langer dan twee maanden.</b> Dan is er geen proeftijd en kun je niet zomaar opzeggen.</li>

@@ -27,7 +27,7 @@
     <div><label for="pen">{{ 'Pensioenpremie werknemer (%)' if nl else 'Employee pension premium (%)' }}</label><input id="pen" name="pen" inputmode="decimal" value="0"></div>
     <div><label for="ded">{{ 'Overige inhoudingen (SRD)' if nl else 'Other deductions (SRD)' }}</label><input id="ded" name="ded" inputmode="decimal" value="0"><div class="hint">{{ 'Bijv. voorschot of lening' if nl else 'E.g. advance or loan' }}</div></div>
    </div>
-   <label class="check"><input type="checkbox" name="aov" checked> {{ 'AOV premie 4% inhouden (werknemer jonger dan 60)' if nl else 'Withhold 4% AOV (employee under 60)' }}</label>
+   <label class="check"><input type="checkbox" name="aov" checked> {{ 'AOV-premie 4% inhouden (werknemer jonger dan 60)' if nl else 'Withhold 4% AOV (employee under 60)' }}</label>
    <label for="pay">{{ 'Uitbetaald op (rekening)' if nl else 'Paid to (account)' }}</label><input id="pay" name="pay">
   </fieldset>
  </form>
@@ -40,7 +40,7 @@
 {% block info %}
 <section class="prose" style="margin-top:28px">
 <h2>{{ 'Hoe wordt dit berekend?' if nl else 'How is this calculated?' }}</h2>
-<p>{{ 'Van het belaste loon gaat eerst de forfaitaire aftrek (4%, maximaal SRD 400 per maand) en de eigen pensioenpremie af. Over het deel boven de belastingvrije som van' if nl else 'First the flat deduction (4%, max SRD 400 a month) and the employee pension premium come off the taxable wage. Over the part above the tax-free amount of' }} {{ srd(F.TAX.free_month) }} {{ 'per maand geldt 8%, 18%, 28% en 38%. Overwerkloon wordt apart belast met 5%, 15% en 25%. AOV is 4% van het zuiver loon.' if nl else 'a month the rates are 8%, 18%, 28% and 38%. Overtime pay is taxed separately at 5%, 15% and 25%. AOV is 4% of the net taxable wage.' }}</p>
+<p>{{ 'Van het belaste loon gaat eerst de forfaitaire aftrek (4%, maximaal SRD 400 per maand) en de eigen pensioenpremie af. Over het deel boven de belastingvrije som van' if nl else 'First the flat deduction (4%, max SRD 400 a month) and the employee pension premium come off the taxable wage. Over the part above the tax-free amount of' }} {{ srd(F.TAX.free_month) }} {{ 'per maand geldt 8%, 18%, 28% en 38%. Overwerkloon wordt, op verzoek van de werknemer, apart belast met 5%, 15% en 25%. AOV is 4% van het zuiver loon.' if nl else 'a month the rates are 8%, 18%, 28% and 38%. Overtime pay is, at the employee\'s request, taxed separately at 5%, 15% and 25%. AOV is 4% of the net taxable wage.' }}</p>
 <p><a href="{{ U('tax') }}">{{ L('tax') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></p>
 </section>
 {% endblock %}

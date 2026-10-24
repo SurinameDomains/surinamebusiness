@@ -18,7 +18,7 @@
   <fieldset><legend>{{ 'Rechten en heffingen' if nl else 'Duties and levies' }}</legend>
   <div class="two">
    <div><label for="duty">{{ 'Invoerrecht (%)' if nl else 'Import duty (%)' }}</label><input id="duty" name="duty" inputmode="decimal" value="20"><div class="hint">{{ 'Hangt af van de HS-code van je goederen' if nl else 'Depends on the HS code of your goods' }}</div></div>
-   <div><label for="lev">{{ 'Overige heffingen (%)' if nl else 'Other levies (%)' }}</label><input id="lev" name="lev" inputmode="decimal" value="0"><div class="hint">{{ 'Bijv. statistiek- of consentrecht, zie je aangifte' if nl else 'E.g. statistics or consent fee, see your declaration' }}</div></div>
+   <div><label for="lev">{{ 'Overige heffingen (%)' if nl else 'Other levies (%)' }}</label><input id="lev" name="lev" inputmode="decimal" value="2"><div class="hint">{{ 'Statistiekrecht 0,5% en consentrecht 1,5% van de CIF-waarde' if nl else 'Statistical fee 0.5% and consent fee 1.5% of the CIF value' }}</div></div>
   </div>
   <div class="two">
    <div><label for="exc">{{ 'Accijns (SRD, als van toepassing)' if nl else 'Excise (SRD, if any)' }}</label><input id="exc" name="exc" inputmode="decimal" value="0"></div>
