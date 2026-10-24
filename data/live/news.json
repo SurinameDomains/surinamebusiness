@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/ecd-eigenaar-ng-electronics-maakt-zich-onbereikbaar/"
   }
  ],
- "fetched_at": "2026-10-24T19:32:12+00:00",
+ "fetched_at": "2026-10-24T20:46:05+00:00",
  "oil": [
   {
    "econ": false,
@@ -504,32 +504,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-24T19:32:11+00:00",
+   "fetched_at": "2026-10-24T20:45:59+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-24T19:32:09+00:00",
+   "count": 14,
+   "fetched_at": "2026-10-24T20:45:49+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-24T19:32:11+00:00",
+   "fetched_at": "2026-10-24T20:45:59+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T19:32:11+00:00",
+   "fetched_at": "2026-10-24T20:46:03+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-24T19:32:10+00:00",
+   "fetched_at": "2026-10-24T20:45:51+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T19:32:12+00:00",
+   "fetched_at": "2026-10-24T20:46:05+00:00",
    "ok": true
   }
  }

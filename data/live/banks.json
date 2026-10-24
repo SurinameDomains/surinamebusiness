@@ -6,7 +6,7 @@
     41.8,
     42.617
    ],
-   "fetched_at": "2026-10-24T19:32:14+00:00",
+   "fetched_at": "2026-10-24T20:48:47+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
@@ -22,7 +22,7 @@
     41.75,
     42.62
    ],
-   "fetched_at": "2026-10-24T19:32:15+00:00",
+   "fetched_at": "2026-10-24T20:48:48+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
@@ -38,7 +38,7 @@
     41.57,
     42.42
    ],
-   "fetched_at": "2026-10-24T19:32:15+00:00",
+   "fetched_at": "2026-10-24T20:48:49+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
@@ -70,7 +70,7 @@
     41.921,
     42.617
    ],
-   "fetched_at": "2026-10-24T19:32:16+00:00",
+   "fetched_at": "2026-10-24T20:48:50+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
@@ -81,5 +81,5 @@
    ]
   }
  ],
- "fetched_at": "2026-10-24T19:32:16+00:00"
+ "fetched_at": "2026-10-24T20:48:50+00:00"
 }
