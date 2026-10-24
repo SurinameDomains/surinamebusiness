@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-24T11:43:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94509"
+  },
+  {
+   "econ": false,
    "published": "2026-10-24T08:54:00+00:00",
    "source": "de Ware Tijd",
    "title": "Focus buitenlandbeleid in 2027 op versterking economische diplomatie",
@@ -412,17 +419,17 @@
    "source": "de Ware Tijd",
    "title": "VSB wil duidelijkheid over uitvoering ‘Negatieve Lijst’",
    "url": "https://dwtonline.com/vsb-wil-duidelijkheid-over-uitvoering-negatieve-lijst/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T18:29:11+00:00",
-   "source": "Suriname Herald",
-   "title": "Ramautarsing signaleert grote loonverschillen tussen kabinetten",
-   "url": "https://www.srherald.com/suriname/2026/10/18/ramautarsing-signaleert-grote-loonverschillen-tussen-kabinetten/"
   }
  ],
- "fetched_at": "2026-10-24T11:35:55+00:00",
+ "fetched_at": "2026-10-24T14:10:41+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-24T11:43:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94509"
+  },
   {
    "econ": true,
    "published": "2026-10-23T22:04:33+00:00",
@@ -497,32 +504,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-24T11:35:53+00:00",
+   "fetched_at": "2026-10-24T14:10:39+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-24T11:35:50+00:00",
+   "count": 16,
+   "fetched_at": "2026-10-24T14:10:37+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-24T11:35:52+00:00",
+   "fetched_at": "2026-10-24T14:10:39+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T11:35:53+00:00",
+   "fetched_at": "2026-10-24T14:10:40+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-24T11:35:52+00:00",
+   "fetched_at": "2026-10-24T14:10:38+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T11:35:55+00:00",
+   "fetched_at": "2026-10-24T14:10:41+00:00",
    "ok": true
   }
  }

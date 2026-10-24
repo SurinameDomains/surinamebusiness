@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-24T11:36:03+00:00",
+ "fetched_at": "2026-10-24T14:11:15+00:00",
  "notices": [
   {
    "date": "2026-10-22",
@@ -43,6 +43,23 @@
    "text": "",
    "title": "Gepland onderhoud dinsdag 27 oktober 2026",
    "url": "https://nvebs.com/nieuws/1636/gepland-onderhoud-dinsdag-27-oktober-2026"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=c3ee9d7280b6426d80876d9816cf3ecb",
+   "slots": [
+    {
+     "areas": "GEDEELTE JARIKABAWEG TUSSEN PADIWEG EN LAKATANWEG, ABDOELRAHMANWEG, LAKATANWEG, GROS MICHELWEG, JOGI SEWSANKARWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-10-28",
+     "district": "Saramacca",
+     "from": "08:30",
+     "to": "14:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud woensdag 28 oktober 2026",
+   "url": "https://nvebs.com/nieuws/1637/gepland-onderhoud-woensdag-28-oktober-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
