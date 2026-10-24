@@ -80,7 +80,7 @@
 {% endfor %}
 {% if crumbs %}<nav class="crumbs" aria-label="{{ 'Kruimelpad' if lang=='nl' else 'Breadcrumb' }}">{% for c in crumbs %}{% if not loop.first %} / {% endif %}{% if c.url and not loop.last %}<a href="{{ c.url }}">{{ c.label }}</a>{% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}{% endfor %}</nav>{% endif %}
 {% block content %}{% endblock %}
-{% if faq %}<section class="prose" style="margin-top:28px"><h2>{{ 'Veelgestelde vragen' if lang=='nl' else 'Frequently asked questions' }}</h2>{% for q, a in faq %}<h3>{{ q }}</h3><p>{{ a }}</p>{% endfor %}</section>{% endif %}
+{% if faq %}<section class="prose faq" style="margin-top:28px"><h2>{{ 'Veelgestelde vragen' if lang=='nl' else 'Frequently asked questions' }}</h2>{% for q, a in faq %}<details><summary>{{ q }}</summary><p>{{ a }}</p></details>{% endfor %}</section>{% endif %}
 </div>
 </main>
 <footer class="site-foot">
