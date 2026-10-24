@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-24T05:02:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Seedorf eindelijk op bank Corinthians",
+   "url": "https://dwtonline.com/seedorf-eindelijk-op-bank-corinthians/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-24T03:03:01+00:00",
+   "source": "Suriname Herald",
+   "title": "Wel voor de klas, geen salaris: gepensioneerde leerkrachten wachten al een jaar op hun geld",
+   "url": "https://www.srherald.com/suriname/2026/10/24/wel-voor-de-klas-geen-salaris-gepensioneerde-leerkrachten-wachten-al-een-jaar-op-hun-geld/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-23T22:04:33+00:00",
    "source": "Suriname Herald",
    "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
@@ -405,23 +419,9 @@
    "source": "Starnieuws",
    "title": "China vergroot goudvoorraad om financiële risico’s te beperken",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94422"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-18T16:08:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "IMF luidt alarmklok over toenemende risico’s wereldeconomie",
-   "url": "https://dwtonline.com/imf-luidt-alarmklok-over-toenemende-risicos-wereldeconomie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T15:03:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Negentig binnenlandbewoners op landbouwopleiding",
-   "url": "https://dwtonline.com/negentig-binnenlandbewoners-op-landbouwopleiding/"
   }
  ],
- "fetched_at": "2026-10-24T01:08:05+00:00",
+ "fetched_at": "2026-10-24T06:26:37+00:00",
  "oil": [
   {
    "econ": false,
@@ -497,32 +497,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-24T01:08:03+00:00",
+   "fetched_at": "2026-10-24T06:26:35+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-24T01:08:01+00:00",
+   "count": 16,
+   "fetched_at": "2026-10-24T06:26:33+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-24T01:08:03+00:00",
+   "fetched_at": "2026-10-24T06:26:34+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T01:08:04+00:00",
+   "fetched_at": "2026-10-24T06:26:36+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-24T01:08:02+00:00",
+   "fetched_at": "2026-10-24T06:26:34+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T01:08:05+00:00",
+   "fetched_at": "2026-10-24T06:26:37+00:00",
    "ok": true
   }
  }

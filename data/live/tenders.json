@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-24T01:07:46+00:00",
+ "fetched_at": "2026-10-24T06:26:17+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -112,16 +112,6 @@
    "source": "gov.sr",
    "title": "Het vervangen, verfraaien en bedrijfsklaar opleveren van een tweetal VRI’s voor de afdeling Verkeersmonitoring en Digitale Techniek van het Directoraat Veiligheid en Mobiliteit",
    "url": "https://gov.sr/aanbestedingen/het-vervangen-verfraaien-en-bedrijfsklaar-opleveren-van-een-tweetal-vris-voor-de-afdeling-verkeersmonitoring-en-digitale-techniek-van-het-directoraat-veiligheid-en-mobiliteit-2/"
-  },
-  {
-   "buyer": "Staatsolie Maatschappij Suriname N.V.",
-   "deadline": "2026-10-23",
-   "id": "so-en-procurement-opportunities-pireng-swimming-pool",
-   "lang": "en",
-   "published": "2026-10-09",
-   "source": "Staatsolie",
-   "title": "Request for Expression of Interest for Renovation and/or Expansion Pireng Swimmingpool",
-   "url": "https://www.staatsolie.com/en/procurement-opportunities/pireng-swimming-pool/"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -481,22 +471,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-24T01:07:46+00:00",
+   "fetched_at": "2026-10-24T06:26:17+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-24T01:07:45+00:00",
+   "fetched_at": "2026-10-24T06:26:16+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-24T01:07:45+00:00",
+   "fetched_at": "2026-10-24T06:26:16+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-24T01:07:44+00:00",
+   "fetched_at": "2026-10-24T06:26:16+00:00",
    "ok": true
   }
  }
