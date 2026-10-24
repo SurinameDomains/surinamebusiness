@@ -74,7 +74,7 @@
         '<tr><td>' + T('Lokale kosten', 'Local costs') + '</td><td class="r">' + S.money(local) + '</td></tr>' +
         '<tr class="tot"><td>' + T('Totaal te betalen', 'Total to pay') + '</td><td class="r">' + S.money(total) + '</td></tr></table>' +
         '<p class="sub" style="margin-top:10px">' + T('Opslag op de factuurwaarde', 'On top of invoice value') + ': ' + S.fmt(cif ? (cost / (S.num(e.val.value) * fx) - 1) * 100 : 0, 1) + '%' +
-        (e.reg.checked ? '. ' + T('De BTW bij invoer trek je af in je BTW aangifte.', 'You deduct the import VAT in your VAT return.') : '') + '</p>' +
+        (e.reg.checked ? '. ' + T('De BTW bij invoer trek je af in je BTW-aangifte.', 'You deduct the import VAT in your VAT return.') : '') + '</p>' +
         '<div class="btns"><a class="btn ghost sm" href="' + (S.nl ? '/verkoopprijs-berekenen' : '/en/price-markup-calculator') + '?cost=' + (cost / units).toFixed(2) + '&cur=SRD">' + T('Bereken de verkoopprijs', 'Work out the selling price') + ' &rarr;</a></div>';
       document.getElementById('ic-out').innerHTML = h;
     });

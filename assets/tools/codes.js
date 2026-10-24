@@ -58,7 +58,7 @@
         out.querySelector('svg').style.width = '260px';
         document.getElementById('qr-info').textContent = T('Inhoud: ', 'Contents: ') + (p.length > 90 ? p.slice(0, 90) + '…' : p);
         last = p;
-      } catch (err) { out.textContent = T('Te veel tekst voor een QR code.', 'Too much text for a QR code.'); }
+      } catch (err) { out.textContent = T('Te veel tekst voor een QR-code.', 'Too much text for a QR code.'); }
     };
     qf.addEventListener('input', qr); qf.addEventListener('change', qr); qr();
     document.getElementById('qr-png').onclick = function () { pngDownload(qrCanvas(qrMatrix(last, e.ec.value), e.fg.value, e.bg.value, 1200, e.cap.value), 'qr-code.png'); };

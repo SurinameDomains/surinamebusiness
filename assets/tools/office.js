@@ -59,7 +59,7 @@
     for (var i = -1; i < 13; i++) {
       var py = y + Math.floor((m + i) / 12), pm = ((m + i) % 12 + 12) % 12;       // period month
       var ny = pm === 11 ? py + 1 : py, nm = (pm + 1) % 12;                         // following month
-      items.push({ k: 'vat', d: ny + '-' + pad(nm + 1) + '-15', t: T('BTW aangifte en betaling', 'VAT return and payment'), p: MN[pm] + ' ' + py });
+      items.push({ k: 'vat', d: ny + '-' + pad(nm + 1) + '-15', t: T('BTW-aangifte en betaling', 'VAT return and payment'), p: MN[pm] + ' ' + py });
       items.push({ k: 'wage', d: ny + '-' + pad(nm + 1) + '-10', t: T('Loonbelasting en AOV aangifte', 'Wage tax and AOV return'), p: MN[pm] + ' ' + py });
     }
     [y, y + 1].forEach(function (yy) {

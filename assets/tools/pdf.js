@@ -15,7 +15,7 @@
     inp.accept = m === 'img' ? 'image/*' : 'application/pdf';
     inp.multiple = !single[m];
     document.getElementById('drop-t').textContent = m === 'img' ? T('Kies foto\'s of sleep ze hierheen', 'Choose photos or drag them here') :
-      single[m] ? T('Kies een PDF of sleep hem hierheen', 'Choose a PDF or drag it here') : T('Kies PDF bestanden of sleep ze hierheen', 'Choose PDF files or drag them here');
+      single[m] ? T('Kies een PDF of sleep hem hierheen', 'Choose a PDF or drag it here') : T('Kies PDF-bestanden of sleep ze hierheen', 'Choose PDF files or drag them here');
     document.getElementById('drop-s').textContent = single[m] ? T('Eén bestand', 'One file') : T('Meerdere bestanden mogelijk, de volgorde kun je aanpassen', 'Several files, you can change the order');
     renderList();
   }
