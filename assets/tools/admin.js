@@ -196,7 +196,7 @@
       document.getElementById('cf-out').innerHTML = '<div class="sub">' + T('Saldo na 12 maanden', 'Balance after 12 months') + '</div><div class="big tnum">' + S.money(end) + '</div><table>' +
         '<tr><td>' + T('Laagste saldo', 'Lowest balance') + ' (' + (res[lowI] ? res[lowI][0] : '') + ')</td><td class="r">' + S.money(low) + '</td></tr>' +
         '<tr><td>' + T('Gemiddeld per maand', 'Average per month') + '</td><td class="r">' + S.money(res.reduce(function (s, r) { return s + r[3]; }, 0) / 12) + '</td></tr></table>' +
-        (neg.length ? '<p class="sub" style="margin-top:12px;color:#ffd3c4">' + T('Je saldo komt onder nul in ', 'Your balance goes below zero in ') + neg[0][0] + '. ' + T('Plan uitgaven anders, vraag aanbetalingen of regel op tijd een krediet.', 'Move expenses, ask for deposits or arrange credit in time.') + '</p>' : '<p class="sub" style="margin-top:12px">' + T('Je saldo blijft het hele jaar boven nul.', 'Your balance stays above zero all year.') + '</p>');
+        (neg.length ? '<p class="sub" style="margin-top:12px;color:#b2341b">' + T('Je saldo komt onder nul in ', 'Your balance goes below zero in ') + neg[0][0] + '. ' + T('Plan uitgaven anders, vraag aanbetalingen of regel op tijd een krediet.', 'Move expenses, ask for deposits or arrange credit in time.') + '</p>' : '<p class="sub" style="margin-top:12px">' + T('Je saldo blijft het hele jaar boven nul.', 'Your balance stays above zero all year.') + '</p>');
       S.store.set(CK, { start: cf.querySelector('[name=start]').value, m0: cf.querySelector('[name=m0]').value, rows: rows });
     };
     cf.addEventListener('input', calc); cf.addEventListener('change', calc);

@@ -164,7 +164,7 @@
       Object.keys(groups).forEach(function (b) {
         var g = groups[b].sort(function (a, c) { return a.per - c.per; }), best = g[0];
         h += '<div class="sub">' + T('Goedkoopst per ', 'Cheapest per ') + b + '</div><div class="big" style="font-size:1.6rem">' + S.esc(best.nm) + '</div><table>';
-        g.forEach(function (x) { h += '<tr><td>' + S.esc(x.nm) + '</td><td class="r">' + S.money(x.per) + ' / ' + b + (x !== best ? ' <span style="color:#ffd3c4">+' + S.fmt((x.per / best.per - 1) * 100, 0) + '%</span>' : '') + '</td></tr>'; });
+        g.forEach(function (x) { h += '<tr><td>' + S.esc(x.nm) + '</td><td class="r">' + S.money(x.per) + ' / ' + b + (x !== best ? ' <span style="color:#b2341b">+' + S.fmt((x.per / best.per - 1) * 100, 0) + '%</span>' : '') + '</td></tr>'; });
         h += '</table><div style="height:14px"></div>';
       });
       out.innerHTML = h;
@@ -241,7 +241,7 @@
       '<tr><td>' + T('Netto per jaar', 'Net per year') + '</td><td class="r">' + S.money(net * 12, cur) + '</td></tr>' +
       '<tr><td>' + T('Totale winst over de levensduur', 'Total profit over its life') + '</td><td class="r">' + S.money(total, cur) + '</td></tr>' +
       '<tr class="tot"><td>' + T('Rendement per jaar', 'Return per year') + '</td><td class="r">' + S.fmt(roi, 1) + '%</td></tr></table>' +
-      (months > life * 12 ? '<p class="sub" style="margin-top:10px;color:#ffd3c4">' + T('Langer dan de levensduur: dit verdient zich niet terug.', 'Longer than its useful life: this does not pay back.') + '</p>' : '');
+      (months > life * 12 ? '<p class="sub" style="margin-top:10px;color:#b2341b">' + T('Langer dan de levensduur: dit verdient zich niet terug.', 'Longer than its useful life: this does not pay back.') + '</p>' : '');
   });
   var tc = document.getElementById('tc');
   if (tc) {

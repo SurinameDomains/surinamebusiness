@@ -75,9 +75,9 @@
         '<tr><td>' + T('Overuren 150%', 'Overtime 150%') + '</td><td class="r">' + hh(h150) + '</td></tr>' +
         '<tr><td>' + T('Rustdag 200%', 'Rest day 200%') + '</td><td class="r">' + hh(h200) + '</td></tr>' +
         '<tr class="tot"><td>' + T('Bruto weekloon', 'Gross weekly pay') + '</td><td class="r">' + S.money(pay) + '</td></tr></table>';
-      if (warn.length) h += '<p class="sub" style="margin-top:12px;color:#ffd3c4">' + T('Meer dan 8,5 uur op: ', 'More than 8.5 hours on: ') + warn.join(', ') + '. ' + T('Daarvoor is een overwerkvergunning nodig.', 'This requires an overtime permit.') + '</p>';
-      if (tot > Lb.max_week) h += '<p class="sub" style="margin-top:8px;color:#ffd3c4">' + T('Meer dan 48 uur deze week.', 'More than 48 hours this week.') + '</p>';
-      if (rate && rate < Lb.min_hour) h += '<p class="sub" style="margin-top:8px;color:#ffd3c4">' + T('Uurloon onder het minimumloon van ', 'Hourly wage below the minimum wage of ') + S.money(Lb.min_hour) + '.</p>';
+      if (warn.length) h += '<p class="sub" style="margin-top:12px;color:#b2341b">' + T('Meer dan 8,5 uur op: ', 'More than 8.5 hours on: ') + warn.join(', ') + '. ' + T('Daarvoor is een overwerkvergunning nodig.', 'This requires an overtime permit.') + '</p>';
+      if (tot > Lb.max_week) h += '<p class="sub" style="margin-top:8px;color:#b2341b">' + T('Meer dan 48 uur deze week.', 'More than 48 hours this week.') + '</p>';
+      if (rate && rate < Lb.min_hour) h += '<p class="sub" style="margin-top:8px;color:#b2341b">' + T('Uurloon onder het minimumloon van ', 'Hourly wage below the minimum wage of ') + S.money(Lb.min_hour) + '.</p>';
       document.getElementById('ts-out').innerHTML = h;
     };
     ts.addEventListener('input', tr); ts.addEventListener('change', tr);
@@ -102,7 +102,7 @@
         '<tr class="tot"><td>' + T('Per jaar', 'Per year') + '</td><td class="r">' + S.money(month * 12) + '</td></tr></table>';
       var diff = hour - Lb.min_hour;
       h += '<p class="sub" style="margin-top:12px">' + (diff >= 0 ? T('Dat is ', 'That is ') + S.fmt(hour / Lb.min_hour * 100 - 100, 0) + T('% boven het minimumuurloon (', '% above the minimum hourly wage (') + S.money(Lb.min_hour) + ').' :
-        '<span style="color:#ffd3c4">' + T('Dat is onder het minimumuurloon van ', 'That is below the minimum hourly wage of ') + S.money(Lb.min_hour) + '.</span>') + '</p>';
+        '<span style="color:#b2341b">' + T('Dat is onder het minimumuurloon van ', 'That is below the minimum hourly wage of ') + S.money(Lb.min_hour) + '.</span>') + '</p>';
       document.getElementById('hw-out').innerHTML = h;
     };
     S.$$('[data-mode]', hw).forEach(function (b) {
