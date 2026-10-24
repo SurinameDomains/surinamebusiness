@@ -28,7 +28,7 @@
  <fieldset>
   <legend>{{ 'Adres en contact' if nl else 'Address and contact' }}</legend>
   <div class="two">
-   <div><label for="ab-street">{{ 'Straat en nummer' if nl else 'Street and number' }}</label><input id="ab-street" name="street" maxlength="120" autocomplete="street-address"></div>
+   <div><label for="ab-street">{{ 'Straat en nummer' if nl else 'Street and number' }}</label><input id="ab-street" name="street" maxlength="120" autocomplete="address-line1"></div>
    <div><label for="ab-place">{{ 'Plaats of wijk' if nl else 'Town or area' }}</label><input id="ab-place" name="place" maxlength="60" list="ab-places" required>
     <datalist id="ab-places">{% for p in ['Paramaribo','Lelydorp','Wanica','Nieuw Nickerie','Albina','Moengo','Groningen','Onverwacht','Totness','Brokopondo','Meerzorg','Domburg','Commewijne','Saramacca','Para','Coronie','Marowijne','Sipaliwini'] %}<option value="{{ p }}">{% endfor %}</datalist></div>
   </div>

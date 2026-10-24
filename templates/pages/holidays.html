@@ -9,7 +9,7 @@
 <p class="share-row">{{ wa((('Volgende vrije dag in Suriname: ' ~ hol.next.name ~ ', ' ~ date(hol.next.date, weekday=True) ~ '. Alle feestdagen: ') if nl else ('Next public holiday in Suriname: ' ~ hol.next.name ~ ', ' ~ date(hol.next.date, weekday=True) ~ '. All holidays: ')) ~ canonical, 'Deel via WhatsApp' if nl else 'Share on WhatsApp') }}</p></div>{% endif %}
 {% for yr in ['2026', '2027'] %}
 <h2>{{ 'Feestdagen' if nl else 'Holidays' }} {{ yr }}</h2>
-<table class="tbl"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Feestdag' if nl else 'Holiday' }}</th><th></th></tr></thead><tbody>
+<table class="tbl"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Feestdag' if nl else 'Holiday' }}</th><th><span class="sr-only">{{ 'Soort' if nl else 'Type' }}</span></th></tr></thead><tbody>
 {% for h in hol.all if h.date.startswith(yr) %}
 <tr{% if h.days is not none and h.days < 0 %} style="color:var(--muted)"{% endif %}><td>{{ date(h.date, weekday=True, year=False) }}</td><td>{{ h.name }}</td><td>{% if h.status == 'expected' %}<span class="pill gold">{{ 'verwacht' if nl else 'expected' }}</span>{% endif %}{% if h.weekend %} <span class="pill">{{ 'weekend' }}</span>{% endif %}</td></tr>
 {% endfor %}

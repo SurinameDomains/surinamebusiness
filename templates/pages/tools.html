@@ -13,17 +13,17 @@
 <section class="tool-start" id="tool-start">
  <div class="eyebrow">{{ 'Begin hier' if nl else 'Start here' }}</div>
  <div class="tindex c4">
-  {% for k in ['invoice','quote','payslip'] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
-  <a class="tool ti" href="{{ U('salary') }}"><b>{{ L('salary') }}</b><span>{{ TM.EXISTING_BLURB['salary'][0] if nl else TM.EXISTING_BLURB['salary'][1] }}</span></a>
+  {% for k in ['invoice','quote','payslip'] %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ TM.BY_KEY[k].blurb[0] if nl else TM.BY_KEY[k].blurb[1] }}</span></a>{% endfor %}
+  <a class="tool ti" href="{{ U('salary') }}">{{ kicon('salary') }}<b>{{ L('salary') }}</b><span>{{ TM.EXISTING_BLURB['salary'][0] if nl else TM.EXISTING_BLURB['salary'][1] }}</span></a>
  </div>
 </section>
 <div id="tool-list">
 {% for g, gnl, gen in TM.GROUPS %}
-<section class="tool-group" data-g="{{ g }}">
+<section class="tool-group" data-g="{{ g }}" id="g-{{ g }}">
 <h2>{{ gnl if nl else gen }}</h2>
 <div class="tindex">
-{% for t in TM.TOOLS if t.group == g %}<a class="tool ti" href="{{ U(t.key) }}"><b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
-{% for k in TM.EXISTING.get(g, []) %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span></a>{% endfor %}
+{% for t in TM.TOOLS if t.group == g %}<a class="tool ti" href="{{ U(t.key) }}">{{ kicon(t.key) }}<b>{{ L(t.key) }}</b><span>{{ t.blurb[0] if nl else t.blurb[1] }}</span></a>{% endfor %}
+{% for k in TM.EXISTING.get(g, []) %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ TM.EXISTING_BLURB[k][0] if nl else TM.EXISTING_BLURB[k][1] }}</span></a>{% endfor %}
 </div>
 </section>
 {% endfor %}

@@ -37,7 +37,7 @@
    <div class="row-between"><h2 style="margin:0">{{ 'Opgeslagen documenten' if nl else 'Saved documents' }}</h2>
     <select id="ap-docfilter" aria-label="{{ 'Soort document' if nl else 'Document type' }}"><option value="">{{ 'Alle soorten' if nl else 'All types' }}</option></select></div>
    <input type="search" id="ap-docq" placeholder="{{ 'Zoek op nummer of klant' if nl else 'Search by number or customer' }}" style="margin:12px 0">
-   <div class="tbl-wrap"><table class="tbl"><thead><tr><th>{{ 'Nummer' if nl else 'Number' }}</th><th>{{ 'Klant' if nl else 'Customer' }}</th><th class="r">{{ 'Bedrag' if nl else 'Amount' }}</th><th></th></tr></thead><tbody id="ap-docs"></tbody></table></div>
+   <div class="tbl-wrap"><table class="tbl"><thead><tr><th>{{ 'Nummer' if nl else 'Number' }}</th><th>{{ 'Klant' if nl else 'Customer' }}</th><th class="r">{{ 'Bedrag' if nl else 'Amount' }}</th><th><span class="sr-only">{{ 'Acties' if nl else 'Actions' }}</span></th></tr></thead><tbody id="ap-docs"></tbody></table></div>
    <p class="sub" id="ap-docs-empty" hidden>{{ 'Nog geen opgeslagen documenten. Maak een' if nl else 'No saved documents yet. Make an' }} <a href="{{ U('invoice') }}">{{ 'factuur' if nl else 'invoice' }}</a>, <a href="{{ U('quote') }}">{{ 'offerte' if nl else 'quote' }}</a> {{ 'of' if nl else 'or' }} <a href="{{ U('proforma') }}">{{ 'proforma' }}</a> {{ 'en klik op Opslaan.' if nl else 'and click Save.' }}</p>
   </div>
   <div class="card">

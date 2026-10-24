@@ -23,7 +23,7 @@
     <label for="month" style="font-weight:600">{{ 'Maand' if nl else 'Month' }}</label>
     <input id="month" type="month" style="flex:0 1 190px">
    </div>
-   <table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Omschrijving' if nl else 'Description' }}</th><th class="r">{{ 'Excl.' }}</th><th class="r">{{ 'BTW' if nl else 'VAT' }}</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+   <table class="tbl stack"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Omschrijving' if nl else 'Description' }}</th><th class="r">{{ 'Excl.' }}</th><th class="r">{{ 'BTW' if nl else 'VAT' }}</th><th><span class="sr-only">{{ 'Acties' if nl else 'Actions' }}</span></th></tr></thead><tbody id="rows"></tbody></table>
    <div class="btns">
     <button type="button" class="btn alt sm" id="csv">{{ 'Maand naar CSV (Excel)' if nl else 'Month to CSV (Excel)' }}</button>
     <button type="button" class="btn alt sm" id="backup">{{ 'Back-up downloaden' if nl else 'Download backup' }}</button>

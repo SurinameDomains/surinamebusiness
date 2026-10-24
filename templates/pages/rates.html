@@ -7,7 +7,7 @@
 <h1>{{ 'Wisselkoers vandaag' if nl else 'Exchange rates today' }}</h1>
 <p class="lead">{{ 'De dollar- en eurokoers in SRD bij de cambio (CME), de Centrale Bank (CBvS) en vijf banken naast elkaar, plus de douanekoers. Elke 30 minuten gecontroleerd.' if nl else 'The dollar and euro rate in SRD at the exchange office (CME), the Central Bank (CBvS) and five banks side by side, plus the customs rate. Checked every 30 minutes.' }}</p>
 {% if rates %}
-<div class="today" aria-label="{{ 'Kerncijfers' if nl else 'Key figures' }}">
+<div class="today" role="group" aria-label="{{ 'Kerncijfers' if nl else 'Key figures' }}">
  <a href="#cme"><span class="k">USD CME {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(rates.usd.sell) }}</span></a>
  <a href="#cme"><span class="k">USD CME {{ 'aankoop' if nl else 'buy' }}</span><span class="v">{{ num(rates.usd.buy) }}</span></a>
  {% if M.cbvs %}<a href="#cbvs"><span class="k">USD CBvS {{ 'verkoop' if nl else 'sell' }}</span><span class="v">{{ num(M.cbvs.rates.USD.giraal[1], 3) }}</span></a>{% endif %}

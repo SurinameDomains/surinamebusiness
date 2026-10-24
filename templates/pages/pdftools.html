@@ -1,7 +1,7 @@
 {% extends "tool_base.html" %}
 {% block lead %}{{ 'Voeg PDF\'s samen, haal pagina\'s eruit of verwijder ze, draai pagina\'s, maak van foto\'s een PDF en zet paginanummers. Je bestanden worden niet geüpload: alles gebeurt op je eigen toestel.' if nl else 'Merge PDFs, pick or remove pages, rotate pages, turn photos into a PDF and add page numbers. Your files are not uploaded: everything happens on your own device.' }}{% endblock %}
 {% block tool %}
-<div class="filters" id="pdf-modes" role="tablist">
+<div class="filters" id="pdf-modes" role="group" aria-label="{{ 'Kies wat je wilt doen' if nl else 'Choose what to do' }}">
  <button class="chip" type="button" data-m="merge" aria-pressed="true">{{ 'PDF\'s samenvoegen' if nl else 'Merge PDFs' }}</button>
  <button class="chip" type="button" data-m="pages" aria-pressed="false">{{ 'Pagina\'s kiezen of verwijderen' if nl else 'Pick or remove pages' }}</button>
  <button class="chip" type="button" data-m="rotate" aria-pressed="false">{{ 'Pagina\'s draaien' if nl else 'Rotate pages' }}</button>

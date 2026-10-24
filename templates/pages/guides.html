@@ -40,10 +40,14 @@
 <h1>{{ 'Gidsen' if nl else 'Guides' }}</h1>
 <p class="lead">{{ 'Praktische uitleg met bronnen, voor ondernemers, werkgevers, werknemers en investeerders in Suriname. Elke gids noemt de wet of de instantie waar een regel vandaan komt, en de datum waarop we hem hebben gecontroleerd.' if nl else 'Practical explainers with sources, for business owners, employers, employees and investors in Suriname. Every guide names the law or office a rule comes from, and the date we checked it.' }}</p>
 {% for gnl, gen, items in groups %}
+<section class="tool-group">
 <h2>{{ gnl if nl else gen }}</h2>
-<div class="tindex">{% for k, snl, sen in items %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
+<div class="tindex">{% for k, snl, sen in items %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
+</section>
 {% endfor %}
+<section class="tool-group">
 <h2>{{ 'Tools die bij de gidsen horen' if nl else 'Tools that go with the guides' }}</h2>
-<div class="tindex c4">{% for k in ['invoice','quote','payslip','salary','btwregister','receivables','stock','cashflow','importcost','loan','breakeven','vatcalc'] %}<a class="tool ti" href="{{ U(k) }}"><b>{{ L(k) }}</b><span>{{ 'Gratis, zonder account' if nl else 'Free, no account' }}</span></a>{% endfor %}</div>
+<div class="tindex c4">{% for k in ['invoice','quote','payslip','salary','btwregister','receivables','stock','cashflow','importcost','loan','breakeven','vatcalc'] %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ 'Gratis, zonder account' if nl else 'Free, no account' }}</span></a>{% endfor %}</div>
+</section>
 <p style="margin-top:18px"><a href="{{ U('tools') }}"><b>{{ L('tools') }} &rarr;</b></a></p>
 {% endblock %}

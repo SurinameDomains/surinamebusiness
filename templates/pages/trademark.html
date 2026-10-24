@@ -58,7 +58,7 @@
 <p>Suriname has no modern trademark act. The basis is still the Royal Decree of 29 August 1912 on factory and trade marks (the Industrial Property Regulation 1912), amended in 1984 (decree C-81), 2001 and 2026. One consequence of that old system: according to trademark specialists, the right to a mark arises from <i>first use</i>; registration counts as evidence of it. So register and keep proof that you use the mark.</p>
 <p>The Intellectual Property Office (BIE) is part of the Ministry of Economic Affairs, Entrepreneurship and Technological Innovation (EZOTI). At present the BIE only registers trademarks and gives general information about intellectual property. Since December 2024 the BIE uses TMclass and the EUIPO harmonised database of terms to describe goods and services.</p>
 {% endif %}
-<table class="tbl"><thead><tr><th>{{ 'Bureau voor Intellectuele Eigendom' if nl else 'Intellectual Property Office (BIE)' }}</th><th></th></tr></thead><tbody>
+<table class="tbl"><thead><tr><th>{{ 'Bureau voor Intellectuele Eigendom' if nl else 'Intellectual Property Office (BIE)' }}</th><th><span class="sr-only">{{ 'Gegevens' if nl else 'Details' }}</span></th></tr></thead><tbody>
  <tr><td>{{ 'Adres' if nl else 'Address' }}</td><td>{{ 'Fred Derbystraat 81, 1e verdieping rechts, Paramaribo' if nl else 'Fred Derbystraat 81, 1st floor right, Paramaribo' }}</td></tr>
  <tr><td>{{ 'Telefoon' if nl else 'Phone' }}</td><td>+597 420006</td></tr>
  <tr><td>{{ 'Online' }}</td><td><a href="https://bie.gov.sr/" rel="noopener">bie.gov.sr</a> ({{ 'aanvragen, tarieven, klassen, publicatielijst en contactformulier' if nl else 'applications, fees, classes, publication list and contact form' }})</td></tr>
@@ -175,7 +175,7 @@
 {% endif %}
 
 <h2>{{ 'Handelsnaam, domeinnaam en merk: het verschil' if nl else 'Trade name, domain name and trademark: the difference' }}</h2>
-<table class="tbl stack tx"><thead><tr><th></th><th>{{ 'Wat het beschermt' if nl else 'What it protects' }}</th><th>{{ 'Waar' if nl else 'Where' }}</th></tr></thead><tbody>
+<table class="tbl stack tx"><thead><tr><th><span class="sr-only">{{ 'Soort' if nl else 'Type' }}</span></th><th>{{ 'Wat het beschermt' if nl else 'What it protects' }}</th><th>{{ 'Waar' if nl else 'Where' }}</th></tr></thead><tbody>
 {% if nl %}
  <tr><td><b>Handelsnaam</b></td><td data-l="Wat het beschermt">De naam waaronder je bedrijf handelt. Volgens de Handelsnaamwet 1931 mag niemand een naam voeren die verwarrend lijkt op een naam die een ander al rechtmatig gebruikt. De kantonrechter kan een naamswijziging bevelen.</td><td data-l="Waar">Inschrijving in het Handelsregister van de KKF. Het Handelsregisterbesluit kent geen toets op gelijkende namen; inschrijving beschermt je naam dus niet automatisch.</td></tr>
  <tr><td><b>Merk</b></td><td data-l="Wat het beschermt">Het teken op je producten en diensten, in heel Suriname, voor de gekozen klassen.</td><td data-l="Waar">BIE.</td></tr>
