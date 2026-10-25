@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T00:46:54+00:00",
+   "source": "Suriname Herald",
+   "title": "Bankiersvereniging: Suriname moet financiële sector versterken vóór komst olie-inkomsten",
+   "url": "https://www.srherald.com/suriname/2026/10/24/bankiersvereniging-suriname-moet-financiele-sector-versterken-voor-komst-olie-inkomsten/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-24T14:41:05+00:00",
    "source": "Suriname Herald",
    "title": "Ruzie tussen goudzoekers in Sarakreek eindigt in dodelijke schietpartij",
@@ -412,17 +419,24 @@
    "source": "Dagblad Suriname",
    "title": "Eerste landbouwopleiding voor studenten uit binnenland",
    "url": "https://www.dbsuriname.com/2026/10/18/eerste-landbouwopleiding-voor-studenten-uit-binnenland/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-18T21:12:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "ECD: Eigenaar NG Electronics maakt zich onbereikbaar",
-   "url": "https://dwtonline.com/ecd-eigenaar-ng-electronics-maakt-zich-onbereikbaar/"
   }
  ],
- "fetched_at": "2026-10-24T23:08:20+00:00",
+ "fetched_at": "2026-10-25T01:36:32+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-25T00:46:54+00:00",
+   "source": "Suriname Herald",
+   "title": "Bankiersvereniging: Suriname moet financiële sector versterken vóór komst olie-inkomsten",
+   "url": "https://www.srherald.com/suriname/2026/10/24/bankiersvereniging-suriname-moet-financiele-sector-versterken-voor-komst-olie-inkomsten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-24T23:26:00+00:00",
+   "source": "Starnieuws",
+   "title": "Milieudeskundigen ingezet bij offshoreonderzoek in Blok 58",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94515"
+  },
   {
    "econ": false,
    "published": "2026-10-24T11:43:00+00:00",
@@ -504,32 +518,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-24T23:08:18+00:00",
+   "fetched_at": "2026-10-25T01:36:30+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-10-24T23:08:16+00:00",
+   "fetched_at": "2026-10-25T01:36:28+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-24T23:08:18+00:00",
+   "fetched_at": "2026-10-25T01:36:30+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T23:08:19+00:00",
+   "fetched_at": "2026-10-25T01:36:31+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-24T23:08:17+00:00",
+   "fetched_at": "2026-10-25T01:36:29+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-24T23:08:20+00:00",
+   "fetched_at": "2026-10-25T01:36:32+00:00",
    "ok": true
   }
  }
