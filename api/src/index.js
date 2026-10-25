@@ -63,6 +63,12 @@ export default {
       await env.DB.prepare("DELETE FROM sb_sessions WHERE expires_at<?").bind(nowIso()).run();
       await env.DB.prepare("DELETE FROM sb_audit WHERE at<?").bind(new Date(Date.now() - 365 * 864e5).toISOString()).run();
       await env.DB.prepare("DELETE FROM sb_job_owners WHERE job_id NOT IN (SELECT id FROM jobs)").run();
+      // retention promised on /privacy: contact messages 12 months; who submitted a listing (name, email, role, IP hash) 12 months
+      const yearAgo = new Date(Date.now() - 365 * 864e5).toISOString();
+      try {
+        await env.DB.prepare("DELETE FROM sb_messages WHERE created_at<?").bind(yearAgo).run();
+        await env.DB.prepare("UPDATE sb_content SET data=json_remove(data,'$.by_name','$.by_email','$.by_role','$.ih') WHERE kind='company' AND created_at<? AND json_valid(data) AND json_extract(data,'$.by_email') IS NOT NULL").bind(yearAgo).run();
+      } catch (e) { console.error("sb-api retention", e && e.stack || e); }
     })());
   },
 };
