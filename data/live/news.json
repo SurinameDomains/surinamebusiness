@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T12:17:52+00:00",
+   "source": "Dagblad Suriname",
+   "title": "22-jarige vrouw giet hete olie over vriend na ruzie om telefoonberichten",
+   "url": "https://www.dbsuriname.com/2026/10/25/22-jarige-vrouw-giet-hete-olie-over-vriend-na-ruzie-om-telefoonberichten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T11:03:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Liliana Arias combineert radio, televisie en ondernemerschap",
+   "url": "https://dwtonline.com/liliana-arias-combineert-radio-televisie-en-ondernemerschap/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T09:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
+   "url": "https://dwtonline.com/sbf-wil-dat-ondernemers-profiteren-van-kansen-olie-en-gassector/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-25T00:46:54+00:00",
    "source": "Suriname Herald",
    "title": "Bankiersvereniging: Suriname moet financiële sector versterken vóór komst olie-inkomsten",
@@ -398,31 +419,24 @@
    "source": "de Ware Tijd",
    "title": "Offshore-industrie kent voor- en nadelen: ‘Makkelijkste manier om te verdienen is met huizen en percelen’",
    "url": "https://dwtonline.com/offshore-industrie-kent-voor-en-nadelen-makkelijkste-manier-om-te-verdienen-is-met-huizen-en-percelen/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-19T03:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "ANALYSE — Internationale energiecrisis dreigt economisch herstel Suriname te ondermijnen",
-   "url": "https://dwtonline.com/analyse-internationale-energiecrisis-dreigt-economisch-herstel-suriname-te-ondermijnen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T22:58:29+00:00",
-   "source": "Suriname Herald",
-   "title": "Binnenland krijgt eerste landbouwopleiding: 90 studenten starten met pre-bachelor- en bachelortraject",
-   "url": "https://www.srherald.com/suriname/2026/10/18/binnenland-krijgt-eerste-landbouwopleiding-90-studenten-starten-met-pre-bachelor-en-bachelortraject/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-18T22:20:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Eerste landbouwopleiding voor studenten uit binnenland",
-   "url": "https://www.dbsuriname.com/2026/10/18/eerste-landbouwopleiding-voor-studenten-uit-binnenland/"
   }
  ],
- "fetched_at": "2026-10-25T06:53:28+00:00",
+ "fetched_at": "2026-10-25T12:32:39+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-25T12:17:52+00:00",
+   "source": "Dagblad Suriname",
+   "title": "22-jarige vrouw giet hete olie over vriend na ruzie om telefoonberichten",
+   "url": "https://www.dbsuriname.com/2026/10/25/22-jarige-vrouw-giet-hete-olie-over-vriend-na-ruzie-om-telefoonberichten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T09:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
+   "url": "https://dwtonline.com/sbf-wil-dat-ondernemers-profiteren-van-kansen-olie-en-gassector/"
+  },
   {
    "econ": false,
    "published": "2026-10-25T00:46:54+00:00",
@@ -518,32 +532,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T06:53:26+00:00",
+   "fetched_at": "2026-10-25T12:32:37+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-10-25T06:53:25+00:00",
+   "fetched_at": "2026-10-25T12:32:34+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T06:53:26+00:00",
+   "fetched_at": "2026-10-25T12:32:36+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T06:53:27+00:00",
+   "fetched_at": "2026-10-25T12:32:37+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T06:53:25+00:00",
+   "fetched_at": "2026-10-25T12:32:35+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T06:53:28+00:00",
+   "fetched_at": "2026-10-25T12:32:39+00:00",
    "ok": true
   }
  }
