@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-25T01:36:14+00:00",
+ "fetched_at": "2026-10-25T06:53:09+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -456,37 +456,27 @@
    "source": "gov.sr",
    "title": "Het ophalen van huishoudelijk afval per wijk in het district Saramacca ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-saramacca-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening-2/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-160415",
-   "lang": "nl",
-   "published": "2026-08-10",
-   "source": "gov.sr",
-   "title": "Het leveren van messtoffen, plantmateriaal en diverse artikelen ten behoeve van verfraaingsprojecten voor het Directoraat Openbaar Groen en Afvalbeheer",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-messtoffen-plantmateriaal-en-diverse-artikelen-ten-behoeve-van-verfraaingsprojecten-voor-het-directoraat-openbaar-groen-en-afvalbeheer/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-25T01:36:14+00:00",
+   "fetched_at": "2026-10-25T06:53:09+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-25T01:36:13+00:00",
+   "fetched_at": "2026-10-25T06:53:09+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-25T01:36:14+00:00",
+   "fetched_at": "2026-10-25T06:53:09+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-25T01:36:13+00:00",
+   "fetched_at": "2026-10-25T06:53:09+00:00",
    "ok": true
   }
  }

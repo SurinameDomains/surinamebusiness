@@ -421,7 +421,7 @@
    "url": "https://www.dbsuriname.com/2026/10/18/eerste-landbouwopleiding-voor-studenten-uit-binnenland/"
   }
  ],
- "fetched_at": "2026-10-25T01:36:32+00:00",
+ "fetched_at": "2026-10-25T06:53:28+00:00",
  "oil": [
   {
    "econ": false,
@@ -518,32 +518,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T01:36:30+00:00",
+   "fetched_at": "2026-10-25T06:53:26+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-10-25T01:36:28+00:00",
+   "count": 13,
+   "fetched_at": "2026-10-25T06:53:25+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T01:36:30+00:00",
+   "fetched_at": "2026-10-25T06:53:26+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T01:36:31+00:00",
+   "fetched_at": "2026-10-25T06:53:27+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T01:36:29+00:00",
+   "fetched_at": "2026-10-25T06:53:25+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T01:36:32+00:00",
+   "fetched_at": "2026-10-25T06:53:28+00:00",
    "ok": true
   }
  }
