@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T19:28:34+00:00",
+   "source": "Suriname Herald",
+   "title": "Jaloezie eindigt in ziekenhuisopname: vrouw gooit hete olie over vriend",
+   "url": "https://www.srherald.com/suriname/2026/10/25/jaloezie-eindigt-in-ziekenhuisopname-vrouw-gooit-hete-olie-over-vriend/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-25T16:45:07+00:00",
    "source": "Suriname Herald",
    "title": "VS willen meer investeren in Guyanese olie- en gassector",
@@ -412,17 +419,17 @@
    "source": "Starnieuws",
    "title": "Een sterkere Belastingdienst, maar voor wie?",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94424"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T16:26:00+00:00",
-   "source": "Starnieuws",
-   "title": "Qatar waarschuwt voor verdere wereldwijde energieschok door oorlog met Iran",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94442"
   }
  ],
- "fetched_at": "2026-10-25T16:48:32+00:00",
+ "fetched_at": "2026-10-25T19:34:23+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-25T19:28:34+00:00",
+   "source": "Suriname Herald",
+   "title": "Jaloezie eindigt in ziekenhuisopname: vrouw gooit hete olie over vriend",
+   "url": "https://www.srherald.com/suriname/2026/10/25/jaloezie-eindigt-in-ziekenhuisopname-vrouw-gooit-hete-olie-over-vriend/"
+  },
   {
    "econ": false,
    "published": "2026-10-25T16:45:07+00:00",
@@ -553,32 +560,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T16:48:31+00:00",
+   "fetched_at": "2026-10-25T19:34:21+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-10-25T16:48:28+00:00",
+   "fetched_at": "2026-10-25T19:34:19+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T16:48:30+00:00",
+   "fetched_at": "2026-10-25T19:34:20+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T16:48:31+00:00",
+   "fetched_at": "2026-10-25T19:34:22+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T16:48:29+00:00",
+   "fetched_at": "2026-10-25T19:34:20+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T16:48:32+00:00",
+   "fetched_at": "2026-10-25T19:34:23+00:00",
    "ok": true
   }
  }
