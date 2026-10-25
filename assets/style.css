@@ -69,7 +69,7 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .bar{background:var(--brand);color:#fff}
 .bar .wrap{display:flex;align-items:center;gap:22px;min-height:64px}
 .logo{display:flex;align-items:center;flex:none;padding:6px 0;border-radius:4px}
-.wm-img{display:block;height:20px;width:auto}
+.wm-img{display:block;height:28px;width:auto}
 .bar :focus-visible{outline-color:#fff}
 .hs-bar{flex:1 1 auto;max-width:540px;margin-left:8px}
 .hs-bar input{padding-right:30px}
@@ -113,7 +113,7 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 @media (max-width:1000px){
   .top{position:sticky;top:0}
   .bar .wrap{min-height:56px;gap:2px}
-  .wm-img{height:16px}
+  .wm-img{height:24px}
   .bar .hs-bar,.bar .rate-chip{display:none}
   .hd-search,.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:6px;color:#fff;background:none;border:0;cursor:pointer;padding:0}
   .hd-search{margin-left:auto}
@@ -147,7 +147,7 @@ button,input,select,textarea{font-family:inherit;color:inherit}
   .sr-only-mobile{display:inline}
 }
 @media (max-width:520px){.dd-cols,.dd-panel:not(.mega) .dd-cols{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:350px){.wm-img{height:14px}}
+@media (max-width:350px){.wm-img{height:21px}}
 .sr-only-mobile{display:none}
 
 /* ---- bottom tab bar (phones): the 4 places people go most, plus the full menu. */
@@ -225,7 +225,7 @@ a.card b{color:var(--ink)}
 .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start}
 .intro h1{font-size:clamp(1.9rem,1.4rem + 1.6vw,2.6rem);letter-spacing:-.025em;line-height:1.1;margin:0 0 .3em}
 .intro .lead{margin:0 0 22px;color:var(--muted);font-size:1.12rem}
-.hs-hero{max-width:640px;min-height:54px;padding-left:46px;border-radius:8px}
+.hs-hero{max-width:none;min-height:54px;padding-left:46px;border-radius:8px}
 .hs-hero .hs-ic{left:16px}
 .hs-hero input{font-size:1.08rem}
 .qa{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -348,7 +348,7 @@ a.card.tool{display:flex}
 .site-foot a:hover{text-decoration:underline;text-underline-offset:.18em}
 .site-foot :focus-visible{outline-color:#fff}
 .foot-top{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px}
-.foot-brand .wm-img{height:18px}
+.foot-brand .wm-img{height:26px}
 .foot-brand p{margin:14px 0 0;font-size:.92rem;line-height:1.5;color:#c9cce8;max-width:230px}
 .foot-cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 20px}
 .site-foot h2{color:#fff;font-size:.95rem;font-weight:650;margin:0 0 10px;letter-spacing:0}
@@ -934,3 +934,52 @@ a.ti:has(> .ic) b,a.ti:has(> .ic) span{grid-column:2}
 .faq summary:hover{color:var(--brand-2)}
 .faq details p{margin:0 0 16px}
 
+
+/* ---------------------------------------------------------------- consent bar (EU visitors, footer "Cookie-instellingen")
+   Not a wall: the page stays usable. Both answers are the same size and weight, so declining is as easy as accepting. */
+.cc{position:fixed;z-index:60;left:16px;right:16px;bottom:calc(var(--tabbar) + 16px);max-width:620px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:16px 18px;display:flex;gap:14px 20px;align-items:center;font-size:.95rem;line-height:1.45}
+.cc p{margin:0;flex:1}
+.cc-b{display:flex;gap:8px;flex:0 0 auto}
+.cc .btn{display:inline-block;min-width:104px;padding:10px 14px}
+.cc .btn[data-c="n"]{background:var(--card);color:var(--brand);border-color:var(--brand)}
+.cc .btn[data-c="n"]:hover{background:var(--brand-soft)}
+@media (max-width:640px){.cc{flex-direction:column;align-items:stretch;left:10px;right:10px;bottom:calc(var(--tabbar) + 10px);padding:14px}.cc-b .btn{flex:1}}
+body.cc-on .sb-sticky{display:none}
+@media print{.cc{display:none!important}}
+.linkish{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:.16em;cursor:pointer}
+.linkish:hover{text-decoration-color:currentColor}
+.group .linkish{color:#fff;font-weight:600}
+.form-legal{margin:12px 0 0;color:var(--muted)}
+
+/* ---------------------------------------------------------------- home intro v5: task column, Today, the next three tax dates */
+.intro-grid{grid-template-columns:minmax(0,1fr) 360px;grid-template-areas:"main side" "dl side";column-gap:56px;row-gap:0}
+.intro-main{grid-area:main}
+.intro .today-panel{grid-area:side}
+.dl-strip{grid-area:dl;margin-top:30px;align-self:end}
+@media (min-width:601px){.qa{max-width:none}}
+.dl-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.dl-head h2{margin:0;font-size:1.05rem;letter-spacing:-.005em}
+.dl-head a{font-size:.92rem;font-weight:600;text-decoration:none}
+.dl-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.dl-row li{border-right:1px solid var(--line)}
+.dl-row li:last-child{border-right:0}
+.dl-row a{display:grid;grid-template-columns:auto;gap:2px;padding:12px 16px 4px;color:var(--ink-2);text-decoration:none;height:100%}
+.dl-row li:first-child a{padding-left:0}
+.dl-row a:hover .dl-t{text-decoration:underline;text-underline-offset:.16em}
+.dl-d{font-size:.95rem;color:var(--muted);font-weight:600}
+.dl-d b{font-size:1.7rem;line-height:1;color:var(--ink);font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums lining-nums;margin-right:2px}
+.dl-t{font-weight:650;color:var(--ink);line-height:1.3;margin-top:4px}
+.dl-p{font-size:.88rem;color:var(--muted)}
+.dl-p em{font-style:normal;color:var(--down);font-weight:650}
+@media (max-width:1000px){.intro-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "side" "dl";row-gap:24px}.dl-strip{margin-top:0}}
+@media (max-width:600px){
+  .dl-row{grid-template-columns:minmax(0,1fr);border-top-width:1px;border-top-color:var(--line)}
+  .dl-row li{border-right:0;border-bottom:1px solid var(--line-2)}
+  .dl-row a,.dl-row li:first-child a{grid-template-columns:64px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;padding:10px 0;min-height:44px}
+  .dl-d{grid-row:1/3;align-self:center}
+  .dl-d b{display:block;font-size:1.45rem}
+  .dl-t{margin:0}
+}
+.co-near{margin-top:20px}
+.co-near h2.eyebrow{font-size:.95rem;margin:0 0 4px;letter-spacing:0}
+@media (min-width:700px){.list.near{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}}
