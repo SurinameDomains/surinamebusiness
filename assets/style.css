@@ -948,7 +948,8 @@ body.cc-on .sb-sticky{display:none}
 @media print{.cc{display:none!important}}
 .linkish{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:.16em;cursor:pointer}
 .linkish:hover{text-decoration-color:currentColor}
-.group .linkish{color:#fff;font-weight:600}
+.group .linkish{color:#fff;font-weight:600;min-height:24px;padding:2px 0}
+.group{line-height:1.7}
 .form-legal{margin:12px 0 0;color:var(--muted)}
 
 /* ---------------------------------------------------------------- home intro v5: task column, Today, the next three tax dates */
