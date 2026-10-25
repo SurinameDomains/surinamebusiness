@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T16:45:07+00:00",
+   "source": "Suriname Herald",
+   "title": "VS willen meer investeren in Guyanese olie- en gassector",
+   "url": "https://www.srherald.com/buitenland/2026/10/25/vs-willen-meer-investeren-in-guyanese-olie-en-gassector/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T16:12:33+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Banken vragen betere voorbereiding op oliegeld",
+   "url": "https://www.dbsuriname.com/2026/10/25/banken-vragen-betere-voorbereiding-op-oliegeld/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T16:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Vriendin slaat door: pepperspray en hete olie op vriend",
+   "url": "https://dwtonline.com/vriendin-slaat-door-pepperspray-en-hete-olie-op-vriend/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-25T12:17:52+00:00",
    "source": "Dagblad Suriname",
    "title": "22-jarige vrouw giet hete olie over vriend na ruzie om telefoonberichten",
@@ -398,31 +419,31 @@
    "source": "Starnieuws",
    "title": "Qatar waarschuwt voor verdere wereldwijde energieschok door oorlog met Iran",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94442"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T11:51:00+00:00",
-   "source": "Starnieuws",
-   "title": "Drie keer gewaarschuwd in nog geen half jaar: wanneer handelt de regering?",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94436"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T11:08:02+00:00",
-   "source": "Suriname Herald",
-   "title": "Surinaamse ondernemer wil cassavebier in eigen land produceren en boeren vaste afzet bieden",
-   "url": "https://www.srherald.com/suriname/2026/10/19/surinaamse-ondernemer-wil-cassavebier-in-eigen-land-produceren-en-boeren-vaste-afzet-bieden/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T08:57:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Offshore-industrie kent voor- en nadelen: ‘Makkelijkste manier om te verdienen is met huizen en percelen’",
-   "url": "https://dwtonline.com/offshore-industrie-kent-voor-en-nadelen-makkelijkste-manier-om-te-verdienen-is-met-huizen-en-percelen/"
   }
  ],
- "fetched_at": "2026-10-25T12:32:39+00:00",
+ "fetched_at": "2026-10-25T16:48:32+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-25T16:45:07+00:00",
+   "source": "Suriname Herald",
+   "title": "VS willen meer investeren in Guyanese olie- en gassector",
+   "url": "https://www.srherald.com/buitenland/2026/10/25/vs-willen-meer-investeren-in-guyanese-olie-en-gassector/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T16:12:33+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Banken vragen betere voorbereiding op oliegeld",
+   "url": "https://www.dbsuriname.com/2026/10/25/banken-vragen-betere-voorbereiding-op-oliegeld/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-25T16:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Vriendin slaat door: pepperspray en hete olie op vriend",
+   "url": "https://dwtonline.com/vriendin-slaat-door-pepperspray-en-hete-olie-op-vriend/"
+  },
   {
    "econ": false,
    "published": "2026-10-25T12:17:52+00:00",
@@ -532,32 +553,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T12:32:37+00:00",
+   "fetched_at": "2026-10-25T16:48:31+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-10-25T12:32:34+00:00",
+   "fetched_at": "2026-10-25T16:48:28+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T12:32:36+00:00",
+   "fetched_at": "2026-10-25T16:48:30+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T12:32:37+00:00",
+   "fetched_at": "2026-10-25T16:48:31+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T12:32:35+00:00",
+   "fetched_at": "2026-10-25T16:48:29+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T12:32:39+00:00",
+   "fetched_at": "2026-10-25T16:48:32+00:00",
    "ok": true
   }
  }
