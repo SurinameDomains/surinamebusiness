@@ -21,7 +21,10 @@
 {% if r.lat %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ r.lat }},{{ r.lon }}" rel="noopener nofollow" target="_blank">{{ 'Route in Google Maps' if nl else 'Directions in Google Maps' }}</a>{% if r.osm %}<a href="{{ r.osm }}" rel="noopener">{{ 'Bekijk op OpenStreetMap' if nl else 'View on OpenStreetMap' }}</a>{% endif %}</div>
 {% elif r.street %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ (r.name ~ ', ' ~ r.street ~ ', ' ~ (r.place or '') ~ ', Suriname')|urlencode }}" rel="noopener nofollow" target="_blank">{{ 'Zoek in Google Maps' if nl else 'Find in Google Maps' }}</a></div>{% endif %}
 </div>
-<p class="claim"><b>{{ 'Is dit jouw bedrijf?' if nl else 'Is this your business?' }}</b> <a href="{{ U('addbiz') }}?b={{ r.slug }}&amp;n={{ r.name|urlencode }}">{{ 'Werk je gegevens bij, gratis' if nl else 'Update your details, free' }} &rarr;</a></p>
+<p class="claim"><b>{{ 'Is dit jouw bedrijf?' if nl else 'Is this your business?' }}</b> <a href="{{ U('addbiz') }}?b={{ r.slug }}&amp;n={{ r.name|urlencode }}">{{ 'Werk je gegevens bij, gratis' if nl else 'Update your details, free' }} &rarr;</a> <span class="sub">&middot; <a href="{{ U('contact') }}?melding={{ canonical|urlencode }}">{{ 'Fout of misbruik melden' if nl else 'Report an error or abuse' }}</a></span></p>
+{% if nearby %}<section class="card co-near" aria-labelledby="near-h"><h2 id="near-h" class="eyebrow">{{ 'Ook in' if nl else 'Also in' }} {{ r.place }}</h2><ul class="list near">
+{% for o in nearby %}<li><a href="{{ '/bedrijf/' if nl else '/en/company/' }}{{ o.slug }}">{{ o.name }}</a><div class="meta"><span>{{ o.cat }}</span>{% if o.street %}<span>{{ o.street }}</span>{% endif %}</div></li>{% endfor %}
+</ul></section>{% endif %}
 </div>
 <aside>
  <div class="card"><div class="eyebrow">{{ 'Meer in' if nl else 'More in' }} {{ label|lower }}</div><ul class="list">

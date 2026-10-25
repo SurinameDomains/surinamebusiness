@@ -28,7 +28,7 @@
   <button type="button" class="btn alt" data-save-job data-url="{{ j.url }}" data-title="{{ j.title }}" data-employer="{{ j.employer }}" data-deadline="{{ j.deadline or '' }}" aria-pressed="false">{{ 'Bewaren' if nl else 'Save' }}</button>
   </div>
  </div>
- <div class="note" style="margin-top:14px">{{ 'Betaal nooit geld om te solliciteren of voor een "training". Klopt iets niet aan deze vacature? Meld het via' if nl else 'Never pay money to apply or for "training". Something wrong with this vacancy? Report it to' }} <a href="mailto:{{ contact_email }}?subject={{ ('Melding vacature ' ~ j.sbid)|urlencode }}">{{ contact_email }}</a>.</div>
+ <div class="note" style="margin-top:14px">{{ 'Betaal nooit geld om te solliciteren of voor een "training". Klopt iets niet aan deze vacature? Meld het hier:' if nl else 'Never pay money to apply or for "training". Something wrong with this vacancy? Report it here:' }} <a href="{{ U('contact') }}?melding={{ j.url|urlencode }}">{{ 'Melden' if nl else 'Report' }}</a>.</div>
  <div class="card" style="margin-top:14px"><div class="eyebrow">{{ 'Werkgever?' if nl else 'Hiring?' }}</div><p style="margin:0 0 8px">{{ 'Plaats je vacature gratis op Suriname Business.' if nl else 'Post your vacancy for free on Suriname Business.' }}</p><a href="{{ U('postjob') }}">{{ L('postjob') }} &rarr;</a></div>
 </aside>
 </div>

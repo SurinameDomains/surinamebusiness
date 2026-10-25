@@ -8,6 +8,7 @@
 </div>
 {% block tool %}{% endblock %}
 {% block info %}{% endblock %}
+{% if note %}<section class="prose tool-note" style="margin-top:28px"><h2>{{ note.h }}</h2>{{ note.body|safe }}</section>{% endif %}
 {% if tool and TM.RELATED.get(key) %}
 <section class="tool-group related">
 <h2>{{ 'Ook handig' if nl else 'Also useful' }}</h2>

@@ -36,7 +36,7 @@
 <header class="top">
  <div class="bar">
   <div class="wrap">
-   <a class="logo" href="{{ home_url }}"><img class="wm-img" src="/assets/wordmark-light.svg" width="246" height="20" alt="Suriname Business"></a>
+   <a class="logo" href="{{ home_url }}"><img class="wm-img" src="/assets/wordmark-light.svg" width="209" height="28" alt="Suriname Business"></a>
    {% if key != 'search' %}<form class="hs hs-bar{% if key == 'home' %} hs-late{% endif %}" action="{{ S_URL }}" method="get" role="search">
     <svg class="hs-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
     <input type="search" name="q" placeholder="{{ 'Zoek een tool, bedrijf of gids' if lang=='nl' else 'Find a tool, company or guide' }}" aria-label="{{ 'Zoeken op Suriname Business' if lang=='nl' else 'Search Suriname Business' }}" autocomplete="off">
@@ -86,7 +86,7 @@
 <footer class="site-foot">
  <div class="wrap">
   <div class="foot-top">
-   <div class="foot-brand"><img class="wm-img" src="/assets/wordmark-light.svg" width="197" height="16" alt="Suriname Business" loading="lazy"><p>{{ 'Gratis tools, cijfers, vacatures en aanbestedingen voor ondernemers in Suriname.' if lang=='nl' else 'Free tools, figures, jobs and tenders for businesses in Suriname.' }}</p></div>
+   <div class="foot-brand"><img class="wm-img" src="/assets/wordmark-light.svg" width="194" height="26" alt="Suriname Business" loading="lazy"><p>{{ 'Gratis tools, cijfers, vacatures en aanbestedingen voor ondernemers in Suriname.' if lang=='nl' else 'Free tools, figures, jobs and tenders for businesses in Suriname.' }}</p></div>
    <div class="foot-cols">
    {% for g in footer %}
     <div><h2>{{ g.label }}</h2><ul>{% for l in g.links %}<li><a href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
@@ -96,6 +96,7 @@
   <div class="group">
    <span>&copy; {{ year }} Suriname Business. {{ 'Onderdeel van de' if lang=='nl' else 'Part of the' }} Explore group &middot; <a href="https://exploresuriname.com" rel="noopener">Explore Suriname</a></span>
    {% if settings.get('support_whatsapp') %}<span><a href="https://wa.me/{{ settings.get('support_whatsapp')|replace('+','')|replace(' ','') }}" rel="noopener">WhatsApp support</a></span>{% endif %}
+   <span><a href="{{ U('privacy') }}">Privacy</a> &middot; <a href="{{ U('terms') }}">{{ 'Voorwaarden' if lang=='nl' else 'Terms' }}</a> &middot; <button type="button" class="linkish" data-cc>{{ 'Cookie-instellingen' if lang=='nl' else 'Cookie settings' }}</button></span>
    <span>{{ 'Laatst bijgewerkt' if lang=='nl' else 'Last updated' }} <span class="tnum">{{ built_sr }}</span> SRT</span>
   </div>
  </div>
@@ -121,12 +122,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();if(
 window.addEventListener('resize',function(){if(window.innerWidth>1000&&nav.classList.contains('open'))setDrawer(false);});
 /* the current section opens by itself in the drawer, so one tap shows where you are */
 var cur=nav.querySelector('.dd.cur');if(cur&&window.innerWidth<=1000){cur.classList.add('open');cur.querySelector('.dd-btn').setAttribute('aria-expanded','true');}})();
-</script>
-<script>
-/* Keeps SB's copy of the CBvS rates current: cbvs.sr only answers visitors in Suriname, so a browser here
-   nudges SB's relay at most every 15 minutes. Sends nothing about the visitor; the relay ignores other countries. */
-(function(){try{var k='sb_cbvs_warm',t=Date.now(),l=+localStorage.getItem(k)||0;if(t-l<9e5)return;localStorage.setItem(k,t);}catch(e){}
-setTimeout(function(){try{fetch('https://data.surinamebusiness.com/warm',{mode:'no-cors',credentials:'omit',keepalive:true}).catch(function(){});}catch(e){}},3000);})();
 </script>
 <script>window.SBA_CFG={api:{{ account_api|tojson }},clientId:{{ google_client_id|tojson }},accountUrl:{{ U('account')|tojson }},adminUrl:{{ U('admin')|tojson }},devLogin:{{ 'true' if dev_login else 'false' }}};</script>
 <script>
@@ -213,16 +208,47 @@ fix(document);var m=document.getElementById('main');if(m&&window.MutationObserve
 </script>
 <script src="/assets/account.js?v={{ build_id }}" defer></script>
 {% block scripts %}{% endblock %}
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cf_beacon }}"}'></script>
-{% if ga_id %}<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ ga_id }}');
-/* Google Analytics loads after the page has finished loading and the browser is idle, so it never delays what the visitor sees.
-   The page view is queued above and sent as soon as the script arrives. */
-(function(){function go(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={{ ga_id }}';document.head.appendChild(s);}
-function idle(){('requestIdleCallback' in window)?requestIdleCallback(go,{timeout:2500}):setTimeout(go,1200);}
-if(document.readyState==='complete')idle();else window.addEventListener('load',idle);})();
+<script>
+/* Counting visits, with consent where the law asks for it.
+   Visitors in the EU/EEA, the UK and Switzerland, and in EU regions overseas (French Guiana, the French Antilles, Reunion...),
+   are asked first: until they press "Akkoord" no statistics script loads and no cookie is set (GDPR and the ePrivacy rule).
+   Everyone else is counted as before, unless they declined via "Cookie-instellingen" in the footer.
+   The region is read from the device time zone, nothing is sent anywhere to find it; an unknown zone (or plain UTC) counts as EU.
+   The choice sits in localStorage "sb_consent" and is asked again after 12 months (accepted) or 6 months (declined).
+   Analytics: Cloudflare Web Analytics (no cookies) and Google Analytics 4 (cookie _ga, ads signals always off). */
+(function(){var NL={{ 'true' if lang=='nl' else 'false' }},GA={{ (ga_id or '')|tojson }},CFB={{ (cf_beacon or '')|tojson }};
+var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+var EU=!tz||/^(Europe|Arctic)\//.test(tz)||/^(Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)|Africa\/Ceuta|Asia\/(Nicosia|Famagusta)|America\/(Cayenne|Guadeloupe|Martinique|St_Barthelemy|Marigot)|Indian\/(Reunion|Mayotte)|UTC|GMT|Etc\/.*)$/.test(tz);
+function get(){try{var v=JSON.parse(localStorage.getItem('sb_consent')||'null');if(v&&(v.c==='y'||v.c==='n')&&Date.now()-v.t<(v.c==='y'?365:183)*864e5)return v.c}catch(e){}return null}
+function put(c){try{localStorage.setItem('sb_consent',JSON.stringify({c:c,t:Date.now()}))}catch(e){}}
+window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+if(GA){gtag('set','ads_data_redaction',true);gtag('js',new Date());gtag('config',GA,{allow_google_signals:false,allow_ad_personalization_signals:false});}
+var on=false;
+/* the scripts load after the page has finished and the browser is idle, so they never delay what the visitor sees */
+function start(){if(on)return;on=true;gtag('consent','update',{analytics_storage:'granted'});
+ function go(){if(CFB){var c=document.createElement('script');c.defer=true;c.src='https://static.cloudflareinsights.com/beacon.min.js';c.setAttribute('data-cf-beacon',JSON.stringify({token:CFB}));document.body.appendChild(c);}
+  if(GA){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA;document.head.appendChild(s);}}
+ function idle(){('requestIdleCallback' in window)?requestIdleCallback(go,{timeout:2500}):setTimeout(go,1200);}
+ if(document.readyState==='complete')idle();else window.addEventListener('load',idle);}
+function stop(){gtag('consent','update',{analytics_storage:'denied'});
+ document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(/^_ga/.test(n)){['','; domain=.surinamebusiness.com','; domain=surinamebusiness.com'].forEach(function(d){document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+d;});}});}
+var bar=null;
+function ask(){if(bar){bar.hidden=false;document.body.classList.add('cc-on');return}
+ bar=document.createElement('section');bar.className='cc';bar.setAttribute('aria-label',NL?'Cookies en statistieken':'Cookies and statistics');
+ bar.innerHTML='<p>'+(NL?'Mogen we je bezoek anoniem meetellen? We gebruiken Google Analytics en Cloudflare om te zien welke pagina’s en tools gebruikt worden. Google plaatst daarvoor een cookie. Geen advertenties, geen profielen. ':'May we count your visit? We use Google Analytics and Cloudflare to see which pages and tools get used. Google sets a cookie for this. No ads, no profiles. ')+'<a href="'+(NL?'/privacy#cookies':'/en/privacy#cookies')+'">'+(NL?'Meer uitleg':'Details')+'</a></p><div class="cc-b"><button type="button" class="btn" data-c="n">'+(NL?'Weigeren':'Decline')+'</button><button type="button" class="btn" data-c="y">'+(NL?'Akkoord':'Accept')+'</button></div>';
+ bar.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button[data-c]');if(!b)return;var c=b.getAttribute('data-c');put(c);bar.hidden=true;document.body.classList.remove('cc-on');if(c==='y')start();else stop();});
+ document.body.appendChild(bar);document.body.classList.add('cc-on');}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-cc]');if(!b)return;e.preventDefault();ask();var f=bar.querySelector('button');if(f)f.focus();});
+var c=get();if(c==='y'||(c===null&&!EU))start();else if(c===null&&EU)ask();
 /* which tools are used: one "tool_start" on the first input, one "tool_action" per button (PDF, WhatsApp, save...). No form values are sent. */
-(function(){var c=document.querySelector('.calc,.paper');if(!c)return;var k='{{ key }}',s=0,done={};
+(function(){var c=document.querySelector('.calc,.paper');if(!c||!GA)return;var k='{{ key }}',s=0,done={};
 document.addEventListener('input',function(e){if(s||!e.target.closest('.calc'))return;s=1;gtag('event','tool_start',{tool:k});},true);
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('main button.btn,main a.btn');if(!b)return;var a=(b.textContent||'').trim().slice(0,40);if(done[a])return;done[a]=1;gtag('event','tool_action',{tool:k,action:a});},true);})();</script>{% endif %}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('main button.btn,main a.btn');if(!b)return;var a=(b.textContent||'').trim().slice(0,40);if(done[a])return;done[a]=1;gtag('event','tool_action',{tool:k,action:a});},true);})();
+/* Keeps SB's copy of the CBvS rates current: cbvs.sr only answers visitors in Suriname, so a browser there nudges
+   SB's relay at most every 15 minutes. Only runs on devices set to Suriname time; sends nothing about the visitor. */
+if(tz==='America/Paramaribo'){try{var k='sb_cbvs_warm',t=Date.now(),l=+localStorage.getItem(k)||0;if(t-l>=9e5){localStorage.setItem(k,t);setTimeout(function(){try{fetch('https://data.surinamebusiness.com/warm',{mode:'no-cors',credentials:'omit',keepalive:true}).catch(function(){});}catch(e){}},3000);}}catch(e){}}
+})();
+</script>
 </body>
 </html>
