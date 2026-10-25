@@ -28,12 +28,18 @@ FOREIGN_OIL_OK = re.compile(r"\bguyan\w*\b", re.I)
 CRIME_RE = re.compile(
     r"\b(gestolen|diefstal|beroofd|overval\w*|aangehouden|arrestat\w*|verdachte\w*|revolver|vuurwapen\w*|"
     r"schietpartij|neergeschoten|doodgeschoten|gedood|doden|dode|lijk|vermoord|moord\w*|steekpartij|gewond\w*|"
-    r"ongeval\w*|verkeersongeluk|inbraak|ingebroken|politie)\b", re.I)
+    r"ongeval\w*|verkeersongeluk|inbraak|ingebroken|politie|schotwond|steekwond|lichaam|ruzie|mishandel\w*|"
+    r"verkracht\w*|ontvoer\w*|vechtpartij|hete olie|kapmes|gevangenis|rechter|vonnis|veroordeeld)\b", re.I)
+
+# sport and celebrity items that the papers' general feeds carry
+SPORT_RE = re.compile(
+    r"\b(voetbal\w*|ballon d.or|messi|ronaldo|seedorf|corinthians|natio|svb|wk|ek|olympi\w*|doelpunt\w*|"
+    r"kampioen\w*|competitie|wielren\w*|atletiek|sporter\w*|elftal)\b", re.I)
 
 
 def local_business(title, oil=False):
     t = title or ""
-    if CRIME_RE.search(t):
+    if CRIME_RE.search(t) or SPORT_RE.search(t):
         return False
     if LOCAL_RE.search(t):
         return True

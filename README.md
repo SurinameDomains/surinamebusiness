@@ -43,7 +43,7 @@ Businesses add themselves or correct their entry at `/bedrijf-aanmelden` (`/en/a
 
 ## Design system (assets/style.css)
 
-- Design v4 (24 Oct 2026), "framed utility": an indigo bar with the wordmark (`assets/wordmark-light.svg`, Fraunces 650 outlines, so no Fraunces font is loaded), a site search with suggestions and today's USD/EUR; a white navigation row (four menus plus Vacatures and Aanbestedingen); a light grey page (`--bg`) with white panels; an indigo footer. One sans, **Source Sans 3** (self-hosted, tabular lining figures), for all text.
+- Design v4 (24 Oct 2026), "framed utility": an indigo bar with the wordmark (`assets/wordmark-light.svg`, the SB tile and Source Sans 3 outlines since 25 Oct), a site search with suggestions and today's USD/EUR; a white navigation row (four menus plus Vacatures and Aanbestedingen); a light grey page (`--bg`) with white panels; an indigo footer. One sans, **Source Sans 3** (self-hosted, tabular lining figures), for all text.
 - Icons: one distinct 24px line icon per tool and section (`tools_meta.ICONS`, `ICON_OF`, `GROUP_ICON`; templates use `kicon(key)` and `gicon(group)`).
 - Colour has a job: indigo for brand, actions and the current place; red #b2341b for urgent deadlines; green for new and verified. Form fields have 3:1 borders (`--field`), focus is a 3px ring, every row and button is at least 44px tall.
 - Search: every `form.hs` (header, drawer, home) suggests results while typing from `/assets/search-<lang>.json`; the directory search list is `/assets/companies-<lang>.json`, loaded on first use.
@@ -51,6 +51,19 @@ Businesses add themselves or correct their entry at `/bedrijf-aanmelden` (`/en/a
 - Checked with axe-core (WCAG 2.2 AA, 0 violations on every page type at 375 and 1366px), html-validate, Lighthouse and a no-overflow test at 320 to 1366px.
 - Phones (≤1000px): header is logo + search + menu; the menu is a full-height drawer with search, today's USD/EUR, the four sections as accordions (the current section opens itself), account and language. A fixed bottom tab bar (Home, Tools, Vacatures, Koers, Menu) exposes the main destinations; `--tabbar` pads the body and lifts the toast. Nothing scrolls sideways; tables marked `.stack` become label/value rows.
 - Every class name is stable: templates and `assets/*.js` build markup with them (`.card`, `.btn`, `.pill`, `.tbl`, `.calc`, `.result`, `.paper`, `.sba-dlg`, …). Change values, not names.
+
+## Privacy, consent and EU rules (25 Oct 2026)
+
+- Statistics need consent for visitors in the EU/EEA, UK, Switzerland and EU regions overseas (French Guiana, French Antilles, Reunion...). The region is read from the device time zone in `base.html` (unknown zone or plain UTC counts as EU). Until "Akkoord", neither Google Analytics nor Cloudflare Web Analytics loads and no cookie is set. Everyone else is counted as before. The choice lives in localStorage `sb_consent` (12 months accepted, 6 months declined); "Cookie-instellingen" in the footer and on /privacy reopens the bar. Consent Mode v2 defaults are all denied, ads signals are always off.
+- The CBvS warm-up ping only runs on devices set to Suriname time.
+- /privacy names the controller (Suriname Business, Explore group, Paramaribo), every processing purpose with legal basis and retention, the cookie table, processors (Cloudflare, GitHub, Google), transfers and rights. Keep it in step with any new script, cookie or form the same day.
+- /voorwaarden covers user content (vacancies, listings): rules, human review, reasons by email, objections, and a report route (EU Digital Services Act basics). Job and company pages link "Melden" to the contact form with `?melding=<url>`.
+- sb-api cron deletes contact messages after 12 months and strips submitter name, email, role and IP hash from listing submissions after 12 months (promised on /privacy).
+- GA4 data retention (Admin > Data collection and modification > Data retention): event data 2 months, user data 14 months; /privacy states the 14-month maximum. Keep them in step.
+
+## Logo (25 Oct 2026)
+
+Saffron (#f2b134) square with "SB" in indigo, next to "Suriname Business" in Source Sans 3 Bold. All files are outlines generated from `assets/fonts/SourceSans3.woff2` (fontTools + HarfBuzz): `wordmark-light.svg`, `favicon.svg`, `favicon.ico` (16/32/48), `icon-192/512/512-maskable.png`, `apple-touch-icon.png`, `og.png`, `og-en.png`. The serif wordmark with the coloured full stop was retired as a typical AI-site look.
 
 ## Local
 

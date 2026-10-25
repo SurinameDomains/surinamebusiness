@@ -22,6 +22,7 @@ import tools_meta as TM
 import guides_meta as GM
 import resources_data as RES
 import quality
+import tool_notes as TN
 from site_config import (INDEXNOW_KEY, DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
@@ -184,8 +185,8 @@ META = {
                 ("Contact Suriname Business", "Get in touch with Suriname Business for questions, corrections, business listings, vacancies or partnerships. We reply by email.")),
     "privacy": (("Privacyverklaring Suriname Business", "Hoe Suriname Business met gegevens omgaat: tools werken in je browser, wat een account opslaat en welke cookies en statistieken we gebruiken."),
                 ("Privacy policy Suriname Business", "How Suriname Business handles data: tools run in your browser, what an account stores and which cookies and statistics we use.")),
-    "terms": (("Gebruiksvoorwaarden", "De voorwaarden voor het gebruik van Suriname Business, de tools en een account."),
-              ("Terms of use", "The terms for using Suriname Business, the tools and an account.")),
+    "terms": (("Gebruiksvoorwaarden Suriname Business", "De voorwaarden voor de tools, een account, vacatures en bedrijfsvermeldingen, en hoe je een nepvacature of foute vermelding meldt."),
+              ("Terms of use Suriname Business", "The terms for the tools, an account, vacancies and business listings, and how to report a fake vacancy or a wrong listing.")),
     "account": (("Mijn account", "Je documenten, klanten, bedrijfsgegevens en vacatures op Suriname Business."),
                 ("My account", "Your documents, customers, business details and vacancies on Suriname Business.")),
     "admin": (("Beheer", "Beheer van Suriname Business."), ("Admin", "Suriname Business admin.")),
@@ -337,6 +338,33 @@ def rates_view():
     change = (r["usd"]["sell"] - prev) if prev else None
     return {**r, "stale": age > 36, "age_h": age, "series": series[-60:], "change": change,
             "history": [(d, hist[d]) for d in reversed(days)]}
+
+
+def upcoming_deadlines(lang, n=3):
+    """The next tax dates, same rules as the deadlines tool (assets/tools/office.js): VAT by the 15th and wage tax/AOV
+    by the 10th of the following month; income tax on fixed days. Built every 30 minutes, so always current."""
+    nl = lang == "nl"
+    mn = MONTHS[lang]
+    items = []
+    y, m = TODAY.year, TODAY.month - 1
+    for i in range(-1, 4):
+        py, pm = y + (m + i) // 12, (m + i) % 12
+        ny, nm = (py + 1, 0) if pm == 11 else (py, pm + 1)
+        per = mn[pm] if py == TODAY.year else f"{mn[pm]} {py}"
+        items.append((dt.date(ny, nm + 1, 10), "Loonbelasting en AOV" if nl else "Wage tax and AOV", per, "wage"))
+        items.append((dt.date(ny, nm + 1, 15), "BTW-aangifte en betaling" if nl else "VAT return and payment", per, "vat"))
+    for yy in (y, y + 1):
+        for md, tnl, ten in (((2, 15), "Verlaging voorlopige aanslag vragen", "Request a lower provisional assessment"),
+                             ((4, 15), "Voorlopige aangifte IB, 1e termijn", "Provisional income tax, 1st instalment"),
+                             ((4, 30), "Definitieve aangifte IB (personen)", "Final income tax return (individuals)"),
+                             ((6, 30), "Definitieve aangifte bedrijven", "Final return for companies"),
+                             ((7, 15), "Inkomstenbelasting, 2e termijn", "Income tax, 2nd instalment"),
+                             ((10, 15), "Inkomstenbelasting, 3e termijn", "Income tax, 3rd instalment"),
+                             ((12, 31), "Inkomstenbelasting, 4e termijn", "Income tax, 4th instalment")):
+            items.append((dt.date(yy, *md), tnl if nl else ten, str(yy), "ib"))
+    items = sorted(x for x in items if x[0] >= TODAY)[:n]
+    return [{"date": d.isoformat(), "day": d.day, "mon": mn[d.month - 1][:3], "title": t, "period": p, "kind": k,
+             "days": (d - TODAY).days} for d, t, p, k in items]
 
 
 def spark_points(series, w=300, h=56):
@@ -808,6 +836,22 @@ def build_salary_pages(render, lang, U, L):
                extra={"g": g, "r": r, "r5": r5, "prev_g": prev_g, "next_g": next_g})
 
 
+def _nearby(pool, r, lab, n=6):
+    """Up to n businesses in the same town from other categories, one per category first, stable per page."""
+    others = [o for o in pool if o["group"] != r["group"] and o["slug"] != r["slug"]]
+    if not others:
+        return []
+    h = int(hashlib.md5(r["slug"].encode()).hexdigest()[:6], 16)
+    others = others[h % len(others):] + others[:h % len(others)]
+    seen, pick = set(), []
+    for o in others:
+        if o["group"] not in seen:
+            seen.add(o["group"]); pick.append(o)
+        if len(pick) == n:
+            break
+    return [{"slug": o["slug"], "name": o["name"], "cat": lab[o["group"]], "street": o["street"]} for o in pick]
+
+
 def build_company_pages(render, lang, U, L, co):
     if not co["recs"]:
         return
@@ -834,6 +878,11 @@ def build_company_pages(render, lang, U, L, co):
         json.dump(search, f, ensure_ascii=False, separators=(",", ":"))
     render("companies.html", "companies", title, desc, "/bedrijven/", "/en/companies/", crumbs,
            extra={"co": dict(co, search_json="")})
+    # "Ook in <plaats>": other businesses with their own page in the same town, from other categories
+    by_place = {}
+    for r in co["recs"]:
+        if r["page"] and r["place"]:
+            by_place.setdefault(r["place"], []).append(r)
     for gr in co["groups"]:
         label = gr["nl"] if nl else gr["en"]
         t = f"{label} in Suriname ({gr['count']})"
@@ -846,14 +895,17 @@ def build_company_pages(render, lang, U, L, co):
         for r in gr["items"]:
             if r["page"]:
                 namecount[(r["name"].lower(), r["place"])] = namecount.get((r["name"].lower(), r["place"]), 0) + 1
+        # a category with one or two businesses is a thin page: it stays for visitors, out of search engines
         render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}", f"/en/companies/{gr['en_slug']}",
-               crumbs, extra={"gr": gr})
+               crumbs, extra={"gr": gr}, robots="noindex,follow" if gr["count"] < 3 else None)
         for r in gr["items"]:
             if not r["page"]:
                 continue
             place = f", {r['place']}" if r["place"] else ""
             where = (f", {r['street']}" if r["street"] and namecount[(r["name"].lower(), r["place"])] > 1 else "") + place
             t = f"{r['name']}{where}: " + ("adres, telefoon en openingstijden" if nl else "address, phone and opening hours")
+            if len(t) > 62:
+                t = f"{r['name']}{where}: " + ("adres en telefoon" if nl else "address and phone")
             bits = [x for x in [r["street"], r["place"], r["phone"]] if x]
             d = f"{r['name']} ({label.lower()}){place}. " + " · ".join(bits)
             crumbs = [{"label": "Home", "url": U("home")},
@@ -879,7 +931,8 @@ def build_company_pages(render, lang, U, L, co):
             # visitors and site search, but is kept out of Google and the sitemap
             thin = not (r["phone"] or r["website"] or r["email"])
             render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
-                   extra={"r": r, "gr": gr}, graph=graph, robots="noindex,follow" if thin else None)
+                   extra={"r": r, "gr": gr, "nearby": _nearby(by_place.get(r["place"], []), r, lab)},
+                   graph=graph, robots="noindex,follow" if thin else None)
 
 # ---------------------------------------------------------------- posted vacancies
 JOB_TYPES = {"FULL_TIME": ("Fulltime", "Full-time"), "PART_TIME": ("Parttime", "Part-time"),
@@ -1059,7 +1112,7 @@ def main():
             date=lambda s, weekday=False, year=True, _l=lang: fmt_date(s, _l, weekday, year),
             ago=lambda s, _l=lang: fmt_ago(s, _l),
             F=facts, rates=rates, tenders=tenders, jobs=jobs, news=news, hol=hol, co=co,
-            spark=spark_points, today=TODAY.isoformat(), contact_email=CONTACT_EMAIL,
+            spark=spark_points, deadlines=upcoming_deadlines(lang), today=TODAY.isoformat(), contact_email=CONTACT_EMAIL,
             explore_url=EXPLORE_URL, holidays_json=json.dumps([h[0] for h in facts.HOLIDAYS]),
             tax_params=json.dumps(facts.TAX_JS), salary_py=py_salary, salary_amounts=SALARY_AMOUNTS,
             META_SUB={k: META[k][li][1] for k in META}, cf_beacon=CF_BEACON, ga_id=GA_ID,
@@ -1083,6 +1136,8 @@ def main():
         def render(tpl_name, nav_key, title, desc, path_nl, path_en, crumbs=None, extra=None, graph=None,
                    robots=None, in_sitemap=True, single=False, _lang=lang, _common=common):
             canonical = SITE_URL + (path_nl if _lang == "nl" else path_en)
+            if len(title) > 62 and title.endswith(" | Suriname Business"):
+                title = title[:-len(" | Suriname Business")]   # the brand suffix only where it fits in a result
             nav = build_menu(_lang, nav_key)
             ctx = dict(_common)
             ctx.update(key=nav_key, title=title, description=desc, canonical=canonical,
@@ -1124,12 +1179,12 @@ def main():
                 continue
             title, desc = META[key][li]
             crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
-            faq = extras.faqs(key, lang, py_salary) or TM.faqs(key, lang) or GM.faqs(key, lang)
+            faq = (extras.faqs(key, lang, py_salary) or TM.faqs(key, lang) or GM.faqs(key, lang) or []) + TN.faqs(key, lang)
             graph = schema_for(key, lang, title, desc, SITE_URL + U(key))
             if faq:
                 graph.append(extras.faq_schema(faq))
             render(f"pages/{key}.html", key, title, desc, url_for(key, "nl"), url_for(key, "en"), crumbs,
-                   extra={"faq": faq, "buyers": buyers, "tool": TM.BY_KEY.get(key)}, graph=graph,
+                   extra={"faq": faq, "buyers": buyers, "tool": TM.BY_KEY.get(key), "note": TN.note(key, lang)}, graph=graph,
                    robots="noindex,follow" if key == "search" else ("noindex,nofollow" if key in PRIVATE_PAGES else None))
 
         for b in buyers:
