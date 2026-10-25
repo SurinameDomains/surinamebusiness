@@ -2,26 +2,100 @@
 {% set nl = lang == 'nl' %}
 {% block content %}
 <div class="prose">
-<h1>{{ 'Privacy' }}</h1>
-<p class="lead">{{ 'Zonder account verzamelt Suriname Business geen persoonsgegevens via de website. Met een gratis account bewaren we alleen wat nodig is om je account te laten werken.' if nl else 'Without an account, Suriname Business collects no personal data through the website. With a free account, we only keep what is needed to make your account work.' }}</p>
+<h1>{{ 'Privacyverklaring' if nl else 'Privacy policy' }}</h1>
+{% if nl %}
+<p class="lead">Je kunt Suriname Business gebruiken zonder iets over jezelf op te geven. Wat je in de tools invult blijft op je eigen toestel. Gegevens bewaren we alleen als je een account maakt, een vacature of bedrijf aanmeldt, of ons een bericht stuurt.</p>
+
+<h2 id="wie">Wie is verantwoordelijk</h2>
+<p>Suriname Business (onderdeel van de Explore group), Paramaribo, Suriname. E-mail: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. Voor alle vragen over je gegevens, ook als je in de Europese Unie woont, is dit het adres. We antwoorden binnen een maand.</p>
+
+<h2 id="wat">Welke gegevens, waarvoor en hoelang</h2>
+<div class="tbl-wrap"><table class="tbl stack tx">
+<thead><tr><th>Wanneer</th><th>Welke gegevens</th><th>Waarom (grondslag)</th><th>Hoelang</th></tr></thead>
+<tbody>
+<tr><td data-l="Wanneer">Je bezoekt de site</td><td data-l="Gegevens">IP-adres, browser, opgevraagde pagina (serverlogs van GitHub Pages en Cloudflare)</td><td data-l="Waarom">De site leveren en beveiligen (gerechtvaardigd belang)</td><td data-l="Hoelang">Kort, volgens de termijnen van die diensten</td></tr>
+<tr><td data-l="Wanneer">Je gebruikt een tool</td><td data-l="Gegevens">Niets bij ons. Je invoer blijft in je browser; sommige tools onthouden die op je toestel (local storage)</td><td data-l="Waarom">De tool laten werken zoals je vraagt</td><td data-l="Hoelang">Tot je de sitegegevens in je browser wist</td></tr>
+<tr><td data-l="Wanneer">Statistieken</td><td data-l="Gegevens">Bezochte pagina's, gebruikte tools, apparaat en land; IP-adres ingekort</td><td data-l="Waarom">Zien wat gebruikt wordt en de site verbeteren. In de EU, het VK en Zwitserland alleen met je toestemming; elders gerechtvaardigd belang, en je kunt weigeren</td><td data-l="Hoelang">Google Analytics: 14 maanden. Cloudflare: geen cookies, totalen</td></tr>
+<tr><td data-l="Wanneer">Je maakt een account</td><td data-l="Gegevens">Naam, e-mailadres, profielfoto en account-ID van Google; wat je zelf in je account bewaart</td><td data-l="Waarom">Je account leveren (overeenkomst)</td><td data-l="Hoelang">Tot je je account verwijdert. Inlogsessies 60 dagen</td></tr>
+<tr><td data-l="Wanneer">Je plaatst een vacature</td><td data-l="Gegevens">Naam, e-mailadres, telefoon (niet openbaar); de vacature zelf (openbaar)</td><td data-l="Waarom">De vacature controleren en publiceren (overeenkomst)</td><td data-l="Hoelang">Niet bevestigd: 3 dagen. Anders 90 dagen na sluiting</td></tr>
+<tr><td data-l="Wanneer">Je meldt een bedrijf aan</td><td data-l="Gegevens">Bedrijfsgegevens (openbaar na controle); jouw naam en e-mail (niet openbaar)</td><td data-l="Waarom">De vermelding controleren (gerechtvaardigd belang)</td><td data-l="Hoelang">Jouw naam en e-mail: 12 maanden</td></tr>
+<tr><td data-l="Wanneer">Je stuurt een bericht</td><td data-l="Gegevens">Naam, e-mailadres, bericht, pagina</td><td data-l="Waarom">Antwoorden (gerechtvaardigd belang)</td><td data-l="Hoelang">12 maanden</td></tr>
+</tbody></table></div>
+<p>Om misbruik te stoppen bewaren we bij formulieren en inlogsessies een versleutelde (gehashte) versie van je IP-adres, nooit het adres zelf. We verkopen geen gegevens, tonen geen advertenties, maken geen profielen en nemen geen geautomatiseerde besluiten over je. Sollicitaties gaan rechtstreeks naar de werkgever; wij ontvangen geen CV's.</p>
+
+<h2 id="cookies">Cookies en opslag op je toestel</h2>
+<div class="tbl-wrap"><table class="tbl stack tx">
+<thead><tr><th>Naam</th><th>Van</th><th>Waarvoor</th><th>Bewaard</th></tr></thead>
+<tbody>
+<tr><td data-l="Naam">sb_consent</td><td data-l="Van">Suriname Business (local storage)</td><td data-l="Waarvoor">Je keuze over statistieken onthouden</td><td data-l="Bewaard">12 maanden (akkoord), 6 maanden (geweigerd)</td></tr>
+<tr><td data-l="Naam">_ga, _ga_*</td><td data-l="Van">Google Analytics</td><td data-l="Waarvoor">Terugkerende bezoekers herkennen voor de statistieken. Alleen na je akkoord in de EU</td><td data-l="Bewaard">Tot 2 jaar</td></tr>
+<tr><td data-l="Naam">__Host-sbs</td><td data-l="Van">id.surinamebusiness.com</td><td data-l="Waarvoor">Je ingelogd houden (alleen met een account, noodzakelijk)</td><td data-l="Bewaard">60 dagen</td></tr>
+<tr><td data-l="Naam">sbt:*</td><td data-l="Van">Suriname Business (local storage)</td><td data-l="Waarvoor">Wat een tool voor je onthoudt, zoals je bedrijfsgegevens en factuurnummer (noodzakelijk voor de functie)</td><td data-l="Bewaard">Tot je het wist</td></tr>
+</tbody></table></div>
+<p>Inloggen met Google laadt pas een script van Google als je op Inloggen klikt. Het formulier voor vacatures gebruikt Cloudflare Turnstile tegen spam. Op enkele tool-pagina's laadt een programmabibliotheek van jsDelivr. Lettertypes komen van onze eigen server.</p>
+<p><button type="button" class="btn alt inline" data-cc>Cookie-instellingen wijzigen</button></p>
+
+<h2 id="ontvangers">Wie de gegevens verwerkt</h2>
 <ul>
- <li>{{ 'Wat je in de rekentools en gratis tools invult, blijft in je browser en wordt niet naar ons verstuurd. PDF\'s en foto\'s die je bewerkt worden niet geüpload.' if nl else 'What you enter in the calculators and free tools stays in your browser and is not sent to us. PDFs and photos you edit are not uploaded.' }}</li>
- <li>{{ 'Sommige tools onthouden je invoer op je eigen toestel (local storage), zoals je bedrijfsgegevens op facturen en je BTW-register. Dat blijft op dat toestel; je wist het door de sitegegevens in je browser te verwijderen.' if nl else 'Some tools remember your input on your own device (local storage), such as your business details on invoices and your VAT register. That stays on that device; you clear it by deleting the site data in your browser.' }}</li>
- <li>{{ 'We gebruiken geen advertentienetwerken. Bezoekersaantallen meten we met Cloudflare Web Analytics (plaatst geen cookies) en Google Analytics. Google Analytics plaatst een first-party cookie (_ga) om terugkerende bezoekers van nieuwe te onderscheiden, kort het IP-adres af en wordt door ons niet gekoppeld aan je naam of account. We gebruiken die cijfers alleen om te zien welke pagina\'s en tools gebruikt worden.' if nl else 'We use no ad networks. We count visits with Cloudflare Web Analytics (sets no cookies) and Google Analytics. Google Analytics sets a first-party cookie (_ga) to tell returning visitors from new ones, truncates the IP address and is never linked by us to your name or account. We only use those numbers to see which pages and tools get used.' }}</li>
- <li>{{ 'Lettertypes worden vanaf onze eigen site geladen. Op enkele tool-pagina\'s laadt een programmabibliotheek via jsDelivr; de site wordt gehost via GitHub Pages en Cloudflare, die technische serverlogs bijhouden.' if nl else 'Fonts load from our own site. On a few tool pages a code library loads from jsDelivr; the site is hosted on GitHub Pages and Cloudflare, which keep technical server logs.' }}</li>
- <li>{{ 'Mail je ons, dan gebruiken we je adres alleen om te antwoorden.' if nl else 'If you email us, we only use your address to reply.' }}</li>
- <li>{{ 'Plaats je een vacature, dan bewaren we je naam, e-mailadres en eventueel telefoonnummer om de vacature te controleren en je erover te mailen. Die gegevens zijn niet openbaar. Openbaar zijn alleen de vacature zelf en het sollicitatieadres of de link die je opgeeft. Niet bevestigde aanvragen verwijderen we na 3 dagen, al het andere 90 dagen nadat de vacature is gesloten. Gegevens, bestanden en e-mail lopen via Cloudflare.' if nl else 'If you post a vacancy, we keep your name, email address and optional phone number to review the vacancy and email you about it. These details are not public. Only the vacancy itself and the application address or link you give are public. Unconfirmed submissions are deleted after 3 days, everything else 90 days after the vacancy closes. Data, files and email run through Cloudflare.' }}</li>
- <li>{{ 'Sollicitaties gaan rechtstreeks naar de werkgever. Suriname Business ontvangt en bewaart geen CV\'s.' if nl else 'Applications go directly to the employer. Suriname Business does not receive or store CVs.' }}</li>
+ <li><b>Cloudflare</b>: hosting van de database, inloggen, formulieren, e-mailmeldingen en Web Analytics.</li>
+ <li><b>GitHub</b> (Microsoft): hosting van de website.</li>
+ <li><b>Google</b>: inloggen met Google en Google Analytics (met advertentiefuncties uit).</li>
 </ul>
-<h2>{{ 'Als je een account hebt' if nl else 'If you have an account' }}</h2>
+<p>Deze diensten werken ook buiten Suriname en de EU, onder meer in de Verenigde Staten. Ze zijn gecertificeerd onder het EU-VS Data Privacy Framework of gebruiken de standaardcontractbepalingen van de Europese Commissie. Alleen de beheerder van Suriname Business kan je accountgegevens inzien, en alleen als dat nodig is voor support of tegen misbruik.</p>
+
+<h2 id="rechten">Je rechten</h2>
+<p>Je mag vragen welke gegevens we van je hebben, ze laten verbeteren of verwijderen, de verwerking laten beperken, bezwaar maken en je gegevens in een bruikbaar bestand krijgen. Toestemming voor statistieken trek je in met de knop hierboven of via Cookie-instellingen onderaan elke pagina. Met een account download je je gegevens en verwijder je je account zelf in <a href="{{ U('account') }}">{{ L('account') }}</a>. Voor de rest mail je <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+<p>Woon je in de EU en ben je niet tevreden over hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de privacytoezichthouder in je land, in Nederland de <a href="https://autoriteitpersoonsgegevens.nl" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+
+<h2 id="overig">Overig</h2>
+<p>De site is niet bedoeld voor kinderen onder 16 jaar. Wijzigt deze verklaring, dan staat de nieuwe versie hier met de datum.</p>
+{% else %}
+<p class="lead">You can use Suriname Business without telling us anything about yourself. What you enter in the tools stays on your own device. We only keep data when you create an account, post a vacancy or a business, or send us a message.</p>
+
+<h2 id="who">Who is responsible</h2>
+<p>Suriname Business (part of the Explore group), Paramaribo, Suriname. Email: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. This is the address for every question about your data, also if you live in the European Union. We reply within one month.</p>
+
+<h2 id="what">What data, why and for how long</h2>
+<div class="tbl-wrap"><table class="tbl stack tx">
+<thead><tr><th>When</th><th>What data</th><th>Why (legal basis)</th><th>How long</th></tr></thead>
+<tbody>
+<tr><td data-l="When">You visit the site</td><td data-l="Data">IP address, browser, page requested (server logs at GitHub Pages and Cloudflare)</td><td data-l="Why">To deliver and secure the site (legitimate interest)</td><td data-l="How long">Briefly, per those services' terms</td></tr>
+<tr><td data-l="When">You use a tool</td><td data-l="Data">Nothing at our end. Your input stays in your browser; some tools remember it on your device (local storage)</td><td data-l="Why">To make the tool work as you ask</td><td data-l="How long">Until you clear the site data in your browser</td></tr>
+<tr><td data-l="When">Statistics</td><td data-l="Data">Pages visited, tools used, device and country; IP address truncated</td><td data-l="Why">To see what gets used and improve the site. In the EU, UK and Switzerland only with your consent; elsewhere legitimate interest, and you can decline</td><td data-l="How long">Google Analytics: 14 months. Cloudflare: no cookies, totals only</td></tr>
+<tr><td data-l="When">You create an account</td><td data-l="Data">Name, email address, profile photo and account ID from Google; what you keep in your account</td><td data-l="Why">To provide your account (contract)</td><td data-l="How long">Until you delete your account. Sign-in sessions 60 days</td></tr>
+<tr><td data-l="When">You post a vacancy</td><td data-l="Data">Name, email address, phone (not public); the vacancy itself (public)</td><td data-l="Why">To review and publish the vacancy (contract)</td><td data-l="How long">Unconfirmed: 3 days. Otherwise 90 days after it closes</td></tr>
+<tr><td data-l="When">You add a business</td><td data-l="Data">Business details (public once checked); your name and email (not public)</td><td data-l="Why">To check the listing (legitimate interest)</td><td data-l="How long">Your name and email: 12 months</td></tr>
+<tr><td data-l="When">You send a message</td><td data-l="Data">Name, email address, message, page</td><td data-l="Why">To reply (legitimate interest)</td><td data-l="How long">12 months</td></tr>
+</tbody></table></div>
+<p>To stop abuse, forms and sign-in sessions keep a hashed version of your IP address, never the address itself. We do not sell data, show ads, build profiles or make automated decisions about you. Applications go straight to the employer; we receive no CVs.</p>
+
+<h2 id="cookies">Cookies and storage on your device</h2>
+<div class="tbl-wrap"><table class="tbl stack tx">
+<thead><tr><th>Name</th><th>From</th><th>Purpose</th><th>Kept</th></tr></thead>
+<tbody>
+<tr><td data-l="Name">sb_consent</td><td data-l="From">Suriname Business (local storage)</td><td data-l="Purpose">Remembers your choice about statistics</td><td data-l="Kept">12 months (accepted), 6 months (declined)</td></tr>
+<tr><td data-l="Name">_ga, _ga_*</td><td data-l="From">Google Analytics</td><td data-l="Purpose">Recognises returning visitors for the statistics. In the EU only after you accept</td><td data-l="Kept">Up to 2 years</td></tr>
+<tr><td data-l="Name">__Host-sbs</td><td data-l="From">id.surinamebusiness.com</td><td data-l="Purpose">Keeps you signed in (only with an account, strictly necessary)</td><td data-l="Kept">60 days</td></tr>
+<tr><td data-l="Name">sbt:*</td><td data-l="From">Suriname Business (local storage)</td><td data-l="Purpose">What a tool remembers for you, such as your business details and invoice number (needed for that feature)</td><td data-l="Kept">Until you clear it</td></tr>
+</tbody></table></div>
+<p>Sign in with Google only loads a Google script once you click Sign in. The vacancy form uses Cloudflare Turnstile against spam. A few tool pages load a code library from jsDelivr. Fonts come from our own server.</p>
+<p><button type="button" class="btn alt inline" data-cc>Change cookie settings</button></p>
+
+<h2 id="recipients">Who processes the data</h2>
 <ul>
- <li>{{ 'Je logt in met Google. Wij krijgen van Google alleen je naam, e-mailadres, profielfoto en een vast account-ID; nooit je wachtwoord. We vragen geen toegang tot je mail, agenda of bestanden.' if nl else 'You sign in with Google. We only receive your name, email address, profile photo and a fixed account ID from Google; never your password. We do not ask for access to your mail, calendar or files.' }}</li>
- <li>{{ 'Wat de tools op je toestel onthouden (bijvoorbeeld bedrijfsgegevens, opgeslagen facturen en offertes, klanten, voorraad, urenregistratie en bewaarde vacatures) bewaren we ook in je account, zodat je het op al je apparaten hebt. Je bepaalt zelf wat je invult.' if nl else 'What the tools remember on your device (for example business details, saved invoices and quotes, customers, stock, timesheets and saved jobs) is also kept in your account, so you have it on all your devices. You decide what you enter.' }}</li>
- <li>{{ 'Om je ingelogd te houden gebruiken we één functionele cookie op id.surinamebusiness.com. Die bevat alleen een willekeurige code; we bewaren daarvan alleen een versleutelde versie, met het type browser en een versleuteld IP-adres om misbruik tegen te gaan.' if nl else 'To keep you signed in we use one functional cookie on id.surinamebusiness.com. It only contains a random code; we keep just a hashed version of it, with the browser type and a hashed IP address to prevent abuse.' }}</li>
- <li>{{ 'Je gegevens zijn niet openbaar en we verkopen of delen ze niet. Alleen de beheerder van Suriname Business kan ze inzien als dat nodig is voor support of om misbruik te stoppen. Opslag loopt via Cloudflare.' if nl else 'Your data is not public and we do not sell or share it. Only the Suriname Business administrator can view it when needed for support or to stop abuse. Storage runs through Cloudflare.' }}</li>
- <li>{{ 'In Mijn account download je al je gegevens, log je overal uit en verwijder je je account met alles erin.' if nl else 'In My account you can download all your data, sign out everywhere and delete your account with everything in it.' }} <a href="{{ U('account') }}">{{ L('account') }}</a></li>
- <li>{{ 'Stuur je ons een bericht via het contactformulier, dan bewaren we je naam, e-mailadres en bericht om te kunnen antwoorden.' if nl else 'If you send us a message through the contact form, we keep your name, email address and message so we can reply.' }}</li>
+ <li><b>Cloudflare</b>: database hosting, sign-in, forms, email notifications and Web Analytics.</li>
+ <li><b>GitHub</b> (Microsoft): website hosting.</li>
+ <li><b>Google</b>: Sign in with Google and Google Analytics (advertising features off).</li>
 </ul>
-<p class="asof">{{ 'Bijgewerkt op' if nl else 'Updated on' }} {{ date(F.CHECKED) }}. {{ 'Wijzigt dit beleid, dan staat dat hier.' if nl else 'If this policy changes, it will be shown here.' }}</p>
+<p>These services also operate outside Suriname and the EU, including in the United States. They are certified under the EU-US Data Privacy Framework or use the European Commission's standard contractual clauses. Only the Suriname Business administrator can see your account data, and only when needed for support or to stop abuse.</p>
+
+<h2 id="rights">Your rights</h2>
+<p>You can ask what data we hold about you, have it corrected or deleted, restrict its use, object, and get your data in a usable file. Withdraw consent for statistics with the button above or with Cookie settings at the bottom of every page. With an account, you download your data and delete your account yourself in <a href="{{ U('account') }}">{{ L('account') }}</a>. For anything else, email <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+<p>If you live in the EU and are unhappy with how we handle your data, you can complain to the data protection authority in your country, in the Netherlands the <a href="https://autoriteitpersoonsgegevens.nl/en" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+
+<h2 id="other">Other</h2>
+<p>The site is not meant for children under 16. If this policy changes, the new version appears here with its date.</p>
+{% endif %}
+<p class="asof">{{ 'Versie van' if nl else 'Version of' }} {{ date('2026-10-25') }}.</p>
 </div>
 {% endblock %}

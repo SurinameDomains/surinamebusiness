@@ -20,6 +20,7 @@
  </div>
  <label for="cf-sub">{{ 'Onderwerp' if nl else 'Subject' }}</label><input id="cf-sub" name="subject" maxlength="150">
  <label for="cf-body">{{ 'Bericht' if nl else 'Message' }}</label><textarea id="cf-body" name="body" rows="6" maxlength="5000" required></textarea>
+ <p class="sub small form-legal">{% if nl %}We gebruiken je gegevens alleen om te antwoorden en bewaren ze 12 maanden. <a href="{{ U('privacy') }}">Privacy</a>{% else %}We only use your details to reply and keep them for 12 months. <a href="{{ U('privacy') }}">Privacy</a>{% endif %}</p>
  <button class="btn inline" type="submit" id="cf-btn" style="margin-top:12px">{{ 'Versturen' if nl else 'Send' }}</button>
  <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
 </form>
@@ -29,6 +30,7 @@
  var f=document.getElementById('cf'), st=document.getElementById('cf-status'), NL={{ 'true' if nl else 'false' }};
  function say(c,m){ st.className='form-status '+c; st.textContent=m; }
  function fill(){ var u=window.SBA&&SBA.user(); if(u){ if(!f.elements.email.value) f.elements.email.value=u.email; if(!f.elements.name.value) f.elements.name.value=u.name||''; } }
+ var mq=new URLSearchParams(location.search).get('melding'); if(mq){ f.elements.subject.value=(NL?'Melding: ':'Report: ')+mq.slice(0,120); f.elements.body.placeholder=NL?'Wat klopt er niet, en waarom?':'What is wrong, and why?'; }
  window.addEventListener('sba:ready', fill); window.addEventListener('sba:user', fill); fill();
  f.addEventListener('submit', function(e){
   e.preventDefault();

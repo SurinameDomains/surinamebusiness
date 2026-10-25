@@ -17,17 +17,22 @@
  <li>{{ 'Gebruik de site niet voor misbruik, spam, oplichting of illegale doeleinden. We mogen accounts en inhoud die dat doen blokkeren of verwijderen.' if nl else 'Do not use the site for abuse, spam, fraud or illegal purposes. We may block or remove accounts and content that do.' }}</li>
  <li>{{ 'Je kunt je account op elk moment zelf verwijderen in Mijn account.' if nl else 'You can delete your account yourself at any time in My account.' }}</li>
 </ul>
-<h2>{{ 'Vacatures' if nl else 'Vacancies' }}</h2>
+<h2 id="inhoud">{{ 'Vacatures en bedrijfsvermeldingen' if nl else 'Vacancies and business listings' }}</h2>
 <ul>
- <li>{{ 'Plaats alleen echte vacatures bij een echte werkgever, zonder kosten voor kandidaten. We controleren elke vacature en mogen een vacature weigeren, aanpassen of offline halen.' if nl else 'Only post real vacancies at a real employer, without fees for candidates. We review every vacancy and may refuse, adjust or remove one.' }}</li>
+ <li>{{ 'Plaats alleen echte vacatures bij een echte werkgever, zonder kosten voor kandidaten. Meld alleen een bedrijf aan dat je mag vertegenwoordigen, met juiste gegevens.' if nl else 'Only post real vacancies at a real employer, without fees for candidates. Only add a business you may represent, with correct details.' }}</li>
+ <li>{{ 'Niet toegestaan: misleidende of discriminerende vacatures, piramidespelen, werk dat vooraf geld vraagt, inhoud die inbreuk maakt op rechten van anderen, en alles wat in Suriname of in het land van de lezer strafbaar is.' if nl else 'Not allowed: misleading or discriminatory vacancies, pyramid schemes, jobs that ask for money up front, content that infringes the rights of others, and anything that is illegal in Suriname or in the reader\'s country.' }}</li>
+ <li>{{ 'Elke vacature en elke vermelding wordt door een mens gecontroleerd voordat die online komt; we gebruiken daarvoor geen automatische beslissingen. We mogen inhoud weigeren, aanpassen of offline halen.' if nl else 'A person checks every vacancy and listing before it goes online; no automated decisions are used. We may refuse, adjust or remove content.' }}</li>
+ <li>{{ 'Weigeren of verwijderen we je inhoud, dan laten we je per e-mail weten waarom. Ben je het er niet mee eens, antwoord dan op die mail; we kijken er opnieuw naar.' if nl else 'If we refuse or remove your content, we tell you why by email. If you disagree, reply to that email and we will look at it again.' }}</li>
  <li>{{ 'Sollicitaties gaan rechtstreeks naar de werkgever. Suriname Business is geen partij bij een sollicitatie of arbeidsovereenkomst.' if nl else 'Applications go directly to the employer. Suriname Business is not a party to any application or employment contract.' }}</li>
 </ul>
+<h2 id="melden">{{ 'Iets melden' if nl else 'Report something' }}</h2>
+<p>{{ 'Zie je een nepvacature, een fout in een bedrijfsvermelding of inhoud die volgens jou niet mag? Gebruik de link "Melden" op die pagina of het' if nl else 'Seen a fake vacancy, a wrong business listing or content you believe is not allowed? Use the "Report" link on that page or the' }} <a href="{{ U('contact') }}">{{ 'contactformulier' if nl else 'contact form' }}</a>{{ ', of mail' if nl else ', or email' }} <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. {{ 'Noem de pagina en waarom je het meldt. We bekijken elke melding, meestal binnen twee werkdagen, en laten je weten wat we ermee gedaan hebben. Dit adres is ook het contactpunt voor autoriteiten. We lezen Nederlands en Engels.' if nl else 'Name the page and why you are reporting it. We review every report, usually within two working days, and tell you what we did. This address is also the point of contact for authorities. We read Dutch and English.' }}</p>
 <h2>{{ 'Overig' if nl else 'Other' }}</h2>
 <ul>
  <li>{{ 'Hoe we met gegevens omgaan staat in ons' if nl else 'How we handle data is explained in our' }} <a href="{{ U('privacy') }}">{{ 'privacybeleid' if nl else 'privacy policy' }}</a>.</li>
  <li>{{ 'We kunnen deze voorwaarden aanpassen; de actuele versie staat altijd op deze pagina. Op deze voorwaarden is Surinaams recht van toepassing.' if nl else 'We may change these terms; the current version is always on this page. These terms are governed by the law of Suriname.' }}</li>
  <li>{{ 'Vragen?' if nl else 'Questions?' }} <a href="{{ U('contact') }}">{{ L('contact') }}</a></li>
 </ul>
-<p class="asof">{{ 'Versie van' if nl else 'Version of' }} {{ date('2026-10-18') }}.</p>
+<p class="asof">{{ 'Versie van' if nl else 'Version of' }} {{ date('2026-10-25') }}.</p>
 </div>
 {% endblock %}

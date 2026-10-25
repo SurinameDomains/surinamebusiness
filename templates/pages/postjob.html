@@ -85,6 +85,7 @@
 
  <div data-f="rules" style="margin-top:16px"><label class="check"><input type="checkbox" name="rules" value="yes" required> <span>{{ 'Dit is een echte vacature bij deze werkgever en kandidaten betalen niets om te solliciteren. Ik ga akkoord met de regels hiernaast.' if nl else 'This is a real vacancy at this employer and candidates pay nothing to apply. I agree to the rules on this page.' }}</span></label><div class="msg">{{ 'Vink dit aan om door te gaan.' if nl else 'Tick this box to continue.' }}</div></div>
  <div data-f="captcha" style="margin-top:14px"><div id="ts"></div><div class="msg">{{ 'De controle is mislukt. Probeer het opnieuw.' if nl else 'The check failed. Please try again.' }}</div></div>
+ <p class="sub small form-legal">{% if nl %}Je naam en e-mail zijn niet openbaar. Zie de <a href="{{ U('privacy') }}">privacyverklaring</a> en <a href="{{ U('terms') }}">voorwaarden</a>.{% else %}Your name and email are not public. See the <a href="{{ U('privacy') }}">privacy policy</a> and <a href="{{ U('terms') }}">terms</a>.{% endif %}</p>
  <button class="btn inline" type="submit" id="pj-btn" style="margin-top:14px">{{ 'Vacature indienen' if nl else 'Submit vacancy' }}</button>
  <div class="form-status" id="pj-status" role="status" aria-live="polite"></div>
 </form>

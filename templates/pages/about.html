@@ -18,7 +18,12 @@
  <li>{{ 'We nemen geen artikelen over; we tonen koppen en linken naar de uitgever.' if nl else 'We do not copy articles; we show headlines and link to the publisher.' }}</li>
  <li>{{ 'We zijn onafhankelijk van banken, cambio\'s en overheid. Er zijn geen betaalde plaatsingen in de lijsten.' if nl else 'We are independent of banks, cambios and the government. There are no paid placements in the lists.' }}</li>
 </ul>
-<p>{{ 'Suriname Business is onderdeel van de Explore group, de makers van' if nl else 'Suriname Business is part of the Explore group, the makers of' }} <a href="{{ explore_url }}" rel="noopener">Explore Suriname</a>.</p>
-<p><a href="{{ U('sources') }}">{{ L('sources') }}</a> &middot; <a href="{{ U('contact') }}">{{ L('contact') }}</a></p>
+<h2>{{ 'Waarom het gratis is' if nl else 'Why it is free' }}</h2>
+<p>{{ 'Ondernemers in Suriname betalen al genoeg voor software die niet voor hier gemaakt is: geen SRD, geen Surinaamse loonbelasting, geen AOV. De tools draaien in je eigen browser, dus ze kosten ons bijna niets om aan te bieden. Er zijn geen advertenties en geen betaalde plaatsingen.' if nl else 'Businesses in Suriname already pay enough for software that was not made for here: no SRD, no Surinamese wage tax, no AOV. The tools run in your own browser, so they cost us almost nothing to offer. There are no ads and no paid placements.' }}</p>
+<h2>{{ 'Fouten en correcties' if nl else 'Errors and corrections' }}</h2>
+<p>{{ 'Zie je een cijfer dat niet klopt, een regel die veranderd is of een bedrijf dat verhuisd is? Laat het weten via het' if nl else 'Spotted a figure that is wrong, a rule that changed or a business that moved? Tell us through the' }} <a href="{{ U('contact') }}">{{ 'contactformulier' if nl else 'contact form' }}</a>{{ ', met de bron als je die hebt. We passen het aan, zetten de nieuwe controledatum erbij en antwoorden je. Elk januari lopen we alle belastingtabellen, het minimumloon en de feestdagen opnieuw na.' if nl else ', with the source if you have it. We fix it, add the new check date and reply to you. Every January we go through all tax tables, the minimum wage and the holidays again.' }}</p>
+<h2>{{ 'Wie erachter zit' if nl else 'Who is behind it' }}</h2>
+<p>{{ 'Suriname Business wordt gemaakt in Paramaribo en is onderdeel van de Explore group, de makers van' if nl else 'Suriname Business is made in Paramaribo and is part of the Explore group, the makers of' }} <a href="{{ explore_url }}" rel="noopener">Explore Suriname</a>. {{ 'Explore Suriname is er voor bezoekers en reizigers; Suriname Business voor wie hier werkt en zaken doet.' if nl else 'Explore Suriname is for visitors and travellers; Suriname Business is for people who work and do business here.' }}</p>
+<p><a href="{{ U('sources') }}">{{ L('sources') }}</a> &middot; <a href="{{ U('contact') }}">{{ L('contact') }}</a> &middot; <a href="{{ U('privacy') }}">{{ L('privacy') }}</a></p>
 </div>
 {% endblock %}

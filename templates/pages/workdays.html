@@ -11,6 +11,7 @@
  </form>
  <div class="result" id="wd-out" aria-live="polite"></div>
 </div>
+{% if note %}<section class="prose tool-note" style="margin-top:28px"><h2>{{ note.h }}</h2>{{ note.body|safe }}</section>{% endif %}
 <p class="asof">{{ 'Feestdagen zoals op' if nl else 'Holidays as listed on' }} <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
 {% endblock %}
 {% block scripts %}

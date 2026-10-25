@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
-{# Home, v4 (24 Oct 2026). Task first: one search box that answers while you type, the six most used tasks, today's figures.
+{# Home, v5 (25 Oct 2026): the next three tax dates fill the intro, the customs rate joins Today.
+   Home, v4 (24 Oct 2026). Task first: one search box that answers while you type, the six most used tasks, today's figures.
    Below it every tool by group, what is open now (tenders, jobs, news), and the guides. One subject per panel. #}
 {% block hero %}
 <section class="intro">
  <div class="wrap intro-grid">
-  <div>
+  <div class="intro-main">
    <h1>{% if nl %}Zakendoen in Suriname{% else %}Doing business in Suriname{% endif %}</h1>
    <p class="lead">{% if nl %}{{ TM.TOTAL }} gratis tools, de koers van vandaag, vacatures en aanbestedingen. Met de bron erbij.{% else %}{{ TM.TOTAL }} free tools, today's exchange rate, jobs and tenders. With the source next to each figure.{% endif %}</p>
    <form class="hs hs-hero" action="{{ '/zoeken' if nl else '/en/search' }}" method="get" role="search" autocomplete="off">
@@ -17,22 +18,28 @@
     {% for k in ['invoice','salary','quote','payslip','rates','postjob'] %}<li><a href="{{ U(k) }}">{{ kicon(k) }}{% if k == 'rates' %}{{ 'Koers omrekenen' if nl else 'Convert currency' }}{% elif k == 'postjob' %}{{ 'Vacature plaatsen' if nl else 'Post a job' }}{% elif k == 'salary' %}{{ 'Netto salaris' if nl else 'Net salary' }}{% else %}{{ L(k) }}{% endif %}</a></li>{% endfor %}
    </ul>
   </div>
-
   <aside class="today-panel" aria-labelledby="tp-h">
    <div class="tp-head"><span id="tp-h">{{ 'Vandaag' if nl else 'Today' }}</span><span class="tp-date">{{ date(today, weekday=True) }}</span></div>
    {% if rates and not rates.stale %}
    <a class="tp-row" href="{{ U('rates') }}"><span>{{ 'Dollar, verkoop' if nl else 'US dollar, sell' }}</span><b>{{ num(rates.usd.sell) }}</b></a>
    <a class="tp-row" href="{{ U('rates') }}"><span>{{ 'Euro, verkoop' if nl else 'Euro, sell' }}</span><b>{{ num(rates.eur.sell) }}</b></a>
+   {% if mkt and mkt.douane and mkt.douane.current %}<a class="tp-row" href="{{ U('douane') }}"><span>{{ 'Douanekoers dollar' if nl else 'Customs rate, dollar' }}</span><b>{{ num(mkt.douane.usd) }}</b></a>{% endif %}
    {% else %}
    <a class="tp-row" href="{{ U('rates') }}"><span>{{ 'Wisselkoers' if nl else 'Exchange rate' }}</span><b>&rarr;</b></a>
    {% endif %}
    <a class="tp-row" href="{{ U('jobs') }}"><span>{{ 'Open vacatures' if nl else 'Open jobs' }}</span><b>{{ jobs['items']|length }}</b></a>
    <a class="tp-row" href="{{ U('tenders') }}"><span>{{ 'Open aanbestedingen' if nl else 'Open tenders' }}</span><b>{{ tenders.count }}</b></a>
-   {% if hol.next %}<a class="tp-row" href="{{ U('holidays') }}"><span>{{ 'Volgende vrije dag' if nl else 'Next holiday' }}</span><b class="tp-txt">{{ hol.next.name }}, {{ date(hol.next.date, year=False) }}{% if hol.next.status == 'expected' %} <span class="sub">({{ 'verwacht' if nl else 'expected' }})</span>{% endif %}</b></a>{% endif %}
+   {% if hol.next %}<a class="tp-row" href="{{ U('holidays') }}"><span>{{ 'Vrije dag' if nl else 'Next holiday' }}</span><b class="tp-txt">{{ hol.next.name }}, {{ date(hol.next.date, year=False) }}{% if hol.next.status == 'expected' %} <span class="sub">({{ 'verwacht' if nl else 'expected' }})</span>{% endif %}</b></a>{% endif %}
    {% set ups = (outages.notices if outages else [])|selectattr('date','ge',today)|selectattr('slots')|list %}
    {% if ups %}{% set n = ups[0] %}{% set s = n.slots[0] %}<a class="tp-row" href="{{ U('outages') }}"><span>{{ 'Stroomonderbreking' if nl else 'Power outage' }}</span><b class="tp-txt">{% if n.date == today %}{{ 'vandaag' if nl else 'today' }}{% else %}{{ date(n.date, year=False) }}{% endif %}, {{ s.district }}</b></a>{% endif %}
    <p class="tp-src">{% if rates %}{{ 'Koers' if nl else 'Rate' }}: CME, {{ date(rates.business_date, year=False) }} &middot; {% endif %}{{ 'bijgewerkt' if nl else 'updated' }} {{ built_sr[-5:] }}</p>
   </aside>
+  <section class="dl-strip" aria-labelledby="dl-h">
+   <div class="dl-head"><h2 id="dl-h">{{ 'Belastingdata' if nl else 'Tax dates' }}</h2><a href="{{ U('deadlines') }}">{{ 'Alle data, ook in je agenda' if nl else 'All dates, also for your calendar' }} &rarr;</a></div>
+   <ol class="dl-row">
+   {% for d in deadlines %}<li><a href="{{ U('deadlines') }}"><span class="dl-d"><b>{{ d.day }}</b> {{ d.mon }}</span><span class="dl-t">{{ d.title }}</span><span class="dl-p">{% if d.kind != 'ib' %}{{ 'over' if nl else 'for' }} {{ d.period }} &middot; {% endif %}{% if d.days == 0 %}<em>{{ 'vandaag' if nl else 'today' }}</em>{% elif d.days == 1 %}<em>{{ 'morgen' if nl else 'tomorrow' }}</em>{% elif d.days <= 7 %}<em>{{ 'nog' if nl else 'in' }} {{ d.days }} {{ 'dagen' if nl else 'days' }}</em>{% else %}{{ 'nog' if nl else 'in' }} {{ d.days }} {{ 'dagen' if nl else 'days' }}{% endif %}</span></a></li>{% endfor %}
+   </ol>
+  </section>
  </div>
 </section>
 {% endblock %}

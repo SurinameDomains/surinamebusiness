@@ -55,6 +55,7 @@
   <label class="check"><input type="checkbox" name="consent" id="ab-consent" required> {{ 'Deze gegevens kloppen en mogen op Suriname Business staan.' if nl else 'These details are correct and may appear on Suriname Business.' }}</label>
  </fieldset>
 
+ <p class="sub small form-legal">{% if nl %}Je naam en e-mail zijn niet openbaar. Zie de <a href="{{ U('privacy') }}">privacyverklaring</a> en <a href="{{ U('terms') }}">voorwaarden</a>.{% else %}Your name and email are not public. See the <a href="{{ U('privacy') }}">privacy policy</a> and <a href="{{ U('terms') }}">terms</a>.{% endif %}</p>
  <button class="btn inline" type="submit" id="ab-btn" style="margin-top:14px">{{ 'Aanmelden' if nl else 'Submit' }}</button>
  <div class="form-status" id="ab-status" role="status" aria-live="polite"></div>
 </form>
