@@ -635,7 +635,7 @@ def add_toc(html, lang):
 # ---------------------------------------------------------------- schema
 def schema_for(key, lang, meta_title, desc, canonical):
     org = {"@type": "Organization", "@id": SITE_URL + "/#org", "name": "Suriname Business",
-           "url": SITE_URL + "/", "logo": SITE_URL + "/assets/apple-touch-icon.png",
+           "url": SITE_URL + "/", "logo": SITE_URL + "/assets/icon-512.png",
            "email": CONTACT_EMAIL_SCHEMA,
            "parentOrganization": {"@type": "Organization", "name": "Explore group"}}
     page = {"@type": "WebPage", "@id": canonical + "#page", "url": canonical, "name": meta_title,

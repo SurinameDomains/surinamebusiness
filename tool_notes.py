@@ -352,6 +352,120 @@ NOTES = {
          "incl. VAT\" at the bottom.</li><li>Share the PDF in your WhatsApp status and put the QR code on the table or "
          "counter. When a price changes, make a new PDF with the date on it.</li></ul>"),
         []),
+    "vatcalc": (
+        ("BTW zelf narekenen",
+         f"<ul><li><b>BTW erbij:</b> bedrag zonder BTW maal 1,{_VAT_STD:02d} bij {_VAT_STD}%. SRD 1.000 wordt SRD 1.100.</li>"
+         f"<li><b>BTW eruit:</b> bedrag met BTW gedeeld door 1,{_VAT_STD:02d}. In SRD 1.100 zit SRD 100 BTW, dat is 1/11 van het "
+         "totaal, niet 10%.</li><li><b>Welk tarief:</b> het algemene tarief geldt voor bijna alles. Het lage tarief geldt "
+         "onder meer voor water, stroom en kookgas; het hoge tarief voor luxegoederen uit de bijlage bij de wet.</li>"
+         f"<li><b>Wie BTW rekent:</b> alleen wie bij de Belastingdienst voor BTW is geregistreerd. Boven SRD "
+         f"{_nl_num(_V['threshold_srd'])[:-3]} omzet per jaar is registratie verplicht.</li><li>Rond per factuurregel af op "
+         "hele centen en tel daarna op. Zo klopt je factuur met je BTW-aangifte.</li></ul>"),
+        ("Checking VAT yourself",
+         f"<ul><li><b>Adding VAT:</b> amount without VAT times 1.{_VAT_STD:02d} at {_VAT_STD}%. SRD 1,000 becomes SRD 1,100.</li>"
+         f"<li><b>Removing VAT:</b> amount with VAT divided by 1.{_VAT_STD:02d}. SRD 1,100 contains SRD 100 VAT, which is 1/11 "
+         "of the total, not 10%.</li><li><b>Which rate:</b> the standard rate applies to almost everything. The low rate "
+         "covers water, electricity and cooking gas among others; the high rate covers luxury goods listed in the "
+         "annex to the law.</li><li><b>Who charges VAT:</b> only businesses registered for VAT with the tax office. "
+         f"Above SRD {_V['threshold_srd']:,} turnover a year registration is mandatory.</li><li>Round each invoice line to "
+         "whole cents, then add up. That keeps your invoices in line with your VAT return.</li></ul>"),
+        [(("Hoeveel BTW zit er in een bedrag inclusief 10%?",
+           "Deel het bedrag door 11. In SRD 550 inclusief BTW zit SRD 50 BTW en SRD 500 zonder BTW."),
+          ("How much VAT is in an amount including 10%?",
+           "Divide the amount by 11. SRD 550 including VAT contains SRD 50 VAT and SRD 500 without VAT."))]),
+
+    "hourly": (
+        ("Uurloon, dagloon en het minimum",
+         f"<p>Het minimumuurloon is SRD {_nl_num(_MW)} sinds 1 juli 2026. Werkgevers mogen niet minder betalen, ook niet aan "
+         "parttimers of dagloners.</p>"
+         "<ul><li>Een volle werkweek is 40 uur; een maand telt gemiddeld 173 uur.</li><li>Dagloon is meestal 8 uur maal het "
+         "uurloon. Wie per dag betaald wordt, krijgt alleen de dagen die gewerkt zijn, dus het maandbedrag schommelt.</li>"
+         "<li>Overuren boven de normale arbeidstijd betaal je met een toeslag. De overuren-calculator rekent die uit.</li>"
+         "<li>Wat de werknemer netto overhoudt, hangt af van loonbelasting en AOV. Die rekent de netto-salaris-calculator "
+         "uit.</li></ul>"),
+        ("Hourly pay, daily pay and the minimum",
+         f"<p>The minimum hourly wage is SRD {_MW:.2f} since 1 July 2026. Employers may not pay less, also not to part-timers "
+         "or day workers.</p>"
+         "<ul><li>A full working week is 40 hours; a month averages 173 hours.</li><li>A day rate is usually 8 hours times the "
+         "hourly wage. People paid by the day only get the days worked, so the monthly amount varies.</li><li>Overtime above "
+         "normal working hours is paid with a premium. The overtime calculator works it out.</li><li>What the employee keeps "
+         "depends on wage tax and AOV. The net salary calculator works that out.</li></ul>"),
+        [(("Wat is het minimumloon per maand in Suriname?",
+           f"Bij 40 uur per week ongeveer SRD {_nl_num(_MW * 40 * 52 / 12)} bruto per maand (SRD {_nl_num(_MW)} maal 173,3 uur)."),
+          ("What is the monthly minimum wage in Suriname?",
+           f"At 40 hours a week about SRD {_MW * 40 * 52 / 12:,.2f} gross a month (SRD {_MW:.2f} times 173.3 hours)."))]),
+
+    "roi": (
+        ("Wat je meetelt bij een investering",
+         "<ul><li><b>Alle kosten:</b> aanschaf, installatie, transport en invoerkosten, niet alleen de prijs in de winkel.</li>"
+         "<li><b>Lopende kosten</b> trek je af van de opbrengst: brandstof en onderhoud van een generator, verzekering van "
+         "een voertuig, vervanging van accu's bij zonnepanelen.</li><li><b>Valuta:</b> koop je in dollars en verdien je in SRD, "
+         "dan verandert je terugverdientijd met de koers. Reken ook eens met een hogere koers.</li><li><b>Besparing telt als "
+         "opbrengst:</b> zonnepanelen die je EBS-rekening verlagen of een machine die een werknemer uitspaart.</li>"
+         "<li>Duurt het terugverdienen langer dan de levensduur van wat je koopt, dan is het geen goede investering.</li></ul>"),
+        ("What to count in an investment",
+         "<ul><li><b>All costs:</b> purchase, installation, transport and import costs, not just the shop price.</li>"
+         "<li><b>Running costs</b> come off the return: fuel and maintenance for a generator, insurance for a vehicle, "
+         "replacement batteries for solar panels.</li><li><b>Currency:</b> if you buy in dollars and earn in SRD, the payback "
+         "time moves with the exchange rate. Try a higher rate too.</li><li><b>Savings count as return:</b> solar panels "
+         "that lower your EBS bill, or a machine that saves a worker.</li><li>If payback takes longer than the life of what "
+         "you buy, it is not a good investment.</li></ul>"),
+        []),
+
+    "depreciation": (
+        ("Afschrijven in de praktijk",
+         "<p>Afschrijven verdeelt de kosten van iets wat je jaren gebruikt over die jaren. Lineair: (aanschafprijs min "
+         "restwaarde) gedeeld door het aantal jaren. Een auto van SRD 600.000 met SRD 100.000 restwaarde over 5 jaar is "
+         "SRD 100.000 per jaar.</p>"
+         "<ul><li>Grond schrijf je niet af; een gebouw wel, over een lange periode.</li><li>Kleine aankopen boek je meestal "
+         "meteen als kosten. Je accountant weet welke grens de Belastingdienst aanhoudt.</li><li>De afschrijving is een "
+         "kostenpost in je winst-en-verliesrekening, maar er gaat geen geld je rekening af. Daarom is je winst lager dan je "
+         "kasstroom.</li><li>Verkoop je het bedrijfsmiddel, dan is het verschil tussen verkoopprijs en boekwaarde winst of "
+         "verlies.</li></ul>"),
+        ("Depreciation in practice",
+         "<p>Depreciation spreads the cost of something you use for years over those years. Straight-line: (cost minus "
+         "residual value) divided by the number of years. A car of SRD 600,000 with SRD 100,000 residual value over 5 years "
+         "is SRD 100,000 a year.</p>"
+         "<ul><li>Land is not depreciated; a building is, over a long period.</li><li>Small purchases are usually expensed "
+         "at once. Your accountant knows which limit the tax office uses.</li><li>Depreciation is a cost in your profit and "
+         "loss account, but no money leaves your account. That is why profit is lower than cash flow.</li><li>When you "
+         "sell the asset, the difference between sale price and book value is a gain or a loss.</li></ul>"),
+        []),
+
+    "cashflow": (
+        ("Vaste momenten waarop er geld uitgaat",
+         "<ul><li><b>Loonbelasting en AOV</b> over de vorige maand: uiterlijk de 10e.</li><li><b>BTW</b> over de vorige "
+         "maand: uiterlijk de 15e.</li><li><b>Inkomstenbelasting:</b> voorlopige termijnen in april, juli, oktober en "
+         "december.</li><li><b>Invoer:</b> invoerrechten en heffingen betaal je voordat de douane de goederen vrijgeeft, "
+         "vaak weken voordat je ze verkoopt.</li><li><b>December:</b> een eindejaarsuitkering (als je die geeft) en "
+         "voorraad voor de feestdagen vallen vaak samen.</li></ul>"
+         "<p>Zet deze bedragen als eerste in de planner. Zakt je saldo ergens onder nul, dan weet je maanden van tevoren "
+         "dat je een krediet, een aanbetaling van een klant of uitstel bij een leverancier nodig hebt.</p>"),
+        ("Fixed moments when money goes out",
+         "<ul><li><b>Wage tax and AOV</b> for the previous month: by the 10th.</li><li><b>VAT</b> for the previous month: "
+         "by the 15th.</li><li><b>Income tax:</b> provisional instalments in April, July, October and December.</li>"
+         "<li><b>Imports:</b> duties and levies are paid before customs releases the goods, often weeks before you sell "
+         "them.</li><li><b>December:</b> a year-end bonus (if you pay one) and holiday stock often come together.</li></ul>"
+         "<p>Enter these amounts first. If your balance drops below zero anywhere, you know months ahead that you need "
+         "credit, a customer deposit or more time from a supplier.</p>"),
+        []),
+
+    "savings": (
+        ("Rente, inflatie en valuta",
+         "<ul><li><b>Rente op rente:</b> de rente wordt bij je saldo opgeteld en levert daarna zelf rente op. Hoe langer "
+         "je spaart, hoe groter dat effect.</li><li><b>Echte opbrengst:</b> trek de inflatie af van de rente. Stijgen de "
+         "prijzen sneller dan je rente, dan kun je met je spaargeld later minder kopen.</li><li><b>SRD, USD of EUR:</b> "
+         "sparen in dollars of euro's beschermt tegen een dalende SRD, maar de rente is meestal lager.</li>"
+         "<li><b>Termijndeposito:</b> een hogere rente voor een vaste periode. Haal je het geld eerder op, dan kost dat "
+         "meestal rente of een boete.</li><li>Vraag je bank naar de rente na kosten en of er belasting wordt ingehouden.</li></ul>"),
+        ("Interest, inflation and currency",
+         "<ul><li><b>Compound interest:</b> interest is added to your balance and then earns interest itself. The longer "
+         "you save, the bigger the effect.</li><li><b>Real return:</b> subtract inflation from the interest rate. If prices "
+         "rise faster than your interest, your savings buy less later.</li><li><b>SRD, USD or EUR:</b> saving in dollars "
+         "or euros protects against a falling SRD, but the rate is usually lower.</li><li><b>Term deposit:</b> a higher "
+         "rate for a fixed period. Taking the money out early usually costs interest or a penalty.</li><li>Ask your bank "
+         "for the rate after fees and whether tax is withheld.</li></ul>"),
+        []),
 }
 
 
