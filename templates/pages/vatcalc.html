@@ -16,6 +16,7 @@
 </div>
 <div class="prose">
 <p><a href="{{ U('vatguide') }}"><b>{{ 'Alles over BTW in Suriname: tarieven, registratie en aangifte' if nl else 'Everything about VAT in Suriname: rates, registration and filing' }} &rarr;</b></a></p>
+{% if note %}<section class="prose tool-note" style="margin-top:28px"><h2>{{ note.h }}</h2>{{ note.body|safe }}</section>{% endif %}
 <p class="asof">{{ 'Bron' if nl else 'Source' }}: <a href="{{ F.VAT.sources[0][1] }}" rel="noopener">{{ F.VAT.sources[0][0] }}</a>. {{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
 </div>
 {% endblock %}
