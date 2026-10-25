@@ -95,8 +95,7 @@
   </div>
   <div class="group">
    <span>&copy; {{ year }} Suriname Business. {{ 'Onderdeel van de' if lang=='nl' else 'Part of the' }} Explore group &middot; <a href="https://exploresuriname.com" rel="noopener">Explore Suriname</a></span>
-   {% if settings.get('support_whatsapp') %}<span><a href="https://wa.me/{{ settings.get('support_whatsapp')|replace('+','')|replace(' ','') }}" rel="noopener">WhatsApp support</a></span>{% endif %}
-   <span><a href="{{ U('privacy') }}">Privacy</a> &middot; <a href="{{ U('terms') }}">{{ 'Voorwaarden' if lang=='nl' else 'Terms' }}</a> &middot; <button type="button" class="linkish" data-cc>{{ 'Cookie-instellingen' if lang=='nl' else 'Cookie settings' }}</button></span>
+   <span>{% if settings.get('support_whatsapp') %}<a href="https://wa.me/{{ settings.get('support_whatsapp')|replace('+','')|replace(' ','') }}" rel="noopener">WhatsApp support</a> &middot; {% endif %}<a href="{{ U('privacy') }}">Privacy</a> &middot; <a href="{{ U('terms') }}">{{ 'Voorwaarden' if lang=='nl' else 'Terms' }}</a> &middot; <button type="button" class="linkish" data-cc>{{ 'Cookie-instellingen' if lang=='nl' else 'Cookie settings' }}</button></span>
    <span>{{ 'Laatst bijgewerkt' if lang=='nl' else 'Last updated' }} <span class="tnum">{{ built_sr }}</span> SRT</span>
   </div>
  </div>
