@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T21:36:51+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Marine Le Pen wil opnieuw naar olie zoeken in Frankrijk",
+   "url": "https://www.dbsuriname.com/2026/10/25/marine-le-pen-wil-opnieuw-naar-olie-zoeken-in-frankrijk/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-25T19:28:34+00:00",
    "source": "Suriname Herald",
    "title": "Jaloezie eindigt in ziekenhuisopname: vrouw gooit hete olie over vriend",
@@ -412,17 +419,17 @@
    "source": "Starnieuws",
    "title": "Chinese economie groeit 4,5 procent in derde kwartaal, ondanks zwakke binnenlandse vraag",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94443"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T18:29:00+00:00",
-   "source": "Starnieuws",
-   "title": "Een sterkere Belastingdienst, maar voor wie?",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94424"
   }
  ],
- "fetched_at": "2026-10-25T20:15:30+00:00",
+ "fetched_at": "2026-10-25T22:02:45+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-25T21:36:51+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Marine Le Pen wil opnieuw naar olie zoeken in Frankrijk",
+   "url": "https://www.dbsuriname.com/2026/10/25/marine-le-pen-wil-opnieuw-naar-olie-zoeken-in-frankrijk/"
+  },
   {
    "econ": false,
    "published": "2026-10-25T19:28:34+00:00",
@@ -560,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T20:15:28+00:00",
+   "fetched_at": "2026-10-25T22:02:44+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-10-25T20:15:26+00:00",
+   "fetched_at": "2026-10-25T22:02:43+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T20:15:28+00:00",
+   "fetched_at": "2026-10-25T22:02:44+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T20:15:29+00:00",
+   "fetched_at": "2026-10-25T22:02:44+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T20:15:27+00:00",
+   "fetched_at": "2026-10-25T22:02:44+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T20:15:30+00:00",
+   "fetched_at": "2026-10-25T22:02:45+00:00",
    "ok": true
   }
  }
