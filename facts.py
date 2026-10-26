@@ -210,7 +210,7 @@ CONTACTS = [
     {"group": "business", "name": ("Surinaams Standaarden Bureau (SSB)", "Suriname Standards Bureau (SSB)"),
      "addr": "Frederik Derbystraat 81, Paramaribo", "phone": "499928 / 499929", "web": "https://www.ssb.sr/"},
     {"group": "business", "name": ("Suriname Business Forum (SBF)", "Suriname Business Forum (SBF)"),
-     "addr": "Anton Drachtenweg 68 (RCR Medical Centre, 1e etage), Paramaribo", "phone": "852 0258 / 818 4065", "web": "https://www.surinamebusinessforum.com/"},
+     "addr": "Anton Drachtenweg 68 (RCR Medical Centre, 1e etage), Paramaribo", "phone": "852 0258 / 818 4065"},
 ]
 CONTACT_SOURCES = [
     ("Belastingdienst Suriname: contact", "https://belastingdienst.sr/contact/"),
