@@ -43,11 +43,11 @@ Businesses add themselves or correct their entry at `/bedrijf-aanmelden` (`/en/a
 
 ## Design system (assets/style.css)
 
-- Design v4 (24 Oct 2026), "framed utility": an indigo bar with the wordmark (`assets/wordmark-light.svg`, the SB tile and Source Sans 3 outlines since 25 Oct), a site search with suggestions and today's USD/EUR; a white navigation row (four menus plus Vacatures and Aanbestedingen); a light grey page (`--bg`) with white panels; an indigo footer. One sans, **Source Sans 3** (self-hosted, tabular lining figures), for all text.
+- Design v4 (24 Oct 2026), "framed utility": an indigo bar with the Waterkant logo (`assets/logo-h-dark.svg`, stacked `logo-s-dark.svg` on phones, since 26 Oct), a site search with suggestions and today's USD/EUR; a white navigation row (four menus plus Vacatures and Aanbestedingen); a light grey page (`--bg`) with white panels; an indigo footer. One sans, **Source Sans 3** (self-hosted, tabular lining figures), for all text.
 - Icons: one distinct 24px line icon per tool and section (`tools_meta.ICONS`, `ICON_OF`, `GROUP_ICON`; templates use `kicon(key)` and `gicon(group)`).
 - Colour has a job: indigo for brand, actions and the current place; red #b2341b for urgent deadlines; green for new and verified. Form fields have 3:1 borders (`--field`), focus is a 3px ring, every row and button is at least 44px tall.
 - Search: every `form.hs` (header, drawer, home) suggests results while typing from `/assets/search-<lang>.json`; the directory search list is `/assets/companies-<lang>.json`, loaded on first use.
-- Icons and PWA: `favicon.svg` and `/favicon.ico` (16, 32, 48) are a bold SB monogram that stays sharp at 16px; `icon-192.png`, `icon-512.png`, `icon-512-maskable.png` and `apple-touch-icon.png` are full-bleed (no transparent corners) with the monogram inside the maskable safe zone, so they fill round and square launcher shapes.
+- Icons and PWA: `favicon.svg` and `/favicon.ico` (16, 32, 48) are the Waterkant mark without doors; app icons are full-bleed indigo squares, the maskable ones with the mark inside the safe zone.
 - Checked with axe-core (WCAG 2.2 AA, 0 violations on every page type at 375 and 1366px), html-validate, Lighthouse and a no-overflow test at 320 to 1366px.
 - Phones (≤1000px): header is logo + search + menu; the menu is a full-height drawer with search, today's USD/EUR, the four sections as accordions (the current section opens itself), account and language. A fixed bottom tab bar (Home, Tools, Vacatures, Koers, Menu) exposes the main destinations; `--tabbar` pads the body and lifts the toast. Nothing scrolls sideways; tables marked `.stack` become label/value rows.
 - Every class name is stable: templates and `assets/*.js` build markup with them (`.card`, `.btn`, `.pill`, `.tbl`, `.calc`, `.result`, `.paper`, `.sba-dlg`, …). Change values, not names.
@@ -61,9 +61,16 @@ Businesses add themselves or correct their entry at `/bedrijf-aanmelden` (`/en/a
 - sb-api cron deletes contact messages after 12 months and strips submitter name, email, role and IP hash from listing submissions after 12 months (promised on /privacy).
 - GA4 data retention (Admin > Data collection and modification > Data retention): event data 2 months, user data 14 months; /privacy states the 14-month maximum. Keep them in step.
 
-## Logo (25 Oct 2026)
+## Identity "Waterkant" (26 Oct 2026)
 
-Saffron (#f2b134) square with "SB" in indigo, next to "Suriname Business" in Source Sans 3 Bold. All files are outlines generated from `assets/fonts/SourceSans3.woff2` (fontTools + HarfBuzz): `wordmark-light.svg`, `favicon.svg`, `favicon.ico` (16/32/48), `icon-192/512/512-maskable.png`, `apple-touch-icon.png`, `og.png`, `og-en.png`. The serif wordmark with the coloured full stop was retired as a typical AI-site look.
+The logo is three Paramaribo wooden houses (steep 45° gable, door in the middle) rising like a bar chart, the tallest in gold, standing on a brick street line that runs on under the name "Suriname Business" in Zilla Slab Bold. Design board with story, rules and applications: the "Suriname Business logo" canvas in AB's Claude artifacts.
+
+- Files (all outlines, no font needed): `assets/logo-h-dark.svg` (horizontal, for indigo; header and footer), `logo-s-dark.svg` (stacked; phone header), `logo-h-light.svg` / `logo-s-light.svg` (for white or cream; the gold deepens to #E0A21F), `logo-mark.svg` (mark in an indigo tile), `favicon.svg` and `/favicon.ico` (16/32/48, doors dropped, thicker street), `icon-192/512.png`, `icon-192/512-maskable.png` (mark inside the safe zone), `apple-touch-icon.png`, `og.png` / `og-en.png` (headline in Zilla Slab, street skyline along the bottom), `street.svg` (skyline pattern, footer top). `wordmark-light.svg` is a copy of `logo-h-dark.svg` for old references.
+- Geometry: houses 26 wide with 3 between, heights 32/44/58, roof height half the width (45°), door 5.2 × 11, street 4.5 high. Name cap height = 1.25 × the small house's wall. Generated with fontTools + HarfBuzz from Zilla Slab Bold.
+- Rules: one gold house, always the tallest, always on the right; the street line spans the full lockup; horizontal from 140 px wide, stacked from 96 px; clear space = height of the small house.
+- Colour: Nacht #1F2251 (the site's indigo), Hout #FBF5E6 (houses), Lamp #F2B134 (gold house), Baksteen #B5452B (street line; `--accent`, `--accent-ink` #9A3A24 for small text, 6.99:1 on white). Brick on indigo is 2.7:1: line only, never text. Persimmon is retired.
+- Type: Zilla Slab Bold (`assets/fonts/ZillaSlab-Bold.woff2`, Latin subset, 20 KB, preloaded, SIL OFL in `OFL-ZillaSlab.txt`) for h1, h2 and panel heads via `--display`; Source Sans 3 for everything else. A Georgia fallback with adjusted metrics keeps headings from jumping (CLS 0 on phones in a throttled test).
+- Not changed on purpose: the sb-jobs worker's email button colour (persimmon, needs a manual `wrangler deploy`), the business card tool's default accent (a user setting).
 
 ## Local
 
