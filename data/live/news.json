@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-26T13:20:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Prijslijst groenten maandag 26 oktober 2026",
+   "url": "https://www.dbsuriname.com/?p=605436"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-26T13:15:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "DNA-lid Pawiroredjo legt mogelijk causaal verband landbouwchemicaliën en darmkanker",
+   "url": "https://www.dbsuriname.com/?p=605432"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-26T13:10:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Surinaamse groente-export naar EU in diepe crisis",
+   "url": "https://www.dbsuriname.com/?p=605428"
+  },
+  {
+   "econ": false,
    "published": "2026-10-26T11:51:00+00:00",
    "source": "Starnieuws",
    "title": "Krin Kondre-team intensiveert handhaving op bermen en bij bedrijven",
@@ -398,30 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Nieuwe EU-regels bedreigen buitenlandse bankrekeningen",
    "url": "https://www.dbsuriname.com/2026/10/20/nieuwe-eu-regels-bedreigen-buitenlandse-bankrekeningen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T06:04:00+00:00",
-   "source": "Starnieuws",
-   "title": "Colombia: 14 doden bij instorting illegale goudmijn",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94446"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T03:05:03+00:00",
-   "source": "Suriname Herald",
-   "title": "Jones: Nickerie dreigt kansen in olie- en gassector mis te lopen",
-   "url": "https://www.srherald.com/suriname/2026/10/20/jones-nickerie-dreigt-kansen-in-olie-en-gassector-mis-te-lopen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T23:52:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Regering investeert 600.000 euro in Basis Acute Zorgopleiding AZP",
-   "url": "https://dwtonline.com/regering-investeert-600-000-euro-in-basis-acute-zorgopleiding-azp/"
   }
  ],
- "fetched_at": "2026-10-26T12:45:03+00:00",
+ "fetched_at": "2026-10-26T13:20:58+00:00",
  "oil": [
   {
    "econ": false,
@@ -567,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T12:45:00+00:00",
+   "fetched_at": "2026-10-26T13:20:56+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-10-26T12:44:58+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-26T13:20:54+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T12:45:00+00:00",
+   "fetched_at": "2026-10-26T13:20:55+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T12:45:00+00:00",
+   "fetched_at": "2026-10-26T13:20:57+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T12:45:00+00:00",
+   "fetched_at": "2026-10-26T13:20:55+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T12:45:03+00:00",
+   "fetched_at": "2026-10-26T13:20:58+00:00",
    "ok": true
   }
  }
