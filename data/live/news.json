@@ -421,7 +421,7 @@
    "url": "https://www.dbsuriname.com/2026/10/20/ecd-controleert-landbouwchemicalien-bij-winkels/"
   }
  ],
- "fetched_at": "2026-10-26T17:38:47+00:00",
+ "fetched_at": "2026-10-26T18:46:46+00:00",
  "oil": [
   {
    "econ": false,
@@ -574,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T17:38:45+00:00",
+   "fetched_at": "2026-10-26T18:46:44+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-10-26T17:38:43+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-26T18:46:41+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T17:38:44+00:00",
+   "fetched_at": "2026-10-26T18:46:43+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T17:38:46+00:00",
+   "fetched_at": "2026-10-26T18:46:45+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T17:38:44+00:00",
+   "fetched_at": "2026-10-26T18:46:42+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T17:38:47+00:00",
+   "fetched_at": "2026-10-26T18:46:46+00:00",
    "ok": true
   }
  }
