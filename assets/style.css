@@ -36,7 +36,7 @@
   --font:"Source Sans 3","SS3 Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --display:"Zilla Slab","Zilla Fallback",Georgia,"Times New Roman",serif;   /* names and headlines only */
   --max:1140px;
-  --head-h:64px;             /* part of the header that stays in view: the 64px bar on desktop, 56px on phones */
+  --head-h:72px;             /* part of the header that stays in view: the 72px bar on desktop, 56px on phones */
   --tabbar:0px;              /* set on phones, pads the page above the bottom tab bar */
   --focus:0 0 0 3px rgba(47,52,136,.22);
 }
@@ -71,9 +71,9 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 /* ---------------------------------------------------------------- header
    Desktop: indigo bar (wordmark, site search, today's rate) + white navigation row; the header scrolls away.
    Phones (<=1000px): a sticky 56px indigo bar (wordmark, search, menu); the navigation row becomes a full-height drawer. */
-.top{position:sticky;top:0;z-index:40}   /* the header is only the 64px bar: it stays in view; the navigation row below it scrolls away */
+.top{position:sticky;top:0;z-index:40}   /* the header is only the 72px bar: it stays in view; the navigation row below it scrolls away */
 .bar{background:var(--brand);color:#fff}
-.bar .wrap{display:flex;align-items:center;gap:22px;min-height:64px}
+.bar .wrap{display:flex;align-items:center;gap:22px;min-height:72px}
 .logo{display:flex;align-items:center;flex:none;padding:5px 0;border-radius:4px}
 .wm-img{display:block;height:42px;width:auto}
 .wm-s{display:none}
@@ -1007,6 +1007,9 @@ body.cc-on .sb-sticky{display:none}
 /* desktop: line up the text of the first menu item, the rates and the language link with the page edges (their hover padding sits in the gutter) */
 @media (min-width:1001px){.nav-in{padding-left:12px;padding-right:14px}.bar .wrap{padding-right:14px}}
 /* desktop: one search, in the bar, on every page (home included); the hero keeps its own search only on phones and tablets, whose bar has just an icon */
+/* desktop bar: the logo's name, the search text and the rates share one centre line (38px); the houses rise above it like a skyline.
+   The name sits 10px below the middle of the logo box, so the logo moves up 8px and the other items down 2px. */
+@media (min-width:1001px){.bar .logo{position:relative;top:-8px}.bar .hs-bar,.bar .rate-chip{position:relative;top:2px}}
 @media (min-width:1001px){.pg-home .hs-hero{display:none}.pg-home .intro .qa{margin-top:0}}
 /* quick actions: what each one does, in one short line (desktop; phones keep the compact tiles) */
 .qa-t b{display:block;font-weight:600}
