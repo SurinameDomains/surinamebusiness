@@ -5,14 +5,14 @@
    "published": "2026-10-26T13:20:00+00:00",
    "source": "Dagblad Suriname",
    "title": "Prijslijst groenten maandag 26 oktober 2026",
-   "url": "https://www.dbsuriname.com/?p=605436"
+   "url": "https://www.dbsuriname.com/2026/10/26/prijslijst-groenten-maandag-26-oktober-2026/"
   },
   {
    "econ": false,
    "published": "2026-10-26T13:15:00+00:00",
    "source": "Dagblad Suriname",
    "title": "DNA-lid Pawiroredjo legt mogelijk causaal verband landbouwchemicaliën en darmkanker",
-   "url": "https://www.dbsuriname.com/?p=605432"
+   "url": "https://www.dbsuriname.com/2026/10/26/dna-lid-pawiroredjo-legt-mogelijk-causaal-verband-landbouwchemicalien-en-darmkanker/"
   },
   {
    "econ": false,
@@ -421,7 +421,7 @@
    "url": "https://www.dbsuriname.com/2026/10/20/nieuwe-eu-regels-bedreigen-buitenlandse-bankrekeningen/"
   }
  ],
- "fetched_at": "2026-10-26T13:20:58+00:00",
+ "fetched_at": "2026-10-26T13:37:56+00:00",
  "oil": [
   {
    "econ": false,
@@ -567,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T13:20:56+00:00",
+   "fetched_at": "2026-10-26T13:37:55+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 17,
-   "fetched_at": "2026-10-26T13:20:54+00:00",
+   "fetched_at": "2026-10-26T13:37:52+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T13:20:55+00:00",
+   "fetched_at": "2026-10-26T13:37:54+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T13:20:57+00:00",
+   "fetched_at": "2026-10-26T13:37:55+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T13:20:55+00:00",
+   "fetched_at": "2026-10-26T13:37:53+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T13:20:58+00:00",
+   "fetched_at": "2026-10-26T13:37:56+00:00",
    "ok": true
   }
  }
