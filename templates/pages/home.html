@@ -15,7 +15,8 @@
     <button class="btn" type="submit">{{ 'Zoeken' if nl else 'Search' }}</button>
    </form>
    <ul class="qa" aria-label="{{ 'Veel gebruikt' if nl else 'Most used' }}">
-    {% for k in ['invoice','salary','quote','payslip','rates','postjob'] %}<li><a href="{{ U(k) }}">{{ kicon(k) }}{% if k == 'rates' %}{{ 'Koers omrekenen' if nl else 'Convert currency' }}{% elif k == 'postjob' %}{{ 'Vacature plaatsen' if nl else 'Post a job' }}{% elif k == 'salary' %}{{ 'Netto salaris' if nl else 'Net salary' }}{% else %}{{ L(k) }}{% endif %}</a></li>{% endfor %}
+    {% set QD = {'invoice': ('Met BTW, als PDF','With VAT, as a PDF'), 'salary': ('Bruto naar netto, 2026','Gross to net, 2026 rates'), 'quote': ('In SRD, USD of EUR','In SRD, USD or EUR'), 'payslip': ('Loonbelasting en AOV','Wage tax and AOV'), 'rates': ('CME, CBvS en vijf banken','CME, CBvS, five banks'), 'postjob': ('Gratis, ook in Google Jobs','Free, also in Google Jobs')} %}
+    {% for k in ['invoice','salary','quote','payslip','rates','postjob'] %}<li><a href="{{ U(k) }}">{{ kicon(k) }}<span class="qa-t"><b>{% if k == 'rates' %}{{ 'Koers omrekenen' if nl else 'Convert currency' }}{% elif k == 'postjob' %}{{ 'Vacature plaatsen' if nl else 'Post a job' }}{% elif k == 'salary' %}{{ 'Netto salaris' if nl else 'Net salary' }}{% else %}{{ L(k) }}{% endif %}</b><small>{{ QD[k][0] if nl else QD[k][1] }}</small></span></a></li>{% endfor %}
    </ul>
   </div>
   <aside class="today-panel" aria-labelledby="tp-h">
