@@ -421,7 +421,7 @@
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94445"
   }
  ],
- "fetched_at": "2026-10-26T05:15:48+00:00",
+ "fetched_at": "2026-10-26T11:31:43+00:00",
  "oil": [
   {
    "econ": false,
@@ -567,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T05:15:46+00:00",
+   "fetched_at": "2026-10-26T11:31:41+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-10-26T05:15:44+00:00",
+   "fetched_at": "2026-10-26T11:31:38+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T05:15:46+00:00",
+   "fetched_at": "2026-10-26T11:31:40+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T05:15:47+00:00",
+   "fetched_at": "2026-10-26T11:31:41+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T05:15:45+00:00",
+   "fetched_at": "2026-10-26T11:31:40+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T05:15:48+00:00",
+   "fetched_at": "2026-10-26T11:31:43+00:00",
    "ok": true
   }
  }
