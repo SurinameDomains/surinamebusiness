@@ -15,7 +15,7 @@
 <meta property="og:title" content="{{ og_title or title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ canonical }}">
-<meta property="og:image" content="{{ site_url }}/assets/{{ 'og.png' if lang=='nl' else 'og-en.png' }}?v=2">
+<meta property="og:image" content="{{ site_url }}/assets/{{ 'og.png' if lang=='nl' else 'og-en.png' }}?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ 'nl_SR' if lang=='nl' else 'en_US' }}">
@@ -37,7 +37,7 @@
 <header class="top">
  <div class="bar">
   <div class="wrap">
-   <a class="logo" href="{{ home_url }}"><img class="wm-img wm-h" src="/assets/logo-h-dark.svg?v=2" width="269" height="42" alt="Suriname Business"><img class="wm-img wm-s" src="/assets/logo-s-dark.svg?v=2" width="149" height="40" alt="Suriname Business"></a>
+   <a class="logo" href="{{ home_url }}"><img class="wm-img wm-h" src="/assets/logo-h-dark.svg?v=3" width="269" height="42" alt="Suriname Business"><img class="wm-img wm-s" src="/assets/logo-s-dark.svg?v=3" width="149" height="40" alt="Suriname Business"></a>
    {% if key != 'search' %}<form class="hs hs-bar" action="{{ S_URL }}" method="get" role="search">
     <svg class="hs-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
     <input type="search" name="q" placeholder="{{ 'Zoek een tool, bedrijf of gids' if lang=='nl' else 'Find a tool, company or guide' }}" aria-label="{{ 'Zoeken op Suriname Business' if lang=='nl' else 'Search Suriname Business' }}" autocomplete="off">
@@ -88,7 +88,7 @@
  <div class="foot-street" aria-hidden="true"></div>
  <div class="wrap">
   <div class="foot-top">
-   <div class="foot-brand"><img class="wm-img" src="/assets/logo-h-dark.svg?v=2" width="192" height="30" alt="Suriname Business" loading="lazy"><p>{{ 'Gratis tools, cijfers, vacatures en aanbestedingen voor ondernemers in Suriname.' if lang=='nl' else 'Free tools, figures, jobs and tenders for businesses in Suriname.' }}</p></div>
+   <div class="foot-brand"><img class="wm-img" src="/assets/logo-h-dark.svg?v=3" width="192" height="30" alt="Suriname Business" loading="lazy"><p>{{ 'Gratis tools, cijfers, vacatures en aanbestedingen voor ondernemers in Suriname.' if lang=='nl' else 'Free tools, figures, jobs and tenders for businesses in Suriname.' }}</p></div>
    <div class="foot-cols">
    {% for g in footer %}
     <div><h2>{{ g.label }}</h2><ul>{% for l in g.links %}<li><a href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
