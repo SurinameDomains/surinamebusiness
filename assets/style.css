@@ -1006,3 +1006,10 @@ body.cc-on .sb-sticky{display:none}
 @media print{.foot-street{display:none}}
 /* desktop: line up the text of the first menu item, the rates and the language link with the page edges (their hover padding sits in the gutter) */
 @media (min-width:1001px){.nav-in{padding-left:12px;padding-right:14px}.bar .wrap{padding-right:14px}}
+/* desktop: one search, in the bar, on every page (home included); the hero keeps its own search only on phones and tablets, whose bar has just an icon */
+@media (min-width:1001px){.pg-home .hs-hero{display:none}.pg-home .intro .qa{margin-top:0}}
+/* quick actions: what each one does, in one short line (desktop; phones keep the compact tiles) */
+.qa-t b{display:block;font-weight:600}
+.qa-t small{display:block;font-size:.86rem;font-weight:400;color:var(--muted);line-height:1.3;margin-top:1px}
+@media (min-width:1001px){.pg-home .qa a{align-items:flex-start;padding:11px 14px 11px 12px;height:100%;box-sizing:border-box}.pg-home .qa a .ic{margin-top:2px}}
+@media (max-width:1099px){.qa-t small{display:none}}
