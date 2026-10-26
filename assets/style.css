@@ -169,8 +169,8 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 
 /* ---------------------------------------------------------------- layout */
 main{display:block}
-.crumbs{font-size:.86rem;color:var(--muted);margin-bottom:14px;display:flex;flex-wrap:wrap;gap:2px 6px}
-.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs{font-size:.86rem;color:var(--muted);margin-bottom:14px;display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px}
+.crumbs a{color:var(--muted);text-decoration:none;min-height:24px;display:inline-flex;align-items:center}
 .crumbs a:hover{color:var(--ink);text-decoration:underline}
 .crumbs span[aria-current]{color:var(--ink-2)}
 .lead{font-size:1.1rem;line-height:1.5;color:var(--ink-2);max-width:680px}
