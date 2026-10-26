@@ -88,12 +88,12 @@ MENU = [
         ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "holidays"]),
     ]),
     ("trade", "Handel en markt", "Trade and market", [
-        ("Kansen", "Opportunities", ["tenders", "oilgas", "supplier", "companies", "addbiz", "import", "export"]),
-        ("Markt en cijfers", "Market and figures", ["rates", "douane", "gold", "maxprices", "outages", "news"]),
+        ("Kansen en handel", "Opportunities and trade", ["tenders", "sectors", "districts", "oilgas", "supplier", "import", "export", "tradeagreements", "euexport"]),
+        ("Markt en cijfers", "Market and figures", ["economy", "rates", "douane", "gold", "maxprices", "outages", "news", "companies", "addbiz"]),
     ]),
     ("guides", "Gidsen", "Guides", [
-        ("Starten en regelen", "Start and arrange", ["start", "licences", "bankaccount", "finance", "trademark", "invest", "land", "resources", "contacts"]),
-        ("Belasting en administratie", "Tax and admin", ["biztax", "vatguide", "incometax", "tax", "bookkeeping", "deadlines"]),
+        ("Starten en regelen", "Start and arrange", ["start", "bizplan", "licences", "bankaccount", "finance", "trademark", "invest", "land", "agri"]),
+        ("Belasting, regels en hulp", "Tax, rules and help", ["biztax", "vatguide", "incometax", "tax", "bookkeeping", "deadlines", "newlaws", "associations", "resources", "contacts"]),
     ]),
 ]
 

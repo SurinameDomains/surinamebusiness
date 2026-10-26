@@ -21,6 +21,15 @@ Long-form guides are `templates/pages/<key>.html` (prose, both languages, a `.tl
 
 `resources_data.py` is the directory behind `/instanties-en-links` (`/en/business-resources`): 175 institutions in 14 groups with official site, deep links, phone and address. Links were checked from a PC in Suriname on 21 Oct 2026; re-check twice a year.
 
+## Guides added 26 Oct 2026 (guides_new/, districts_data.py)
+
+Gap analysis against comparable Suriname business sites. Content is our own, sourced to primary sources; none of those sites is linked or cited.
+
+- `guides_new/<key>.py` holds `SLUGS` and `ENTRY` (label, meta, FAQ) per guide; `guides_new/__init__.py` lists the keys and `guides_meta` registers them. Templates are `templates/pages/<key>.html`: `sectors`, `agri`, `tradeagreements`, `euexport`, `associations`, `newlaws`, `economy`, `bizplan`, `districts`.
+- Districts: `districts_data.DISTRICTS` (10 districts, 2012 census figures because Census 9 results are not published yet) feeds the hub `/districten-suriname` and one page per district at `/district/<key>` (`/en/district/<key>`), rendered in `build.py` from `templates/district.html`. Swap in the Census 9 figures when ABS publishes them.
+- Tool `bizplantool` (`/ondernemingsplan-maken`): `assets/tools/bizplan.js`, autosaves under `sbt:bizplan` like the other tools.
+- Refresh: `economy` monthly (inflation, rates, reserves; maintainer note at the top of the template), `newlaws` whenever a bill moves (checked 26 Oct 2026), `euexport` when EU dates shift (EUDR, CSRD/CSDDD), the rest every January.
+
 ## Vacancy board (worker/)
 
 Employers post vacancies themselves at `/vacature-plaatsen` (`/en/post-a-job`). The backend is the Cloudflare Worker `sb-jobs` on the **Suriname Business** Cloudflare account (never the Explore account), with D1 (`sb-jobs`), KV (`sb-jobs-files`, PDFs) and Turnstile.

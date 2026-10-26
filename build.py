@@ -18,6 +18,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import facts
 import extras
+import districts_data as DD
 import tools_meta as TM
 import guides_meta as GM
 import resources_data as RES
@@ -1130,6 +1131,7 @@ def main():
             banners=[b for b in SBC["items"] if b["kind"] == "banner" and b.get("lang") in ("all", lang, None)],
             notices=[b for b in SBC["items"] if b["kind"] == "notice" and b.get("lang") in ("all", lang, None)],
             own_links=[b for b in SBC["items"] if b["kind"] == "link" and b.get("lang") in ("all", lang, None)],
+            districts=DD.DISTRICTS,
             ctext=lambda c, f="title", _l=lang: (c.get(f + "_en") or c.get(f)) if _l == "en" else c.get(f),
         )
 
@@ -1197,6 +1199,17 @@ def main():
             crumbs = [{"label": "Home", "url": U("home")}, {"label": L("tenders"), "url": U("tenders")}, {"label": b["name"]}]
             render("tender_buyer.html", "tenders", t, d, f"/aanbesteder/{b['slug']}", f"/en/tender-buyer/{b['slug']}",
                    crumbs, extra={"b": b})
+
+        # district pages (districts_data.py): /district/<key>, /en/district/<key>
+        for d_ in DD.DISTRICTS:
+            t = (f"Ondernemen in {d_['name']}: economie, kansen en vergunningen" if nl_lang
+                 else f"Doing business in {d_['name']}, Suriname: economy and opportunities")
+            desc_ = d_["intro"][0 if nl_lang else 1]
+            if len(desc_) > 158:
+                desc_ = desc_[:155].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+            crumbs = [{"label": "Home", "url": U("home")}, {"label": L("districts"), "url": U("districts")}, {"label": d_["name"]}]
+            render("district.html", "districts", t, desc_, f"/district/{d_['key']}", f"/en/district/{d_['key']}",
+                   crumbs, extra={"d": d_})
 
         build_salary_pages(render, lang, U, L)
         build_job_pages(render, lang, U, L, jobs)

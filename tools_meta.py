@@ -110,6 +110,13 @@ _T = [
      ("Loan calculator: monthly payment, interest and schedule",
       "Work out the monthly payment and total interest of a loan or mortgage in SRD, USD or EUR, annuity or linear, with a full repayment schedule."),
      ("Maandlast en aflossingsschema", "Monthly payment and schedule"), "bank"),
+    ("bizplantool", "ondernemingsplan-maken", "en/business-plan-template", "money",
+     ("Ondernemingsplan maken", "Business plan template"),
+     ("Ondernemingsplan maken: gratis invulformat met financieel plan",
+      "Schrijf je ondernemingsplan voor de bank, NOB of investeerder: hoofdstukken met tips, investering, financiering, maandlast en break-even. Print als PDF."),
+     ("Free business plan template for Suriname, with financial plan",
+      "Write your business plan for the bank, NOB or an investor: chapters with tips, investment, financing, loan payment and break-even. Print or save as PDF."),
+     ("Hoofdstukken, cijfers en PDF voor de bank", "Chapters, figures and PDF for the bank"), "doc"),
     ("breakeven", "break-even-berekenen", "en/break-even-calculator", "money",
      ("Break-even berekenen", "Break-even calculator"),
      ("Break-even berekenen: hoeveel moet je verkopen?",
@@ -399,6 +406,8 @@ ICONS.update({
     "home": '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
     "search": '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
     "plus": '<path d="M12 5v14M5 12h14"/>',
+    "file-chart": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 18v-2M12 18v-5M16 18v-3"/>',
+    "route": '<circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H17a3.5 3.5 0 0 0 0-7H7a3.5 3.5 0 0 1 0-7h8.5"/>',
 })
 ICON_OF = {
     # invoices and documents
@@ -413,6 +422,7 @@ ICON_OF = {
     # pricing, import and finance
     "pricing": "tag", "importcost": "ship", "loan": "bank", "breakeven": "target", "unitprice": "scale", "percentage": "pct",
     "savings": "piggy", "depreciation": "trend-down", "roi": "trend", "tripcost": "car", "rates": "exchange", "maxprices": "basket",
+    "bizplantool": "file-chart",
     # office and marketing
     "pdftools": "files", "imagetools": "img", "qrcode": "qr", "barcode": "bar", "businesscard": "card", "signature": "pen",
     "walink": "chat", "pricelist": "list", "voucher": "gift", "datecalc": "cal", "holidays": "flag",
@@ -423,10 +433,23 @@ ICON_OF = {
     "vatguide": "pct", "bookkeeping": "book", "finance": "bank", "import": "ship", "export": "plane", "labour": "scale",
     "dismissal": "file-minus", "workpermit": "globe", "invest": "trend", "resources": "link", "contacts": "building",
     "supplier": "truck", "trademark": "shield", "land": "map", "incometax": "receipt", "bankaccount": "bank", "tax": "pct",
-    "home": "home", "search": "search",
+    "home": "home", "search": "search", "bizplan": "route",
 }
 GROUP_ICON = {"paper": "doc", "admin": "book", "staff": "users", "money": "tag", "office": "briefcase"}
 
+
+# icons for the guides added on 26 Oct 2026 (guides_new/)
+ICONS.update({
+    "pin": '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    "layers": '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+    "sprout": '<path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 4-3 7-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 3 2.5 5.5 7 5.5z"/>',
+    "handshake": '<path d="M2 11l4-4 4 2 3-2 3 1 4 3"/><path d="M6 7v6l5 5 2-2 2 2 2-2-6-6"/><path d="M22 11l-3 3"/>',
+    "check-shield": '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    "people": '<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.6 1.4-4.5 3-4.5s4 1.9 4 4.5"/>',
+    "scroll": '<path d="M7 3h11a2 2 0 0 1 2 2v2h-4"/><path d="M16 7v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2h10"/><path d="M7 3a2 2 0 0 0-2 2v12M9 8h4M9 12h4"/>',
+})
+ICON_OF.update({"districts": "pin", "sectors": "layers", "agri": "sprout", "tradeagreements": "handshake",
+                "euexport": "check-shield", "associations": "people", "newlaws": "scroll", "economy": "chart"})
 
 def kicon(key, size=20):
     return icon(ICON_OF.get(key, "calc"), size)
@@ -456,8 +479,9 @@ RELATED = {
     "hourly": ["salary", "minwage", "timesheet", "payslip"],
     "pricing": ["importcost", "breakeven", "unitprice", "rates"],
     "importcost": ["pricing", "rates", "vatcalc", "breakeven"],
-    "loan": ["savings", "depreciation", "breakeven", "percentage"],
-    "breakeven": ["pricing", "loan", "depreciation", "percentage"],
+    "loan": ["savings", "depreciation", "breakeven", "bizplantool"],
+    "breakeven": ["pricing", "loan", "depreciation", "bizplantool"],
+    "bizplantool": ["cashflow", "breakeven", "loan", "pricing"],
     "unitprice": ["pricing", "percentage", "importcost", "cashcount"],
     "percentage": ["vatcalc", "pricing", "unitprice", "savings"],
     "savings": ["loan", "percentage", "rates", "depreciation"],
@@ -478,7 +502,7 @@ RELATED = {
     "letter": ["invoice", "signature", "businesscard", "reminder"],
     "receivables": ["reminder", "invoice", "cashflow", "btwregister"],
     "stock": ["purchaseorder", "pricing", "barcode", "unitprice"],
-    "cashflow": ["receivables", "loan", "breakeven", "btwregister"],
+    "cashflow": ["receivables", "loan", "breakeven", "bizplantool"],
     "roi": ["loan", "breakeven", "depreciation", "savings"],
     "tripcost": ["pricing", "breakeven", "deliverynote", "hourly"],
     "pricelist": ["qrcode", "pricing", "voucher", "walink"],
@@ -518,6 +542,24 @@ FAQ = {
     "loan": [
         (("Wat is het verschil tussen annuïtair en lineair?", "Bij een annuïteit betaal je elke maand hetzelfde bedrag; eerst vooral rente, later vooral aflossing. Bij lineair los je elke maand hetzelfde af, waardoor de maandlast daalt en je in totaal minder rente betaalt."),
          ("What is the difference between annuity and linear?", "With an annuity you pay the same amount every month: mostly interest at first, mostly principal later. With linear you repay the same principal every month, so the payment falls over time and total interest is lower.")),
+    ],
+    "bizplantool": [
+        (("Waar blijft mijn ondernemingsplan?",
+          "Op je eigen toestel. De tool bewaart je tekst en cijfers automatisch in je browser (local storage), zodat je later verder kunt. Wij ontvangen niets. Ben je ingelogd, dan wordt het net als je andere toolgegevens in je eigen account bewaard. Met Nieuw wis je alles."),
+         ("Where is my business plan kept?",
+          "On your own device. The tool saves your text and figures automatically in your browser (local storage), so you can continue later. Nothing is sent to us. If you are signed in, it is kept in your own account like your other tool data. New clears everything.")),
+        (("Hoe berekent de tool de maandlast van de lening?",
+          "Als annuïteit: elke maand hetzelfde bedrag aan rente plus aflossing, op basis van het bedrag, de rente per jaar en de looptijd in maanden. Bijkomende kosten zoals provisie, taxatie en notaris tellen niet mee; vraag die bij je bank."),
+         ("How does the tool calculate the loan payment?",
+          "As an annuity: the same amount of interest plus repayment every month, based on the amount, the yearly rate and the term in months. Extra costs such as fees, valuation and notary are not included; ask your bank.")),
+        (("Wat betekent de break-even omzet hier?",
+          "De omzet per maand waarbij je na inkoop, vaste kosten en de volledige maandlast van je lening op nul uitkomt. Daaronder kom je elke maand geld tekort, daarboven houd je iets over (vóór belasting)."),
+         ("What does break-even revenue mean here?",
+          "The monthly revenue at which you come out at zero after purchases, fixed costs and the full loan payment. Below it you are short of money every month; above it you keep something (before tax).")),
+        (("Is dit genoeg voor een kredietaanvraag?",
+          "Het is een goede basis. Banken en de NOB vragen meestal ook prognoses voor drie jaar, offertes, je KKF-uittreksel en een overzicht van het onderpand. Lees welke stukken in de gids over financiering staan."),
+         ("Is this enough for a loan application?",
+          "It is a good basis. Banks and the NOB usually also ask for three-year projections, supplier quotes, your KKF extract and details of the collateral. See the financing guide for the documents.")),
     ],
 }
 

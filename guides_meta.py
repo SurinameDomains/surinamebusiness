@@ -25,6 +25,11 @@ GUIDES = {}
 from guides_content import ENTRIES as _E  # noqa: E402
 GUIDES.update(_E)
 
+# guides added on 26 Oct 2026 (see guides_new/)
+import guides_new as _GN  # noqa: E402
+NEW.update(_GN.SLUGS)
+GUIDES.update(_GN.ENTRIES)
+
 
 def faqs(key, lang):
     items = GUIDES.get(key, {}).get("faq", [])
