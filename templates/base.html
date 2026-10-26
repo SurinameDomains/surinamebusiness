@@ -200,7 +200,7 @@ else if(e.key==='Enter'&&sel>=0){e.preventDefault();ul.querySelectorAll('[role=o
 f.addEventListener('focusout',function(e){if(!e.relatedTarget||!f.contains(e.relatedTarget))setTimeout(function(){if(!f.contains(document.activeElement))close()},120)});
 document.addEventListener('click',function(e){if(!f.contains(e.target))close()});});
 /* home: the header search shows once the big search has scrolled out of view */
-var late=document.querySelector('.hs-late'),hero=document.querySelector('.hs-hero');if(late&&hero&&'IntersectionObserver' in window)new IntersectionObserver(function(es){late.classList.toggle('on',!es[0].isIntersecting)},{rootMargin:'-64px 0px 0px 0px'}).observe(hero);})();
+var late=document.querySelector('.hs-late'),hero=document.querySelector('.hs-hero');if(late&&hero&&'IntersectionObserver' in window)new IntersectionObserver(function(es){late.classList.toggle('on',!es[0].isIntersecting)},{rootMargin:'-72px 0px 0px 0px'}).observe(hero);})();
 </script>
 <script>
 /* every form label points at its field (screen readers, bigger click target), also for rows that tools add later */
