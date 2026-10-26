@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-10-26T00:17:00+00:00",
+ "fetched_at": "2026-10-26T05:16:24+00:00",
  "notices": [
-  {
-   "date": "2026-10-22",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=298c24ac89514eb5828ae4351ed43b35",
-   "slots": [
-    {
-     "areas": "GEHEEL LEIDING 10 EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-10-22",
-     "district": "Wanica",
-     "from": "09:00",
-     "to": "14:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud donderdag 22 oktober 2026",
-   "url": "https://nvebs.com/nieuws/1631/gepland-onderhoud-donderdag-22-oktober-2026"
-  },
   {
    "date": "2026-10-27",
    "kind": "planned",
