@@ -155,7 +155,6 @@ button,input,select,textarea{font-family:inherit;color:inherit}
   .sr-only-mobile{display:inline}
 }
 @media (max-width:520px){.dd-cols,.dd-panel:not(.mega) .dd-cols{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:350px){.wm-img{height:21px}}
 .sr-only-mobile{display:none}
 
 /* ---- bottom tab bar (phones): the 4 places people go most, plus the full menu. */
@@ -351,9 +350,9 @@ a.card.tool{display:flex}
 .spark{width:100%;height:56px;display:block;margin-top:10px}
 
 /* ---------------------------------------------------------------- footer */
-.site-foot{background:var(--brand);color:#c9cce8;font-size:.95rem;padding:0 0 26px;margin-top:8px}
-/* the street from the logo, as a skyline on top of the footer */
-.foot-street{height:44px;background:url(/assets/street.svg) repeat-x left bottom/auto 44px;margin-bottom:40px;opacity:.95}
+.site-foot{background:linear-gradient(transparent 34px,var(--brand) 34px);color:#c9cce8;font-size:.95rem;padding:0 0 26px;margin-top:8px}
+/* the street from the logo: the footer's top edge is a row of houses, a few lit in gold */
+.foot-street{height:34px;background:url(/assets/street.svg?v=3) repeat-x left bottom/auto 34px;margin-bottom:40px}
 .site-foot a{color:#fff;text-decoration:none}
 .site-foot a:hover{text-decoration:underline;text-underline-offset:.18em}
 .site-foot :focus-visible{outline-color:#fff}
@@ -369,7 +368,7 @@ a.card.tool{display:flex}
 .group{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:.88rem;color:#b8bbe0}
 .group a{color:#fff;font-weight:600}
 @media (max-width:1000px){.foot-top{grid-template-columns:minmax(0,1fr);gap:28px}.foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:600px){.site-foot{padding:0 0 22px}.foot-street{height:34px;background-size:auto 34px;margin-bottom:30px}.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}}
+@media (max-width:600px){.site-foot{padding:0 0 22px;background:linear-gradient(transparent 28px,var(--brand) 28px)}.foot-street{height:28px;background-size:auto 28px;margin-bottom:30px}.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 @media print{.top,.site-foot,.menu-btn,.tabbar,.crumbs{display:none}body{padding-bottom:0}}
@@ -1001,4 +1000,7 @@ body.cc-on .sb-sticky{display:none}
 .site-foot h2{letter-spacing:0}
 .tp-head span:first-child,.dl-head h2,.panel-h h2{font-family:var(--display);letter-spacing:0}
 .pg-home .intro h1{font-size:clamp(2rem,1.4rem + 2.2vw,3rem)}
+.intro h1{letter-spacing:-.01em}
+/* tablets: the one-line lockup fits, so use it */
+@media (min-width:560px) and (max-width:1000px){.wm-h{display:block;height:36px}.bar .wm-s{display:none}}
 @media print{.foot-street{display:none}}
