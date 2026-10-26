@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set dpre = '/district/' if nl else '/en/district/' %}
+{% set tot = districts|sum(attribute='population') %}
+{% set base_guides = ['start', 'licences', 'land', 'finance', 'hiring', 'tenders'] %}
+{% set ns = namespace(gk=[]) %}{% for k in base_guides + d.guides %}{% if k not in ns.gk %}{% set ns.gk = ns.gk + [k] %}{% endif %}{% endfor %}
+{% block content %}
+<div class="prose">
+<h1>{{ ('Ondernemen in ' if nl else 'Doing business in ') ~ d.name }}</h1>
+<p class="lead">{{ d.intro[i] }}</p>
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{% if d.capital %}{{ 'Hoofdplaats' if nl else 'Capital' }}{% else %}{{ 'Bestuurd vanuit' if nl else 'Administered from' }}{% endif %}</div>{% if d.capital %}<div class="big">{{ d.capital }}</div><div class="sub">{{ d.resorts|length }} {{ 'ressorten' if nl else 'ressorts' }}</div>{% else %}<div class="big">Paramaribo</div><div class="sub">{{ d.capital_note[i] }}; {{ d.resorts|length }} {{ 'ressorten' if nl else 'ressorts' }}</div>{% endif %}</div>
+ <div class="card"><div class="eyebrow">{{ 'Inwoners' if nl else 'Population' }} ({{ d.pop_year }})</div><div class="big">{{ num(d.population, 0) }}</div><div class="sub">{{ num(d.population / tot * 100, 1) }}% {{ 'van Suriname' if nl else 'of Suriname' }}{% if d.growth_2004_2012 is defined %}; {{ '+' if d.growth_2004_2012 > 0 else '' }}{{ num(d.growth_2004_2012, 1) }}% {{ 'sinds 2004' if nl else 'since 2004' }}{% endif %}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Oppervlakte' if nl else 'Area' }}</div><div class="big">{{ num(d.area_km2, 0) }} km²</div><div class="sub">{{ num(d.population / d.area_km2, 1) }} {{ 'inwoners per km²' if nl else 'people per km²' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+ <li><b>{{ 'Economie' if nl else 'Economy' }}:</b> {{ d.activities[i] }}.</li>
+ <li><b>{{ 'Lokale vergunningen' if nl else 'Local licences' }}:</b> {{ 'de districtscommissaris (horeca, evenementen, standplaatsen, Hinderwet).' if nl else 'the district commissioner (food and drink, events, street stalls, Nuisance Act).' }}</li>
+ <li><b>{{ 'Landelijk' if nl else 'National' }}:</b> {{ 'inschrijving bij de KKF, FIN-nummer en belastingen; de regels zijn overal in Suriname hetzelfde.' if nl else 'KKF registration, FIN tax number and taxes; the rules are the same everywhere in Suriname.' }}</li>
+ <li><b>{{ 'Cijfers' if nl else 'Figures' }}:</b> {{ 'census' if nl else 'census' }} {{ d.pop_year }} {{ '(ABS), de laatste officiële telling.' if nl else '(ABS), the latest official count.' }}</li>
+</ul></div>
+
+<h2>{{ 'Economie en werkgevers' if nl else 'Economy and employers' }}</h2>
+<p>{{ d.economy[i] }}</p>
+
+<h2>{{ 'Bereikbaarheid en infrastructuur' if nl else 'Access and infrastructure' }}</h2>
+<p>{{ d.infrastructure[i] }}</p>
+
+<h2>{{ 'Kansen voor ondernemers' if nl else 'Opportunities for business' }}</h2>
+<ul class="check">
+{% for o in d.opportunities %}
+ <li>{{ o[i] }}</li>
+{% endfor %}
+</ul>
+<p class="note">{{ 'Dit zijn mogelijkheden die passen bij de economie van het district, geen garantie op klanten. Toets een idee eerst met gesprekken en cijfers.' if nl else 'These are possibilities that fit the district economy, not a promise of customers. Test an idea first with conversations and numbers.' }} <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a></p>
+
+<h2>{{ 'Praktisch: waar regel je wat?' if nl else 'Practical: where to arrange what' }}</h2>
+<p>{{ d.practical[i] }}</p>
+{% if nl %}
+<p>Formulieren, leges en termijnen van de districtscommissaris zijn niet centraal gepubliceerd. Vraag ze na bij het commissariaat voordat je huurt of investeert. Hoe het districtsbestuur werkt: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% else %}
+<p>The district commissioner's forms, fees and processing times are not published centrally. Check them with the office before you rent or invest. How district government works: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Ressorten' if nl else 'Ressorts' }}</h2>
+<p>{{ d.name }} {{ 'is verdeeld in' if nl else 'is divided into' }} {{ d.resorts|length }} {{ 'ressorten:' if nl else 'ressorts:' }}</p>
+<ul class="links-grid">
+{% for r in d.resorts %}
+ <li>{{ r }}</li>
+{% endfor %}
+</ul>
+
+<h2>{{ 'Gidsen die verder helpen' if nl else 'Guides that help next' }}</h2>
+<ul class="ilinks">
+{% for k in ns.gk %}
+ <li><a href="{{ U(k) }}">{{ L(k) }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>{{ 'Andere districten' if nl else 'Other districts' }}</h2>
+<ul class="ilinks">
+{% for x in districts if x.key != d.key %}
+ <li><a href="{{ dpre }}{{ x.key }}">{{ x.name }}</a></li>
+{% endfor %}
+ <li><a href="{{ U('districts') }}">{{ 'Alle districten vergelijken' if nl else 'Compare all districts' }}</a></li>
+</ul>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+{% for label, url in d.sources %}
+ <li><a href="{{ url }}" rel="noopener">{{ label }}</a></li>
+{% endfor %}
+</ul>
+<p class="note">{{ 'Bevolking en oppervlakte:' if nl else 'Population and area:' }} {{ d.pop_source[i] }}. {{ 'De negende volkstelling is gehouden, maar het ABS heeft nog geen uitkomsten gepubliceerd; de huidige bevolking ligt waarschijnlijk anders.' if nl else 'The ninth census has been carried out, but ABS has not published results yet; the current population is likely different.' }}</p>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}
