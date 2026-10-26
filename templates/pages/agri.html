@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Een landbouwbedrijf starten in Suriname' if nl else 'Starting an agribusiness in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Voor een boerderij of agro-verwerkend bedrijf heb je grond (meestal domeingrond in grondhuur), een KKF-inschrijving en een FIN-nummer nodig. Het ministerie van Landbouw, Veeteelt en Visserij (LVV) komt in beeld zodra je exporteert, vee houdt, planten of dieren invoert of een NOFA-lening wilt. Wat het verschil maakt is praktisch: water en afwatering, toegelaten bestrijdingsmiddelen, een koper voordat je plant en geld dat past bij het seizoen.</p>
+{% else %}
+<p class="lead">For a farm or agro-processing business you need land (usually state land on a lease), KKF registration and a FIN tax number. The Ministry of Agriculture, Animal Husbandry and Fisheries (LVV) comes in once you export, keep livestock, import plants or animals or want a NOFA loan. What makes the difference is practical: water and drainage, approved pesticides, a buyer before you plant and money that fits the season.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'NOFA-lening' if nl else 'NOFA loan' }}</div><div class="big">{{ '5,5%' if nl else '5.5%' }}</div><div class="sub">{{ 'tot SRD 1 miljoen, max. 10 jaar (Trustbank Amanah)' if nl else 'up to SRD 1 million, max. 10 years (Trustbank Amanah)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Grondhuur landbouw' if nl else 'Farmland lease fee' }}</div><div class="big">{{ 'SRD 100' }}</div><div class="sub">{{ 'per ha per jaar tot 5 ha; daarboven SRD 150' if nl else 'per ha a year up to 5 ha; SRD 150 above that' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Padieoogst 2024' if nl else 'Paddy harvest 2024' }}</div><div class="big">{{ '290.665 t' if nl else '290,665 t' }}</div><div class="sub">{{ 'natte padie, ruim 95% in Nickerie (LVV/NOB)' if nl else 'wet paddy, over 95% in Nickerie (LVV/NOB)' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Grond: domeingrond in grondhuur via het ministerie van Grond- en Bosbeheer, of particuliere grond kopen of huren. Je moet de grond binnen een jaar in cultuur brengen.</li>
+ <li>Inschrijven: KKF en Belastingdienst (FIN). Een algemene registratieplicht bij LVV vonden we niet, maar voor export, vee, invoer en NOFA heb je LVV nodig.</li>
+ <li>Bestrijdingsmiddelen: alleen toegelaten middelen (naam en nummer op de verpakking). Residuen zijn de grootste reden dat Surinaamse groente Europa niet in komt.</li>
+ <li>Financiering: NOFA via Trustbank Amanah voor primaire productie en verwerking; het Productie Krediet Fonds van de NOB alleen voor verwerking.</li>
+ <li>Pluimvee: sinds september 2026 is H5-vogelgriep vastgesteld op één bedrijf in Wanica. Abnormale sterfte moet je direct bij LVV melden en strengere biosecurity is dringend nodig.</li>
+ <li>Begin met de markt: wie koopt, hoeveel, tegen welke prijs en met welke certificaten?</li>
+{% else %}
+ <li>Land: state land on a lease through the Ministry of Land and Forest Management, or buy or rent private land. You must bring the land into cultivation within a year.</li>
+ <li>Registration: KKF and the tax office (FIN). We found no general registration duty with LVV, but you need LVV for exports, livestock, imports and NOFA.</li>
+ <li>Pesticides: only admitted products (name and number on the package). Residues are the main reason Surinamese vegetables cannot enter Europe.</li>
+ <li>Financing: NOFA through Trustbank Amanah for primary production and processing; the NOB's Production Credit Fund for processing only.</li>
+ <li>Poultry: since September 2026 H5 avian influenza has been confirmed on one farm in Wanica. Unusual deaths must be reported to LVV at once, and tighter biosecurity is urgent.</li>
+ <li>Start with the market: who buys, how much, at what price and with which certificates?</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Kies eerst je model' if nl else 'Choose your model first' }}</h2>
+{% if nl %}
+<p>"Landbouw" is een breed begrip. Je papierwerk, je financiering en je risico's hangen af van wat je precies doet:</p>
+<ul>
+ <li><b>Primaire productie.</b> Rijst, groente, fruit, cassave, bananen, kokos, cacao, honing, pluimvee, varkens, runderen. Je hebt grond, water en seizoenskrediet nodig.</li>
+ <li><b>Verwerking.</b> Drogen, malen, pellen, verpakken, sappen, chips, meel, olie, slachten. Je hebt een bedrijfspand, voedselveiligheid (BOG, NIVS) en vaak een vergunning nodig, en je koopt bij boeren in.</li>
+ <li><b>Diensten en inputs.</b> Machinewerk (ploegen, oogsten), zaaizaad en plantmateriaal, kunstmest, veevoer, koeling en transport. Je verdient aan veel boeren tegelijk.</li>
+</ul>
+<p>De overheid wil vooral meer verwerking in Suriname zelf. Welke sectoren groeien: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% else %}
+<p>"Agriculture" covers a lot. Your paperwork, financing and risks depend on exactly what you do:</p>
+<ul>
+ <li><b>Primary production.</b> Rice, vegetables, fruit, cassava, bananas, coconut, cocoa, honey, poultry, pigs, cattle. You need land, water and seasonal credit.</li>
+ <li><b>Processing.</b> Drying, milling, hulling, packing, juices, chips, flour, oil, slaughtering. You need premises, food safety (BOG, NIVS) and often a licence, and you buy from farmers.</li>
+ <li><b>Services and inputs.</b> Machinery work (ploughing, harvesting), seed and planting material, fertiliser, animal feed, cooling and transport. You earn from many farmers at once.</li>
+</ul>
+<p>The government mainly wants more processing in Suriname itself. Which sectors are growing: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Grond: grondhuur, huur of koop' if nl else 'Land: lease, rent or buy' }}</h2>
+{% if nl %}
+<p>De meeste landbouwgrond in Suriname is domeingrond. Die krijg je in <b>grondhuur</b> voor 15 tot 40 jaar, alleen als Surinamer in Suriname of als Surinaamse rechtspersoon. Je vraagt schriftelijk aan bij de minister, de districtscommissaris geeft advies, je laat de grond opmeten en je laat de beschikking binnen vier maanden inschrijven bij MI-GLIS. Daarna geldt een <b>cultuurplicht</b>: binnen een jaar moet je beginnen met het gebruik waarvoor je de grond kreeg. De jaarlijkse canon voor tuinbouw, veeteelt, visserij en landbouw is SRD 100 per hectare tot 5 hectare en SRD 150 per hectare voor landbouw boven 5 hectare.</p>
+<p>Huren van een andere boer is in de rijstbouw gewoon: volgens de NOB-studie (2025) steeg de pacht van 6 naar ongeveer 10 zakken natte padie per hectare per oogst. Leg zo'n afspraak altijd schriftelijk vast, en controleer of de verhuurder echt de rechthebbende is: veel percelen zitten in een onverdeelde boedel van een hele familie.</p>
+<p>Let bij elk perceel op: afwatering en irrigatie, bereikbaarheid in de regentijd, afstand tot je koper en stroom, en eventuele claims. Alles over procedures, kosten en de stopgezette grondconversie: <a href="{{ U('land') }}">{{ L('land') }}</a>. Per district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% else %}
+<p>Most farmland in Suriname is state land. You get it on a <b>land lease</b> (grondhuur) for 15 to 40 years, only as a Surinamese citizen in Suriname or as a Surinamese legal entity. You apply in writing to the minister, the district commissioner advises, you have the land surveyed and you register the decision at MI-GLIS within four months. After that there is a <b>duty to cultivate</b>: within a year you must start using the land for its purpose. The annual fee (canon) for horticulture, livestock, fishing and farming is SRD 100 per hectare up to 5 hectares and SRD 150 per hectare for farming above 5 hectares.</p>
+<p>Renting from another farmer is common in rice: according to the NOB study (2025) the rent rose from 6 to about 10 bags of wet paddy per hectare per harvest. Always put such an agreement in writing, and check that the landlord really holds the title: many plots are part of an undivided family estate (boedel).</p>
+<p>For any plot, check: drainage and irrigation, access in the rainy season, distance to your buyer and to power, and any claims. Everything on procedures, costs and the halted land conversion: <a href="{{ U('land') }}">{{ L('land') }}</a>. By district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Inschrijven en belasting' if nl else 'Registration and tax' }}</h2>
+{% if nl %}
+<p>Een landbouwbedrijf is een gewone onderneming. Je schrijft je in bij de KKF (eenmanszaak, NV of coöperatie) en vraagt een FIN-nummer aan bij de Belastingdienst. Neem je personeel aan, dan draag je loonbelasting en AOV af. Of je BTW moet rekenen, hangt af van je omzet en je product; vraag het bij de Inspectie Omzetbelasting voordat je je prijzen vastlegt. Houd vanaf dag één een administratie bij: banken en fondsen vragen cijfers, en zonder kostprijs weet je niet of een oogst winst geeft.</p>
+<p><a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></p>
+{% else %}
+<p>A farm business is an ordinary business. You register with the KKF (sole trader, NV or cooperative) and apply for a FIN number at the tax office. If you hire staff, you withhold wage tax and AOV (old-age pension contribution). Whether you must charge VAT depends on your turnover and your product; ask the VAT Inspectorate before you set your prices. Keep records from day one: banks and funds ask for figures, and without a cost price you do not know whether a harvest makes a profit.</p>
+<p><a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Wat je bij LVV regelt' if nl else 'What you arrange at LVV' }}</h2>
+{% if nl %}
+<p>LVV heeft vier directoraten: Landbouw (ook bijenteelt), Veeteelt, Visserij, en Landbouwkundig Onderzoek, Afzet en Verwerking. Daaronder valt de afdeling Plantenbescherming en Kwaliteitskeuringen, de nationale plantenbeschermingsorganisatie (NPPO). Voor dagelijkse vragen ga je naar het LVV-kantoor in je ressort.</p>
+<table class="tbl stack tx"><thead><tr><th>Wat</th><th>Wanneer nodig</th><th>Waar</th></tr></thead><tbody>
+ <tr><td data-l="Wat"><b>Registratie als producent met productcode</b></td><td data-l="Wanneer nodig">Als je groente of fruit levert aan een exporteur</td><td data-l="Waar">Directoraat Landbouw</td></tr>
+ <tr><td data-l="Wat"><b>Exportcode</b></td><td data-l="Wanneer nodig">Als je zelf plantaardige producten exporteert; je hebt ook een kwaliteitsmanager en traceerbaarheid nodig</td><td data-l="Waar">Directoraat Landbouw met Plantenbescherming en Kwaliteitskeuringen</td></tr>
+ <tr><td data-l="Wat"><b>Invoer van planten, zaden en plantaardige producten</b></td><td data-l="Wanneer nodig">Ruim vóór elke invoer of doorvoer een ingevuld "Import Application Form"</td><td data-l="Waar">Plantenbescherming en Kwaliteitskeuringen (NPPO), nppo@gov.sr, tel. 426832</td></tr>
+ <tr><td data-l="Wat"><b>Veterinaire invoervergunning</b></td><td data-l="Wanneer nodig">Invoer van levende dieren, dierlijke producten en diergeneesmiddelen</td><td data-l="Waar">Directoraat Veeteelt, Veterinaire Diensten</td></tr>
+ <tr><td data-l="Wat"><b>Identificatie en registratie van vee (IR&amp;T)</b></td><td data-l="Wanneer nodig">Runderen en varkens: oormerk per dier en een vervoersformulier; zonder dat formulier mag je geen dieren vervoeren</td><td data-l="Waar">LVV-ressortkantoor (registratie is kosteloos)</td></tr>
+ <tr><td data-l="Wat"><b>Verklaring beplant areaal</b></td><td data-l="Wanneer nodig">Voor een NOFA-lening</td><td data-l="Waar">LVV-ressortkantoor</td></tr>
+</tbody></table>
+<p class="note">LVV publiceert geen volledige lijst van registraties en tarieven online. Vraag bij je ressortkantoor welke formulieren gelden en wat ze kosten voordat je plant of invoert.</p>
+{% else %}
+<p>LVV has four directorates: Agriculture (including beekeeping), Livestock, Fisheries, and Agricultural Research, Marketing and Processing. The latter includes the Plant Protection and Quality Inspection department, the national plant protection organisation (NPPO). For everyday questions, go to the LVV office in your area (ressort).</p>
+<table class="tbl stack tx"><thead><tr><th>What</th><th>When you need it</th><th>Where</th></tr></thead><tbody>
+ <tr><td data-l="What"><b>Registration as a producer with a product code</b></td><td data-l="When you need it">If you supply vegetables or fruit to an exporter</td><td data-l="Where">Directorate of Agriculture</td></tr>
+ <tr><td data-l="What"><b>Export code</b></td><td data-l="When you need it">If you export plant products yourself; you also need a quality manager and traceability</td><td data-l="Where">Directorate of Agriculture with Plant Protection and Quality Inspection</td></tr>
+ <tr><td data-l="What"><b>Import of plants, seeds and plant products</b></td><td data-l="When you need it">A completed "Import Application Form" well before every import or transit</td><td data-l="Where">Plant Protection and Quality Inspection (NPPO), nppo@gov.sr, tel. 426832</td></tr>
+ <tr><td data-l="What"><b>Veterinary import permit</b></td><td data-l="When you need it">Import of live animals, animal products and veterinary medicines</td><td data-l="Where">Directorate of Livestock, Veterinary Services</td></tr>
+ <tr><td data-l="What"><b>Livestock identification and registration (IR&amp;T)</b></td><td data-l="When you need it">Cattle and pigs: an ear tag per animal and a movement form; without that form you may not move animals</td><td data-l="Where">LVV area office (registration is free)</td></tr>
+ <tr><td data-l="What"><b>Statement of planted area</b></td><td data-l="When you need it">For a NOFA loan</td><td data-l="Where">LVV area office</td></tr>
+</tbody></table>
+<p class="note">LVV does not publish a full list of registrations and fees online. Ask your area office which forms apply and what they cost before you plant or import.</p>
+{% endif %}
+
+<h2>{{ 'Zaaizaad, plantmateriaal en bestrijdingsmiddelen' if nl else 'Seed, planting material and pesticides' }}</h2>
+{% if nl %}
+<p><b>Zaaizaad en plantmateriaal</b> invoeren gaat altijd via de NPPO: planten kunnen ziekten en plagen meebrengen, en het kader is de Plantenbeschermingswet 2020. Ook reizigers mogen geen fruit, groente of planten zonder de vereiste papieren meenemen; zulke producten kunnen worden vernietigd. Voor rijst levert het onderzoekscentrum ADRON in Nickerie zuiver zaaizaad van Surinaamse rassen. Voor cassave is gezond plantmateriaal belangrijk: in oktober 2026 meldde LVV dat het rassen test die mogelijk bestand zijn tegen de ziekte die de cassaveteelt bedreigt.</p>
+<p><b>Bestrijdingsmiddelen</b> vallen onder de Bestrijdingsmiddelenwet 1972 (G.B. 1972 no. 151):</p>
+<ul>
+ <li>Je mag alleen middelen verkopen, in voorraad hebben en gebruiken die zijn toegelaten. Een toegelaten middel heeft naam en toelatingsnummer op de verpakking.</li>
+ <li>De fabrikant, importeur of handelaar vraagt de toelating aan bij de minister van LVV. Een toelating geldt maximaal vijf jaar en kan beperkt zijn tot bepaalde gewassen, plagen of tijden; gebruik in strijd daarmee is verboden.</li>
+ <li>Sinds de wetswijziging van 2005 (S.B. 2005 no. 18) is invoer, vervoer, opslag, verkoop en gebruik van middelen op de negatieve lijst van de FAO verboden. LVV publiceert een lijst van verboden middelen.</li>
+ <li>Bewaar middelen in een afgesloten kast buiten de woning, gebruik nooit lege verpakkingen opnieuw en draag beschermende kleding.</li>
+</ul>
+<p>Residuen zijn een exportprobleem: Suriname kan nog niet voldoende aantonen hoeveel residu er op gewassen zit. Volgens de minister zou het residulaboratorium eind oktober 2026 bouwkundig klaar zijn, met apparatuur daarna; ook een nieuwe pesticidenwet en strengere controles zijn aangekondigd. Meng nooit zelf "cocktails" van middelen en houd je aan de wachttijd voor de oogst.</p>
+{% else %}
+<p><b>Seed and planting material</b> imports always go through the NPPO: plants can carry diseases and pests, and the framework is the Plant Protection Act 2020. Travellers, too, may not bring in fruit, vegetables or plants without the required papers; such products can be destroyed. For rice, the ADRON research centre in Nickerie supplies pure seed of Surinamese varieties. For cassava, healthy planting material is key: in October 2026 LVV said it is testing varieties that may resist the disease threatening cassava farming.</p>
+<p><b>Pesticides</b> fall under the Pesticides Act 1972 (Bestrijdingsmiddelenwet, G.B. 1972 no. 151):</p>
+<ul>
+ <li>You may only sell, stock and use admitted (registered) products. An admitted product shows its name and admission number on the package.</li>
+ <li>The manufacturer, importer or trader applies for admission to the Minister of Agriculture. An admission is valid for at most five years and can be limited to certain crops, pests or times; use outside those limits is prohibited.</li>
+ <li>Since the 2005 amendment (S.B. 2005 no. 18) it is prohibited to import, transport, store, sell or use products on the FAO negative list. LVV publishes a list of banned products.</li>
+ <li>Store products in a locked cabinet outside the house, never reuse empty containers and wear protective clothing.</li>
+</ul>
+<p>Residues are an export problem: Suriname cannot yet show well enough how much residue is on crops. According to the minister the residue laboratory would be structurally complete at the end of October 2026, with equipment to follow; a new pesticides law and tighter controls have also been announced. Never mix your own "cocktails" of products and respect the pre-harvest waiting period.</p>
+{% endif %}
+
+<h2>{{ 'Gewassen, dieren en markten' if nl else 'Crops, livestock and markets' }}</h2>
+{% if nl %}
+<h3>Rijst</h3>
+<p>Suriname heeft zo'n 50.790 hectare ingericht voor geïrrigeerde padie, die twee keer per jaar kan worden ingezaaid. In 2024 werd 58.133 hectare beplant en 290.665 ton natte padie geoogst; de export was 45.404 ton. In de najaarsoogst van 2024 bewerkten 1.161 kleine boeren in Nickerie samen 10.356 hectare, gemiddeld 8,9 hectare per boer. De inzaai voor de voorjaarsoogst loopt van half november tot eind december, voor de najaarsoogst van half mei tot eind juni; houd je aan die kalender, ook voor de verdeling van irrigatiewater. De markt is vrij: de opkoopprijs volgt de prijs van rijst, niet je kostprijs. De NOB liet in 2025 een kostprijsmodel maken dat je kunt gebruiken om je eigen cijfers te toetsen.</p>
+<h3>Bananen en bakbanaan</h3>
+<p>FAI in Jarikaba en Nickerie is de enige grote plantage en exporteert regionaal. Kleinere telers verkopen bakbanaan en bacoven op de lokale markt en aan verwerkers (chips, meel). Export naar Europa vraagt volgens FAI veel meer areaal en een Europese partner met een meerjarig contract.</p>
+<h3>Groente en fruit</h3>
+<p>De lokale markt is de basis. Voor export naar Europa gelden strenge fytosanitaire eisen: verse sopropo mag sinds 2019 de EU niet in vanwege de trips <i>Thrips palmi</i>, en mango gaat alleen uit het fruitvliegvrije gebied in Nickerie. Luchtvracht naar Europa kost rond EUR 2,50 per kilo en de ruimte is beperkt. Kijk daarom ook naar de Caribische markt en naar verwerking. LVV heeft gratis handleidingen, onder meer voor cassave en markoesa.</p>
+<h3>Kokos en cacao</h3>
+<p>Beide gewassen krijgen regionale normen. CROSQ, de normeninstelling van CARICOM, legde in 2026 concepten voor: een duurzaamheidsnorm en goede landbouwpraktijken voor kokos (commentaar tot 7 augustus 2026) en voor cacao en chocolade (tot 31 augustus 2026). Het Surinaams Standaarden Bureau (SSB) verzamelt de Surinaamse inbreng; in oktober 2026 vroeg het SSB bedrijven om te stemmen over de definitieve concepten voor cacao. Na goedkeuring kan het SSB ze als nationale norm overnemen. Wie een kokos- of cacaobedrijf opzet, bouwt dus best vanaf het begin volgens die normen.</p>
+<h3>Pluimvee en vogelgriep</h3>
+<p>Op 17 september 2026 bevestigde LVV H5-vogelgriep op een vleeskuikenbedrijf in Wanica, waar van ongeveer 6.000 dieren meer dan de helft binnen anderhalve week stierf. Vijf andere bedrijven gingen in quarantaine; half oktober waren alle verdachte bedrijven negatief getest en controleerde LVV dagelijks binnen 7 km. Over schadevergoeding was half oktober nog geen akkoord; de wet vraagt een taxatie door een erkende taxateur. Bij geteste personen werd geen besmetting gevonden. Wat je als pluimveehouder moet doen:</p>
+<ul class="check">
+ <li>Meld abnormale sterfte direct bij LVV. Sterfte kan ook door hitte of andere ziekten komen; LVV test.</li>
+ <li>Biosecurity: laarzen, handen wassen, aparte kleding per stal, zo min mogelijk bezoekers en voertuigen op het erf.</li>
+ <li>Koop kuikens alleen bij gecertificeerde broederijen en voer geen producten van onbekende herkomst aan.</li>
+</ul>
+<h3>Honing en vee</h3>
+<p>Bijenteelt valt onder het Directoraat Landbouw. Voor runderen en varkens geldt het registratiesysteem met oormerken (zie de tabel hierboven).</p>
+{% else %}
+<h3>Rice</h3>
+<p>Suriname has about 50,790 hectares laid out for irrigated paddy, which can be sown twice a year. In 2024, 58,133 hectares were planted and 290,665 tonnes of wet paddy harvested; exports were 45,404 tonnes. In the autumn 2024 crop, 1,161 small farmers in Nickerie worked 10,356 hectares together, 8.9 hectares on average. Sowing for the spring crop runs from mid-November to the end of December, for the autumn crop from mid-May to the end of June; keep to that calendar, also for sharing irrigation water. The market is free: the paddy price follows the price of rice, not your costs. In 2025 the NOB had a cost price model made that you can use to check your own figures.</p>
+<h3>Bananas and plantains</h3>
+<p>FAI in Jarikaba and Nickerie is the only large plantation and exports within the region. Smaller growers sell plantains and bananas on the local market and to processors (chips, flour). According to FAI, exporting to Europe would need much more acreage and a European partner with a multi-year contract.</p>
+<h3>Vegetables and fruit</h3>
+<p>The local market is the base. Exports to Europe face strict phytosanitary rules: fresh sopropo (bitter melon) has been barred from the EU since 2019 because of the thrips <i>Thrips palmi</i>, and mangoes only ship from the fruit fly free zone in Nickerie. Air freight to Europe costs around EUR 2.50 a kilo and space is limited. So also look at the Caribbean market and at processing. LVV offers free manuals, including for cassava and passion fruit (markoesa).</p>
+<h3>Coconut and cocoa</h3>
+<p>Both crops are getting regional standards. CROSQ, CARICOM's standards body, put out drafts in 2026: a sustainability standard and good agricultural practices for coconut (comments until 7 August 2026) and for cocoa and chocolate (until 31 August 2026). The Suriname Standards Bureau (SSB) collects Surinamese input; in October 2026 the SSB asked businesses to vote on the final cocoa drafts. Once approved, the SSB can adopt them as national standards. If you set up a coconut or cocoa business, build to those standards from the start.</p>
+<h3>Poultry and avian influenza</h3>
+<p>On 17 September 2026 LVV confirmed H5 avian influenza on a broiler farm in Wanica, where more than half of about 6,000 birds died within a week and a half. Five other farms were quarantined; by mid-October all suspect farms had tested negative and LVV was checking daily within 7 km. By mid-October there was no agreement on compensation; the law requires a valuation by an approved assessor. No infection was found in people tested. What you should do as a poultry farmer:</p>
+<ul class="check">
+ <li>Report unusual deaths to LVV at once. Deaths can also come from heat or other diseases; LVV tests.</li>
+ <li>Biosecurity: boots, hand washing, separate clothing per house, as few visitors and vehicles on the farm as possible.</li>
+ <li>Buy chicks only from certified hatcheries and bring in no products of unknown origin.</li>
+</ul>
+<h3>Honey and livestock</h3>
+<p>Beekeeping falls under the Directorate of Agriculture. For cattle and pigs the ear tag registration system applies (see the table above).</p>
+{% endif %}
+
+<h2>{{ 'Onderzoek, voorlichting en opleiding' if nl else 'Research, extension and training' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>LVV-voorlichting.</b> Voorlichters in de ressortkantoren, Farmer Field Schools en trainingen (bijvoorbeeld veilig gebruik van bestrijdingsmiddelen). Het ministerie publiceert informatiebladen over proeven, zoals soja- en maïsrassen voor veevoer.</li>
+ <li><b>CELOS.</b> Het Centrum voor Landbouwkundig Onderzoek in Suriname (opgericht in 1967) hoort bij de Anton de Kom Universiteit en doet onderzoek naar landbouw, bosbouw, bodem, veeteelt en aquacultuur. De universiteit leidt via de Faculteit der Technologische Wetenschappen landbouwkundigen op.</li>
+ <li><b>ADRON (SNRI).</b> Het Anne van Dijk Rijstonderzoekscentrum Nickerie (sinds 1994) ontwikkelt rijstrassen en zorgt voor zaaizaad.</li>
+ <li><b>Andere LVV-instellingen.</b> Onder meer de Stichting Proeftuinen in Suriname (STIPRIS), de Stichting voor Experimentele Landbouwbedrijven (SEL), de Stichting voor de Ontwikkeling van Machinale Landbouw (SML) en de Melkcentrale.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>LVV extension.</b> Extension officers at the area offices, Farmer Field Schools and training (for example safe use of pesticides). The ministry publishes information sheets on trials, such as soy and maize varieties for animal feed.</li>
+ <li><b>CELOS.</b> The Centre for Agricultural Research in Suriname (founded in 1967) belongs to Anton de Kom University and researches agriculture, forestry, soil, livestock and aquaculture. The university trains agronomists through its Faculty of Technological Sciences.</li>
+ <li><b>ADRON (SNRI).</b> The Anne van Dijk Rice Research Centre Nickerie (since 1994) develops rice varieties and supplies seed.</li>
+ <li><b>Other LVV bodies.</b> Including the Suriname Experimental Gardens Foundation (STIPRIS), the Foundation for Experimental Farms (SEL), the Foundation for the Development of Mechanised Agriculture (SML) and the dairy board Melkcentrale.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Financiering' if nl else 'Financing' }}</h2>
+{% if nl %}
+<h3>NOFA: Nationaal Ontwikkelingsfonds Agribusiness</h3>
+<p>Het NOFA is opgericht bij wet van 11 april 2022 en startte met SRD 100 miljoen. Trustbank Amanah (Agribusiness Unit) beheert het fonds. Voorwaarden volgens de overheid:</p>
+<table class="tbl stack tx"><thead><tr><th>Punt</th><th>NOFA</th></tr></thead><tbody>
+ <tr><td data-l="Punt">Voor wie</td><td data-l="NOFA">Bedrijven en personen in primaire productie en/of verwerking</td></tr>
+ <tr><td data-l="Punt">Waarvoor</td><td data-l="NOFA">Productieve en innovatieve investeringen en seizoenskrediet; niet voor grondaankoop, woningbouw, consumptie of herfinanciering</td></tr>
+ <tr><td data-l="Punt">Bedrag en rente</td><td data-l="NOFA">Tot SRD 1 miljoen, 5,5% per jaar, in SRD</td></tr>
+ <tr><td data-l="Punt">Looptijd</td><td data-l="NOFA">Tot 120 maanden, tot 12 maanden aflossingsvrij</td></tr>
+ <tr><td data-l="Punt">Documenten</td><td data-l="NOFA">CBB-uittreksel, ID, bankafschriften, hypothecair uittreksel, grondtitel, taxatierapport, ondernemingsplan, LVV-verklaring beplant areaal, offerte; bij een rechtspersoon ook KKF-uittreksel, statuten en drie jaar cijfers plus prognose</td></tr>
+ <tr><td data-l="Punt">Zekerheid</td><td data-l="NOFA">Eerste hypotheek, fiduciaire overdracht van andere zaken, borg of cash</td></tr>
+</tbody></table>
+<p>In januari 2024 meldde de minister dat van 393 aanvragen er 100 waren goedgekeurd (SRD 53,3 miljoen) en 258 onvolledig waren ingediend; te weinig zekerheid en te hoge begrotingen waren veelgenoemde problemen. In september 2024 werd het fonds met SRD 100 miljoen aangevuld. Hoeveel er in 2026 nog beschikbaar is, vonden we niet; vraag het bij Trustbank Amanah.</p>
+<h3>Andere bronnen</h3>
+<ul>
+ <li><b>NOB.</b> Het Productie Krediet Fonds (tot SRD 5 miljoen, 5%) is <i>niet</i> voor primaire landbouw, veeteelt en visserij, wel voor verwerking van landbouwproducten. Het Garantiefonds kan tot 80% van een banklening garanderen als je te weinig onderpand hebt.</li>
+ <li><b>Banken.</b> Seizoenskrediet met aflossing per oogst, investeringskrediet voor machines en stallen.</li>
+ <li><b>Subsidies.</b> Het LVV-project SAMAP had in 2022 een Matching Grant Facility met kleine en grote subsidies; vraag LVV of er een nieuwe ronde is. Kijk ook naar programma's van de IDB en regionale fora voor investeringsklare agribedrijven.</li>
+</ul>
+<p>Alles over leningen, garanties en wat banken vragen: <a href="{{ U('finance') }}">{{ L('finance') }}</a>. Reken je aflossing door: <a href="{{ U('loan') }}">{{ L('loan') }}</a>. Een plan opstellen: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</p>
+{% else %}
+<h3>NOFA: National Development Fund for Agribusiness</h3>
+<p>NOFA was created by an act of 11 April 2022 and started with SRD 100 million. Trustbank Amanah (Agribusiness Unit) manages the fund. Terms according to the government:</p>
+<table class="tbl stack tx"><thead><tr><th>Item</th><th>NOFA</th></tr></thead><tbody>
+ <tr><td data-l="Item">For whom</td><td data-l="NOFA">Businesses and individuals in primary production and/or processing</td></tr>
+ <tr><td data-l="Item">For what</td><td data-l="NOFA">Productive and innovative investments and seasonal credit; not for buying land, housing, consumption or refinancing</td></tr>
+ <tr><td data-l="Item">Amount and rate</td><td data-l="NOFA">Up to SRD 1 million, 5.5% a year, in SRD</td></tr>
+ <tr><td data-l="Item">Term</td><td data-l="NOFA">Up to 120 months, up to 12 months grace</td></tr>
+ <tr><td data-l="Item">Documents</td><td data-l="NOFA">Civil registry extract, ID, bank statements, mortgage register extract, land title, valuation report, business plan, LVV statement of planted area, quote; for a legal entity also a KKF extract, articles and three years of figures plus a forecast</td></tr>
+ <tr><td data-l="Item">Security</td><td data-l="NOFA">First mortgage, fiduciary transfer of other assets, a guarantor or cash</td></tr>
+</tbody></table>
+<p>In January 2024 the minister reported that of 393 applications, 100 had been approved (SRD 53.3 million) and 258 were incomplete; too little security and inflated budgets were common problems. In September 2024 the fund was topped up with SRD 100 million. We could not find how much is still available in 2026; ask Trustbank Amanah.</p>
+<h3>Other sources</h3>
+<ul>
+ <li><b>NOB.</b> The Production Credit Fund (up to SRD 5 million, 5%) is <i>not</i> for primary farming, livestock or fishing, but it is for processing farm products. The Guarantee Fund can guarantee up to 80% of a bank loan if you lack collateral.</li>
+ <li><b>Banks.</b> Seasonal credit repaid per harvest, investment credit for machinery and sheds.</li>
+ <li><b>Grants.</b> LVV's SAMAP project had a Matching Grant Facility with small and large grants in 2022; ask LVV whether a new round is open. Also look at IDB programmes and regional forums for investment-ready agribusinesses.</li>
+</ul>
+<p>Everything on loans, guarantees and what banks ask: <a href="{{ U('finance') }}">{{ L('finance') }}</a>. Work out your repayments: <a href="{{ U('loan') }}">{{ L('loan') }}</a>. Write a plan: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Export: certificaten in het kort' if nl else 'Exports: certificates in brief' }}</h2>
+{% if nl %}
+<p>Plantaardige producten krijgen een fytosanitair certificaat van LVV (Plantenbescherming en Kwaliteitskeuringen), na registratie, traceerbaarheid en een exportinspectie. Vlees en dierlijke producten krijgen een internationaal veterinair certificaat van het Directoraat Veeteelt, alleen uit goedgekeurde inrichtingen. Vis gaat alleen via bedrijven die door het VKI zijn erkend. Daarnaast moet je je exportopbrengst naar Suriname halen en 35% binnen drie werkdagen verkopen. De volledige procedure: <a href="{{ U('export') }}">{{ L('export') }}</a>. Eisen van de Europese markt: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Handelsakkoorden met CARICOM en anderen: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% else %}
+<p>Plant products get a phytosanitary certificate from LVV (Plant Protection and Quality Inspection), after registration, traceability and an export inspection. Meat and animal products get an international veterinary certificate from the Directorate of Livestock, only from approved establishments. Fish only goes through companies approved by the Fish Inspection Institute (VKI). You must also bring export proceeds into Suriname and sell 35% within three working days. The full procedure: <a href="{{ U('export') }}">{{ L('export') }}</a>. EU market requirements: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Trade agreements with CARICOM and others: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Klimaat en water' if nl else 'Climate and water' }}</h2>
+{% if nl %}
+<p>Suriname heeft grofweg twee regentijden (een korte rond december en januari, een lange van eind april tot half augustus) en twee droge tijden. De kustvlakte, waar de meeste landbouw zit, is vlak en kleiachtig: afwatering is daar net zo belangrijk als irrigatie. Twee recente waarschuwingen:</p>
+<ul>
+ <li>De Wereld Meteorologische Organisatie verwacht dat El Niño in 2026 sterker wordt, met meer kans op droogte in het noorden van Zuid-Amerika. De president besprak in augustus 2026 met EBS en SWM de gevolgen voor water en stroom.</li>
+ <li>FAI meldde in 2025 dat een droogte van zes maanden de irrigatie verstoorde en bouwt nu waterreservoirs.</li>
+</ul>
+<p>Praktisch: vraag bij het LVV-ressortkantoor en de districtscommissaris wie de lozingen en irrigatiekanalen in jouw gebied beheert en wat je bijdraagt; leg bedden of ruggen aan op natte grond; houd water op voorraad; en reken met pompen die ook werken als de stroom uitvalt (diesel of zon). Stroomafschakelingen volgen: <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</p>
+{% else %}
+<p>Suriname broadly has two rainy seasons (a short one around December and January, a long one from late April to mid-August) and two dry seasons. The coastal plain, where most farming is, is flat and clayey: drainage there matters as much as irrigation. Two recent warnings:</p>
+<ul>
+ <li>The World Meteorological Organization expects El Niño to strengthen in 2026, raising the chance of drought in northern South America. In August 2026 the President discussed the effects on water and power with EBS and the water company SWM.</li>
+ <li>FAI reported in 2025 that a six-month drought disrupted irrigation, and it is now building water reservoirs.</li>
+</ul>
+<p>In practice: ask the LVV area office and the district commissioner who manages the drainage and irrigation canals in your area and what you contribute; build raised beds on wet land; store water; and plan for pumps that work when the power is off (diesel or solar). Follow load shedding: <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Personeel en seizoenswerk' if nl else 'Staff and seasonal work' }}</h2>
+{% if nl %}
+<p>Landbouw is arbeidsintensief en het vinden van mensen is lastig: FAI vroeg de regering in 2025 om een migratiebeleid en zocht gastarbeiders. Ook voor dagloners en seizoenswerkers gelden de arbeidswetten: een afspraak over loon en uren, het minimumloon, loonbelasting en AOV, en regels voor jongeren. Buitenlandse werknemers hebben een werkvergunning nodig. Zorg voor beschermende kleding bij het werken met bestrijdingsmiddelen; dat valt onder veiligheid op het werk.</p>
+<p><a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> &middot; <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></p>
+{% else %}
+<p>Farming is labour-intensive and finding people is hard: in 2025 FAI asked the government for a migration policy and looked for guest workers. Labour laws also apply to day labourers and seasonal workers: an agreement on pay and hours, the minimum wage, wage tax and AOV, and rules for young workers. Foreign workers need a work permit. Provide protective clothing for work with pesticides; that is part of workplace safety.</p>
+<p><a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> &middot; <a href="{{ U('timesheet') }}">{{ L('timesheet') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Samenwerken: coöperaties en verenigingen' if nl else 'Working together: cooperatives and associations' }}</h2>
+{% if nl %}
+<p>Alleen ben je klein. Samen koop je goedkoper in, deel je machines en haal je de volumes die een exporteur of supermarkt vraagt. In de rijst bestaan verenigingen van padieboeren (zoals de SPBA en de VPP) en van verwerkers en exporteurs (VVRE). De pluimveehouders zijn verenigd in de Associatie Pluimvee Sector Suriname (APSS), die in de vogelgriepcrisis met de minister overlegde. Voor een coöperatie heb je statuten nodig: laat die door een notaris opstellen en schrijf de coöperatie in bij de KKF; leg vooraf vast hoe leden leveren, betalen en uittreden. Meer: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% else %}
+<p>On your own you are small. Together you buy inputs cheaper, share machines and reach the volumes an exporter or supermarket asks for. In rice there are associations of paddy farmers (such as the SPBA and the VPP) and of processors and exporters (VVRE). Poultry farmers are organised in the Poultry Sector Association Suriname (APSS), which met the minister during the bird flu crisis. A cooperative needs articles of association: have a notary draw them up and register the cooperative with the KKF; agree in advance how members deliver, get paid and leave. More: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step-by-step plan' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Markt eerst.</b> Praat met kopers: supermarkten, verwerkers, exporteurs, hotels. Vraag naar volumes, kwaliteit, levertijden en prijs.</li>
+ <li><b>Kies product en schaal.</b> Begin klein genoeg om te leren, groot genoeg om kosten te dekken. Reken een kostprijs per kilo of per dier. <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a></li>
+ <li><b>Zoek grond.</b> Grondhuur aanvragen of een perceel huren of kopen; laat de titel controleren en kijk naar water en wegen. <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Schrijf je in.</b> KKF, FIN-nummer, zakelijke rekening. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>Ga langs bij LVV.</b> Ressortkantoor: voorlichting, registraties, en de verklaring van je areaal als je wilt lenen.</li>
+ <li><b>Regel financiering.</b> Ondernemingsplan, offertes en zekerheid klaar; dien een volledige aanvraag in. <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Koop inputs.</b> Zuiver zaaizaad of gezond plantmateriaal, toegelaten bestrijdingsmiddelen, kunstmest; invoer via de NPPO.</li>
+ <li><b>Water en afwatering eerst aanleggen</b>, dan pas planten of stallen bouwen.</li>
+ <li><b>Personeel en veiligheid.</b> Afspraken op papier, beschermende kleding, opslag van middelen. <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+ <li><b>Administratie.</b> Houd per perceel of koppel kosten, opbrengst en bespuitingen bij. Dat heb je nodig voor de bank, de Belastingdienst en voor export. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Market first.</b> Talk to buyers: supermarkets, processors, exporters, hotels. Ask about volumes, quality, delivery times and price.</li>
+ <li><b>Choose product and scale.</b> Start small enough to learn, large enough to cover costs. Work out a cost price per kilo or per animal. <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a></li>
+ <li><b>Find land.</b> Apply for a lease or rent or buy a plot; have the title checked and look at water and roads. <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Register.</b> KKF, FIN number, business account. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>Visit LVV.</b> Area office: extension advice, registrations, and the statement of your planted area if you want a loan.</li>
+ <li><b>Arrange financing.</b> Business plan, quotes and security ready; file a complete application. <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Buy inputs.</b> Pure seed or healthy planting material, admitted pesticides, fertiliser; imports through the NPPO.</li>
+ <li><b>Build water and drainage first</b>, then plant or build sheds.</li>
+ <li><b>Staff and safety.</b> Agreements on paper, protective clothing, safe storage of chemicals. <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+ <li><b>Records.</b> Keep costs, yields and spraying per plot or flock. You need them for the bank, the tax office and for exports. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Ik heb minstens één koper gesproken en ken zijn eisen.</li>
+ <li>Grondtitel of huurcontract is schriftelijk en gecontroleerd.</li>
+ <li>Afwatering, water en bereikbaarheid in de regentijd zijn bekeken.</li>
+ <li>KKF-inschrijving, FIN-nummer en zakelijke rekening zijn geregeld.</li>
+ <li>Ik ben bekend bij het LVV-ressortkantoor en weet welke registraties ik nodig heb.</li>
+ <li>Ik gebruik alleen toegelaten bestrijdingsmiddelen en noteer elke bespuiting.</li>
+ <li>Er is een plan voor droogte, wateroverlast en stroomuitval.</li>
+ <li>Financiering past bij de seizoenen: aflossing na de oogst, niet ervoor.</li>
+ <li>Bij vee of pluimvee: biosecurity-regels hangen bij de stal en ik weet hoe ik ziekte meld.</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>I have talked to at least one buyer and know their requirements.</li>
+ <li>The land title or rental agreement is in writing and checked.</li>
+ <li>Drainage, water and access in the rainy season have been checked.</li>
+ <li>KKF registration, FIN number and business account are in place.</li>
+ <li>The LVV area office knows me and I know which registrations I need.</li>
+ <li>I only use admitted pesticides and record every spraying.</li>
+ <li>There is a plan for drought, flooding and power cuts.</li>
+ <li>Financing fits the seasons: repayment after the harvest, not before.</li>
+ <li>With livestock or poultry: biosecurity rules are posted at the shed and I know how to report disease.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veelgemaakte fouten' if nl else 'Common mistakes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Planten zonder koper.</b> Een volle oogst zonder afzet levert alleen verlies op. Spreek af vóór je zaait.</li>
+ <li><b>Grond in cultuur brengen op een onduidelijke titel.</b> Je investering in drainage en gebouwen hoort bij de grond, niet bij jou.</li>
+ <li><b>Een onvolledige kredietaanvraag.</b> Bij het NOFA was in januari 2024 twee derde van de aanvragen onvolledig. Lever alles in één keer en maak een realistische begroting.</li>
+ <li><b>Goedkope middelen zonder toelatingsnummer.</b> Verboden, gevaarlijk en de snelste weg om een exportmarkt te verliezen.</li>
+ <li><b>Afwatering onderschatten.</b> In de lange regentijd staat slecht gedraineerde grond weken onder water.</li>
+ <li><b>Geen kostprijs.</b> Wie niet weet wat een kilo kost, kan niet onderhandelen. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a></li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Planting without a buyer.</b> A full harvest with nowhere to sell it only brings a loss. Agree before you sow.</li>
+ <li><b>Developing land on an unclear title.</b> Your investment in drainage and buildings belongs to the land, not to you.</li>
+ <li><b>An incomplete loan application.</b> At NOFA two thirds of applications were incomplete in January 2024. Submit everything at once and make a realistic budget.</li>
+ <li><b>Cheap products without an admission number.</b> Illegal, dangerous and the fastest way to lose an export market.</li>
+ <li><b>Underestimating drainage.</b> In the long rainy season poorly drained land stays under water for weeks.</li>
+ <li><b>No cost price.</b> If you do not know what a kilo costs, you cannot negotiate. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik uit de diaspora kom en geen Surinaamse nationaliteit heb?</b> Grondhuur gaat naar Surinamers in Suriname en Surinaamse rechtspersonen. Richt een NV op of werk met een partner, en leg alles notarieel vast. Zie <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>...mijn oogst mislukt door droogte of overstroming?</b> Neem direct contact op met je bank of Trustbank Amanah over uitstel van aflossing, en meld schade bij LVV.</li>
+ <li><b>...ik wil verwerken in plaats van telen?</b> Dan heb je een pand, voedselveiligheid en vaak een bedrijfsvergunning nodig, en kun je bij de NOB terecht voor het Productie Krediet Fonds. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>...ik naar CARICOM wil exporteren?</b> Zie <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a> en <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>...ik werk zoek in de landbouw?</b> Kijk bij <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I am from the diaspora without Surinamese nationality?</b> Land leases go to Surinamese citizens in Suriname and Surinamese legal entities. Set up an NV or work with a partner, and have everything notarised. See <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>...my harvest fails through drought or flooding?</b> Contact your bank or Trustbank Amanah at once about deferring repayments, and report the damage to LVV.</li>
+ <li><b>...I want to process rather than grow?</b> Then you need premises, food safety and often a business licence, and you can go to the NOB for the Production Credit Fund. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>...I want to export to CARICOM?</b> See <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a> and <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>...I am looking for work in agriculture?</b> See <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://gov.sr/nofa/" rel="noopener">{{ 'Overheid: NOFA, voorwaarden en documenten' if nl else 'Government: NOFA terms and documents' }}</a></li>
+ <li><a href="https://keynews.sr/nofa-kredietfonds-moet-bijdragen-aan-voedselzekerheid-en-veiligheid" rel="noopener">Keynews: {{ 'lancering NOFA (augustus 2022)' if nl else 'NOFA launch (August 2022)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/79413" rel="noopener">Starnieuws: {{ 'aanvragen NOFA (januari 2024)' if nl else 'NOFA applications (January 2024)' }}</a></li>
+ <li><a href="https://www.dbsuriname.com/2024/09/20/ontwikkelingsfonds-voor-agribusiness-nofa-wordt-aangevuld-met-srd-100-miljoen/" rel="noopener">Dagblad Suriname: {{ 'NOFA aangevuld met SRD 100 miljoen (september 2024)' if nl else 'NOFA topped up with SRD 100 million (September 2024)' }}</a></li>
+ <li><a href="https://www.nob.sr/" rel="noopener">NOB: {{ 'Productie Krediet Fonds en Garantiefonds' if nl else 'Production Credit Fund and Guarantee Fund' }}</a></li>
+ <li><a href="https://www.nob.sr/wp-content/uploads/2025/09/Sectorstudie-Platform-Rijstsector.pdf" rel="noopener">NOB: {{ 'kostprijsmodel rijstwaardeketen (mei 2025)' if nl else 'rice value chain cost model (May 2025)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2023/08/LVV-IDB-Nieuwsbrief-uitgave-02.pdf" rel="noopener">LVV: {{ 'nieuwsbrief over in- en uitvoer, IR&amp;T en bestrijdingsmiddelen (2023)' if nl else 'newsletter on imports, exports, IR&amp;T and pesticides (2023)' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-landbouw-veeteelt-visserij/directoraten/" rel="noopener">LVV: {{ 'directoraten' if nl else 'directorates' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-landbouw-veeteelt-visserij/parastatalen/" rel="noopener">LVV: {{ 'parastatalen' if nl else 'state bodies' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-landbouw-veeteelt-visserij/informatiebladen/" rel="noopener">LVV: {{ 'informatiebladen en handleidingen' if nl else 'information sheets and manuals' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-landbouw-veeteelt-visserij/small-grant/" rel="noopener">LVV: SAMAP Small Grant (2022)</a></li>
+ <li><a href="https://faolex.fao.org/docs/pdf/sur42730.pdf" rel="noopener">Bestrijdingsmiddelenwet 1972, G.B. 1972 no. 151 (FAOLEX)</a></li>
+ <li><a href="https://www.dna.sr/media/0bofbdqn/sb_2005__no_18_wijz-_bestrijdingsmiddelenwet.pdf" rel="noopener">{{ 'Wijziging Bestrijdingsmiddelenwet, S.B. 2005 no. 18' if nl else 'Amendment to the Pesticides Act, S.B. 2005 no. 18' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/03/lijst_van_verboden_bestrijdingsmiddelen-2015.pdf" rel="noopener">LVV: {{ 'lijst van verboden bestrijdingsmiddelen (2015)' if nl else 'list of banned pesticides (2015)' }}</a></li>
+ <li><a href="https://www.culturu.com/nieuws/suriname/noersalim-vogelgriep-in-suriname-onder-controle-schadevergoeding-nog-onduidelijk/" rel="noopener">Culturu: {{ 'minister over vogelgriep, cassave en residulab (oktober 2026)' if nl else 'minister on bird flu, cassava and residue lab (October 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/09/19/vogelgriep-vastgesteld-bij-pluimvee-in-suriname-kip-blijft-veilig-bij-goede-bereiding/" rel="noopener">Suriname Herald: {{ 'vogelgriep vastgesteld (19 september 2026)' if nl else 'bird flu confirmed (19 September 2026)' }}</a></li>
+ <li><a href="https://dagbladdewest.com/2026/10/16/lvv-blijft-h5-vogelgriep-nadrukkelijk-monitoren/" rel="noopener">De West: {{ 'LVV blijft H5-vogelgriep monitoren (16 oktober 2026)' if nl else 'LVV keeps monitoring H5 bird flu (16 October 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/23/geen-vogelgriep-bij-geteste-personen-in-suriname-risico-voor-bevolking-blijft-laag/" rel="noopener">Suriname Herald: {{ 'geen besmetting bij geteste personen (23 oktober 2026)' if nl else 'no infection in people tested (23 October 2026)' }}</a></li>
+ <li><a href="https://website.crosq.org/regional-standards-for-comment/" rel="noopener">CROSQ: {{ 'concept-normen kokos en cacao (2026)' if nl else 'draft standards for coconut and cocoa (2026)' }}</a></li>
+ <li><a href="https://www.freshplaza.com/europe/article/9772958/surinamese-banana-exports-back-in-focus-for-europe/" rel="noopener">FreshPlaza: {{ 'FAI en bananenexport (oktober 2025)' if nl else 'FAI and banana exports (October 2025)' }}</a></li>
+ <li><a href="https://www.hortidaily.com/article/9811636/suriname-works-to-lift-eu-ban-on-sopropo-exports" rel="noopener">HortiDaily: {{ 'EU-verbod op sopropo (februari 2026)' if nl else 'EU ban on sopropo (February 2026)' }}</a></li>
+ <li><a href="https://www.hortidaily.com/article/9777032/suriname-faces-declining-fruit-and-vegetable-exports-to-europe" rel="noopener">HortiDaily: {{ 'luchtvracht en export naar Europa (november 2025)' if nl else 'air freight and exports to Europe (November 2025)' }}</a></li>
+ <li><a href="https://en.wikipedia.org/wiki/Centre_for_Agricultural_Research_in_Suriname" rel="noopener">CELOS {{ '(overzicht)' if nl else '(overview)' }}</a></li>
+ <li><a href="https://www.croptrust.org/knowledge-hub/partners/genebank/anne-van-dijk-rice-research-centre-nickerie-adron/" rel="noopener">Crop Trust: ADRON</a></li>
+ <li><a href="https://keynews.sr/en/simons-convenes-ebs-and-swm-over-el-ninos-impact-in-suriname/" rel="noopener">Keynews: {{ 'El Niño, water en stroom (augustus 2026)' if nl else 'El Niño, water and power (August 2026)' }}</a></li>
+ <li><a href="https://www.trade.gov/country-commercial-guides/suriname-agricultural-sectors" rel="noopener">trade.gov: Suriname agricultural sectors (2024)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of financieel advies.' if nl else 'General information, not legal or financial advice.' }}</p>
+</div>
+{% endblock %}

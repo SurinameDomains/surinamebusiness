@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set dpre = '/district/' if nl else '/en/district/' %}
+{% set tot = districts|sum(attribute='population') %}
+{% set tot_area = districts|sum(attribute='area_km2') %}
+{% set pw = districts|selectattr('key', 'in', ['paramaribo', 'wanica'])|sum(attribute='population') %}
+{% set pw_area = districts|selectattr('key', 'in', ['paramaribo', 'wanica'])|sum(attribute='area_km2') %}
+{% set share = (pw / tot * 100) if tot else 0 %}
+{% set area_share = (pw_area / tot_area * 100) if tot_area else 0 %}
+{% set sip = districts|selectattr('key', 'equalto', 'sipaliwini')|sum(attribute='population') %}
+{% set ns = namespace(res=0) %}{% for d in districts %}{% set ns.res = ns.res + d.resorts|length %}{% endfor %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Ondernemen per district' if nl else 'Business by district' }}</h1>
+{% if nl %}
+<p class="lead">Suriname heeft tien districten, maar twee derde van de mensen woont in Paramaribo en Wanica. Onderneem je daarbuiten, dan heb je andere klanten, andere kansen en een eigen loket voor lokale vergunningen: de districtscommissaris. Hieronder per district de cijfers, de economie, de verbindingen en waar je wat regelt.</p>
+{% else %}
+<p class="lead">Suriname has ten districts, but two thirds of its people live in Paramaribo and Wanica. If you do business outside the capital you have different customers, different opportunities and your own office for local licences: the district commissioner. Below, for each district: the figures, the economy, the transport links and where to arrange what.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Districten' if nl else 'Districts' }}</div><div class="big">{{ districts|length }}</div><div class="sub">{{ ns.res }} {{ 'ressorten (bestuurlijke deelgebieden)' if nl else 'ressorts (administrative subdivisions)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Inwoners' if nl else 'Population' }}</div><div class="big">{{ num(tot, 0) }}</div><div class="sub">{{ 'census 2012 (ABS), de laatste officiële telling' if nl else '2012 census (ABS), the latest official count' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Paramaribo en Wanica' if nl else 'Paramaribo and Wanica' }}</div><div class="big">{{ num(share, 0) }}%</div><div class="sub">{{ 'van de bevolking, op' if nl else 'of the population, on' }} {{ num(area_share, 1) }}% {{ 'van het land' if nl else 'of the land' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>De markt is geconcentreerd: Paramaribo en Wanica samen hebben {{ num(pw, 0) }} van de {{ num(tot, 0) }} inwoners. Wanica, Para en Commewijne groeiden tussen 2004 en 2012 het hardst.</li>
+ <li>Elk district heeft eigen economische motoren: rijst in Nickerie, olie op land in Saramacca, de raffinaderij in Wanica, waterkracht en goud in Brokopondo, de Merian-goudmijn in Marowijne, de luchthaven in Para.</li>
+ <li>Inschrijven bij de KKF en belastingzaken regel je landelijk, meestal in Paramaribo. Lokale vergunningen (horeca, evenementen, standplaatsen, Hinderwet) geeft de districtscommissaris van de plek waar je zaak komt.</li>
+ <li>Grote districten zijn verdeeld in bestuursressorten met elk een eigen districtscommissaris. Wanica heeft er sinds augustus 2025 drie.</li>
+ <li>De bevolkingscijfers zijn van de census van 2012. De negende volkstelling is gehouden, maar het ABS heeft op 26 oktober 2026 nog geen uitkomsten gepubliceerd.</li>
+{% else %}
+ <li>The market is concentrated: Paramaribo and Wanica together have {{ num(pw, 0) }} of the {{ num(tot, 0) }} inhabitants. Wanica, Para and Commewijne grew fastest between 2004 and 2012.</li>
+ <li>Each district has its own economic engines: rice in Nickerie, onshore oil in Saramacca, the refinery in Wanica, hydropower and gold in Brokopondo, the Merian gold mine in Marowijne, the airport in Para.</li>
+ <li>KKF registration and tax matters are national, mostly handled in Paramaribo. Local licences (food and drink, events, street stalls, Nuisance Act) come from the district commissioner of the place where your business will be.</li>
+ <li>Large districts are split into administrative areas, each with its own district commissioner. Wanica has had three since August 2025.</li>
+ <li>The population figures are from the 2012 census. The ninth census has been carried out, but as of 26 October 2026 the statistics bureau ABS had not published results.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'De tien districten in cijfers' if nl else 'The ten districts in figures' }}</h2>
+{% if nl %}
+<p>Inwoners en oppervlakte volgens de definitieve resultaten van de achtste volkstelling (ABS, census 2012). Klik op een district voor de economie, de verbindingen en de kansen.</p>
+{% else %}
+<p>Population and area from the final results of the eighth census (ABS, 2012). Click a district for its economy, transport links and opportunities.</p>
+{% endif %}
+<table class="tbl stack tx"><thead><tr><th>{{ 'District (hoofdplaats)' if nl else 'District (capital)' }}</th><th>{{ 'Inwoners 2012' if nl else 'Population 2012' }}</th><th>{{ 'Oppervlakte' if nl else 'Area' }}</th><th>{{ 'Belangrijkste activiteiten' if nl else 'Main activities' }}</th></tr></thead><tbody>
+{% for d in districts %}
+ <tr><td data-l="District"><a href="{{ dpre }}{{ d.key }}"><b>{{ d.name }}</b></a> ({{ d.capital if d.capital else ('geen hoofdplaats' if nl else 'no capital') }})</td><td data-l="{{ 'Inwoners 2012' if nl else 'Population 2012' }}">{{ num(d.population, 0) }}</td><td data-l="{{ 'Oppervlakte' if nl else 'Area' }}">{{ num(d.area_km2, 0) }} km²</td><td data-l="{{ 'Activiteiten' if nl else 'Activities' }}">{{ d.activities[i] }}</td></tr>
+{% endfor %}
+ <tr><td data-l="District"><b>{{ 'Suriname' }}</b></td><td data-l="{{ 'Inwoners 2012' if nl else 'Population 2012' }}"><b>{{ num(tot, 0) }}</b></td><td data-l="{{ 'Oppervlakte' if nl else 'Area' }}"><b>{{ num(tot_area, 0) }} km²</b></td><td data-l="{{ 'Activiteiten' if nl else 'Activities' }}">{{ 'Olie, goud, rijst, hout, vis en bananen zijn de grootste exportproducten' if nl else 'Oil, gold, rice, timber, fish and bananas are the main exports' }}</td></tr>
+</tbody></table>
+<p class="note">{{ 'De negende Algemene Volks- en Woningtelling (wet aangenomen op 4 oktober 2024, veldwerk eind 2024 en in 2025) heeft nog geen gepubliceerde uitkomsten. Zodra het ABS die publiceert, passen we deze tabel aan. Reken voor je marktplan met groei sinds 2012, vooral in Wanica, Para en Commewijne.' if nl else 'The ninth General Population and Housing Census (law passed on 4 October 2024, fieldwork in late 2024 and 2025) has no published results yet. We will update this table when ABS publishes them. For your market plan, allow for growth since 2012, especially in Wanica, Para and Commewijne.' }}</p>
+
+<h2>{{ 'Waar je klanten wonen' if nl else 'Where your customers live' }}</h2>
+{% if nl %}
+<p>Tussen de census van 2004 en die van 2012 groeide Suriname met 9,9%. Die groei zat bijna helemaal rond de hoofdstad: Wanica groeide met 37,5%, Para met 31,7% en Commewijne met 27,5%. Paramaribo zelf kromp licht (-0,8%) en Nickerie verloor 6,6% van zijn inwoners. De stad loopt dus over in de buurdistricten. Voor winkels, scholen, zorg en bouwbedrijven liggen de groeiende wijken in Wanica (Kwatta, Koewarasan, De Nieuwe Grond, Lelydorp), Commewijne (Meerzorg) en Para (Noord) vaak gunstiger dan het centrum van Paramaribo.</p>
+<p>Het binnenland is groot en dun bevolkt. Sipaliwini beslaat bijna 80% van het land maar heeft maar {{ num((sip / tot * 100) if tot else 0, 1) }}% van de inwoners, verspreid over meer dan 150 dorpen. Daar draait het om transport, energie en diensten die je ter plaatse levert, niet om grote volumes.</p>
+{% else %}
+<p>Between the 2004 and 2012 censuses Suriname grew 9.9%. Almost all of that growth was around the capital: Wanica grew 37.5%, Para 31.7% and Commewijne 27.5%. Paramaribo itself shrank slightly (-0.8%) and Nickerie lost 6.6% of its people. The city is spilling over into the neighbouring districts. For shops, schools, healthcare and builders, the growing areas in Wanica (Kwatta, Koewarasan, De Nieuwe Grond, Lelydorp), Commewijne (Meerzorg) and Para (Noord) are often a better bet than central Paramaribo.</p>
+<p>The interior is vast and thinly populated. Sipaliwini covers almost 80% of the land but has only {{ num((sip / tot * 100) if tot else 0, 1) }}% of the people, spread over more than 150 villages. There the business is transport, energy and services delivered on site, not volume.</p>
+{% endif %}
+
+<h2>{{ 'Hoe het districtsbestuur werkt' if nl else 'How district government works' }}</h2>
+{% if nl %}
+<p>De <b>Wet Regionale Organen</b> (S.B. 1989 no. 44) regelt het bestuur van de districten. Voor ondernemers zijn drie organen van belang:</p>
+<ul>
+ <li><b>De districtscommissaris (DC)</b> vertegenwoordigt de regering in het district en zit het districtsbestuur voor, met een vertegenwoordiger van elk ministerie. Het districtsbestuur doet het dagelijks bestuur. De DC geeft de lokale vergunningen af en adviseert bij grondaanvragen.</li>
+ <li><b>De districtsraad</b> is het hoogste politieke orgaan van het district en wordt gekozen. De raad kan districtsverordeningen maken, bijvoorbeeld over het onderhoud van openbare plaatsen. Een districtsverordening kan een <b>bestemmingsheffing</b> invoeren, een lokale heffing voor een bepaald doel; die heeft de goedkeuring van De Nationale Assemblee nodig. De opbrengst kan naar een <b>districtsfonds</b> dat het districtsbestuur beheert.</li>
+ <li><b>De ressortraad</b> is het gekozen orgaan van een ressort en houdt toezicht op wat het districtsbestuur in het ressort doet.</li>
+</ul>
+<p>Het ministerie van <b>Regionale Ontwikkeling</b> (RO) is verantwoordelijk voor de districtscommissarissen. Grote districten zijn verdeeld in <b>bestuursressorten</b>, elk met een eigen DC. Paramaribo heeft er meerdere; Wanica heeft er sinds het Besluit Ressortenindeling Wanica 2025 drie (Centrum, Zuid-Oost en Noord-West); in Sipaliwini heeft elk ressort een eigen DC. Je moet dus bij het commissariaat zijn van het gebied waar je vestiging ligt, niet per se bij de hoofdplaats van het district.</p>
+{% else %}
+<p>The <b>Regional Bodies Act</b> (Wet Regionale Organen, S.B. 1989 no. 44) governs the districts. Three bodies matter for business:</p>
+<ul>
+ <li><b>The district commissioner (DC)</b> represents the government in the district and chairs the district administration, which includes a representative of each ministry. The district administration runs day-to-day affairs. The DC issues local licences and advises on land applications.</li>
+ <li><b>The district council</b> (districtsraad) is the highest political body of the district and is elected. It can make district by-laws, for example on the upkeep of public places. A by-law can introduce a <b>purpose levy</b> (bestemmingsheffing), a local charge for a specific aim, which needs the approval of the National Assembly. The revenue can go into a <b>district fund</b> managed by the district administration.</li>
+ <li><b>The ressort council</b> (ressortraad) is the elected body of a ressort and oversees what the district administration does in that ressort.</li>
+</ul>
+<p>The <b>Ministry of Regional Development</b> (RO) is responsible for the district commissioners. Large districts are split into <b>administrative areas</b> (bestuursressorten), each with its own DC. Paramaribo has several; Wanica has had three since the Wanica Ressort Division Decree 2025 (Centre, South-East and North-West); in Sipaliwini each ressort has its own DC. So go to the commissioner's office for the area where your premises are, not necessarily to the district capital.</p>
+{% endif %}
+
+<h2>{{ 'Wat regel je bij de districtscommissaris?' if nl else 'What do you arrange with the district commissioner?' }}</h2>
+{% if nl %}
+<p>Sinds de vergunningenlijst in 2011 sterk werd ingekort, geeft de DC geen ambachtsvergunningen meer. Wel nog:</p>
+<ul class="check">
+ <li><b>Eet- en drankgelegenheden</b> en de verkoop van sterke drank (restaurant, snackbar, bar), onder de Wet op Drankhuizen en huizen van openbare vermakelijkheden.</li>
+ <li><b>Openbare vermakelijkheden</b>: feesten, concerten, evenementen.</li>
+ <li><b>Standplaatsen op de openbare weg</b>: een kraam, foodtruck of verkooppunt langs de weg.</li>
+ <li><b>Hinderwetvergunning</b> voor bedrijven die gevaar, schade of overlast voor de buurt kunnen geven, zoals een werkplaats, spuiterij of opslag van brandstof.</li>
+ <li><b>Advies bij grondaanvragen</b>: een aanvraag voor staatsgrond wordt op het commissariaat en de bestuurspost bekendgemaakt, en de DC adviseert de minister.</li>
+</ul>
+<p>Formulieren, leges en termijnen zijn niet centraal gepubliceerd en kunnen per district verschillen. Bel of bezoek het commissariaat voordat je huurt of inkoopt. Wil je een plek op een markt, vraag dan bij het commissariaat wie die markt beheert. Meer over landelijke vergunningen: <a href="{{ U('licences') }}">{{ L('licences') }}</a>. Over grond: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% else %}
+<p>Since the licence list was cut sharply in 2011, the DC no longer licenses trades. The DC still handles:</p>
+<ul class="check">
+ <li><b>Places serving food and drink</b> and the sale of spirits (restaurant, snack bar, bar), under the Drinking Houses and Public Entertainment Act.</li>
+ <li><b>Public entertainment</b>: parties, concerts, events.</li>
+ <li><b>Stalls on the public road</b>: a market stall, food truck or roadside sales point.</li>
+ <li><b>Nuisance Act permit</b> (Hinderwetvergunning) for businesses that may cause danger, damage or nuisance to neighbours, such as a workshop, paint shop or fuel storage.</li>
+ <li><b>Advice on land applications</b>: an application for state land is posted at the commissioner's office and the local administrative post, and the DC advises the minister.</li>
+</ul>
+<p>Forms, fees and processing times are not published centrally and can differ by district. Call or visit the commissioner's office before you sign a lease or buy stock. If you want a place at a market, ask the office who manages that market. More on national licences: <a href="{{ U('licences') }}">{{ L('licences') }}</a>. On land: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap: een zaak openen in een district' if nl else 'Step by step: opening a business in a district' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Kies de plek en check het pand of de grond.</b> Is er een geldige titel (eigendom, grondhuur, huurcontract)? Mag er een bedrijf zitten? <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Ga langs het commissariaat.</b> Vraag welke lokale vergunning je nodig hebt, wat het kost en hoe lang het duurt. Vraag ook naar plannen voor de omgeving, zoals wegwerkzaamheden of een nieuwe markt.</li>
+ <li><b>Schrijf je in bij de KKF</b> en vraag een FIN-nummer aan bij de Belastingdienst. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Check of je activiteit op de landelijke vergunningenlijst staat</b> (bijvoorbeeld een hotel, pompstation of slagerij). Die vergunning vraag je aan bij het ministerie, niet bij de DC. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Vraag de lokale vergunning aan</b> bij de DC: horeca, evenement, standplaats of Hinderwet.</li>
+ <li><b>Ga je bouwen of verbouwen</b>, dan heb je ook een bouwvergunning nodig. Verkoop je eten, dan een gezondheidsverklaring.</li>
+ <li><b>Regel nutsvoorzieningen op tijd.</b> Vraag vroeg naar een aansluiting voor stroom en water. In afgelegen gebieden is er vaak geen net en werk je met een aggregaat of zonnepanelen.</li>
+ <li><b>Neem personeel aan volgens de landelijke regels.</b> <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Choose the location and check the building or land.</b> Is there a valid title (freehold, land lease, rental contract)? May a business operate there? <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Visit the commissioner's office.</b> Ask which local licence you need, what it costs and how long it takes. Also ask about plans for the area, such as road works or a new market.</li>
+ <li><b>Register with the KKF</b> and apply for a FIN tax number at the tax office. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Check whether your activity is on the national licence list</b> (for example a hotel, petrol station or butcher). That licence comes from the ministry, not the DC. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Apply for the local licence</b> with the DC: food and drink, event, street stall or Nuisance Act.</li>
+ <li><b>If you build or renovate</b>, you also need a building permit. If you sell food, a health certificate.</li>
+ <li><b>Arrange utilities early.</b> Ask early about a power and water connection. Remote areas often have no grid, so you work with a generator or solar panels.</li>
+ <li><b>Hire staff under the national rules.</b> <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Decentralisatie: wat er verandert' if nl else 'Decentralisation: what is changing' }}</h2>
+{% if nl %}
+<p>Meer zelfstandigheid en eigen inkomsten voor de districten staan op de agenda. In april 2026 zei het ministerie van RO dat het wetsontwerpen voorbereidt om de districtscommissarissen beter te laten functioneren en hun meer mogelijkheden te geven om inkomsten te genereren. Wanica kreeg in augustus 2025 een derde bestuursressort, onder meer vanwege de verstedelijking en de groei van de industrie. Voor Sipaliwini wil het ministerie de kantoren in het district opknappen, zodat de DC's niet meer vanuit Paramaribo hoeven te werken.</p>
+<p>Wat betekent dat voor jou? Lokale regels en heffingen kunnen de komende jaren per district gaan verschillen. Vraag bij het commissariaat naar districtsverordeningen die voor je branche gelden, en houd ons overzicht van nieuwe wetten in de gaten: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% else %}
+<p>More autonomy and own income for the districts are on the agenda. In April 2026 the Ministry of Regional Development said it is drafting bills to help district commissioners work better and give them more ways to raise income. Wanica got a third administrative area in August 2025, partly because of urban growth and industry. In Sipaliwini the ministry wants to upgrade offices in the district so the DCs no longer have to work from Paramaribo.</p>
+<p>What does that mean for you? Local rules and levies may start to differ by district in the coming years. Ask the commissioner's office about district by-laws for your trade, and keep an eye on our overview of new laws: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wegen, havens en grensovergangen' if nl else 'Roads, ports and border crossings' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Oost-Westverbinding.</b> De hoofdweg langs de kust van Albina via Paramaribo naar Nieuw Nickerie, met bruggen over de Suriname (Jules Wijdenbosch-brug, 2000), de Saramacca (2011) en de Coppename (1999). Een zuidelijke tak loopt van Paramaribo via Bitagron naar Apoera.</li>
+ <li><b>Naar Guyana.</b> De veerboot Canawaima vaart tussen South Drain (Nickerie) en Moleson Creek, sinds 1998. In augustus 2026 lag de dienst ongeveer een week stil. Over een brug over de Corantijn is eind september 2026 nog geen nieuw akkoord tussen beide landen.</li>
+ <li><b>Naar Frans-Guyana.</b> Een veerpont vaart tussen Albina en Saint-Laurent-du-Maroni, sinds 1969. Personen steken ook per korjaal over.</li>
+ <li><b>Zeehavens.</b> De Dr. Jules Sedney Haven in Paramaribo; Havenbeheer Suriname beheert ook de haven van Nieuw Nickerie.</li>
+ <li><b>Luchthavens.</b> Internationaal via de Johan Adolf Pengel luchthaven in Zanderij (Para). Binnenlandse en chartervluchten vanaf Zorg en Hoop in Paramaribo naar landingsbanen in het binnenland.</li>
+</ul>
+<p>Exporteer of importeer je via een grensovergang, dan heb je een douanepost nodig (onder meer in Albina en Nieuw Nickerie). Zie <a href="{{ U('export') }}">{{ L('export') }}</a> en <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<ul>
+ <li><b>East-West Link.</b> The main coastal road from Albina via Paramaribo to Nieuw Nickerie, with bridges over the Suriname (Jules Wijdenbosch Bridge, 2000), the Saramacca (2011) and the Coppename (1999). A southern branch runs from Paramaribo via Bitagron to Apoera.</li>
+ <li><b>To Guyana.</b> The ferry Canawaima sails between South Drain (Nickerie) and Moleson Creek, since 1998. In August 2026 the service stopped for about a week. At the end of September 2026 the two countries still had no new agreement on a bridge across the Corantijn.</li>
+ <li><b>To French Guiana.</b> A car ferry runs between Albina and Saint-Laurent-du-Maroni, since 1969. Passengers also cross by dugout boat (korjaal).</li>
+ <li><b>Seaports.</b> The Dr. Jules Sedney Harbour in Paramaribo; Havenbeheer Suriname also manages the port of Nieuw Nickerie.</li>
+ <li><b>Airports.</b> International through Johan Adolf Pengel airport at Zanderij (Para). Domestic and charter flights from Zorg en Hoop in Paramaribo to airstrips in the interior.</li>
+</ul>
+<p>If you export or import across a land border, you need a customs post (among others in Albina and Nieuw Nickerie). See <a href="{{ U('export') }}">{{ L('export') }}</a> and <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Kies je district' if nl else 'Choose your district' }}</h2>
+<div class="tindex">{% for d in districts %}<a class="ti" href="{{ dpre }}{{ d.key }}"><b>{{ d.name }}</b><span>{{ d.activities[i] }}</span></a>{% endfor %}</div>
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn bedrijf in meer districten zit?</b> Je schrijft je één keer in bij de KKF, maar een lokale vergunning hoort bij een vestiging. Een tweede horecazaak of standplaats in een ander district vraag je aan bij de DC van die plek.</li>
+ <li><b>...ik in het binnenland wil werken?</b> Veel dorpen hebben een traditioneel gezag (granman, kapitein). Maak afspraken met het dorpsbestuur, en vraag voor goud een concessie aan bij de GMD. <a href="{{ U('gold') }}">{{ L('gold') }}</a></li>
+ <li><b>...ik een sector wil vergelijken, niet een plek?</b> Zie <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> en <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>...ik een ondernemingsplan schrijf voor een district?</b> Gebruik de cijfers hierboven als basis en tel de groei sinds 2012 erbij. <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a></li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my business operates in several districts?</b> You register once with the KKF, but a local licence belongs to a location. A second restaurant or stall in another district needs a licence from that district's DC.</li>
+ <li><b>...I want to work in the interior?</b> Many villages have traditional authorities (granman, kapitein). Make arrangements with the village leadership, and for gold apply for a concession at the GMD. <a href="{{ U('gold') }}">{{ L('gold') }}</a></li>
+ <li><b>...I want to compare sectors, not places?</b> See <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> and <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>...I am writing a business plan for a district?</b> Use the figures above as a base and add growth since 2012. <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://statistics-suriname.org/wp-content/uploads/2019/09/presentatie.pdf" rel="noopener">ABS: definitieve resultaten Census 8, bevolking en oppervlakte per district</a></li>
+ <li><a href="https://www.statistics-suriname.org/wp-content/uploads/2019/03/presentatie-districts-resultaten-vol1-070314.pdf" rel="noopener">ABS: Census 8 districtsresultaten Paramaribo en Wanica (2014)</a></li>
+ <li><a href="https://www.statistics-suriname.org/wp-content/uploads/2019/03/districtsresultaten_volii_finale.pdf" rel="noopener">ABS: Census 8 districtsresultaten volume II (2014)</a></li>
+ <li><a href="https://statistics-suriname.org/census/" rel="noopener">ABS: status negende volkstelling</a></li>
+ <li><a href="https://www.citypopulation.de/en/suriname/admin/" rel="noopener">City Population: districten en ressorten (censuscijfers ABS)</a></li>
+ <li><a href="https://www.dna.sr/media/zzle15fe/wet_regionale_organen.pdf" rel="noopener">Wet Regionale Organen, S.B. 1989 no. 44 (zoals gewijzigd)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/10/Besluit-Ressortenindeling-Wanica-2025-S.B-2025-no.-111.pdf" rel="noopener">Besluit Ressortenindeling Wanica 2025, S.B. 2025 no. 111</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/04/21/versterking-districten-centraal-bij-bezoek-nederlandse-ambassadeur-aan-ro/" rel="noopener">Suriname Herald: versterking districten bij RO (21 april 2026)</a></li>
+ <li><a href="https://keynews.sr/en/minister-huur-discusses-new-ro-headquarters-with-idb/" rel="noopener">Keynews: RO over kantoren DC's in Sipaliwini (2 september 2026)</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/30/suriname-bereid-financiele-verantwoordelijkheid-voor-corantijnbrug-te-nemen/" rel="noopener">De West: Corantijnbrug (30 september 2026)</a></li>
+ <li><a href="https://kaieteurnewsonline.com/2026/09/05/canawaima-ferry-crisis-why-guyana-and-suriname-need-a-long-term-solution/" rel="noopener">Kaieteur News: Canawaima-veerdienst (september 2026)</a></li>
+ <li><a href="https://en.wikipedia.org/wiki/East-West_Link_(Suriname)" rel="noopener">Oost-Westverbinding: route, bruggen en veerdiensten</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies.' if nl else 'General information, not legal advice.' }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<!-- Maintainers: refresh schedule for this page (all figures are hand-entered unless noted).
+  Monthly (around the 25th): inflation (ABS CPI release, around the 22nd), SEOB bulletin (MEAI, reserves, import cover, lending rate, bank solvency/NPL), debt (Bureau voor de Staatsschuld).
+  Live, no action: USD/EUR CME rate comes from the `rates` context (fetch.py, every 30 minutes).
+  Quarterly: CBvS gold export figures, IMF/agency rating actions (Moody's, S&P, Fitch), GranMorgu progress (TotalEnergies/Staatsolie).
+  Twice a year: IMF growth forecasts (Article IV around January, WEO April/October), budget figures (President's annual address, 30 September).
+  When ABS publishes the 2024 census results, replace the population line.
+  Bump the date in the asof line when you change anything. -->
+<div class="prose">
+<h1>{{ 'Economie van Suriname in cijfers' if nl else 'Suriname economy in figures' }}</h1>
+{% if nl %}
+<p class="lead">De Surinaamse economie herstelt: de inflatie zakte naar 7,3% in september 2026, de reserves staan rond USD 2 miljard en de dollarkoers is sinds het voorjaar van 2026 vrij stabiel rond SRD 37,5 tot 37,8. Maar de staatsschuld is hoog, lenen is duur (gemiddeld bijna 14%) en de grote groeisprong komt pas met de eerste olie van GranMorgu in 2028. Hieronder de kerncijfers, elk met datum en bron.</p>
+{% else %}
+<p class="lead">Suriname's economy is recovering: inflation fell to 7.3% in September 2026, reserves are around USD 2 billion and the dollar rate has been fairly stable at SRD 37.5 to 37.8 since spring 2026. But public debt is high, borrowing is expensive (close to 14% on average) and the big jump in growth only comes with first oil from GranMorgu in 2028. Below are the key figures, each with date and source.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Inflatie september 2026' if nl else 'Inflation September 2026' }}</div><div class="big">{{ '7,3%' if nl else '7.3%' }}</div><div class="sub">{{ 'jaar op jaar, ABS' if nl else 'year on year, ABS' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Groei 2026 (prognose)' if nl else 'Growth 2026 (forecast)' }}</div><div class="big">{{ '3,9%' if nl else '3.9%' }}</div><div class="sub">{{ 'reëel bbp, IMF januari 2026' if nl else 'real GDP, IMF January 2026' }}</div></div>
+ {% if rates and not rates.stale %}
+ <div class="card"><div class="eyebrow">{{ 'Dollarkoers vandaag' if nl else 'Dollar rate today' }}</div><div class="big">{{ num(rates.usd.sell) }}</div><div class="sub">{{ 'SRD per USD, CME verkoop' if nl else 'SRD per USD, CME selling' }}, {{ date(rates.business_date) }}</div></div>
+ {% else %}
+ <div class="card"><div class="eyebrow">{{ 'Internationale reserves' if nl else 'International reserves' }}</div><div class="big">{{ 'USD 2,0 mld' if nl else 'USD 2.0 bn' }}</div><div class="sub">{{ 'juli 2026, 8,2 maanden import' if nl else 'July 2026, 8.2 months of imports' }}</div></div>
+ {% endif %}
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Groei:</b> 1,5% in 2025; het IMF verwacht 3,9% in 2026, 4,4% in 2027 en 28,5% in 2028, als de olie gaat stromen.</li>
+ <li><b>Inflatie:</b> 7,3% in september 2026 (ABS), na 10,9% in april. Prijzen stijgen nog, maar trager.</li>
+ <li><b>Koers:</b> de SRD zweeft vrij; de dollar bewoog in 2026 rond SRD 37,5 tot 37,8.</li>
+ <li><b>Schuld:</b> USD 4,65 miljard in juni 2026: 119,6% van het bbp volgens de wettelijke definitie, 74,5% gemeten aan het IMF-bbp voor 2026.</li>
+ <li><b>Geld lenen:</b> gemiddelde leenrente 13,8%; de banken zelf zijn goed gekapitaliseerd (solvabiliteit 19,8%).</li>
+ <li><b>Export:</b> goud en olie zijn samen ongeveer 90% van de goederenexport. Exporteurs moeten 35% van hun deviezen verkopen.</li>
+{% else %}
+ <li><b>Growth:</b> 1.5% in 2025; the IMF expects 3.9% in 2026, 4.4% in 2027 and 28.5% in 2028, once oil starts flowing.</li>
+ <li><b>Inflation:</b> 7.3% in September 2026 (ABS), down from 10.9% in April. Prices are still rising, but more slowly.</li>
+ <li><b>Exchange rate:</b> the SRD floats freely; the dollar moved around SRD 37.5 to 37.8 in 2026.</li>
+ <li><b>Debt:</b> USD 4.65 billion in June 2026: 119.6% of GDP under the legal definition, 74.5% measured against IMF GDP for 2026.</li>
+ <li><b>Borrowing:</b> average lending rate 13.8%; the banks themselves are well capitalised (solvency 19.8%).</li>
+ <li><b>Exports:</b> gold and oil together are about 90% of goods exports. Exporters must sell 35% of their foreign currency.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Kerncijfers' if nl else 'Fact table' }}</h2>
+{% set c1 = 'Indicator' %}{% set c2 = 'Waarde' if nl else 'Value' %}{% set c3 = 'Bron en datum' if nl else 'Source and date' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Reële groei bbp</b></td><td data-l="{{ c2 }}">1,7% in 2024; 1,5% in 2025</td><td data-l="{{ c3 }}">IMF Artikel IV, januari 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Groeiprognose</b></td><td data-l="{{ c2 }}">3,9% in 2026; 4,4% in 2027; 28,5% in 2028</td><td data-l="{{ c3 }}">IMF Artikel IV, januari 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Economische activiteit (MEAI)</b></td><td data-l="{{ c2 }}">+9,6% jaar op jaar in april 2026 (7,7% in januari)</td><td data-l="{{ c3 }}">SEOB-bulletin 30, september 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Inflatie</b></td><td data-l="{{ c2 }}">7,3% jaar op jaar in september 2026; 0,1% ten opzichte van augustus</td><td data-l="{{ c3 }}">ABS, 22 oktober 2026</td></tr>
+ {% if rates and not rates.stale %}<tr><td data-l="{{ c1 }}"><b>Wisselkoers vandaag</b></td><td data-l="{{ c2 }}">USD: SRD {{ num(rates.usd.sell) }}; EUR: SRD {{ num(rates.eur.sell) }} (verkoop)</td><td data-l="{{ c3 }}">CME, {{ date(rates.business_date) }}</td></tr>{% endif %}
+ <tr><td data-l="{{ c1 }}"><b>Wisselkoers, maandgemiddelde</b></td><td data-l="{{ c2 }}">USD: SRD 37,8 in juli 2026; EUR: SRD 43,8 in mei 2026</td><td data-l="{{ c3 }}">SEOB-bulletins 29 en 30, 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Internationale reserves</b></td><td data-l="{{ c2 }}">Ongeveer USD 2,0 miljard in juli 2026, 8,2 maanden importdekking</td><td data-l="{{ c3 }}">SEOB-bulletin 30, september 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsschuld</b></td><td data-l="{{ c2 }}">USD 4,65 miljard in juni 2026: 119,6% van het bbp (wettelijk) of 74,5% (IMF-bbp 2026); norm 60%</td><td data-l="{{ c3 }}">Bureau voor de Staatsschuld, 28 augustus 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Begroting 2027</b></td><td data-l="{{ c2 }}">Inkomsten SRD 70,1 miljard, uitgaven SRD 80,9 miljard, tekort 4% van het bbp</td><td data-l="{{ c3 }}">Jaarrede, 30 september 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Gemiddelde leenrente</b></td><td data-l="{{ c2 }}">13,8% (14,0% in april 2026); spaarrente 7,1% in april 2026</td><td data-l="{{ c3 }}">SEOB-bulletins 29 en 30, 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Banken</b></td><td data-l="{{ c2 }}">Solvabiliteit 19,8% (juni 2026); netto niet-renderende leningen 2,3%</td><td data-l="{{ c3 }}">SEOB-bulletin 30, september 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Kredietwaardigheid</b></td><td data-l="{{ c2 }}">Moody's Caa1, positief (22 oktober 2024); S&amp;P CCC+, stabiel (december 2023); geen actuele openbare Fitch-rating gevonden</td><td data-l="{{ c3 }}">Regering van Suriname; ratingoverzichten, oktober 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>IMF-programma</b></td><td data-l="{{ c2 }}">Extended Fund Facility afgerond in maart 2025; nog SDR 430,7 miljoen uitstaand op 31 maart 2026</td><td data-l="{{ c3 }}">IMF</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Goederenexport</b></td><td data-l="{{ c2 }}">USD 2,47 miljard in 2025, waarvan USD 2,22 miljard goud en aardolie</td><td data-l="{{ c3 }}">IMF Artikel IV, januari 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Belangrijkste leveranciers</b></td><td data-l="{{ c2 }}">Verenigde Staten 22,5%, China 13,7%, Nederland 11,7% van de invoer (2024)</td><td data-l="{{ c3 }}">CBS Nederland, november 2025</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Eerste olie GranMorgu</b></td><td data-l="{{ c2 }}">Medio 2028; {{ num(F.GRANMORGU.capacity_bpd, 0) }} vaten per dag</td><td data-l="{{ c3 }}">Regering (jaarrede 2026); TotalEnergies</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Real GDP growth</b></td><td data-l="{{ c2 }}">1.7% in 2024; 1.5% in 2025</td><td data-l="{{ c3 }}">IMF Article IV, January 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Growth forecast</b></td><td data-l="{{ c2 }}">3.9% in 2026; 4.4% in 2027; 28.5% in 2028</td><td data-l="{{ c3 }}">IMF Article IV, January 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Economic activity (MEAI)</b></td><td data-l="{{ c2 }}">+9.6% year on year in April 2026 (7.7% in January)</td><td data-l="{{ c3 }}">SEOB bulletin 30, September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Inflation</b></td><td data-l="{{ c2 }}">7.3% year on year in September 2026; 0.1% on August</td><td data-l="{{ c3 }}">ABS, 22 October 2026</td></tr>
+ {% if rates and not rates.stale %}<tr><td data-l="{{ c1 }}"><b>Exchange rate today</b></td><td data-l="{{ c2 }}">USD: SRD {{ num(rates.usd.sell) }}; EUR: SRD {{ num(rates.eur.sell) }} (selling)</td><td data-l="{{ c3 }}">CME, {{ date(rates.business_date) }}</td></tr>{% endif %}
+ <tr><td data-l="{{ c1 }}"><b>Exchange rate, monthly</b></td><td data-l="{{ c2 }}">USD: SRD 37.8 in July 2026; EUR: SRD 43.8 in May 2026</td><td data-l="{{ c3 }}">SEOB bulletins 29 and 30, 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>International reserves</b></td><td data-l="{{ c2 }}">About USD 2.0 billion in July 2026, 8.2 months of import cover</td><td data-l="{{ c3 }}">SEOB bulletin 30, September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Public debt</b></td><td data-l="{{ c2 }}">USD 4.65 billion in June 2026: 119.6% of GDP (legal) or 74.5% (IMF GDP 2026); ceiling 60%</td><td data-l="{{ c3 }}">Debt Management Office, 28 August 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Budget 2027</b></td><td data-l="{{ c2 }}">Revenue SRD 70.1 billion, spending SRD 80.9 billion, deficit 4% of GDP</td><td data-l="{{ c3 }}">President's annual address, 30 September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Average lending rate</b></td><td data-l="{{ c2 }}">13.8% (14.0% in April 2026); savings rate 7.1% in April 2026</td><td data-l="{{ c3 }}">SEOB bulletins 29 and 30, 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Banks</b></td><td data-l="{{ c2 }}">Solvency 19.8% (June 2026); net non-performing loans 2.3%</td><td data-l="{{ c3 }}">SEOB bulletin 30, September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Credit ratings</b></td><td data-l="{{ c2 }}">Moody's Caa1, positive (22 October 2024); S&amp;P CCC+, stable (December 2023); no current public Fitch rating found</td><td data-l="{{ c3 }}">Government of Suriname; rating databases, October 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>IMF programme</b></td><td data-l="{{ c2 }}">Extended Fund Facility completed in March 2025; SDR 430.7 million still outstanding on 31 March 2026</td><td data-l="{{ c3 }}">IMF</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Goods exports</b></td><td data-l="{{ c2 }}">USD 2.47 billion in 2025, of which USD 2.22 billion gold and petroleum</td><td data-l="{{ c3 }}">IMF Article IV, January 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Main suppliers</b></td><td data-l="{{ c2 }}">United States 22.5%, China 13.7%, Netherlands 11.7% of imports (2024)</td><td data-l="{{ c3 }}">Statistics Netherlands (CBS), November 2025</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>GranMorgu first oil</b></td><td data-l="{{ c2 }}">Mid-2028; {{ num(F.GRANMORGU.capacity_bpd, 0) }} barrels a day</td><td data-l="{{ c3 }}">Government (annual address 2026); TotalEnergies</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Groei: herstel nu, olie vanaf 2028' if nl else 'Growth: recovery now, oil from 2028' }}</h2>
+{% if nl %}
+<p>Na de crisis van 2020 en 2021 groeit de economie weer, maar bescheiden: volgens het IMF 1,7% in 2024 en 1,5% in 2025. Voor 2026 rekent zowel het IMF als de regering op ongeveer 3,9%. De maandelijkse activiteitsindex van de Centrale Bank (MEAI) laat in 2026 een sterkere versnelling zien, van 7,7% in januari naar 9,6% in april (SEOB). In maart lagen vooral watervoorziening, handel, horeca en de overheid hoog; transport en mijnbouw bleven zwakker. De MEAI is een snelle indicator, geen bbp-cijfer.</p>
+<p>De echte sprong komt met olie. Het IMF verwacht 28,5% groei in 2028, het jaar waarin het offshoreproject GranMorgu in Blok 58 moet gaan produceren. De productie van olie loopt volgens het IMF op van 6,3 miljoen vaten in 2025 naar 86,3 miljoen in 2028. Wat dat voor leveranciers betekent: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% else %}
+<p>After the 2020 to 2021 crisis the economy is growing again, but modestly: 1.7% in 2024 and 1.5% in 2025 according to the IMF. For 2026 both the IMF and the government expect about 3.9%. The Central Bank's monthly economic activity index (MEAI) shows a stronger pickup in 2026, from 7.7% in January to 9.6% in April (SEOB). In March, water supply, trade, hospitality and government were strongest; transport and mining were weaker. The MEAI is a quick indicator, not a GDP figure.</p>
+<p>The real jump comes with oil. The IMF expects 28.5% growth in 2028, the year the offshore GranMorgu project in Block 58 is due to start producing. According to the IMF, oil output rises from 6.3 million barrels in 2025 to 86.3 million in 2028. What that means for suppliers: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Inflatie en wisselkoers' if nl else 'Inflation and exchange rate' }}</h2>
+{% if nl %}
+<p>De inflatie liep in april 2026 nog op tot 10,9%, maar daalde daarna snel: 10,4% in juni, 8,9% in juli, 8,0% in augustus en 7,3% in september (ABS). Groente en fruit bleven duur. De Surinaamse dollar zweeft sinds 2021; van april tot juli 2026 bleef de dollar rond SRD 37,5 tot 37,8, en de euro stond in mei op SRD 43,8.</p>
+{% if rates and not rates.stale %}<p>Vandaag (CME, {{ date(rates.business_date) }}): USD verkoop SRD {{ num(rates.usd.sell) }}, EUR verkoop SRD {{ num(rates.eur.sell) }}. Alle bankkoersen: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>{% else %}<p>Actuele koersen van de CME, de Centrale Bank en alle banken: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>{% endif %}
+{% else %}
+<p>Inflation still rose to 10.9% in April 2026, then fell quickly: 10.4% in June, 8.9% in July, 8.0% in August and 7.3% in September (ABS). Fruit and vegetables stayed expensive. The Surinamese dollar has floated since 2021; from April to July 2026 the US dollar stayed around SRD 37.5 to 37.8, and the euro stood at SRD 43.8 in May.</p>
+{% if rates and not rates.stale %}<p>Today (CME, {{ date(rates.business_date) }}): USD selling SRD {{ num(rates.usd.sell) }}, EUR selling SRD {{ num(rates.eur.sell) }}. All bank rates: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>{% else %}<p>Current rates from CME, the Central Bank and all banks: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>{% endif %}
+{% endif %}
+
+<h2>{{ 'Reserves, schuld en overheidsfinanciën' if nl else 'Reserves, debt and public finances' }}</h2>
+{% if nl %}
+<p>De internationale reserves stegen in juli 2026 naar ongeveer USD 2,0 miljard, genoeg voor 8,2 maanden invoer volgens de SEOB. Het IMF gebruikt een andere maatstaf en kwam voor eind 2025 uit op USD 1,3 miljard en 3,5 maanden invoer. Beide liggen boven de gangbare norm van drie maanden.</p>
+<p>Over de staatsschuld circuleren twee percentages. Het Bureau voor de Staatsschuld meldde USD 4,65 miljard in juni 2026 (SRD 175,3 miljard), waarvan USD 3,9 miljard buitenlands. Gemeten aan het bbp van 2024 van het ABS, zoals de Wet op de Staatsschuld voorschrijft, is dat 119,6%. Gemeten aan het grotere IMF-bbp voor 2026 is het 74,5%. Het verschil komt dus door de noemer, niet door een andere schuld. De wettelijke norm is 60%. Voor 2027 raamt de regering een tekort van SRD 10,8 miljard, 4% van het bbp.</p>
+{% else %}
+<p>International reserves rose to about USD 2.0 billion in July 2026, enough for 8.2 months of imports according to the SEOB. The IMF uses a different measure and put end-2025 reserves at USD 1.3 billion and 3.5 months of imports. Both are above the usual three-month benchmark.</p>
+<p>Two debt ratios are in circulation. The Debt Management Office reported USD 4.65 billion in June 2026 (SRD 175.3 billion), of which USD 3.9 billion is external. Measured against ABS GDP for 2024, as the Public Debt Act requires, that is 119.6%. Measured against the larger IMF GDP for 2026, it is 74.5%. The difference comes from the denominator, not from a different debt. The legal ceiling is 60%. For 2027 the government projects a deficit of SRD 10.8 billion, 4% of GDP.</p>
+{% endif %}
+
+<h2>{{ 'Banken en rente' if nl else 'Banks and interest rates' }}</h2>
+{% if nl %}
+<p>De gewogen gemiddelde leenrente lag in april 2026 op 14,0% en daalde licht naar 13,8% (SEOB, september 2026). De spaarrente was 7,1% in april. Met een inflatie van 7,3% betaal je dus een reële rente van ruim 6%. De bankensector is volgens de SEOB stabiel: een solvabiliteit van 19,8% in juni 2026 en netto niet-renderende leningen van 2,3%.</p>
+{% else %}
+<p>The weighted average lending rate was 14.0% in April 2026 and eased slightly to 13.8% (SEOB, September 2026). The savings rate was 7.1% in April. With inflation at 7.3%, you pay a real interest rate of over 6%. According to the SEOB the banking sector is stable: solvency of 19.8% in June 2026 and net non-performing loans of 2.3%.</p>
+{% endif %}
+
+<h2>{{ 'Kredietwaardigheid en het IMF' if nl else 'Credit ratings and the IMF' }}</h2>
+{% if nl %}
+<p>Moody's verhoogde Suriname op 22 oktober 2024 met twee stappen naar <b>Caa1</b> met een positief vooruitzicht. S&amp;P beoordeelt Suriname met <b>CCC+</b>, stabiel (december 2023). Beide liggen ver onder beleggingsniveau. Een actuele openbare rating van Fitch vonden we niet; Fitch sprak in oktober 2026 met het Surinaamse bedrijfsleven. In november 2025 plaatste Suriname obligaties van USD 1,575 miljard (looptijden 2030 en 2035), in februari 2026 aangevuld met USD 265 miljoen, vooral om oudere schulden te herfinancieren.</p>
+<p>Het IMF-programma (Extended Fund Facility uit 2021) werd in maart 2025 afgerond. Sindsdien volgt het IMF Suriname via de jaarlijkse Artikel IV-consultatie; de laatste werd op 26 januari 2026 besproken. Op 31 maart 2026 stond nog SDR 430,7 miljoen aan IMF-leningen uit.</p>
+{% else %}
+<p>Moody's upgraded Suriname by two notches to <b>Caa1</b> with a positive outlook on 22 October 2024. S&amp;P rates Suriname <b>CCC+</b>, stable (December 2023). Both are far below investment grade. We found no current public Fitch rating; Fitch held talks with Surinamese business groups in October 2026. In November 2025 Suriname issued USD 1.575 billion in bonds (maturing 2030 and 2035), topped up with USD 265 million in February 2026, mainly to refinance older debt.</p>
+<p>The IMF programme (2021 Extended Fund Facility) was completed in March 2025. Since then the IMF follows Suriname through the annual Article IV consultation; the latest was discussed on 26 January 2026. On 31 March 2026, SDR 430.7 million in IMF credit was still outstanding.</p>
+{% endif %}
+
+<h2>{{ 'Export en handelspartners' if nl else 'Exports and trading partners' }}</h2>
+{% if nl %}
+<p>Suriname leeft van goud. Volgens het IMF was de goederenexport in 2025 USD 2,47 miljard, waarvan USD 2,22 miljard (ongeveer 90%) goud en aardolie. De goudproductie was 712.000 troy ounce. In het vierde kwartaal van 2025 leverde goud alleen al meer dan USD 635 miljoen op, met de Verenigde Arabische Emiraten als belangrijkste bestemming (Centrale Bank). Verder exporteert Suriname onder meer rijst, vis en garnalen, hout en bananen.</p>
+<p>Aan de invoerkant waren in 2024 de Verenigde Staten (22,5%), China (13,7%) en Nederland (11,7%) de grootste leveranciers. Meer over handel: <a href="{{ U('export') }}">{{ L('export') }}</a> &middot; <a href="{{ U('import') }}">{{ L('import') }}</a> &middot; <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a> &middot; <a href="{{ U('sectors') }}">{{ L('sectors') }}</a></p>
+{% else %}
+<p>Suriname lives off gold. According to the IMF, goods exports were USD 2.47 billion in 2025, of which USD 2.22 billion (about 90%) was gold and petroleum. Gold output was 712,000 troy ounces. In the fourth quarter of 2025 gold alone earned more than USD 635 million, with the United Arab Emirates as the main destination (Central Bank). Other exports include rice, fish and shrimp, timber and bananas.</p>
+<p>On the import side, the United States (22.5%), China (13.7%) and the Netherlands (11.7%) were the largest suppliers in 2024. More on trade: <a href="{{ U('export') }}">{{ L('export') }}</a> &middot; <a href="{{ U('import') }}">{{ L('import') }}</a> &middot; <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a> &middot; <a href="{{ U('sectors') }}">{{ L('sectors') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Wat betekent dit voor jouw bedrijf' if nl else 'What it means for your business' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Prijzen in SRD of USD.</b> De koers is al maanden stabiel, maar de SRD zweeft. Koop je in dollars in, reken dan je kostprijs met de verkoopkoers van de dag en spreek bij grote of lange contracten een koersclausule af. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> &middot; <a href="{{ U('rates') }}">{{ L('rates') }}</a></li>
+ <li><b>Rentelasten.</b> Bij 13,8% kost een lening van SRD 1.000.000 je in het eerste jaar ongeveer SRD 138.000 rente. Reken een investering daarom door voor je leent, en vergelijk banken en de NOB. <a href="{{ U('loan') }}">{{ L('loan') }}</a> &middot; <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Toegang tot deviezen.</b> Met reserves rond USD 2 miljard is er meer valuta beschikbaar dan in de crisisjaren. Plan grote buitenlandse betalingen toch op tijd met je bank en houd rekening met het verschil tussen bank- en cambiokoersen. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>De retentieregel.</b> Exporteer je, dan verkoop je 35% van je opbrengst binnen drie werkdagen aan een Surinaamse bank. Neem dat mee in je prijzen en je kasplanning. <a href="{{ U('export') }}">{{ L('export') }}</a></li>
+ <li><b>Strengere fiscus.</b> Een hoge schuld en een tekort betekenen dat de overheid meer belasting wil innen, vooral via betere controle. Zorg dat je administratie op orde is. <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></li>
+ <li><b>Kansen rond olie.</b> De bouw van GranMorgu en de groei na 2028 vragen om leveranciers, personeel en diensten. Registreer je bij de inkoopportalen en volg de local-contentregels. <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Pricing in SRD or USD.</b> The rate has been stable for months, but the SRD floats. If you buy in dollars, calculate your cost price at the day's selling rate and agree an exchange rate clause in large or long contracts. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> &middot; <a href="{{ U('rates') }}">{{ L('rates') }}</a></li>
+ <li><b>Interest costs.</b> At 13.8%, a loan of SRD 1,000,000 costs you about SRD 138,000 in interest in the first year. Run the numbers on an investment before you borrow, and compare banks and the NOB development bank. <a href="{{ U('loan') }}">{{ L('loan') }}</a> &middot; <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Access to foreign currency.</b> With reserves around USD 2 billion there is more currency available than in the crisis years. Still plan large foreign payments with your bank in good time and allow for the gap between bank and exchange office rates. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>The retention rule.</b> If you export, you sell 35% of your proceeds to a Surinamese bank within three working days. Build that into your prices and cash planning. <a href="{{ U('export') }}">{{ L('export') }}</a></li>
+ <li><b>A stricter tax office.</b> High debt and a deficit mean the government wants to collect more tax, mainly through better enforcement. Keep your records in order. <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></li>
+ <li><b>Opportunities around oil.</b> Building GranMorgu and the growth after 2028 need suppliers, staff and services. Register with the procurement portals and follow the local content rules. <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Suriname in het kort: basisgegevens' if nl else 'Suriname at a glance: country basics' }}</h2>
+{% set k1 = 'Onderwerp' if nl else 'Topic' %}{% set k2 = 'Feit' if nl else 'Fact' %}
+<table class="tbl stack tx"><thead><tr><th>{{ k1 }}</th><th>{{ k2 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ k1 }}"><b>Hoofdstad</b></td><td data-l="{{ k2 }}">Paramaribo</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Oppervlakte</b></td><td data-l="{{ k2 }}">Ruim 160.000 km², grotendeels bos; de meeste bedrijvigheid zit in de kustvlakte. <a href="{{ U('districts') }}">{{ L('districts') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Bevolking</b></td><td data-l="{{ k2 }}">541.638 bij de laatste gepubliceerde volkstelling (2012, ABS). De uitkomsten van de volkstelling van 2024 zijn nog niet gepubliceerd; de VN schatte 612.985 inwoners in 2021.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Taal</b></td><td data-l="{{ k2 }}">Nederlands is de officiële taal (wetten, overheid, contracten). Sranantongo is de omgangstaal; Engels wordt veel gesproken, ook in zaken.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Tijdzone</b></td><td data-l="{{ k2 }}">UTC−3 het hele jaar, geen zomertijd</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Munt</b></td><td data-l="{{ k2 }}">Surinaamse dollar (SRD), sinds 2004; vrij zwevende koers. <a href="{{ U('rates') }}">{{ L('rates') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Begrotings- en belastingjaar</b></td><td data-l="{{ k2 }}">Kalenderjaar; de president presenteerde de begroting voor 2027 op 30 september 2026. <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Feestdagen</b></td><td data-l="{{ k2 }}"><a href="{{ U('holidays') }}">{{ L('holidays') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Banken</b></td><td data-l="{{ k2 }}">Openingstijden verschillen per bank en filiaal; controleer de website van je bank. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Stroom</b></td><td data-l="{{ k2 }}">60 Hz; zowel 127 V als 220 V komt voor. Controleer het voltage van elk stopcontact voor je Europese apparatuur (230 V, 50 Hz) aansluit. Stroomonderbrekingen: <a href="{{ U('outages') }}">{{ L('outages') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Telefoon en internet</b></td><td data-l="{{ k2 }}">Landcode +597. Mobiel: Telesur (staatsbedrijf) en Digicel. Vast internet en glasvezel: vooral Telesur.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Verkeer</b></td><td data-l="{{ k2 }}">Links rijden</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Luchthaven</b></td><td data-l="{{ k2 }}">Johan Adolf Pengel International Airport (Zanderij), de enige luchthaven voor grote straalvliegtuigen</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Haven</b></td><td data-l="{{ k2 }}">Dr. Jules Sedney Haven in Paramaribo, met een containerterminal van DP World</td></tr>
+{% else %}
+ <tr><td data-l="{{ k1 }}"><b>Capital</b></td><td data-l="{{ k2 }}">Paramaribo</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Area</b></td><td data-l="{{ k2 }}">Over 160,000 km², mostly forest; most business activity is on the coastal plain. <a href="{{ U('districts') }}">{{ L('districts') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Population</b></td><td data-l="{{ k2 }}">541,638 at the latest published census (2012, ABS). Results of the 2024 census have not been published yet; the UN estimated 612,985 people in 2021.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Language</b></td><td data-l="{{ k2 }}">Dutch is the official language (laws, government, contracts). Sranan Tongo is the everyday language; English is widely spoken, including in business.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Time zone</b></td><td data-l="{{ k2 }}">UTC−3 all year, no daylight saving time</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Currency</b></td><td data-l="{{ k2 }}">Surinamese dollar (SRD), since 2004; freely floating. <a href="{{ U('rates') }}">{{ L('rates') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Budget and tax year</b></td><td data-l="{{ k2 }}">Calendar year; the President presented the 2027 budget on 30 September 2026. <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Public holidays</b></td><td data-l="{{ k2 }}"><a href="{{ U('holidays') }}">{{ L('holidays') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Banks</b></td><td data-l="{{ k2 }}">Opening hours differ by bank and branch; check your bank's website. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Electricity</b></td><td data-l="{{ k2 }}">60 Hz; both 127 V and 220 V are in use. Check the voltage of each socket before you plug in European equipment (230 V, 50 Hz). Power cuts: <a href="{{ U('outages') }}">{{ L('outages') }}</a></td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Phone and internet</b></td><td data-l="{{ k2 }}">Country code +597. Mobile: Telesur (state-owned) and Digicel. Fixed internet and fibre: mainly Telesur.</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Traffic</b></td><td data-l="{{ k2 }}">Drive on the left</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Airport</b></td><td data-l="{{ k2 }}">Johan Adolf Pengel International Airport (Zanderij), the only airport for large jet aircraft</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Port</b></td><td data-l="{{ k2 }}">Dr. Jules Sedney Harbour in Paramaribo, with a DP World container terminal</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...de koers ineens stijgt?</b> Dan stijgen je inkoopprijzen in SRD direct. Pas je prijslijst aan, en vermeld op offertes hoe lang een prijs geldt. <a href="{{ U('quote') }}">{{ L('quote') }}</a></li>
+ <li><b>...ik een investeerder cijfers moet laten zien?</b> Gebruik de cijfers hierboven met hun datum en bron, en kijk in <a href="{{ U('invest') }}">{{ L('invest') }}</a> en <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+ <li><b>...ik een cijfer zie dat afwijkt van deze pagina?</b> Kijk naar de datum en de definitie. Vooral bij de staatsschuld en de reserves gebruiken bronnen verschillende maatstaven.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...the exchange rate suddenly rises?</b> Your purchase prices in SRD go up at once. Adjust your price list, and state on quotes how long a price is valid. <a href="{{ U('quote') }}">{{ L('quote') }}</a></li>
+ <li><b>...I need to show an investor figures?</b> Use the figures above with their date and source, and see <a href="{{ U('invest') }}">{{ L('invest') }}</a> and <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+ <li><b>...I see a figure that differs from this page?</b> Check the date and the definition. Especially for public debt and reserves, sources use different measures.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.imf.org/-/media/files/publications/cr/2026/english/1surea2026001-source-pdf.pdf" rel="noopener">IMF: Suriname 2025 Article IV Consultation, Country Report No. 26/37 (januari 2026)</a></li>
+ <li><a href="https://www.imf.org/en/countries/sur" rel="noopener">IMF: Suriname and the IMF</a></li>
+ <li><a href="https://statistics-suriname.org/" rel="noopener">Algemeen Bureau voor de Statistiek (ABS): consumentenprijsindex september 2026</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94499" rel="noopener">Starnieuws: inflatie daalt naar 7,3% (23 oktober 2026)</a></li>
+ <li><a href="https://www.seob.sr/media/1387/seob_bulletin_29_nl.pdf" rel="noopener">SEOB-bulletin 29 (juni 2026)</a></li>
+ <li><a href="https://www.surinametimes.com/artikel/seob-economisch-herstel-zet-door-maar-overheidsfinancien-blijven-aandachtspunt" rel="noopener">Suriname Times: SEOB-bulletin 30 (september 2026)</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/30/overheidsfinancien-aanzienlijk-verslechterd-ondanks-daling-staatsschuld/" rel="noopener">De West: overheidsfinanciën en staatsschuld volgens de SEOB (30 september 2026)</a></li>
+ <li><a href="https://gov.sr/bureau-voor-de-staatsschuld-totale-staatsschuld-bedraagt-usd-465-miljard/" rel="noopener">Bureau voor de Staatsschuld: totale staatsschuld USD 4,65 miljard (28 augustus 2026)</a></li>
+ <li><a href="https://gov.sr/president-simons-spreekt-tweede-jaarrede-uit-en-blikt-terug-op-eerste-regeringsjaar/" rel="noopener">gov.sr: jaarrede president Simons (30 september 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94139" rel="noopener">Starnieuws: jaarrede, obligaties en heropening februari 2026 (30 september 2026)</a></li>
+ <li><a href="https://www.gfcnieuws.com/overheidsinkomsten-2027-geraamd-op-srd-701-miljard-tegenover-srd-809-miljard-aan-uitgaven/" rel="noopener">GFC Nieuws: begroting 2027 (30 september 2026)</a></li>
+ <li><a href="https://gov.sr/moodys-verhoogt-kredietwaardigheid-suriname-met-twee-stappen-en-geeft-positief-vooruitzicht/" rel="noopener">gov.sr: Moody's verhoogt kredietwaardigheid Suriname (oktober 2024)</a></li>
+ <li><a href="https://tradingeconomics.com/suriname/rating" rel="noopener">Trading Economics: ratings Suriname (S&amp;P, Moody's)</a></li>
+ <li><a href="https://dagbladdewest.com/2026/10/13/fitch-ratings-krijgt-inzicht-in-uitdagingen-surinaams-bedrijfsleven/" rel="noopener">De West: Fitch Ratings in gesprek met bedrijfsleven (13 oktober 2026)</a></li>
+ <li><a href="https://www.morganlewis.com/news/2025/11/morgan-lewis-advises-republic-of-suriname-on-1-575-billion-sovereign-bond-offering" rel="noopener">Morgan Lewis: Suriname USD 1,575 miljard obligaties (november 2025)</a></li>
+ <li><a href="https://www.gfcnieuws.com/cbvs-goud-blijft-ruggengraat-van-surinaamse-economie/" rel="noopener">GFC Nieuws: CBvS over goudexport vierde kwartaal 2025 (23 april 2026)</a></li>
+ <li><a href="https://www.cbs.nl/nl-nl/nieuws/2025/48/meer-machines-en-vervoermaterieel-naar-suriname-export-op-recordniveau" rel="noopener">CBS: export naar Suriname en invoeraandelen 2024 (november 2025)</a></li>
+ <li><a href="https://gov.sr/olie-en-gasontwikkeling-moet-bijdragen-aan-blijvende-kennis-en-capaciteit/" rel="noopener">gov.sr: eerste olie GranMorgu medio 2028 (30 september 2026)</a></li>
+ {% for name, url in F.GRANMORGU.sources[:1] %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}
+ <li><a href="https://statistics-suriname.org/census/" rel="noopener">ABS: volkstellingen</a></li>
+ <li><a href="https://www.budde.com.au/Research/Suriname-Telecoms-Mobile-and-Broadband.html" rel="noopener">BuddeComm: Suriname telecoms, mobile and broadband</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Wisselkoers vandaag: automatisch bijgewerkt. Overige cijfers met hun eigen datum.' if nl else 'Exchange rate today: updated automatically. Other figures carry their own date.' }}</p>
+</div>
+{% endblock %}

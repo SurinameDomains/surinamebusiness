@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Ondernemers&shy;organisaties in Suriname'|safe if nl else 'Business associations in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Elk bedrijf staat verplicht ingeschreven bij de KKF, maar lid worden van een ondernemersorganisatie is vrijwillig. De grootste werkgeversorganisatie is de VSB; daarnaast zijn er organisaties voor fabrikanten (ASFA), kleine en middelgrote bedrijven (AKMOS), toerisme (SHATA), banken en sectoren zoals pluimvee. Zij praten namens het bedrijfsleven mee over nieuwe wetten, het minimumloon en ontslagregels, en geven leden informatie, netwerk en training.</p>
+{% else %}
+<p class="lead">Every business must be registered with the KKF (Chamber of Commerce and Industry), but joining a business association is voluntary. The largest employers' organisation is the VSB; there are also organisations for manufacturers (ASFA), small and medium-sized businesses (AKMOS), tourism (SHATA), banks and sectors such as poultry. They speak for business on new laws, the minimum wage and dismissal rules, and give members information, networking and training.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">KKF</div><div class="big">{{ 'Verplicht' if nl else 'Required' }}</div><div class="sub">{{ 'inschrijving in het Handelsregister' if nl else 'registration in the trade register' }}</div></div>
+ <div class="card"><div class="eyebrow">VSB</div><div class="big">1950</div><div class="sub">{{ 'opgericht; werkgevers bij de ILO' if nl else 'founded; employers at the ILO' }}</div></div>
+ <div class="card"><div class="eyebrow">Suriname Business Forum</div><div class="big">2006</div><div class="sub">{{ 'bij wet ingesteld, 20 jaar in 2026' if nl else 'set up by law, 20 years in 2026' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>De KKF is een wettelijke Kamer: ze houdt het Handelsregister bij en rekent een inschrijvings- en jaarlijkse bijdrage. Ze is geen belangenclub waar je voor kiest.</li>
+ <li>De VSB is de werkgeversorganisatie die het bedrijfsleven vertegenwoordigt in tripartiete organen en bij de Internationale Arbeidsorganisatie (ILO).</li>
+ <li>Brancheorganisaties zoals ASFA (fabrikanten), SHATA (toerisme), de Surinaamse Bankiersvereniging en APSS (pluimvee) behartigen de belangen van één sector.</li>
+ <li>Het Suriname Business Forum is een wettelijk platform voor overleg tussen overheid, bedrijfsleven en vakbeweging, geen ledenorganisatie.</li>
+ <li>Ondernemersorganisaties worden gehoord door De Nationale Assemblée over ontwerpwetten. In 2026 ging het onder meer om de Douanewet, de Investeringswet en de Ongevallenregeling.</li>
+ <li>Kies op basis van wat je nodig hebt: lobby voor je sector, informatie over nieuwe regels, netwerk of training.</li>
+{% else %}
+ <li>The KKF is a statutory chamber: it keeps the trade register and charges a registration fee and an annual fee. It is not an interest group you choose to join.</li>
+ <li>The VSB is the employers' organisation that represents business in tripartite bodies and at the International Labour Organization (ILO).</li>
+ <li>Sector organisations such as ASFA (manufacturers), SHATA (tourism), the Suriname Bankers Association and APSS (poultry) represent one sector.</li>
+ <li>The Suriname Business Forum is a statutory platform for dialogue between government, business and unions, not a membership organisation.</li>
+ <li>The National Assembly hears business organisations on draft laws. In 2026 this included the Customs Act, the Investment Act and the Accident Insurance Act.</li>
+ <li>Choose based on what you need: lobbying for your sector, information on new rules, networking or training.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Overzicht' if nl else 'Overview' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Organisatie</th><th>Voor wie</th><th>Wat het doet</th><th>Lidmaatschap</th></tr></thead><tbody>
+ <tr><td data-l="Organisatie"><b>KKF</b> (Kamer van Koophandel en Fabrieken)</td><td data-l="Voor wie">Elke onderneming en rechtspersoon</td><td data-l="Wat het doet">Handelsregister, uittreksels, loket voor vergunningen, beurzen, CARICOM-certificaat van oorsprong</td><td data-l="Lidmaatschap">Verplichte inschrijving met jaarlijkse bijdrage</td></tr>
+ <tr><td data-l="Organisatie"><b>VSB</b> (Vereniging Surinaams Bedrijfsleven)</td><td data-l="Voor wie">Bedrijven in alle sectoren, groot en klein</td><td data-l="Wat het doet">Werkgeversorganisatie: lobby, sociaal overleg, ILO, informatie en trainingen</td><td data-l="Lidmaatschap">Vrijwillig, aanmelding via de VSB</td></tr>
+ <tr><td data-l="Organisatie"><b>ASFA</b> (Associatie van Surinaamse Fabrikanten)</td><td data-l="Voor wie">Producenten en maakbedrijven</td><td data-l="Wat het doet">Belangen van de productiesector, minder bureaucratie, productiviteit en export, trainingen</td><td data-l="Lidmaatschap">Vrijwillig</td></tr>
+ <tr><td data-l="Organisatie"><b>AKMOS</b></td><td data-l="Voor wie">Kleine en middelgrote ondernemingen</td><td data-l="Wat het doet">Stem van het mkb bij overheid en parlement</td><td data-l="Lidmaatschap">Vrijwillig</td></tr>
+ <tr><td data-l="Organisatie"><b>SHATA</b> (Suriname Hospitality and Tourism Association)</td><td data-l="Voor wie">Accommodaties, touroperators en reisbureaus, restaurants, luchtvaart, toeleveranciers</td><td data-l="Wat het doet">Lobby, promotie van de bestemming, marktinformatie, opleiding</td><td data-l="Lidmaatschap">KKF-inschrijving en actief in toerisme</td></tr>
+ <tr><td data-l="Organisatie"><b>Surinaamse Bankiersvereniging</b></td><td data-l="Voor wie">Banken</td><td data-l="Wat het doet">Gezamenlijke afspraken en mededelingen van de banken, overleg met overheid en Centrale Bank</td><td data-l="Lidmaatschap">Alleen banken</td></tr>
+ <tr><td data-l="Organisatie"><b>Suriname Business Forum</b> (met het SBC)</td><td data-l="Voor wie">Overheid, bedrijfsleven, vakbeweging</td><td data-l="Wat het doet">Publiek-private dialoog over het ondernemingsklimaat, studies, mkb-programma's</td><td data-l="Lidmaatschap">Geen individueel lidmaatschap</td></tr>
+ <tr><td data-l="Organisatie"><b>Sectororganisaties</b>, bijvoorbeeld APSS (pluimvee)</td><td data-l="Voor wie">Bedrijven in één sector</td><td data-l="Wat het doet">Sectorbelangen, zoals invoerregels en dierziekten</td><td data-l="Lidmaatschap">Vrijwillig</td></tr>
+</tbody></table>
+<p>Contactgegevens van de VSB, ASFA, SHATA en de Bankiersvereniging staan in <a href="{{ U('resources') }}">{{ L('resources') }}</a>. Bilaterale kamers (Suriname-Guyana, AmCham, Suriname-Nederland) staan in <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Organisation</th><th>For whom</th><th>What it does</th><th>Membership</th></tr></thead><tbody>
+ <tr><td data-l="Organisation"><b>KKF</b> (Chamber of Commerce and Industry)</td><td data-l="For whom">Every business and legal entity</td><td data-l="What it does">Trade register, extracts, licence front office, trade fairs, CARICOM certificate of origin</td><td data-l="Membership">Compulsory registration with an annual fee</td></tr>
+ <tr><td data-l="Organisation"><b>VSB</b> (Suriname Trade and Industry Association)</td><td data-l="For whom">Companies in all sectors, large and small</td><td data-l="What it does">Employers' organisation: lobbying, social dialogue, ILO, information and training</td><td data-l="Membership">Voluntary, apply to the VSB</td></tr>
+ <tr><td data-l="Organisation"><b>ASFA</b> (Suriname Manufacturers Association)</td><td data-l="For whom">Producers and manufacturers</td><td data-l="What it does">Interests of the production sector, less red tape, productivity and exports, training</td><td data-l="Membership">Voluntary</td></tr>
+ <tr><td data-l="Organisation"><b>AKMOS</b></td><td data-l="For whom">Small and medium-sized enterprises</td><td data-l="What it does">Voice of SMEs with government and parliament</td><td data-l="Membership">Voluntary</td></tr>
+ <tr><td data-l="Organisation"><b>SHATA</b> (Suriname Hospitality and Tourism Association)</td><td data-l="For whom">Accommodation, tour operators and travel agencies, restaurants, airlines, suppliers</td><td data-l="What it does">Lobbying, destination marketing, market intelligence, training</td><td data-l="Membership">KKF registration and active in tourism</td></tr>
+ <tr><td data-l="Organisation"><b>Suriname Bankers Association</b> (SBV)</td><td data-l="For whom">Banks</td><td data-l="What it does">Joint arrangements and notices of the banks, dialogue with government and the Central Bank</td><td data-l="Membership">Banks only</td></tr>
+ <tr><td data-l="Organisation"><b>Suriname Business Forum</b> (with the SBC)</td><td data-l="For whom">Government, business, unions</td><td data-l="What it does">Public-private dialogue on the business climate, studies, SME programmes</td><td data-l="Membership">No individual membership</td></tr>
+ <tr><td data-l="Organisation"><b>Sector associations</b>, for example APSS (poultry)</td><td data-l="For whom">Companies in one sector</td><td data-l="What it does">Sector interests, such as import rules and animal diseases</td><td data-l="Membership">Voluntary</td></tr>
+</tbody></table>
+<p>Contact details of the VSB, ASFA, SHATA and the Bankers Association are in <a href="{{ U('resources') }}">{{ L('resources') }}</a>. Bilateral chambers (Suriname-Guyana, AmCham, Suriname-Netherlands) are in <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'KKF: de wettelijke Kamer' if nl else 'KKF: the statutory chamber' }}</h2>
+{% if nl %}
+<p>De Kamer van Koophandel en Fabrieken (KKF) is ingesteld bij de wet die de samenstelling, inrichting, taak en bevoegdheid van de Kamers van Koophandel en Fabrieken regelt. De KKF houdt het <b>Handelsregister</b> bij. Sinds de nieuwe Handelsregisterwet (S.B. 2024 no. 169), die met het nieuwe Burgerlijk Wetboek op 1 mei 2025 in werking trad, betaal je bij de eerste inschrijving en daarna elk jaar een bedrag dat per staatsbesluit wordt vastgesteld (artikel 14). Je ontvangt daarvoor een kennisgeving en hebt een maand om te betalen.</p>
+<p>Wat de KKF voor je doet:</p>
+<ul>
+ <li>Inschrijving, wijzigingen en uittreksels, ook online. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li>Het loket waar je vergunningaanvragen onder de Wet Bedrijven en Beroepen indient. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li>Voorlichting voor starters, beurzen en brochures, en een mobiel kantoor dat langs wijken en districten gaat.</li>
+ <li>Het certificaat van oorsprong voor export naar CARICOM, volgens de WTO-handelsbeleidsreview van 2019. Vraag het na voor je eerste zending.</li>
+</ul>
+<p>De KKF is geen lobbyorganisatie in de zin van de VSB of ASFA, maar wordt wel gehoord over wetten die ondernemers raken, zoals in oktober 2026 over de ontwerp-Algemene Douanewet.</p>
+{% else %}
+<p>The Chamber of Commerce and Industry (Kamer van Koophandel en Fabrieken, KKF) is set up by the law governing the composition, organisation, tasks and powers of the Chambers of Commerce and Industry. The KKF keeps the <b>trade register</b>. Under the new Trade Register Act (S.B. 2024 no. 169), which entered into force with the new Civil Code on 1 May 2025, you pay an amount set by state decree at first registration and every year after (article 14). You receive a notice and have one month to pay.</p>
+<p>What the KKF does for you:</p>
+<ul>
+ <li>Registration, changes and extracts, also online. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li>The front office where you file licence applications under the Businesses and Professions Act. <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li>Information for start-ups, trade fairs and brochures, and a mobile office that visits neighbourhoods and districts.</li>
+ <li>The certificate of origin for exports to CARICOM, according to the 2019 WTO Trade Policy Review. Check before your first shipment.</li>
+</ul>
+<p>The KKF is not a lobby group in the way the VSB or ASFA are, but it is heard on laws that affect business, as in October 2026 on the draft General Customs Act.</p>
+{% endif %}
+
+<h2>{{ 'VSB: de werkgeversorganisatie' if nl else 'VSB: the employers\' organisation' }}</h2>
+{% if nl %}
+<p>De Vereniging Surinaams Bedrijfsleven (VSB, in het Engels Suriname Trade and Industry Association) bestaat sinds 1950 en wordt door de ILO gezien als de meest representatieve werkgeversorganisatie van Suriname. De VSB is lid van de International Organisation of Employers (IOE) en de Caribbean Employers' Confederation.</p>
+<ul>
+ <li><b>Voor wie.</b> Bedrijven en organisaties die in Suriname actief zijn, groot en klein, uit alle sectoren: handel, industrie, landbouw, hout, mijnbouw, olie en gas, transport, toerisme, banken, verzekeraars en zakelijke dienstverlening.</li>
+ <li><b>Hoe het werkt.</b> Leden zijn ingedeeld in sectorgroepen die elk een vertegenwoordiger in het bestuur hebben. Er is ook een afdeling voor jonge ondernemers en professionals tot 40 jaar, VSB Young Management.</li>
+ <li><b>Wat je krijgt.</b> Informatie over nieuwe wetten en regels, een stem in overleg met de regering, netwerkbijeenkomsten, trainingen en workshops, en verwijzingen bij zakelijke verzoeken uit binnen- en buitenland.</li>
+ <li><b>Waar de VSB zit.</b> In tripartiete organen voor arbeid (zie hieronder), in de Surinaamse delegatie naar de jaarlijkse Internationale Arbeidsconferentie van de ILO in Genève, bij het Decent Work Country Programme en, met de Private Sector Commission van Guyana, in de Guyana Suriname Private Sector Business Council.</li>
+</ul>
+<p>Lid worden gaat met een aanmeldformulier bij de VSB; na het besluit krijg je een bevestiging en de vervolgstappen. Vraag vooraf naar de contributie, die afhangt van je bedrijf. Recente standpunten van de VSB, bijvoorbeeld over de verplichte verkoop van exportdeviezen, staan in onze gids <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% else %}
+<p>The Suriname Trade and Industry Association (Vereniging Surinaams Bedrijfsleven, VSB) has existed since 1950 and is recognised by the ILO as Suriname's most representative employers' organisation. The VSB is a member of the International Organisation of Employers (IOE) and the Caribbean Employers' Confederation.</p>
+<ul>
+ <li><b>For whom.</b> Companies and organisations active in Suriname, large and small, from all sectors: trade, industry, agriculture, timber, mining, oil and gas, transport, tourism, banks, insurers and business services.</li>
+ <li><b>How it works.</b> Members are organised in sector groups, each with a representative on the board. There is also a section for young entrepreneurs and professionals up to 40, VSB Young Management.</li>
+ <li><b>What you get.</b> Information on new laws and rules, a voice in talks with the government, networking events, training and workshops, and referrals when business requests come in from Suriname and abroad.</li>
+ <li><b>Where the VSB sits.</b> In tripartite labour bodies (see below), in Suriname's delegation to the ILO's annual International Labour Conference in Geneva, in the Decent Work Country Programme and, with Guyana's Private Sector Commission, in the Guyana Suriname Private Sector Business Council.</li>
+</ul>
+<p>You join with an application form to the VSB; after the decision you receive a confirmation and the next steps. Ask about the fee in advance; it depends on your company. Recent VSB positions, for example on the mandatory sale of export earnings, are in our guide <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Sector- en brancheorganisaties' if nl else 'Sector and industry associations' }}</h2>
+{% if nl %}
+<h3>ASFA: fabrikanten</h3>
+<p>De Associatie van Surinaamse Fabrikanten werd opgericht op 25 september 1980 en heeft meer dan 100 actieve leden. ASFA wil de productiesector faciliteren en stimuleren: bij de overheid aandacht vragen voor producenten, bureaucratische drempels weghalen, leden helpen met productiviteit en export via informatie, trainingen en workshops, en leden op de hoogte houden van wetgeving die productie raakt.</p>
+<p>Contact volgens de eigen website van ASFA: Jagernath Lachmonstraat 201, Paramaribo; telefoon (+597) 434014 of 439797; info@asfasuriname.org; maandag tot en met vrijdag 07.00 tot 15.00 uur.</p>
+<h3>AKMOS: kleine en middelgrote bedrijven</h3>
+<p>De Associatie van Kleine en Middelgrote Ondernemingen in Suriname (AKMOS) behartigt de belangen van het mkb. In oktober 2026 was AKMOS een van de organisaties die de Commissie van Rapporteurs van De Nationale Assemblée hoorde over de ontwerp-Algemene Douanewet. Voor een klein bedrijf dat vooral last heeft van vergunningen, financiering en belastingregels kan AKMOS dichter bij huis staan dan de VSB. Financiering voor het mkb: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+<h3>SHATA: toerisme en horeca</h3>
+<p>De Suriname Hospitality and Tourism Association noemt zich de belangrijkste private organisatie voor toerismeontwikkeling en -promotie. Leden zijn accommodaties, tour- en reisbedrijven, restaurants, luchtvaartmaatschappijen en zakelijke toeleveranciers. SHATA werkt aan vijf pijlers: belangenbehartiging en netwerk, promotie van Suriname als bestemming samen met de overheid, marktinformatie, opleiding van personeel, en diensten aan leden. Om lid te worden moet je bij de KKF staan ingeschreven en actief zijn in (of verbonden met) toerisme en horeca.</p>
+<h3>Surinaamse Bankiersvereniging</h3>
+<p>De vereniging van banken, met onder meer De Surinaamsche Bank, Hakrinbank, Finabank, Republic Bank en de Surinaamse Postspaarbank als leden. Voor ondernemers is ze vooral belangrijk door gezamenlijke besluiten van de banken: openingstijden, opnamelimieten, het uitfaseren van cheques en afspraken over elektronisch betalen. Volg haar mededelingen. Bankzaken: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+<h3>Andere sectoren</h3>
+<p>Veel sectoren hebben een eigen vereniging. Een voorbeeld is de Associatie Pluimvee Sector Suriname (APSS), die zich onder meer uitspreekt over invoer van pluimvee en vogelgriep. Ook voor rijst, hout, visserij, goud en beroepen zoals accountants bestaan verenigingen of belangengroepen; we hebben ze niet allemaal uit een officiële bron kunnen bevestigen en noemen ze daarom niet. Vraag bij de KKF of de VSB welke organisatie in jouw sector actief is. Sectorinformatie: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> en <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+{% else %}
+<h3>ASFA: manufacturers</h3>
+<p>The Suriname Manufacturers Association (Associatie van Surinaamse Fabrikanten, ASFA) was founded on 25 September 1980 and has more than 100 active members. ASFA aims to facilitate and stimulate the production sector: drawing government attention to producers, removing bureaucratic hurdles, helping members with productivity and exports through information, training and workshops, and keeping members informed of legislation that affects production.</p>
+<p>Contact according to ASFA's own website: Jagernath Lachmonstraat 201, Paramaribo; phone (+597) 434014 or 439797; info@asfasuriname.org; Monday to Friday 07:00 to 15:00.</p>
+<h3>AKMOS: small and medium-sized businesses</h3>
+<p>The Association of Small and Medium-Sized Enterprises in Suriname (AKMOS) represents SMEs. In October 2026 AKMOS was one of the organisations the National Assembly's Committee of Rapporteurs heard on the draft General Customs Act. For a small business whose main problems are licences, finance and tax rules, AKMOS may be closer to home than the VSB. SME finance: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+<h3>SHATA: tourism and hospitality</h3>
+<p>The Suriname Hospitality and Tourism Association calls itself the leading private organisation for tourism development and promotion. Members are accommodation providers, tour and travel companies, restaurants, airlines and business suppliers. SHATA works on five pillars: advocacy and networking, destination marketing together with the government, market intelligence, workforce training, and member services. To join you must be registered with the KKF and active in (or connected to) tourism and hospitality.</p>
+<h3>Suriname Bankers Association</h3>
+<p>The association of banks, with De Surinaamsche Bank, Hakrinbank, Finabank, Republic Bank and the Surinaamse Postspaarbank among its members. For businesses it matters mainly through joint decisions of the banks: opening hours, withdrawal limits, the phase-out of cheques and arrangements on electronic payments. Follow its notices. Banking: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</p>
+<h3>Other sectors</h3>
+<p>Many sectors have their own association. One example is the Associatie Pluimvee Sector Suriname (APSS, poultry), which speaks out on poultry imports and bird flu, among other things. Associations or interest groups also exist for rice, timber, fisheries, gold and professions such as accountants; we could not confirm all of them from an official source and therefore do not name them. Ask the KKF or the VSB which organisation is active in your sector. Sector information: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> and <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Suriname Business Forum' if nl else 'Suriname Business Forum' }}</h2>
+{% if nl %}
+<p>Het Suriname Business Forum (SBF) is een rechtspersoon ingesteld bij de wet van 18 oktober 2006. Het is een platform voor dialoog en samenwerking tussen overheid, bedrijfsleven en vakbeweging in een publiek-private opzet, met als doel een gunstig ondernemingsklimaat en groei van de lokale private sector. De uitvoeringsorganisatie is het Suriname Business Development Center (SBC). In 2026 bestaat het SBF twintig jaar.</p>
+<p>Het SBF is geen vereniging waar je als bedrijf lid van wordt. Je hebt er als ondernemer vooral mee te maken via dialoogsessies, studies en programma's voor kleine bedrijven, vaak samen met donoren.</p>
+{% else %}
+<p>The Suriname Business Forum (SBF) is a legal entity set up by the Act of 18 October 2006. It is a platform for dialogue and cooperation between government, business and unions in a public-private set-up, aimed at a favourable business climate and growth of the local private sector. Its implementing body is the Suriname Business Development Center (SBC). The SBF turns twenty in 2026.</p>
+<p>The SBF is not an association your company joins. As a business owner you mainly deal with it through dialogue sessions, studies and programmes for small businesses, often with donors.</p>
+{% endif %}
+
+<h2>{{ 'Jonge ondernemers, vrouwen en diaspora' if nl else 'Young entrepreneurs, women and the diaspora' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Jonge ondernemers en professionals</b> (18 tot en met 40 jaar) kunnen terecht bij VSB Young Management, met eigen evenementen en ontwikkelprogramma's.</li>
+ <li><b>Vrouwelijke ondernemers</b>: het exportsubsidieprogramma van SITA geeft voorrang aan bedrijven van vrouwen (zie <a href="{{ U('export') }}">{{ L('export') }}</a>). Een actieve landelijke vereniging van vrouwelijke ondernemers hebben we niet uit een officiële bron kunnen bevestigen.</li>
+ <li><b>Diaspora</b>: het Diaspora Instituut Suriname brengt Surinamers in het buitenland in contact met lokale partners en projecten, en in Den Haag is sinds 2018 een Suriname-Nederland Kamer van Koophandel. Investeren vanuit het buitenland: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Young entrepreneurs and professionals</b> (18 to 40) can turn to VSB Young Management, with its own events and development programmes.</li>
+ <li><b>Women entrepreneurs</b>: SITA's export grant programme gives priority to women-owned businesses (see <a href="{{ U('export') }}">{{ L('export') }}</a>). We could not confirm an active national association of women entrepreneurs from an official source.</li>
+ <li><b>Diaspora</b>: the Diaspora Institute Suriname connects Surinamese abroad with local partners and projects, and since 2018 there has been a Suriname-Netherlands Chamber of Commerce in The Hague. Investing from abroad: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Waar het bedrijfsleven aan tafel zit' if nl else 'Where business has a seat at the table' }}</h2>
+{% if nl %}
+<p>Suriname kent een lange traditie van tripartiet overleg: overheid, werkgevers en vakbeweging. De werkgeverszetels worden ingevuld door de representatieve werkgeversorganisaties, in de praktijk vooral de VSB. De belangrijkste organen voor een werkgever:</p>
+<table class="tbl stack tx"><thead><tr><th>Orgaan</th><th>Wat het doet</th><th>Samenstelling</th></tr></thead><tbody>
+ <tr><td data-l="Orgaan"><b>Arbeidsadviescollege (AAC)</b></td><td data-l="Wat het doet">Adviseert de minister over arbeidszaken. De minister moet het AAC informeren over ontwerpen van arbeidswetten en dient pas voorstellen in nadat hij het advies heeft overwogen.</td><td data-l="Samenstelling">Tripartiet; volgens de ILO vier leden per partij. Zittingsperiode sinds 2026 vijf jaar (S.B. 2026 no. 23).</td></tr>
+ <tr><td data-l="Orgaan"><b>Nationale Loonraad</b></td><td data-l="Wat het doet">Adviseert over het wettelijk minimumloon. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></td><td data-l="Samenstelling">Zeven leden, onder wie twee vertegenwoordigers van werkgeversorganisaties (S.B. 2020 no. 200)</td></tr>
+ <tr><td data-l="Orgaan"><b>Ontslagcommissie</b></td><td data-l="Wat het doet">Beslist namens de minister over ontslagvergunningen. <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a></td><td data-l="Samenstelling">Tripartiet, vijf of zeven leden</td></tr>
+ <tr><td data-l="Orgaan"><b>Bemiddelingsraad</b></td><td data-l="Wat het doet">Bemiddelt en arbitreert bij collectieve arbeidsconflicten</td><td data-l="Samenstelling">Zeven leden, in de praktijk tripartiet</td></tr>
+ <tr><td data-l="Orgaan"><b>ILO-delegatie</b></td><td data-l="Wat het doet">Internationale Arbeidsconferentie, Decent Work Country Programme</td><td data-l="Samenstelling">Regering, werkgevers en werknemers</td></tr>
+</tbody></table>
+<p>Ook in de Nationale Raad voor Bedrijfsgezondheidszorg en de Nationale Commissie Uitbanning Kinderarbeid zitten werkgeversvertegenwoordigers. Wie lid is van een werkgeversorganisatie, kan via die organisatie zijn ervaringen inbrengen voordat een advies wordt uitgebracht.</p>
+{% else %}
+<p>Suriname has a long tradition of tripartite consultation: government, employers and unions. The employers' seats are filled by the representative employers' organisations, in practice mainly the VSB. The main bodies for an employer:</p>
+<table class="tbl stack tx"><thead><tr><th>Body</th><th>What it does</th><th>Composition</th></tr></thead><tbody>
+ <tr><td data-l="Body"><b>Labour Advisory Board (AAC)</b></td><td data-l="What it does">Advises the minister on labour matters. The minister must inform the AAC of draft labour laws and only submits proposals after considering its advice.</td><td data-l="Composition">Tripartite; according to the ILO four members per party. Term of office five years since 2026 (S.B. 2026 no. 23).</td></tr>
+ <tr><td data-l="Body"><b>National Wage Council</b> (Nationale Loonraad)</td><td data-l="What it does">Advises on the statutory minimum wage. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a></td><td data-l="Composition">Seven members, including two representatives of employers' organisations (S.B. 2020 no. 200)</td></tr>
+ <tr><td data-l="Body"><b>Dismissal Committee</b> (Ontslagcommissie)</td><td data-l="What it does">Decides on dismissal permits on behalf of the minister. <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a></td><td data-l="Composition">Tripartite, five or seven members</td></tr>
+ <tr><td data-l="Body"><b>Labour Mediation Council</b> (Bemiddelingsraad)</td><td data-l="What it does">Mediates and arbitrates in collective labour disputes</td><td data-l="Composition">Seven members, tripartite in practice</td></tr>
+ <tr><td data-l="Body"><b>ILO delegation</b></td><td data-l="What it does">International Labour Conference, Decent Work Country Programme</td><td data-l="Composition">Government, employers and workers</td></tr>
+</tbody></table>
+<p>Employer representatives also sit on the National Board for Occupational Health and the National Commission on the Elimination of Child Labour. If you are a member of an employers' organisation, you can feed in your experience through it before advice is given.</p>
+{% endif %}
+
+<h2>{{ 'Hoe het bedrijfsleven meepraat over nieuwe wetten' if nl else 'How business has a say on new laws' }}</h2>
+{% if nl %}
+<p>Een wet ontstaat bij een ministerie, gaat langs de Staatsraad en wordt behandeld in De Nationale Assemblée (DNA). Op twee momenten kunnen ondernemers invloed uitoefenen:</p>
+<ol class="steps">
+ <li><b>Bij het ministerie.</b> Ministeries sturen ontwerpen ter consultatie naar ondernemersorganisaties of organiseren sessies met belanghebbenden. Organisaties vragen hun leden dan om commentaar, vaak met een korte termijn.</li>
+ <li><b>Bij De Nationale Assemblée.</b> De Commissie van Rapporteurs die een ontwerpwet voorbereidt, nodigt organisaties uit om hun visie te geven, mondeling en schriftelijk. Wat daar wordt ingebracht, kan in het verslag en in wijzigingen terechtkomen.</li>
+</ol>
+<p>Voorbeelden uit 2026:</p>
+<ul>
+ <li><b>Algemene Douanewet</b>: in oktober 2026 hoorde de Commissie van Rapporteurs de Douanebond, Havenbeheer, AKMOS, de VSB, de KKF en een havenbedrijf. Het bedrijfsleven vroeg om rechtszekerheid, duidelijke procedures en voorspelbare handhaving.</li>
+ <li><b>Investeringswet en Wet SITA</b>: in augustus 2026 vroeg het georganiseerde bedrijfsleven om fundamentele herziening, met objectieve criteria voor faciliteiten, beslistermijnen en gelijke behandeling van lokale, buitenlandse en diaspora-investeerders. Zie <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>Ontwerpwet Ondernemingsraadpleging</b> en <b>Ongevallenregeling</b>: in augustus 2026 adviseerde de VSB om beide eerst technisch en juridisch te herzien.</li>
+ <li><b>Bescherming van dienstmerken</b>: in juli 2026 hoorde de DNA het bedrijfsleven over de uitbreiding van merkbescherming naar dienstverleners. Zie <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+</ul>
+<p>Ook ontwerpwetten over belastinginvordering en de bescherming van persoonsgegevens lagen in 2026 voor. Een overzicht van wetten in voorbereiding en wat ze voor je bedrijf betekenen: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% else %}
+<p>A law starts at a ministry, goes to the Council of State and is debated in the National Assembly (De Nationale Assemblée, DNA). Business owners can have influence at two points:</p>
+<ol class="steps">
+ <li><b>At the ministry.</b> Ministries send drafts for consultation to business organisations or hold stakeholder sessions. The organisations then ask their members for comments, often at short notice.</li>
+ <li><b>At the National Assembly.</b> The Committee of Rapporteurs preparing a bill invites organisations to give their views, orally and in writing. What is said there can end up in the report and in amendments.</li>
+</ol>
+<p>Examples from 2026:</p>
+<ul>
+ <li><b>General Customs Act</b>: in October 2026 the Committee of Rapporteurs heard the customs officers' union, the port authority, AKMOS, the VSB, the KKF and a port operator. Business asked for legal certainty, clear procedures and predictable enforcement.</li>
+ <li><b>Investment Act and SITA Act</b>: in August 2026 organised business asked for a fundamental revision, with objective criteria for incentives, decision deadlines and equal treatment of local, foreign and diaspora investors. See <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>Draft Works Consultation Act</b> (Ondernemingsraadpleging) and <b>Accident Insurance Act</b> (Ongevallenregeling): in August 2026 the VSB advised revising both technically and legally first.</li>
+ <li><b>Protection of service marks</b>: in July 2026 the National Assembly heard business on extending trademark protection to service providers. See <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>.</li>
+</ul>
+<p>Draft laws on tax collection and personal data protection were also on the table in 2026. An overview of laws in preparation and what they mean for your business: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Hoe kies je?' if nl else 'How to choose' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Bepaal wat je nodig hebt.</b> Lobby voor je sector, snelle informatie over nieuwe regels, klanten en partners ontmoeten, of training voor je personeel?</li>
+ <li><b>Kijk waar je sector al georganiseerd is.</b> Een brancheorganisatie kent jouw problemen beter; een brede organisatie zoals de VSB zit aan meer tafels. Veel bedrijven zijn lid van allebei.</li>
+ <li><b>Vraag naar contributie en tegenprestatie.</b> Wat kost het per jaar, welke diensten zijn inbegrepen, krijg je korting op evenementen?</li>
+ <li><b>Ga eerst naar een bijeenkomst.</b> Veel organisaties hebben open evenementen. Zo zie je wie er komt en hoe actief de organisatie is.</li>
+ <li><b>Doe actief mee.</b> De waarde zit in meedoen: reageer op consultaties, neem deel aan een sectorgroep, geef je ervaring door.</li>
+</ol>
+<ul class="check">
+ <li>KKF-inschrijving en jaarlijkse bijdrage in orde</li>
+ <li>Behoefte bepaald: lobby, informatie, netwerk of training</li>
+ <li>Een of twee organisaties gekozen: breed (VSB, AKMOS) en/of sector (ASFA, SHATA, APSS)</li>
+ <li>Contributie en voorwaarden opgevraagd</li>
+ <li>Iemand in je bedrijf die nieuwsbrieven leest en consultaties beantwoordt</li>
+</ul>
+{% else %}
+<ol class="steps">
+ <li><b>Decide what you need.</b> Lobbying for your sector, quick information on new rules, meeting customers and partners, or training for your staff?</li>
+ <li><b>See where your sector is already organised.</b> A sector association knows your problems better; a broad organisation such as the VSB sits at more tables. Many companies are members of both.</li>
+ <li><b>Ask about fees and benefits.</b> What does it cost a year, which services are included, do you get discounts on events?</li>
+ <li><b>Attend a meeting first.</b> Many organisations have open events. You see who comes and how active the organisation is.</li>
+ <li><b>Take part.</b> The value is in taking part: respond to consultations, join a sector group, share your experience.</li>
+</ol>
+<ul class="check">
+ <li>KKF registration and annual fee in order</li>
+ <li>Need decided: lobbying, information, networking or training</li>
+ <li>One or two organisations chosen: broad (VSB, AKMOS) and/or sector (ASFA, SHATA, APSS)</li>
+ <li>Fees and conditions requested</li>
+ <li>Someone in your company who reads newsletters and answers consultations</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik een eenmanszaak heb?</b> Ook dan kun je lid worden; de VSB en AKMOS staan open voor kleine bedrijven. Begin met de organisatie die het dichtst bij je sector staat.</li>
+ <li><b>...ik een buitenlands bedrijf ben dat in Suriname wil starten?</b> Begin bij de KKF (inschrijving) en SITA (investeringen). Bilaterale kamers kunnen contacten leggen: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>...een nieuwe wet mijn bedrijf raakt en niemand mijn sector vertegenwoordigt?</b> Stuur zelf schriftelijk commentaar naar het ministerie of de DNA, en zoek collega's om samen op te trekken.</li>
+ <li><b>...ik een conflict heb met een werknemer of vakbond?</b> Een werkgeversorganisatie kan adviseren, maar de procedure loopt via het ministerie en de Ontslagcommissie of Bemiddelingsraad. Zie <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I run a sole proprietorship?</b> You can still join; the VSB and AKMOS are open to small businesses. Start with the organisation closest to your sector.</li>
+ <li><b>...I am a foreign company that wants to start in Suriname?</b> Start at the KKF (registration) and SITA (investment). Bilateral chambers can make introductions: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>...a new law affects my business and nobody represents my sector?</b> Send written comments to the ministry or the National Assembly yourself, and find colleagues to act together.</li>
+ <li><b>...I have a dispute with an employee or union?</b> An employers' organisation can advise, but the procedure runs through the ministry and the Dismissal Committee or the Labour Mediation Council. See <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-169-Handelsregisterwet.pdf" rel="noopener">Handelsregisterwet, S.B. 2024 no. 169</a></li>
+ <li><a href="https://www.wto.org/english/tratop_e/tpr_e/s391_e.pdf" rel="noopener">WTO: Trade Policy Review Suriname (2019), certificaten van oorsprong</a></li>
+ <li><a href="https://www.surinamechamber.com/" rel="noopener">KKF: Kamer van Koophandel en Fabrieken</a></li>
+ <li><a href="https://suriname-energy.com/endorsing-partners/vsb-suriname-trade-industry-association" rel="noopener">Suriname Energy, Oil and Gas Summit: profiel VSB</a></li>
+ <li><a href="https://www.ilo.org/resource/news/suriname-embarks-its-3rd-decent-work-country-programme" rel="noopener">ILO: Suriname embarks on its 3rd Decent Work Country Programme (2022)</a></li>
+ <li><a href="https://www.ilo.org/wcmsp5/groups/public/---americas/---ro-lima/---sro-port_of_spain/documents/publication/wcms_840774.pdf" rel="noopener">ILO: The system of labour administration in Suriname, 2nd revised edition (2022)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2019/10/Wet-Arbeidsadviescollege.pdf" rel="noopener">Wet Arbeidsadviescollege (S.B. 1984 no. 105, bijgewerkt t/m S.B. 2016 no. 145)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/04/S.B.-2026-no.-23-wijziging-Wet-Arbeidsadviescollege.pdf" rel="noopener">Wijziging Wet Arbeidsadviescollege, S.B. 2026 no. 23</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/09/Besluit-Nationale-Loonraad-S.B.-2020-no.-200.pdf" rel="noopener">Besluit Nationale Loonraad, S.B. 2020 no. 200</a></li>
+ <li><a href="https://asfasuriname.org/over-ons" rel="noopener">ASFA: over ons en contact</a></li>
+ <li><a href="https://wiconnect.iadb.org/en/osc/association-of-small-and-medium-sized-enterprises-in-suriname-akmos" rel="noopener">IDB WiConnect: AKMOS</a></li>
+ <li><a href="http://www.shata.sr/en/members" rel="noopener">SHATA: members and membership</a></li>
+ <li><a href="https://www.sbv.sr/" rel="noopener">Surinaamse Bankiersvereniging</a></li>
+ <li><a href="https://keynews.sr/apss-wil-importstop-op-braziliaanse-pluimveeproducten" rel="noopener">Key News Suriname: APSS over pluimvee-import (juni 2023)</a></li>
+ <li><a href="https://www.competecaribbean.org/dialogue-driving-development/" rel="noopener">Compete Caribbean: Competitiveness Unit Suriname en het Suriname Business Forum</a></li>
+ <li><a href="https://www.gfcnieuws.com/douanebond-en-bedrijfsleven-willen-aanpassingen-in-ontwerp-algemene-douanewet/" rel="noopener">GFC Nieuws: bedrijfsleven over ontwerp-Algemene Douanewet (22 oktober 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws: bedrijfsleven wil aanpassing economische wetsontwerpen (8 augustus 2026)</a></li>
+ <li><a href="https://www.gfcnieuws.com/vsb-steunt-modernisering-ongevallenregeling-maar-ziet-juridische-en-medische-knelpunten/" rel="noopener">GFC Nieuws: VSB over de Ongevallenregeling (2026)</a></li>
+ <li><a href="https://keynews.sr/cvr-hoort-bedrijfsleven-over-wettelijke-bescherming-van-dienstmerken/" rel="noopener">Key News Suriname: CvR hoort bedrijfsleven over dienstmerken (juli 2026)</a></li>
+ <li><a href="https://dpi.gov.gy/guyana-suriname-enhance-economic-ties-with-private-sector-business-council/" rel="noopener">DPI Guyana: Guyana Suriname Private Sector Business Council (maart 2022)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie. Vraag voorwaarden en contributie altijd na bij de organisatie zelf.' if nl else 'General information. Always check conditions and fees with the organisation itself.' }}</p>
+</div>
+{% endblock %}

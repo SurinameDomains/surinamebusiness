@@ -1,0 +1,136 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Schrijf je ondernemingsplan hoofdstuk voor hoofdstuk, met tips voor de Surinaamse markt. Vul je investering, financiering, omzet en kosten in: de tool rekent de maandlast van je lening, je resultaat per maand en je break-even omzet uit. Print of bewaar als PDF voor de bank, de NOB of een investeerder.' if nl else 'Write your business plan chapter by chapter, with tips for the Surinamese market. Enter your investment, financing, revenue and costs: the tool works out your loan payment, monthly result and break-even revenue. Print or save as PDF for the bank, the NOB or an investor.' }}{% endblock %}
+{% block tool %}
+<p class="note">{{ 'Nieuw met een ondernemingsplan? Lees eerst' if nl else 'New to business plans? Read' }} <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>{{ ': wat erin moet, wat banken in Suriname vragen en waar je gratis hulp krijgt. Alles wat je hier typt, wordt automatisch op je eigen toestel bewaard.' if nl else ' first: what goes in, what banks in Suriname ask for and where to get free help. Everything you type here is saved automatically on your own device.' }}</p>
+<div class="cols">
+ <form class="card calc" id="bp" onsubmit="return false" autocomplete="off">
+  <fieldset data-fold="b_name"><legend>{{ 'Gegevens' if nl else 'Details' }}</legend>
+   <label for="b_name">{{ 'Naam van het bedrijf (of werknaam)' if nl else 'Business name (or working name)' }}</label><input id="b_name" name="b_name">
+   <div class="two">
+    <div><label for="b_owner">{{ 'Ondernemer(s)' if nl else 'Entrepreneur(s)' }}</label><input id="b_owner" name="b_owner"></div>
+    <div><label for="b_date">{{ 'Datum' if nl else 'Date' }}</label><input id="b_date" name="b_date" type="date"></div>
+   </div>
+   <label for="b_contact">{{ 'Adres, telefoon, e-mail' if nl else 'Address, phone, e-mail' }}</label><input id="b_contact" name="b_contact">
+   <label for="b_for">{{ 'Waarvoor is dit plan?' if nl else 'What is this plan for?' }}</label>
+   <select id="b_for" name="b_for">
+    <option value="">{{ 'Eigen gebruik' if nl else 'Own use' }}</option>
+    <option value="bank">{{ 'Kredietaanvraag bij een bank' if nl else 'Loan application at a bank' }}</option>
+    <option value="nob">{{ 'Aanvraag bij de NOB (PKF, Level-up, FTBP)' if nl else 'Application to the NOB (PKF, Level-up, FTBP)' }}</option>
+    <option value="investor">{{ 'Investeerder of partner' if nl else 'Investor or partner' }}</option>
+    <option value="grant">{{ 'Subsidie, grant of programma' if nl else 'Grant or support programme' }}</option>
+    <option value="permit">{{ 'Vergunning of faciliteit' if nl else 'Permit or incentive' }}</option>
+   </select>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Ondernemer en idee' if nl else 'Entrepreneur and idea' }}</legend>
+   <label for="c_sum">{{ 'Samenvatting' if nl else 'Summary' }}</label>
+   <textarea id="c_sum" name="c_sum" rows="5" data-ch placeholder="{{ 'Wat ga je doen, voor wie, hoeveel geld heb je nodig, wat breng je zelf in en hoe betaal je terug.' if nl else 'What you will do, for whom, how much money you need, what you put in yourself and how you will repay.' }}"></textarea>
+   <div class="hint">{{ 'Schrijf dit als laatste. Maximaal één pagina: de bank leest dit eerst.' if nl else 'Write this last. One page at most: the bank reads this first.' }}</div>
+   <label for="c_owner">{{ 'De ondernemer' if nl else 'The entrepreneur' }}</label>
+   <textarea id="c_owner" name="c_owner" rows="4" data-ch placeholder="{{ 'Opleiding, werkervaring in deze branche, wat je al eerder hebt opgezet, wie je helpt.' if nl else 'Education, experience in this trade, what you have set up before, who helps you.' }}"></textarea>
+   <div class="hint">{{ 'Waarom ben jij de juiste persoon? Noem ook je zwakke punten en wie die opvangt (boekhouder, partner, adviseur).' if nl else 'Why are you the right person? Name your weak spots too and who covers them (bookkeeper, partner, adviser).' }}</div>
+   <label for="c_idea">{{ 'Het bedrijfsidee' if nl else 'The business idea' }}</label>
+   <textarea id="c_idea" name="c_idea" rows="4" data-ch placeholder="{{ 'Welk product of welke dienst, welk probleem los je op, waarom nu?' if nl else 'Which product or service, which problem you solve, why now?' }}"></textarea>
+   <div class="hint">{{ 'Maak het concreet: wat kost het, waar en wanneer kun je het kopen, wat maakt het anders dan wat er al is.' if nl else 'Make it concrete: what it costs, where and when people can buy it, what makes it different from what already exists.' }}</div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Markt en marketing' if nl else 'Market and marketing' }}</legend>
+   <label for="c_market">{{ 'Markt en klanten' if nl else 'Market and customers' }}</label>
+   <textarea id="c_market" name="c_market" rows="5" data-ch placeholder="{{ 'Wie zijn je klanten, hoeveel zijn het, waar wonen ze, wat kunnen ze betalen? Particulieren, bedrijven, overheid, toeristen, export?' if nl else 'Who are your customers, how many, where do they live, what can they pay? Households, businesses, government, tourists, export?' }}"></textarea>
+   <div class="hint">{{ 'Suriname heeft rond 640.000 inwoners en veel klanten letten sterk op de prijs. Reken met aantallen die je kunt onderbouwen: gesprekken, offertes, intentieverklaringen, een proefverkoop.' if nl else 'Suriname has about 640,000 people and many customers are price-sensitive. Use numbers you can back up: conversations, quotes, letters of intent, a trial sale.' }}</div>
+   <label for="c_comp">{{ 'Concurrentie' if nl else 'Competition' }}</label>
+   <textarea id="c_comp" name="c_comp" rows="4" data-ch placeholder="{{ 'Wie verkoopt hetzelfde of iets vergelijkbaars, ook importproducten en verkopers via Facebook en WhatsApp? Wat vragen zij?' if nl else 'Who sells the same or something similar, including imported products and sellers on Facebook and WhatsApp? What do they charge?' }}"></textarea>
+   <div class="hint">{{ 'Vergelijk met import: kun je het lokaal goedkoper, verser of sneller leveren? Wat doe je als een grote importeur de prijs verlaagt?' if nl else 'Compare with imports: can you deliver it locally cheaper, fresher or faster? What will you do if a large importer cuts the price?' }}</div>
+   <label for="c_mkt">{{ 'Marketing, verkoop en prijzen' if nl else 'Marketing, sales and pricing' }}</label>
+   <textarea id="c_mkt" name="c_mkt" rows="5" data-ch placeholder="{{ 'Hoe vinden klanten je, hoe verkoop je (winkel, levering, online), welke prijzen vraag je, in SRD of USD?' if nl else 'How customers find you, how you sell (shop, delivery, online), what prices you charge, in SRD or USD?' }}"></textarea>
+   <div class="hint">{{ 'Koop je in dollars en verkoop je in SRD? Leg uit hoe je prijzen meebewegen als de koers stijgt.' if nl else 'Buying in dollars and selling in SRD? Explain how your prices move when the exchange rate rises.' }} <a href="{{ U('pricing') }}">{{ L('pricing') }}</a></div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Organisatie en uitvoering' if nl else 'Organisation and operations' }}</legend>
+   <label for="c_org">{{ 'Organisatie en rechtsvorm' if nl else 'Organisation and legal form' }}</label>
+   <textarea id="c_org" name="c_org" rows="4" data-ch placeholder="{{ 'Eenmanszaak, VOF of NV? KKF-inschrijving, vergunningen, locatie, wie beslist wat.' if nl else 'Sole proprietorship, partnership (VOF) or NV? KKF registration, licences, location, who decides what.' }}"></textarea>
+   <div class="hint">{{ 'Noem welke vergunningen je al hebt en welke je nog aanvraagt.' if nl else 'Say which licences you already have and which you still need to apply for.' }} <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></div>
+   <label for="c_staff">{{ 'Personeel' if nl else 'Staff' }}</label>
+   <textarea id="c_staff" name="c_staff" rows="4" data-ch placeholder="{{ 'Hoeveel mensen, welke functies, vanaf wanneer, welk loon? Familie die meewerkt?' if nl else 'How many people, which jobs, from when, what pay? Family members who help?' }}"></textarea>
+   <div class="hint">{{ 'Reken met het brutoloon plus werkgeverslasten (AOV, pensioen, ziektekosten, vakantietoelage), niet met het nettoloon.' if nl else 'Use the gross wage plus employer costs (AOV, pension, health insurance, leave allowance), not the net wage.' }} <a href="{{ U('employer') }}">{{ L('employer') }}</a> &middot; <a href="{{ U('salary') }}">{{ L('salary') }}</a></div>
+   <label for="c_ops">{{ 'Bedrijfsvoering en leveranciers' if nl else 'Operations and suppliers' }}</label>
+   <textarea id="c_ops" name="c_ops" rows="4" data-ch placeholder="{{ 'Hoe maak of lever je het product, met welke machines, waar koop je in, hoe lang duurt een bestelling?' if nl else 'How you make or deliver the product, with which equipment, where you buy, how long an order takes?' }}"></textarea>
+   <div class="hint">{{ 'Bij import: reken met de levertijd tot en met de douane, en met invoerrecht en BTW bij invoer.' if nl else 'For imports: plan for the lead time up to and including customs, and for import duty and import VAT.' }} <a href="{{ U('importcost') }}">{{ L('importcost') }}</a></div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Risico\'s' if nl else 'Risks' }}</legend>
+   <label for="c_risk">{{ 'Risico\'s en wat je eraan doet' if nl else 'Risks and what you do about them' }}</label>
+   <textarea id="c_risk" name="c_risk" rows="5" data-ch placeholder="{{ 'Bijvoorbeeld: koers stijgt, stroom valt uit, container is te laat, grote klant betaalt niet, je wordt ziek.' if nl else 'For example: the exchange rate rises, the power goes out, a container is late, a big customer does not pay, you fall ill.' }}"></textarea>
+   <div class="hint">{{ 'Per risico: hoe groot is de kans, wat kost het, wat doe je dan (generator, buffervoorraad, aanbetaling, verzekering).' if nl else 'Per risk: how likely, what it costs, what you do (generator, buffer stock, deposits, insurance).' }}</div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Investering' if nl else 'Investment' }}</legend>
+   <label for="cur">{{ 'Valuta van alle bedragen' if nl else 'Currency for all amounts' }}</label>
+   <select id="cur" name="cur"><option value="SRD">SRD</option><option value="USD">USD</option></select>
+   <div class="hint">{{ 'Gebruik de valuta waarin je het meest verdient. Een lening in USD met inkomsten in SRD geeft koersrisico.' if nl else 'Use the currency you mostly earn in. A USD loan with SRD income carries exchange-rate risk.' }}</div>
+   <label id="inv-l">{{ 'Wat moet je kopen of betalen voor je start?' if nl else 'What do you need to buy or pay before you start?' }}</label>
+   <div id="inv-rows" data-rows="inv" role="group" aria-labelledby="inv-l"></div>
+   <div class="btns"><button type="button" class="btn alt" data-add="inv">+ {{ 'Regel toevoegen' if nl else 'Add line' }}</button></div>
+   <div class="hint">{{ 'Vraag voor elke grote post een offerte. Vergeet werkkapitaal niet: geld voor de eerste maanden huur, lonen en voorraad.' if nl else 'Get a quote for every large item. Do not forget working capital: money for the first months of rent, wages and stock.' }}</div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Financiering' if nl else 'Financing' }}</legend>
+   <label for="own">{{ 'Eigen inbreng (spaargeld, eigen middelen)' if nl else 'Own contribution (savings, own funds)' }}</label><input id="own" name="own" inputmode="decimal">
+   <div class="three">
+    <div><label for="loan">{{ 'Lening' if nl else 'Loan' }}</label><input id="loan" name="loan" inputmode="decimal"></div>
+    <div><label for="rate">{{ 'Rente per jaar (%)' if nl else 'Interest per year (%)' }}</label><input id="rate" name="rate" inputmode="decimal"></div>
+    <div><label for="term">{{ 'Looptijd (maanden)' if nl else 'Term (months)' }}</label><input id="term" name="term" inputmode="numeric"></div>
+   </div>
+   <div class="hint">{{ 'Ter vergelijking: de gemiddelde leenrente bij banken was 14,0% in april 2026 (CBvS); de NOB rekent 5% in het Productie Krediet Fonds.' if nl else 'For comparison: the average bank lending rate was 14.0% in April 2026 (CBvS); the NOB charges 5% in its Production Credit Fund.' }} <a href="{{ U('finance') }}">{{ L('finance') }}</a></div>
+   <label id="fin-l">{{ 'Andere financiering' if nl else 'Other financing' }}</label>
+   <div id="fin-rows" data-rows="fin" role="group" aria-labelledby="fin-l"></div>
+   <div class="btns"><button type="button" class="btn alt" data-add="fin">+ {{ 'Regel toevoegen' if nl else 'Add line' }}</button></div>
+  </fieldset>
+
+  <fieldset><legend>{{ 'Omzet en kosten per maand' if nl else 'Revenue and costs per month' }}</legend>
+   <label id="rev-l">{{ 'Verwachte omzet per maand (zonder BTW)' if nl else 'Expected revenue per month (excluding VAT)' }}</label>
+   <div id="rev-rows" data-rows="rev" role="group" aria-labelledby="rev-l"></div>
+   <div class="btns"><button type="button" class="btn alt" data-add="rev">+ {{ 'Regel toevoegen' if nl else 'Add line' }}</button></div>
+   <label for="varpct">{{ 'Inkoop en andere variabele kosten (% van de omzet)' if nl else 'Purchases and other variable costs (% of revenue)' }}</label><input id="varpct" name="varpct" inputmode="decimal">
+   <div class="hint">{{ 'Wat je per verkochte SRD kwijt bent aan inkoop, verpakking, commissie en transport. Verkoop je voor 100 en kost de inkoop 60, vul dan 60 in.' if nl else 'What each unit of sales costs you in purchases, packaging, commission and transport. If you sell for 100 and buying costs 60, enter 60.' }}</div>
+   <label id="cost-l">{{ 'Vaste kosten per maand' if nl else 'Fixed costs per month' }}</label>
+   <div id="cost-rows" data-rows="cost" role="group" aria-labelledby="cost-l"></div>
+   <div class="btns"><button type="button" class="btn alt" data-add="cost">+ {{ 'Regel toevoegen' if nl else 'Add line' }}</button></div>
+   <div class="hint">{{ 'De maandlast van je lening telt de tool er zelf bij. Reken een eigen loon voor jezelf mee als vaste kost.' if nl else 'The tool adds your loan payment itself. Include a wage for yourself as a fixed cost.' }}</div>
+  </fieldset>
+ </form>
+ <aside class="result" id="bp-sum" aria-live="polite"></aside>
+</div>
+<div class="btns">
+ <button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button>
+ <button type="button" class="btn alt" data-bp="copy">{{ 'Kopieer als tekst' if nl else 'Copy as text' }}</button>
+ <button type="button" class="btn alt" data-bp="reset">{{ 'Nieuw (alles wissen)' if nl else 'New (clear everything)' }}</button>
+</div>
+<h2>{{ 'Voorbeeld van je plan' if nl else 'Preview of your plan' }}</h2>
+<div class="paper print-area" id="bp-out"></div>
+<div class="btns">
+ <button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button>
+ <button type="button" class="btn alt" data-bp="copy">{{ 'Kopieer als tekst' if nl else 'Copy as text' }}</button>
+</div>
+{% endblock %}
+{% block info %}<section class="prose" id="bp-info">
+<h2>{{ 'Zo gebruik je deze tool' if nl else 'How to use this tool' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Begin met de cijfers.</b> Vul eerst investering, financiering, omzet en kosten in. Klopt de som niet (te weinig financiering, verlies per maand), dan pas je je idee aan voordat je er pagina's over schrijft.</li>
+ <li><b>Schrijf de hoofdstukken.</b> Kort en concreet: wie, wat, hoeveel, wanneer. Een bankmedewerker wil feiten en bewijs, geen reclametekst.</li>
+ <li><b>Schrijf de samenvatting als laatste</b> en zet je belangrijkste getallen erin: totale investering, eigen inbreng, gevraagde lening en maandlast.</li>
+ <li><b>Maak een PDF</b> met "Download PDF / print" en kies in het printvenster "Opslaan als PDF". Voeg offertes, je KKF-uittreksel en een kasstroomprognose toe als bijlagen.</li>
+</ol>
+<p>Een bank of de NOB vraagt meestal een prognose voor drie jaar. Werk die maand voor maand uit met de <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>, test je prijs met de <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> en vergelijk leningen met de <a href="{{ U('loan') }}">{{ L('loan') }}</a>. Welke stukken je nog meer nodig hebt, staat in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+{% else %}
+<ol class="steps">
+ <li><b>Start with the numbers.</b> Fill in investment, financing, revenue and costs first. If the sums do not work (not enough financing, a loss every month), adjust your idea before you write pages about it.</li>
+ <li><b>Write the chapters.</b> Short and concrete: who, what, how much, when. A loan officer wants facts and evidence, not advertising copy.</li>
+ <li><b>Write the summary last</b> and put your key figures in it: total investment, own contribution, the loan you ask for and the monthly payment.</li>
+ <li><b>Make a PDF</b> with "Download PDF / print" and choose "Save as PDF" in the print dialog. Add quotes, your KKF extract and a cash flow forecast as annexes.</li>
+</ol>
+<p>A bank or the NOB usually asks for a three-year forecast. Work it out month by month with the <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>, test your price with the <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> and compare loans with the <a href="{{ U('loan') }}">{{ L('loan') }}</a>. The other documents you need are listed in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+{% endif %}
+</section>{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/bizplan.js?v={{ build_id }}" defer></script>{% endblock %}

@@ -1,0 +1,423 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Sectoren en kansen in Suriname (2026)' if nl else 'Business opportunities in Suriname by sector (2026)' }}</h1>
+{% if nl %}
+<p class="lead">Suriname verdient zijn geld met goud en straks met offshore olie: in 2025 was 89% van de goederenexport edel metaal. De meeste kansen voor lokale ondernemers, de diaspora en buitenlandse investeerders zitten in toelevering aan die twee motoren, en in sectoren die nog klein zijn maar groeien: agro-verwerking, toerisme, hout, visserij en zonne-energie. Per sector lees je hier de cijfers, de kansen, wie het regelt, de risico's en waar je begint.</p>
+{% else %}
+<p class="lead">Suriname earns its money from gold and soon from offshore oil: in 2025, 89% of goods exports were precious metals. Most opportunities for local entrepreneurs, the diaspora and foreign investors are in supplying those two engines, and in sectors that are still small but growing: agro-processing, tourism, timber, fishing and solar power. For each sector you will find the figures, the opportunities, who regulates it, the risks and where to start.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Edelmetaal in de export' if nl else 'Precious metals in exports' }}</div><div class="big">{{ '89%' }}</div><div class="sub">{{ 'van de goederenexport in 2025 (ABS, voorlopig)' if nl else 'of goods exports in 2025 (ABS, provisional)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Lokale inkoop olie en gas' if nl else 'Local oil and gas spending' }}</div><div class="big">{{ 'USD 260 mln' if nl else 'USD 260m' }}</div><div class="sub">{{ 'in 2025, tegen USD 30 mln in 2024 (Staatsolie)' if nl else 'in 2025, up from USD 30m in 2024 (Staatsolie)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Piekvraag stroom EPAR' if nl else 'Peak power demand EPAR' }}</div><div class="big">280 MW</div><div class="sub">{{ 'tegen ca. 254 MW beschikbaar, september 2026' if nl else 'against about 254 MW available, September 2026' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Goud bracht in 2025 USD 2,47 miljard aan export op (Centrale Bank). Olie komt er vanaf 2028 bij met GranMorgu. Al het andere is samen nog geen 11% van de goederenexport.</li>
+ <li>De snelste route voor een lokaal bedrijf: leverancier worden in olie, gas en mijnbouw. De lokale inkoop door oliebedrijven steeg in één jaar van USD 30 naar 260 miljoen.</li>
+ <li>Landbouw, visserij en hout zijn klein in de export (samen ruim 4%), maar hebben grond, water en regionale afzet. De winst zit in verwerking, koeling en certificering.</li>
+ <li>Het stroomtekort van 2026 is een probleem en een markt: zonnepanelen met batterijen voor eigen gebruik mogen, levering aan het net alleen via een aanbesteding.</li>
+ <li>Koolstofkredieten zijn van de Staat. Bedrijven verdienen eerder aan herbebossing, duurzame houtketens, ecotoerisme en milieuadvies.</li>
+ <li>Grootste risico's in elke sector: stroom, financiering, grondtitels, vergunningen die lang duren en beleid dat snel verandert.</li>
+{% else %}
+ <li>Gold earned USD 2.47 billion in exports in 2025 (Central Bank). Oil joins from 2028 with GranMorgu. Everything else together is still less than 11% of goods exports.</li>
+ <li>The fastest route for a local business: become a supplier to oil, gas and mining. Local purchasing by oil companies rose from USD 30 million to 260 million in one year.</li>
+ <li>Agriculture, fishing and timber are small in exports (just over 4% together), but have land, water and regional buyers. The margin is in processing, cold chain and certification.</li>
+ <li>The 2026 power shortage is a problem and a market: solar panels with batteries for own use are allowed, supplying the grid only through a tender.</li>
+ <li>Carbon credits belong to the State. Businesses are more likely to earn from reforestation, sustainable timber chains, ecotourism and environmental consulting.</li>
+ <li>The biggest risks in every sector: power, financing, land titles, slow licences and policy that changes quickly.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Waar het geld nu vandaan komt' if nl else 'Where the money comes from today' }}</h2>
+{% if nl %}
+<p>De exportcijfers van het Algemeen Bureau voor de Statistiek (ABS) laten zien hoe smal de basis is. De groei was volgens het IMF 1,5% in 2025 en wordt 3,9% in 2026, vooral geremd door lagere goudproductie. Vanaf 2028 trekt de olie de groei omhoog. Meer over de macro-economie: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<table class="tbl stack tx"><thead><tr><th>Productgroep</th><th>Export 2025</th><th>Aandeel</th></tr></thead><tbody>
+ <tr><td data-l="Productgroep"><b>Edele metalen (vooral goud)</b></td><td data-l="Export 2025">USD 2.989 mln</td><td data-l="Aandeel">89,1%</td></tr>
+ <tr><td data-l="Productgroep">Minerale producten (o.a. ruwe olie)</td><td data-l="Export 2025">USD 60,4 mln</td><td data-l="Aandeel">1,8%</td></tr>
+ <tr><td data-l="Productgroep">Hout en houtwaren</td><td data-l="Export 2025">USD 54,9 mln</td><td data-l="Aandeel">1,6%</td></tr>
+ <tr><td data-l="Productgroep">Levende dieren en dierlijke producten (o.a. vis en garnalen)</td><td data-l="Export 2025">USD 47,0 mln</td><td data-l="Aandeel">1,4%</td></tr>
+ <tr><td data-l="Productgroep">Plantaardige producten (o.a. rijst en bananen)</td><td data-l="Export 2025">USD 28,0 mln</td><td data-l="Aandeel">0,8%</td></tr>
+ <tr><td data-l="Productgroep">Voedingsmiddelen en dranken</td><td data-l="Export 2025">USD 16,6 mln</td><td data-l="Aandeel">0,5%</td></tr>
+ <tr><td data-l="Productgroep"><b>Totaal (incl. wederuitvoer)</b></td><td data-l="Export 2025"><b>USD 3.354 mln</b></td><td data-l="Aandeel">100%</td></tr>
+</tbody></table>
+<p class="note">Voorlopige ABS-cijfers (Basis Indicatoren 2026-I). De Centrale Bank registreert een lagere goudexport (USD 2,47 miljard), omdat zij alleen goud telt en een andere methode gebruikt. Van de totale export ging USD 131 miljoen naar CARICOM-landen.</p>
+{% else %}
+<p>Export figures from the statistics bureau (ABS) show how narrow the base is. Growth was 1.5% in 2025 according to the IMF and is expected at 3.9% in 2026, held back mainly by lower gold output. From 2028 oil will lift growth. More on the macro economy: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<table class="tbl stack tx"><thead><tr><th>Product group</th><th>Exports 2025</th><th>Share</th></tr></thead><tbody>
+ <tr><td data-l="Product group"><b>Precious metals (mainly gold)</b></td><td data-l="Exports 2025">USD 2,989m</td><td data-l="Share">89.1%</td></tr>
+ <tr><td data-l="Product group">Mineral products (incl. crude oil)</td><td data-l="Exports 2025">USD 60.4m</td><td data-l="Share">1.8%</td></tr>
+ <tr><td data-l="Product group">Wood and wood products</td><td data-l="Exports 2025">USD 54.9m</td><td data-l="Share">1.6%</td></tr>
+ <tr><td data-l="Product group">Live animals and animal products (incl. fish and shrimp)</td><td data-l="Exports 2025">USD 47.0m</td><td data-l="Share">1.4%</td></tr>
+ <tr><td data-l="Product group">Vegetable products (incl. rice and bananas)</td><td data-l="Exports 2025">USD 28.0m</td><td data-l="Share">0.8%</td></tr>
+ <tr><td data-l="Product group">Foodstuffs and beverages</td><td data-l="Exports 2025">USD 16.6m</td><td data-l="Share">0.5%</td></tr>
+ <tr><td data-l="Product group"><b>Total (incl. re-exports)</b></td><td data-l="Exports 2025"><b>USD 3,354m</b></td><td data-l="Share">100%</td></tr>
+</tbody></table>
+<p class="note">Provisional ABS figures (Basic Indicators 2026-I). The Central Bank records lower gold exports (USD 2.47 billion) because it counts gold only and uses a different method. Of total exports, USD 131 million went to CARICOM countries.</p>
+{% endif %}
+
+<h2>{{ 'Olie en gas' if nl else 'Oil and gas' }}</h2>
+{% if nl %}
+<p>Staatsolie produceerde in 2025 op land 6,35 miljoen vaten ruwe olie, gemiddeld zo'n 17.400 vaten per dag. Offshore lopen 18 productiedelingscontracten, samen ongeveer de helft van het zeegebied. GranMorgu in Blok 58 moet in 2028 de eerste olie leveren; in Blok 52 werd het gasveld Sloanea in 2025 commercieel verklaard. De echte verandering voor ondernemers: oliebedrijven en hun onderaannemers kochten in 2025 voor ongeveer USD 260 miljoen aan lokale goederen en diensten in, tegen USD 30 miljoen in 2024.</p>
+<ul>
+ <li><b>Kansen.</b> Logistiek en walbases, transport van personeel, catering, schoonmaak, beveiliging, laswerk en fabricage, onderhoud, HSE-opleidingen, huisvesting, IT en vertaling.</li>
+ <li><b>Wie regelt het.</b> Staatsolie (via Staatsolie Hydrocarbon Institute, dat de contracten beheert) en het ministerie van Olie, Gas en Milieu. Operators kopen in via eigen registratiesystemen.</li>
+ <li><b>Risico's.</b> Hoge eisen aan veiligheid, certificering en verzekering; een piek in de bouwfase die na 2028 deels wegvalt; concurrentie uit Guyana en Trinidad en Tobago. Een local content-wet is er nog niet.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> (registratie, BlueWave-programma, EOI's) en <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>. Open opdrachten: <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+</ul>
+{% else %}
+<p>Staatsolie produced 6.35 million barrels of crude onshore in 2025, around 17,400 barrels a day on average. Offshore there are 18 production sharing contracts, together covering about half the offshore area. GranMorgu in Block 58 is due to deliver first oil in 2028; in Block 52 the Sloanea gas field was declared commercial in 2025. The real change for businesses: oil companies and their subcontractors spent about USD 260 million on local goods and services in 2025, against USD 30 million in 2024.</p>
+<ul>
+ <li><b>Opportunities.</b> Logistics and shore bases, crew transport, catering, cleaning, security, welding and fabrication, maintenance, HSE training, housing, IT and translation.</li>
+ <li><b>Who regulates.</b> Staatsolie (through Staatsolie Hydrocarbon Institute, which manages the contracts) and the Ministry of Oil, Gas and Environment. Operators buy through their own registration systems.</li>
+ <li><b>Risks.</b> High demands on safety, certification and insurance; a peak during construction that partly falls away after 2028; competition from Guyana and Trinidad and Tobago. There is no local content law yet.</li>
+ <li><b>Start here.</b> <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> (registration, BlueWave programme, EOIs) and <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>. Open contracts: <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Goud en mijnbouw' if nl else 'Gold and mining' }}</h2>
+{% if nl %}
+<p>In 2025 werd 21.688 kg goud geproduceerd, 22% minder dan in 2024. Dankzij de hoge goudprijs (gemiddeld USD 3.431 per troy ounce) steeg de exportwaarde toch met 21% naar USD 2,47 miljard. De kleinschalige sector produceerde 46% minder; de Centrale Bank vermoedt dat smokkel daarin meespeelt. De grote mijnen zijn Merian van Newmont (sinds 2016, Staatsolie heeft 25%) en Rosebel, sinds 2023 van het Chinese Zijin. Bauxiet was decennialang de basis van de economie, maar Alcoa stopte in 2015 met de raffinaderij in Paranam en kondigde begin 2017 de definitieve sluiting van Suralco en de bauxietmijnen aan.</p>
+<ul>
+ <li><b>Kansen.</b> Diensten aan de grote mijnen (transport, onderhoud, catering, laboratoria), herstel en herbeplanting van mijngebieden, kwikvrije verwerking voor kleinschalige mijnbouw, en handel en export van goud met de juiste vergunningen.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Natuurlijke Hulpbronnen geeft mijnbouwrechten af onder het Mijnbouwdecreet (E-58), met de Geologisch Mijnbouwkundige Dienst als uitvoerder. Een herziene Mijnbouwwet werd in december 2023 gevalideerd maar was bij ons laatste nazicht nog niet aangenomen. Goudexport loopt via de Centrale Bank en de exportregels.</li>
+ <li><b>Risico's.</b> Illegale mijnbouw, kwikvervuiling (Suriname trad in 2018 toe tot het Minamata-verdrag), grondrechten van inheemse en tribale gemeenschappen, en een goudprijs die ook hard kan dalen.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (goudexport en de 35%-regel) en <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</li>
+</ul>
+{% else %}
+<p>In 2025, 21,688 kg of gold was produced, 22% less than in 2024. Thanks to the high gold price (an average of USD 3,431 per troy ounce) export value still rose 21% to USD 2.47 billion. Small-scale output fell 46%; the Central Bank suspects smuggling plays a part. The large mines are Newmont's Merian (since 2016, Staatsolie holds 25%) and Rosebel, owned by China's Zijin since 2023. Bauxite was the backbone of the economy for decades, but Alcoa stopped its Paranam refinery in 2015 and in early 2017 announced the final closure of Suralco and its bauxite mines.</p>
+<ul>
+ <li><b>Opportunities.</b> Services to the large mines (transport, maintenance, catering, laboratories), rehabilitation and replanting of mined areas, mercury-free processing for small-scale mining, and gold trading and export with the right licences.</li>
+ <li><b>Who regulates.</b> The Ministry of Natural Resources grants mining rights under the Mining Decree (E-58), with the Geological Mining Service (GMD) as the implementing agency. A revised Mining Act was validated in December 2023 but had not been passed at our last check. Gold exports run through the Central Bank and the export rules.</li>
+ <li><b>Risks.</b> Illegal mining, mercury pollution (Suriname joined the Minamata Convention in 2018), land rights of indigenous and tribal communities, and a gold price that can also fall sharply.</li>
+ <li><b>Start here.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (gold exports and the 35% rule) and <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Landbouw en agro-verwerking' if nl else 'Agriculture and agro-processing' }}</h2>
+{% if nl %}
+<p>Volgens de Amerikaanse handelsgids (2024) is van ongeveer 1,5 miljoen hectare geschikte landbouwgrond maar zo'n 120.000 hectare in gebruik. Rijst is het grootste gewas: 290.665 ton natte padie in 2024 op 58.133 hectare, voor ruim 95% in Nickerie, en 45.404 ton rijstexport ter waarde van ongeveer USD 27 miljoen (NOB-sectorstudie, 2025). FAI, de enige bananenplantage, exporteert rond 15 containers per week naar Trinidad en Tobago, Barbados en Guyana. De export van verse groente naar Europa is sterk teruggevallen sinds de EU in 2019 sopropo weerde; dat product was tot 35% van het volume.</p>
+<ul>
+ <li><b>Kansen.</b> Verwerking (cassavemeel en chips, vruchtenpulp, kokoswater en kokosolie, honing, cacao), veevoer uit lokale soja en maïs, koelhuizen en verpakking, mechanisatiediensten, en afzet in CARICOM waar Surinaamse producten vaak zonder invoerrecht binnenkomen.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Landbouw, Veeteelt en Visserij (LVV) voor registraties, plantgezondheid en veterinaire zaken; Grond- en Bosbeheer voor domeingrond; voedselveiligheid ligt bij het BOG en het in 2021 bij wet opgerichte Nationaal Voedselveiligheidsinstituut (NIVS).</li>
+ <li><b>Risico's.</b> Plagen en residuen van bestrijdingsmiddelen (de EU-markt is voor sommige producten dicht), droogte en wateroverlast, tekort aan arbeidskrachten, dure luchtvracht (rond EUR 2,50 per kilo naar Europa) en vogelgriep in de pluimvee sinds september 2026.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('agri') }}">{{ L('agri') }}</a>, <a href="{{ U('land') }}">{{ L('land') }}</a>, <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> en <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% else %}
+<p>According to the US commercial guide (2024), only about 120,000 of roughly 1.5 million hectares of suitable farmland are in use. Rice is the largest crop: 290,665 tonnes of wet paddy in 2024 on 58,133 hectares, over 95% of it in Nickerie, and 45,404 tonnes of rice exports worth about USD 27 million (NOB sector study, 2025). FAI, the only banana plantation, exports around 15 containers a week to Trinidad and Tobago, Barbados and Guyana. Fresh vegetable exports to Europe have collapsed since the EU barred sopropo (bitter melon) in 2019; that product made up as much as 35% of the volume.</p>
+<ul>
+ <li><b>Opportunities.</b> Processing (cassava flour and chips, fruit pulp, coconut water and oil, honey, cocoa), animal feed from local soy and maize, cold stores and packaging, mechanisation services, and sales into CARICOM, where Surinamese products often enter duty-free.</li>
+ <li><b>Who regulates.</b> The Ministry of Agriculture, Animal Husbandry and Fisheries (LVV) for registrations, plant health and veterinary matters; Land and Forest Management for state land; food safety sits with the Public Health Bureau (BOG) and the National Food Safety Institute (NIVS), created by law in 2021.</li>
+ <li><b>Risks.</b> Pests and pesticide residues (the EU market is closed for some products), drought and flooding, labour shortages, expensive air freight (around EUR 2.50 a kilo to Europe) and avian influenza in poultry since September 2026.</li>
+ <li><b>Start here.</b> <a href="{{ U('agri') }}">{{ L('agri') }}</a>, <a href="{{ U('land') }}">{{ L('land') }}</a>, <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> and <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Visserij en aquacultuur' if nl else 'Fisheries and aquaculture' }}</h2>
+{% if nl %}
+<p>Vis en garnalen (waaronder seabob) vallen in de exportgroep dierlijke producten, goed voor USD 47 miljoen in 2025. In 2021 was de export van vis en garnalen USD 30,1 miljoen. In 2025 sloot de VS de markt voor vis uit de Surinaamse drijfnetvisserij, omdat de regels voor bijvangst van zeezoogdieren niet voldeden. In juni 2026 kreeg Suriname een positieve beoordeling van de Amerikaanse visserijdienst NMFS, geldig tot 31 december 2029.</p>
+<ul>
+ <li><b>Kansen.</b> Verwerking met meer waarde (filet, gerookt, ingevroren porties), ijs en koelopslag bij aanlandingsplaatsen, en aquacultuur. De Amerikaanse handelsgids noemt verse vis en aquacultuur als kansen.</li>
+ <li><b>Wie regelt het.</b> LVV, Directoraat Visserij, voor vergunningen en vangstcertificaten; alleen bedrijven die door het Viskeuringsinstituut (VKI) zijn erkend, mogen vis exporteren.</li>
+ <li><b>Risico's.</b> Markttoegang hangt af van naleving: de VS en de EU kunnen de deur opnieuw sluiten. Verder illegale visserij, koelketen en hoge brandstofkosten.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (VKI en vangstcertificaat) en <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% else %}
+<p>Fish and shrimp (including seabob) fall in the animal products export group, worth USD 47 million in 2025. In 2021 fish and shrimp exports were USD 30.1 million. In 2025 the US closed its market to fish from the Surinamese driftnet fishery because rules on marine mammal bycatch fell short. In June 2026 Suriname received a positive finding from the US fisheries service NMFS, valid until 31 December 2029.</p>
+<ul>
+ <li><b>Opportunities.</b> Higher-value processing (fillets, smoked, frozen portions), ice and cold storage at landing sites, and aquaculture. The US commercial guide names fresh fish and aquaculture as opportunities.</li>
+ <li><b>Who regulates.</b> LVV's Fisheries Directorate for licences and catch certificates; only companies approved by the Fish Inspection Institute (VKI) may export fish.</li>
+ <li><b>Risks.</b> Market access depends on compliance: the US and EU can close the door again. Also illegal fishing, the cold chain and high fuel costs.</li>
+ <li><b>Start here.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (VKI and catch certificate) and <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bosbouw en hout' if nl else 'Forestry and timber' }}</h2>
+{% if nl %}
+<p>De houtexport was USD 54,9 miljoen in 2025 (ABS). Recente productiecijfers zijn moeilijk te vinden; volgens het Timber Trade Portal werd in 2018 1.084.000 m³ rondhout geoogst en bestond 96% van het exportvolume uit onbewerkte stammen, vooral naar Azië. Er is ongeveer 4,5 miljoen hectare productiebos. De zagerijen gebruikten volgens dezelfde bron maar de helft van hun capaciteit, en de droogcapaciteit was kleiner dan 6.000 m³ per jaar.</p>
+<ul>
+ <li><b>Kansen.</b> Verdere verwerking (gedroogd zaaghout, vloeren, decking, meubels), droogovens, gecertificeerd hout voor Europa en niet-houtige bosproducten.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Grond- en Bosbeheer geeft concessies en vergunningen; de Stichting voor Bosbeheer en Bostoezicht (SBB) controleert productie en keurt export. Op rondhout betaal je uitvoerrecht, lager naarmate het hout verder bewerkt is.</li>
+ <li><b>Risico's.</b> Transport uit het binnenland, illegale kap, grondrechten en veranderende uitvoerrechten. Europese kopers vragen bewijs van legale herkomst.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (SBB-keuring en uitvoerrecht) en <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+</ul>
+{% else %}
+<p>Timber exports were USD 54.9 million in 2025 (ABS). Recent production figures are hard to find; according to the Timber Trade Portal, 1,084,000 m³ of roundwood was harvested in 2018 and 96% of export volume was unprocessed logs, mainly to Asia. There are about 4.5 million hectares of production forest. According to the same source, sawmills used only half their capacity, and drying capacity was below 6,000 m³ a year.</p>
+<ul>
+ <li><b>Opportunities.</b> Further processing (kiln-dried sawn timber, flooring, decking, furniture), drying kilns, certified timber for Europe and non-timber forest products.</li>
+ <li><b>Who regulates.</b> The Ministry of Land and Forest Management grants concessions and permits; the forestry authority SBB controls production and inspects exports. Round logs carry export duty, lower the more the wood is processed.</li>
+ <li><b>Risks.</b> Transport from the interior, illegal logging, land rights and changing export duties. European buyers ask for proof of legal origin.</li>
+ <li><b>Start here.</b> <a href="{{ U('export') }}">{{ L('export') }}</a> (SBB inspection and export duty) and <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Toerisme en gastvrijheid' if nl else 'Tourism and hospitality' }}</h2>
+{% if nl %}
+<p>In 2025 werden 381.667 inkomende passagiersbewegingen geregistreerd. Dat zijn geen unieke toeristen: 60,9% verbleef bij familie of in een eigen woning, 26,1% in een hotel en 10,2% in een appartement of Airbnb. De regering wil binnen drie jaar weer een half miljoen bezoekers ontvangen en het aandeel van toerisme in het bbp verhogen van ongeveer 6,8% naar 10% (augustus 2025). De Suriname Toerisme Autoriteit wordt opgebouwd. Volgens de organisatoren van de bouwbeurs van april 2026 vergroot ook de oliesector de vraag naar accommodatie.</p>
+<ul>
+ <li><b>Kansen.</b> Accommodatie in het middensegment in Paramaribo, ecolodges en dagtours in het binnenland, vervoer, culinaire en culturele tours, en zakelijke verblijven rond de olie-industrie.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Transport, Communicatie en Toerisme en de Suriname Toerisme Autoriteit; bedrijfsvergunningen via EZOTI of de districtscommissaris.</li>
+ <li><b>Risico's.</b> Seizoenen, beperkte vliegverbindingen, bereikbaarheid van het binnenland, stroom en water, en grondrechten van gemeenschappen in het binnenland.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('licences') }}">{{ L('licences') }}</a>, <a href="{{ U('land') }}">{{ L('land') }}</a> en <a href="{{ U('finance') }}">{{ L('finance') }}</a> (het Productie Krediet Fonds van de NOB staat open voor toerisme). Per district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</li>
+</ul>
+{% else %}
+<p>In 2025, 381,667 incoming passenger movements were registered. These are not unique tourists: 60.9% stayed with family or in their own home, 26.1% in a hotel and 10.2% in an apartment or Airbnb. The government wants to welcome half a million visitors again within three years and raise tourism's share of GDP from about 6.8% to 10% (August 2025). The Suriname Tourism Authority is being set up. According to the organisers of the April 2026 building fair, the oil sector is also raising demand for accommodation.</p>
+<ul>
+ <li><b>Opportunities.</b> Mid-range accommodation in Paramaribo, eco-lodges and day tours in the interior, transport, food and culture tours, and business stays around the oil industry.</li>
+ <li><b>Who regulates.</b> The Ministry of Transport, Communication and Tourism and the Suriname Tourism Authority; business licences through the Ministry of Economic Affairs (EZOTI) or the district commissioner.</li>
+ <li><b>Risks.</b> Seasonality, limited flight connections, access to the interior, power and water, and the land rights of communities in the interior.</li>
+ <li><b>Start here.</b> <a href="{{ U('licences') }}">{{ L('licences') }}</a>, <a href="{{ U('land') }}">{{ L('land') }}</a> and <a href="{{ U('finance') }}">{{ L('finance') }}</a> (the NOB's Production Credit Fund is open to tourism). By district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Logistiek en infrastructuur' if nl else 'Logistics and infrastructure' }}</h2>
+{% if nl %}
+<p>Suriname ligt tussen Guyana en Frans-Guyana, met de containerhaven in Paramaribo als poort (details in <a href="{{ U('export') }}">{{ L('export') }}</a>). De Oost-Westverbinding tussen Meerzorg en Albina (140 km) is met IDB-geld opgeknapt en verbindt Paramaribo met de grens met Frans-Guyana. Naar Guyana gaat het verkeer over de Corantijn met de veerboot. Over een brug zijn beide landen het eens, maar het oude memorandum liep in november 2025 af; Suriname wil de bouw nu zelf financieren en de landen moeten nog afspraken maken over beheer, douane en grenscontrole (september 2026). Een doorgaande wegverbinding met Brazilië is er niet.</p>
+<ul>
+ <li><b>Kansen.</b> Opslag en koelopslag, vrachtvervoer, expeditie en douane-afhandeling, walbasisdiensten voor de offshore, luchtvracht voor bederfelijke producten, en onderaanneming bij wegen- en havenprojecten.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Openbare Werken en Ruimtelijke Ordening (wegen), Transport, Communicatie en Toerisme, de Maritieme Autoriteit Suriname en Havenbeheer.</li>
+ <li><b>Risico's.</b> Grote projecten lopen vaak jaren uit en hangen af van financiering; betaling door de overheid kan traag zijn.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('tenders') }}">{{ L('tenders') }}</a> en <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% else %}
+<p>Suriname sits between Guyana and French Guiana, with the container port in Paramaribo as its gateway (details in <a href="{{ U('export') }}">{{ L('export') }}</a>). The East-West road between Meerzorg and Albina (140 km) was rehabilitated with IDB money and links Paramaribo to the French Guiana border. Traffic to Guyana crosses the Corantijn (Corentyne) by ferry. Both countries agree on a bridge, but the old memorandum expired in November 2025; Suriname now wants to finance construction itself and the two countries still have to agree on management, customs and border control (September 2026). There is no through road to Brazil.</p>
+<ul>
+ <li><b>Opportunities.</b> Warehousing and cold storage, trucking, freight forwarding and customs brokerage, shore base services for offshore, air cargo for perishables, and subcontracting on road and port projects.</li>
+ <li><b>Who regulates.</b> The Ministry of Public Works and Spatial Planning (roads), Transport, Communication and Tourism, the Maritime Authority Suriname (MAS) and the port authority Havenbeheer.</li>
+ <li><b>Risks.</b> Large projects often run years late and depend on financing; government payments can be slow.</li>
+ <li><b>Start here.</b> <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('tenders') }}">{{ L('tenders') }}</a> and <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Energie: tekort aan stroom, kans voor zon' if nl else 'Energy: a power shortage, an opening for solar' }}</h2>
+{% if nl %}
+<p>In september 2026 was de piekvraag in het EPAR-net (Paramaribo, Wanica, Para, Commewijne en richting Saramacca) ongeveer 280 MW, tegen zo'n 254 MW beschikbaar vermogen, en 10% hoger dan in 2025. Er is vrijwel geen reserve, dus EBS schakelt wijken beurtelings af. De Energie Autoriteit Suriname (EAS) schat het structurele tekort op 60 tot 80 MW; de laatste uitbreiding was rond 2020. Volgens de minister van Natuurlijke Hulpbronnen is ongeveer USD 500 miljoen nodig. Staatsolie leverde in 2025 met de stuwdam in Afobaka (189 MW) en een thermische centrale (96 MW) 69% van de stroom in het EPAR-net. Het opgestelde zonnevermogen was eind 2025 16 MW.</p>
+<h3>{{ 'Wat de wet toestaat' if nl else 'What the law allows' }}</h3>
+<ul>
+ <li><b>Zelf opwekken voor eigen gebruik mag</b>, uit duurzame bronnen (Elektriciteitswet 2016). Je saldeert je productie per jaar met je verbruik via een tweerichtingsmeter van EBS. Lever je per jaar meer dan je verbruikt, dan wordt dat overschot niet vergoed. EBS sluit zelfopwekkers aan tot 63 ampère, via een erkende installateur.</li>
+ <li><b>Stroom verkopen aan het net</b> kan alleen voor duurzame elektriciteit, na een openbare aanbesteding die EBS organiseert onder toezicht van de EAS. De winnaar krijgt een vergunning van de minister en EBS moet een leveringscontract tekenen.</li>
+ <li><b>Stroom uit fossiele brandstof</b> voor het net blijft volgens de wet een zaak van staatsbedrijven.</li>
+ <li>De nadere regels voor zelfopwekkers (aansluitkosten, tarieven) moeten in een Energiesectorplan komen; tot dat er is, past EBS eigen voorwaarden toe.</li>
+</ul>
+<ul>
+ <li><b>Kansen.</b> Zonnepanelen met batterijen en omvormers voor bedrijven die last hebben van afschakelingen, installatie en onderhoud, energiebesparing, back-upsystemen, en meedoen aan aanbestedingen. EBS zocht in september 2026 bouwers voor zon-en-batterij-minigrids in inheemse en Matawai-dorpen (IDB-project). Staatsolie wil een zonnepark van 25 tot 30 MWp bouwen in Saramacca, afhankelijk van een contract met EBS.</li>
+ <li><b>Risico's.</b> Geen vergoeding voor overschot, regels die nog niet af zijn en stroomtarieven die lang onder de kostprijs lagen. Reken je terugverdientijd door met het tarief dat je nu betaalt én met hogere tarieven.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('outages') }}">{{ L('outages') }}</a>, <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> en <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</li>
+</ul>
+{% else %}
+<p>In September 2026 peak demand on the EPAR grid (Paramaribo, Wanica, Para, Commewijne and towards Saramacca) was about 280 MW, against some 254 MW of available capacity, and 10% higher than in 2025. There is virtually no reserve, so EBS cuts areas in rotation (load shedding). The Energy Authority Suriname (EAS) puts the structural shortfall at 60 to 80 MW; the last expansion was around 2020. According to the Minister of Natural Resources about USD 500 million is needed. In 2025 Staatsolie supplied 69% of EPAR power from the Afobaka dam (189 MW) and a thermal plant (96 MW). Installed solar capacity was 16 MW at the end of 2025.</p>
+<h3>{{ 'Wat de wet toestaat' if nl else 'What the law allows' }}</h3>
+<ul>
+ <li><b>Generating your own power for own use is allowed</b>, from renewable sources (Electricity Act 2016). You net your yearly production against your consumption through a two-way EBS meter. If you deliver more than you use in a year, the surplus is not paid for. EBS connects self-generators up to 63 amps, through an approved installer.</li>
+ <li><b>Selling power to the grid</b> is only possible for renewable electricity, after a public tender run by EBS under EAS supervision. The winner gets a licence from the minister and EBS must sign a supply contract.</li>
+ <li><b>Power from fossil fuels</b> for the grid remains, by law, a matter for state companies.</li>
+ <li>Detailed rules for self-generators (connection costs, tariffs) are to be set in an Energy Sector Plan; until then EBS applies its own terms.</li>
+</ul>
+<ul>
+ <li><b>Opportunities.</b> Solar panels with batteries and inverters for businesses hit by load shedding, installation and maintenance, energy efficiency, backup systems, and bidding in tenders. In September 2026 EBS sought builders for solar and battery minigrids in Indigenous and Matawai villages (an IDB project). Staatsolie plans a 25 to 30 MWp solar park in Saramacca, subject to a contract with EBS.</li>
+ <li><b>Risks.</b> No payment for surplus power, rules that are not finished and tariffs that were long below cost. Work out your payback with today's tariff and with higher tariffs.</li>
+ <li><b>Start here.</b> <a href="{{ U('outages') }}">{{ L('outages') }}</a>, <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> and <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'ICT, BPO en digitale diensten' if nl else 'ICT, BPO and digital services' }}</h2>
+{% if nl %}
+<p>Volgens SITA was de export van zakelijke diensten in 2023 USD 77,3 miljoen, 42% meer dan in 2022. Teleperformance zit sinds 2015 in Paramaribo met bijna 1.700 medewerkers; ook Concentrix en kleinere callcenters zijn actief. Surinamers spreken Nederlands en vaak goed Engels, wat klantenservice voor Nederland, België en de VS aantrekkelijk maakt. Sinds 2025 betaal je geen invoerrechten meer op computers en randapparatuur.</p>
+<ul>
+ <li><b>Kansen.</b> Klantenservice en backoffice, softwareontwikkeling, digitale marketing, data-invoer en administratie voor buitenlandse klanten, en betaal- en fintechdiensten.</li>
+ <li><b>Wie regelt het.</b> Geen aparte vergunning voor de meeste diensten. Telecom valt onder de Telecommunicatie Autoriteit Suriname, betaaldiensten onder de Centrale Bank. Outsourcing voor een buitenlandse klant valt onder 0% BTW.</li>
+ <li><b>Risico's.</b> Stroomuitval (reken op back-up), personeel dat vertrekt, en de deviezenregels: ook opbrengsten uit diensten moet je naar Suriname halen.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>, <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> en <a href="{{ U('export') }}">{{ L('export') }}</a> (deviezen).</li>
+</ul>
+{% else %}
+<p>According to SITA, exports of business services were USD 77.3 million in 2023, 42% more than in 2022. Teleperformance has been in Paramaribo since 2015 with almost 1,700 staff; Concentrix and smaller call centres are also active. Surinamese speak Dutch and often good English, which makes customer service for the Netherlands, Belgium and the US attractive. Since 2025 there are no import duties on computers and peripherals.</p>
+<ul>
+ <li><b>Opportunities.</b> Customer service and back office, software development, digital marketing, data entry and administration for foreign clients, and payment and fintech services.</li>
+ <li><b>Who regulates.</b> Most services need no separate licence. Telecoms fall under the Telecommunications Authority Suriname (TAS), payment services under the Central Bank. Outsourcing for a foreign customer is zero-rated for VAT.</li>
+ <li><b>Risks.</b> Power cuts (plan for backup), staff turnover, and the foreign exchange rules: proceeds from services must also be brought into Suriname.</li>
+ <li><b>Start here.</b> <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>, <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> and <a href="{{ U('export') }}">{{ L('export') }}</a> (foreign exchange).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bouw en vastgoed' if nl else 'Construction and real estate' }}</h2>
+{% if nl %}
+<p>De bouwprijzen stegen in 2025 met 10,7% en in het eerste kwartaal van 2026 met 7,2% op jaarbasis (ABS, mei 2026). De vraag naar woningen, kantoren en tijdelijke huisvesting groeit door de olie-industrie en het toerisme. De regering kondigde in april 2026 een woningbouwplan aan, waarin de private sector het werk moet doen.</p>
+<ul>
+ <li><b>Kansen.</b> Huurwoningen en appartementen met service, kantoor- en opslagruimte, bouwmaterialen, en aanneming bij overheidsprojecten en voor de olie-industrie.</li>
+ <li><b>Wie regelt het.</b> Openbare Werken en Ruimtelijke Ordening (bouwvergunning), Grond- en Bosbeheer (domeingrond) en MI-GLIS (kadaster en hypotheekkantoor).</li>
+ <li><b>Risico's.</b> Onduidelijke grondtitels, kostenstijgingen tijdens de bouw, dure financiering en trage vergunningen.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('land') }}">{{ L('land') }}</a>, <a href="{{ U('roi') }}">{{ L('roi') }}</a> en <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+</ul>
+{% else %}
+<p>Construction prices rose 10.7% in 2025 and 7.2% year-on-year in the first quarter of 2026 (ABS, May 2026). Demand for housing, offices and temporary accommodation is growing with the oil industry and tourism. In April 2026 the government announced a housing plan in which the private sector is to do the work.</p>
+<ul>
+ <li><b>Opportunities.</b> Rental housing and serviced apartments, office and storage space, building materials, and contracting for government projects and the oil industry.</li>
+ <li><b>Who regulates.</b> Public Works and Spatial Planning (building permits), Land and Forest Management (state land) and MI-GLIS (land registry and mortgage office).</li>
+ <li><b>Risks.</b> Unclear land titles, cost increases during construction, expensive financing and slow permits.</li>
+ <li><b>Start here.</b> <a href="{{ U('land') }}">{{ L('land') }}</a>, <a href="{{ U('roi') }}">{{ L('roi') }}</a> and <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Industrie en importvervanging' if nl else 'Manufacturing and import substitution' }}</h2>
+{% if nl %}
+<p>Suriname importeerde in 2025 voor USD 2,13 miljard aan goederen, waarvan USD 396 miljoen uit CARICOM-landen (ABS). Elk product dat je lokaal maakt tegen een concurrerende prijs, vervangt een import die in dollars wordt betaald. De NOB financiert dat soort productie met het Productie Krediet Fonds: tot SRD 5 miljoen tegen 5% rente voor importvervangende, exporteerbare of waardetoevoegende productie.</p>
+<ul>
+ <li><b>Kansen.</b> Voedingsmiddelen en dranken, veevoer, verpakkingen, bouwmaterialen, schoonmaakmiddelen, meubels en reparatie en onderhoud van machines.</li>
+ <li><b>Wie regelt het.</b> EZOTI (bedrijfsvergunningen), het Surinaams Standaarden Bureau (normen), BOG en NIVS (voedsel), en het ministerie van Olie, Gas en Milieu (milieu).</li>
+ <li><b>Risico's.</b> Kleine binnenlandse markt, stroomtekort, dure grondstoffen uit het buitenland en concurrentie van invoer uit CARICOM zonder invoerrecht.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('finance') }}">{{ L('finance') }}</a>, <a href="{{ U('licences') }}">{{ L('licences') }}</a>, <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> en <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</li>
+</ul>
+{% else %}
+<p>Suriname imported USD 2.13 billion of goods in 2025, USD 396 million of it from CARICOM countries (ABS). Every product you make locally at a competitive price replaces an import paid for in dollars. The NOB funds this kind of production through its Production Credit Fund: up to SRD 5 million at 5% interest for import-substituting, exportable or value-adding production.</p>
+<ul>
+ <li><b>Opportunities.</b> Food and beverages, animal feed, packaging, building materials, cleaning products, furniture, and repair and maintenance of machinery.</li>
+ <li><b>Who regulates.</b> EZOTI (business licences), the Suriname Standards Bureau (standards), BOG and NIVS (food), and the Ministry of Oil, Gas and Environment (environment).</li>
+ <li><b>Risks.</b> A small home market, power shortages, expensive imported raw materials and duty-free competition from CARICOM imports.</li>
+ <li><b>Start here.</b> <a href="{{ U('finance') }}">{{ L('finance') }}</a>, <a href="{{ U('licences') }}">{{ L('licences') }}</a>, <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> and <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Koolstofkredieten en groene economie' if nl else 'Carbon credits and the green economy' }}</h2>
+{% if nl %}
+<p>Suriname tekende in november 2021, tijdens COP26, met Bhutan en Panama een verklaring als de drie koolstofnegatieve landen: de bossen nemen meer CO2 op dan het land uitstoot. In zijn klimaatplan van 2019 beloofde Suriname 93% van het land bebost te houden. De Staat wil die prestatie verkopen als kredieten onder artikel 6.2 van het Parijsakkoord (ITMO's). Een eerste partij van 1,5 miljoen ton (jaargang 2021) werd in augustus 2024 aangeboden, maar de verkoop werd steeds uitgesteld. In november 2025 gaven Suriname en Honduras Deutsche Bank en de Coalition for Rainforest Nations een mandaat om kredieten te verkopen, en in februari 2026 mikte de regering op de eerste transacties in het eerste kwartaal. Een afgeronde verkoop vonden we op 26 oktober 2026 niet bevestigd.</p>
+<ul>
+ <li><b>Kansen voor bedrijven.</b> De nationale kredieten zijn van de Staat. Kansen zitten in herbebossing en herstel van mijngebieden, duurzaam en gecertificeerd hout, ecotoerisme, milieuadvies en milieueffectrapportages, en ESG-rapportage voor leveranciers van oliebedrijven.</li>
+ <li><b>Wie regelt het.</b> Het ministerie van Olie, Gas en Milieu (klimaat en milieu, Milieuraamwet).</li>
+ <li><b>Risico's.</b> Een jonge, onzekere markt; inheemse en tribale gemeenschappen eisen zeggenschap over hun bossen; prijzen zijn niet openbaar.</li>
+ <li><b>Begin hier.</b> <a href="{{ U('associations') }}">{{ L('associations') }}</a> en <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% else %}
+<p>In November 2021, at COP26, Suriname signed a declaration with Bhutan and Panama as the three carbon-negative countries: their forests absorb more CO2 than they emit. In its 2019 climate plan Suriname pledged to keep 93% of its land forested. The State wants to sell that performance as credits under Article 6.2 of the Paris Agreement (ITMOs). A first batch of 1.5 million tonnes (2021 vintage) was offered in August 2024, but the sale was repeatedly delayed. In November 2025 Suriname and Honduras gave Deutsche Bank and the Coalition for Rainforest Nations a mandate to sell credits, and in February 2026 the government aimed for first trades in the first quarter. We found no confirmed completed sale as of 26 October 2026.</p>
+<ul>
+ <li><b>Opportunities for businesses.</b> The national credits belong to the State. Opportunities are in reforestation and rehabilitation of mined land, sustainable and certified timber, ecotourism, environmental consulting and impact assessments, and ESG reporting for suppliers to oil companies.</li>
+ <li><b>Who regulates.</b> The Ministry of Oil, Gas and Environment (climate and environment, Environmental Framework Act).</li>
+ <li><b>Risks.</b> A young, uncertain market; indigenous and tribal communities demand a say over their forests; prices are not public.</li>
+ <li><b>Start here.</b> <a href="{{ U('associations') }}">{{ L('associations') }}</a> and <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Welke producten hebben exportpotentie?' if nl else 'Which products have export potential?' }}</h2>
+{% if nl %}
+<p>Er circuleren lijsten met "de beste exportproducten" van Suriname, maar die komen uit studies van 2018 en 2019 en zijn niet meer te controleren. Wij geven daarom geen ranglijst. Wat wel vaststaat:</p>
+<ul>
+ <li>Wat nu verkocht wordt naast goud: hout, vis en garnalen, rijst, bananen en verwerkte voedingsmiddelen (tabel hierboven).</li>
+ <li>De dichtstbijzijnde markt is CARICOM: in 2025 ging USD 131 miljoen aan Surinaamse export naar CARICOM-landen, tegen USD 24 miljoen naar de EU (ABS).</li>
+ <li>De Export Potential Map van het International Trade Centre (gratis, online) berekent per product en per land hoeveel exportpotentieel onbenut is. Gebruik die als startpunt en toets daarna bij kopers.</li>
+ <li>Voor CARICOM werkt het Surinaams Standaarden Bureau mee aan regionale normen, onder meer voor kokos- en cacaoproducten (2026). Wie in die ketens wil exporteren, volgt die normen best vanaf het begin.</li>
+</ul>
+{% else %}
+<p>Lists of Suriname's "best export products" circulate, but they come from 2018 and 2019 studies and can no longer be checked. We therefore give no ranking. What is clear:</p>
+<ul>
+ <li>What sells today besides gold: timber, fish and shrimp, rice, bananas and processed foods (table above).</li>
+ <li>The nearest market is CARICOM: in 2025, USD 131 million of Surinamese exports went to CARICOM countries, against USD 24 million to the EU (ABS).</li>
+ <li>The International Trade Centre's Export Potential Map (free, online) estimates untapped export potential per product and per country. Use it as a starting point and then test with buyers.</li>
+ <li>For CARICOM, the Suriname Standards Bureau takes part in regional standards, including for coconut and cocoa products (2026). If you want to export in those chains, follow those standards from the start.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Stappenplan: van idee naar sector' if nl else 'Step by step: from idea to sector' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Kies op afzet, niet op grondstof.</b> Wie koopt, tegen welke prijs, in welke valuta? Een contract met een oliebedrijf, mijn of buitenlandse importeur is meer waard dan een mooi plan.</li>
+ <li><b>Reken met realistische kosten.</b> Neem stroom (en back-up), transport, rente en de wisselkoers mee. <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></li>
+ <li><b>Schrijf een ondernemingsplan.</b> Banken en fondsen vragen het altijd. <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a></li>
+ <li><b>Praat met de toezichthouder.</b> Het vakministerie (LVV, Natuurlijke Hulpbronnen, Grond- en Bosbeheer, TCT) en, als buitenlandse investeerder, SITA.</li>
+ <li><b>Regel de basis.</b> KKF, FIN-nummer, bankrekening en de vergunningen voor je activiteit. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Regel grond en locatie.</b> Laat titels controleren voordat je betaalt. <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Zoek financiering die past bij je sector.</b> <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Sluit je aan bij een branchevereniging.</b> Daar hoor je als eerste over aanbestedingen, normen en nieuwe regels. <a href="{{ U('associations') }}">{{ L('associations') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Choose by market, not by raw material.</b> Who buys, at what price, in which currency? A contract with an oil company, mine or foreign importer is worth more than a good-looking plan.</li>
+ <li><b>Use realistic costs.</b> Include power (and backup), transport, interest and the exchange rate. <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></li>
+ <li><b>Write a business plan.</b> Banks and funds always ask for one. <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a></li>
+ <li><b>Talk to the regulator.</b> The sector ministry (LVV, Natural Resources, Land and Forest Management, TCT) and, as a foreign investor, SITA.</li>
+ <li><b>Set up the basics.</b> KKF, FIN tax number, bank account and the licences for your activity. <a href="{{ U('start') }}">{{ L('start') }}</a> &middot; <a href="{{ U('licences') }}">{{ L('licences') }}</a></li>
+ <li><b>Secure land and premises.</b> Have titles checked before you pay. <a href="{{ U('land') }}">{{ L('land') }}</a></li>
+ <li><b>Find financing that fits your sector.</b> <a href="{{ U('finance') }}">{{ L('finance') }}</a></li>
+ <li><b>Join a business association.</b> That is where you first hear about tenders, standards and new rules. <a href="{{ U('associations') }}">{{ L('associations') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist voor elke sector' if nl else 'Checklist for any sector' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Ik weet wie mijn eerste drie klanten zijn en wat ze willen betalen.</li>
+ <li>Ik heb uitgerekend wat een dag zonder stroom kost en hoe ik die opvang.</li>
+ <li>Ik ken de vergunningen, keuringen en certificaten voor mijn product.</li>
+ <li>Grond of pand is gecontroleerd bij MI-GLIS en eventuele claims zijn bekend.</li>
+ <li>Mijn prijzen houden rekening met de wisselkoers en, bij export, met de verplichte verkoop van 35% van de opbrengst.</li>
+ <li>Ik heb personeel of weet waar ik het vind, en welke vergunningen buitenlandse krachten nodig hebben. <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></li>
+ <li>Ik volg nieuwe wetten (investeringen, local content, mijnbouw, grond). <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>I know who my first three customers are and what they will pay.</li>
+ <li>I have worked out what a day without power costs and how I cover it.</li>
+ <li>I know the licences, inspections and certificates for my product.</li>
+ <li>Land or premises have been checked at MI-GLIS and any claims are known.</li>
+ <li>My prices allow for the exchange rate and, for exports, the mandatory sale of 35% of proceeds.</li>
+ <li>I have staff or know where to find them, and which permits foreign workers need. <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></li>
+ <li>I follow new laws (investment, local content, mining, land). <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik vanuit het buitenland wil investeren?</b> Lees <a href="{{ U('invest') }}">{{ L('invest') }}</a> voor rechtsvormen, belastingen, verdragen en geldverkeer.</li>
+ <li><b>...ik een kleine onderneming heb en geen olieleverancier kan worden?</b> Kijk naar onderaanneming: grote aannemers zoeken lokale partners voor vervoer, catering, schoonmaak en onderhoud. Zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>...mijn sector hier niet staat?</b> Ook zorg en onderwijs kampen met tekorten aan personeel en voorzieningen. Kijk naar vacatures om te zien waar vraag is: <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+ <li><b>...ik partners of concurrenten zoek?</b> Zoek in de <a href="{{ U('companies') }}">{{ L('companies') }}</a> of de <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I want to invest from abroad?</b> Read <a href="{{ U('invest') }}">{{ L('invest') }}</a> for legal forms, taxes, treaties and money transfers.</li>
+ <li><b>...I run a small business and cannot become an oil supplier?</b> Look at subcontracting: large contractors look for local partners for transport, catering, cleaning and maintenance. See <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>...my sector is not listed here?</b> Healthcare and education also face shortages of staff and facilities. Check vacancies to see where demand is: <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+ <li><b>...I am looking for partners or competitors?</b> Search the <a href="{{ U('companies') }}">{{ L('companies') }}</a> or the <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://statistics-suriname.org/wp-content/uploads/2026/02/Basic-Indicators-2026-I.pdf" rel="noopener">ABS: Basis Indicatoren 2026-I ({{ 'export en import 2025' if nl else 'exports and imports 2025' }})</a></li>
+ <li><a href="https://www.cbvs.sr/images/content/2025/DME2025/GoudAnalyse/Goudanalyse4ekwartaal2025_secured.pdf" rel="noopener">{{ 'Centrale Bank van Suriname: goudanalyse 4e kwartaal 2025 (maart 2026)' if nl else 'Central Bank of Suriname: gold analysis Q4 2025 (March 2026)' }}</a></li>
+ <li><a href="https://www.imf.org/en/news/articles/2026/02/11/pr-26043-suriname-imf-executive-board-concludes-2025-article-iv-consult" rel="noopener">IMF: 2025 Article IV{{ ' (februari 2026)' if nl else ' (February 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/jyijfnix/staatsolie-annual-report-2025-web.pdf" rel="noopener">Staatsolie: Annual Report 2025</a></li>
+ <li><a href="https://www.trade.gov/country-commercial-guides/suriname-mining-and-minerals" rel="noopener">trade.gov: Suriname mining and minerals (2024)</a></li>
+ <li><a href="https://www.trade.gov/country-commercial-guides/suriname-agricultural-sectors" rel="noopener">trade.gov: Suriname agricultural sectors (2024)</a></li>
+ <li><a href="https://www.powderbulksolids.com/business/alcoa-to-close-alumina-refinery-bauxite-mines-in-suriname" rel="noopener">Powder &amp; Bulk Solids: {{ 'Alcoa sluit Suralco (januari 2017)' if nl else 'Alcoa closes Suralco (January 2017)' }}</a></li>
+ <li><a href="https://keynews.sr/nationale-validatiesessie-markeert-vooruitgang-in-herziene-mijnbouwwetgeving" rel="noopener">Keynews: {{ 'validatie herziene Mijnbouwwet (december 2023)' if nl else 'revised Mining Act validated (December 2023)' }}</a></li>
+ <li><a href="https://www.nob.sr/wp-content/uploads/2025/09/Sectorstudie-Platform-Rijstsector.pdf" rel="noopener">NOB: {{ 'kostprijsmodel rijstwaardeketen (mei 2025)' if nl else 'rice value chain cost model (May 2025)' }}</a></li>
+ <li><a href="https://www.freshplaza.com/europe/article/9772958/surinamese-banana-exports-back-in-focus-for-europe/" rel="noopener">FreshPlaza: {{ 'bananenexport FAI (oktober 2025)' if nl else 'FAI banana exports (October 2025)' }}</a></li>
+ <li><a href="https://www.hortidaily.com/article/9777032/suriname-faces-declining-fruit-and-vegetable-exports-to-europe" rel="noopener">HortiDaily: {{ 'groente- en fruitexport naar Europa (november 2025)' if nl else 'fruit and vegetable exports to Europe (November 2025)' }}</a></li>
+ <li><a href="https://keynews.sr/en/suriname-may-once-again-export-fish-to-the-american-market/" rel="noopener">Keynews: {{ 'visexport naar de VS weer toegestaan (juni 2026)' if nl else 'fish exports to the US allowed again (June 2026)' }}</a></li>
+ <li><a href="https://timbertradeportal.com/en/suriname/109/timber-sector" rel="noopener">Timber Trade Portal: Suriname timber sector</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/17/suriname-registreert-381-667-aankomsten-in-2025/" rel="noopener">Suriname Herald: {{ '381.667 aankomsten in 2025 (oktober 2026)' if nl else '381,667 arrivals in 2025 (October 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2025/08/14/suriname-zet-in-op-toerismegroei-streven-naar-half-miljoen-bezoekers-in-drie-jaar/" rel="noopener">Suriname Herald: {{ 'doel half miljoen bezoekers (augustus 2025)' if nl else 'target of half a million visitors (August 2025)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/04/25/simons-opent-bouwbeurs-2026-toerisme-en-woningbouw-centraal/" rel="noopener">Suriname Herald: {{ 'bouwbeurs en woningbouwplan (april 2026)' if nl else 'building fair and housing plan (April 2026)' }}</a></li>
+ <li><a href="https://statistics-suriname.org/wp-content/uploads/2026/05/BOUWPRIJSINDEX-RELEASE-EERSTE-KWARTAAL-2025-TOT-EERSTE-KWARTAAL-2026-1.pdf" rel="noopener">ABS: {{ 'bouwprijsindex (mei 2026)' if nl else 'construction price index (May 2026)' }}</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/30/suriname-bereid-financiele-verantwoordelijkheid-voor-corantijnbrug-te-nemen/" rel="noopener">De West: {{ 'Corantijnbrug (30 september 2026)' if nl else 'Corantijn bridge (30 September 2026)' }}</a></li>
+ <li><a href="https://www.iadb.org/en/news/suriname-gets-idb-assistance-improve-its-vital-meerzorg-albina-integration-road-corridor" rel="noopener">IDB: {{ 'corridor Meerzorg-Albina' if nl else 'Meerzorg-Albina corridor' }}</a></li>
+ <li><a href="https://keynews.sr/en/abiamofo-us-500-million-needed-to-reduce-loadshedding/" rel="noopener">Keynews: {{ 'USD 500 miljoen nodig tegen afschakelingen (september 2026)' if nl else 'USD 500 million needed against load shedding (September 2026)' }}</a></li>
+ <li><a href="https://keynews.sr/en/eas-warns-suriname-lacks-up-to-80-mw-of-power-capacity/" rel="noopener">Keynews: {{ 'EAS: tekort tot 80 MW (augustus 2026)' if nl else 'EAS: shortfall up to 80 MW (August 2026)' }}</a></li>
+ <li><a href="https://nvebs.com/uploads/files/page/elektriciteitswet-2016.pdf" rel="noopener">Elektriciteitswet 2016 (S.B. 2016 no. 42)</a></li>
+ <li><a href="https://nvebs.com/elektriciteit/zelf-opwekken-en-terugleveren" rel="noopener">EBS: {{ 'zelf opwekken en terugleveren' if nl else 'self-generation and feed-in' }}</a></li>
+ <li><a href="https://www.pv-magazine.com/2026/09/10/suriname-tenders-solar-storage-minigrids/" rel="noopener">pv magazine: {{ 'EBS-aanbesteding minigrids (september 2026)' if nl else 'EBS minigrid tender (September 2026)' }}</a></li>
+ <li><a href="https://sita.sr/?p=6783" rel="noopener">SITA: Business Process Outsourcing</a></li>
+ <li><a href="https://www.nob.sr/" rel="noopener">NOB: Productie Krediet Fonds</a></li>
+ <li><a href="https://missionpanama.gob.pa/?p=682" rel="noopener">{{ 'Regering van Panama: coalitie van koolstofnegatieve landen (COP26, 2021)' if nl else 'Government of Panama: coalition of carbon-negative countries (COP26, 2021)' }}</a></li>
+ <li><a href="https://sdg.iisd.org/news/suriname-norway-submit-2020-ndcs/" rel="noopener">IISD: {{ 'klimaatplan (NDC) van Suriname' if nl else 'Suriname climate plan (NDC)' }}</a></li>
+ <li><a href="https://en.startuprecipe.co.kr/archives/pr-newswire/itmo-ltd-and-banctrust-investment-bank-limited-announce-the-offering-of-the-worlds-first-sovereign-carbon-credits-from-the-republic-of-suriname-under-article-6-of-the-paris-agreement" rel="noopener">PR Newswire: {{ 'aanbod Surinaamse ITMO\'s (augustus 2024)' if nl else 'offering of Surinamese ITMOs (August 2024)' }}</a></li>
+ <li><a href="https://www.db.com/news/detail/20251107-cop30-honduras-and-suriname-partner-with-deutsche-bank-bayer-siemens-and-symrise-to-mobilize-financial-support-for-rainforest-protection?language_id=1" rel="noopener">Deutsche Bank: {{ 'mandaat Honduras en Suriname (november 2025)' if nl else 'Honduras and Suriname mandate (November 2025)' }}</a></li>
+ <li><a href="https://carbon-pulse.com/480259/" rel="noopener">Carbon Pulse: {{ 'eerste ITMO-transacties gepland (februari 2026)' if nl else 'first ITMO trades planned (February 2026)' }}</a></li>
+ <li><a href="https://website.crosq.org/regional-standards-for-comment/" rel="noopener">CROSQ: {{ 'regionale normen ter commentaar (kokos, cacao)' if nl else 'regional standards for comment (coconut, cocoa)' }}</a></li>
+ <li><a href="https://exportpotential.intracen.org/" rel="noopener">ITC: Export Potential Map</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen beleggings- of juridisch advies.' if nl else 'General information, not investment or legal advice.' }}</p>
+</div>
+{% endblock %}

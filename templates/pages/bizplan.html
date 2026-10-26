@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Ondernemingsplan schrijven' if nl else 'Writing a business plan' }}</h1>
+{% if nl %}
+<p class="lead">Een ondernemingsplan laat zien wat je gaat doen, wie je klanten zijn, hoeveel geld je nodig hebt en hoe je dat terugverdient. In Suriname vraagt bijna elke bank en de NOB erom, met cijfers voor minstens drie jaar. Begin met de cijfers, houd de tekst kort en concreet, en reken met de Surinaamse werkelijkheid: een kleine markt, koersrisico, stroomuitval en lange levertijden.</p>
+{% else %}
+<p class="lead">A business plan shows what you will do, who your customers are, how much money you need and how you will earn it back. In Suriname almost every bank and the NOB asks for one, with figures for at least three years. Start with the numbers, keep the text short and concrete, and plan for Surinamese reality: a small market, exchange-rate risk, power cuts and long lead times.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Je markt' if nl else 'Your market' }}</div><div class="big">{{ '640.000' if nl else '640,000' }}</div><div class="sub">{{ 'inwoners, schatting Wereldbank 2025' if nl else 'people, World Bank estimate 2025' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Prognose voor de NOB' if nl else 'Forecast for the NOB' }}</div><div class="big">{{ '3 jaar' if nl else '3 years' }}</div><div class="sub">{{ 'minimaal, verlies en winst' if nl else 'at least, profit and loss' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Gem. leenrente banken' if nl else 'Avg. bank lending rate' }}</div><div class="big">{{ '14,0%' if nl else '14.0%' }}</div><div class="sub">{{ 'april 2026, CBvS' if nl else 'April 2026, CBvS' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Je hebt een plan nodig voor een lening, een NOB-fonds, de garantie van het Garantiefonds, investeerders, partners en programma's met grants. En voor jezelf: op papier zie je of het idee rendabel is.</li>
+ <li>Een goed plan heeft een samenvatting, de ondernemer, het idee, markt en concurrentie, marketing, organisatie, personeel, bedrijfsvoering, een financieel deel en risico's.</li>
+ <li>Het financiële deel bestaat uit vijf stukken: investeringsbegroting, financieringsplan, exploitatiebegroting, kasstroomprognose en break-even.</li>
+ <li>Reken voorzichtig. Suriname is een kleine markt, klanten letten op de prijs en veel inkoop is in dollars. Laat zien wat er gebeurt als de koers stijgt of de omzet tegenvalt.</li>
+ <li>Begin snel met een Business Model Canvas op één A4 en werk het daarna uit met onze <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a>.</li>
+ <li>Gratis of goedkope hulp: trainingen van EZOTI, de SPWE, en begeleiding in programma's als SURGE. Voor studies is er het NOB-fonds voor technische bijstand.</li>
+{% else %}
+ <li>You need a plan for a loan, an NOB fund, a guarantee from the Guarantee Fund, investors, partners and grant programmes. And for yourself: on paper you see whether the idea pays.</li>
+ <li>A good plan has a summary, the entrepreneur, the idea, market and competition, marketing, organisation, staff, operations, a financial section and risks.</li>
+ <li>The financial section has five parts: investment budget, financing plan, operating budget, cash flow forecast and break-even.</li>
+ <li>Be conservative. Suriname is a small market, customers watch prices and much purchasing is in dollars. Show what happens if the exchange rate rises or sales disappoint.</li>
+ <li>Start quickly with a one-page Business Model Canvas, then work it out with our <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a>.</li>
+ <li>Free or low-cost help: EZOTI training, the SPWE, and coaching in programmes such as SURGE. For studies there is the NOB technical assistance fund.</li>
+{% endif %}
+</ul></div>
+<p class="note">{{ 'Direct aan de slag?' if nl else 'Want to start right away?' }} <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a>{{ ': een gratis invultool met alle hoofdstukken, tips voor Suriname en een financieel deel dat je maandlast, resultaat en break-even omzet uitrekent. Print als PDF, je gegevens blijven op je eigen toestel.' if nl else ': a free fill-in template with every chapter, tips for Suriname and a financial section that works out your loan payment, monthly result and break-even revenue. Print as PDF, your data stays on your own device.' }}</p>
+
+<h2>{{ 'Waarvoor heb je een ondernemingsplan nodig?' if nl else 'What do you need a business plan for?' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Een banklening.</b> De bank wil zien dat je de lening uit je kasstroom kunt terugbetalen. Zonder plan en cijfers komt een aanvraag niet verder.</li>
+ <li><b>De NOB.</b> Voor het Productie Krediet Fonds (PKF), het Level-up krediet voor jonge ondernemers en de NOB-bedrijfskredieten lever je een ondernemingsplan of het PKF-aanvraagformulier met prognoses in. Te weinig onderpand? Dan vraagt je bank een garantie aan bij het Garantiefonds voor Bedrijfskredieten, en ook daar is een haalbaar plan de basis.</li>
+ <li><b>Investeerders en partners.</b> Wie geld of tijd in je bedrijf steekt, wil weten wat hij ervoor terugkrijgt en welke afspraken er gelden. Ook familiegeld verdient een plan op papier.</li>
+ <li><b>Programma's met grants.</b> Bij SURGE, het programma van EZOTI met de Wereldbank, verdedigden bedrijven een verkoopgroeiplan voor een commissie voordat ze een matching grant kregen.</li>
+ <li><b>Grond, vergunningen en faciliteiten.</b> President Simons kondigde in 2026 aan dat wie grond aanvraagt voor een bedrijf moet aantonen dat hij klaar is om te starten. Voor faciliteiten onder de Investeringswet tellen geïnvesteerd vermogen en banen. Een plan met begroting is in beide gevallen je bewijs. Zie <a href="{{ U('invest') }}">{{ L('invest') }}</a> en <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>Jezelf.</b> Het belangrijkste doel. Op papier ontdek je of de prijs die je in gedachten hebt je kosten wel dekt, voordat je spaargeld weg is.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>A bank loan.</b> The bank wants to see that you can repay from your cash flow. Without a plan and figures, an application goes nowhere.</li>
+ <li><b>The NOB.</b> For the Production Credit Fund (PKF), the Level-up loan for young entrepreneurs and NOB business loans you submit a business plan or the PKF application form with projections. Short of collateral? Your bank can request a guarantee from the Guarantee Fund for Business Loans, and there too a viable plan is the basis.</li>
+ <li><b>Investors and partners.</b> Anyone who puts money or time into your business wants to know what they get back and what the agreements are. Family money deserves a written plan too.</li>
+ <li><b>Grant programmes.</b> In SURGE, EZOTI's programme with the World Bank, businesses defended a sales growth plan before a committee before receiving a matching grant.</li>
+ <li><b>Land, permits and incentives.</b> President Simons announced in 2026 that anyone applying for land for a business must show they are ready to start. For incentives under the Investment Act, capital invested and jobs count. In both cases a plan with a budget is your evidence. See <a href="{{ U('invest') }}">{{ L('invest') }}</a> and <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>Yourself.</b> The most important reason. On paper you find out whether the price you have in mind covers your costs, before your savings are gone.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Hoe een bank of fonds je plan leest' if nl else 'How a bank or fund reads your plan' }}</h2>
+{% if nl %}
+<p>Welke documenten de banken en de NOB vragen, welke rentes gelden en hoe het Garantiefonds werkt, staat in <a href="{{ U('finance') }}">{{ L('finance') }}</a>. Hier gaat het om wat de lezer in je plan zoekt. Een kredietbeoordelaar stelt in de praktijk vier vragen:</p>
+<ol class="steps">
+ <li><b>Kan deze persoon dit?</b> Ervaring in de branche weegt zwaarder dan diploma's. Heb je die niet, laat dan zien wie in je team die kennis heeft.</li>
+ <li><b>Is er echt vraag?</b> Bewijs telt: getekende offertes, intentieverklaringen, een lijst vaste klanten, verkoopcijfers van een proefperiode. "Iedereen heeft dit nodig" is geen bewijs.</li>
+ <li><b>Kan de lening terug, ook in een slechte maand?</b> De bank kijkt naar je kasstroom na alle kosten en vergelijkt die met de maandlast. Hoe groter de ruimte, hoe beter.</li>
+ <li><b>Wat brengt de ondernemer zelf in, en wat als het misgaat?</b> Eigen geld laat zien dat je risico deelt. Onderpand en een plan B laten zien dat je verder hebt gedacht.</li>
+</ol>
+<p>Beantwoord die vier vragen al in je samenvatting. Een plan dat in jaar 1 grote winst laat zien, maakt een beoordelaar eerder wantrouwig dan enthousiast.</p>
+{% else %}
+<p>Which documents the banks and the NOB ask for, the current rates and how the Guarantee Fund works are in <a href="{{ U('finance') }}">{{ L('finance') }}</a>. This section is about what the reader looks for in your plan. In practice a credit officer asks four questions:</p>
+<ol class="steps">
+ <li><b>Can this person do it?</b> Experience in the trade counts for more than diplomas. If you lack it, show who in your team has that knowledge.</li>
+ <li><b>Is there real demand?</b> Evidence counts: signed quotes, letters of intent, a list of regular customers, sales from a trial period. "Everyone needs this" is not evidence.</li>
+ <li><b>Can the loan be repaid, even in a bad month?</b> The bank looks at your cash flow after all costs and compares it with the monthly payment. The more room, the better.</li>
+ <li><b>What does the entrepreneur put in, and what if it goes wrong?</b> Your own money shows you share the risk. Collateral and a plan B show you have thought ahead.</li>
+</ol>
+<p>Answer those four questions in your summary already. A plan that shows big profits in year 1 makes a credit officer suspicious rather than enthusiastic.</p>
+{% endif %}
+
+<h2>{{ 'Snel beginnen: het Business Model Canvas' if nl else 'Quick start: the Business Model Canvas' }}</h2>
+{% if nl %}
+<p>Het Business Model Canvas van Alexander Osterwalder zet je hele bedrijf op één pagina, in negen blokken. Het is geen vervanging van een ondernemingsplan, maar wel de snelste manier om je idee scherp te krijgen en zwakke plekken te zien. EZOTI gebruikt het ook in zijn trainingen voor starters. Vul het in met potlood, of met post-its op een vel papier, en pas het aan na elk gesprek met een klant.</p>
+<table class="tbl stack tx"><thead><tr><th>Blok</th><th>De vraag</th><th>Voorbeeld: kleine bakkerij in Wanica</th></tr></thead><tbody>
+ <tr><td data-l="Blok"><b>Klantsegmenten</b></td><td data-l="De vraag">Voor wie maak je het?</td><td data-l="Voorbeeld">Huishoudens in de buurt, snackbars en kleine winkels die brood doorverkopen</td></tr>
+ <tr><td data-l="Blok"><b>Waardepropositie</b></td><td data-l="De vraag">Waarom kopen ze bij jou?</td><td data-l="Voorbeeld">Elke ochtend vers, bezorgd vóór 7 uur, vaste prijs per week voor zaken</td></tr>
+ <tr><td data-l="Blok"><b>Kanalen</b></td><td data-l="De vraag">Hoe bereik en bedien je ze?</td><td data-l="Voorbeeld">Eigen toonbank, bezorging met een pick-up, bestellen via WhatsApp</td></tr>
+ <tr><td data-l="Blok"><b>Klantrelaties</b></td><td data-l="De vraag">Hoe houd je ze vast?</td><td data-l="Voorbeeld">Vaste leveringsafspraken, een spaarkaart voor particulieren</td></tr>
+ <tr><td data-l="Blok"><b>Inkomstenstromen</b></td><td data-l="De vraag">Waarvoor betalen ze, hoe en wanneer?</td><td data-l="Voorbeeld">Contant en per bank aan de toonbank, zaken op rekening per week</td></tr>
+ <tr><td data-l="Blok"><b>Kernmiddelen</b></td><td data-l="De vraag">Wat heb je nodig?</td><td data-l="Voorbeeld">Oven, deegmachine, generator, bakker met ervaring, pand met vergunning</td></tr>
+ <tr><td data-l="Blok"><b>Kernactiviteiten</b></td><td data-l="De vraag">Wat moet je elke dag goed doen?</td><td data-l="Voorbeeld">Bakken vanaf 3 uur, inkoop van meel, hygiëne, bezorgen</td></tr>
+ <tr><td data-l="Blok"><b>Partners</b></td><td data-l="De vraag">Op wie ben je aangewezen?</td><td data-l="Voorbeeld">Meelimporteur, leverancier van gas, monteur voor de oven</td></tr>
+ <tr><td data-l="Blok"><b>Kostenstructuur</b></td><td data-l="De vraag">Wat kost het, vast en per stuk?</td><td data-l="Voorbeeld">Meel en boter (in dollars ingekocht), lonen, huur, stroom en diesel, aflossing</td></tr>
+</tbody></table>
+{% else %}
+<p>Alexander Osterwalder's Business Model Canvas puts your whole business on one page, in nine blocks. It does not replace a business plan, but it is the fastest way to sharpen your idea and spot weak points. EZOTI also uses it in its training for starters. Fill it in with a pencil, or with sticky notes on a sheet of paper, and change it after every conversation with a customer.</p>
+<table class="tbl stack tx"><thead><tr><th>Block</th><th>The question</th><th>Example: small bakery in Wanica</th></tr></thead><tbody>
+ <tr><td data-l="Block"><b>Customer segments</b></td><td data-l="The question">Who is it for?</td><td data-l="Example">Households nearby, snack bars and small shops that resell bread</td></tr>
+ <tr><td data-l="Block"><b>Value proposition</b></td><td data-l="The question">Why do they buy from you?</td><td data-l="Example">Fresh every morning, delivered before 7, a fixed weekly price for businesses</td></tr>
+ <tr><td data-l="Block"><b>Channels</b></td><td data-l="The question">How do you reach and serve them?</td><td data-l="Example">Own counter, delivery by pick-up truck, orders by WhatsApp</td></tr>
+ <tr><td data-l="Block"><b>Customer relationships</b></td><td data-l="The question">How do you keep them?</td><td data-l="Example">Standing delivery agreements, a loyalty card for households</td></tr>
+ <tr><td data-l="Block"><b>Revenue streams</b></td><td data-l="The question">What do they pay for, how and when?</td><td data-l="Example">Cash and bank transfer at the counter, businesses on weekly account</td></tr>
+ <tr><td data-l="Block"><b>Key resources</b></td><td data-l="The question">What do you need?</td><td data-l="Example">Oven, dough mixer, generator, experienced baker, licensed premises</td></tr>
+ <tr><td data-l="Block"><b>Key activities</b></td><td data-l="The question">What must you do well every day?</td><td data-l="Example">Baking from 3 am, buying flour, hygiene, deliveries</td></tr>
+ <tr><td data-l="Block"><b>Key partners</b></td><td data-l="The question">Who do you depend on?</td><td data-l="Example">Flour importer, gas supplier, oven technician</td></tr>
+ <tr><td data-l="Block"><b>Cost structure</b></td><td data-l="The question">What does it cost, fixed and per unit?</td><td data-l="Example">Flour and butter (bought in dollars), wages, rent, power and diesel, loan repayment</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'De hoofdstukken en wat erin moet' if nl else 'The chapters and what goes in them' }}</h2>
+{% if nl %}
+<h3>1. Samenvatting</h3>
+<p>Eén pagina, als laatste geschreven. Wat doe je, voor wie, waar, met hoeveel mensen, hoeveel geld heb je nodig en waarvoor, wat breng je zelf in, welk onderpand bied je, en wat is de maandlast tegenover het verwachte resultaat. Wie alleen deze pagina leest, moet weten wat je vraagt.</p>
+<h3>2. De ondernemer</h3>
+<p>Je opleiding, je werkervaring in deze branche en wat je al eerder hebt opgezet. Voeg een cv toe. Wees eerlijk over wat je niet kunt en wie dat opvangt: een boekhouder, een partner met verkoopervaring, een technicus. Werk je met familie, zeg dan wie wat doet en wie beslist.</p>
+<h3>3. Het idee</h3>
+<p>Welk product of welke dienst, welk probleem het oplost en waarom nu. Beschrijf het zoals een klant het ziet: wat kost het, waar en wanneer koop je het, wat krijg je ervoor. Heb je al verkocht, op een markt, via Facebook of aan vrienden, vermeld dan de cijfers.</p>
+<h3>4. Markt en klanten in Suriname</h3>
+<p>Dit hoofdstuk maakt of breekt je plan. Een paar dingen waar je in Suriname niet omheen kunt:</p>
+<ul>
+ <li><b>De markt is klein.</b> Suriname telt ongeveer 640.000 inwoners (schatting Wereldbank, 2025). Reken van boven naar beneden en controleer van onder naar boven: hoeveel klanten kun je per dag of week echt bedienen, en hoeveel kopen er gemiddeld? Een snackbar heeft niets aan "het hele land".</li>
+ <li><b>Koopkracht.</b> Veel huishoudens hebben weinig ruimte in hun budget; het minimumuurloon is SRD {{ num(F.MIN_WAGE.hour) }} sinds {{ date(F.MIN_WAGE.effective) }}. Klanten vergelijken prijzen, ook via WhatsApp-groepen. Zeg welk deel van de markt je bedient: de prijsbewuste massa, bedrijven en overheid, de diaspora en toeristen, of export.</li>
+ <li><b>Concurrentie van import.</b> Veel producten komen uit het buitenland. Vergelijk je prijs en kwaliteit met wat importeurs aanbieden en leg uit waarom klanten lokaal kopen: versheid, service, levertijd, maatwerk. Zie <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+ <li><b>Informele concurrentie.</b> Verkopers zonder vergunning, BTW of personeel kunnen goedkoper zijn. Laat zien hoe je je onderscheidt: garantie, factuur met BTW voor zakelijke klanten, betrouwbaarheid.</li>
+ <li><b>Regio.</b> Paramaribo en Wanica zijn de grootste markt, maar in de districten is vaak minder concurrentie. Zie <a href="{{ U('districts') }}">{{ L('districts') }}</a> en <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</li>
+</ul>
+<p>Onderbouw je aantallen met wat je zelf hebt gezien en gevraagd: tellingen bij een concurrent, gesprekken met tien mogelijke klanten, offertes, intentieverklaringen van zakelijke afnemers. Voor de bredere economie: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<h3>5. Marketing, verkoop en prijzen</h3>
+<p>Hoe vinden klanten je en hoe verkoop je: winkel, bezorging, Facebook, Instagram, WhatsApp Business, verkopers op pad, aanbestedingen. Noem wat het kost en wat het oplevert.</p>
+<p>Bij prijzen speelt de koers. Koop je in in USD of EUR en verkoop je in SRD, dan zakt je marge bij elke koersstijging tot je je prijs aanpast. Leg uit hoe je dat doet: een koersbuffer in je prijs, prijzen die je elke maand herziet, of prijzen in USD voor zakelijke klanten waar dat mag. Reken je verkoopprijs uit met de <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> en volg de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+<h3>6. Organisatie en rechtsvorm</h3>
+<p>Eenmanszaak, VOF of NV, en waarom. Je KKF-inschrijving, welke vergunningen je hebt of nog aanvraagt, waar je gevestigd bent (eigendom, huur, erfpacht) en wie tekenbevoegd is. De keuze voor een rechtsvorm heeft gevolgen voor aansprakelijkheid, belasting en wat de bank aan zekerheid vraagt. Zie <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<h3>7. Personeel</h3>
+<p>Hoeveel mensen, in welke functies, vanaf welke maand. Reken met het brutoloon plus de werkgeverslasten: AOV, pensioenpremie, ziektekostenverzekering, vakantietoelage. Een fout die veel starters maken, is rekenen met het nettoloon. De bedragen staan in <a href="{{ U('employer') }}">{{ L('employer') }}</a>; netto en bruto reken je om met <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Zet ook een loon voor jezelf in de begroting: van niets kun je niet leven, en de bank weet dat.</p>
+<h3>8. Bedrijfsvoering en leveranciers</h3>
+<p>Hoe maak of lever je je product, met welke machines, in welke ruimte, met welke openingstijden. Wie zijn je leveranciers, hoe betaal je ze (vooruit, op krediet, in welke valuta) en hoe lang duurt een bestelling? Bij import: reken met de levertijd tot en met het inklaren, en met invoerrecht en BTW bij invoer (<a href="{{ U('importcost') }}">{{ L('importcost') }}</a>). Heb je één leverancier voor iets onmisbaars, noem dan een tweede.</p>
+{% else %}
+<h3>1. Summary</h3>
+<p>One page, written last. What you do, for whom, where, with how many people, how much money you need and for what, what you put in yourself, what collateral you offer, and the monthly payment set against the expected result. Someone who reads only this page should know what you are asking for.</p>
+<h3>2. The entrepreneur</h3>
+<p>Your education, your experience in this trade and what you have set up before. Add a CV. Be honest about what you cannot do and who covers it: a bookkeeper, a partner with sales experience, a technician. If you work with family, say who does what and who decides.</p>
+<h3>3. The idea</h3>
+<p>Which product or service, what problem it solves and why now. Describe it the way a customer sees it: what it costs, where and when you buy it, what you get. If you have already sold, at a market, on Facebook or to friends, give the figures.</p>
+<h3>4. Market and customers in Suriname</h3>
+<p>This chapter makes or breaks your plan. A few things you cannot ignore in Suriname:</p>
+<ul>
+ <li><b>The market is small.</b> Suriname has about 640,000 people (World Bank estimate, 2025). Work from the top down and check from the bottom up: how many customers can you really serve per day or week, and how much does each buy on average? A snack bar gains nothing from "the whole country".</li>
+ <li><b>Purchasing power.</b> Many households have little room in their budget; the minimum wage has been SRD {{ num(F.MIN_WAGE.hour) }} an hour since {{ date(F.MIN_WAGE.effective) }}. Customers compare prices, also in WhatsApp groups. Say which part of the market you serve: the price-conscious majority, businesses and government, the diaspora and tourists, or export.</li>
+ <li><b>Competition from imports.</b> Many products come from abroad. Compare your price and quality with what importers offer and explain why customers buy local: freshness, service, delivery time, made to measure. See <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+ <li><b>Informal competition.</b> Sellers without a licence, VAT or staff can be cheaper. Show how you stand out: warranty, a VAT invoice for business customers, reliability.</li>
+ <li><b>Region.</b> Paramaribo and Wanica are the largest market, but the districts often have less competition. See <a href="{{ U('districts') }}">{{ L('districts') }}</a> and <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</li>
+</ul>
+<p>Back up your numbers with what you have seen and asked yourself: counts at a competitor, conversations with ten potential customers, quotes, letters of intent from business buyers. For the wider economy: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<h3>5. Marketing, sales and pricing</h3>
+<p>How customers find you and how you sell: shop, delivery, Facebook, Instagram, WhatsApp Business, sales reps, tenders. Say what it costs and what it brings in.</p>
+<p>Pricing depends on the exchange rate. If you buy in USD or EUR and sell in SRD, your margin shrinks with every rise in the rate until you adjust your price. Explain how you handle that: an exchange-rate buffer in your price, prices you review monthly, or USD prices for business customers where allowed. Work out your selling price with the <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> and follow the <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+<h3>6. Organisation and legal form</h3>
+<p>Sole proprietorship, partnership (VOF) or NV, and why. Your KKF registration, the licences you have or are applying for, where you are based (owned, rented, leasehold) and who can sign. The legal form affects liability, tax and the security the bank asks for. See <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<h3>7. Staff</h3>
+<p>How many people, in which jobs, from which month. Use the gross wage plus employer costs: AOV, pension premium, health insurance, leave allowance. A common starter mistake is to budget the net wage. The amounts are in <a href="{{ U('employer') }}">{{ L('employer') }}</a>; convert gross and net with the <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Put a wage for yourself in the budget too: you cannot live on nothing, and the bank knows it.</p>
+<h3>8. Operations and suppliers</h3>
+<p>How you make or deliver your product, with which equipment, in which premises, with which opening hours. Who your suppliers are, how you pay them (in advance, on credit, in which currency) and how long an order takes. For imports: plan for the lead time up to customs clearance, and for import duty and import VAT (<a href="{{ U('importcost') }}">{{ L('importcost') }}</a>). If you rely on one supplier for something essential, name a second one.</p>
+{% endif %}
+
+<h2>{{ 'Het financiële deel' if nl else 'The financial section' }}</h2>
+{% if nl %}
+<p>Hier kijkt de bank het langst naar. Vijf stukken, die op elkaar moeten aansluiten:</p>
+<ol class="steps">
+ <li><b>Investeringsbegroting.</b> Alles wat je vóór de start koopt of betaalt: machines, verbouwing, vervoer, eerste voorraad, startkosten (KKF, notaris, vergunningen) en werkkapitaal voor de eerste maanden. Elke grote post met een offerte.</li>
+ <li><b>Financieringsplan.</b> Hoe je dat betaalt: eigen inbreng, lening (bedrag, rente, looptijd), leverancierskrediet, familie, een grant. Het totaal moet de investering dekken. Een gat dat je "later oplost", ziet de bank direct.</li>
+ <li><b>Exploitatiebegroting.</b> Omzet, inkoop, vaste kosten, afschrijving, rente en het resultaat. Het eerste jaar per maand, jaar 2 en 3 per jaar. Zet je aannames erbij: hoeveel klanten, welke prijs, welke groei.</li>
+ <li><b>Kasstroomprognose.</b> Winst is geen geld op de bank. Laat per maand zien wat er binnenkomt en uitgaat, inclusief BTW-afdracht, aflossing en jaarlijkse kosten, en of je saldo ergens onder nul zakt. Gebruik de <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li><b>Break-even.</b> De omzet waarbij je precies alle kosten en de aflossing dekt. Hoe verder je verwachte omzet daarboven ligt, hoe meer tegenvaller je kunt hebben. Reken het uit met de <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+</ol>
+<h3>Rekenvoorbeeld: de bakkerij</h3>
+<p>Een bakkerij investeert SRD 450.000: ovens en machines 210.000, verbouwing 80.000, generator 60.000, eerste voorraad 30.000, startkosten 20.000 en werkkapitaal 50.000. De eigenaar brengt SRD 90.000 in (20%) en leent SRD 360.000 tegen 14% over 5 jaar.</p>
+<table class="tbl stack"><thead><tr><th>Per maand</th><th class="r">SRD</th></tr></thead><tbody>
+ <tr><td>Omzet</td><td class="r" data-l="SRD">180.000</td></tr>
+ <tr><td>Inkoop en andere variabele kosten (55%)</td><td class="r" data-l="SRD">−99.000</td></tr>
+ <tr><td>Vaste kosten (lonen met lasten, huur, stroom, diesel, eigen loon)</td><td class="r" data-l="SRD">−52.000</td></tr>
+ <tr><td>Maandlast lening (annuïteit)</td><td class="r" data-l="SRD">−8.377</td></tr>
+ <tr><td><b>Over vóór belasting</b></td><td class="r" data-l="SRD"><b>20.623</b></td></tr>
+</tbody></table>
+<p>De break-even omzet is (52.000 + 8.377) gedeeld door 0,45 = ongeveer SRD 134.200 per maand. De omzet mag dus ongeveer een kwart lager uitvallen voordat de bakkerij geld tekortkomt. Dat is het soort ruimte dat een bank wil zien. Valt het eerste jaar tegen, dan helpt het werkkapitaal van SRD 50.000 om de eerste maanden te overbruggen. De bedragen zijn een voorbeeld, geen norm.</p>
+{% else %}
+<p>This is where the bank looks longest. Five parts that must fit together:</p>
+<ol class="steps">
+ <li><b>Investment budget.</b> Everything you buy or pay before you start: equipment, renovation, transport, opening stock, start-up costs (KKF, notary, licences) and working capital for the first months. Every large item with a quote.</li>
+ <li><b>Financing plan.</b> How you pay for it: own contribution, loan (amount, rate, term), supplier credit, family, a grant. The total must cover the investment. A gap you will "sort out later" is spotted at once.</li>
+ <li><b>Operating budget.</b> Revenue, purchases, fixed costs, depreciation, interest and the result. Year 1 per month, years 2 and 3 per year. State your assumptions: how many customers, what price, what growth.</li>
+ <li><b>Cash flow forecast.</b> Profit is not money in the bank. Show per month what comes in and goes out, including VAT payments, loan repayments and annual costs, and whether your balance drops below zero. Use the <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li><b>Break-even.</b> The revenue at which you exactly cover all costs and the loan repayment. The further your expected revenue sits above it, the bigger the setback you can take. Work it out with the <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+</ol>
+<h3>Worked example: the bakery</h3>
+<p>A bakery invests SRD 450,000: ovens and machines 210,000, renovation 80,000, generator 60,000, opening stock 30,000, start-up costs 20,000 and working capital 50,000. The owner puts in SRD 90,000 (20%) and borrows SRD 360,000 at 14% over 5 years.</p>
+<table class="tbl stack"><thead><tr><th>Per month</th><th class="r">SRD</th></tr></thead><tbody>
+ <tr><td>Revenue</td><td class="r" data-l="SRD">180,000</td></tr>
+ <tr><td>Purchases and other variable costs (55%)</td><td class="r" data-l="SRD">−99,000</td></tr>
+ <tr><td>Fixed costs (wages with employer costs, rent, power, diesel, owner's wage)</td><td class="r" data-l="SRD">−52,000</td></tr>
+ <tr><td>Loan payment (annuity)</td><td class="r" data-l="SRD">−8,377</td></tr>
+ <tr><td><b>Left before tax</b></td><td class="r" data-l="SRD"><b>20,623</b></td></tr>
+</tbody></table>
+<p>Break-even revenue is (52,000 + 8,377) divided by 0.45 = about SRD 134,200 a month. So revenue can fall about a quarter short before the bakery runs out of money. That is the kind of headroom a bank wants to see. If the first year disappoints, the SRD 50,000 working capital helps bridge the first months. The amounts are an example, not a norm.</p>
+{% endif %}
+<p class="note">{{ 'Dit rekenvoorbeeld kun je in de' if nl else 'You can enter this example in the' }} <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> {{ 'invullen en aanpassen aan je eigen cijfers. De tool rekent maandlast, resultaat en break-even direct uit.' if nl else 'and change it to your own figures. The tool works out the loan payment, result and break-even at once.' }}</p>
+
+<h2>{{ 'Risico\'s die in Suriname in elk plan horen' if nl else 'Risks every plan in Suriname should cover' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Risico</th><th>Wat je in je plan zet</th></tr></thead><tbody>
+ <tr><td data-l="Risico"><b>Koersstijging</b></td><td data-l="Wat je in je plan zet">Wat een koers die 10% of 20% hoger ligt doet met je inkoop, je marge en een eventuele lening in vreemde valuta. Hoe en hoe snel je je prijzen aanpast. <a href="{{ U('rates') }}">{{ L('rates') }}</a></td></tr>
+ <tr><td data-l="Risico"><b>Toegang tot deviezen</b></td><td data-l="Wat je in je plan zet">Hoe je aan dollars of euro's komt voor je leveranciers (eigen inkomsten in USD, bank, wisselkantoor) en wat je doet als dat weken duurt. Exporteurs: de regels voor het repatriëren en verkopen van opbrengsten (<a href="{{ U('export') }}">{{ L('export') }}</a>).</td></tr>
+ <tr><td data-l="Risico"><b>Stroomuitval</b></td><td data-l="Wat je in je plan zet">Wat een uur of een dag zonder stroom kost (bederf, stilstand), en je oplossing: generator, UPS, zonnepanelen met batterij, en de dieselkosten in je begroting. <a href="{{ U('outages') }}">{{ L('outages') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></td></tr>
+ <tr><td data-l="Risico"><b>Vertraging bij import</b></td><td data-l="Wat je in je plan zet">Buffervoorraad, eerder bestellen, een tweede leverancier, en werkkapitaal voor goederen die onderweg al betaald zijn.</td></tr>
+ <tr><td data-l="Risico"><b>Klanten die laat betalen</b></td><td data-l="Wat je in je plan zet">Betalingstermijn, aanbetalingen, een grens aan krediet per klant. Overheidsopdrachten worden soms laat betaald; reken dat mee in je kasstroom. <a href="{{ U('receivables') }}">{{ L('receivables') }}</a></td></tr>
+ <tr><td data-l="Risico"><b>Afhankelijkheid van één persoon of klant</b></td><td data-l="Wat je in je plan zet">Wie neemt het over als jij of je vakman uitvalt; wat gebeurt er als je grootste klant stopt. Verzekeringen die je afsluit.</td></tr>
+ <tr><td data-l="Risico"><b>Nieuwe regels en lasten</b></td><td data-l="Wat je in je plan zet">Minimumloon, premies en tarieven veranderen. Volg <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> en reken met de bedragen van dit jaar.</td></tr>
+</tbody></table>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Risk</th><th>What to put in your plan</th></tr></thead><tbody>
+ <tr><td data-l="Risk"><b>Exchange rate rise</b></td><td data-l="What to put in your plan">What a rate 10% or 20% higher does to your purchases, your margin and any foreign currency loan. How and how fast you adjust your prices. <a href="{{ U('rates') }}">{{ L('rates') }}</a></td></tr>
+ <tr><td data-l="Risk"><b>Access to foreign currency</b></td><td data-l="What to put in your plan">How you get dollars or euros for your suppliers (own USD income, bank, exchange office) and what you do if it takes weeks. Exporters: the rules on repatriating and selling proceeds (<a href="{{ U('export') }}">{{ L('export') }}</a>).</td></tr>
+ <tr><td data-l="Risk"><b>Power cuts</b></td><td data-l="What to put in your plan">What an hour or a day without power costs (spoilage, downtime), and your answer: generator, UPS, solar with battery, and the diesel cost in your budget. <a href="{{ U('outages') }}">{{ L('outages') }}</a> &middot; <a href="{{ U('roi') }}">{{ L('roi') }}</a></td></tr>
+ <tr><td data-l="Risk"><b>Import delays</b></td><td data-l="What to put in your plan">Buffer stock, ordering earlier, a second supplier, and working capital for goods already paid for and still in transit.</td></tr>
+ <tr><td data-l="Risk"><b>Customers who pay late</b></td><td data-l="What to put in your plan">Payment terms, deposits, a credit limit per customer. Government contracts are sometimes paid late; build that into your cash flow. <a href="{{ U('receivables') }}">{{ L('receivables') }}</a></td></tr>
+ <tr><td data-l="Risk"><b>Depending on one person or customer</b></td><td data-l="What to put in your plan">Who takes over if you or your skilled worker drops out; what happens if your largest customer stops. The insurance you take out.</td></tr>
+ <tr><td data-l="Risk"><b>New rules and charges</b></td><td data-l="What to put in your plan">Minimum wage, premiums and rates change. Follow <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> and use this year's amounts.</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Gratis en goedkope hulp in Suriname' if nl else 'Free and low-cost help in Suriname' }}</h2>
+{% if nl %}
+<p>Dit vonden we tussen 2025 en oktober 2026 in officiële aankondigingen. Programma's komen en gaan; bel of mail vóór je erop rekent.</p>
+<ul>
+ <li><b>EZOTI, directoraat Ondernemerschap.</b> Het ministerie van Economische Zaken, Ondernemerschap en Technologische Innovatie organiseerde in november 2025 met WUSC een training Basisvaardigheden Ondernemerschap in Wanica, met kostprijsberekening, het Business Model Canvas, administratie en het schrijven van een ondernemingsplan. Op 4 november 2025 lanceerde EZOTI Financieringswijzer.sr, een platform dat ondernemers helpt de juiste financiering bij banken en fondsen te vinden. Vraag het directoraat naar de volgende trainingen in jouw district.</li>
+ <li><b>SURGE (EZOTI en Wereldbank).</b> Groeiende kleine en middelgrote bedrijven kregen eerst begeleiding (diagnose, strategie, financieel model, verkoopgroeiplan) en daarna een matching grant waarvoor ze zelf ook geld inbrengen. Eind 2025 noemde EZOTI een grant van 70%. Experts van het Nederlandse PUM ondersteunden in 2026 bedrijven in het programma. Vraag EZOTI of er een nieuwe ronde komt.</li>
+ <li><b>SPWE (Stichting Productieve Werkeenheden).</b> Geeft trainingen voor kleine ondernemers en starters. Een voorbeeld: Basis Marketing, september en oktober 2025, SRD 3.100 per persoon, te betalen in termijnen. Aankondigingen staan op gov.sr; inschrijven via trainingen@spwesr.com.</li>
+ <li><b>NOB, Fonds Technische Bijstand Particuliere Sector (FTBP).</b> Leningen tegen 3% tot 4% voor onder meer studies, pilots en tijdelijke deskundigheid; voor een haalbaarheidsstudie of een adviseur die je plan doorrekent kan dit de weg zijn. Details in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Je bank.</b> In april 2026 tekenden Trustbank Amanah en EZOTI een overeenkomst waarin capaciteitsopbouw voor ondernemers centraal staat, met financiële geletterdheid en het opstellen van ondernemingsplannen. Vraag ook bij je eigen bank of een accountmanager je concept vooraf wil bekijken.</li>
+ <li><b>WINI UMA, Advancing Business Women.</b> Organisatie voor ondernemende vrouwen met trainingen, werksessies, netwerken en mentorschap; sprak in februari 2026 met EZOTI over capaciteitsopbouw en toegang tot financiering.</li>
+ <li><b>RISE, voor jonge ondernemers (18 tot 35 jaar).</b> Een programma van het ministerie van Jeugdontwikkeling en Sport met begeleiding, vakopleiding, mentoring en startkapitaal voor 350 startende en 350 bestaande jonge ondernemers, gekoppeld aan de sociale obligatie die Suriname in februari 2026 uitgaf. In juli 2026 zocht de overheid nog een uitvoerder. Volg de aankondigingen.</li>
+</ul>
+<p>Adressen en telefoonnummers van instanties staan in <a href="{{ U('resources') }}">{{ L('resources') }}</a>. Ondernemersorganisaties en brancheverenigingen: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% else %}
+<p>We found these in official announcements between 2025 and October 2026. Programmes come and go; call or e-mail before you count on one.</p>
+<ul>
+ <li><b>EZOTI, Entrepreneurship Directorate.</b> The Ministry of Economic Affairs, Entrepreneurship and Technological Innovation ran a Basic Entrepreneurship Skills training with WUSC in Wanica in November 2025, covering cost pricing, the Business Model Canvas, bookkeeping and writing a business plan. On 4 November 2025 EZOTI launched Financieringswijzer.sr, a platform that helps entrepreneurs find the right financing from banks and funds. Ask the directorate about upcoming training in your district.</li>
+ <li><b>SURGE (EZOTI and the World Bank).</b> Growing small and medium businesses first got coaching (diagnosis, strategy, financial model, sales growth plan) and then a matching grant to which they also contribute. In late 2025 EZOTI mentioned a 70% grant. Experts from the Dutch PUM supported businesses in the programme in 2026. Ask EZOTI whether a new round is coming.</li>
+ <li><b>SPWE (Productive Work Units Foundation).</b> Runs training for small entrepreneurs and starters. One example: Basic Marketing, September and October 2025, SRD 3,100 per person, payable in instalments. Announcements appear on gov.sr; register through trainingen@spwesr.com.</li>
+ <li><b>NOB, Private Sector Technical Assistance Fund (FTBP).</b> Loans at 3% to 4% for studies, pilots and temporary expertise, among other things; this can fund a feasibility study or an adviser who checks your numbers. Details in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Your bank.</b> In April 2026 Trustbank Amanah and EZOTI signed an agreement centred on capacity building for entrepreneurs, including financial literacy and drafting business plans. Also ask your own bank whether an account manager will look at your draft beforehand.</li>
+ <li><b>WINI UMA, Advancing Business Women.</b> An organisation for women entrepreneurs offering training, work sessions, networking and mentoring; it met EZOTI in February 2026 on capacity building and access to finance.</li>
+ <li><b>RISE, for young entrepreneurs (18 to 35).</b> A programme of the Ministry of Youth Development and Sports with business coaching, vocational training, mentoring and start-up capital for 350 aspiring and 350 existing young entrepreneurs, linked to the social bond Suriname issued in February 2026. In July 2026 the government was still selecting an implementer. Watch for announcements.</li>
+</ul>
+<p>Addresses and phone numbers of institutions are in <a href="{{ U('resources') }}">{{ L('resources') }}</a>. Business and trade associations: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Fouten die we vaak zien' if nl else 'Mistakes we often see' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Eerst schrijven, dan rekenen.</b> Twintig pagina's over een idee dat bij de eerste berekening al verlies laat zien. Begin met de cijfers.</li>
+ <li><b>Omzet die vanaf maand 1 vol is.</b> Een nieuwe zaak groeit. Reken met een aanloop van een paar maanden.</li>
+ <li><b>Geen eigen loon.</b> Dan lijkt de winst groter dan hij is, en leef je van geld dat voor de aflossing is.</li>
+ <li><b>Nettoloon in plaats van loonkosten.</b> AOV, pensioen en vakantietoelage vergeten.</li>
+ <li><b>Geen werkkapitaal.</b> De investering is gedekt, maar er is geen geld voor de eerste maanden huur en voorraad.</li>
+ <li><b>Bedragen zonder bron.</b> Een prijs voor een machine zonder offerte, een huur zonder afspraak. Voeg de stukken toe als bijlage.</li>
+ <li><b>BTW door elkaar.</b> Omzet inclusief BTW rekenen, terwijl die BTW niet van jou is. Zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Geen plan B.</b> Wat doe je als de omzet 25% lager uitvalt of de koers stijgt? Zet het erin.</li>
+ <li><b>Het plan in de la.</b> Vergelijk elk kwartaal je echte cijfers met je plan. Daar leer je het meest van, en de bank vraagt er bij een volgende aanvraag naar.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Writing first, calculating later.</b> Twenty pages about an idea that shows a loss at the first calculation. Start with the numbers.</li>
+ <li><b>Full revenue from month 1.</b> A new business grows. Allow a ramp-up of a few months.</li>
+ <li><b>No wage for the owner.</b> Profit looks bigger than it is, and you live on money meant for repayments.</li>
+ <li><b>Net wage instead of labour cost.</b> Forgetting AOV, pension and leave allowance.</li>
+ <li><b>No working capital.</b> The investment is covered, but there is no money for the first months of rent and stock.</li>
+ <li><b>Amounts without a source.</b> A machine price without a quote, a rent without an agreement. Attach the documents.</li>
+ <li><b>Mixing up VAT.</b> Counting revenue including VAT, while that VAT is not yours. See <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>No plan B.</b> What will you do if revenue is 25% lower or the exchange rate rises? Put it in.</li>
+ <li><b>The plan in a drawer.</b> Compare your actual figures with your plan every quarter. That is where you learn most, and the bank will ask about it next time.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist voor je ondernemingsplan' if nl else 'Business plan checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Samenvatting op één pagina, met gevraagd bedrag, eigen inbreng, onderpand en maandlast</li>
+ <li>Cv van de ondernemer(s) en wie wat doet</li>
+ <li>Markt: wie, hoeveel, waar, en bewijs (offertes, intentieverklaringen, verkoopcijfers)</li>
+ <li>Concurrenten met hun prijzen, ook importproducten</li>
+ <li>Prijzen onderbouwd, met wat je doet bij een koersstijging</li>
+ <li>Rechtsvorm, KKF-inschrijving en vergunningen (of de stand van je aanvraag)</li>
+ <li>Personeelsplan met loonkosten inclusief werkgeverslasten en een eigen loon</li>
+ <li>Leveranciers, levertijden en betalingsvoorwaarden</li>
+ <li>Investeringsbegroting met offertes, inclusief werkkapitaal</li>
+ <li>Financieringsplan dat de investering volledig dekt</li>
+ <li>Exploitatiebegroting: jaar 1 per maand, jaar 2 en 3 per jaar, met aannames</li>
+ <li>Kasstroomprognose met BTW, aflossing en jaarlijkse kosten</li>
+ <li>Break-even omzet en hoeveel ruimte je daarboven hebt</li>
+ <li>Risico's met je antwoord: koers, deviezen, stroom, import, late betalers</li>
+ <li>Bijlagen: KKF-uittreksel, offertes, contracten, gegevens over het onderpand</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>One-page summary with the amount requested, own contribution, collateral and monthly payment</li>
+ <li>CV of the entrepreneur(s) and who does what</li>
+ <li>Market: who, how many, where, and evidence (quotes, letters of intent, sales figures)</li>
+ <li>Competitors and their prices, including imported products</li>
+ <li>Prices backed up, with what you do when the exchange rate rises</li>
+ <li>Legal form, KKF registration and licences (or the status of your application)</li>
+ <li>Staffing plan with labour costs including employer costs and an owner's wage</li>
+ <li>Suppliers, lead times and payment terms</li>
+ <li>Investment budget with quotes, including working capital</li>
+ <li>Financing plan that fully covers the investment</li>
+ <li>Operating budget: year 1 per month, years 2 and 3 per year, with assumptions</li>
+ <li>Cash flow forecast with VAT, repayments and annual costs</li>
+ <li>Break-even revenue and how much headroom you have above it</li>
+ <li>Risks with your response: exchange rate, foreign currency, power, imports, late payers</li>
+ <li>Annexes: KKF extract, quotes, contracts, collateral details</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<p><b>...de cijfers niet sluitend zijn?</b> Dan heeft het plan zijn werk gedaan, voordat je geld kwijt bent. Kijk wat je kunt veranderen: kleiner beginnen, tweedehands machines, een hogere prijs, een andere doelgroep, huren in plaats van kopen. Reken opnieuw.</p>
+<p><b>...ik geen eigen geld heb?</b> Dan wordt een banklening heel moeilijk. Begin kleiner en bouw eerst omzet en cijfers op, of zoek een partner die geld inbrengt. Het Garantiefonds helpt bij te weinig onderpand, niet bij een eigen inbreng van nul.</p>
+<p><b>...ik al een bedrijf heb en wil uitbreiden?</b> Dan zijn je jaarcijfers het belangrijkste deel van je plan. Laat zien wat de uitbreiding toevoegt aan omzet en kosten, naast wat je nu al verdient. Zorg dat je administratie op orde is: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+<p><b>...ik het plan in het Engels nodig heb?</b> Voor buitenlandse investeerders, donoren of een Guyanese partner kan dat nodig zijn. Onze <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> werkt ook in het Engels; schakel de taal om en vul je tekst in het Engels in.</p>
+<p><b>...ik iemand wil inhuren om het plan te schrijven?</b> Prima, maar je moet het plan zelf kunnen uitleggen: de bank vraagt het jou, niet je adviseur. Laat je adviseur vooral de cijfers controleren.</p>
+{% else %}
+<p><b>...the numbers do not add up?</b> Then the plan has done its job, before you lost money. Look at what you can change: start smaller, second-hand equipment, a higher price, a different target group, rent instead of buy. Recalculate.</p>
+<p><b>...I have no money of my own?</b> Then a bank loan becomes very hard. Start smaller and build up revenue and figures first, or find a partner who brings in money. The Guarantee Fund helps when collateral is short, not when your own contribution is zero.</p>
+<p><b>...I already have a business and want to expand?</b> Then your annual accounts are the most important part of your plan. Show what the expansion adds to revenue and costs, next to what you already earn. Make sure your records are in order: <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+<p><b>...I need the plan in English?</b> Foreign investors, donors or a Guyanese partner may need it. Our <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> also works in English; switch the language and write your text in English.</p>
+<p><b>...I want to hire someone to write the plan?</b> Fine, but you must be able to explain the plan yourself: the bank asks you, not your adviser. Have your adviser check the numbers above all.</p>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.nob.sr/" rel="noopener">Nationale Ontwikkelingsbank (NOB): {{ 'PKF, Level-up, FTBP, bedrijfskredieten' if nl else 'PKF, Level-up, FTBP, business loans' }}</a></li>
+ <li><a href="https://www.nob.sr/over-te-leggen-documenten-1/" rel="noopener">NOB: {{ 'over te leggen documenten' if nl else 'documents to submit' }}</a></li>
+ <li><a href="https://www.nob.sr/stichting-garantiefonds-voor-bedrijfskredieten/" rel="noopener">Stichting Garantiefonds voor Bedrijfskredieten</a></li>
+ <li><a href="https://www.cbvs.sr/" rel="noopener">Centrale Bank van Suriname: {{ 'rentestatistieken' if nl else 'interest rate statistics' }}</a></li>
+ <li><a href="https://data.worldbank.org/indicator/SP.POP.TOTL?locations=SR" rel="noopener">{{ 'Wereldbank: bevolking Suriname' if nl else 'World Bank: population of Suriname' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/12/Nieuwsbrief-van-de-maand-november-2025.pdf" rel="noopener">EZOTI: {{ 'nieuwsbrief november 2025 (training basisvaardigheden ondernemerschap, Financieringswijzer, SURGE)' if nl else 'newsletter November 2025 (basic entrepreneurship training, Financieringswijzer, SURGE)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2026/02/Nieuwsbrief-van-de-maand-februari-2026.pdf" rel="noopener">EZOTI: {{ 'nieuwsbrief februari 2026 (PUM, WINI UMA)' if nl else 'newsletter February 2026 (PUM, WINI UMA)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2026/05/Nieuwsbrief-van-de-maand-april-2026.pdf" rel="noopener">EZOTI: {{ 'nieuwsbrief april 2026 (SURGE, Trustbank Amanah)' if nl else 'newsletter April 2026 (SURGE, Trustbank Amanah)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2025/09/Bekendmaking-SPWE-Advertentie-Training-Basis-marketing.pdf" rel="noopener">SPWE: {{ 'training Basis Marketing (september 2025)' if nl else 'Basic Marketing training (September 2025)' }}</a></li>
+ <li><a href="https://gov.sr/?p=158588" rel="noopener">{{ 'Ministerie van Financiën en Planning: RISE-programma voor jonge ondernemers (2026)' if nl else 'Ministry of Finance and Planning: RISE programme for young entrepreneurs (2026)' }}</a></li>
+ <li><a href="https://keynews.sr/surge-ondernemers-krijgen-training-in-bedrijfsontwikkeling" rel="noopener">Keynews: {{ 'SURGE-ondernemers krijgen training (april 2024)' if nl else 'SURGE entrepreneurs receive training (April 2024)' }}</a></li>
+ <li><a href="https://www.surinametimes.com/artikel/redenen-voor-gronduitgifte-worden-scherper-gesteld" rel="noopener">Suriname Times: {{ 'redenen voor gronduitgifte worden scherper gesteld (2026)' if nl else 'reasons for land allocation to be tightened (2026)' }}</a></li>
+ <li><a href="https://www.strategyzer.com/library/the-business-model-canvas" rel="noopener">Strategyzer: The Business Model Canvas</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen financieel advies. Programma\'s, rentes en voorwaarden veranderen; de bank of het fonds beslist.' if nl else 'General information, not financial advice. Programmes, rates and terms change; the bank or fund decides.' }}</p>
+</div>
+{% endblock %}

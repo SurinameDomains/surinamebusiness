@@ -1,0 +1,462 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every item at least once a month and on the day a law or decree is published (S.B. on sris.sr, dna.sr "In behandeling").
+    Move an item from "In behandeling" to "Al van kracht" only when it is in the Staatsblad with a date of entry into force.
+    Bump the checked date in the asof line at the bottom when you do. -#}
+<div class="prose">
+<h1>{{ 'Nieuwe wetten en regels voor ondernemers' if nl else 'New laws and rules for businesses in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Dit is onze lijst van wetten, besluiten en procedures die nieuw zijn, net veranderd zijn of in De Nationale Assemblée (DNA) liggen, en die je bedrijf raken. Het belangrijkste nu: vanaf 1 november 2026 gelden nieuwe importprocedures bij de gewijzigde Negatieve Lijst, exporteurs moeten sinds 17 augustus 2026 35% van hun deviezen verkopen, en DNA behandelt een pakket belasting- en douanewetten die de rechten van de fiscus flink uitbreiden.</p>
+{% else %}
+<p class="lead">This is our list of laws, decrees and procedures that are new, have just changed or are before the National Assembly (DNA), and that affect your business. The main points right now: new import procedures under the amended Negative List apply from 1 November 2026, exporters have had to sell 35% of their foreign currency since 17 August 2026, and parliament is handling a package of tax and customs bills that widen the powers of the tax office considerably.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Nieuwe importprocedures' if nl else 'New import procedures' }}</div><div class="big">{{ '1 nov' if nl else '1 Nov' }}</div><div class="sub">{{ '2026, gewijzigde Negatieve Lijst (S.B. 2026 no. 39)' if nl else '2026, amended Negative List (S.B. 2026 no. 39)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Verplichte verkoop exportdeviezen' if nl else 'Mandatory sale of export FX' }}</div><div class="big">35%</div><div class="sub">{{ 'binnen 3 werkdagen, sinds 17 augustus 2026' if nl else 'within 3 working days, since 17 August 2026' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Belastingwetten bij DNA' if nl else 'Tax bills in parliament' }}</div><div class="big">6</div><div class="sub">{{ 'ingediend in 2026, nog niet aangenomen' if nl else 'submitted in 2026, not yet passed' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Importeur?</b> Check vóór je bestelt of je goederen op de gewijzigde Negatieve Lijst staan. Aanvragen tot en met 31 oktober 2026 gaan nog via de oude procedure, daarna gelden de nieuwe.</li>
+ <li><b>Exporteur?</b> Algemene Beschikking no. 228 geldt: repatriëren, 35% verkopen binnen drie werkdagen en elke maand bewijs inleveren. Ondernemers praten over aanpassing, maar er is niets gewijzigd.</li>
+ <li><b>Werkgever?</b> Het minimumuurloon is sinds 1 juli 2026 SRD {{ num(F.MIN_WAGE.hour) }}. In DNA liggen een nieuwe Ongevallenregeling en een Wet Ondernemingsraadpleging (overlegplicht vanaf 31 werknemers).</li>
+ <li><b>Belastingen:</b> de Algemene Wet Belastingen, de Invorderingswet en de Algemene Douanewet zijn nog geen wet. Bezwaar schort betaling ook daarin niet automatisch op, en bestuurders kunnen aansprakelijk worden.</li>
+ <li><b>Merken:</b> sinds 9 oktober 2026 kun je dienstenmerken inschrijven; bestaande merken kun je tot 9 juli 2027 uitbreiden.</li>
+ <li><b>Persoonsgegevens:</b> een privacywet is in voorbereiding, met een meldplicht voor datalekken binnen 72 uur. Begin nu met ordenen welke gegevens je bewaart.</li>
+{% else %}
+ <li><b>Importer?</b> Check whether your goods are on the amended Negative List before you order. Applications up to and including 31 October 2026 still go through the old procedure, the new ones apply after that.</li>
+ <li><b>Exporter?</b> General Decision no. 228 applies: repatriate, sell 35% within three working days and submit proof every month. Business groups are pushing for changes, but nothing has been amended.</li>
+ <li><b>Employer?</b> The minimum hourly wage has been SRD {{ num(F.MIN_WAGE.hour) }} since 1 July 2026. Parliament has a new Accident Regulation and a Works Consultation Act (duty to consult from 31 employees) before it.</li>
+ <li><b>Taxes:</b> the General Tax Act, the Tax Collection Act and the General Customs Act are not law yet. Under these bills an objection still does not automatically suspend payment, and directors can be held liable.</li>
+ <li><b>Trademarks:</b> since 9 October 2026 you can register service marks; existing marks can be extended until 9 July 2027.</li>
+ <li><b>Personal data:</b> a privacy law is being prepared, with a duty to report data breaches within 72 hours. Start now by mapping which data you keep.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Overzicht' if nl else 'Overview' }}</h2>
+{% set c1 = 'Regel' if nl else 'Rule' %}{% set c2 = 'Status' %}{% set c3 = 'Raakt vooral' if nl else 'Mainly affects' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Gewijzigd Besluit Negatieve Lijst</b></td><td data-l="{{ c2 }}">Van kracht sinds 21 mei 2026; nieuwe procedures vanaf 1 november 2026</td><td data-l="{{ c3 }}">Importeurs, exporteurs, autohandel, landbouw, goudsector</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Retentieregeling A.B. no. 228</b></td><td data-l="{{ c2 }}">Van kracht sinds 17 augustus 2026</td><td data-l="{{ c3 }}">Exporteurs van goederen en diensten, goudexporteurs</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Minimumuurloon SRD {{ num(F.MIN_WAGE.hour) }}</b></td><td data-l="{{ c2 }}">Van kracht sinds 1 juli 2026</td><td data-l="{{ c3 }}">Alle werkgevers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Dienstenmerken</b></td><td data-l="{{ c2 }}">Van kracht sinds 9 oktober 2026; overgangstermijn tot 9 juli 2027</td><td data-l="{{ c3 }}">Dienstverleners, merkhouders</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Nieuw Burgerlijk Wetboek</b></td><td data-l="{{ c2 }}">Van kracht sinds 1 mei 2025</td><td data-l="{{ c3 }}">Iedereen: contracten, NV's, werkgevers, administratie</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Begroting 2027</b></td><td data-l="{{ c2 }}">Ingediend 30 september 2026; geen nieuwe tarieven aangekondigd</td><td data-l="{{ c3 }}">Alle belastingplichtigen</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Algemene Douanewet 2026</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA, commissiefase</td><td data-l="{{ c3 }}">Importeurs, exporteurs, expediteurs</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Algemene Wet Belastingen en invoeringswet</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA, openbare behandeling begonnen</td><td data-l="{{ c3 }}">Alle belastingplichtigen</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Invorderingswet (met invorderingskosten)</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA, openbare behandeling begonnen</td><td data-l="{{ c3 }}">Iedereen met een belastingschuld, bestuurders</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ongevallenregeling 2021</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA, commissiefase</td><td data-l="{{ c3 }}">Werkgevers, verzekeraars</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Wet Ondernemingsraadpleging</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA, commissiefase</td><td data-l="{{ c3 }}">Werkgevers met meer dan 30 werknemers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Wet Bescherming Privacy en Persoonsgegevens</b></td><td data-l="{{ c2 }}">Ontwerp bij DNA; consultatie door EZOTI in oktober 2026</td><td data-l="{{ c3 }}">Elk bedrijf met klant- of personeelsgegevens</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Investeringswet en SITA-wet</b></td><td data-l="{{ c2 }}">Concepten, nog niet aangenomen</td><td data-l="{{ c3 }}">Investeerders, exporteurs</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Aanbestedingswet</b></td><td data-l="{{ c2 }}">Aangenomen door DNA op 5 november 2024, nog niet afgekondigd</td><td data-l="{{ c3 }}">Leveranciers van de overheid</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local Content Wet</b></td><td data-l="{{ c2 }}">Voorontwerp; indiening bij DNA gepland in 2027</td><td data-l="{{ c3 }}">Toeleveranciers olie, gas en mijnbouw</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Stroomopwekking door derden</b></td><td data-l="{{ c2 }}">Juridisch kader in laatste review (september 2026)</td><td data-l="{{ c3 }}">Bedrijven met zonnepanelen of eigen centrale</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Amended Negative List Decree</b></td><td data-l="{{ c2 }}">In force since 21 May 2026; new procedures from 1 November 2026</td><td data-l="{{ c3 }}">Importers, exporters, car trade, agriculture, gold sector</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FX retention rule, General Decision no. 228</b></td><td data-l="{{ c2 }}">In force since 17 August 2026</td><td data-l="{{ c3 }}">Exporters of goods and services, gold exporters</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Minimum hourly wage SRD {{ num(F.MIN_WAGE.hour) }}</b></td><td data-l="{{ c2 }}">In force since 1 July 2026</td><td data-l="{{ c3 }}">All employers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Service marks</b></td><td data-l="{{ c2 }}">In force since 9 October 2026; transition period until 9 July 2027</td><td data-l="{{ c3 }}">Service businesses, trademark owners</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>New Civil Code</b></td><td data-l="{{ c2 }}">In force since 1 May 2025</td><td data-l="{{ c3 }}">Everyone: contracts, companies, employers, record keeping</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Budget 2027</b></td><td data-l="{{ c2 }}">Presented 30 September 2026; no new tax rates announced</td><td data-l="{{ c3 }}">All taxpayers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>General Customs Act 2026</b></td><td data-l="{{ c2 }}">Bill in DNA, committee stage</td><td data-l="{{ c3 }}">Importers, exporters, customs brokers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>General Tax Act and implementing act</b></td><td data-l="{{ c2 }}">Bill in DNA, plenary debate started</td><td data-l="{{ c3 }}">All taxpayers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Tax Collection Act (with collection costs)</b></td><td data-l="{{ c2 }}">Bill in DNA, plenary debate started</td><td data-l="{{ c3 }}">Anyone with a tax debt, directors</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Accident Regulation 2021</b></td><td data-l="{{ c2 }}">Bill in DNA, committee stage</td><td data-l="{{ c3 }}">Employers, insurers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Works Consultation Act</b></td><td data-l="{{ c2 }}">Bill in DNA, committee stage</td><td data-l="{{ c3 }}">Employers with more than 30 staff</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Privacy and Personal Data Protection Act</b></td><td data-l="{{ c2 }}">Bill in DNA; consultation by the Ministry of Economic Affairs in October 2026</td><td data-l="{{ c3 }}">Any business holding customer or staff data</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Investment Act and SITA Act</b></td><td data-l="{{ c2 }}">Drafts, not passed</td><td data-l="{{ c3 }}">Investors, exporters</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Procurement Act</b></td><td data-l="{{ c2 }}">Passed by DNA on 5 November 2024, not yet promulgated</td><td data-l="{{ c3 }}">Suppliers to government</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local Content Act</b></td><td data-l="{{ c2 }}">Preliminary draft; to be sent to DNA in 2027</td><td data-l="{{ c3 }}">Suppliers to oil, gas and mining</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Electricity generation by third parties</b></td><td data-l="{{ c2 }}">Legal framework in final review (September 2026)</td><td data-l="{{ c3 }}">Businesses with solar panels or their own plant</td></tr>
+{% endif %}
+</tbody></table>
+<p class="note">{{ 'Een ontwerpwet kan in DNA nog flink veranderen. Pas wat hieronder onder "In behandeling" staat pas toe als de wet in het Staatsblad staat en in werking is getreden.' if nl else 'A bill can still change a lot in parliament. Only act on the items under "In the pipeline" once the law is in the Official Gazette (Staatsblad) and has entered into force.' }}</p>
+
+<h2>{{ 'Al van kracht' if nl else 'In force' }}</h2>
+
+<h3>{{ 'Gewijzigd Besluit Negatieve Lijst (S.B. 2026 no. 39)' if nl else 'Amended Negative List Decree (S.B. 2026 no. 39)' }}</h3>
+{% if nl %}
+<p>De Negatieve Lijst bepaalt welke goederen je niet mag in- of uitvoeren en voor welke je een vergunning nodig hebt. De president tekende de wijziging op 20 april 2026; ze verscheen op 20 mei 2026 in het Staatsblad en geldt vanaf de dag erna. Het is de eerste grote wijziging sinds 2019.</p>
+<ul>
+ <li><b>Status:</b> van kracht sinds 21 mei 2026. De nieuwe vergunningprocedures gaan in op 1 november 2026 (zie Binnenkort).</li>
+ <li><b>Wat verandert bij invoer:</b>
+  <ul>
+   <li>Nu <b>verboden</b>: kwik, apparaten met CFK's, afvalstoffen (behalve chemisch en radioactief afval), ozonafbrekende stoffen uit het Montreal-protocol, bepaalde styreenpolymeren en een reeks schadelijke chemicaliën en bestrijdingsmiddelen, waaronder methylbromide.</li>
+   <li>Nu <b>vergunningplichtig</b>: chemicaliën voor goudwinning (de zogenoemde Gold Ore Dressing Agents, HS 2837, 2842, 3815, 3817 en 3825), meststoffen zoals ammoniumnitraat en ureum, diervoeder (HS 2309), dozen, kisten en eierdozen, zend- en ontvangstapparatuur, kwikhoudende producten zoals batterijen, en planten en plantendelen met hun verpakkingsmateriaal (plastic, papier, jute, zakken). Die laatste groep had eerder alleen een certificaat nodig.</li>
+   <li><b>Auto's</b>: personenauto's en stationwagens ouder dan 8 jaar en bussen voor 10 of meer personen ouder dan 15 jaar blijven verboden. De leeftijd telt nu uitdrukkelijk vanaf het <b>bouwjaar</b>, niet vanaf de eerste registratie. De uitzondering voor oldtimers geldt pas vanaf 35 jaar (was 25) en niet voor handelaren. Motoren en bromfietsen ouder dan drie jaar zijn vergunningplichtig.</li>
+  </ul></li>
+ <li><b>Wat verandert bij uitvoer:</b> nieuwe vergunningplicht voor radioactieve mineralen, tinresten en koelmiddelen (onder meer HFK's) met bijbehorende apparatuur; ozonafbrekende stoffen zijn verboden.</li>
+ <li><b>Wat nu doen:</b> zoek de HS-code van elk product op en vergelijk die met de lijst in S.B. 2026 no. 39 vóór je een order plaatst. Twijfel je, vraag het de Dienst Invoer, Uitvoer en Deviezencontrole (IUD) van EZOTI schriftelijk. Meer in <a href="{{ U('import') }}">{{ L('import') }}</a> en <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Bron:</b> <a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-39-Staatsbesluit-houdende-nadere-wijziging-van-het-Besluit-Negatieve-Lijst.pdf" rel="noopener">S.B. 2026 no. 39, met nota van toelichting</a>.</li>
+</ul>
+{% else %}
+<p>The Negative List sets out which goods you may not import or export and which need a licence. The President signed the amendment on 20 April 2026; it was published in the Official Gazette on 20 May 2026 and applies from the following day. It is the first major change since 2019.</p>
+<ul>
+ <li><b>Status:</b> in force since 21 May 2026. The new licence procedures start on 1 November 2026 (see Coming soon).</li>
+ <li><b>What changes for imports:</b>
+  <ul>
+   <li>Now <b>banned</b>: mercury, appliances containing CFCs, waste (except chemical and radioactive waste), ozone-depleting substances under the Montreal Protocol, certain styrene polymers and a range of harmful chemicals and pesticides, including methyl bromide.</li>
+   <li>Now <b>licence required</b>: chemicals for gold processing (Gold Ore Dressing Agents, HS 2837, 2842, 3815, 3817 and 3825), fertilisers such as ammonium nitrate and urea, animal feed (HS 2309), boxes, crates and egg boxes, transmitting and receiving equipment, mercury-containing products such as batteries, and plants and plant parts with their packaging (plastic, paper, jute, sacks). That last group previously only needed a certificate.</li>
+   <li><b>Cars</b>: passenger cars and station wagons older than 8 years and buses for 10 or more people older than 15 years remain banned. Age now explicitly counts from the <b>year of manufacture</b>, not first registration. The classic car exception now starts at 35 years (was 25) and does not apply to dealers. Motorcycles and mopeds older than three years need a licence.</li>
+  </ul></li>
+ <li><b>What changes for exports:</b> a new licence requirement for radioactive minerals, tin scrap and refrigerants (including HFCs) with related equipment; ozone-depleting substances are banned.</li>
+ <li><b>What to do now:</b> look up the HS code of each product and compare it with the list in S.B. 2026 no. 39 before you place an order. If in doubt, ask the Import, Export and Foreign Exchange Control Service (IUD) of the Ministry of Economic Affairs (EZOTI) in writing. More in <a href="{{ U('import') }}">{{ L('import') }}</a> and <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Source:</b> <a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-39-Staatsbesluit-houdende-nadere-wijziging-van-het-Besluit-Negatieve-Lijst.pdf" rel="noopener">S.B. 2026 no. 39, with explanatory memorandum</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Retentieregeling exportopbrengsten (A.B. no. 228)' if nl else 'Export proceeds retention rule (General Decision no. 228)' }}</h3>
+{% if nl %}
+<p>De Deviezencommissie nam Algemene Beschikking no. 228 op 31 juli 2026; die geldt sinds 17 augustus 2026 en vervangt drie eerdere beschikkingen uit 2022 en 2023.</p>
+<ul>
+ <li><b>Status:</b> van kracht. VSB en ASFA vroegen in september 2026 om een passende behandeling van producerende exporteurs binnen de regeling, en de minister van Financiën en Planning verdedigde in augustus 2026 in DNA de wettelijke basis. Op 26 oktober 2026 was er geen wijziging gepubliceerd.</li>
+ <li><b>Wat verandert:</b> je haalt exportopbrengsten van goederen, diensten en waarden naar een deviezenbank in Suriname en verkoopt minstens 35% binnen drie werkdagen. Goudexporteurs verkopen die 35% aan de Centrale Bank, tegen de gewogen gemiddelde koers. Je levert elke maand binnen 14 dagen bewijs in bij de Deviezencommissie. Wie niet meewerkt, kan vergunningen kwijtraken.</li>
+ <li><b>Wat nu doen:</b> reken de verplichte verkoop mee in je prijs en je deviezenplanning, en vraag je bank hoe zij de rapportage regelt. Details in <a href="{{ U('export') }}">{{ L('export') }}</a>; koersen in <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Bronnen:</b> <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93456" rel="noopener">Starnieuws, augustus 2026</a>; <a href="https://dwtonline.com/vsb-en-asfa-willen-passende-behandeling-exportondernemingen-binnen-retentieregeling/" rel="noopener">De Ware Tijd, september 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93495" rel="noopener">Starnieuws, 20 augustus 2026</a>.</li>
+</ul>
+{% else %}
+<p>The Foreign Exchange Commission adopted General Decision (Algemene Beschikking) no. 228 on 31 July 2026; it has applied since 17 August 2026 and replaces three earlier decisions from 2022 and 2023.</p>
+<ul>
+ <li><b>Status:</b> in force. The business associations VSB and ASFA asked in September 2026 for fairer treatment of producing exporters under the rule, and the Minister of Finance and Planning defended its legal basis in parliament in August 2026. No amendment had been published by 26 October 2026.</li>
+ <li><b>What changes:</b> you bring export proceeds from goods, services and assets to a foreign exchange bank in Suriname and sell at least 35% within three working days. Gold exporters sell that 35% to the Central Bank, at the weighted average rate. Every month you submit proof to the Foreign Exchange Commission within 14 days. Non-compliance can cost you your licences.</li>
+ <li><b>What to do now:</b> include the mandatory sale in your pricing and FX planning, and ask your bank how it handles the reporting. Details in <a href="{{ U('export') }}">{{ L('export') }}</a>; rates in <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Sources:</b> <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93456" rel="noopener">Starnieuws, August 2026</a>; <a href="https://dwtonline.com/vsb-en-asfa-willen-passende-behandeling-exportondernemingen-binnen-retentieregeling/" rel="noopener">De Ware Tijd, September 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93495" rel="noopener">Starnieuws, 20 August 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Minimumuurloon SRD ' ~ num(F.MIN_WAGE.hour) if nl else 'Minimum hourly wage SRD ' ~ num(F.MIN_WAGE.hour) }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Status:</b> van kracht sinds {{ date(F.MIN_WAGE.effective) }}, voor alle sectoren. Daarvoor was het SRD {{ num(F.MIN_WAGE.previous_hour) }}.</li>
+ <li><b>Wat verandert:</b> elk uur dat een werknemer werkt, moet minstens SRD {{ num(F.MIN_WAGE.hour) }} bruto opleveren. Overwerk bereken je over het hogere uurloon.</li>
+ <li><b>Wat nu doen:</b> controleer de laagste lonen in je loonadministratie en je contracten. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('employer') }}">{{ L('employer') }}</a> &middot; <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li><b>Bron:</b> {% for name, url in F.MIN_WAGE.sources %}<a href="{{ url }}" rel="noopener">{{ name }}</a>{% if not loop.last %}; {% endif %}{% endfor %}.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Status:</b> in force since {{ date(F.MIN_WAGE.effective) }}, for all sectors. It was SRD {{ num(F.MIN_WAGE.previous_hour) }} before.</li>
+ <li><b>What changes:</b> every hour an employee works must pay at least SRD {{ num(F.MIN_WAGE.hour) }} gross. Overtime is calculated on the higher hourly wage.</li>
+ <li><b>What to do now:</b> check the lowest wages in your payroll and your contracts. <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> &middot; <a href="{{ U('employer') }}">{{ L('employer') }}</a> &middot; <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li><b>Source:</b> {% for name, url in F.MIN_WAGE.sources %}<a href="{{ url }}" rel="noopener">{{ name }}</a>{% if not loop.last %}; {% endif %}{% endfor %}.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Dienstenmerken registreren' if nl else 'Registering service marks' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Status:</b> van kracht sinds 9 oktober 2026, na goedkeuring door DNA in 2026 (wijziging van het Reglement Industriële Eigendom 1912).</li>
+ <li><b>Wat verandert:</b> tot nu toe kon je in Suriname alleen merken voor waren inschrijven. Nu kan ook een hotel, adviesbureau, bank of transportbedrijf zijn naam en logo voor diensten laten registreren bij het Bureau Intellectuele Eigendom (BIE).</li>
+ <li><b>Wat nu doen:</b> heb je al een merk, dan kun je tot 9 juli 2027 dienstenklassen toevoegen met behoud van je oude datum, als je kunt bewijzen dat je het merk voor die diensten gebruikt. <a href="{{ U('trademark') }}">{{ L('trademark') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://spoor.com/suriname-introduces-registration-and-protection-for-service-marks/" rel="noopener">Spoor &amp; Fisher, oktober 2026</a>; <a href="https://www.gfcnieuws.com/39-dna-leden-stemmen-voor-modernisering-van-surinaams-merkenrecht/" rel="noopener">GFC Nieuws, augustus 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Status:</b> in force since 9 October 2026, after parliament approved it in 2026 (amendment of the Industrial Property Regulation 1912).</li>
+ <li><b>What changes:</b> until now Suriname only registered marks for goods. Now a hotel, consultancy, bank or transport company can register its name and logo for services at the Intellectual Property Office (BIE).</li>
+ <li><b>What to do now:</b> if you already own a mark, you can add service classes until 9 July 2027 and keep your original date, if you can prove you use the mark for those services. <a href="{{ U('trademark') }}">{{ L('trademark') }}</a></li>
+ <li><b>Sources:</b> <a href="https://spoor.com/suriname-introduces-registration-and-protection-for-service-marks/" rel="noopener">Spoor &amp; Fisher, October 2026</a>; <a href="https://www.gfcnieuws.com/39-dna-leden-stemmen-voor-modernisering-van-surinaams-merkenrecht/" rel="noopener">GFC Nieuws, August 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Nieuw Burgerlijk Wetboek' if nl else 'New Civil Code' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Status:</b> van kracht sinds 1 mei 2025 (S.B. 2024 no. 164; aanpassing van bestaande wetten in S.B. 2024 no. 168). Het vervangt het BW van 1860.</li>
+ <li><b>Wat verandert:</b> het contractenrecht, het rechtspersonenrecht (NV, stichting, vereniging, coöperatie) en het arbeidsrecht staan nu in een modern wetboek dat sterk lijkt op het Nederlandse. Enkele gevolgen: elke ondernemer, ook een eenmanszaak, heeft een administratieplicht (art. 3:15i); bestuurders kunnen persoonlijk aansprakelijk worden bij faillissement als de boekhouding niet op orde is (art. 2:16); een proeftijd mag maximaal twee maanden zijn en een reeks tijdelijke contracten wordt sneller vast.</li>
+ <li><b>Wat nu doen:</b> laat oude modelcontracten, algemene voorwaarden en statuten nalopen. Verwijzingen naar oude artikelnummers (zoals 1613a BW) kloppen niet meer. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a> &middot; <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">S.B. 2024 no. 164</a>; <a href="https://www.dna.sr/media/2qcl0ksc/njb-2025-800-het-nieuw-surinaams-burgerlijk-wetboek-2.pdf" rel="noopener">Nederlands Juristenblad 2025/800 over het nieuwe Surinaamse BW</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Status:</b> in force since 1 May 2025 (S.B. 2024 no. 164; amendments to existing laws in S.B. 2024 no. 168). It replaces the Civil Code of 1860.</li>
+ <li><b>What changes:</b> contract law, company law (NV, foundation, association, cooperative) and employment law are now in a modern code closely modelled on the Dutch one. Some effects: every business, including a sole trader, must keep proper records (art. 3:15i); directors can be personally liable in bankruptcy if the books are not in order (art. 2:16); a probation period may be at most two months and a chain of temporary contracts becomes permanent sooner.</li>
+ <li><b>What to do now:</b> have old standard contracts, terms and conditions and articles of association reviewed. References to old article numbers (such as 1613a) are no longer correct. <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a> &middot; <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">S.B. 2024 no. 164</a>; <a href="https://www.dna.sr/media/2qcl0ksc/njb-2025-800-het-nieuw-surinaams-burgerlijk-wetboek-2.pdf" rel="noopener">Nederlands Juristenblad 2025/800 on the new Surinamese Civil Code</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Binnenkort' if nl else 'Coming soon' }}</h2>
+
+<h3>{{ '1 november 2026: nieuwe import- en vergunningprocedures' if nl else '1 November 2026: new import and licence procedures' }}</h3>
+{% if nl %}
+<p>EZOTI heeft na overleg met het bedrijfsleven de oude werkwijze laten doorlopen tot en met 31 oktober 2026. Vanaf 1 november gelden de aangepaste procedures bij de gewijzigde Negatieve Lijst. Aanvragen lopen deels nog via de bestaande procedure en deels via het Suriname Electronic Single Window (SESW). Hoe je indient, bepaalt mede hoe de informatie bij de Douane terechtkomt. EZOTI stemt met de Douane af over praktische punten, waaronder de juiste HS-codes, en zegde informatiesessies voor ondernemers toe.</p>
+<ul>
+ <li><b>Status:</b> datum staat vast; op 17 oktober 2026 vroeg het bedrijfsleven nog om duidelijkheid over documenten, overgangsregels voor lopende zendingen en de afstemming tussen EZOTI en Douane.</li>
+ <li><b>Wat nu doen:</b> dien aanvragen voor zendingen die al onderweg zijn zo mogelijk vóór 31 oktober in. Vraag de IUD per aanvraag welk kanaal (SESW of papier) en welke documenten gelden, laat je expediteur de HS-code controleren en reken op vertraging en opslagkosten in de haven bij de eerste zendingen na 1 november. Kosten vooraf doorrekenen: <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>Bronnen:</b> <a href="https://dagbladdewest.com/2026/09/28/bedrijfsleven-krijgt-tot-november-ruimte-voor-bestaande-importprocedures/" rel="noopener">De West, 28 september 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94404" rel="noopener">Starnieuws, 17 oktober 2026</a>.</li>
+</ul>
+{% else %}
+<p>After talks with business groups, the Ministry of Economic Affairs (EZOTI) kept the old procedure running until 31 October 2026. From 1 November the revised procedures under the amended Negative List apply. Applications partly still go through the existing procedure and partly through the Suriname Electronic Single Window (SESW). How you file affects how the information reaches Customs. EZOTI is working with Customs on practical issues, including correct HS codes, and has promised information sessions for businesses.</p>
+<ul>
+ <li><b>Status:</b> the date is fixed; on 17 October 2026 business groups were still asking for clarity on documents, transitional rules for shipments in progress and coordination between EZOTI and Customs.</li>
+ <li><b>What to do now:</b> file applications for shipments already on their way before 31 October where possible. Ask the IUD for each application which channel (SESW or paper) and which documents apply, have your broker check the HS code, and allow for delays and port storage costs on the first shipments after 1 November. Work out the costs first: <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+ <li><b>Sources:</b> <a href="https://dagbladdewest.com/2026/09/28/bedrijfsleven-krijgt-tot-november-ruimte-voor-bestaande-importprocedures/" rel="noopener">De West, 28 September 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94404" rel="noopener">Starnieuws, 17 October 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ '1 januari 2027: begrotingsjaar 2027' if nl else '1 January 2027: budget year 2027' }}</h3>
+{% if nl %}
+<p>President Simons presenteerde op 30 september 2026 de plannen voor 2027. De regering raamt de inkomsten op SRD 70,1 miljard en de uitgaven op SRD 80,9 miljard, een tekort van SRD 10,8 miljard of 4% van het bbp. Aan belastingen verwacht ze SRD 46,8 miljard, waarvan bijna SRD 20,1 miljard inkomstenbelasting en ongeveer SRD 11,6 miljard BTW.</p>
+<ul>
+ <li><b>Status:</b> begroting ingediend bij DNA. Er zijn geen nieuwe belastingtarieven aangekondigd. De regering wil meer opbrengst halen uit betere naleving, een bredere belastingbasis, betere inning en minder lekkage.</li>
+ <li><b>Wat dit voor jou betekent:</b> reken op meer controles, gerichte audits en digitale aangifte. De minister zei in augustus 2026 dat het Grondstoffenbesluit (vrijstelling van invoerrecht op grondstoffen voor productie) en de BTW opnieuw worden bekeken; concrete voorstellen en data zijn er nog niet.</li>
+ <li><b>Wat nu doen:</b> zorg dat je aangiftes, BTW-administratie en loonadministratie sluitend zijn. <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.gfcnieuws.com/overheidsinkomsten-2027-geraamd-op-srd-701-miljard-tegenover-srd-809-miljard-aan-uitgaven/" rel="noopener">GFC Nieuws, 30 september 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94157" rel="noopener">Starnieuws, 1 oktober 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93495" rel="noopener">Starnieuws, 20 augustus 2026</a>.</li>
+</ul>
+{% else %}
+<p>President Simons presented the plans for 2027 on 30 September 2026. The government expects revenue of SRD 70.1 billion and spending of SRD 80.9 billion, a deficit of SRD 10.8 billion or 4% of GDP. It expects SRD 46.8 billion in taxes, of which nearly SRD 20.1 billion income tax and about SRD 11.6 billion VAT.</p>
+<ul>
+ <li><b>Status:</b> budget submitted to parliament. No new tax rates were announced. The government wants more revenue from better compliance, a broader tax base, better collection and less leakage.</li>
+ <li><b>What it means for you:</b> expect more checks, targeted audits and digital filing. The minister said in August 2026 that the Raw Materials Decree (import duty exemption on raw materials for production) and VAT are being reviewed; there are no concrete proposals or dates yet.</li>
+ <li><b>What to do now:</b> make sure your returns, VAT records and payroll records reconcile. <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> &middot; <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a> &middot; <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.gfcnieuws.com/overheidsinkomsten-2027-geraamd-op-srd-701-miljard-tegenover-srd-809-miljard-aan-uitgaven/" rel="noopener">GFC Nieuws, 30 September 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94157" rel="noopener">Starnieuws, 1 October 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93495" rel="noopener">Starnieuws, 20 August 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ '9 juli 2027: laatste dag om merken uit te breiden met diensten' if nl else '9 July 2027: last day to extend marks to services' }}</h3>
+<p>{{ 'Wie op 9 oktober 2026 al een merk had of aanvroeg, kan tot deze datum dienstenklassen toevoegen met behoud van de oude depotdatum. Daarna is het een gewone nieuwe aanvraag.' if nl else 'If you held or had applied for a mark on 9 October 2026, you can add service classes until this date and keep the original filing date. After that it is an ordinary new application.' }} <a href="{{ U('trademark') }}">{{ L('trademark') }}</a></p>
+
+<h2>{{ 'In behandeling' if nl else 'In the pipeline' }}</h2>
+<p>{{ 'Deze wetten zijn nog niet van kracht. De inhoud kan veranderen; we geven de stand van het ontwerp en het debat.' if nl else 'These laws are not in force yet. The content can change; we give the state of the bill and the debate.' }}</p>
+
+<h3>{{ 'Algemene Douanewet 2026' if nl else 'General Customs Act 2026' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> een nieuwe kaderwet voor de douane, die een eenduidig stelsel van bevoegdheden moet geven voor de fiscale en niet-fiscale taken van de Douane. Het werk eraan begon al in 2003. Veel details komen later in staatsbesluiten.</li>
+ <li><b>Status:</b> ingediend op 29 juni 2026. De Commissie van Rapporteurs hoorde op 12 oktober 2026 de Belastingdienst en de douanebond en op 21 oktober 2026 het bedrijfsleven.</li>
+ <li><b>Wat verandert:</b> regels voor in- en uitvoer, aangifte, toegestane routes, een summiere uitvoeraangifte en het melden van vervoermiddelen vóór vertrek. Digitale administratie wordt erkend en er komen duidelijkere regels over wanneer goederen als Surinaams gelden. Open punten volgens het bedrijfsleven: uitzonderingen op elektronische aangifte, kosten en termijnen, bederfelijke goederen en het in beslag nemen van containers.</li>
+ <li><b>Wat nu doen:</b> nog niets wettelijks. Volg de behandeling als je regelmatig in- of uitvoert, en zorg dat je administratie digitaal en compleet is.</li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-algemene-douanewet-2026/" rel="noopener">DNA: ontwerpwet Algemene Douanewet 2026</a>; <a href="https://www.gfcnieuws.com/nieuwe-douanewet-moet-goederenverkeer-en-inning-van-douanerechten-moderniseren/" rel="noopener">GFC Nieuws, oktober 2026</a>; <a href="https://abcsuriname.com/vsb-wil-duidelijke-regels-en-procedures-in-algemene-douanewet/" rel="noopener">ABC Suriname, 26 oktober 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> a new framework law for customs, meant to give one clear set of powers for the fiscal and non-fiscal tasks of Customs. Work on it began as early as 2003. Many details will follow in state decrees.</li>
+ <li><b>Status:</b> submitted on 29 June 2026. The parliamentary committee heard the tax office and the customs union on 12 October 2026 and business groups on 21 October 2026.</li>
+ <li><b>What changes:</b> rules on imports and exports, declarations, permitted routes, a summary export declaration and reporting of vehicles before departure. Digital records are recognised and there are clearer rules on when goods count as Surinamese. Open points according to business groups: exceptions to electronic declaration, costs and time limits, perishable goods and the seizure of containers.</li>
+ <li><b>What to do now:</b> nothing legally yet. Follow the debate if you import or export regularly, and keep your records digital and complete.</li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-algemene-douanewet-2026/" rel="noopener">DNA: draft General Customs Act 2026</a>; <a href="https://www.gfcnieuws.com/nieuwe-douanewet-moet-goederenverkeer-en-inning-van-douanerechten-moderniseren/" rel="noopener">GFC Nieuws, October 2026</a>; <a href="https://abcsuriname.com/vsb-wil-duidelijke-regels-en-procedures-in-algemene-douanewet/" rel="noopener">ABC Suriname, 26 October 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Algemene Wet Belastingen, invoeringswet en Belastingautoriteit' if nl else 'General Tax Act, implementing act and Tax Authority' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> één formele belastingwet voor aangifte, aanslag, controle, bezwaar, beroep en boetes, voor onder meer inkomsten-, loon-, dividend-, vermogens- en huurwaardebelasting en BTW. De tarieven blijven in de aparte wetten. Samen met een invoeringswet, een Wet Rechtspraak Belastingzaken en een wijziging van de Wet Belastingdienst. Volgens de jaarrede van 30 september 2026 moeten deze zes ontwerpwetten samen een Belasting- en Inningsautoriteit opzetten.</li>
+ <li><b>Status:</b> ingediend op 29 juni 2026; eindverslag van de commissie op 25 augustus 2026; de minister gaf op 6 oktober 2026 in de openbare vergadering antwoord. Nog niet aangenomen. Inwerkingtreding volgt bij staatsbesluit.</li>
+ <li><b>Wat verandert:</b> iedere belastingplichtige krijgt een fiscaal identificatienummer (FIN); de directeur kan elektronisch contact verplicht stellen; de inspecteur krijgt onder voorwaarden toegang tot bedrijfsruimten; er komen verzuimboetes en vergrijpboetes (bij opzet of grove schuld tot 100% van de ontdoken belasting). Bezwaar schort de betaling niet op. Het ontwerp geeft de inspecteur een jaar om op bezwaar te beslissen; de KKF wil zes tot negen maanden.</li>
+ <li><b>Wat nu doen:</b> houd je administratie zo dat je elke aangifte kunt onderbouwen, en zorg dat je FIN-nummer klopt. <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> &middot; <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/media/pmyjo0yn/26-1603-pres-rep-sur-aanb-eindverslag-algemene-wet-belastingen.pdf" rel="noopener">DNA: eindverslag Algemene Wet Belastingen (25 augustus 2026)</a>; <a href="https://surinamenieuwscentrale.com/dna-behandelt-nieuwe-algemene-wet-belastingen-met-ruimere-bevoegdheden-fiscus" rel="noopener">Suriname Nieuws Centrale</a>; <a href="https://dagbladdewest.com/2026/10/09/minister-wijnerman-licht-uitgangspunten-algemene-wet-belastingen-toe-in-dna/" rel="noopener">De West, 9 oktober 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94139" rel="noopener">Starnieuws over de jaarrede, 30 september 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> one formal tax act for filing, assessment, audits, objections, appeals and penalties, covering income, wage, dividend, wealth and rental value tax and VAT among others. Rates stay in the separate tax acts. It comes with an implementing act, a Tax Courts Act and an amendment to the Tax Office Act. According to the President's address of 30 September 2026, these six bills together set up a Tax and Collection Authority.</li>
+ <li><b>Status:</b> submitted on 29 June 2026; committee final report on 25 August 2026; the minister answered questions in plenary on 6 October 2026. Not passed yet. Entry into force will be set by state decree.</li>
+ <li><b>What changes:</b> every taxpayer gets a tax identification number (FIN); the tax director can make electronic contact mandatory; inspectors get access to business premises under conditions; there will be late-filing penalties and offence penalties (up to 100% of the evaded tax for intent or gross negligence). An objection does not suspend payment. The draft gives the inspector one year to decide on an objection; the Chamber of Commerce (KKF) wants six to nine months.</li>
+ <li><b>What to do now:</b> keep records that let you support every return, and make sure your FIN is correct. <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> &middot; <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/media/pmyjo0yn/26-1603-pres-rep-sur-aanb-eindverslag-algemene-wet-belastingen.pdf" rel="noopener">DNA: final report General Tax Act (25 August 2026)</a>; <a href="https://surinamenieuwscentrale.com/dna-behandelt-nieuwe-algemene-wet-belastingen-met-ruimere-bevoegdheden-fiscus" rel="noopener">Suriname Nieuws Centrale</a>; <a href="https://dagbladdewest.com/2026/10/09/minister-wijnerman-licht-uitgangspunten-algemene-wet-belastingen-toe-in-dna/" rel="noopener">De West, 9 October 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94139" rel="noopener">Starnieuws on the President's address, 30 September 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Invorderingswet en invorderingskosten' if nl else 'Tax Collection Act and collection costs' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> één wettelijk kader voor het innen van belastingschulden en invoerrechten: aanmaning, dwangbevel, beslag, verrekening, uitstel, kwijtschelding, verjaring en invorderingsrente. Op 2 oktober 2026 diende de president een nota van wijziging in die de aparte Kostenwet Invordering Belastingen in de Invorderingswet opneemt.</li>
+ <li><b>Status:</b> ingediend op 29 juni 2026; eindverslag van de commissie op 6 oktober 2026; openbare behandeling in oktober 2026. De regering kondigde verdere wijzigingen aan. Nog niet aangenomen.</li>
+ <li><b>Wat verandert:</b> na een aanmaning krijg je nog 14 dagen. Bij faillissement of vertrek uit Suriname kan een schuld meteen opeisbaar worden. Bezwaar of beroep schort de invordering niet automatisch op; je kunt wel uitstel vragen. De ontvanger kan geld innen bij derden die jou iets verschuldigd zijn, ook bij je bank. <b>Bestuurders</b> kunnen onder voorwaarden aansprakelijk worden gesteld voor belastingschulden van het bedrijf, met bezwaar daartegen. Het ontwerp rekende invorderingskosten van 1% van de schuld, minimaal SRD 500 en zonder maximum; parlementsleden vroegen om een plafond.</li>
+ <li><b>Wat nu doen:</b> los oude belastingachterstanden op of maak een betalingsregeling, vóór deze bevoegdheden gelden. Bestuurders: laat je informeren over de stand van de belastingschulden van je NV.</li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-invorderingswet/" rel="noopener">DNA: ontwerp Invorderingswet en eindverslag (6 oktober 2026)</a>; <a href="https://www.srherald.com/suriname/2026/10/12/lau-wil-grens-aan-invorderingskosten-srd-100-000-voor-een-dwangbevel-ter-discussie/" rel="noopener">Suriname Herald, 12 oktober 2026</a>; <a href="https://www.culturu.com/nieuws/suriname/dna-wil-betere-bescherming-bij-nieuwe-invorderingswet/" rel="noopener">Culturu, 11 oktober 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> one legal framework for collecting tax debts and import duties: reminders, enforcement orders, seizure, set-off, deferral, remission, limitation and collection interest. On 2 October 2026 the President filed an amendment that folds the separate Tax Collection Costs Act into the Tax Collection Act.</li>
+ <li><b>Status:</b> submitted on 29 June 2026; committee final report on 6 October 2026; plenary debate in October 2026. The government announced further amendments. Not passed yet.</li>
+ <li><b>What changes:</b> after a reminder you get 14 more days. In bankruptcy or on departure from Suriname a debt can become payable at once. An objection or appeal does not automatically suspend collection; you can ask for deferral. The collector can claim money from third parties who owe you, including your bank. <b>Directors</b> can, under conditions, be held liable for the company's tax debts, with a right to object. The draft charged collection costs of 1% of the debt, at least SRD 500 and with no maximum; members of parliament asked for a cap.</li>
+ <li><b>What to do now:</b> settle old tax arrears or agree a payment plan before these powers apply. Directors: ask for a status report on your company's tax debts.</li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-invorderingswet/" rel="noopener">DNA: draft Tax Collection Act and final report (6 October 2026)</a>; <a href="https://www.srherald.com/suriname/2026/10/12/lau-wil-grens-aan-invorderingskosten-srd-100-000-voor-een-dwangbevel-ter-discussie/" rel="noopener">Suriname Herald, 12 October 2026</a>; <a href="https://www.culturu.com/nieuws/suriname/dna-wil-betere-bescherming-bij-nieuwe-invorderingswet/" rel="noopener">Culturu, 11 October 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Ongevallenregeling 2021' if nl else 'Accident Regulation 2021' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> een nieuwe regeling voor de plicht van de werkgever om werknemers schadeloos te stellen bij bedrijfsongevallen en beroepsziekten. Ze moet de Ongevallenregeling uit 1947 vervangen en bevat een lijst van beroepsziekten als bijlage.</li>
+ <li><b>Status:</b> ingediend op 12 januari 2024; de Commissie van Rapporteurs hoorde in augustus 2026 de vakbeweging, bedrijfsartsen en werkgevers. Werkgevers vroegen een technische, juridische en actuariële herziening vóór verdere behandeling.</li>
+ <li><b>Wat nu doen:</b> de huidige regels blijven gelden: je bent verplicht je werknemers vanaf de eerste werkdag te verzekeren. <a href="{{ U('employer') }}">{{ L('employer') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-ongevallenregeling-2021/" rel="noopener">DNA: ontwerpwet Ongevallenregeling 2021</a>; <a href="https://www.dna.sr/media/2qdfun0x/bv-cie-163-ondernemingsraadpelging-en-ongevallenregeling-5-augustus-26.pdf" rel="noopener">DNA: verslag commissievergadering 5 augustus 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> a new regulation of the employer's duty to compensate employees for workplace accidents and occupational diseases. It is to replace the Accident Regulation of 1947 and lists occupational diseases in an annex.</li>
+ <li><b>Status:</b> submitted on 12 January 2024; the parliamentary committee heard unions, occupational physicians and employers in August 2026. Employers asked for a technical, legal and actuarial review before the debate continues.</li>
+ <li><b>What to do now:</b> the current rules still apply: you must insure your employees from their first working day. <a href="{{ U('employer') }}">{{ L('employer') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-ongevallenregeling-2021/" rel="noopener">DNA: draft Accident Regulation 2021</a>; <a href="https://www.dna.sr/media/2qdfun0x/bv-cie-163-ondernemingsraadpelging-en-ongevallenregeling-5-augustus-26.pdf" rel="noopener">DNA: committee meeting report, 5 August 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Wet Ondernemingsraadpleging' if nl else 'Works Consultation Act' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> een overlegplicht tussen werkgever en werknemers op bedrijfsniveau. Volgens het ontwerp houdt een werkgever met meer dan 30 werknemers minstens één keer per jaar een ondernemingsraadpleging, en binnen twee weken als de werknemers daar met redenen om vragen.</li>
+ <li><b>Wat verandert:</b> vóór besluiten over onder meer reorganisatie, collectief ontslag, inzet van uitzendkrachten, nieuwe technologie, pensioen, ziektekosten, beloning, werktijden en opleiding moet je de werknemers raadplegen. Besluiten die zonder raadpleging zijn genomen, zijn volgens het ontwerp nietig.</li>
+ <li><b>Status:</b> in commissie; werkgevers vroegen in augustus 2026 een duidelijker onderscheid tussen informeren, raadplegen en instemmen, en geen automatische nietigheid.</li>
+ <li><b>Wat nu doen:</b> heb je meer dan 30 mensen in dienst, leg dan nu al vast hoe je belangrijke besluiten met je personeel bespreekt. <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/media/virn1oxi/wet_ondernemingsraadpleging.pdf" rel="noopener">DNA: ontwerp Wet Ondernemingsraadpleging</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws, 8 augustus 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> a duty to consult between employer and staff at company level. Under the draft, an employer with more than 30 employees holds a works consultation at least once a year, and within two weeks when staff ask for one with reasons.</li>
+ <li><b>What changes:</b> before decisions on, among other things, reorganisation, collective dismissal, use of temporary agency staff, new technology, pensions, health insurance, pay, working hours and training, you must consult your employees. Under the draft, decisions taken without consultation are void.</li>
+ <li><b>Status:</b> in committee; employers asked in August 2026 for a clearer line between informing, consulting and consent, and no automatic nullity.</li>
+ <li><b>What to do now:</b> if you employ more than 30 people, set out now how you discuss major decisions with your staff. <a href="{{ U('labour') }}">{{ L('labour') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/media/virn1oxi/wet_ondernemingsraadpleging.pdf" rel="noopener">DNA: draft Works Consultation Act</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws, 8 August 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Wet Bescherming Privacy en Persoonsgegevens' if nl else 'Privacy and Personal Data Protection Act' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> Suriname heeft nog geen algemene privacywet. Het ontwerp bij DNA lijkt sterk op de Europese AVG (GDPR): regels voor het verwerken van persoonsgegevens, rechten van klanten en werknemers en een onafhankelijke Commissaris voor Gegevensbescherming.</li>
+ <li><b>Status:</b> ontwerp bij DNA; EZOTI hield in oktober 2026 een sessie met belanghebbenden, waaronder het bedrijfsleven, en werkt het voorstel verder uit.</li>
+ <li><b>Wat verandert:</b> in het ontwerp meld je een datalek binnen 72 uur bij de Commissaris. Boetes lopen tot SRD 5.000 of 2% van de wereldwijde jaaromzet, en voor zwaardere overtredingen tot SRD 10.000 of 4%, welk bedrag hoger is.</li>
+ <li><b>Wat nu doen:</b> breng in kaart welke klant- en personeelsgegevens je bewaart, waar en waarom, en wie erbij kan. Leveranciers van Europese klanten krijgen die vragen nu al via contracten.</li>
+ <li><b>Bronnen:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-bescherming-privacy-en-persoonsgegevens/" rel="noopener">DNA: ontwerpwet Bescherming Privacy en Persoonsgegevens</a>; <a href="https://www.gfcnieuws.com/nieuwe-privacywet-moet-burgers-beschermen-en-ondernemerschap-ondersteunen/" rel="noopener">GFC Nieuws, 25 oktober 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> Suriname has no general data protection law yet. The draft before parliament closely follows the EU GDPR: rules for processing personal data, rights for customers and employees, and an independent Data Protection Commissioner.</li>
+ <li><b>Status:</b> bill in parliament; the Ministry of Economic Affairs held a stakeholder session in October 2026, including business groups, and is developing the proposal further.</li>
+ <li><b>What changes:</b> under the draft you report a data breach to the Commissioner within 72 hours. Fines go up to SRD 5,000 or 2% of worldwide annual turnover, and for more serious breaches up to SRD 10,000 or 4%, whichever is higher.</li>
+ <li><b>What to do now:</b> map which customer and staff data you keep, where and why, and who can access it. Suppliers to European customers already get these questions through contracts.</li>
+ <li><b>Sources:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-bescherming-privacy-en-persoonsgegevens/" rel="noopener">DNA: draft Privacy and Personal Data Protection Act</a>; <a href="https://www.gfcnieuws.com/nieuwe-privacywet-moet-burgers-beschermen-en-ondernemerschap-ondersteunen/" rel="noopener">GFC Nieuws, 25 October 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Investeringswet en SITA-wet' if nl else 'Investment Act and SITA Act' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> een nieuwe Investeringswet moet de Investeringswet 2001 vervangen en regels geven voor fiscale en andere faciliteiten; een aparte wet regelt de Suriname Investment and Trade Agency (SITA).</li>
+ <li><b>Status:</b> concepten. Het georganiseerde bedrijfsleven liet in augustus 2026 weten de Investeringswet in deze vorm niet te steunen en vraagt eerst een nationaal investeringsbeleid, objectieve criteria en gelijke behandeling van lokale, buitenlandse en diaspora-investeerders. De partij DNL diende in juli 2026 amendementen in.</li>
+ <li><b>Wat nu doen:</b> de Investeringswet 2001 geldt nog. Plan geen investering op faciliteiten uit het concept. <a href="{{ U('invest') }}">{{ L('invest') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws, 8 augustus 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/92785" rel="noopener">Starnieuws, 3 juli 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> a new Investment Act is to replace the Investment Act 2001 and set rules for tax and other incentives; a separate act governs the Suriname Investment and Trade Agency (SITA).</li>
+ <li><b>Status:</b> drafts. Organised business said in August 2026 it cannot support the Investment Act in this form and wants a national investment policy first, objective criteria and equal treatment of local, foreign and diaspora investors. The DNL party submitted amendments in July 2026.</li>
+ <li><b>What to do now:</b> the Investment Act 2001 still applies. Do not base an investment on incentives from the draft. <a href="{{ U('invest') }}">{{ L('invest') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93322" rel="noopener">Starnieuws, 8 August 2026</a>; <a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/92785" rel="noopener">Starnieuws, 3 July 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Aanbestedingswet' if nl else 'Procurement Act' }}</h3>
+{% if nl %}
+<ul>
+ <li><b>Wat het is:</b> één set regels voor overheidsaanbestedingen: elke aanbesteding openbaar, duidelijke procedures, motivering van de gunning en zwaardere straffen, in lijn met CARICOM-richtlijnen.</li>
+ <li><b>Status:</b> DNA keurde de wet op 5 november 2024 goed met 28 stemmen. Ze is nog niet afgekondigd: de Suriname Economic Oversight Board (SEOB) noemde het afkondigen in september 2026 nog als aandachtspunt. Zonder afkondiging is ze niet van kracht.</li>
+ <li><b>Wat nu doen:</b> volg de aanbestedingen die nu al gepubliceerd worden. <a href="{{ U('tenders') }}">{{ L('tenders') }}</a></li>
+ <li><b>Bronnen:</b> <a href="https://www.srherald.com/suriname/2024/11/06/aanbestedingen-overheid-nu-transparanter-en-eerlijker/" rel="noopener">Suriname Herald, 6 november 2024</a>; <a href="https://www.gfcnieuws.com/seob-ziet-economisch-herstel-maar-waarschuwt-voor-overheidsfinancien/" rel="noopener">GFC Nieuws over SEOB-bulletin 30, 26 september 2026</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>What it is:</b> one set of rules for public procurement: every tender published, clear procedures, reasons for the award and tougher penalties, in line with CARICOM guidelines.</li>
+ <li><b>Status:</b> parliament passed it on 5 November 2024 with 28 votes. It has not been promulgated: the Suriname Economic Oversight Board (SEOB) still listed promulgation as a point of attention in September 2026. Without promulgation it is not in force.</li>
+ <li><b>What to do now:</b> follow the tenders that are already published. <a href="{{ U('tenders') }}">{{ L('tenders') }}</a></li>
+ <li><b>Sources:</b> <a href="https://www.srherald.com/suriname/2024/11/06/aanbestedingen-overheid-nu-transparanter-en-eerlijker/" rel="noopener">Suriname Herald, 6 November 2024</a>; <a href="https://www.gfcnieuws.com/seob-ziet-economisch-herstel-maar-waarschuwt-voor-overheidsfinancien/" rel="noopener">GFC Nieuws on SEOB bulletin 30, 26 September 2026</a>.</li>
+</ul>
+{% endif %}
+
+<h3>{{ 'Local Content Wet' if nl else 'Local Content Act' }}</h3>
+{% if nl %}
+<p>In november 2025 werd een Local Content Board ingesteld. Volgens de regering gaat een voorontwerp na een validatiesessie met belanghebbenden in 2027 naar DNA, zodat de basis er ligt vóór de eerste olie van GranMorgu in 2028. De Board adviseert over een Local Content Authority en over afstemming met de Investeringswet, de Aanbestedingswet en de Wet Economische Zones. Wil je leveren aan olie en gas, registreer je nu al bij de inkoopportalen. <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> &middot; <a href="https://gov.sr/olie-en-gasontwikkeling-moet-bijdragen-aan-blijvende-kennis-en-capaciteit/" rel="noopener">gov.sr, 30 september 2026</a></p>
+{% else %}
+<p>A Local Content Board was set up in November 2025. According to the government, a preliminary draft goes to parliament in 2027 after a validation session with stakeholders, so the framework is in place before first oil from GranMorgu in 2028. The Board advises on a Local Content Authority and on alignment with the Investment Act, the Procurement Act and the Economic Zones Act. If you want to supply oil and gas, register with the procurement portals now. <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> &middot; <a href="https://gov.sr/olie-en-gasontwikkeling-moet-bijdragen-aan-blijvende-kennis-en-capaciteit/" rel="noopener">gov.sr, 30 September 2026</a></p>
+{% endif %}
+
+<h3>{{ 'Stroomopwekking door derden' if nl else 'Electricity generation by third parties' }}</h3>
+{% if nl %}
+<p>EBS paste in september 2026 structureel loadshedding toe omdat de opwekcapaciteit tekortschoot. In overleg met het bedrijfsleven zei EBS dat het nieuwe juridische kader voor energieopwekking door derden vergevorderd is, maar nog een finale review moet doorlopen. Er is geen datum. Reken intussen op onderbrekingen en overweeg noodstroom of zonne-energie met batterijen voor eigen gebruik. Actuele stroomonderbrekingen: <a href="{{ U('outages') }}">{{ L('outages') }}</a>. <a href="https://www.gfcnieuws.com/vsb-bespreekt-gevolgen-aanhoudende-loadshedding-met-ebs/" rel="noopener">GFC Nieuws, 19 september 2026</a></p>
+{% else %}
+<p>In September 2026 the power company EBS applied structural load shedding because generation capacity fell short. In talks with business groups, EBS said the new legal framework for electricity generation by third parties is well advanced but still needs a final review. There is no date. Meanwhile, expect outages and consider backup power or solar with batteries for your own use. Current power cuts: <a href="{{ U('outages') }}">{{ L('outages') }}</a>. <a href="https://www.gfcnieuws.com/vsb-bespreekt-gevolgen-aanhoudende-loadshedding-met-ebs/" rel="noopener">GFC Nieuws, 19 September 2026</a></p>
+{% endif %}
+
+<h2>{{ 'Wat je nu kunt doen' if nl else 'What you can do now' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Importeur: controleer de HS-codes van je vaste producten tegen S.B. 2026 no. 39 en dien lopende aanvragen vóór 1 november in.</li>
+ <li>Exporteur: verwerk de 35% verkoopplicht in je prijzen en lever elke maand het bewijs aan de Deviezencommissie.</li>
+ <li>Werkgever: controleer dat niemand onder SRD {{ num(F.MIN_WAGE.hour) }} per uur verdient en dat je ongevallenverzekering loopt.</li>
+ <li>Bestuurder van een NV: ken de belastingpositie van je bedrijf en los achterstanden op.</li>
+ <li>Laat contracten en algemene voorwaarden nalopen op het nieuwe BW.</li>
+ <li>Dienstverlener met een merk: voeg vóór 9 juli 2027 je dienstenklassen toe.</li>
+ <li>Maak een overzicht van de persoonsgegevens die je bewaart en wie erbij kan.</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Importer: check the HS codes of your regular products against S.B. 2026 no. 39 and file pending applications before 1 November.</li>
+ <li>Exporter: build the 35% sale obligation into your prices and send proof to the Foreign Exchange Commission every month.</li>
+ <li>Employer: check that nobody earns less than SRD {{ num(F.MIN_WAGE.hour) }} an hour and that your accident insurance is current.</li>
+ <li>Director of an NV: know your company's tax position and clear any arrears.</li>
+ <li>Have contracts and terms and conditions checked against the new Civil Code.</li>
+ <li>Service business with a trademark: add your service classes before 9 July 2027.</li>
+ <li>List the personal data you keep and who has access to it.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Hoe volg je dit' if nl else 'How to keep up' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Staatsblad (S.B.):</b> een wet of besluit geldt pas na afkondiging in het Staatsblad. Het Suriname Rechtsinstituut publiceert de nieuwe Staatsbladen op <a href="https://www.sris.sr/" rel="noopener">sris.sr</a>.</li>
+ <li><b>De Nationale Assemblée:</b> op <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">dna.sr, Ontwerpwetten in behandeling</a> staan per wet de ontwerptekst, de commissieverslagen en, na stemming, de uitslag.</li>
+ <li><b>Ministeries:</b> nieuws en bekendmakingen van EZOTI, Financiën en Planning en Arbeid staan op <a href="https://gov.sr/" rel="noopener">gov.sr</a>; de Belastingdienst publiceert op <a href="https://belastingdienst.sr/" rel="noopener">belastingdienst.sr</a>.</li>
+ <li><b>Ondernemersorganisaties:</b> VSB, ASFA, KKF en de sectorverenigingen worden bij wetsontwerpen gehoord en vragen hun leden om commentaar. Lid zijn geeft je vroeg inzicht en een stem. <a href="{{ U('associations') }}">{{ L('associations') }}</a></li>
+ <li><b>Nieuws:</b> de zakelijke koppen uit de Surinaamse kranten volg je op <a href="{{ U('news') }}">{{ L('news') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Official Gazette (Staatsblad, S.B.):</b> a law or decree only applies once it is published in the Staatsblad. The Suriname Law Institute publishes new issues on <a href="https://www.sris.sr/" rel="noopener">sris.sr</a>.</li>
+ <li><b>National Assembly:</b> <a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">dna.sr, bills under consideration</a> has the draft text, committee reports and, after the vote, the result for each bill.</li>
+ <li><b>Ministries:</b> news and notices from Economic Affairs, Finance and Planning and Labour are on <a href="https://gov.sr/" rel="noopener">gov.sr</a>; the tax office publishes on <a href="https://belastingdienst.sr/" rel="noopener">belastingdienst.sr</a>.</li>
+ <li><b>Business associations:</b> VSB, ASFA, the Chamber of Commerce (KKF) and sector associations are consulted on bills and ask members for comments. Membership gives you early insight and a voice. <a href="{{ U('associations') }}">{{ L('associations') }}</a></li>
+ <li><b>News:</b> follow business headlines from the Surinamese papers on <a href="{{ U('news') }}">{{ L('news') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn container na 1 november vastzit omdat een vergunning ontbreekt?</b> Vraag je expediteur welke vergunning de Douane mist, dien die direct bij de IUD in en vraag schriftelijk om een reden als de zending wordt aangehouden. Houd de opslagkosten bij.</li>
+ <li><b>...ik niet eens ben met een aanslag?</b> Dien binnen de termijn bezwaar in en vraag tegelijk uitstel van betaling voor het betwiste deel. Bezwaar alleen houdt de invordering niet tegen.</li>
+ <li><b>...een wet hier als "aangenomen" staat maar nog niet "van kracht"?</b> Dan wacht ze op afkondiging in het Staatsblad of op een staatsbesluit met de datum van inwerkingtreding. Tot dan gelden de oude regels.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my container is held after 1 November because a licence is missing?</b> Ask your broker which licence Customs is missing, file it with the IUD straight away and ask in writing for the reason if the shipment is held. Keep track of storage costs.</li>
+ <li><b>...I disagree with a tax assessment?</b> File an objection within the deadline and ask for deferral of payment for the disputed part at the same time. An objection alone does not stop collection.</li>
+ <li><b>...a law is listed here as "passed" but not "in force"?</b> Then it is waiting for publication in the Staatsblad or for a state decree setting the date it takes effect. Until then the old rules apply.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-39-Staatsbesluit-houdende-nadere-wijziging-van-het-Besluit-Negatieve-Lijst.pdf" rel="noopener">S.B. 2026 no. 39, wijziging Besluit Negatieve Lijst (20 april 2026)</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">De Nationale Assemblée: ontwerpwetten in behandeling</a></li>
+ <li><a href="https://www.dna.sr/media/pmyjo0yn/26-1603-pres-rep-sur-aanb-eindverslag-algemene-wet-belastingen.pdf" rel="noopener">DNA: eindverslag Algemene Wet Belastingen (25 augustus 2026)</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-invorderingswet/" rel="noopener">DNA: ontwerp Invorderingswet met eindverslag (6 oktober 2026)</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-algemene-douanewet-2026/" rel="noopener">DNA: ontwerp Algemene Douanewet 2026</a></li>
+ <li><a href="https://www.dna.sr/media/2qdfun0x/bv-cie-163-ondernemingsraadpelging-en-ongevallenregeling-5-augustus-26.pdf" rel="noopener">DNA: commissieverslag Ondernemingsraadpleging en Ongevallenregeling (5 augustus 2026)</a></li>
+ <li><a href="https://www.dna.sr/media/2w5lbamt/wet_bescherming_privacy_en_persoonsgegevens.pdf" rel="noopener">DNA: ontwerp Wet Bescherming Privacy en Persoonsgegevens</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">Burgerlijk Wetboek, S.B. 2024 no. 164</a></li>
+ <li><a href="https://gov.sr/olie-en-gasontwikkeling-moet-bijdragen-aan-blijvende-kennis-en-capaciteit/" rel="noopener">gov.sr: jaarrede over olie, gas en local content (30 september 2026)</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/28/bedrijfsleven-krijgt-tot-november-ruimte-voor-bestaande-importprocedures/" rel="noopener">De West: bestaande importprocedures tot november (28 september 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94404" rel="noopener">Starnieuws: onduidelijkheid nieuwe importregels (17 oktober 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93456" rel="noopener">Starnieuws: nieuwe retentieregeling A.B. no. 228 (augustus 2026)</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/12/lau-wil-grens-aan-invorderingskosten-srd-100-000-voor-een-dwangbevel-ter-discussie/" rel="noopener">Suriname Herald: invorderingskosten (12 oktober 2026)</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94157" rel="noopener">Starnieuws: belastingopbrengsten 2027 (1 oktober 2026)</a></li>
+ <li><a href="https://spoor.com/suriname-introduces-registration-and-protection-for-service-marks/" rel="noopener">Spoor &amp; Fisher: service marks in Suriname (oktober 2026)</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. Een ontwerpwet kan nog veranderen; controleer de tekst in het Staatsblad.' if nl else 'General information, not legal advice. A bill can still change; check the text in the Official Gazette.' }}</p>
+</div>
+{% endblock %}

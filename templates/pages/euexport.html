@@ -1,0 +1,337 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'EU-regels voor Surinaamse leveranciers' if nl else 'EU rules for Surinamese suppliers' }}</h1>
+{% if nl %}
+<p class="lead">Europese wetten gelden niet in Suriname, maar je Europese klant moet eraan voldoen en geeft de eisen aan jou door: via contracten, vragenlijsten en audits. Voor wie hout, cacao of koffie naar de EU levert, geldt vanaf 30 december 2026 de ontbossingsverordening (EUDR). Wie IT- of andere diensten levert aan Nederlandse organisaties, krijgt vragen op grond van de Cyberbeveiligingswet (sinds 15 augustus 2026) en de AVG. Vanaf 14 december 2027 geldt het EU-verbod op producten gemaakt met dwangarbeid.</p>
+{% else %}
+<p class="lead">European laws do not apply in Suriname, but your European customer must comply and passes the requirements on to you: through contracts, questionnaires and audits. If you supply timber, cocoa or coffee to the EU, the Deforestation Regulation (EUDR) applies from 30 December 2026. If you supply IT or other services to Dutch organisations, expect questions under the Dutch Cybersecurity Act (in force since 15 August 2026) and the GDPR. From 14 December 2027 the EU ban on products made with forced labour applies.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">EUDR</div><div class="big">{{ '30 dec' if nl else '30 Dec' }}</div><div class="sub">{{ '2026, grote en middelgrote EU-bedrijven' if nl else '2026, large and medium EU companies' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'NIS2 in Nederland' if nl else 'NIS2 in the Netherlands' }}</div><div class="big">{{ '15 aug' if nl else '15 Aug' }}</div><div class="sub">{{ '2026, Cyberbeveiligingswet van kracht' if nl else '2026, Cybersecurity Act in force' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Dwangarbeid' if nl else 'Forced labour' }}</div><div class="big">{{ '14 dec' if nl else '14 Dec' }}</div><div class="sub">{{ '2027, verbod op de EU-markt' if nl else '2027, ban on the EU market' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>EUDR</b>: hout, cacao, koffie, palmolie, rubber, soja en runderen. Je koper vraagt de GPS-locatie van elk perceel en bewijs van legale, ontbossingsvrije productie (geen ontbossing na 31 december 2020). Suriname staat bij de EU als laag risico ingedeeld; dat maakt het voor je koper eenvoudiger, maar de geolocatie blijft nodig.</li>
+ <li><b>NIS2 / Cyberbeveiligingswet</b>: je klant moet zijn leveranciers beoordelen. Verwacht een securityvragenlijst en contractbepalingen over beveiliging en incidentmeldingen.</li>
+ <li><b>AVG (GDPR)</b>: geldt direct voor je als je Europeanen bedient of data verwerkt voor een EU-klant. Je klant eist een verwerkersovereenkomst en meestal standaardcontractbepalingen.</li>
+ <li><b>Voedsel</b>: EU-grenscontroles, maximale residuniveaus voor bestrijdingsmiddelen, contaminanten en etiketregels. Laat vooraf testen.</li>
+ <li><b>CSRD en CSDDD</b> zijn in februari 2026 sterk ingeperkt. Kleine leveranciers hoeven veel minder te leveren dan eerst gedacht.</li>
+ <li><b>CBAM</b> (koolstofheffing aan de grens) raakt alleen staal, aluminium, cement, kunstmest, waterstof en elektriciteit: voor de meeste Surinaamse exporteurs niet relevant.</li>
+{% else %}
+ <li><b>EUDR</b>: timber, cocoa, coffee, palm oil, rubber, soy and cattle. Your buyer asks for the GPS location of every plot and evidence of legal, deforestation-free production (no deforestation after 31 December 2020). The EU classifies Suriname as low risk; that makes things simpler for your buyer, but geolocation is still required.</li>
+ <li><b>NIS2 / Dutch Cybersecurity Act</b>: your customer must assess its suppliers. Expect a security questionnaire and contract clauses on security and incident reporting.</li>
+ <li><b>GDPR</b>: applies to you directly if you serve people in the EU or process data for an EU customer. Your customer will require a data processing agreement and usually Standard Contractual Clauses.</li>
+ <li><b>Food</b>: EU border checks, maximum residue levels for pesticides, contaminants and labelling rules. Test before you ship.</li>
+ <li><b>CSRD and CSDDD</b> were cut back sharply in February 2026. Small suppliers have to provide much less than first expected.</li>
+ <li><b>CBAM</b> (carbon border charge) only covers steel, aluminium, cement, fertiliser, hydrogen and electricity: not relevant for most Surinamese exporters.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Waarom EU-regels jou raken' if nl else 'Why EU rules reach you' }}</h2>
+{% if nl %}
+<p>Een Europees bedrijf dat een product op de EU-markt brengt of een dienst inkoopt, is zelf verantwoordelijk voor de naleving. Kan het niet aantonen dat jouw product of dienst aan de regels voldoet, dan riskeert het boetes of mag het je product niet verkopen. Dus legt het de verplichting door in de keten: in het inkoopcontract, in een leveranciersgedragscode, in een vragenlijst of tijdens een audit. Voor jou is dat geen wettelijke plicht, maar een commerciële: wie niet kan aantonen, verliest de klant.</p>
+<p>Het overzicht hieronder laat zien welke regel wie raakt. Data zijn de stand van {{ date('2026-10-26') }}; veel van deze regels zijn in 2025 en 2026 uitgesteld of versoepeld, dus controleer de stand voordat je investeert.</p>
+<table class="tbl stack tx"><thead><tr><th>Regel</th><th>Wie in Suriname merkt het</th><th>Vanaf</th><th>Wat je klant vraagt</th></tr></thead><tbody>
+ <tr><td data-l="Regel"><b>EUDR</b> (ontbossing)</td><td data-l="Wie in Suriname merkt het">Exporteurs van hout en houtproducten, cacao, koffie, palmolie, rubber, soja, rundvee</td><td data-l="Vanaf">30 december 2026; micro en klein (niet-hout) 30 juni 2027</td><td data-l="Wat je klant vraagt">Geolocatie van percelen, bewijs van legaliteit, ketendocumenten</td></tr>
+ <tr><td data-l="Regel"><b>NIS2 / Cbw</b> (cybersecurity)</td><td data-l="Wie in Suriname merkt het">IT-bedrijven, softwareontwikkelaars, callcenters en backoffices, hosting, iedereen met toegang tot klantsystemen of -data</td><td data-l="Vanaf">Nederland: 15 augustus 2026</td><td data-l="Wat je klant vraagt">Securityvragenlijst, contractaddendum, bewijs van maatregelen, snelle incidentmelding</td></tr>
+ <tr><td data-l="Regel"><b>AVG / GDPR</b> (privacy)</td><td data-l="Wie in Suriname merkt het">Webwinkels en reisbureaus met EU-klanten, dataverwerkers voor EU-bedrijven</td><td data-l="Vanaf">Sinds 25 mei 2018</td><td data-l="Wat je klant vraagt">Verwerkersovereenkomst, standaardcontractbepalingen, beveiligingsmaatregelen</td></tr>
+ <tr><td data-l="Regel"><b>Voedselveiligheid</b></td><td data-l="Wie in Suriname merkt het">Exporteurs van vis, garnalen, groente, fruit, kruiden, rijst en verwerkte voeding</td><td data-l="Vanaf">Geldt al</td><td data-l="Wat je klant vraagt">Analyserapporten, certificaten, etiket volgens EU-regels, traceerbaarheid</td></tr>
+ <tr><td data-l="Regel"><b>Dwangarbeid</b></td><td data-l="Wie in Suriname merkt het">Alle exporteurs naar de EU, vooral in arbeidsintensieve ketens</td><td data-l="Vanaf">14 december 2027</td><td data-l="Wat je klant vraagt">Beleid, contracten, loonadministratie, lijst van onderaannemers</td></tr>
+ <tr><td data-l="Regel"><b>CSRD / CSDDD</b></td><td data-l="Wie in Suriname merkt het">Leveranciers van zeer grote EU-concerns</td><td data-l="Vanaf">Gefaseerd, CSDDD vanaf 26 juli 2029</td><td data-l="Wat je klant vraagt">Beperkte duurzaamheidsgegevens: energie, emissies, personeel</td></tr>
+ <tr><td data-l="Regel"><b>CBAM</b></td><td data-l="Wie in Suriname merkt het">Zelden: alleen exporteurs van staal, aluminium, cement, kunstmest</td><td data-l="Vanaf">1 januari 2026</td><td data-l="Wat je klant vraagt">Emissiegegevens per installatie</td></tr>
+</tbody></table>
+{% else %}
+<p>A European company that places a product on the EU market or buys a service is itself responsible for compliance. If it cannot show that your product or service meets the rules, it risks fines or may not sell your product. So it passes the obligation down the chain: in the purchase contract, a supplier code of conduct, a questionnaire or an audit. For you this is not a legal duty but a commercial one: if you cannot show it, you lose the customer.</p>
+<p>The overview below shows which rule affects whom. Dates are as of {{ date('2026-10-26') }}; many of these rules were postponed or relaxed in 2025 and 2026, so check the current status before you invest.</p>
+<table class="tbl stack tx"><thead><tr><th>Rule</th><th>Who in Suriname notices it</th><th>From</th><th>What your customer asks</th></tr></thead><tbody>
+ <tr><td data-l="Rule"><b>EUDR</b> (deforestation)</td><td data-l="Who in Suriname notices it">Exporters of timber and wood products, cocoa, coffee, palm oil, rubber, soy, cattle</td><td data-l="From">30 December 2026; micro and small (non-timber) 30 June 2027</td><td data-l="What your customer asks">Geolocation of plots, proof of legality, chain documents</td></tr>
+ <tr><td data-l="Rule"><b>NIS2 / Dutch Cbw</b> (cybersecurity)</td><td data-l="Who in Suriname notices it">IT firms, software developers, call centres and back offices, hosting, anyone with access to customer systems or data</td><td data-l="From">Netherlands: 15 August 2026</td><td data-l="What your customer asks">Security questionnaire, contract addendum, evidence of measures, fast incident reporting</td></tr>
+ <tr><td data-l="Rule"><b>GDPR</b> (privacy)</td><td data-l="Who in Suriname notices it">Web shops and travel agencies with EU customers, data processors for EU companies</td><td data-l="From">Since 25 May 2018</td><td data-l="What your customer asks">Data processing agreement, Standard Contractual Clauses, security measures</td></tr>
+ <tr><td data-l="Rule"><b>Food safety</b></td><td data-l="Who in Suriname notices it">Exporters of fish, shrimp, vegetables, fruit, herbs, rice and processed food</td><td data-l="From">Already applies</td><td data-l="What your customer asks">Lab reports, certificates, EU-compliant label, traceability</td></tr>
+ <tr><td data-l="Rule"><b>Forced labour</b></td><td data-l="Who in Suriname notices it">All exporters to the EU, especially in labour-intensive chains</td><td data-l="From">14 December 2027</td><td data-l="What your customer asks">Policies, contracts, payroll records, list of subcontractors</td></tr>
+ <tr><td data-l="Rule"><b>CSRD / CSDDD</b></td><td data-l="Who in Suriname notices it">Suppliers to very large EU groups</td><td data-l="From">Phased, CSDDD from 26 July 2029</td><td data-l="What your customer asks">Limited sustainability data: energy, emissions, staff</td></tr>
+ <tr><td data-l="Rule"><b>CBAM</b></td><td data-l="Who in Suriname notices it">Rarely: only exporters of steel, aluminium, cement, fertiliser</td><td data-l="From">1 January 2026</td><td data-l="What your customer asks">Emissions data per installation</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'EUDR: ontbossingsvrije producten' if nl else 'EUDR: deforestation-free products' }}</h2>
+{% if nl %}
+<p>De EU-ontbossingsverordening (Verordening (EU) 2023/1115) verbiedt het op de EU-markt brengen of uit de EU uitvoeren van zeven grondstoffen en producten daarvan, tenzij ze <b>ontbossingsvrij</b> zijn (geen ontbossing of bosdegradatie na 31 december 2020), <b>legaal</b> zijn geproduceerd volgens de wetten van het productieland, en gedekt zijn door een <b>zorgvuldigheidsverklaring</b> van het bedrijf dat ze in de EU op de markt brengt.</p>
+<h3>Welke producten</h3>
+<p>Rundvee, cacao, koffie, oliepalm, rubber, soja en hout, plus afgeleide producten zoals chocolade, meubels, papier, houtskool en vele houtproducten. De lijst is in 2025 en 2026 aangepast: gedrukte producten zoals boeken vielen eruit (december 2025), en per 18 september 2026 zijn onder meer leer, gecoverde banden en bepaalde rubberartikelen uit de lijst gehaald. Oplosbare koffie, bepaalde palmoliederivaten en bevroren rundertongen komen er per 30 december 2027 bij. Controleer de GN-code van je product in de bijlage van de verordening.</p>
+<h3>Data</h3>
+<ul>
+ <li><b>30 december 2026</b>: grote en middelgrote bedrijven en handelaren, en micro- en kleine bedrijven in de houtsector.</li>
+ <li><b>30 juni 2027</b>: micro- en kleine bedrijven buiten de houtsector.</li>
+ <li>Dit is het gevolg van twee uitstellen (december 2024 en Verordening (EU) 2025/2650 van december 2025). Bij de vereenvoudigingsronde van 4 mei 2026 bevestigde de Europese Commissie dat er geen nieuw uitstel komt.</li>
+</ul>
+<h3>Wat Suriname als "laag risico" betekent</h3>
+<p>De Europese Commissie deelt landen in als laag, standaard of hoog risico. Suriname (en ook Guyana) staat in de categorie <b>laag risico</b>. Je EU-klant mag dan een vereenvoudigde zorgvuldigheid toepassen: hij moet de informatie verzamelen, maar hoeft geen volledige risicobeoordeling en risicobeperking te doen, tenzij er gegronde aanwijzingen van problemen zijn. De geolocatie en het bewijs van legaliteit blijven dus nodig. De indeling wordt periodiek herzien.</p>
+<h3>Wat je klant van jou vraagt</h3>
+<ul>
+ <li><b>Geolocatie</b> van elk perceel waar de grondstof is geproduceerd: GPS-coördinaten, en bij percelen groter dan 4 hectare (behalve voor rundvee) een polygoon met de grenzen.</li>
+ <li><b>Bewijs van legaliteit</b>: concessie, kapvergunning of grondtitel, SBB-documenten voor hout, en naleving van onder meer milieu-, arbeids- en belastingwetten.</li>
+ <li><b>Ketengegevens</b>: hoeveelheid, productiedatum of -periode, leveranciers en kopers, zodat de partij te herleiden is tot de percelen.</li>
+ <li>Soms <b>satellietbeelden</b> of een verklaring dat er na 2020 geen bos is gekapt op die percelen.</li>
+</ul>
+<p>Voor Surinaamse exporteurs gaat het vooral om hout en houtproducten. Wie hout uitvoert naar Azië of de regio, valt er niet onder; alleen wat de EU binnenkomt telt. Exportprocedures en SBB-keuring: <a href="{{ U('export') }}">{{ L('export') }}</a>. Landbouw: <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+{% else %}
+<p>The EU Deforestation Regulation (Regulation (EU) 2023/1115) bans placing on the EU market, or exporting from the EU, seven commodities and products made from them unless they are <b>deforestation-free</b> (no deforestation or forest degradation after 31 December 2020), <b>legally</b> produced under the laws of the country of production, and covered by a <b>due diligence statement</b> from the company placing them on the EU market.</p>
+<h3>Which products</h3>
+<p>Cattle, cocoa, coffee, oil palm, rubber, soy and wood, plus derived products such as chocolate, furniture, paper, charcoal and many wood products. The list changed in 2025 and 2026: printed products such as books were removed (December 2025), and from 18 September 2026 leather, retreaded tyres and certain rubber articles, among others, were taken off the list. Soluble coffee, certain palm oil derivatives and frozen cattle tongues are added from 30 December 2027. Check your product's CN code in the annex to the regulation.</p>
+<h3>Dates</h3>
+<ul>
+ <li><b>30 December 2026</b>: large and medium-sized companies and traders, and micro and small companies in the timber sector.</li>
+ <li><b>30 June 2027</b>: micro and small companies outside the timber sector.</li>
+ <li>This follows two postponements (December 2024 and Regulation (EU) 2025/2650 of December 2025). In its simplification review of 4 May 2026 the European Commission confirmed there will be no further delay.</li>
+</ul>
+<h3>What "low risk" for Suriname means</h3>
+<p>The European Commission classifies countries as low, standard or high risk. Suriname (and Guyana) are in the <b>low risk</b> category. Your EU customer may then apply simplified due diligence: it must collect the information but need not carry out a full risk assessment and risk mitigation, unless there are substantiated concerns. Geolocation and proof of legality are therefore still required. The classification is reviewed periodically.</p>
+<h3>What your customer asks you for</h3>
+<ul>
+ <li><b>Geolocation</b> of every plot where the commodity was produced: GPS coordinates, and for plots larger than 4 hectares (except for cattle) a polygon of the boundaries.</li>
+ <li><b>Proof of legality</b>: concession, logging permit or land title, SBB documents for timber, and compliance with environmental, labour and tax laws among others.</li>
+ <li><b>Chain data</b>: quantity, date or period of production, suppliers and buyers, so the batch can be traced back to the plots.</li>
+ <li>Sometimes <b>satellite images</b> or a statement that no forest was cleared on those plots after 2020.</li>
+</ul>
+<p>For Surinamese exporters this is mainly about timber and wood products. If you export timber to Asia or the region you are not covered; only what enters the EU counts. Export procedures and SBB inspection: <a href="{{ U('export') }}">{{ L('export') }}</a>. Agriculture: <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'NIS2 en de Nederlandse Cyberbeveiligingswet' if nl else 'NIS2 and the Dutch Cybersecurity Act' }}</h2>
+{% if nl %}
+<p>De Europese NIS2-richtlijn (2022/2555) verplicht organisaties in sectoren als energie, transport, bankwezen, zorg, drinkwater, digitale infrastructuur en ICT-dienstverlening tot goede cybersecurity. Nederland heeft NIS2 uitgewerkt in de <b>Cyberbeveiligingswet (Cbw)</b>, die volgens het Nationaal Cyber Security Centrum op <b>15 augustus 2026</b> in werking is getreden. Andere EU-landen hebben eigen NIS2-wetten met andere data.</p>
+<p>De Cbw geldt niet in Suriname. Maar een organisatie die eronder valt, moet een risicoanalyse maken, passende maatregelen nemen en ook de beveiliging in haar <b>toeleveringsketen</b> regelen: eisen stellen aan leveranciers en toezien dat die worden nageleefd. Dat raakt Surinaamse bedrijven die IT-beheer, software, hosting, callcenter- of backofficewerk doen voor Nederlandse klanten. Wie persoonsgegevens verwerkt of toegang heeft tot systemen van de klant, krijgt de vragen als eerste.</p>
+<h3>Wat je kunt verwachten</h3>
+<ul>
+ <li>Een securityvragenlijst of leveranciersbeoordeling, vaak jaarlijks.</li>
+ <li>Een contractaddendum met eisen over toegangsbeheer, versleuteling, back-ups, logging en het melden van incidenten. NIS2-organisaties moeten een significant incident binnen 24 uur vroegtijdig melden bij hun CSIRT; zij willen het dus van jou nog sneller horen.</li>
+ <li>Het verzoek om bewijs: beleid, een verantwoordelijke, testrapporten, trainingsregistratie, eventueel een ISO 27001-certificaat.</li>
+</ul>
+{% else %}
+<p>The European NIS2 Directive (2022/2555) requires organisations in sectors such as energy, transport, banking, health, drinking water, digital infrastructure and ICT service management to have proper cybersecurity. The Netherlands implemented NIS2 in the <b>Cybersecurity Act (Cyberbeveiligingswet, Cbw)</b>, which according to the National Cyber Security Centre entered into force on <b>15 August 2026</b>. Other EU countries have their own NIS2 laws with other dates.</p>
+<p>The Cbw does not apply in Suriname. But an organisation covered by it must carry out a risk analysis, take appropriate measures and also manage security in its <b>supply chain</b>: set requirements for suppliers and check they are met. That affects Surinamese companies doing IT management, software, hosting, call centre or back-office work for Dutch customers. Suppliers that process personal data or have access to customer systems get the questions first.</p>
+<h3>What to expect</h3>
+<ul>
+ <li>A security questionnaire or supplier assessment, often yearly.</li>
+ <li>A contract addendum with requirements on access control, encryption, backups, logging and incident reporting. NIS2 organisations must send an early warning of a significant incident to their CSIRT within 24 hours, so they want to hear it from you even faster.</li>
+ <li>A request for evidence: policies, a named person in charge, test reports, training records, possibly an ISO 27001 certificate.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'AVG (GDPR): persoonsgegevens van Europeanen' if nl else 'GDPR: personal data of Europeans' }}</h2>
+{% if nl %}
+<p>De Algemene Verordening Gegevensbescherming (Verordening (EU) 2016/679) geldt op twee manieren voor Surinaamse bedrijven:</p>
+<ul>
+ <li><b>Direct</b>, als je goederen of diensten aanbiedt aan mensen in de EU (een webwinkel die naar Nederland levert, een reisbureau of resort dat Europese gasten werft) of hun gedrag online volgt (artikel 3 lid 2). Dan moet je in principe ook een vertegenwoordiger in de EU aanwijzen (artikel 27), met beperkte uitzonderingen voor incidentele verwerking.</li>
+ <li><b>Via je klant</b>, als je persoonsgegevens verwerkt in opdracht van een EU-bedrijf: salarisadministratie, klantenservice, IT-beheer, data-invoer. Je bent dan verwerker. Je klant moet een verwerkersovereenkomst met je sluiten (artikel 28) en mag de gegevens alleen naar Suriname doorgeven met een geldig instrument, omdat de EU geen adequaatheidsbesluit voor Suriname heeft. In de praktijk zijn dat de <b>standaardcontractbepalingen</b> van de Europese Commissie.</li>
+</ul>
+<p>Boetes kunnen oplopen tot EUR 20 miljoen of 4% van de wereldwijde jaaromzet. Suriname werkt aan een eigen wet op de bescherming van persoonsgegevens; zie <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>. Hoe deze site zelf met gegevens omgaat, staat op onze <a href="{{ U('privacy') }}">{{ L('privacy') }}</a>-pagina.</p>
+{% else %}
+<p>The General Data Protection Regulation (Regulation (EU) 2016/679) applies to Surinamese companies in two ways:</p>
+<ul>
+ <li><b>Directly</b>, if you offer goods or services to people in the EU (a web shop delivering to the Netherlands, a travel agency or resort marketing to European guests) or monitor their behaviour online (article 3(2)). In principle you must then also appoint a representative in the EU (article 27), with limited exceptions for occasional processing.</li>
+ <li><b>Through your customer</b>, if you process personal data on behalf of an EU company: payroll, customer service, IT management, data entry. You are then a processor. Your customer must sign a data processing agreement with you (article 28) and may only transfer the data to Suriname with a valid transfer tool, because the EU has no adequacy decision for Suriname. In practice that means the European Commission's <b>Standard Contractual Clauses</b>.</li>
+</ul>
+<p>Fines can reach EUR 20 million or 4% of worldwide annual turnover. Suriname is working on its own personal data protection law; see <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>. How this site handles data is on our <a href="{{ U('privacy') }}">{{ L('privacy') }}</a> page.</p>
+{% endif %}
+
+<h2>{{ 'Voedsel: veiligheid, residuen en etiket' if nl else 'Food: safety, residues and labelling' }}</h2>
+{% if nl %}
+<p>Voor voedsel gelden de strengste EU-regels, en die controleert de EU aan de grens zelf (Verordening (EU) 2017/625 over officiële controles):</p>
+<ul>
+ <li><b>Dierlijke producten</b> (vis, garnalen, vlees, honing) mogen alleen de EU in uit landen en bedrijven die de EU heeft goedgekeurd, met een officieel gezondheidscertificaat, via een grenscontrolepost. Voor vis is het Viskeuringsinstituut (VKI) de bevoegde autoriteit en is ook een vangstcertificaat tegen illegale visserij nodig.</li>
+ <li><b>Residuen van bestrijdingsmiddelen</b>: de EU stelt maximumresidugehalten vast per stof en product (Verordening (EG) nr. 396/2005). Staat er voor een stof geen specifieke norm, dan geldt een standaardlimiet van 0,01 mg/kg. Een middel dat in Suriname is toegestaan, kan in de EU verboden zijn.</li>
+ <li><b>Contaminanten</b>: maximumgehalten voor onder meer aflatoxinen, zware metalen in vis en PAK's (Verordening (EU) 2023/915).</li>
+ <li><b>Planten en verse producten</b>: een fytosanitair certificaat van LVV en de EU-plantgezondheidsregels; voor sommige vruchten aanvullende eisen, zoals bij mango's (zie <a href="{{ U('export') }}">{{ L('export') }}</a>).</li>
+ <li><b>Etiket</b> (Verordening (EU) nr. 1169/2011): in de taal van het EU-land, met benaming, ingrediënten, allergenen in de ingrediëntenlijst benadrukt, netto-hoeveelheid, houdbaarheidsdatum, bewaarvoorschriften, naam en adres van de verantwoordelijke en waar nodig het land van oorsprong.</li>
+</ul>
+<p>Voor bepaalde producten uit bepaalde landen geldt een tijdelijk verhoogde controlefrequentie (Uitvoeringsverordening (EU) 2019/1793). Suriname stond niet op die lijst bij de wijziging van januari 2026 die wij hebben gecontroleerd. Een afgekeurde zending komt wel in het Europese waarschuwingssysteem RASFF, en herhaalde afkeuringen kunnen tot strengere controles leiden. Laat daarom vóór verscheping testen in een geaccrediteerd laboratorium en vraag je koper welke residuen hij zelf controleert.</p>
+{% else %}
+<p>Food faces the strictest EU rules, and the EU checks them at its own border (Regulation (EU) 2017/625 on official controls):</p>
+<ul>
+ <li><b>Animal products</b> (fish, shrimp, meat, honey) may only enter the EU from countries and establishments approved by the EU, with an official health certificate, through a border control post. For fish the Fish Inspection Institute (VKI) is the competent authority, and a catch certificate against illegal fishing is also required.</li>
+ <li><b>Pesticide residues</b>: the EU sets maximum residue levels per substance and product (Regulation (EC) No 396/2005). Where there is no specific limit for a substance, a default limit of 0.01 mg/kg applies. A product allowed in Suriname may be banned in the EU.</li>
+ <li><b>Contaminants</b>: maximum levels for, among others, aflatoxins, heavy metals in fish and PAHs (Regulation (EU) 2023/915).</li>
+ <li><b>Plants and fresh produce</b>: a phytosanitary certificate from Agriculture (LVV) and EU plant health rules; some fruits have extra requirements, as with mangoes (see <a href="{{ U('export') }}">{{ L('export') }}</a>).</li>
+ <li><b>Label</b> (Regulation (EU) No 1169/2011): in the language of the EU country, with name, ingredients, allergens emphasised in the ingredients list, net quantity, date of minimum durability or use-by date, storage conditions, name and address of the responsible operator and, where required, the country of origin.</li>
+</ul>
+<p>Certain products from certain countries face temporarily increased checks (Implementing Regulation (EU) 2019/1793). Suriname was not on that list in the January 2026 amendment we checked. A rejected shipment does go into the EU alert system RASFF, and repeated rejections can lead to stricter checks. So test before shipping in an accredited laboratory and ask your buyer which residues it checks itself.</p>
+{% endif %}
+
+<h2>{{ 'CSRD en CSDDD na de Omnibus' if nl else 'CSRD and CSDDD after the Omnibus' }}</h2>
+{% if nl %}
+<p>De duurzaamheidsrapportage (CSRD) en de zorgplicht voor ketens (CSDDD) zijn met de zogeheten Omnibus I-richtlijn flink ingeperkt. Die werd op 26 februari 2026 gepubliceerd en trad op 18 maart 2026 in werking:</p>
+<ul>
+ <li><b>CSRD</b> geldt nog voor EU-bedrijven of -groepen met meer dan 1.000 werknemers en meer dan EUR 450 miljoen netto-omzet (plus bepaalde niet-EU-groepen met grote EU-omzet). EU-landen moeten dit uiterlijk 19 maart 2027 omzetten.</li>
+ <li>Er is een <b>waardeketenplafond</b>: een rapporterend bedrijf mag van ketenpartners met minder dan 1.000 werknemers maar beperkt informatie eisen. Vraagt een klant veel meer, dan mag je vragen waarop dat verzoek is gebaseerd.</li>
+ <li><b>CSDDD</b> geldt alleen nog voor bedrijven met meer dan 5.000 werknemers en meer dan EUR 1,5 miljard omzet, en pas vanaf <b>26 juli 2029</b>.</li>
+</ul>
+<p>Toch blijven duurzaamheidsvragenlijsten komen: van grote klanten met eigen beleid, van banken, en via keurmerken zoals FSC voor hout. Een paar basisgegevens bij de hand hebben bespaart veel werk: energie- en brandstofverbruik per jaar, aantal werknemers, ongevallen, en je beleid op milieu, veiligheid en arbeid.</p>
+{% else %}
+<p>Sustainability reporting (CSRD) and supply chain due diligence (CSDDD) were cut back sharply by the so-called Omnibus I Directive, published on 26 February 2026 and in force since 18 March 2026:</p>
+<ul>
+ <li><b>CSRD</b> now applies to EU companies or groups with more than 1,000 employees and more than EUR 450 million net turnover (plus certain non-EU groups with large EU turnover). Member states must transpose this by 19 March 2027.</li>
+ <li>There is a <b>value chain cap</b>: a reporting company may only ask limited information from value chain partners with fewer than 1,000 employees. If a customer asks for much more, you may ask what the request is based on.</li>
+ <li><b>CSDDD</b> now only applies to companies with more than 5,000 employees and more than EUR 1.5 billion turnover, and only from <b>26 July 2029</b>.</li>
+</ul>
+<p>Sustainability questionnaires will keep coming anyway: from large customers with their own policies, from banks, and through labels such as FSC for timber. Having some basic data ready saves a lot of work: yearly energy and fuel use, number of employees, accidents, and your policies on environment, safety and labour.</p>
+{% endif %}
+
+<h2>{{ 'Verbod op producten gemaakt met dwangarbeid' if nl else 'Ban on products made with forced labour' }}</h2>
+{% if nl %}
+<p>Verordening (EU) 2024/3015 verbiedt het op de EU-markt brengen, en het uitvoeren uit de EU, van producten waarbij in enig stadium dwangarbeid is gebruikt. Het verbod geldt vanaf <b>14 december 2027</b>, voor alle producten en alle bedrijfsgrootten. Autoriteiten onderzoeken op basis van risico; is een verbod vastgesteld, dan moet het product van de markt. De Europese Commissie publiceerde op 26 juni 2026 richtsnoeren, en besluiten worden gepubliceerd op een centraal portaal.</p>
+<p>Je klant wil daarom laten zien dat er in zijn keten geen dwangarbeid zit. Verwacht vragen over werving (geen wervingskosten voor werknemers, geen ingehouden paspoorten), arbeidscontracten, loonbetaling, werktijden, onderaannemers en een klachtenregeling. Sectoren met een hoger risico zijn onder meer mijnbouw, visserij, landbouw, bosbouw en bouw. Arbeidswetten in Suriname: <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% else %}
+<p>Regulation (EU) 2024/3015 bans placing on the EU market, and exporting from the EU, products made with forced labour at any stage. The ban applies from <b>14 December 2027</b>, to all products and all company sizes. Authorities investigate on a risk basis; once a ban is decided, the product must be taken off the market. The European Commission published guidelines on 26 June 2026, and decisions are published on a central portal.</p>
+<p>Your customer will therefore want to show there is no forced labour in its chain. Expect questions on recruitment (no recruitment fees charged to workers, no retained passports), employment contracts, wage payment, working hours, subcontractors and a grievance procedure. Higher-risk sectors include mining, fishing, agriculture, forestry and construction. Labour law in Suriname: <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'CBAM: koolstofheffing aan de grens' if nl else 'CBAM: carbon border charge' }}</h2>
+{% if nl %}
+<p>Het Carbon Border Adjustment Mechanism (Verordening (EU) 2023/956) belast de CO2-uitstoot van geïmporteerd ijzer en staal, aluminium, cement, kunstmest, waterstof en elektriciteit. Sinds <b>1 januari 2026</b> geldt de definitieve fase. Na de vereenvoudiging van oktober 2025 (Verordening (EU) 2025/2083) is een importeur vrijgesteld als hij per jaar niet meer dan 50 ton CBAM-goederen invoert (niet voor elektriciteit en waterstof). De importeur koopt vanaf februari 2027 certificaten voor de invoer van 2026 en dient zijn eerste jaaraangifte uiterlijk 30 september 2027 in.</p>
+<p>Suriname voert deze goederen nauwelijks naar de EU uit. Lever je toch staal- of aluminiumproducten, dan vraagt je klant de werkelijke uitstoot per installatie; heb je die niet, dan rekent hij met standaardwaarden van de Commissie, die meestal hoger uitvallen.</p>
+{% else %}
+<p>The Carbon Border Adjustment Mechanism (Regulation (EU) 2023/956) charges for the CO2 emissions of imported iron and steel, aluminium, cement, fertiliser, hydrogen and electricity. The definitive phase has applied since <b>1 January 2026</b>. After the simplification of October 2025 (Regulation (EU) 2025/2083) an importer is exempt if it imports no more than 50 tonnes of CBAM goods a year (not for electricity and hydrogen). The importer buys certificates from February 2027 for 2026 imports and files its first annual declaration by 30 September 2027.</p>
+<p>Suriname hardly exports these goods to the EU. If you do supply steel or aluminium products, your customer will ask for actual emissions per installation; without them it uses the Commission's default values, which usually come out higher.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap: zo pak je een vragenlijst aan' if nl else 'Step by step: handling a customer questionnaire' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Vraag welke regel erachter zit.</b> EUDR, Cbw, AVG of eigen beleid van de klant? Dan weet je wat echt verplicht is en wat een wens is.</li>
+ <li><b>Wijs één verantwoordelijke aan</b> die de antwoorden coördineert en bijhoudt wat je hebt toegezegd.</li>
+ <li><b>Verzamel bewijs in één map</b>: vergunningen, kaarten en coördinaten, beleid, certificaten, testrapporten, contracten met onderaannemers.</li>
+ <li><b>Antwoord eerlijk.</b> Zeg wat je wel en niet hebt, en geef een datum voor wat ontbreekt. Een te mooi antwoord dat later niet klopt, kost je de klant.</li>
+ <li><b>Lees contractbepalingen goed</b> voordat je tekent: meldtermijnen, auditrechten, aansprakelijkheid en boeteclausules. Laat ze zo nodig aanpassen.</li>
+ <li><b>Bespreek de kosten.</b> GPS-metingen, laboratoriumtests en certificering kosten geld. Grote klanten betalen soms mee of bieden hulp.</li>
+ <li><b>Houd het bij.</b> Zet een herinnering voor jaarlijkse vragenlijsten en verlopende certificaten.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Ask which rule is behind it.</b> EUDR, Dutch Cbw, GDPR or the customer's own policy? Then you know what is really required and what is a wish.</li>
+ <li><b>Appoint one person</b> to coordinate the answers and track what you have promised.</li>
+ <li><b>Collect evidence in one folder</b>: permits, maps and coordinates, policies, certificates, test reports, contracts with subcontractors.</li>
+ <li><b>Answer honestly.</b> Say what you do and do not have, and give a date for what is missing. An answer that is too good and later proves wrong will cost you the customer.</li>
+ <li><b>Read contract clauses carefully</b> before you sign: notification deadlines, audit rights, liability and penalty clauses. Have them changed if needed.</li>
+ <li><b>Discuss costs.</b> GPS mapping, lab tests and certification cost money. Large customers sometimes contribute or offer help.</li>
+ <li><b>Keep it up to date.</b> Set reminders for yearly questionnaires and expiring certificates.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist per regel' if nl else 'Checklist per rule' }}</h2>
+{% if nl %}
+<h3>EUDR (hout, cacao, koffie)</h3>
+<ul class="check">
+ <li>Lijst van alle percelen met GPS-punt, of polygoon bij meer dan 4 hectare</li>
+ <li>Concessie, kapvergunning, grondtitel of pachtcontract per perceel</li>
+ <li>SBB-keuringsdocumenten en vervoersdocumenten voor hout</li>
+ <li>Administratie die elke partij koppelt aan de percelen van herkomst</li>
+ <li>Bewijs dat er na 31 december 2020 geen bos is gekapt (bijvoorbeeld satellietbeelden)</li>
+</ul>
+<h3>Cybersecurity (NIS2)</h3>
+<ul class="check">
+ <li>Schriftelijk informatiebeveiligingsbeleid en een verantwoordelijke</li>
+ <li>Multifactor-authenticatie op e-mail, beheer en externe toegang</li>
+ <li>Back-ups die je ook echt hebt teruggezet als test</li>
+ <li>Updates en patches volgens vast schema</li>
+ <li>Incidentprocedure met contactpersoon en meldtermijn richting de klant</li>
+ <li>Jaarlijkse training van personeel, met registratie</li>
+</ul>
+<h3>AVG</h3>
+<ul class="check">
+ <li>Overzicht van welke persoonsgegevens je verwerkt, voor wie en waarom</li>
+ <li>Verwerkersovereenkomst en standaardcontractbepalingen met elke EU-klant</li>
+ <li>Privacyverklaring op je website als je Europeanen bedient</li>
+ <li>EU-vertegenwoordiger aangewezen als dat verplicht is</li>
+</ul>
+<h3>Voedsel en arbeid</h3>
+<ul class="check">
+ <li>Residu- en contaminantenanalyse per partij of per seizoen</li>
+ <li>Etiket gecontroleerd tegen de EU-regels en de taal van het land</li>
+ <li>Arbeidscontracten, loonstroken en werktijdenregistratie op orde. <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li>Lijst van onderaannemers en wervingsbureaus</li>
+</ul>
+{% else %}
+<h3>EUDR (timber, cocoa, coffee)</h3>
+<ul class="check">
+ <li>List of all plots with a GPS point, or a polygon for more than 4 hectares</li>
+ <li>Concession, logging permit, land title or lease per plot</li>
+ <li>SBB inspection documents and transport documents for timber</li>
+ <li>Records linking each batch to the plots of origin</li>
+ <li>Evidence that no forest was cleared after 31 December 2020 (for example satellite images)</li>
+</ul>
+<h3>Cybersecurity (NIS2)</h3>
+<ul class="check">
+ <li>Written information security policy and a person in charge</li>
+ <li>Multi-factor authentication on email, admin and remote access</li>
+ <li>Backups that you have actually restored as a test</li>
+ <li>Updates and patches on a fixed schedule</li>
+ <li>Incident procedure with a contact person and a notification deadline towards the customer</li>
+ <li>Yearly staff training, with records</li>
+</ul>
+<h3>GDPR</h3>
+<ul class="check">
+ <li>Overview of which personal data you process, for whom and why</li>
+ <li>Data processing agreement and Standard Contractual Clauses with every EU customer</li>
+ <li>Privacy notice on your website if you serve Europeans</li>
+ <li>EU representative appointed where required</li>
+</ul>
+<h3>Food and labour</h3>
+<ul class="check">
+ <li>Residue and contaminant analysis per batch or per season</li>
+ <li>Label checked against EU rules and the country's language</li>
+ <li>Employment contracts, payslips and working time records in order. <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li>List of subcontractors and recruitment agencies</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn klant iets vraagt op grond van een wet die niet voor mij geldt?</b> Dat is normaal: hij moet het zelf aantonen. Je kunt wel onderhandelen over wat redelijk is en wie de kosten draagt.</li>
+ <li><b>...ik hout of cacao koop van kleine boeren zonder GPS-gegevens?</b> Dan moet je de percelen zelf (laten) inmeten met een smartphone of GPS-apparaat. Zonder geolocatie kan de partij vanaf de toepassingsdatum niet legaal de EU in.</li>
+ <li><b>...mijn klant een ISO 27001-certificaat eist?</b> Vraag of een ingevulde vragenlijst met bewijs voorlopig volstaat. Certificering kost maanden voorbereiding en een externe audit.</li>
+ <li><b>...ik naar Frans-Guyana lever?</b> Dat is EU-grondgebied: alle regels op deze pagina gelden daar ook. Zie <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>...ik niet weet welk invoerrecht mijn klant betaalt?</b> Onder de EPA meestal 0%, mits je een bewijs van oorsprong meestuurt. Zie <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my customer asks for something under a law that does not apply to me?</b> That is normal: the customer must prove compliance itself. You can still negotiate what is reasonable and who pays.</li>
+ <li><b>...I buy timber or cocoa from small farmers without GPS data?</b> Then you must map the plots yourself (or have them mapped) with a smartphone or GPS device. Without geolocation the batch cannot legally enter the EU from the application date.</li>
+ <li><b>...my customer requires an ISO 27001 certificate?</b> Ask whether a completed questionnaire with evidence is enough for now. Certification takes months of preparation and an external audit.</li>
+ <li><b>...I supply to French Guiana?</b> That is EU territory: all rules on this page apply there too. See <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>...I do not know what import duty my customer pays?</b> Under the EPA usually 0%, provided you send proof of origin. See <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1115/oj" rel="noopener">Verordening (EU) 2023/1115 (EUDR)</a></li>
+ <li><a href="https://www.consilium.europa.eu/en/press/press-releases/2025/12/18/deforestation-council-signs-off-targeted-revision-to-simplify-and-postpone-the-regulation/" rel="noopener">Raad van de EU: herziening en uitstel EUDR (18 december 2025)</a></li>
+ <li><a href="https://environment.ec.europa.eu/document/download/a3c5c3a0-232e-43c4-b0b8-1eecb1df45c7_en?filename=Report+from+the+Commission+to+the+Council+and+Parliament+on+the+EUDR.pdf" rel="noopener">Europese Commissie: rapport over de EUDR, COM(2026) 191 (4 mei 2026)</a></li>
+ <li><a href="https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/eudr-cooperation-and-partnerships/country-classification-list_en" rel="noopener">Europese Commissie: EUDR-landenclassificatie</a></li>
+ <li><a href="https://supplychaincompliance.bakermckenzie.com/2026/07/16/blog-post-eudr-european-commission-finalizes-the-eudr-product-scope-and-information-system-ahead-of-december-2026-application/" rel="noopener">Baker McKenzie: EUDR product scope and information system (juli 2026)</a></li>
+ <li><a href="https://www.coolset.com/academy/eudr-delay-2025-explained" rel="noopener">Coolset: EUDR-tijdlijn (bijgewerkt september 2026)</a></li>
+ <li><a href="https://www.ncsc.nl/cyberbeveiligingswet-nis2" rel="noopener">NCSC: Cyberbeveiligingswet (NIS2)</a></li>
+ <li><a href="https://www.dnv.nl/nieuws/2026/nis2-treedt-per-15-augustus-in-werking/" rel="noopener">DNV: NIS2 treedt per 15 augustus in werking (2026)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" rel="noopener">Richtlijn (EU) 2022/2555 (NIS2)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" rel="noopener">Verordening (EU) 2016/679 (AVG/GDPR)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2017/625/oj" rel="noopener">Verordening (EU) 2017/625 (officiële controles)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2005/396/oj" rel="noopener">Verordening (EG) nr. 396/2005 (maximumresidugehalten)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2023/915/oj" rel="noopener">Verordening (EU) 2023/915 (contaminanten)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2011/1169/oj" rel="noopener">Verordening (EU) nr. 1169/2011 (voedselinformatie)</a></li>
+ <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202600194" rel="noopener">Uitvoeringsverordening (EU) 2026/194 tot wijziging van 2019/1793 (januari 2026)</a></li>
+ <li><a href="https://www.lw.com/en/insights/eu-sustainability-omnibus-published-in-the-official-journal" rel="noopener">Latham &amp; Watkins: Omnibus I gepubliceerd in het Publicatieblad (februari 2026)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2024/3015/oj" rel="noopener">Verordening (EU) 2024/3015 (dwangarbeid)</a></li>
+ <li><a href="https://www.jonesday.com/en/insights/2026/07/eu-forced-labor-guidelines-mandatory-due-diligence-in-disguise" rel="noopener">Jones Day: EU forced labor guidelines (juli 2026)</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2023/956/oj" rel="noopener">Verordening (EU) 2023/956 (CBAM)</a></li>
+ <li><a href="https://www.reedsmith.com/our-insights/blogs/viewpoints/102lr9t/what-you-need-to-know-as-cbam-simplification-comes-into-effect/" rel="noopener">Reed Smith: CBAM-vereenvoudiging, Verordening (EU) 2025/2083</a></li>
+ <li><a href="https://trade.ec.europa.eu/access-to-markets/nl/content/epa-caribbean-cariforum" rel="noopener">Europese Commissie, Access2Markets: EPA EU-CARIFORUM</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. EU-regels en data veranderen vaak; controleer de stand bij je klant of een adviseur.' if nl else 'General information, not legal advice. EU rules and dates change often; check the current status with your customer or an adviser.' }}</p>
+</div>
+{% endblock %}
