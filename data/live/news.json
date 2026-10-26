@@ -421,7 +421,7 @@
    "url": "https://www.dbsuriname.com/2026/10/20/nieuwe-eu-regels-bedreigen-buitenlandse-bankrekeningen/"
   }
  ],
- "fetched_at": "2026-10-26T15:28:29+00:00",
+ "fetched_at": "2026-10-26T15:51:52+00:00",
  "oil": [
   {
    "econ": false,
@@ -567,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:28:27+00:00",
+   "fetched_at": "2026-10-26T15:51:49+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-10-26T15:28:24+00:00",
+   "fetched_at": "2026-10-26T15:51:45+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:28:26+00:00",
+   "fetched_at": "2026-10-26T15:51:47+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:28:28+00:00",
+   "fetched_at": "2026-10-26T15:51:49+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:28:26+00:00",
+   "fetched_at": "2026-10-26T15:51:47+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:28:29+00:00",
+   "fetched_at": "2026-10-26T15:51:52+00:00",
    "ok": true
   }
  }
