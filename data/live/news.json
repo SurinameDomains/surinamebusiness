@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-25T23:37:00+00:00",
+   "source": "Starnieuws",
+   "title": "Cubaanse man overleden na botsing Hiace tegen EBS-mast; inzittende vermist",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94545"
+  },
+  {
+   "econ": false,
    "published": "2026-10-25T21:36:51+00:00",
    "source": "Dagblad Suriname",
    "title": "Marine Le Pen wil opnieuw naar olie zoeken in Frankrijk",
@@ -50,7 +57,7 @@
    "url": "https://dwtonline.com/liliana-arias-combineert-radio-televisie-en-ondernemerschap/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-10-25T09:00:00+00:00",
    "source": "de Ware Tijd",
    "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Witagron vraagt regering steun voor landbouwplannen Braganza en mennonieten",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94445"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-19T20:31:00+00:00",
-   "source": "Starnieuws",
-   "title": "Chinese economie groeit 4,5 procent in derde kwartaal, ondanks zwakke binnenlandse vraag",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94443"
   }
  ],
- "fetched_at": "2026-10-25T22:02:45+00:00",
+ "fetched_at": "2026-10-26T00:16:53+00:00",
  "oil": [
   {
    "econ": false,
@@ -466,7 +466,7 @@
    "url": "https://www.dbsuriname.com/2026/10/25/22-jarige-vrouw-giet-hete-olie-over-vriend-na-ruzie-om-telefoonberichten/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-10-25T09:00:00+00:00",
    "source": "de Ware Tijd",
    "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
@@ -567,32 +567,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-25T22:02:44+00:00",
+   "fetched_at": "2026-10-26T00:16:52+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-10-25T22:02:43+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-26T00:16:49+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-25T22:02:44+00:00",
+   "fetched_at": "2026-10-26T00:16:51+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T22:02:44+00:00",
+   "fetched_at": "2026-10-26T00:16:52+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-25T22:02:44+00:00",
+   "fetched_at": "2026-10-26T00:16:51+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-25T22:02:45+00:00",
+   "fetched_at": "2026-10-26T00:16:53+00:00",
    "ok": true
   }
  }
