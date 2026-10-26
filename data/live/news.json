@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-26T17:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Olie en de honden",
+   "url": "https://dwtonline.com/olie-en-de-honden/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-26T13:20:00+00:00",
    "source": "Dagblad Suriname",
    "title": "Prijslijst groenten maandag 26 oktober 2026",
@@ -412,17 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "ECD controleert landbouwchemicaliën bij winkels",
    "url": "https://www.dbsuriname.com/2026/10/20/ecd-controleert-landbouwchemicalien-bij-winkels/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T13:14:25+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Nieuwe EU-regels bedreigen buitenlandse bankrekeningen",
-   "url": "https://www.dbsuriname.com/2026/10/20/nieuwe-eu-regels-bedreigen-buitenlandse-bankrekeningen/"
   }
  ],
- "fetched_at": "2026-10-26T15:51:52+00:00",
+ "fetched_at": "2026-10-26T17:38:47+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-26T17:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Olie en de honden",
+   "url": "https://dwtonline.com/olie-en-de-honden/"
+  },
   {
    "econ": false,
    "published": "2026-10-25T21:36:51+00:00",
@@ -567,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:51:49+00:00",
+   "fetched_at": "2026-10-26T17:38:45+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-10-26T15:51:45+00:00",
+   "fetched_at": "2026-10-26T17:38:43+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:51:47+00:00",
+   "fetched_at": "2026-10-26T17:38:44+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:51:49+00:00",
+   "fetched_at": "2026-10-26T17:38:46+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:51:47+00:00",
+   "fetched_at": "2026-10-26T17:38:44+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-26T15:51:52+00:00",
+   "fetched_at": "2026-10-26T17:38:47+00:00",
    "ok": true
   }
  }
