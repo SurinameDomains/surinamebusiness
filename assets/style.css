@@ -1004,3 +1004,5 @@ body.cc-on .sb-sticky{display:none}
 /* tablets: the one-line lockup fits, so use it */
 @media (min-width:560px) and (max-width:1000px){.wm-h{display:block;height:36px}.bar .wm-s{display:none}}
 @media print{.foot-street{display:none}}
+/* desktop: line up the text of the first menu item, the rates and the language link with the page edges (their hover padding sits in the gutter) */
+@media (min-width:1001px){.nav-in{padding-left:12px;padding-right:14px}.bar .wrap{padding-right:14px}}
