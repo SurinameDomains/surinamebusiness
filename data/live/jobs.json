@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-26T18:52:24+00:00",
+ "fetched_at": "2026-10-26T22:37:02+00:00",
  "items": [
   {
    "deadline": null,
@@ -24,22 +24,22 @@
   {
    "deadline": null,
    "employer": "Newmont Suriname",
-   "id": "nm-45061",
-   "location": "Paramaribo",
-   "published": "2026-10-22",
-   "source": "Newmont",
-   "title": "Graduate Trainee",
-   "url": "https://jobs.newmont.com/us/en/job/45061"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
    "id": "nm-45062",
    "location": "Paramaribo",
    "published": "2026-10-22",
    "source": "Newmont",
    "title": "Graduate Trainee",
    "url": "https://jobs.newmont.com/us/en/job/45062"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45061",
+   "location": "Paramaribo",
+   "published": "2026-10-22",
+   "source": "Newmont",
+   "title": "Graduate Trainee",
+   "url": "https://jobs.newmont.com/us/en/job/45061"
   },
   {
    "deadline": null,
@@ -152,37 +152,37 @@
  "sources": {
   "Newmont": {
    "count": 8,
-   "fetched_at": "2026-10-26T18:52:12+00:00",
+   "fetched_at": "2026-10-26T22:36:51+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-10-26T18:52:11+00:00",
+   "fetched_at": "2026-10-26T22:36:50+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 4,
-   "fetched_at": "2026-10-26T18:52:17+00:00",
+   "fetched_at": "2026-10-26T22:36:56+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-26T18:52:24+00:00",
+   "fetched_at": "2026-10-26T22:37:02+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 1,
-   "fetched_at": "2026-10-26T18:52:19+00:00",
+   "fetched_at": "2026-10-26T22:36:58+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 1,
-   "fetched_at": "2026-10-26T18:52:20+00:00",
+   "fetched_at": "2026-10-26T22:36:59+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-26T18:52:21+00:00",
+   "fetched_at": "2026-10-26T22:37:00+00:00",
    "ok": true
   }
  }
