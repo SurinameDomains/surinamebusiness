@@ -10,6 +10,9 @@
 @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/SourceSans3.woff2) format("woff2")}
 @font-face{font-family:"Source Sans 3";font-style:italic;font-weight:400 700;font-display:swap;src:url(/assets/fonts/SourceSans3-Italic.woff2) format("woff2")}
 /* metric-matched fallback so the swap from system font to Source Sans barely moves the page */
+@font-face{font-family:"Zilla Slab";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/ZillaSlab-Bold.woff2) format("woff2")}
+/* Georgia shaped to Zilla Slab Bold, so headings do not jump when the font arrives */
+@font-face{font-family:"Zilla Fallback";src:local("Georgia Bold"),local("Georgia-Bold"),local("Georgia");font-weight:700;size-adjust:96%;ascent-override:82%;descent-override:22%;line-gap-override:0%}
 @font-face{font-family:"SS3 Fallback";src:local("Arial"),local("Helvetica Neue"),local("Roboto");size-adjust:93%;ascent-override:98%;descent-override:28%;line-gap-override:0%}
 
 /* ---------------------------------------------------------------- tokens */
@@ -20,15 +23,18 @@
   --paper:#ffffff; --paper-2:#f2f3f6; --card:#ffffff;
   --field:#868c9c;           /* form field borders: 3.3:1 on white (WCAG 1.4.11) */
   --brand:#1f2251; --brand-2:#2f3488; --brand-soft:#eef0f9; --brand-ink:#2b2f74;
-  --accent:#e4572e;          /* persimmon: marks, icons, rules, large text only */
-  --accent-ink:#bd3f17;      /* persimmon dark enough for small text and buttons (5:1 on paper) */
-  --accent-soft:#fcece6;
+  --accent:#b5452b;          /* Baksteen (brick): the street line, counts, urgent marks */
+  --accent-ink:#9a3a24;      /* brick dark enough for small text (6.9:1 on white) */
+  --accent-soft:#f8e9e4;
+  --hout:#fbf5e6;            /* Hout: painted wood, the houses in the logo */
+  --lamp:#f2b134;            /* Lamp: the gold house */
   --sun:#f2b134; --sun-soft:#fdf3dc; --sun-ink:#7a5408;
   --up:#1d7a62; --up-soft:#e2f3ec; --down:#c0392b; --down-soft:#fbe6e3;
   --r:8px; --r-sm:6px; --r-xs:4px;
   --sh:none;
   --sh-2:0 12px 32px rgba(16,20,40,.10),0 2px 6px rgba(16,20,40,.05);
   --font:"Source Sans 3","SS3 Fallback",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"Zilla Slab","Zilla Fallback",Georgia,"Times New Roman",serif;   /* names and headlines only */
   --max:1140px;
   --head-h:64px;             /* part of the header that stays in view: the 64px bar on desktop, 56px on phones */
   --tabbar:0px;              /* set on phones, pads the page above the bottom tab bar */
@@ -47,8 +53,8 @@ a:hover{color:var(--brand);text-decoration-color:currentColor}
 :focus-visible{outline:3px solid var(--brand-2);outline-offset:2px;border-radius:4px}
 img{max-width:100%;height:auto}
 h1,h2,h3{line-height:1.12;margin:0 0 .45em;text-wrap:balance;overflow-wrap:normal}
-h1{font-weight:700;font-size:clamp(1.75rem,1.25rem + 1.9vw,2.6rem);letter-spacing:-.022em;line-height:1.1;color:var(--ink)}
-h2{font-weight:700;font-size:clamp(1.25rem,1.08rem + .7vw,1.55rem);margin-top:1.9em;letter-spacing:-.016em;line-height:1.2}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.85rem,1.3rem + 2vw,2.75rem);letter-spacing:-.01em;line-height:1.08;color:var(--ink)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,1.12rem + .7vw,1.62rem);margin-top:1.9em;letter-spacing:-.005em;line-height:1.18}
 h3{font-size:1.08rem;font-weight:650;margin-top:1.3em;letter-spacing:-.006em}
 h1 em,h2 em{font-style:normal;color:inherit}
 p{margin:0 0 1em}
@@ -68,8 +74,9 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 .top{position:sticky;top:0;z-index:40}   /* the header is only the 64px bar: it stays in view; the navigation row below it scrolls away */
 .bar{background:var(--brand);color:#fff}
 .bar .wrap{display:flex;align-items:center;gap:22px;min-height:64px}
-.logo{display:flex;align-items:center;flex:none;padding:6px 0;border-radius:4px}
-.wm-img{display:block;height:28px;width:auto}
+.logo{display:flex;align-items:center;flex:none;padding:5px 0;border-radius:4px}
+.wm-img{display:block;height:42px;width:auto}
+.wm-s{display:none}
 .bar :focus-visible{outline-color:#fff}
 .hs-bar{flex:1 1 auto;max-width:540px;margin-left:8px}
 .hs-bar input{padding-right:30px}
@@ -113,7 +120,8 @@ button,input,select,textarea{font-family:inherit;color:inherit}
 @media (max-width:1000px){
   .top{position:sticky;top:0}
   .bar .wrap{min-height:56px;gap:2px}
-  .wm-img{height:24px}
+  .wm-h{display:none}
+  .wm-s{display:block;height:40px}
   .bar .hs-bar,.bar .rate-chip{display:none}
   .hd-search,.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:6px;color:#fff;background:none;border:0;cursor:pointer;padding:0}
   .hd-search{margin-left:auto}
@@ -196,7 +204,7 @@ a.card b{color:var(--ink)}
 .pill{display:inline-block;font-size:.78rem;font-weight:600;padding:1px 8px;border-radius:6px;background:var(--line-2);color:var(--ink-2);white-space:nowrap;line-height:1.5;vertical-align:middle}
 .pill.gold{background:var(--line-2);color:var(--ink-2)}
 .pill.green{background:var(--up-soft);color:var(--up)}
-.pill.red{background:#fdf0ee;color:#b2341b}
+.pill.red{background:var(--accent-soft);color:var(--accent-ink)}
 .note{background:#fdf8ec;border:1px solid #f0e2bd;color:#5b4310;border-radius:var(--r-sm);padding:12px 14px;font-size:.94rem}
 .note a{color:#5b4310;font-weight:600}
 .asof{font-size:.84rem;color:var(--muted)}
@@ -343,12 +351,14 @@ a.card.tool{display:flex}
 .spark{width:100%;height:56px;display:block;margin-top:10px}
 
 /* ---------------------------------------------------------------- footer */
-.site-foot{background:var(--brand);color:#c9cce8;font-size:.95rem;padding:48px 0 26px;margin-top:8px}
+.site-foot{background:var(--brand);color:#c9cce8;font-size:.95rem;padding:0 0 26px;margin-top:8px}
+/* the street from the logo, as a skyline on top of the footer */
+.foot-street{height:44px;background:url(/assets/street.svg) repeat-x left bottom/auto 44px;margin-bottom:40px;opacity:.95}
 .site-foot a{color:#fff;text-decoration:none}
 .site-foot a:hover{text-decoration:underline;text-underline-offset:.18em}
 .site-foot :focus-visible{outline-color:#fff}
 .foot-top{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px}
-.foot-brand .wm-img{height:26px}
+.foot-brand .wm-img{height:30px}
 .foot-brand p{margin:14px 0 0;font-size:.92rem;line-height:1.5;color:#c9cce8;max-width:230px}
 .foot-cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 20px}
 .site-foot h2{color:#fff;font-size:.95rem;font-weight:650;margin:0 0 10px;letter-spacing:0}
@@ -359,7 +369,7 @@ a.card.tool{display:flex}
 .group{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:.88rem;color:#b8bbe0}
 .group a{color:#fff;font-weight:600}
 @media (max-width:1000px){.foot-top{grid-template-columns:minmax(0,1fr);gap:28px}.foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:600px){.site-foot{padding:36px 0 22px}.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}}
+@media (max-width:600px){.site-foot{padding:0 0 22px}.foot-street{height:34px;background-size:auto 34px;margin-bottom:30px}.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 @media print{.top,.site-foot,.menu-btn,.tabbar,.crumbs{display:none}body{padding-bottom:0}}
@@ -833,7 +843,7 @@ main:has(> .intro){padding-top:0}
 .list.feed .meta{flex-wrap:nowrap;gap:10px}
 .list.feed .meta span{flex:none}
 .list.feed .meta .clip{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.meta .due{color:#b2341b;font-weight:650}
+.meta .due{color:var(--accent-ink);font-weight:650}
 .panel .more-link{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--line-2);font-size:.95rem}
 .panel .more-link a{font-weight:650;text-decoration:none}
 .refs{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px}
@@ -984,3 +994,11 @@ body.cc-on .sb-sticky{display:none}
 .co-near{margin-top:20px}
 .co-near h2.eyebrow{font-size:.95rem;margin:0 0 4px;letter-spacing:0}
 @media (min-width:700px){.list.near{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}}
+
+/* ---------------------------------------------------------------- Waterkant identity (26 Oct 2026)
+   Zilla Slab Bold for names and headlines (h1, h2); small UI headings stay in Source Sans. */
+.site-foot h2,.dd-h,.sba-dlg h2,.cc h2,.form-legal,.panel-h h2.small{font-family:var(--font)}
+.site-foot h2{letter-spacing:0}
+.tp-head span:first-child,.dl-head h2,.panel-h h2{font-family:var(--display);letter-spacing:0}
+.pg-home .intro h1{font-size:clamp(2rem,1.4rem + 2.2vw,3rem)}
+@media print{.foot-street{display:none}}
