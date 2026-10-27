@@ -19,6 +19,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import facts
 import extras
 import districts_data as DD
+import countries_data as CD
 import tools_meta as TM
 import guides_meta as GM
 import resources_data as RES
@@ -1131,7 +1132,7 @@ def main():
             banners=[b for b in SBC["items"] if b["kind"] == "banner" and b.get("lang") in ("all", lang, None)],
             notices=[b for b in SBC["items"] if b["kind"] == "notice" and b.get("lang") in ("all", lang, None)],
             own_links=[b for b in SBC["items"] if b["kind"] == "link" and b.get("lang") in ("all", lang, None)],
-            districts=DD.DISTRICTS,
+            districts=DD.DISTRICTS, countries=CD.COUNTRIES,
             ctext=lambda c, f="title", _l=lang: (c.get(f + "_en") or c.get(f)) if _l == "en" else c.get(f),
         )
 
@@ -1210,6 +1211,18 @@ def main():
             crumbs = [{"label": "Home", "url": U("home")}, {"label": L("districts"), "url": U("districts")}, {"label": d_["name"]}]
             render("district.html", "districts", t, desc_, f"/district/{d_['key']}", f"/en/district/{d_['key']}",
                    crumbs, extra={"d": d_})
+
+        # country pages (countries_data.py): /land/<key>, /en/country/<key>
+        for c_ in CD.COUNTRIES:
+            nm = c_["name"][0 if nl_lang else 1]
+            t = (f"Zakendoen met {nm}: handel, regels en contacten" if nl_lang
+                 else f"Doing business with {nm} from Suriname: trade, rules and contacts")
+            desc_ = c_["intro"][0 if nl_lang else 1]
+            if len(desc_) > 158:
+                desc_ = desc_[:155].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+            crumbs = [{"label": "Home", "url": U("home")}, {"label": L("countries"), "url": U("countries")}, {"label": nm}]
+            render("country.html", "countries", t, desc_, f"/land/{c_['key']}", f"/en/country/{c_['key']}",
+                   crumbs, extra={"c": c_})
 
         build_salary_pages(render, lang, U, L)
         build_job_pages(render, lang, U, L, jobs)

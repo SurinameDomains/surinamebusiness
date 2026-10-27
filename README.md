@@ -30,6 +30,16 @@ Gap analysis against comparable Suriname business sites. Content is our own, sou
 - Tool `bizplantool` (`/ondernemingsplan-maken`): `assets/tools/bizplan.js`, autosaves under `sbt:bizplan` like the other tools.
 - Refresh: `economy` monthly (inflation, rates, reserves; maintainer note at the top of the template), `newlaws` whenever a bill moves (checked 26 Oct 2026), `euexport` when EU dates shift (EUDR, CSRD/CSDDD), the rest every January.
 
+## Wave 2, 26 Oct 2026 (deep crawl: nothing left out)
+
+Second gap round after a full crawl (about 1,900 pages and the key PDFs) of the same three reference sites. Same rules: original text, primary sources, none of those sites linked.
+
+- 22 more guides in `guides_new/`: subsidies, events, diaspora, businesstravel, expat, tourismbiz, environment, safety, sustainability, payments, aml, disputes, civilcode, standards, pricerules, training, marketresearch, insurance, mining, logistics, utilities, countries. Slugs in each module.
+- Country guides: `countries_data.COUNTRIES` (13 partners, trade figures from partner-country UN Comtrade data, US Census for the US) feeds the hub `/zakendoen-met-landen` and `/land/<key>` (`/en/country/<key>`) from `templates/country.html`, rendered in `build.py` next to the district pages. Review every January.
+- Wave-1 pages deepened from the crawl: newlaws, associations, agri, tradeagreements, sectors, supplier, economy; finance now lists the KMO Fonds.
+- Guides hub regrouped (7 groups, 57 guides); menus list the main guides with "Alle gidsen" for the rest. Icons for every new key in `tools_meta` (one per key).
+- Refresh often: utilities (EBS tariffs, load shedding), logistics (Canawaima, port), countries (US tariffs, Guyana ferry), events (dates), subsidies (open calls), payments (SNEPS 24/7 target end 2026).
+
 ## Vacancy board (worker/)
 
 Employers post vacancies themselves at `/vacature-plaatsen` (`/en/post-a-job`). The backend is the Cloudflare Worker `sb-jobs` on the **Suriname Business** Cloudflare account (never the Explore account), with D1 (`sb-jobs`), KV (`sb-jobs-files`, PDFs) and Turnstile.

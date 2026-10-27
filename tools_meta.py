@@ -451,6 +451,38 @@ ICONS.update({
 ICON_OF.update({"districts": "pin", "sectors": "layers", "agri": "sprout", "tradeagreements": "handshake",
                 "euexport": "check-shield", "associations": "people", "newlaws": "scroll", "economy": "chart"})
 
+# icons for the wave-2 guides (26 Oct 2026)
+ICONS.update({
+    "hand-coins": '<circle cx="15" cy="6" r="3"/><path d="M2 15h4l5 2h5a2 2 0 0 0 0-4h-4"/><path d="M6 21l2-2h7l5-4a2 2 0 0 0-3-3l-3 2"/>',
+    "ticket": '<path d="M3 8V6h18v2a2 2 0 0 0 0 4v6H3v-6a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/>',
+    "globe-pin": '<circle cx="10" cy="12" r="7"/><path d="M3 12h14M10 5c2 2 2 12 0 14M10 5c-2 2-2 12 0 14"/><path d="M19 3a2.5 2.5 0 0 1 2.5 2.5C21.5 7.5 19 10 19 10s-2.5-2.5-2.5-4.5A2.5 2.5 0 0 1 19 3z"/>',
+    "suitcase": '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4h6v3M3 13h18"/>',
+    "key": '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/>',
+    "compass": '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+    "leaf": '<path d="M5 19C5 10 11 4 20 4c0 9-6 15-15 15z"/><path d="M5 19l8-8"/>',
+    "hardhat": '<path d="M3 18h18M5 18v-3a7 7 0 0 1 14 0v3"/><path d="M10 8V5h4v3"/>',
+    "recycle": '<path d="M7 19H4l3-5M10 5l2-3 3 5M17 19h3l-3-5"/><path d="M7 19h10M8.5 11L12 5M15.5 11L19 17"/>',
+    "tap": '<rect x="4" y="5" width="12" height="16" rx="2"/><path d="M18 8a4 4 0 0 1 0 6M20.5 6a7 7 0 0 1 0 10M8 17h4"/>',
+    "fingerprint": '<path d="M12 11v4c0 2-1 4-2 5M8 9a4 4 0 0 1 8 2v3c0 3-1 5-2 7M5 13V11a7 7 0 0 1 12-5M19 10v3c0 2 0 4-1 6"/>',
+    "alert-doc": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v3M12 18h.01"/>',
+    "book-law": '<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M12 8c-1.5 0-2 .8-2 1.5S11 11 12 11.5s2 .8 2 1.5-.5 1.5-2 1.5M12 7v1M12 14.5v1"/>',
+    "badge-check": '<path d="M12 2l2.4 2 3.1-.2.8 3 2.5 1.8-1.2 2.9 1.2 2.9-2.5 1.8-.8 3-3.1-.2L12 21l-2.4-2-3.1.2-.8-3L3.2 14.4l1.2-2.9-1.2-2.9 2.5-1.8.8-3 3.1.2z"/><path d="M9 12l2 2 4-4"/>',
+    "tag-check": '<path d="M3 12V4h8l10 10-8 8z"/><path d="M8 11l2 2 4-4"/>',
+    "cap": '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>',
+    "pie": '<path d="M12 3v9h9a9 9 0 1 1-9-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/>',
+    "umbrella": '<path d="M2 12a10 10 0 0 1 20 0z"/><path d="M12 12v7a2 2 0 0 0 4 0"/>',
+    "pickaxe": '<path d="M3 21l11-11"/><path d="M4 8c4-4 10-5 16-2-3-1-6 0-8 2l4 4c2-2 3-5 2-8 3 6 2 12-2 16"/>',
+    "container": '<rect x="2" y="7" width="20" height="11" rx="1"/><path d="M6 7v11M10 7v11M14 7v11M18 7v11"/>',
+    "plug": '<path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/>',
+    "world": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M5 7h14M5 17h14"/>',
+})
+ICON_OF.update({"subsidies": "hand-coins", "events": "ticket", "diaspora": "globe-pin", "businesstravel": "suitcase",
+                "expat": "key", "tourismbiz": "compass", "environment": "leaf", "safety": "hardhat",
+                "sustainability": "recycle", "payments": "tap", "aml": "fingerprint", "disputes": "alert-doc",
+                "civilcode": "book-law", "standards": "badge-check", "pricerules": "tag-check", "training": "cap",
+                "marketresearch": "pie", "insurance": "umbrella", "mining": "pickaxe", "logistics": "container",
+                "utilities": "plug", "countries": "world"})
+
 def kicon(key, size=20):
     return icon(ICON_OF.get(key, "calc"), size)
 
