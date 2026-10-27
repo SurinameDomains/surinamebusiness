@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-10-27T07:44:31+00:00",
+ "fetched_at": "2026-10-27T14:23:36+00:00",
  "items": [
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163865",
+   "lang": "nl",
+   "published": "2026-10-27",
+   "source": "gov.sr",
+   "title": "Het opschonen en waar nodig ophogen van de lekbeteugelingsdam, het opschonen van Surinamkanaal en het onderhouden daarvan over een periode van 2 (twee) jaren in het district Nickerie",
+   "url": "https://gov.sr/aanbestedingen/het-opschonen-en-waar-nodig-ophogen-van-de-lekbeteugelingsdam-het-opschonen-van-surinamkanaal-en-het-onderhouden-daarvan-over-een-periode-van-2-twee-jaren-in-het-district-nickerie/"
+  },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
@@ -451,22 +461,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-27T07:44:31+00:00",
+   "fetched_at": "2026-10-27T14:23:36+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 48,
-   "fetched_at": "2026-10-27T07:44:30+00:00",
+   "fetched_at": "2026-10-27T14:23:35+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-27T07:44:30+00:00",
+   "fetched_at": "2026-10-27T14:23:36+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-27T07:44:29+00:00",
+   "fetched_at": "2026-10-27T14:23:35+00:00",
    "ok": true
   }
  }
