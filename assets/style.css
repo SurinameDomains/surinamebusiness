@@ -1016,3 +1016,30 @@ body.cc-on .sb-sticky{display:none}
 .qa-t small{display:block;font-size:.86rem;font-weight:400;color:var(--muted);line-height:1.3;margin-top:1px}
 @media (min-width:1001px){.pg-home .qa a{align-items:flex-start;padding:11px 14px 11px 12px;height:100%;box-sizing:border-box}.pg-home .qa a .ic{margin-top:2px}}
 @media (max-width:1099px){.qa-t small{display:none}}
+
+/* oil and gas cluster (Oct 2026): glossary and the supplier readiness check */
+.glossary{margin:0 0 8px}
+.glossary dt{font-weight:700;margin:16px 0 2px;scroll-margin-top:90px}
+.glossary dt .meta{font-weight:400;color:var(--muted)}
+.glossary dd{margin:0 0 0;padding:0 0 12px;border-bottom:1px solid var(--line-2)}
+.glossary dt:target{color:var(--brand-2)}
+.sr-group{margin:18px 0 0}
+.sr-group:first-child{margin-top:0}
+.sr-group > h3{font-size:1.05rem;margin:0 0 4px}
+.srq{border:0;border-top:1px solid var(--line-2);padding:12px 0 10px;margin:0;min-width:0}
+.srq legend{font-weight:600;font-size:.95rem;line-height:1.35;padding:0;margin:0 0 8px;float:left;width:100%}
+.srq .opts{clear:both;display:flex;flex-wrap:wrap;gap:6px}
+.srq .opts label{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--field);border-radius:var(--r-sm);cursor:pointer;font-weight:600;font-size:.9rem;margin:0;background:#fff;color:var(--ink-2)}
+.srq .opts input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.srq .opts label:has(input:checked){background:var(--brand);border-color:var(--brand);color:#fff}
+.srq .opts label:has(input:focus-visible){outline:3px solid var(--brand-2);outline-offset:2px}
+.sr-bars{margin:10px 0 0;padding:0;list-style:none}
+.sr-bars li{display:grid;grid-template-columns:minmax(0,1fr) 3.2em;gap:4px 10px;align-items:center;margin:0 0 8px;font-size:.88rem}
+.sr-bars .tr{grid-column:1 / -1;height:8px;background:var(--line-2);border-radius:4px;overflow:hidden}
+.sr-bars .tr i{display:block;height:100%;background:var(--brand-2)}
+.sr-bars .tr i.lo{background:var(--accent)}
+.sr-acts{margin:8px 0 0;padding-left:1.2em}
+.sr-acts li{margin:0 0 8px}
+.sr-acts .crit{color:var(--accent-ink);font-weight:700}
+@media (min-width:1001px){.dd-panel:not(.mega) .dd-cols:has(> .dd-col:nth-child(3)){grid-template-columns:repeat(3,minmax(170px,auto))}.dd-panel:not(.mega):has(.dd-col:nth-child(3)){max-width:min(760px,calc(100vw - 32px))}}
+.callout{background:var(--brand-soft);border-left:4px solid var(--brand-2);padding:12px 14px;border-radius:var(--r-sm);margin:12px 0 16px}
