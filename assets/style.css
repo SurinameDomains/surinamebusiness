@@ -1043,3 +1043,18 @@ body.cc-on .sb-sticky{display:none}
 .sr-acts .crit{color:var(--accent-ink);font-weight:700}
 @media (min-width:1001px){.dd-panel:not(.mega) .dd-cols:has(> .dd-col:nth-child(3)){grid-template-columns:repeat(3,minmax(170px,auto))}.dd-panel:not(.mega):has(.dd-col:nth-child(3)){max-width:min(760px,calc(100vw - 32px))}}
 .callout{background:var(--brand-soft);border-left:4px solid var(--brand-2);padding:12px 14px;border-radius:var(--r-sm);margin:12px 0 16px}
+
+/* directory content blocks (SEO pass 27 Oct 2026) */
+.co-intro{max-width:66ch;margin:-2px 0 16px;color:var(--ink-2)}
+.hrs{border-collapse:collapse;margin-top:4px;font-size:.95rem}
+.hrs th,.hrs td{padding:1px 14px 1px 0;text-align:left;font-weight:400;border:0;vertical-align:top}
+.hrs th{color:var(--ink-2);white-space:nowrap}
+.co-ctx{margin-top:22px;max-width:66ch}
+.co-ctx p{margin:0 0 8px}
+.ctx-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.ctx-links a{font-weight:600}
+.cat-intro{max-width:70ch;margin:0 0 12px}
+.cat-facts{margin-top:22px}
+.cat-facts ul{margin:0 0 12px;padding-left:1.1em;max-width:75ch}
+.cat-facts li{margin:3px 0}
+.cat-facts .bylist{margin:6px 0}
