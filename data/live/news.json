@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-27T01:56:06+00:00",
+   "source": "Suriname Herald",
+   "title": "VSB vreest extra kosten en vertragingen door nieuwe douanewet",
+   "url": "https://www.srherald.com/suriname/2026/10/26/__trashed/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-27T01:11:00+00:00",
    "source": "Starnieuws",
    "title": "Verscherpte EU-controles dreigen: wat Verordening 2019/1793 betekent voor groente-export",
@@ -412,16 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Bewoners Witagron willen dat regering landbouwplannen met mennonieten ondersteunt",
    "url": "https://dwtonline.com/bewoners-witagron-willen-dat-regering-landbouwplannen-met-mennonieten-ondersteunt/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T22:53:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Lichaam met schotwond gevonden bij goudzoekerskamp Lawagebied",
-   "url": "https://www.dbsuriname.com/2026/10/20/lichaam-met-schotwond-gevonden-bij-goudzoekerskamp-lawagebied/"
   }
  ],
- "fetched_at": "2026-10-27T01:57:52+00:00",
+ "fetched_at": "2026-10-27T02:36:59+00:00",
  "oil": [
   {
    "econ": false,
@@ -574,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-27T01:57:50+00:00",
+   "fetched_at": "2026-10-27T02:36:58+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-27T01:57:48+00:00",
+   "count": 18,
+   "fetched_at": "2026-10-27T02:36:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-27T01:57:50+00:00",
+   "fetched_at": "2026-10-27T02:36:58+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T01:57:51+00:00",
+   "fetched_at": "2026-10-27T02:36:59+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-27T01:57:50+00:00",
+   "fetched_at": "2026-10-27T02:36:58+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T01:57:52+00:00",
+   "fetched_at": "2026-10-27T02:36:59+00:00",
    "ok": true
   }
  }
