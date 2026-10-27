@@ -25,6 +25,7 @@ import guides_meta as GM
 import resources_data as RES
 import quality
 import tool_notes as TN
+import seo_content as SC
 from site_config import (INDEXNOW_KEY, DYNAMIC, OIL_KEYS, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
@@ -183,8 +184,8 @@ META = {
               ("About Suriname Business", "Who is behind Suriname Business, how we check our numbers and why all tools are free for businesses in Suriname.")),
     "sources": (("Bronnen en methode", "Waar onze cijfers vandaan komen: CBvS, CME, Belastingdienst, gov.sr en meer, met hoe vaak we elke bron bijwerken en controleren."),
                 ("Sources and method", "Where our numbers come from: CBvS, CME, the tax office, gov.sr and more, with how often we update and check each source.")),
-    "contact": (("Contact Suriname Business", "Neem contact op met Suriname Business voor vragen, correcties, bedrijfsgegevens, vacatures of samenwerking. We reageren per e-mail."),
-                ("Contact Suriname Business", "Get in touch with Suriname Business for questions, corrections, business listings, vacancies or partnerships. We reply by email.")),
+    "contact": (("Contact opnemen met Suriname Business", "Neem contact op met Suriname Business voor vragen, correcties, bedrijfsgegevens, vacatures of samenwerking. We reageren per e-mail."),
+                ("Contact us | Suriname Business", "Get in touch with Suriname Business for questions, corrections, business listings, vacancies or partnerships. We reply by email.")),
     "privacy": (("Privacyverklaring Suriname Business", "Hoe Suriname Business met gegevens omgaat: tools werken in je browser, wat een account opslaat en welke cookies en statistieken we gebruiken."),
                 ("Privacy policy Suriname Business", "How Suriname Business handles data: tools run in your browser, what an account stores and which cookies and statistics we use.")),
     "terms": (("Gebruiksvoorwaarden Suriname Business", "De voorwaarden voor de tools, een account, vacatures en bedrijfsvermeldingen, en hoe je een nepvacature of foute vermelding meldt."),
@@ -730,6 +731,23 @@ def nearest_town(lat, lon):
     return best if bd ** 0.5 * 111 < 18 else ""
 
 
+def town_by_neighbours(lat, lon, known, k=7, max_km=1.5):
+    if lat is None or lon is None or not known:
+        return ""
+    near = []
+    for a, b, pl in known:
+        d = ((lat - a) ** 2 + ((lon - b) * 0.995) ** 2) ** 0.5 * 111
+        if d <= max_km:
+            near.append((d, pl))
+    if not near:
+        return ""
+    near.sort()
+    votes = {}
+    for d, pl in near[:k]:
+        votes[pl] = votes.get(pl, 0) + 1
+    return max(votes.items(), key=lambda x: (x[1], x[0] == near[0][1]))[0]
+
+
 def merge_listings(recs, C):
     """Businesses that added or corrected their own listing (admin-checked, sb-api kind "company").
     A listing with `replaces` updates that OpenStreetMap entry; otherwise it is a new entry with its own page."""
@@ -772,9 +790,18 @@ def companies_view():
     except Exception:
         return {"recs": [], "groups": [], "fetched_at": None}
     recs = C.normalise(raw)
+    # Town for listings without an address: the town most of the nearest addressed OpenStreetMap businesses
+    # give (within 1.5 km). Nearest town centre alone put half of southern Paramaribo in Meerzorg, across the river.
+    known = []
+    for e in raw.get("elements", []):
+        t = e.get("tags", {})
+        pl = SC.PLACE_FIX.get(t.get("addr:city") or t.get("addr:place") or "", t.get("addr:city") or t.get("addr:place") or "")
+        if pl and e.get("lat") is not None and pl in dict((n, 1) for n, _a, _b in TOWNS):
+            known.append((e["lat"], e["lon"], pl))
     for r in recs:
+        r["place"] = SC.PLACE_FIX.get(r["place"], r["place"])
         if not r["place"]:
-            r["place"] = nearest_town(r["lat"], r["lon"])
+            r["place"] = town_by_neighbours(r["lat"], r["lon"], known) or nearest_town(r["lat"], r["lon"])
     merge_listings(recs, C)
     groups = []
     for g, (nls, nll, ens, enl) in C.GROUPS.items():
@@ -787,9 +814,82 @@ def companies_view():
             "count": len(recs), "pages": sum(1 for r in recs if r["page"])}
 
 
-def _town_pages(render, lang, U, co):
+def cat_extra(gr, town, co, lang, U, L):
+    """Content for a category page (town=None) or a category-in-town page: what the category is, quick facts
+    computed from the listings (who is open on Sunday or around the clock), and links to related pages."""
+    nl = lang == "nl"
+    items = gr["items"]
+    pre = "/bedrijf/" if nl else "/en/company/"
+    def link(r):
+        return {"name": r["name"], "url": pre + r["slug"] if r.get("page") else None, "place": r["place"]}
+    weeks = [(r, r.get("week") if "week" in r else SC.parse_hours(r.get("hours"))) for r in items]
+    out = {
+        "group_text": SC.GROUP_TEXT.get(gr["key"], ("", ""))[0 if nl else 1],
+        "group_links": [(L(k), U(k)) for k in SC.GROUP_LINKS.get(gr["key"], []) if k in LABELS],
+        "stats": {"n": len(items), "phone": sum(1 for r in items if r["phone"]),
+                  "hours": sum(1 for r, w in weeks if w), "web": sum(1 for r in items if r["website"])},
+        "sunday": [link(r) for r, w in weeks if w and SC.open_sunday(w) and not SC.open_247(w)][:12],
+        "allday": [link(r) for r, w in weeks if w and SC.open_247(w)][:12],
+        "town_text": None, "district": None, "other_cats": [], "other_towns": [], "top_places": [],
+    }
+    cat_base = ("/bedrijven/" + gr["nl_slug"]) if nl else ("/en/companies/" + gr["en_slug"])
+    if town:
+        dkey = SC.TOWN_DISTRICT.get(town)
+        d_ = DD.BY_KEY.get(dkey) if dkey else None
+        if d_:
+            intro = d_["intro"][0 if nl else 1]
+            sents = re.split(r"(?<=[.!?])\s+", intro)
+            out["town_text"] = " ".join(sents[:2])
+            out["district"] = {"name": d_["name"], "url": ("/district/" if nl else "/en/district/") + dkey}
+        for g in co["groups"]:
+            for tn, ts, n in g.get("towns", []):
+                if tn == town and g["key"] != gr["key"]:
+                    out["other_cats"].append({"label": g["nl"] if nl else g["en"], "n": n,
+                                              "url": (("/bedrijven/" + g["nl_slug"]) if nl else ("/en/companies/" + g["en_slug"])) + "-" + ts})
+        parent = next((g for g in co["groups"] if g["key"] == gr["key"]), gr)
+        for tn, ts, n in parent.get("towns", []):
+            if tn != town:
+                out["other_towns"].append({"label": tn, "n": n, "url": cat_base + "-" + ts})
+    else:
+        cnt = {}
+        for r in items:
+            if r["place"]:
+                cnt[r["place"]] = cnt.get(r["place"], 0) + 1
+        out["top_places"] = sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[:6]
+    return out
+
+
+def district_companies(co, dkey, lang):
+    """Businesses in our directory that lie in this district (by town), for the district page."""
+    nl = lang == "nl"
+    towns = {t for t, k in SC.TOWN_DISTRICT.items() if k == dkey}
+    recs = [r for r in co.get("recs", []) if r["place"] in towns]
+    if not recs:
+        return None
+    cats = []
+    for g in co["groups"]:
+        n = sum(1 for r in recs if r["group"] == g["key"])
+        if n:
+            cats.append({"label": g["nl"] if nl else g["en"], "n": n,
+                         "url": ("/bedrijven/" + g["nl_slug"]) if nl else ("/en/companies/" + g["en_slug"])})
+    cats.sort(key=lambda x: -x["n"])
+    pages = [r for r in recs if r["page"]]
+    pages.sort(key=lambda r: (-(bool(r["phone"]) + bool(r["website"]) + bool(r["hours"])), r["name"].lower()))
+    pre = "/bedrijf/" if nl else "/en/company/"
+    places = {}
+    for r in recs:
+        places[r["place"]] = places.get(r["place"], 0) + 1
+    return {"n": len(recs), "cats": cats[:10], "places": sorted(places.items(), key=lambda x: -x[1]),
+            "sample": [{"name": r["name"], "url": pre + r["slug"], "place": r["place"]} for r in pages[:12]]}
+
+
+def _town_pages(render, lang, U, co, L=None):
     import companies as C
     nl = lang == "nl"
+    pending = []
+    for r in co["recs"]:
+        if "week" not in r:
+            r["week"] = SC.parse_hours(r.get("hours"))
     for gr in co["groups"]:
         if gr["key"] == "other":
             continue
@@ -812,9 +912,13 @@ def _town_pages(render, lang, U, co):
                       {"label": label, "url": f"/bedrijven/{gr['nl_slug']}" if nl else f"/en/companies/{gr['en_slug']}"},
                       {"label": town}]
             sub = dict(gr, items=items, count=len(items))
-            render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}-{ts}",
-                   f"/en/companies/{gr['en_slug']}-{ts}", crumbs, extra={"gr": sub, "town": town, "parent": gr})
+            pending.append((t, d, gr, ts, crumbs, sub, town))
         gr["towns"] = towns
+    # rendered after every category knows its towns, so a town page can link to the other categories in that town
+    for t, d, gr, ts, crumbs, sub, town in pending:
+        render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}-{ts}",
+               f"/en/companies/{gr['en_slug']}-{ts}", crumbs,
+               extra=dict(cat_extra(sub, town, co, lang, U, L), gr=sub, town=town, parent=gr))
 
 
 def build_salary_pages(render, lang, U, L):
@@ -834,8 +938,30 @@ def build_salary_pages(render, lang, U, L):
         next_g = SALARY_AMOUNTS[i + 1] if i + 1 < len(SALARY_AMOUNTS) else None
         crumbs = [{"label": "Home", "url": U("home")}, {"label": L("salary"), "url": U("salary")},
                   {"label": f"SRD {fmt_num(g, lang, 0)}"}]
-        render("salary_amount.html", "salary", title, desc, nl_path, en_path, crumbs,
-               extra={"g": g, "r": r, "r5": r5, "prev_g": prev_g, "next_g": next_g})
+        nb = [x for x in SALARY_AMOUNTS[max(0, i - 2): i + 3]]
+        compare = [(x, py_salary(x)) for x in nb]
+        G, N, T, A = (fmt_srd(g, lang), fmt_srd(r["net"], lang, 2), fmt_srd(r["tax"], lang, 2), fmt_srd(r["aov"], lang, 2))
+        pct = fmt_num((r["tax"] + r["aov"]) / g * 100, lang, 1)
+        if lang == "nl":
+            faq = [(f"Hoeveel is {G} bruto netto per maand?",
+                    f"Bij {G} bruto per maand hou je in 2026 netto {N} over. Er gaat {T} loonbelasting en {A} AOV af, samen {pct}% van je bruto loon."),
+                   (f"Hoeveel loonbelasting betaal je bij {G} bruto?",
+                    f"De loonbelasting is {T} per maand, berekend over je zuiver loon min de belastingvrije som van {fmt_srd(facts.TAX['free_month'], lang)}."
+                    if r["tax"] > 0 else f"Geen: na de forfaitaire aftrek blijft {G} onder de belastingvrije som van {fmt_srd(facts.TAX['free_month'], lang)} per maand."),
+                   (f"Wat hou je netto over bij {G} bruto met 5% pensioenpremie?",
+                    f"Met 5% eigen pensioenpremie ({fmt_srd(g * 0.05, lang, 2)}) hou je netto {fmt_srd(r5['net'], lang, 2)} over, omdat de premie je belastbaar loon verlaagt.")]
+        else:
+            faq = [(f"What is {G} gross per month after tax in Suriname?",
+                    f"On {G} gross per month you take home {N} in 2026. Wage tax of {T} and AOV of {A} are deducted, together {pct}% of your gross wage."),
+                   (f"How much wage tax do you pay on {G} gross?",
+                    f"Wage tax is {T} per month, calculated on your net taxable wage minus the tax-free amount of {fmt_srd(facts.TAX['free_month'], lang)}."
+                    if r["tax"] > 0 else f"None: after the flat deduction, {G} stays below the tax-free amount of {fmt_srd(facts.TAX['free_month'], lang)} a month."),
+                   (f"What is the net pay on {G} gross with a 5% pension premium?",
+                    f"With a 5% pension premium of your own ({fmt_srd(g * 0.05, lang, 2)}) your net pay is {fmt_srd(r5['net'], lang, 2)}, because the premium lowers your taxable wage.")]
+        graph = schema_for("salary", lang, title, desc, SITE_URL + (nl_path if lang == "nl" else en_path))
+        graph.append(extras.faq_schema(faq))
+        render("salary_amount.html", "salary", title, desc, nl_path, en_path, crumbs, graph=graph,
+               extra={"g": g, "r": r, "r5": r5, "prev_g": prev_g, "next_g": next_g, "compare": compare, "faq": faq})
 
 
 def _nearby(pool, r, lab, n=6):
@@ -857,7 +983,7 @@ def _nearby(pool, r, lab, n=6):
 def build_company_pages(render, lang, U, L, co):
     if not co["recs"]:
         return
-    _town_pages(render, lang, U, co)
+    _town_pages(render, lang, U, co, L)
     nl = lang == "nl"
     title = ("Bedrijvengids Suriname: " if nl else "Suriname business directory: ") + \
             (f"{co['count']} bedrijven per categorie" if nl else f"{co['count']} businesses by category")
@@ -878,13 +1004,23 @@ def build_company_pages(render, lang, U, L, co):
     # the directory search list (about 2,500 rows) is a separate file, fetched on first use: the page itself stays small
     with open(os.path.join(OUT, "assets", f"companies-{lang}.json"), "w", encoding="utf-8") as f:
         json.dump(search, f, ensure_ascii=False, separators=(",", ":"))
+    by_town = {}
+    for g in co["groups"]:
+        for tn, ts, n in g.get("towns", []):
+            by_town.setdefault(tn, []).append({"label": g["nl"] if nl else g["en"], "n": n,
+                                              "url": (("/bedrijven/" + g["nl_slug"]) if nl else ("/en/companies/" + g["en_slug"])) + "-" + ts})
+    by_town = sorted(by_town.items(), key=lambda x: -sum(o["n"] for o in x[1]))
     render("companies.html", "companies", title, desc, "/bedrijven/", "/en/companies/", crumbs,
-           extra={"co": dict(co, search_json="")})
+           extra={"co": dict(co, search_json=""), "by_town": by_town})
     # "Ook in <plaats>": other businesses with their own page in the same town, from other categories
     by_place = {}
     for r in co["recs"]:
         if r["page"] and r["place"]:
             by_place.setdefault(r["place"], []).append(r)
+    town_slug = {(g["key"], tn): ts for g in co["groups"] for tn, ts, _n in g.get("towns", [])}
+    page_recs = [r for r in co["recs"] if r["page"]]
+    for r in co["recs"]:
+        r["week"] = SC.parse_hours(r.get("hours"))
     for gr in co["groups"]:
         label = gr["nl"] if nl else gr["en"]
         t = f"{label} in Suriname ({gr['count']})"
@@ -893,29 +1029,50 @@ def build_company_pages(render, lang, U, L, co):
              f"{gr['count']} listings for {label.lower()} in Suriname, with phone, address and opening hours where known.")
         crumbs = [{"label": "Home", "url": U("home")}, {"label": "Bedrijven" if nl else "Companies",
                    "url": "/bedrijven/" if nl else "/en/companies/"}, {"label": label}]
-        namecount = {}
+        namecount, seen_dup = {}, {}
         for r in gr["items"]:
             if r["page"]:
                 namecount[(r["name"].lower(), r["place"])] = namecount.get((r["name"].lower(), r["place"]), 0) + 1
         # a category with one or two businesses is a thin page: it stays for visitors, out of search engines
         render("company_cat.html", "companies", t, d, f"/bedrijven/{gr['nl_slug']}", f"/en/companies/{gr['en_slug']}",
-               crumbs, extra={"gr": gr}, robots="noindex,follow" if gr["count"] < 3 else None)
+               crumbs, extra=dict(cat_extra(gr, None, co, lang, U, L), gr=gr),
+               robots="noindex,follow" if gr["count"] < 3 else None)
         for r in gr["items"]:
             if not r["page"]:
                 continue
             place = f", {r['place']}" if r["place"] else ""
-            where = (f", {r['street']}" if r["street"] and namecount[(r["name"].lower(), r["place"])] > 1 else "") + place
-            t = f"{r['name']}{where}: " + ("adres, telefoon en openingstijden" if nl else "address, phone and opening hours")
-            if len(t) > 62:
-                t = f"{r['name']}{where}: " + ("adres en telefoon" if nl else "address and phone")
-            bits = [x for x in [r["street"], r["place"], r["phone"]] if x]
-            d = f"{r['name']} ({label.lower()}){place}. " + " · ".join(bits)
+            dupn = namecount[(r["name"].lower(), r["place"])]
+            if dupn > 1 and r["street"]:
+                where = f", {r['street']}" + place
+            elif dupn > 1:   # two branches without a street in OpenStreetMap: tell them apart by phone or number
+                seen_dup[(r["name"].lower(), r["place"])] = seen_dup.get((r["name"].lower(), r["place"]), 0) + 1
+                where = place + (f" ({r['phone']})" if r["phone"] else
+                                 f" ({'vestiging' if nl else 'branch'} {seen_dup[(r['name'].lower(), r['place'])]})")
+            else:
+                where = place
+            fields = [("adres", "address")] + ([("telefoon", "phone")] if r["phone"] else []) + \
+                     ([("openingstijden", "opening hours")] if r["week"] or r["hours"] else [])
+            def _join(fs):
+                w = [f[0 if nl else 1] for f in fs]
+                return w[0] if len(w) == 1 else ", ".join(w[:-1]) + (" en " if nl else " and ") + w[-1]
+            t = f"{r['name']}{where}: " + _join(fields)
+            if len(t) > 62 and len(fields) > 2:
+                t = f"{r['name']}{where}: " + _join(fields[:2])
+            d = SC.company_desc(r, lang, label, r["week"])
             crumbs = [{"label": "Home", "url": U("home")},
                       {"label": "Bedrijven" if nl else "Companies", "url": "/bedrijven/" if nl else "/en/companies/"},
                       {"label": label, "url": f"/bedrijven/{gr['nl_slug']}" if nl else f"/en/companies/{gr['en_slug']}"},
                       {"label": r["name"]}]
+            ts = town_slug.get((gr["key"], r["place"]))
+            if ts:   # Home / Bedrijven / Zorg / Paramaribo / Apotheek X, when the town page exists
+                crumbs.insert(3, {"label": r["place"], "url": (f"/bedrijven/{gr['nl_slug']}-{ts}" if nl
+                                                               else f"/en/companies/{gr['en_slug']}-{ts}")})
+            dkey = SC.TOWN_DISTRICT.get(r["place"])
+            dist = DD.BY_KEY.get(dkey) if dkey else None
+            same_count = sum(1 for o in gr["items"] if o["place"] == r["place"]) if r["place"] else 0
+            near = SC.nearest(r, page_recs, lab, lang) or [dict(o, dist=None) for o in _nearby(by_place.get(r["place"], []), r, lab)]
             canonical = SITE_URL + (f"/bedrijf/{r['slug']}" if nl else f"/en/company/{r['slug']}")
-            lb = {"@type": "LocalBusiness", "@id": canonical + "#business", "name": r["name"], "url": canonical}
+            lb = {"@type": SC.schema_type(r), "@id": canonical + "#business", "name": r["name"], "url": canonical}
             if r["phone"]:
                 lb["telephone"] = r["phone"]
             if r["street"] or r["place"]:
@@ -923,17 +1080,30 @@ def build_company_pages(render, lang, U, L, co):
                                  "addressLocality": r["place"], "addressCountry": "SR"}.items() if v}
             if r["lat"]:
                 lb["geo"] = {"@type": "GeoCoordinates", "latitude": r["lat"], "longitude": r["lon"]}
+                lb["hasMap"] = f"https://www.google.com/maps/search/?api=1&query={r['lat']},{r['lon']}"
             if r["website"]:
                 lb["sameAs"] = [r["website"]]
-            if r["hours"]:
+            if r["week"]:
+                lb["openingHoursSpecification"] = SC.hours_schema(r["week"])
+            elif r["hours"]:
                 lb["openingHours"] = r["hours"]
+            lb["description"] = SC.company_intro(r, lang, label, same_count, dist["name"] if dist else None, r["week"])
             graph = [{"@type": "WebPage", "url": canonical, "name": t, "inLanguage": lang,
                       "mainEntity": {"@id": canonical + "#business"}}, lb]
-            # a listing with only opening hours is too thin for search engines: the page stays for
-            # visitors and site search, but is kept out of Google and the sitemap
-            thin = not (r["phone"] or r["website"] or r["email"])
+            # Oct 2026: listings with only opening hours used to be noindex. Every company page now carries a
+            # readable hours table, a placing sentence, the nearest businesses with distances and category
+            # context, so they are indexable like the rest. Only a page with neither contact details nor
+            # opening hours nor a street would be thin; normalise() never makes a page for those.
+            thin = not (r["phone"] or r["website"] or r["email"] or r["week"] or r.get("whatsapp"))
             render("company.html", "companies", t, d, f"/bedrijf/{r['slug']}", f"/en/company/{r['slug']}", crumbs,
-                   extra={"r": r, "gr": gr, "nearby": _nearby(by_place.get(r["place"], []), r, lab)},
+                   extra={"r": r, "gr": gr, "nearby": near,
+                          "intro": SC.company_intro(r, lang, label, same_count, dist["name"] if dist else None, r["week"]),
+                          "hours_rows": SC.hours_rows(r["week"], lang) if r["week"] else None,
+                          "district": ({"name": dist["name"], "url": ("/district/" if nl else "/en/district/") + dkey}
+                                       if dist else None),
+                          "town_url": crumbs[3]["url"] if ts else None,
+                          "group_text": SC.GROUP_TEXT.get(gr["key"], ("", ""))[0 if nl else 1],
+                          "group_links": [(L(k), U(k)) for k in SC.GROUP_LINKS.get(gr["key"], []) if k in LABELS]},
                    graph=graph, robots="noindex,follow" if thin else None)
 
 # ---------------------------------------------------------------- posted vacancies
@@ -1213,7 +1383,7 @@ def main():
                 desc_ = desc_[:155].rsplit(" ", 1)[0].rstrip(",;:") + "..."
             crumbs = [{"label": "Home", "url": U("home")}, {"label": L("districts"), "url": U("districts")}, {"label": d_["name"]}]
             render("district.html", "districts", t, desc_, f"/district/{d_['key']}", f"/en/district/{d_['key']}",
-                   crumbs, extra={"d": d_})
+                   crumbs, extra={"d": d_, "dco": district_companies(co, d_["key"], lang)})
 
         # country pages (countries_data.py): /land/<key>, /en/country/<key>
         for c_ in CD.COUNTRIES:
@@ -1242,6 +1412,18 @@ def main():
                         f'<meta http-equiv="refresh" content="0; url={target}"></head>'
                         f'<body><a href="{target}">{target}</a></body></html>')
 
+    for old, new in SC.RETIRED.items():
+        f = os.path.join(OUT, old.lstrip("/") + ".html")
+        if os.path.exists(f) or not os.path.exists(os.path.join(OUT, new.lstrip("/") + ".html")):
+            continue    # the page is live again, or the target is gone: never redirect to a 404
+        target = SITE_URL + new
+        os.makedirs(os.path.dirname(f), exist_ok=True)
+        with open(f, "w", encoding="utf-8") as fh:
+            fh.write(f'<!doctype html><html><head><meta charset="utf-8"><title>Redirect</title>'
+                     f'<link rel="canonical" href="{target}">'
+                     f'<meta http-equiv="refresh" content="0; url={target}"></head>'
+                     f'<body><a href="{target}">{target}</a></body></html>')
+
     # 404: a real page with the full header, drawer, tab bar and search (GitHub Pages serves /404.html)
     render_nl("404.html", "home", "Pagina niet gevonden | Suriname Business", "Deze pagina bestaat niet.",
               "/404", "/404", robots="noindex", in_sitemap=False, single=True)
@@ -1265,19 +1447,45 @@ def main():
             for d, v in sorted(rates["history"]):
                 f.write(f'{d},{v["usd"][0] or ""},{v["usd"][1] or ""},{v["eur"][0] or ""},{v["eur"][1] or ""},CME\n')
 
-    # sitemap
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
-             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    for loc, nl, en, lm in sitemap:
-        if nl is None:
-            lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod></url>")
+    # sitemaps: /sitemap.xml is an index of one sitemap per section, so Search Console reports indexing
+    # per section (companies, directory, salary, ...) instead of one number for the whole site
+    def section(loc):
+        p = loc[len(SITE_URL):]
+        for prefix, name in (("/bedrijf/", "companies"), ("/en/company/", "companies"),
+                             ("/bedrijven/", "directory"), ("/en/companies/", "directory"),
+                             ("/netto-salaris/", "salary"), ("/en/net-salary/", "salary"),
+                             ("/vacature", "jobs"), ("/en/job", "jobs"),
+                             ("/district/", "places"), ("/en/district/", "places"), ("/land/", "places"),
+                             ("/en/country/", "places"), ("/aanbesteder/", "places"), ("/en/tender-buyer/", "places")):
+            if p.startswith(prefix):
+                return name
+        return "pages"
+    parts = {}
+    for row in sitemap:
+        parts.setdefault(section(row[0]), []).append(row)
+    os.makedirs(os.path.join(OUT, "sitemaps"), exist_ok=True)
+    index = ['<?xml version="1.0" encoding="UTF-8"?>', '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for name in ("pages", "directory", "companies", "salary", "places", "jobs"):
+        rows = parts.get(name)
+        if not rows:
             continue
-        lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod>"
-                     f'<xhtml:link rel="alternate" hreflang="nl" href="{nl}"/>'
-                     f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/></url>')
-    lines.append("</urlset>")
+        lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+        for loc, nl, en, lm in rows:
+            if nl is None:
+                lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod></url>")
+                continue
+            lines.append(f"<url><loc>{loc}</loc><lastmod>{lm}</lastmod>"
+                         f'<xhtml:link rel="alternate" hreflang="nl" href="{nl}"/>'
+                         f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/>'
+                         f'<xhtml:link rel="alternate" hreflang="x-default" href="{nl}"/></url>')
+        lines.append("</urlset>")
+        with open(os.path.join(OUT, "sitemaps", name + ".xml"), "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
+        index.append(f"<sitemap><loc>{SITE_URL}/sitemaps/{name}.xml</loc><lastmod>{max(r[3] for r in rows)}</lastmod></sitemap>")
+    index.append("</sitemapindex>")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
+        f.write("\n".join(index))
     # IndexNow: pages whose content changed into today (each URL at most once a day). The first
     # build without page_dates.json queues every page. indexnow.py posts the list after deploy.
     queue = [loc for loc, _nl, _en, lm in sitemap
@@ -1290,7 +1498,10 @@ def main():
         json.dump(PAGE_DATES_NEW, f, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
     os.replace(PAGE_DATES_FILE + ".tmp", PAGE_DATES_FILE)
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
-        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+        # The JSON files feed the on-page search; JS paths of the account API were crawled as 404s.
+        f.write("User-agent: *\nAllow: /\nDisallow: /assets/search-\nDisallow: /assets/companies-\n"
+                "Disallow: /me/\nDisallow: /api/\nDisallow: /listing\n\n"
+                f"Sitemap: {SITE_URL}/sitemap.xml\n")
     if os.path.exists(os.path.join(ROOT, "assets", "favicon.ico")):
         shutil.copyfile(os.path.join(ROOT, "assets", "favicon.ico"), os.path.join(OUT, "favicon.ico"))
     with open(os.path.join(OUT, "CNAME"), "w") as f:
