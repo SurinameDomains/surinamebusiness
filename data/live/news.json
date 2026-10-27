@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-27T01:11:00+00:00",
+   "source": "Starnieuws",
+   "title": "Verscherpte EU-controles dreigen: wat Verordening 2019/1793 betekent voor groente-export",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94559"
+  },
+  {
+   "econ": false,
    "published": "2026-10-26T23:33:37+00:00",
    "source": "Dagblad Suriname",
    "title": "Vicky López wint prijs voor jong talent",
@@ -412,16 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Lichaam met schotwond gevonden bij goudzoekerskamp Lawagebied",
    "url": "https://www.dbsuriname.com/2026/10/20/lichaam-met-schotwond-gevonden-bij-goudzoekerskamp-lawagebied/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T19:21:40+00:00",
-   "source": "Suriname Herald",
-   "title": "Simons wil strengere regels voor digitaal bankieren in Suriname",
-   "url": "https://www.srherald.com/suriname/2026/10/20/simons-wil-strengere-regels-voor-digitaal-bankieren-in-suriname/"
   }
  ],
- "fetched_at": "2026-10-27T00:53:45+00:00",
+ "fetched_at": "2026-10-27T01:37:55+00:00",
  "oil": [
   {
    "econ": false,
@@ -574,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-27T00:53:44+00:00",
+   "fetched_at": "2026-10-27T01:37:54+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-27T00:53:41+00:00",
+   "count": 18,
+   "fetched_at": "2026-10-27T01:37:52+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-27T00:53:43+00:00",
+   "fetched_at": "2026-10-27T01:37:53+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T00:53:44+00:00",
+   "fetched_at": "2026-10-27T01:37:54+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-27T00:53:43+00:00",
+   "fetched_at": "2026-10-27T01:37:53+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T00:53:45+00:00",
+   "fetched_at": "2026-10-27T01:37:55+00:00",
    "ok": true
   }
  }
