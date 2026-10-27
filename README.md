@@ -40,6 +40,16 @@ Second gap round after a full crawl (about 1,900 pages and the key PDFs) of the 
 - Guides hub regrouped (7 groups, 57 guides); menus list the main guides with "Alle gidsen" for the rest. Icons for every new key in `tools_meta` (one per key).
 - Refresh often: utilities (EBS tariffs, load shedding), logistics (Canawaima, port), countries (US tariffs, Guyana ferry), events (dates), subsidies (open calls), payments (SNEPS 24/7 target end 2026).
 
+## Oil and gas cluster (27 Oct 2026)
+
+Oil and gas is a business topic for this site, built out as a cluster of pages with "Olie en gas" as breadcrumb parent (`site_config.OIL_KEYS`) and its own column in the "Handel en markt" menu.
+
+- Hub `/olie-en-gas` (`oilgas`): state of the sector, opportunities by type of business, dates to watch (`facts.OIL_MILESTONES`, review monthly), live Brent, pump price, Staatsolie EOIs and oil headlines. Label, meta and FAQ in `guides_new/oilgas.py`; GranMorgu figures in `facts.GRANMORGU`.
+- Guides in `guides_new/` (same conventions as the other guides): `granmorgu` (/granmorgu-project), `oilblocks` (/olieblokken-suriname), `oiljobs` (/werken-in-olie-en-gas), `staatsolie` (/staatsolie), `oillaw` (/olie-en-gas-wetgeving), `oilmoney` (/oliegeld-en-ondernemers), `oilglossary` (/olie-en-gas-begrippen). The existing supplier guide links the tools.
+- Fuel prices `/brandstofprijzen` (`fuel`, trade section): `markets.fetch_fuel` reads GOw2's daily pump price (gow2.com/en/fuels) every 30 minutes into `data/live/fuel.json` and keeps a daily history (chart appears after 7 days). Price cap context and the uncapped prices per company in `facts.FUEL`: update when the government publishes new figures or ends the cap. The home page "Vandaag" panel shows diesel and petrol.
+- Tools: `supplierready` (/leverancier-check-olie-en-gas, 34 questions in 8 areas, score and action list, `sbt:oilready`) and `eoiletter` (/eoi-brief-maken, EOI letter in English or Dutch, `sbt:eoi`), both in `assets/tools/oilgas.js`.
+- Refresh: GranMorgu progress and drilling (monthly), Block 52 FID, Open-Door windows, Local Content bill, SSFS law, fuel cap. Every page has a maintainer note at the top.
+
 ## Vacancy board (worker/)
 
 Employers post vacancies themselves at `/vacature-plaatsen` (`/en/post-a-job`). The backend is the Cloudflare Worker `sb-jobs` on the **Suriname Business** Cloudflare account (never the Explore account), with D1 (`sb-jobs`), KV (`sb-jobs-files`, PDFs) and Turnstile.

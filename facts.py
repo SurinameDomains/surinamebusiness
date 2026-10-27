@@ -130,6 +130,12 @@ GRANMORGU = {
     "partners_local_2025_musd": 260,
     "new_suppliers_2025": 731,
     "progress_end_2025": 28,
+    # Oct 2026 status (OGM minister 22 Oct 2026; TotalEnergies Sep/Oct 2026 reports about 50% of execution and spend)
+    "progress_pct": 43,
+    "progress_date": "2026-10-22",
+    "cost_latest_bn_usd": 12.2,      # Reuters/trade press 2026 cite USD 12 to 12.2 bn; Staatsolie: within budget
+    "drilling_start": "december 2026",
+    "first_oil_label": ("medio 2028", "mid-2028"),
     "sources": [
         ("TotalEnergies: final investment decision GranMorgu",
          "https://corporate.totalenergies.no/news-overview/suriname-totalenergies-announces-final-investment-decision-granmorgu-development-block"),
@@ -138,6 +144,54 @@ GRANMORGU = {
         ("Staatsolie Sustainability Report 2025",
          "https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf"),
         ("Staatsolie: opportunities for local suppliers", "https://www.staatsolie.com/en/local-content"),
+        ("Suriname Herald: GranMorgu 43 procent, eerste boringen in december (22 oktober 2026)",
+         "https://www.srherald.com/suriname/2026/10/22/eerste-olieboringen-granmorgu-starten-in-december-project-al-voor-43-procent-gerealiseerd/"),
+        ("GFC Nieuws: Gran Morgu voor 43 procent uitgevoerd (23 oktober 2026)",
+         "https://www.gfcnieuws.com/gran-morgu-voor-43-procent-uitgevoerd-eerste-productieboringen-gepland-voor-december/"),
+    ],
+}
+
+# Oil and gas milestones shown on the hub (when en, when nl, text nl, text en). Review monthly.
+OIL_MILESTONES = [
+    ("December 2026", "december 2026", "GranMorgu: eerste productieboringen (minister OGM; TotalEnergies zegt begin 2027)",
+     "GranMorgu: first production wells drilled (OGM minister; TotalEnergies says early 2027)"),
+    ("21 December 2026", "21 december 2026", "Open-Door Offering: venster voor concurrerende voorstellen Sector 1 (SHO West) sluit om 10:00 uur",
+     "Open-Door Offering: window for competing proposals for Sector 1 (SHO West) closes at 10:00"),
+    ("2026 or 2027", "2026 of 2027", "Blok 52 (Petronas): investeringsbesluit voor gas en drijvende LNG-installatie verwacht",
+     "Block 52 (Petronas): investment decision on gas and a floating LNG plant expected"),
+    ("2027", "2027", "Local Content-wet naar De Nationale Assemblée (Local Content Board)",
+     "Local Content bill to the National Assembly (Local Content Board)"),
+    ("2027 and 2028", "2027 en 2028", "Vier nieuwe exploratieputten in Blok 58 (TotalEnergies)",
+     "Four new exploration wells in Block 58 (TotalEnergies)"),
+    ("November 2027", "november 2027", "Open-Door Offering loopt af (twee jaar vanaf 24 november 2025)",
+     "Open-Door Offering ends (two years from 24 November 2025)"),
+    ("Before 2028", "vóór 2028", "Spaar- en Stabilisatiefonds Suriname operationeel, vóór de eerste olie-inkomsten (regering)",
+     "Savings and Stabilisation Fund operational before the first oil revenue (government)"),
+    ("2028", "2028", "GranMorgu: eerste olie, volgens Staatsolie medio 2028",
+     "GranMorgu: first oil, mid-2028 according to Staatsolie"),
+    ("2030", "2030", "Blok 52: eerste gas op zijn vroegst", "Block 52: first gas at the earliest"),
+]
+
+# Pump prices: the live GOw2 price comes from markets.fetch_fuel (data/live/fuel.json). These are the
+# hand-checked context figures around it. Re-check when the government changes or ends the price cap.
+FUEL = {
+    "cap_since": "2026-03-17",
+    "checked": "2026-10-26",
+    # prices the companies would charge without the cap, as quoted by President Simons on 13 October 2026
+    "uncapped_date": "2026-10-13",
+    "uncapped": [("SOL", 64.66, 74.52), ("GOw2", 58.99, 74.76), ("Rubis", 60.96, 69.00)],
+    "vat": 0.10,
+    "sources": [
+        ("GOw2: brandstofprijs per dag", "https://gow2.com/en/fuels/"),
+        ("Waterkant: zonder price cap zou diesel ruim SRD 74 en unleaded ruim SRD 64 kosten (14 oktober 2026)",
+         "https://www.waterkant.net/suriname/2026/10/14/zonder-price-cap-zou-diesel-ruim-srd-74-en-unleaded-ruim-srd-64-per-liter-kosten/"),
+        ("Suriname Herald: brandstof kan fors duurder worden als overheid prijsplafond niet kan handhaven (22 oktober 2026)",
+         "https://www.srherald.com/suriname/2026/10/22/simons-brandstof-kan-fors-duurder-worden-als-overheid-prijsplafond-niet-langer-kan-handhaven/"),
+        ("Suriname Herald: olieprijs boven US$ 117, druk op brandstofprijsplafond (23 oktober 2026)",
+         "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"),
+        ("Suriname Herald: brandstofprijzen stijgen opnieuw (13 maart 2026)",
+         "https://www.srherald.com/suriname/2026/03/13/brandstofprijzen-in-suriname-stijgen-opnieuw-door-internationale-olieontwikkelingen/"),
+        ("Belastingdienst: Wet BTW 2022 en bijlagen (brandstof 10%)", "https://belastingdienst.sr/btw/algemeen/"),
     ],
 }
 

@@ -498,7 +498,7 @@ def main():
     for name, fn in [("rates", fetch_rates), ("tenders", fetch_tenders), ("jobs", fetch_jobs), ("news", fetch_news),
                      ("companies", fetch_companies), ("maxprices", fetch_maxprices),
                      ("cbvs", mk(markets.fetch_cbvs)), ("douane", mk(markets.fetch_douane)),
-                     ("banks", mk(markets.fetch_banks)), ("commodities", mk(markets.fetch_commodities)),
+                     ("banks", mk(markets.fetch_banks)), ("commodities", mk(markets.fetch_commodities)), ("fuel", mk(markets.fetch_fuel)),
                      ("ebs", mk(utilities.fetch_ebs)), ("sbcontent", fetch_sbcontent)]:
         try:
             print(f"{name}: {fn()}")

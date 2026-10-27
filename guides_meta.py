@@ -34,3 +34,9 @@ GUIDES.update(_GN.ENTRIES)
 def faqs(key, lang):
     items = GUIDES.get(key, {}).get("faq", [])
     return [q[0] if lang == "nl" else q[1] for q in items]
+
+# fuel prices: a data page in the trade section (site_config.PAGES), only label/meta/FAQ come from here
+from guides_new import fuel as _fuel  # noqa: E402
+GUIDES["fuel"] = _fuel.ENTRY
+from guides_new import oilgas as _oilgas  # noqa: E402
+GUIDES["oilgas"] = _oilgas.ENTRY

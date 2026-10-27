@@ -300,6 +300,20 @@ _T = [
      ("Gift voucher maker for your business: code, amount and validity",
       "Design a gift voucher with amount, unique code and expiry date. Print one or a sheet of four. Free."),
      ("Met code, bedrag en vervaldatum", "With code, amount and expiry"), "card"),
+    ("eoiletter", "eoi-brief-maken", "en/eoi-letter-generator", "paper",
+     ("EOI-brief maken", "EOI letter generator"),
+     ("EOI-brief maken voor Staatsolie en olie- en gasbedrijven",
+      "Stel in tien minuten een complete Expression of Interest op: jobnummer, scope, referenties, middelen, HSE, certificaten en local content. In het Engels of Nederlands, als PDF."),
+     ("EOI letter generator for Staatsolie and oil and gas tenders",
+      "Draft a complete Expression of Interest in ten minutes: job number, scope, references, resources, HSE, certificates and local content. In English or Dutch, as a PDF."),
+     ("Expression of Interest voor olie en gas", "Expression of Interest for oil and gas"), "send-doc"),
+    ("supplierready", "leverancier-check-olie-en-gas", "en/oil-gas-supplier-readiness-check", "admin",
+     ("Leverancier-check olie en gas", "Oil and gas supplier check"),
+     ("Leverancier-check: is je bedrijf klaar voor olie en gas?",
+      "Beantwoord 34 vragen over registratie, HSSE, kwaliteit, financiën, beleid, cyber, techniek en local content. Je krijgt een score per onderdeel en een actielijst."),
+     ("Supplier readiness check for Suriname oil and gas",
+      "Answer 34 questions on registration, HSSE, quality, finance, policies, cyber, technical capability and local content. Get a score per area and an action list."),
+     ("Score en actielijst voor SSRP en EOI's", "Score and action list for SSRP and EOIs"), "gauge"),
     ("datecalc", "datum-berekenen", "en/date-calculator", "office",
      ("Datum berekenen", "Date calculator"),
      ("Datum berekenen: dagen of werkdagen optellen, termijn en vervaldatum",
@@ -317,7 +331,7 @@ BY_KEY = {t["key"]: t for t in TOOLS}
 EXISTING = {
     "admin": ["vatcalc"],
     "staff": ["salary", "overtime", "minwage", "workdays"],
-    "money": ["rates", "maxprices"],
+    "money": ["rates", "maxprices", "fuel"],
     "office": ["holidays"],
 }
 EXISTING_BLURB = {
@@ -329,6 +343,7 @@ EXISTING_BLURB = {
     "rates": ("USD en EUR in SRD, met omrekenen", "USD and EUR in SRD, with converter"),
     "holidays": ("Alle vrije dagen, ook als agenda", "All days off, also as a calendar"),
     "maxprices": ("Officiële prijzen van basisgoederen", "Official prices of basic goods"),
+    "fuel": ("Benzine en diesel vandaag, met rekentool", "Petrol and diesel today, with calculator"),
 }
 
 ICONS = {
@@ -474,6 +489,16 @@ ICONS.update({
     "pickaxe": '<path d="M3 21l11-11"/><path d="M4 8c4-4 10-5 16-2-3-1-6 0-8 2l4 4c2-2 3-5 2-8 3 6 2 12-2 16"/>',
     "container": '<rect x="2" y="7" width="20" height="11" rx="1"/><path d="M6 7v11M10 7v11M14 7v11M18 7v11"/>',
     "plug": '<path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/>',
+    "fpso": '<path d="M2 16h20l-2 4H5z"/><path d="M5 16v-3h9v3M14 16V9h3v7M15.5 9V4M8 13v-3h3v3"/>',
+    "grid-map": '<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><path d="M11 11h2v2h-2z"/>',
+    "badge-user": '<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7.5 18a4.5 4.5 0 0 1 9 0M10 3v2h4V3"/>',
+    "factory": '<path d="M3 21V11l5 3v-3l5 3V5h3v16"/><path d="M16 9h3v12M3 21h18M7 17h2M11 17h2"/>',
+    "contract": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/><path d="M14 3v5h5v3M8 9h4M8 13h5"/><circle cx="17" cy="17" r="3"/><path d="M16 20l-1 2.5M18 20l1 2.5"/>',
+    "barrel-coin": '<ellipse cx="9" cy="5" rx="5" ry="2"/><path d="M4 5v12c0 1.1 2.2 2 5 2M14 5v5M4 11c0 1.1 2.2 2 5 2"/><circle cx="17" cy="16" r="4.5"/><path d="M17 14v4"/>',
+    "abc": '<path d="M3 17l3-9 3 9M4 14h4M12 8h3a2 2 0 0 1 0 4h-3zM12 12h3.5a2.5 2.5 0 0 1 0 5H12zM21 9.5a3 3 0 1 0 0 6"/>',
+    "send-doc": '<path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M13 3v5h5v2M8 9h3M8 13h5"/><path d="M14 17h8M19 14l3 3-3 3"/>',
+    "gauge": '<path d="M3 15a9 9 0 0 1 18 0"/><path d="M12 15l4-5M5 15h1M18 15h1M12 6v1M7 9l.7.7M17 9l-.7.7"/><path d="M3 19h18"/>',
+    "fuel": '<path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M6 9h6"/><path d="M14 8h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V8l-3-3"/>',
     "world": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18M5 7h14M5 17h14"/>',
 })
 ICON_OF.update({"subsidies": "hand-coins", "events": "ticket", "diaspora": "globe-pin", "businesstravel": "suitcase",
@@ -481,7 +506,9 @@ ICON_OF.update({"subsidies": "hand-coins", "events": "ticket", "diaspora": "glob
                 "sustainability": "recycle", "payments": "tap", "aml": "fingerprint", "disputes": "alert-doc",
                 "civilcode": "book-law", "standards": "badge-check", "pricerules": "tag-check", "training": "cap",
                 "marketresearch": "pie", "insurance": "umbrella", "mining": "pickaxe", "logistics": "container",
-                "utilities": "plug", "countries": "world"})
+                "utilities": "plug", "countries": "world",
+                "granmorgu": "fpso", "oilblocks": "grid-map", "oiljobs": "badge-user", "staatsolie": "factory", "oillaw": "contract",
+                "oilmoney": "barrel-coin", "oilglossary": "abc", "fuel": "fuel", "eoiletter": "send-doc", "supplierready": "gauge"})
 
 def kicon(key, size=20):
     return icon(ICON_OF.get(key, "calc"), size)
@@ -532,6 +559,8 @@ RELATED = {
     "creditnote": ["invoice", "btwregister", "receivables", "reminder"],
     "purchaseorder": ["stock", "importcost", "pricing", "deliverynote"],
     "letter": ["invoice", "signature", "businesscard", "reminder"],
+    "eoiletter": ["supplierready", "letter", "businesscard", "pdftools"],
+    "supplierready": ["eoiletter", "letter", "bizplantool", "pdftools"],
     "receivables": ["reminder", "invoice", "cashflow", "btwregister"],
     "stock": ["purchaseorder", "pricing", "barcode", "unitprice"],
     "cashflow": ["receivables", "loan", "breakeven", "bizplantool"],

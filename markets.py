@@ -386,3 +386,42 @@ def fetch_commodities(load, save, now_iso, cme_usd=None):
         raise ValueError("no commodity prices")
     save("commodities.json", out)
     return ", ".join(ok) or "kept last known"
+
+
+# ---------------------------------------------------------------- pump prices (fuel)
+GOW2_URL = "https://gow2.com/en/fuels/"
+
+
+def parse_gow2(page):
+    """GOw2 shows its pump price per product on every page: <span class="prijsProduct">… Gasoline</span>
+    <span class="prijs">48.32</span> … <span class="prijsDate">26/10/2026</span>."""
+    out = {}
+    for m in re.finditer(r'prijsProduct">(?:<img[^>]*>)?\s*([A-Za-z ]+?)\s*</span>\s*<span class="prijs">\s*([\d.,]+)\s*</span>'
+                         r'.*?prijsDate">\s*(\d{1,2})/(\d{1,2})/(\d{4})', page, re.S):
+        name = m.group(1).strip().lower()
+        key = "unleaded" if name.startswith(("gasoline", "benzine", "unleaded")) else ("diesel" if name.startswith("diesel") else None)
+        if not key or key in out:
+            continue
+        out[key] = float(m.group(2).replace(",", "."))
+        out["date"] = f"{m.group(5)}-{int(m.group(4)):02d}-{int(m.group(3)):02d}"
+    if "unleaded" not in out or "diesel" not in out:
+        raise ValueError("GOw2 prices not found")
+    return out
+
+
+def fetch_fuel(load, save, now_iso, cme_usd=None):
+    old = load("fuel.json", {})
+    hist = old.get("history", {})
+    p = parse_gow2(_get(GOW2_URL))
+    for k in ("unleaded", "diesel"):
+        if not (10 < p[k] < 400):
+            raise ValueError(f"implausible {k} {p[k]}")
+    prev = old.get("gow2") or {}
+    # a jump of more than 40% in one go is more likely a parsing error than a price change
+    for k in ("unleaded", "diesel"):
+        if prev.get(k) and abs(p[k] / prev[k] - 1) > 0.4:
+            raise ValueError(f"{k} jumped from {prev[k]} to {p[k]}")
+    p["fetched_at"] = now_iso()
+    hist[p["date"]] = {"unleaded": p["unleaded"], "diesel": p["diesel"]}
+    save("fuel.json", {"gow2": p, "history": {k: hist[k] for k in sorted(hist)[-730:]}, "source": GOW2_URL})
+    return f"GOw2 unleaded {p['unleaded']} diesel {p['diesel']} ({p['date']})"

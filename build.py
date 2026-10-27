@@ -25,7 +25,7 @@ import guides_meta as GM
 import resources_data as RES
 import quality
 import tool_notes as TN
-from site_config import (INDEXNOW_KEY, DYNAMIC, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
+from site_config import (INDEXNOW_KEY, DYNAMIC, OIL_KEYS, ACCOUNT_API, GOOGLE_CLIENT_ID, PRIVATE_PAGES, CONTACT_EMAIL, JOBS_API, POSTED_SOURCE, TURNSTILE_SITEKEY, EXPLORE_URL, FOOTER_GROUPS, MENU, PAGES, SITE_URL,
                          file_for, url_for)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -1078,6 +1078,7 @@ def main():
     maxp = maxprices_view()
     mkt = market_view(rates)
     outages = load("ebs_outages.json", None)
+    fuel = load("fuel.json", None)
     buyers = extras.tender_buyers(tenders)
     sitemap = []
     search_index = {"nl": [], "en": []}
@@ -1122,7 +1123,7 @@ def main():
             min_deadline=(TODAY + dt.timedelta(days=1)).isoformat(), default_deadline=(TODAY + dt.timedelta(days=30)).isoformat(),
             recent=(TODAY - dt.timedelta(days=2)).isoformat(),
             etype=lambda k, _l=lang: JOB_TYPES.get(k, (k, k))[0 if _l == "nl" else 1],
-            TM=TM, RES=RES, tool_icon=TM.icon, kicon=lambda k, size=20: Markup(TM.kicon(k, size)), gicon=lambda g: Markup(TM.icon(TM.GROUP_ICON.get(g, "calc"), 20)), maxp=maxp, mkt=mkt, outages=outages, labour_json=json.dumps(facts.LABOUR_JS),
+            TM=TM, RES=RES, tool_icon=TM.icon, kicon=lambda k, size=20: Markup(TM.kicon(k, size)), gicon=lambda g: Markup(TM.icon(TM.GROUP_ICON.get(g, "calc"), 20)), maxp=maxp, mkt=mkt, outages=outages, fuel=fuel, labour_json=json.dumps(facts.LABOUR_JS),
             rates_json=json.dumps({"usd": rates["usd"], "eur": rates["eur"], "date": rates["business_date"]} if rates else None),
             account_api=ACCOUNT_API, google_client_id=GOOGLE_CLIENT_ID, dev_login=bool(os.environ.get("SB_DEV_LOGIN")),
             sbc=SBC, settings=SBC["settings"], cgroups=CGROUPS,
@@ -1182,6 +1183,8 @@ def main():
                 continue
             title, desc = META[key][li]
             crumbs = None if key == "home" else [{"label": "Home", "url": U("home")}, {"label": L(key)}]
+            if key in OIL_KEYS:
+                crumbs.insert(1, {"label": L("oilgas"), "url": U("oilgas")})
             faq = (extras.faqs(key, lang, py_salary) or TM.faqs(key, lang) or GM.faqs(key, lang) or []) + TN.faqs(key, lang)
             graph = schema_for(key, lang, title, desc, SITE_URL + U(key))
             if faq:

@@ -61,6 +61,7 @@ PAGES = {
     "tools": ("tools", "en/tools", "tools"),
     "douane": ("douanekoers", "en/customs-exchange-rate", "trade"),
     "gold": ("goudprijs", "en/gold-price-suriname", "trade"),
+    "fuel": ("brandstofprijzen", "en/fuel-prices-suriname", "trade"),
     "outages": ("stroomonderbreking-ebs", "en/power-outages-suriname", "trade"),
     "maxprices": ("maximumprijzen-basisgoederen", "en/maximum-prices-basic-goods", "trade"),
     "contacts": ("overheidsinstanties", "en/government-offices", "guides"),
@@ -79,16 +80,21 @@ for _t in _TOOLS:
     PAGES[_t["key"]] = (_t["nl"], _t["en"], "tools")
 DYNAMIC = {"companies"}
 
+# oil and gas cluster: these pages get "Olie en gas" as parent in the breadcrumb
+OIL_KEYS = ["granmorgu", "oilblocks", "supplier", "oiljobs", "staatsolie", "oillaw", "oilmoney", "oilglossary",
+            "fuel", "supplierready", "eoiletter"]
+
 # Header menu: four drop-downs. Tools opens a panel with every tool by group (from tools_meta);
 # the others list their pages in columns: (column label nl, en, [page keys]).
 MENU = [
     ("tools", "Tools", "Tools", None),
     ("work", "Werk en personeel", "Work and staff", [
-        ("Personeel en vacatures", "Jobs and staff", ["jobs", "postjob", "hiring", "employer", "dismissal", "workpermit", "training"]),
+        ("Personeel en vacatures", "Jobs and staff", ["jobs", "postjob", "hiring", "employer", "dismissal", "workpermit", "training", "oiljobs"]),
         ("Loon en regels", "Pay and rules", ["salary", "tax", "overtime", "minwage", "labour", "safety", "holidays"]),
     ]),
     ("trade", "Handel en markt", "Trade and market", [
-        ("Kansen en handel", "Opportunities and trade", ["tenders", "sectors", "districts", "countries", "oilgas", "supplier", "import", "export", "tradeagreements", "logistics"]),
+        ("Kansen en handel", "Opportunities and trade", ["tenders", "sectors", "districts", "countries", "import", "export", "tradeagreements", "logistics"]),
+        ("Olie en gas", "Oil and gas", ["oilgas", "granmorgu", "oilblocks", "supplier", "oiljobs", "staatsolie", "oilmoney", "fuel"]),
         ("Markt en cijfers", "Market and figures", ["economy", "marketresearch", "rates", "douane", "gold", "maxprices", "outages", "events", "news", "companies"]),
     ]),
     ("guides", "Gidsen", "Guides", [
