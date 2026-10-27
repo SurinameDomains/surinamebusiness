@@ -6,7 +6,8 @@ in the same shape as guides_content.ENTRIES. Registered in guides_meta.NEW and G
 import importlib
 
 KEYS = ["districts", "sectors", "agri", "tradeagreements", "euexport", "associations", "newlaws", "economy", "bizplan",
-        "subsidies", "events", "diaspora", "businesstravel", "expat", "tourismbiz", "environment", "safety", "sustainability", "payments", "aml", "disputes", "civilcode", "standards", "pricerules", "training", "marketresearch", "insurance", "mining", "logistics", "utilities", "countries"]
+        "subsidies", "events", "diaspora", "businesstravel", "expat", "tourismbiz", "environment", "safety", "sustainability", "payments", "aml", "disputes", "civilcode", "standards", "pricerules", "training", "marketresearch", "insurance", "mining", "logistics", "utilities", "countries",
+        "granmorgu", "oilblocks", "oiljobs", "staatsolie", "oillaw", "oilmoney", "oilglossary"]
 
 SLUGS = {}
 ENTRIES = {}
