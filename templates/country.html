@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set cpre = '/land/' if nl else '/en/country/' %}
+{% set base_guides = ['tradeagreements', 'marketresearch', 'export', 'import', 'logistics', 'payments', 'businesstravel'] %}
+{% set ns = namespace(gk=[]) %}{% for k in c.guides + base_guides %}{% if k not in ns.gk %}{% set ns.gk = ns.gk + [k] %}{% endif %}{% endfor %}
+{% macro musd(v) %}USD {{ num(v, 2 if v < 1 else 1) }} {{ 'mln' if nl else 'million' }}{% endmacro %}
+{% macro paras(f) %}{% for p in f[i].split('\n\n') %}<p>{{ p }}</p>
+{% endfor %}{% endmacro %}
+{% block content %}
+<div class="prose">
+<h1>{{ ('Zakendoen met ' if nl else 'Doing business with ') ~ c.name[i] }}</h1>
+<p class="lead">{{ c.intro[i] }}</p>
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Export van Suriname' if nl else 'Exports from Suriname' }} ({{ c.trade_year }})</div><div class="big">{{ musd(c.exp_musd) }}</div><div class="sub">{{ c.trade_src[i] }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Import door Suriname' if nl else 'Imports into Suriname' }} ({{ c.trade_year }})</div><div class="big">{{ musd(c.imp_musd) }}</div><div class="sub">{{ c.trade_src[i] }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Handelsregime' if nl else 'Trade regime' }}</div><div class="big">{{ c.agree_short[i] }}</div><div class="sub">{{ c.agree_sub[i] }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% for t in c.tldr %}
+ <li>{{ t[i] }}</li>
+{% endfor %}
+</ul></div>
+
+<h2>{{ 'Handel in cijfers' if nl else 'Trade in figures' }}</h2>
+{{ paras(c.trade) }}
+<p class="note">{{ 'Bedragen in Amerikaanse dollars. Omdat Suriname het grootste deel van zijn export (goud) niet per land rapporteert, gebruiken we de cijfers van het partnerland: zijn invoer uit Suriname is de Surinaamse export, zijn uitvoer naar Suriname de Surinaamse import. Invoer telt meestal inclusief vracht en verzekering (CIF), uitvoer zonder (FOB), dus de cijfers van beide kanten verschillen altijd wat.' if nl else 'Amounts in US dollars. Because Suriname does not report most of its exports (gold) by country, we use the partner country\'s figures: its imports from Suriname are Suriname\'s exports, its exports to Suriname are Suriname\'s imports. Imports usually include freight and insurance (CIF) and exports do not (FOB), so the two sides always differ somewhat.' }}</p>
+
+<h2>{{ 'Handelsakkoorden en invoerrechten' if nl else 'Trade agreements and duties' }}</h2>
+{{ paras(c.agreements) }}
+<p>{{ 'Hoe oorsprongsregels, certificaten en voorkeurstarieven werken, staat in' if nl else 'How rules of origin, certificates and preferential rates work is explained in' }} <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+
+<h2>{{ 'Markttoegang in de praktijk' if nl else 'Market access in practice' }}</h2>
+{{ paras(c.market_access) }}
+
+<h2>{{ 'Transport en reizen' if nl else 'Transport and travel' }}</h2>
+{{ paras(c.logistics) }}
+<p class="note">{{ 'Vluchten en vaarschema\'s veranderen vaak. Controleer ze bij de maatschappij of je expediteur voordat je plant.' if nl else 'Flights and sailing schedules change often. Check them with the airline or your forwarder before you plan.' }} <a href="{{ U('logistics') }}">{{ L('logistics') }}</a> &middot; <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a></p>
+
+<h2>{{ 'Ambassades en consulaten' if nl else 'Embassies and consulates' }}</h2>
+{{ paras(c.diplomatic) }}
+<p>{{ 'Adressen en openingstijden van de Surinaamse vertegenwoordigingen staan op de officiële site van het ministerie van Buitenlandse Zaken:' if nl else 'Addresses and opening hours of Suriname\'s missions are on the official site of the Ministry of Foreign Affairs:' }} <a href="https://embassies.gov.sr/" rel="noopener">embassies.gov.sr</a>.</p>
+
+<h2>{{ 'Kamers, netwerken en hulp' if nl else 'Chambers, networks and support' }}</h2>
+{{ paras(c.chambers) }}
+<p>{{ 'In Suriname helpen SITA (export- en investeringsbevordering), de KKF en EZOTI. Ondernemersorganisaties staan in' if nl else 'In Suriname, SITA (export and investment promotion), the KKF and EZOTI can help. Business organisations are listed in' }} <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+
+{% if c.diaspora_note %}
+<h2>{{ 'Diaspora' if nl else 'Diaspora' }}</h2>
+<p>{{ c.diaspora_note[i] }} <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a></p>
+{% endif %}
+
+<h2>{{ 'Kansen' if nl else 'Opportunities' }}</h2>
+<ul class="check">
+{% for o in c.opportunities %}
+ <li>{{ o[i] }}</li>
+{% endfor %}
+</ul>
+<p class="note">{{ 'Dit zijn mogelijkheden die passen bij de handel tussen beide landen, geen garantie op klanten. Toets een idee eerst met gesprekken, monsters en cijfers.' if nl else 'These are possibilities that fit the trade between the two countries, not a promise of customers. Test an idea first with conversations, samples and numbers.' }} <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a></p>
+
+<h2>{{ 'Waar je op let' if nl else 'Watch out for' }}</h2>
+<ul>
+{% for w in c.watch_out %}
+ <li>{{ w[i] }}</li>
+{% endfor %}
+</ul>
+
+<h2>{{ 'Zo begin je' if nl else 'How to start' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Toets de markt.</b> Kijk in de cijfers hierboven wat er al verhandeld wordt, en praat met minstens drie kopers of leveranciers. <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a></li>
+ <li><b>Bepaal de HS-code en het tarief.</b> Zoek het invoerrecht in het land van bestemming op, en of je voorkeur kunt krijgen. <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></li>
+ <li><b>Regel de eisen.</b> Certificaat van oorsprong, fytosanitair of gezondheidscertificaat, etiket en eventuele registratie van je bedrijf. <a href="{{ U('export') }}">{{ L('export') }}</a></li>
+ <li><b>Spreek levering en betaling af.</b> Kies een Incoterm, een betaalvorm (vooruitbetaling, L/C) en de valuta. <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li><b>Reken de totale kosten door.</b> Vracht, verzekering, heffingen en marge. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> &middot; <a href="{{ U('importcost') }}">{{ L('importcost') }}</a></li>
+ <li><b>Begin met een proefzending</b> en bewaar alle documenten per zending. <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Test the market.</b> Look at the figures above to see what is already traded, and talk to at least three buyers or suppliers. <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a></li>
+ <li><b>Determine the HS code and the tariff.</b> Look up the import duty in the destination country, and whether you can get a preference. <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></li>
+ <li><b>Meet the requirements.</b> Certificate of origin, phytosanitary or health certificate, label and any registration of your business. <a href="{{ U('export') }}">{{ L('export') }}</a></li>
+ <li><b>Agree delivery and payment.</b> Choose an Incoterm, a payment method (prepayment, L/C) and the currency. <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li><b>Work out the total cost.</b> Freight, insurance, duties and margin. <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> &middot; <a href="{{ U('importcost') }}">{{ L('importcost') }}</a></li>
+ <li><b>Start with a trial shipment</b> and keep all documents per shipment. <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Gidsen die verder helpen' if nl else 'Guides that help next' }}</h2>
+<ul class="ilinks">
+{% for k in ns.gk %}
+ <li><a href="{{ U(k) }}">{{ L(k) }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>{{ 'Andere landen' if nl else 'Other countries' }}</h2>
+<ul class="ilinks">
+{% for x in countries if x.key != c.key %}
+ <li><a href="{{ cpre }}{{ x.key }}">{{ x.short[i] }}</a></li>
+{% endfor %}
+ <li><a href="{{ U('countries') }}">{{ 'Alle landen vergelijken' if nl else 'Compare all countries' }}</a></li>
+</ul>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+{% for label, url in c.sources %}
+ <li><a href="{{ url }}" rel="noopener">{{ label }}</a></li>
+{% endfor %}
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of douane-advies. Laat tarieven en eisen per zending bevestigen.' if nl else 'General information, not legal or customs advice. Have tariffs and requirements confirmed per shipment.' }}</p>
+</div>
+{% endblock %}
