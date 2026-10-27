@@ -51,6 +51,15 @@
 {% endfor %}
 </ul>
 
+{% if dco %}
+<h2>{{ 'Bedrijven in' if nl else 'Businesses in' }} {{ d.name }}</h2>
+<p>{{ 'Onze bedrijvengids telt' if nl else 'Our business directory lists' }} {{ dco.n }} {{ 'adressen in' if nl else 'addresses in' }} {% for p, n in dco.places %}{% if not loop.first %}{{ ', ' if not loop.last else (' en ' if nl else ' and ') }}{% endif %}{{ p }} ({{ n }}){% endfor %}. {{ 'De grootste categorieën:' if nl else 'The largest categories:' }}</p>
+<ul class="ilinks">
+{% for c in dco.cats %}<li><a href="{{ c.url }}">{{ c.label }}</a> ({{ c.n }})</li>
+{% endfor %}</ul>
+{% if dco.sample %}<p>{{ 'Met contactgegevens, onder meer:' if nl else 'With contact details, among others:' }} {% for o in dco.sample %}{% if not loop.first %}, {% endif %}<a href="{{ o.url }}">{{ o.name }}</a>{% endfor %}.</p>{% endif %}
+{% endif %}
+
 <h2>{{ 'Gidsen die verder helpen' if nl else 'Guides that help next' }}</h2>
 <ul class="ilinks">
 {% for k in ns.gk %}

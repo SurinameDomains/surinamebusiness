@@ -39,16 +39,24 @@
  <li>{{ 'Dat is' if nl else 'That is' }} {{ num(g / mw, 1) }}&times; {{ 'het minimumloon voor een volle werkweek' if nl else 'the minimum wage for a full working week' }} ({{ srd(mw) }}).</li>
  <li>{% if taxable <= 0 %}{{ 'Je zit onder de belastingvrije som, dus je betaalt geen loonbelasting.' if nl else 'You are below the tax-free amount, so no wage tax is due.' }}{% else %}{{ 'Je hoogste schijf is' if nl else 'Your top bracket is' }} {% if taxable > 10500 %}38%{% elif taxable > 7000 %}28%{% elif taxable > 3500 %}18%{% else %}8%{% endif %}. {{ 'Elke extra SRD 100 bruto levert je netto ongeveer' if nl else 'Each extra SRD 100 gross adds roughly' }} {{ srd(100 - 100*(0.38 if taxable > 10500 else 0.28 if taxable > 7000 else 0.18 if taxable > 3500 else 0.08) - 4, 0) }} {{ 'op.' if nl else 'net.' }}{% endif %}</li>
 </ul>
+<h2>{{ 'Vergelijk met andere bedragen' if nl else 'Compare with other amounts' }}</h2>
+<table class="tbl"><thead><tr><th>{{ 'Bruto' if nl else 'Gross' }}</th><th class="r">{{ 'Loonbelasting' if nl else 'Wage tax' }}</th><th class="r">AOV</th><th class="r">{{ 'Netto' if nl else 'Net' }}</th><th class="r">{{ 'Inhouding' if nl else 'Deducted' }}</th></tr></thead><tbody>
+{% for x, rx in compare %}<tr{% if x == g %} aria-current="true"{% endif %}><td>{% if x == g %}<b>{{ srd(x) }}</b>{% else %}<a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ x }}">{{ srd(x) }}</a>{% endif %}</td><td class="r">{{ num(rx.tax, 0) }}</td><td class="r">{{ num(rx.aov, 0) }}</td><td class="r">{% if x == g %}<b>{{ num(rx.net, 0) }}</b>{% else %}{{ num(rx.net, 0) }}{% endif %}</td><td class="r">{{ num((rx.tax + rx.aov) / x * 100, 1) }}%</td></tr>
+{% endfor %}</tbody></table>
+
 <p class="note">{{ 'Indicatie voor 2026, zonder bijtellingen, vakantietoelage of bonus. Overuren hebben een eigen tarief.' if nl else 'Indicative for 2026, excluding benefits in kind, holiday allowance or bonus. Overtime has its own rate.' }} <a href="{{ U('overtime') }}">{{ L('overtime') }}</a></p>
 </div>
 <aside>
  <div class="card"><div class="eyebrow">{{ 'Ander bedrag' if nl else 'Another amount' }}</div>
-  <p><a href="{{ U('salary') }}?{{ 'bruto' if nl else 'gross' }}={{ g }}"><b>{{ 'Open de rekentool' if nl else 'Open the calculator' }} &rarr;</b></a></p>
+  <p><a rel="nofollow" href="{{ U('salary') }}?{{ 'bruto' if nl else 'gross' }}={{ g }}"><b>{{ 'Open de rekentool' if nl else 'Open the calculator' }} &rarr;</b></a></p>
   <ul class="list">
   {% if prev_g %}<li><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ prev_g }}">&larr; {{ srd(prev_g) }}</a></li>{% endif %}
   {% if next_g %}<li><a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ next_g }}">{{ srd(next_g) }} &rarr;</a></li>{% endif %}
   </ul>
   <div class="foot"><a href="{{ U('tax') }}">{{ L('tax') }}</a></div>
+ </div>
+ <div class="card"><div class="eyebrow">{{ 'Alle bedragen' if nl else 'All amounts' }}</div>
+  <p class="sub">{% for x in salary_amounts %}{% if x == g %}<b>{{ num(x, 0) }}</b>{% else %}<a href="{{ '/netto-salaris/' if nl else '/en/net-salary/' }}{{ x }}">{{ num(x, 0) }}</a>{% endif %}{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
  </div>
 </aside>
 </div>

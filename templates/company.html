@@ -7,6 +7,7 @@
 <h1>{{ r.name }}</h1>
 <p class="lead">{% if r.own and r.kind %}{{ r.kind|capitalize }}{% else %}{{ label }}{% endif %}{% if r.place %} {{ 'in' }} {{ r.place }}{% endif %}{% if r.brand and r.brand != r.name %}, {{ r.brand }}{% endif %}.</p>
 {% if r.about %}<p class="co-about">{{ r.about }}</p>{% endif %}
+{% if intro %}<p class="co-intro">{{ intro }}</p>{% endif %}
 {% if r.own %}<p class="co-own"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg> {{ 'Gegevens aangeleverd door het bedrijf, gecontroleerd door Suriname Business' if nl else 'Details supplied by the business, checked by Suriname Business' }}</p>{% endif %}
 <div class="card">
 <table class="tbl"><tbody>
@@ -15,16 +16,23 @@
 {% if r.whatsapp %}<tr><td>WhatsApp</td><td><a href="https://wa.me/{{ r.whatsapp }}" rel="noopener nofollow" target="_blank">+{{ r.whatsapp[:3] }} {{ r.whatsapp[3:] }}</a></td></tr>{% endif %}
 {% if r.website %}<tr><td>Website</td><td><a href="{{ r.website }}" rel="noopener nofollow" target="_blank">{{ r.website|replace('https://','')|replace('http://','')|truncate(40) }}</a></td></tr>{% endif %}
 {% if r.email %}<tr><td>E-mail</td><td><a href="mailto:{{ r.email }}">{{ r.email }}</a></td></tr>{% endif %}
-{% if r.hours %}<tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td><span class="open-now" id="open-now" data-h="{{ r.hours }}"></span><div class="sub" id="hours-txt">{{ r.hours }}</div></td></tr>{% endif %}
+{% if r.hours %}<tr><td>{{ 'Openingstijden' if nl else 'Opening hours' }}</td><td><span class="open-now" id="open-now" data-h="{{ r.hours }}"></span>{% if hours_rows %}<table class="hrs"><tbody>{% for dname, htxt in hours_rows %}<tr><th scope="row">{{ dname|capitalize }}</th><td>{{ htxt }}</td></tr>{% endfor %}</tbody></table>{% else %}<div class="sub" id="hours-txt">{{ r.hours }}</div>{% endif %}</td></tr>{% endif %}
 {% if r.operator and r.operator != r.name %}<tr><td>{{ 'Uitbater' if nl else 'Operator' }}</td><td>{{ r.operator }}</td></tr>{% endif %}
 </tbody></table>
 {% if r.lat %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ r.lat }},{{ r.lon }}" rel="noopener nofollow" target="_blank">{{ 'Route in Google Maps' if nl else 'Directions in Google Maps' }}</a>{% if r.osm %}<a href="{{ r.osm }}" rel="noopener">{{ 'Bekijk op OpenStreetMap' if nl else 'View on OpenStreetMap' }}</a>{% endif %}</div>
 {% elif r.street %}<div class="foot"><a href="https://www.google.com/maps/search/?api=1&query={{ (r.name ~ ', ' ~ r.street ~ ', ' ~ (r.place or '') ~ ', Suriname')|urlencode }}" rel="noopener nofollow" target="_blank">{{ 'Zoek in Google Maps' if nl else 'Find in Google Maps' }}</a></div>{% endif %}
 </div>
-<p class="claim"><b>{{ 'Is dit jouw bedrijf?' if nl else 'Is this your business?' }}</b> <a href="{{ U('addbiz') }}?b={{ r.slug }}&amp;n={{ r.name|urlencode }}">{{ 'Werk je gegevens bij, gratis' if nl else 'Update your details, free' }} &rarr;</a> <span class="sub">&middot; <a href="{{ U('contact') }}?melding={{ canonical|urlencode }}">{{ 'Fout of misbruik melden' if nl else 'Report an error or abuse' }}</a></span></p>
-{% if nearby %}<section class="card co-near" aria-labelledby="near-h"><h2 id="near-h" class="eyebrow">{{ 'Ook in' if nl else 'Also in' }} {{ r.place }}</h2><ul class="list near">
-{% for o in nearby %}<li><a href="{{ '/bedrijf/' if nl else '/en/company/' }}{{ o.slug }}">{{ o.name }}</a><div class="meta"><span>{{ o.cat }}</span>{% if o.street %}<span>{{ o.street }}</span>{% endif %}</div></li>{% endfor %}
+<p class="claim"><b>{{ 'Is dit jouw bedrijf?' if nl else 'Is this your business?' }}</b> <a rel="nofollow" href="{{ U('addbiz') }}?b={{ r.slug }}&amp;n={{ r.name|urlencode }}">{{ 'Werk je gegevens bij, gratis' if nl else 'Update your details, free' }} &rarr;</a> <span class="sub">&middot; <a rel="nofollow" href="{{ U('contact') }}?melding={{ canonical|urlencode }}">{{ 'Fout of misbruik melden' if nl else 'Report an error or abuse' }}</a></span></p>
+{% if nearby %}<section class="card co-near" aria-labelledby="near-h"><h2 id="near-h" class="eyebrow">{% if nearby[0].dist %}{{ 'In de buurt van' if nl else 'Near' }} {{ r.name }}{% else %}{{ 'Ook in' if nl else 'Also in' }} {{ r.place }}{% endif %}</h2><ul class="list near">
+{% for o in nearby %}<li><a href="{{ '/bedrijf/' if nl else '/en/company/' }}{{ o.slug }}">{{ o.name }}</a><div class="meta"><span>{{ o.cat }}</span>{% if o.street %}<span>{{ o.street }}</span>{% endif %}{% if o.dist %}<span>{{ o.dist }}{{ ' hemelsbreed' if nl else ' as the crow flies' }}</span>{% endif %}</div></li>{% endfor %}
 </ul></section>{% endif %}
+{% if group_text %}<section class="co-ctx" aria-labelledby="ctx-h"><h2 id="ctx-h" class="h3">{{ 'Over' if nl else 'About' }} {{ label|lower }}{% if r.place %} {{ 'in' }} {{ r.place }}{% endif %}</h2>
+<p>{{ group_text }}</p>
+{% if group_links or district or town_url %}<ul class="ctx-links">
+{% if town_url %}<li><a href="{{ town_url }}">{{ 'Alle' if nl else 'All' }} {{ label|lower }} {{ 'in' }} {{ r.place }}</a></li>{% endif %}
+{% for lt, lu in group_links %}<li><a href="{{ lu }}">{{ lt }}</a></li>{% endfor %}
+{% if district %}<li><a href="{{ district.url }}">{{ 'Ondernemen in' if nl else 'Doing business in' }} {{ district.name }}</a></li>{% endif %}
+</ul>{% endif %}</section>{% endif %}
 </div>
 <aside>
  <div class="card"><div class="eyebrow">{{ 'Meer in' if nl else 'More in' }} {{ label|lower }}</div><ul class="list">
@@ -44,6 +52,6 @@ function t2m(t){var x=t.split(':');return +x[0]*60+ +x[1]}
 try{var open=null;if(h==='24/7'){open=true}else{open=false;var any=false;h.split(';').forEach(function(rule){rule=rule.trim();if(!rule)return;var m=rule.match(/^([A-Za-z,\-]+)\s+(.+)$/);if(!m)throw 0;var ds=dayset(m[1]);any=true;if(m[2]==='off'){if(ds[day])open=false;return}
  if(ds[day]){m[2].split(',').forEach(function(r){var q=r.split('-');if(q.length!==2)throw 0;var a=t2m(q[0]),b=t2m(q[1]);if(b<=a)b+=1440;if(mins>=a&&mins<b)open=true})}});if(!any)throw 0}
  el.textContent=open?'{{ 'Nu open' if nl else 'Open now' }}':'{{ 'Nu gesloten' if nl else 'Closed now' }}';el.className='open-now '+(open?'yes':'no');
- {% if nl %}document.getElementById('hours-txt').textContent=h.replace(/Mo|Tu|We|Th|Fr|Sa|Su/g,function(x){return NL[x]}).replace(/off/g,'gesloten');{% endif %}
+ {% if nl %}var ht=document.getElementById('hours-txt');if(ht)ht.textContent=h.replace(/Mo|Tu|We|Th|Fr|Sa|Su/g,function(x){return NL[x]}).replace(/off/g,'gesloten');{% endif %}
 }catch(e){el.remove()}})();
 </script>{% endif %}{% endblock %}

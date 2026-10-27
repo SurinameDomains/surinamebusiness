@@ -4,6 +4,8 @@
 {% block content %}
 <h1>{{ label }} {{ 'in' }} {{ town or 'Suriname' }}</h1>
 <p class="lead">{{ gr.count }} {{ 'adressen' if nl else 'listings' }}{% if town %} {{ 'in' }} {{ town }}{% endif %}. {{ 'Gesorteerd op naam; filter op plaats of zoek op naam.' if nl else 'Sorted by name; filter by place or search by name.' }}</p>
+{% if group_text %}<p class="cat-intro">{{ group_text }}</p>{% endif %}
+{% if town_text %}<p class="cat-intro">{{ town_text }}{% if district %} <a href="{{ district.url }}">{{ 'Meer over ondernemen in' if nl else 'More on doing business in' }} {{ district.name }} &rarr;</a>{% endif %}</p>{% endif %}
 {% if gr.towns and not town %}<p class="sub bylist">{{ 'Per plaats' if nl else 'By place' }}: {% for tname, ts, n in gr.towns %}{% if not loop.first %} &middot; {% endif %}<a href="{{ '/bedrijven/' ~ gr.nl_slug if nl else '/en/companies/' ~ gr.en_slug }}-{{ ts }}">{{ tname }} ({{ n }})</a>{% endfor %}</p>{% endif %}
 <div class="filters" data-filter-list="cat-list">
  <input type="search" placeholder="{{ 'Zoek op naam, straat of plaats' if nl else 'Search by name, street or place' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
@@ -18,6 +20,17 @@
  <div class="meta">{% if r.street %}<span>{{ r.street }}</span>{% endif %}{% if r.place %}<span>{{ r.place }}</span>{% endif %}{% if r.phone %}<span><a href="tel:{{ r.phone|replace(' ','') }}">{{ r.phone }}</a></span>{% endif %}{% if r.hours %}<span class="pill">{{ 'Openingstijden bekend' if nl else 'Opening hours known' }}</span>{% endif %}</div></li>
 {% endfor %}
 </ul></div>
+<section class="cat-facts" aria-labelledby="facts-h"><h2 id="facts-h" class="h3">{{ 'In het kort' if nl else 'At a glance' }}</h2>
+<ul>
+ <li>{{ stats.n }} {{ 'adressen' if nl else 'listings' }}{% if town %} {{ 'in' }} {{ town }}{% else %}{{ ' in heel Suriname' if nl else ' across Suriname' }}{% endif %}{% if top_places %}, {{ 'de meeste in' if nl else 'most of them in' }} {% for p, n in top_places[:3] %}{% if not loop.first %}{{ ', ' if not loop.last else (' en ' if nl else ' and ') }}{% endif %}{{ p }} ({{ n }}){% endfor %}{% endif %}.</li>
+ <li>{{ stats.phone }} {{ 'met telefoonnummer' if nl else 'with a phone number' }}, {{ stats.hours }} {{ 'met bekende openingstijden' if nl else 'with known opening hours' }}{% if stats.web %} {{ 'en' if nl else 'and' }} {{ stats.web }} {{ 'met een eigen website' if nl else 'with their own website' }}{% endif %}.</li>
+ {% if allday %}<li>{{ '24 uur per dag open:' if nl else 'Open 24 hours:' }} {% for o in allday %}{% if not loop.first %}, {% endif %}{% if o.url %}<a href="{{ o.url }}">{{ o.name }}</a>{% else %}{{ o.name }}{% endif %}{% if o.place and not town %} ({{ o.place }}){% endif %}{% endfor %}.</li>{% endif %}
+ {% if sunday %}<li>{{ 'Ook op zondag open:' if nl else 'Also open on Sunday:' }} {% for o in sunday %}{% if not loop.first %}, {% endif %}{% if o.url %}<a href="{{ o.url }}">{{ o.name }}</a>{% else %}{{ o.name }}{% endif %}{% if o.place and not town %} ({{ o.place }}){% endif %}{% endfor %}.</li>{% elif stats.hours %}<li>{{ 'Geen van de adressen met bekende openingstijden is op zondag open.' if nl else 'None of the listings with known opening hours opens on Sunday.' }}</li>{% endif %}
+</ul>
+{% if other_cats %}<p class="sub bylist">{{ 'Meer in' if nl else 'More in' }} {{ town }}: {% for o in other_cats %}{% if not loop.first %} &middot; {% endif %}<a href="{{ o.url }}">{{ o.label }} ({{ o.n }})</a>{% endfor %}</p>{% endif %}
+{% if other_towns %}<p class="sub bylist">{{ gr.nl if nl else gr.en }} {{ 'in andere plaatsen' if nl else 'in other places' }}: {% for o in other_towns %}{% if not loop.first %} &middot; {% endif %}<a href="{{ o.url }}">{{ o.label }} ({{ o.n }})</a>{% endfor %}</p>{% endif %}
+{% if group_links %}<p class="sub bylist">{{ 'Handig' if nl else 'Useful' }}: {% for lt, lu in group_links %}{% if not loop.first %} &middot; {% endif %}<a href="{{ lu }}">{{ lt }}</a>{% endfor %}</p>{% endif %}
+</section>
 {% set ex = {'travel': ('https://exploresuriname.com/hotels.html', 'Hotels en verblijf op Explore Suriname', 'Hotels and places to stay on Explore Suriname'), 'finance': ('https://exploresuriname.com/atms.html', 'Geldautomaten kaart op Explore Suriname', 'ATM map on Explore Suriname'), 'food': ('https://exploresuriname.com/restaurants.html', 'Restaurants op Explore Suriname', 'Restaurants on Explore Suriname'), 'supermarkets': ('https://exploresuriname.com/shopping.html', 'Winkelen op Explore Suriname', 'Shopping on Explore Suriname')} %}
 {% if gr.key in ex %}<p style="margin-top:14px"><a href="{{ ex[gr.key][0] }}" rel="noopener">{{ ex[gr.key][1] if nl else ex[gr.key][2] }} &rarr;</a></p>{% endif %}
 <p class="claim" style="margin-top:18px"><b>{{ 'Staat jouw bedrijf er niet bij?' if nl else 'Is your business missing?' }}</b> <a href="{{ U('addbiz') }}">{{ 'Meld het gratis aan' if nl else 'Add it for free' }} &rarr;</a></p>
