@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-27T19:03:46+00:00",
+   "source": "Suriname Herald",
+   "title": "Duitse parlementaire delegatie onderzoekt investeringskansen in Suriname",
+   "url": "https://www.srherald.com/suriname/2026/10/27/duitse-parlementaire-delegatie-onderzoekt-investeringskansen-in-suriname/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-27T18:45:00+00:00",
+   "source": "Starnieuws",
+   "title": "Onderzoek naar mogelijke vervuiling door goudwinningsmiddel in Godo Olo",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94577"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-27T16:17:51+00:00",
+   "source": "Suriname Herald",
+   "title": "Langbroek: Suriname dreigt boswaarde te verliezen door te rooskleurige landbouwplannen",
+   "url": "https://www.srherald.com/suriname/2026/10/27/langbroek-suriname-dreigt-boswaarde-te-verliezen-door-te-rooskleurige-landbouwplannen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-27T06:20:21+00:00",
    "source": "Suriname Herald",
    "title": "Paniek op Braziliaanse beurs na zege Lula: handel stilgelegd, munt keldert",
@@ -398,30 +419,9 @@
    "source": "Starnieuws",
    "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T03:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Kloof van 12,6 ton in Surinames goudexportcijfers",
-   "url": "https://dwtonline.com/kloof-van-126-ton-in-surinames-goudexportcijfers/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T23:44:21+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Uitbreiding goudproject vraagt om 3600 nieuwe arbeidskrachten",
-   "url": "https://www.dbsuriname.com/2026/10/20/uitbreiding-goudproject-vraagt-om-3600-nieuwe-arbeidskrachten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T23:42:28+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Digicel bespreekt investeringen en sneller internet met Simons",
-   "url": "https://www.dbsuriname.com/2026/10/20/digicel-bespreekt-investeringen-en-sneller-internet-met-simons/"
   }
  ],
- "fetched_at": "2026-10-27T14:23:58+00:00",
+ "fetched_at": "2026-10-27T19:37:45+00:00",
  "oil": [
   {
    "econ": false,
@@ -574,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-27T14:23:57+00:00",
+   "fetched_at": "2026-10-27T19:37:44+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-10-27T14:23:54+00:00",
+   "fetched_at": "2026-10-27T19:37:41+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-27T14:23:56+00:00",
+   "fetched_at": "2026-10-27T19:37:43+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T14:23:58+00:00",
+   "fetched_at": "2026-10-27T19:37:44+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-27T14:23:56+00:00",
+   "fetched_at": "2026-10-27T19:37:42+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T14:23:58+00:00",
+   "fetched_at": "2026-10-27T19:37:45+00:00",
    "ok": true
   }
  }

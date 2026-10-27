@@ -1,6 +1,36 @@
 {
- "fetched_at": "2026-10-27T14:23:54+00:00",
+ "fetched_at": "2026-10-27T19:37:41+00:00",
  "items": [
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45141",
+   "location": "Paramaribo",
+   "published": "2026-10-27",
+   "source": "Newmont",
+   "title": "Team Lead, Networks",
+   "url": "https://jobs.newmont.com/us/en/job/45141"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-85629",
+   "location": "Suriname",
+   "published": "2026-10-27",
+   "source": "TotalEnergies",
+   "title": "VIE – Gestionnaire de données en géosciences (H/F) – Suriname",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/VIE-Gestionnaire-de-donn-es-en-g-osciences-H-F-Suriname/85629"
+  },
+  {
+   "deadline": "2026-11-11",
+   "employer": "UNDP Suriname",
+   "id": "undp-37253",
+   "location": "Paramaribo, Suriname",
+   "published": "2026-10-27",
+   "source": "UNDP",
+   "title": "Communications Associate (Office Based) [Open to Internal and External applicants]",
+   "url": "https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions/job/37253"
+  },
   {
    "deadline": null,
    "employer": "Newmont Suriname",
@@ -24,22 +54,22 @@
   {
    "deadline": null,
    "employer": "Newmont Suriname",
-   "id": "nm-45061",
-   "location": "Paramaribo",
-   "published": "2026-10-22",
-   "source": "Newmont",
-   "title": "Graduate Trainee",
-   "url": "https://jobs.newmont.com/us/en/job/45061"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
    "id": "nm-45062",
    "location": "Paramaribo",
    "published": "2026-10-22",
    "source": "Newmont",
    "title": "Graduate Trainee",
    "url": "https://jobs.newmont.com/us/en/job/45062"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45061",
+   "location": "Paramaribo",
+   "published": "2026-10-22",
+   "source": "Newmont",
+   "title": "Graduate Trainee",
+   "url": "https://jobs.newmont.com/us/en/job/45061"
   },
   {
    "deadline": null,
@@ -151,38 +181,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 8,
-   "fetched_at": "2026-10-27T14:23:41+00:00",
+   "count": 9,
+   "fetched_at": "2026-10-27T19:37:28+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-10-27T14:23:39+00:00",
+   "fetched_at": "2026-10-27T19:37:26+00:00",
    "ok": true
   },
   "TotalEnergies": {
-   "count": 4,
-   "fetched_at": "2026-10-27T14:23:46+00:00",
+   "count": 5,
+   "fetched_at": "2026-10-27T19:37:33+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-10-27T14:23:54+00:00",
+   "fetched_at": "2026-10-27T19:37:41+00:00",
    "ok": true
   },
   "UNDP": {
-   "count": 1,
-   "fetched_at": "2026-10-27T14:23:48+00:00",
+   "count": 2,
+   "fetched_at": "2026-10-27T19:37:37+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 1,
-   "fetched_at": "2026-10-27T14:23:49+00:00",
+   "fetched_at": "2026-10-27T19:37:38+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-10-27T14:23:51+00:00",
+   "fetched_at": "2026-10-27T19:37:39+00:00",
    "ok": true
   }
  }
