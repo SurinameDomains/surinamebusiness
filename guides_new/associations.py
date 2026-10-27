@@ -47,5 +47,9 @@ ENTRY = {
          ("How can I have a say on a new law?",
           "Through your business association, which passes on calls for comments and is invited by the National Assembly's "
           "Committee of Rapporteurs. You can also send written comments to the National Assembly yourself.")),
-    ],
+            (("Wat is de Sociaal Economische Raad (SER)?",
+          "De SER is een adviesraad van overheid, bedrijfsleven en vakbeweging die regering en De Nationale Assemblée gevraagd en ongevraagd adviseert over sociaal-economisch beleid. Na jaren van stilstand installeerde president Simons de raad opnieuw op 26 maart 2026, met Reggy Nelson als voorzitter."),
+         ("What is the Social and Economic Council (SER)?",
+          "The SER is an advisory council of government, business and unions that advises the government and the National Assembly, on request and on its own initiative, on social and economic policy. After years of inactivity President Simons reinstalled it on 26 March 2026, with Reggy Nelson as chair.")),
+],
 }
