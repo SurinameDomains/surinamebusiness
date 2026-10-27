@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check the PSA proposals (dna.sr), the NL-Suriname tax treaty status and the PSA fees every quarter.
+    Basic PSA application details live on the workpermit page, land rules on the land page: link, do not repeat. -#}
+<div class="prose">
+<h1>{{ 'Ondernemen in Suriname vanuit de diaspora' if nl else 'Doing business in Suriname from the diaspora' }}</h1>
+{% if nl %}
+<p class="lead">Woon je in Nederland, België, de VS of elders en wil je in Suriname een bedrijf starten of erin investeren, dan kan dat: je mag 100% eigenaar zijn van een Surinaamse NV, en met een PSA-document reis je visumvrij, mag je hier wonen en werken en een bankrekening openen. Een tweede nationaliteit houd je in de regel niet. De grootste risico's zitten niet in de regels maar in de uitvoering op afstand: wie beheert je geld, je grond en je personeel als jij er niet bent? Deze gids gaat verder dan de korte diaspora-paragraaf in <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% else %}
+<p class="lead">If you live in the Netherlands, Belgium, the US or elsewhere and want to start or invest in a business in Suriname, you can: you may own 100% of a Surinamese NV (company), and with a PSA document you travel visa-free, may live and work here and open a bank account. As a rule you cannot keep a second nationality. The biggest risks are not in the rules but in running things from a distance: who manages your money, your land and your staff when you are not there? This guide goes further than the short diaspora section in <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'PSA-document' if nl else 'PSA document' }}</div><div class="big">EUR 120</div><div class="sub">{{ 'volwassene vanuit Europa, 5 jaar geldig' if nl else 'adult from Europe, valid 5 years' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Belastingverdrag NL-Suriname' if nl else 'NL-Suriname tax treaty' }}</div><div class="big">1975</div><div class="sub">{{ 'nog van kracht voor Europees Nederland' if nl else 'still in force for the European Netherlands' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Formele overmakingen' if nl else 'Formal remittances' }}</div><div class="big">{{ 'USD 160 mln' if nl else 'USD 160m' }}</div><div class="sub">{{ 'in 2025, 71% uit Nederland (DNA-voorzitter)' if nl else 'in 2025, 71% from the Netherlands (Speaker of parliament)' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Status:</b> Surinamer, PSA of gewone buitenlander? Dat bepaalt of je een werkvergunning nodig hebt, of je grondhuur kunt krijgen en wat je voor een vergunning moet inleveren.</li>
+ <li><b>Rechtsvorm:</b> woon je in het buitenland, kies dan een NV. Een eenmanszaak is voor wie hier woont.</li>
+ <li><b>Geld:</b> stort kapitaal via de bank, bewaar elk bewijs, en reken op vragen over de herkomst van je geld.</li>
+ <li><b>Belasting:</b> woon je in Nederland, dan blijft Nederland je belasten op je wereldinkomen; het verdrag van 1975 voorkomt dubbele belasting. Laat je adviseren aan beide kanten.</li>
+ <li><b>Grond:</b> controleer de titel bij de notaris en de registers voordat je betaalt; zet grond op naam van je NV of jezelf, nooit van een tussenpersoon.</li>
+ <li><b>Op afstand:</b> twee handtekeningen bij de bank, maandcijfers van een accountant, een duidelijke volmacht en zelf regelmatig langskomen.</li>
+{% else %}
+ <li><b>Status:</b> Surinamese citizen, PSA holder or ordinary foreigner? That decides whether you need a work permit, whether you can get a land lease and what you must hand in for a licence.</li>
+ <li><b>Legal form:</b> if you live abroad, choose an NV. A sole trader business is for people who live here.</li>
+ <li><b>Money:</b> pay capital in through the bank, keep every proof, and expect questions about where your money comes from.</li>
+ <li><b>Tax:</b> if you live in the Netherlands, the Netherlands still taxes your worldwide income; the 1975 treaty prevents double taxation. Get advice on both sides.</li>
+ <li><b>Land:</b> check the title with the notary and the registers before you pay; put land in the name of your NV or yourself, never an intermediary.</li>
+ <li><b>From a distance:</b> two signatures at the bank, monthly figures from an accountant, a clear power of attorney and regular visits in person.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Jouw status: Surinamer, PSA of buitenlander' if nl else 'Your status: citizen, PSA or foreigner' }}</h2>
+{% if nl %}
+<p>Volgens de Wet op de Nationaliteit en het Ingezetenschap verlies je de Surinaamse nationaliteit van rechtswege als je vrijwillig een andere nationaliteit aanneemt (artikel 4 lid 4). De Nederlandse Rijkswet op het Nederlanderschap kent een vergelijkbare regel. Daarom hebben de meeste Surinamers in Nederland alleen de Nederlandse nationaliteit. Voor hen is er de PSA-status.</p>
+{% set c1 = 'Status' %}{% set c2 = 'Werken en verblijven' if nl else 'Work and residence' %}{% set c3 = 'Bedrijf en grond' if nl else 'Business and land' %}{% set c4 = 'Let op' if nl else 'Watch out' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Surinaamse nationaliteit</b></td><td data-l="{{ c2 }}">Geen vergunning nodig</td><td data-l="{{ c3 }}">Alle rechtsvormen; grondhuur als je in Suriname woont</td><td data-l="{{ c4 }}">Woon je buiten Suriname en heb je domeingrond, dan moet je hier vertegenwoordigd zijn</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PSA-houder</b></td><td data-l="{{ c2 }}">Visumvrij, verblijf, werken zonder werkvergunning</td><td data-l="{{ c3 }}">NV, vergunningen (KKF accepteert de PSA-kaart in plaats van een verblijfsvergunning), bankrekening</td><td data-l="{{ c4 }}">PSA maakt je geen Surinamer; voor grondhuur geldt de regeling voor niet-Surinamers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Buitenlander zonder PSA</b></td><td data-l="{{ c2 }}">Entry fee of visum; werkvergunning en verblijfsvergunning nodig om hier te werken</td><td data-l="{{ c3 }}">NV of filiaal; 100% buitenlands eigendom mag</td><td data-l="{{ c4 }}">Meer documenten bij bank en KKF</td></tr>
+</tbody></table>
+<h3>Wie krijgt PSA en wat geeft het</h3>
+<p>De Wet PSA (S.B. 2014 no. 8) geldt voor wie geen Surinaamse nationaliteit heeft en in Suriname is geboren, of een ouder of grootouder van Surinaamse afkomst heeft. De wettige partner en minderjarige kinderen kunnen meekomen. Je vraagt het document volledig online aan via het PSA-portaal; je hebt onder meer een gelegaliseerde geboorteakte nodig, en bij afstamming via een ouder of grootouder ook diens Surinaamse geboorteakte. Sinds de tariefverlaging (eind 2025, definitief in februari 2026) kost het vanuit Europa EUR 120 voor een volwassene en EUR 70 voor een kind. Het document is 5 jaar geldig en verlengbaar. Alle details en de procedure: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<h3>Wat er misschien verandert</h3>
+<p>Bij de PSA-Diaspora en Investeerders Dialoog op 3 mei 2026 in Amsterdam presenteerde de voorzitter van De Nationale Assemblée voorstellen: de PSA-status 10 jaar geldig maken in plaats van 5, de toegestane aaneengesloten verblijfsduur verruimen naar 24 maanden, een vrijstelling op invoerrechten voor remigranten, het recht om één eigen woning te bezitten, en op termijn een "Wet Staatsverbondenheid" of een "PSA-plus" zonder dat je je andere nationaliteit verliest. Dit zijn <b>voorstellen</b>, geen wet. Volg de stand in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% else %}
+<p>Under the Nationality and Residence Act you automatically lose Surinamese nationality if you voluntarily acquire another nationality (article 4(4)). The Dutch Nationality Act has a similar rule. That is why most Surinamese people in the Netherlands only hold Dutch nationality. For them there is PSA status.</p>
+{% set c1 = 'Status' %}{% set c2 = 'Work and residence' %}{% set c3 = 'Business and land' %}{% set c4 = 'Watch out' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Surinamese citizen</b></td><td data-l="{{ c2 }}">No permit needed</td><td data-l="{{ c3 }}">All legal forms; land lease if you live in Suriname</td><td data-l="{{ c4 }}">If you live abroad and hold state land, you must be represented here</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PSA holder</b></td><td data-l="{{ c2 }}">Visa-free, residence, work without a work permit</td><td data-l="{{ c3 }}">NV, licences (the KKF accepts the PSA card instead of a residence permit), bank account</td><td data-l="{{ c4 }}">PSA does not make you a citizen; land lease rules for non-citizens apply</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Foreigner without PSA</b></td><td data-l="{{ c2 }}">Entry fee or visa; work and residence permits needed to work here</td><td data-l="{{ c3 }}">NV or branch; 100% foreign ownership allowed</td><td data-l="{{ c4 }}">More documents at the bank and KKF</td></tr>
+</tbody></table>
+<h3>Who gets PSA and what it gives</h3>
+<p>The PSA Act (S.B. 2014 no. 8) applies to people without Surinamese nationality who were born in Suriname, or who have a parent or grandparent of Surinamese origin. The legal spouse and minor children can be included. You apply fully online through the PSA portal; you need, among other things, a legalised birth certificate, and if you qualify through a parent or grandparent, their Surinamese birth certificate too. Since the fee cut (late 2025, made final in February 2026) it costs EUR 120 for an adult and EUR 70 for a child from Europe. The document is valid for 5 years and renewable. All details and the procedure: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<h3>What may change</h3>
+<p>At the PSA Diaspora and Investors Dialogue on 3 May 2026 in Amsterdam, the Speaker of the National Assembly presented proposals: making PSA status valid for 10 years instead of 5, extending the permitted continuous stay to 24 months, an import duty exemption for returning migrants, the right to own one home, and in time a "State Connection Act" or a "PSA-plus" without losing your other nationality. These are <b>proposals</b>, not law. Follow them in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Welke rechtsvorm vanuit het buitenland' if nl else 'Which legal form from abroad' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>NV (naamloze vennootschap).</b> De gebruikelijke keuze. Je mag alle aandelen houden, ook als je in het buitenland woont. Je richt de NV op bij een notaris (of met een modelakte), schrijft haar in bij de KKF en vraagt een FIN-nummer aan. De notaris kan veel voorbereiden met een volmacht, maar reken voor de bank op ten minste één bezoek. Stappen en kosten: <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+ <li><b>Eenmanszaak.</b> Bedoeld voor wie in Suriname woont en zelf de zaak runt; in de praktijk schrijft de KKF een eenmanszaak alleen in voor een ingezetene. Als je remigreert met PSA en je hier vestigt, kan het wel. Let op: je bent met je hele vermogen aansprakelijk, ook in Nederland.</li>
+ <li><b>Nevenvestiging van je Nederlandse bv of eenmanszaak.</b> Kan, met een beheerder in Suriname. Dan loopt de winst fiscaal via je buitenlandse bedrijf; laat het verdrag toepassen door een adviseur.</li>
+ <li><b>Stichting.</b> Voor een sociaal of cultureel doel, niet om winst uit te keren.</li>
+</ul>
+<p>Een vergunning nodig? De KKF vraagt voor een vergunningsaanvraag onder meer een nationaliteitsverklaring en, als je geen Surinamer bent, een kopie van je verblijfsvergunning of PSA-kaart. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>. Wil je met je NV lenen bij een lokaal fonds, check dan de eigendomseisen: het PKF vraagt bijvoorbeeld minstens 50% Surinaams eigendom (<a href="{{ U('finance') }}">{{ L('finance') }}</a>).</p>
+{% else %}
+<ul>
+ <li><b>NV (public limited company).</b> The usual choice. You may hold all the shares, even if you live abroad. You set up the NV with a notary (or a model deed), register it with the KKF and apply for a tax number (FIN). The notary can prepare a lot with a power of attorney, but expect at least one visit for the bank. Steps and costs: <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+ <li><b>Sole trader (eenmanszaak).</b> Meant for people who live in Suriname and run the business themselves; in practice the KKF only registers a sole trader for a resident. If you return with PSA and settle here, it is possible. Note: you are liable with all your assets, including in the Netherlands.</li>
+ <li><b>Branch of your Dutch BV or sole proprietorship.</b> Possible, with a manager in Suriname. Profit then runs through your foreign business for tax; have an adviser apply the treaty.</li>
+ <li><b>Foundation (stichting).</b> For a social or cultural purpose, not to distribute profit.</li>
+</ul>
+<p>Need a licence? For a licence application the KKF asks for a nationality statement among other things and, if you are not a citizen, a copy of your residence permit or PSA card. See <a href="{{ U('licences') }}">{{ L('licences') }}</a>. If your NV wants to borrow from a local fund, check the ownership rules: the PKF, for example, requires at least 50% Surinamese ownership (<a href="{{ U('finance') }}">{{ L('finance') }}</a>).</p>
+{% endif %}
+
+<h2>{{ 'Bankrekening en geld overmaken' if nl else 'Bank account and transferring money' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Rekening openen.</b> Met PSA heb je het recht een bankrekening te openen. Banken vragen bij buitenlandse aandeelhouders en bestuurders meer stukken: paspoort, bewijs van woonadres in het buitenland, structuurschema tot aan de uiteindelijke eigenaren (UBO), soms gelegaliseerde handtekeningen. Vraag vooraf of een volmacht wordt geaccepteerd. Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Kapitaal storten.</b> Maak geld over via de bank naar de rekening van de NV en bewaar het bewijs. Dat heb je nodig voor de bank, de Belastingdienst en later als je winst of kapitaal terug wilt halen.</li>
+ <li><b>Herkomst van je geld.</b> Banken in Suriname en Nederland moeten de herkomst van grotere bedragen controleren. Houd loonstroken, verkoopakte van een huis, spaar- of leningsoverzichten bij de hand. Zie <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+ <li><b>Overmaken.</b> Een SWIFT-overboeking is traceerbaar maar kost aan beide kanten geld; geldtransferkantoren zijn snel maar voor privébedragen bedoeld. Zakelijke betalingen horen op de zakelijke rekening. Zie <a href="{{ U('payments') }}">{{ L('payments') }}</a> en de koersen in <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Contant geld.</b> Neem geen grote bedragen mee in je koffer. Wie de EU in- of uitreist met EUR 10.000 of meer aan contanten, moet dat aangeven bij de douane. Vraag ook bij de Surinaamse douane welke regels gelden.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Opening an account.</b> PSA gives you the right to open a bank account. For foreign shareholders and directors banks ask for more documents: passport, proof of address abroad, an ownership chart up to the ultimate beneficial owners (UBO), sometimes legalised signatures. Ask beforehand whether a power of attorney is accepted. See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Paying in capital.</b> Transfer money through the bank to the NV's account and keep the proof. You need it for the bank, the tax office and later when you want to take profit or capital back.</li>
+ <li><b>Source of funds.</b> Banks in Suriname and the Netherlands must check where larger amounts come from. Keep payslips, the deed of sale of a house, savings or loan statements at hand. See <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+ <li><b>Transfers.</b> A SWIFT transfer is traceable but costs money on both sides; money transfer offices are fast but meant for private amounts. Business payments belong on the business account. See <a href="{{ U('payments') }}">{{ L('payments') }}</a> and the rates in <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Cash.</b> Do not carry large amounts in your suitcase. Anyone entering or leaving the EU with EUR 10,000 or more in cash must declare it to customs. Also ask Surinamese customs which rules apply.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Belasting in twee landen' if nl else 'Tax in two countries' }}</h2>
+{% if nl %}
+<p>Tussen Nederland (het Europese deel van het Koninkrijk) en Suriname geldt het belastingverdrag dat op 25 november 1975 in Paramaribo is gesloten. De Nederlandse regering bevestigde in 2025 dat het nog van kracht is. Er wordt gesproken over een nieuw verdrag, maar dat was op 26 oktober 2026 niet getekend. Let op: het verdrag dat in 2024 tussen Curaçao en Suriname is getekend, geldt niet voor Nederland.</p>
+<ul>
+ <li><b>In Suriname</b> betaalt je NV 36% inkomstenbelasting over de winst, en houdt zij 25% dividendbelasting in als ze winst uitkeert. Zie <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>In Nederland</b> blijf je als inwoner belast op je wereldinkomen en -vermogen. Heb je minstens 5% van de aandelen, dan valt je belang in box 2 (aanmerkelijk belang); kleinere belangen en vastgoed in Suriname vallen in box 3. Het verdrag regelt welk land voorgaat en hoe je dubbele belasting voorkomt.</li>
+ <li><b>Verhuis je naar Suriname</b>, dan bepaalt je feitelijke woonplaats waar je belastingplichtig bent: waar je huis, gezin en werk zijn. Emigreer je met een aanmerkelijk belang, dan legt de Nederlandse Belastingdienst een conserverende aanslag op.</li>
+ <li><b>Uitkeringen en pensioen.</b> Krijg je een Nederlandse uitkering of AOW, check dan bij de uitkeringsinstantie wat er gebeurt als je langer in Suriname verblijft of verhuist. Niet elke uitkering mag mee.</li>
+ <li><b>Amerikaans staatsburger of green card?</b> De VS belasten hun burgers op hun wereldinkomen, en Surinaamse banken vragen Amerikanen vaak om aanvullende formulieren.</li>
+</ul>
+<p class="note">Dit is geen belastingadvies. Laat een Nederlandse en een Surinaamse adviseur samen naar je structuur kijken voordat je geld overmaakt; achteraf repareren is duurder.</p>
+{% else %}
+<p>Between the Netherlands (the European part of the Kingdom) and Suriname the tax treaty concluded in Paramaribo on 25 November 1975 applies. The Dutch government confirmed in 2025 that it is still in force. A new treaty is being discussed, but none had been signed on 26 October 2026. Note: the treaty signed in 2024 between Curaçao and Suriname does not apply to the Netherlands.</p>
+<ul>
+ <li><b>In Suriname</b> your NV pays 36% income tax on profit, and withholds 25% dividend tax when it distributes profit. See <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>In the Netherlands</b> you remain taxed as a resident on your worldwide income and assets. If you hold at least 5% of the shares, your holding falls in box 2 (substantial interest); smaller holdings and property in Suriname fall in box 3. The treaty decides which country comes first and how double taxation is avoided.</li>
+ <li><b>If you move to Suriname</b>, your actual residence decides where you are taxable: where your home, family and work are. If you emigrate with a substantial interest, the Dutch tax office imposes a protective assessment (conserverende aanslag).</li>
+ <li><b>Benefits and pensions.</b> If you receive a Dutch benefit or state pension (AOW), check with the paying agency what happens if you stay longer in Suriname or move. Not every benefit can be taken abroad.</li>
+ <li><b>US citizen or green card holder?</b> The US taxes its citizens on worldwide income, and Surinamese banks often ask Americans for extra forms.</li>
+</ul>
+<p class="note">This is not tax advice. Have a Dutch and a Surinamese adviser look at your structure together before you transfer money; fixing it afterwards costs more.</p>
+{% endif %}
+
+<h2>{{ 'Grond, huis en erfenis' if nl else 'Land, home and inheritance' }}</h2>
+{% if nl %}
+<p>Grond is waar diaspora-investeerders het vaakst geld verliezen: dubbel verkochte percelen, familiegrond zonder geregelde boedel, grondhuur die niet op jouw naam kan. De regels staan in <a href="{{ U('land') }}">{{ L('land') }}</a>; de kern voor jou:</p>
+<ul>
+ <li>Eigendomsgrond mag je als buitenlander of PSA-houder kopen, altijd via een notaris en de openbare registers.</li>
+ <li>Domeingrond in grondhuur is voor Surinamers die hier wonen en Surinaamse rechtspersonen; als niet-Surinamer houd je het in de praktijk via een NV of stichting.</li>
+ <li>Erf je grond met familie in Suriname en het buitenland, regel dan de boedel bij een notaris (verklaring van erfrecht) voordat iemand bouwt of verkoopt. Voor grondhuur gelden korte termijnen na een overlijden.</li>
+ <li>Laat een landmeter de grenzen uitzetten en vraag een hypothecair uittreksel, ook als een familielid zegt dat het "allemaal geregeld" is.</li>
+</ul>
+{% else %}
+<p>Land is where diaspora investors lose money most often: plots sold twice, family land with an unsettled estate, a land lease that cannot be in your name. The rules are in <a href="{{ U('land') }}">{{ L('land') }}</a>; the essentials for you:</p>
+<ul>
+ <li>Freehold land can be bought by foreigners and PSA holders, always through a notary and the public registers.</li>
+ <li>State land on a lease is for Surinamese citizens living here and Surinamese legal entities; as a non-citizen you hold it in practice through an NV or foundation.</li>
+ <li>If you inherit land with family in Suriname and abroad, settle the estate with a notary (certificate of inheritance) before anyone builds or sells. Land leases have short deadlines after a death.</li>
+ <li>Have a surveyor stake out the boundaries and get a mortgage register extract, even if a relative says it is "all arranged".</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Personeel en dagelijkse leiding op afstand' if nl else 'Staff and day-to-day management from a distance' }}</h2>
+{% if nl %}
+<p>De meeste diaspora-bedrijven draaien met een bedrijfsleider ter plaatse. Dat werkt als de afspraken op papier staan en je de cijfers ziet zonder erom te hoeven vragen.</p>
+<ul class="check">
+ <li>Een schriftelijke arbeidsovereenkomst met de bedrijfsleider, met taken, bevoegdheden en een bonus op resultaat, niet op omzet alleen</li>
+ <li>Een notariële of onderhandse volmacht met grenzen: tot welk bedrag, voor welke handelingen, tot wanneer</li>
+ <li>Bij de bank: twee handtekeningen boven een vast bedrag, en jij met online inzage</li>
+ <li>Elke maand een overzicht van een onafhankelijke accountant: omzet, kosten, kas, voorraad, debiteuren</li>
+ <li>Kassa- en voorraadsysteem met dagelijkse afsluiting; gebruik <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a> en <a href="{{ U('stock') }}">{{ L('stock') }}</a></li>
+ <li>Loonadministratie volgens de regels, met loonbelasting en AOV; zie <a href="{{ U('employer') }}">{{ L('employer') }}</a> en <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li>Een vast bezoekschema, ook onaangekondigd, en contact met klanten en leveranciers buiten de bedrijfsleider om</li>
+</ul>
+<p>Personeel aannemen en contracten: <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> en <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% else %}
+<p>Most diaspora businesses run with a manager on site. That works if the arrangements are on paper and you see the figures without having to ask for them.</p>
+<ul class="check">
+ <li>A written employment contract with the manager, with tasks, powers and a bonus on results, not on turnover alone</li>
+ <li>A notarial or private power of attorney with limits: up to which amount, for which acts, until when</li>
+ <li>At the bank: two signatures above a set amount, and online access for you</li>
+ <li>A monthly report from an independent accountant: sales, costs, cash, stock, receivables</li>
+ <li>A till and stock system with a daily close; use <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a> and <a href="{{ U('stock') }}">{{ L('stock') }}</a></li>
+ <li>Payroll by the rules, with wage tax and AOV; see <a href="{{ U('employer') }}">{{ L('employer') }}</a> and <a href="{{ U('payslip') }}">{{ L('payslip') }}</a></li>
+ <li>A fixed visiting schedule, also unannounced, and contact with customers and suppliers outside the manager</li>
+</ul>
+<p>Hiring and contracts: <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> and <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Een lokale partner kiezen' if nl else 'Choosing a local partner' }}</h2>
+{% if nl %}
+<p>Een partner die de markt, de taal van de ambtenarij en de leveranciers kent, is goud waard. Familie is niet automatisch de beste partner; ruzie over geld kost je vaak zowel het bedrijf als de familieband.</p>
+<ol class="steps">
+ <li><b>Check de achtergrond.</b> KKF-uittreksel van zijn bedrijven, referenties van klanten en leveranciers, en bij grotere bedragen een rondgang langs bank en accountant.</li>
+ <li><b>Spreek rollen af.</b> Wie brengt geld in, wie werk, wie het netwerk? Wie beslist waarover?</li>
+ <li><b>Leg het vast in een aandeelhoudersovereenkomst</b>: inbreng, winstverdeling, wat er gebeurt bij ruzie, overlijden of vertrek, en wie de aandelen mag kopen.</li>
+ <li><b>Geen stromannen.</b> Laat aandelen en grond nooit op naam van een ander zetten "omdat het makkelijker is". Wat op zijn naam staat, is juridisch van hem.</li>
+ <li><b>Begin klein.</b> Een proefproject of eerste order laat zien hoe iemand werkt voordat je groot investeert.</li>
+</ol>
+<p>Bij een conflict: <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>. Het nieuwe Burgerlijk Wetboek verandert ook regels voor vennootschappen en contracten: <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</p>
+{% else %}
+<p>A partner who knows the market, the language of the civil service and the suppliers is worth gold. Family is not automatically the best partner; a fight about money often costs you both the business and the family bond.</p>
+<ol class="steps">
+ <li><b>Check the background.</b> KKF extract of their companies, references from customers and suppliers, and for larger amounts a round of the bank and the accountant.</li>
+ <li><b>Agree on roles.</b> Who brings money, who brings work, who brings the network? Who decides what?</li>
+ <li><b>Put it in a shareholders' agreement</b>: contributions, profit split, what happens on a dispute, death or exit, and who may buy the shares.</li>
+ <li><b>No nominees.</b> Never put shares or land in someone else's name "because it is easier". What is in their name is legally theirs.</li>
+ <li><b>Start small.</b> A pilot project or first order shows how someone works before you invest big.</li>
+</ol>
+<p>In a dispute: <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>. The new Civil Code also changes rules for companies and contracts: <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Oplichting herkennen en voorkomen' if nl else 'Spotting and preventing scams' }}</h2>
+{% if nl %}
+<p>Oplichters richten zich bewust op de diaspora: je bent ver weg, je vertrouwt landgenoten, en je wilt iets terugdoen voor het land. Alarmsignalen:</p>
+<ul>
+ <li>Grond of een huis "onder de marktprijs", haast, en geen tijd om een notaris te laten kijken.</li>
+ <li>Iemand die geld vraagt om een vergunning, PSA-document of grondhuur "sneller te regelen". Het PSA-document vraag je zelf aan op het officiële portaal; vergunningen lopen via de KKF en de ministeries.</li>
+ <li>Investeringen met gegarandeerd hoog rendement, vaak in goud, vastgoed of "olie-gerelateerde" projecten.</li>
+ <li>Aannemers die het grootste deel vooraf willen, zonder bouwtekening of contract.</li>
+ <li>Bankgegevens die per WhatsApp "gewijzigd" worden.</li>
+</ul>
+<p><b>Waarborgen:</b> betaal grond en huizen via de notaris; betaal aannemers in termijnen tegen voortgang, gecontroleerd door een onafhankelijke opzichter met foto's of video met datum; bel bij gewijzigde bankgegevens zelf naar een bekend nummer; en geef nooit een algemene volmacht.</p>
+{% else %}
+<p>Scammers deliberately target the diaspora: you are far away, you trust fellow Surinamese, and you want to give something back. Warning signs:</p>
+<ul>
+ <li>Land or a house "below market price", time pressure, and no time to let a notary check.</li>
+ <li>Someone asking for money to "speed up" a licence, PSA document or land lease. You apply for the PSA document yourself on the official portal; licences go through the KKF and the ministries.</li>
+ <li>Investments with guaranteed high returns, often in gold, property or "oil-related" projects.</li>
+ <li>Contractors who want most of the money upfront, without a building plan or contract.</li>
+ <li>Bank details "changed" by WhatsApp.</li>
+</ul>
+<p><b>Safeguards:</b> pay for land and houses through the notary; pay contractors in instalments against progress, checked by an independent supervisor with dated photos or video; when bank details change, call a known number yourself; and never give a general power of attorney.</p>
+{% endif %}
+
+<h2>{{ 'Netwerken, instituten en hulp' if nl else 'Networks, institutes and help' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Diaspora Instituut Suriname (DIS)</b> en het <b>Directoraat International Business</b>, beide onder het ministerie van Buitenlandse Zaken, Internationale Handel en Samenwerking. Zij organiseerden in februari 2025 de eerste Diaspora Business Summit.</li>
+ <li><b>Diaspora Instituut Nederland (DIN)</b>, de tegenhanger in Nederland, sinds 2021. Organiseert met partners bijeenkomsten over wonen, investeren en ondernemen in Suriname.</li>
+ <li><b>De ambassade van Suriname in Den Haag</b> houdt informatie- en dialoogbijeenkomsten voor PSA-houders en investeerders.</li>
+ <li><b>SITA</b> (investeringsagentschap) en de <b>KKF</b> voor informatie over sectoren, vergunningen en inschrijving. Zie <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> en <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+ <li><b>RVO</b> in Nederland: voor bedrijven die in Nederland gevestigd zijn, zijn er de regelingen Starters International Business (een coach) en DHI (bijdrage in haalbaarheidsstudies en investeringsvoorbereiding) voor projecten in onder meer Suriname. Zie <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>PUM</b> stuurt Nederlandse senior experts naar Surinaamse bedrijven; ook handig voor jouw bedrijf ter plaatse.</li>
+ <li><b>Brancheverenigingen en kamers</b>, waaronder de Suriname-Guyana Chamber of Commerce: zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>IntEnt</b>, een Nederlandse stichting die migrantenondernemers begeleidde bij het starten in hun land van herkomst, vonden we op 26 oktober 2026 niet als actief programma.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Diaspora Institute Suriname (DIS)</b> and the <b>International Business Directorate</b>, both under the Ministry of Foreign Affairs, International Business and Cooperation. They organised the first Diaspora Business Summit in February 2025.</li>
+ <li><b>Diaspora Institute Netherlands (DIN)</b>, the Dutch counterpart, since 2021. Organises meetings with partners on living, investing and doing business in Suriname.</li>
+ <li><b>The Surinamese embassy in The Hague</b> holds information and dialogue meetings for PSA holders and investors.</li>
+ <li><b>SITA</b> (the investment agency) and the <b>KKF</b> for information on sectors, licences and registration. See <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> and <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</li>
+ <li><b>RVO</b> in the Netherlands: for companies based in the Netherlands there are the Starters International Business (a coach) and DHI (a contribution to feasibility studies and investment preparation) schemes for projects in countries including Suriname. See <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>PUM</b> sends Dutch senior experts to Surinamese businesses; also useful for your business on the ground.</li>
+ <li><b>Industry bodies and chambers</b>, including the Suriname-Guyana Chamber of Commerce: see <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>IntEnt</b>, a Dutch foundation that coached migrant entrepreneurs starting in their country of origin, could not be found as an active programme on 26 October 2026.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Evenementen voor de diaspora' if nl else 'Events for the diaspora' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>SUSU &amp; Partners Business Event</b>: 3 december 2026, 17.00 tot 21.00 uur, Amsterdam, gratis met ticket.</li>
+ <li><b>Wonen, Investeren en Ondernemen in Suriname</b> (DIN en Sur Estate Group): de volgende editie is verwacht rond februari 2027, na edities op 30 mei en 19 september 2026.</li>
+ <li><b>SUSU Summit</b>: april 2027, Passenger Terminal Amsterdam.</li>
+ <li>In Suriname: de Diaspora Business Summit (februari 2025) en de Diaspora Homecoming Summit (18 oktober 2025). Een volgende editie was op 26 oktober 2026 niet aangekondigd.</li>
+</ul>
+<p>Combineer een bezoek aan Suriname met SEOGS (juni), de Agrarische Beurs (mei) of IBC (oktober). Alle data: <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% else %}
+<ul>
+ <li><b>SUSU &amp; Partners Business Event</b>: 3 December 2026, 5 pm to 9 pm, Amsterdam, free with a ticket.</li>
+ <li><b>Living, Investing and Doing Business in Suriname</b> (DIN and Sur Estate Group): the next edition is expected around February 2027, after editions on 30 May and 19 September 2026.</li>
+ <li><b>SUSU Summit</b>: April 2027, Passenger Terminal Amsterdam.</li>
+ <li>In Suriname: the Diaspora Business Summit (February 2025) and the Diaspora Homecoming Summit (18 October 2025). No next edition had been announced on 26 October 2026.</li>
+</ul>
+<p>Combine a visit to Suriname with SEOGS (June), the Agricultural Fair (May) or IBC (October). All dates: <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step-by-step plan' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Regel je status.</b> Vraag PSA aan als je daarvoor in aanmerking komt; het scheelt een werkvergunning, de entry fee en papierwerk bij bank en KKF.</li>
+ <li><b>Toets je idee.</b> Sector, markt en concurrentie: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>, <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>, <a href="{{ U('economy') }}">{{ L('economy') }}</a>. Schrijf een plan met <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> en reken met meerdere wisselkoersen.</li>
+ <li><b>Laat je adviseren in beide landen.</b> Een Nederlandse belastingadviseur en een Surinaamse accountant en notaris, vóór je iets koopt of overmaakt.</li>
+ <li><b>Kom zelf kijken.</b> Bezoek de KKF, SITA, een notaris, een bank en potentiële klanten. Plan het rond een evenement.</li>
+ <li><b>Richt de NV op</b> bij een notaris, schrijf in bij de KKF, vraag een FIN-nummer aan en waar nodig een vergunning.</li>
+ <li><b>Open de bankrekening</b> en stort het kapitaal via de bank; bewaar alle bewijs.</li>
+ <li><b>Regel grond of pand</b> via notaris en registers, op naam van de NV of jezelf.</li>
+ <li><b>Zet de bedrijfsvoering op afstand op</b>: bedrijfsleider met contract en volmacht, dubbele handtekening, maandrapportage van een accountant.</li>
+ <li><b>Houd je deadlines bij</b>: belastingaangiften, KKF-bijdrage, vergunningverlenging. Zie <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Sort out your status.</b> Apply for PSA if you qualify; it saves a work permit, the entry fee and paperwork at the bank and KKF.</li>
+ <li><b>Test your idea.</b> Sector, market and competition: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>, <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>, <a href="{{ U('economy') }}">{{ L('economy') }}</a>. Write a plan with <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> and run the numbers at several exchange rates.</li>
+ <li><b>Get advice in both countries.</b> A Dutch tax adviser and a Surinamese accountant and notary, before you buy or transfer anything.</li>
+ <li><b>Come and see for yourself.</b> Visit the KKF, SITA, a notary, a bank and potential customers. Plan it around an event.</li>
+ <li><b>Set up the NV</b> with a notary, register with the KKF, get a tax number (FIN) and a licence where needed.</li>
+ <li><b>Open the bank account</b> and pay in the capital through the bank; keep all proof.</li>
+ <li><b>Arrange land or premises</b> through the notary and the registers, in the name of the NV or yourself.</li>
+ <li><b>Set up remote management</b>: a manager with a contract and power of attorney, dual signatures, monthly reporting by an accountant.</li>
+ <li><b>Track your deadlines</b>: tax returns, KKF contribution, licence renewal. See <a href="{{ U('deadlines') }}">{{ L('deadlines') }}</a>.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist voor je eerste reis' if nl else 'Checklist for your first trip' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Paspoort en PSA-document (of entry fee betaald)</li>
+ <li>Gelegaliseerde geboorteaktes en, bij huwelijk, een internationaal uittreksel burgerlijke staat</li>
+ <li>Bewijs van woonadres in het buitenland, niet ouder dan zes maanden</li>
+ <li>Bewijs van herkomst van je investeringsgeld</li>
+ <li>Concept-ondernemingsplan met begroting</li>
+ <li>Afspraken met notaris, accountant, bank, KKF en SITA</li>
+ <li>Lijst van vragen over grond: titel, grenzen, hypotheken, erfgenamen</li>
+ <li>Een conceptvolmacht voor wie jou na vertrek vertegenwoordigt</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Passport and PSA document (or entry fee paid)</li>
+ <li>Legalised birth certificates and, if married, an international civil status extract</li>
+ <li>Proof of address abroad, no older than six months</li>
+ <li>Proof of the source of your investment money</li>
+ <li>Draft business plan with budget</li>
+ <li>Appointments with notary, accountant, bank, KKF and SITA</li>
+ <li>List of questions about land: title, boundaries, mortgages, heirs</li>
+ <li>A draft power of attorney for whoever represents you after you leave</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik geen PSA kan krijgen omdat mijn Surinaamse afstamming verder teruggaat?</b> Dan investeer je als buitenlander: dat mag volledig via een NV. Voor werken in je eigen bedrijf heb je dan een werk- en verblijfsvergunning nodig.</li>
+ <li><b>...ik terug wil naar Suriname om er te wonen?</b> Met PSA mag je hier wonen en werken; je fiscale woonplaats verhuist mee als je hier je leven opbouwt. Lees ook <a href="{{ U('expat') }}">{{ L('expat') }}</a>.</li>
+ <li><b>...familie al jaren op mijn grond woont of werkt?</b> Praat eerst, en leg daarna alles notarieel vast: huur, gebruik of verdeling. Zonder papier heb je bij een conflict een zwakke positie.</li>
+ <li><b>...mijn bedrijfsleider niet meer reageert of de rekening leeg is?</b> Trek direct de volmacht in bij de notaris, laat de bank de bevoegdheden aanpassen, en schakel een advocaat in. Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...ik vanuit Nederland wil exporteren of importeren met Suriname?</b> Zie <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('export') }}">{{ L('export') }}</a> en <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I cannot get PSA because my Surinamese ancestry goes back further?</b> Then you invest as a foreigner: fully allowed through an NV. To work in your own business you then need a work and residence permit.</li>
+ <li><b>...I want to move back to live in Suriname?</b> With PSA you may live and work here; your tax residence moves with you if you build your life here. Also read <a href="{{ U('expat') }}">{{ L('expat') }}</a>.</li>
+ <li><b>...family has lived or worked on my land for years?</b> Talk first, then put everything in a notarial deed: rent, use or division. Without paper you are in a weak position in a dispute.</li>
+ <li><b>...my manager stops responding or the account is empty?</b> Revoke the power of attorney through the notary at once, have the bank change the signing powers, and bring in a lawyer. See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...I want to export to or import from Suriname from the Netherlands?</b> See <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('export') }}">{{ L('export') }}</a> and <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-buitenlandse-zaken-internationale-handel-samenwerking/personen-van-surinaamse-afkomst-psa/" rel="noopener">{{ 'Buitenlandse Zaken: Personen van Surinaamse Afkomst (PSA)' if nl else 'Foreign Affairs: Persons of Surinamese Origin (PSA)' }}</a></li>
+ <li><a href="https://psa.gov.sr/" rel="noopener">{{ 'PSA-aanvraagportaal' if nl else 'PSA application portal' }}</a></li>
+ <li><a href="https://www.dna.sr/media/ktxlchyn/toespraak-maa-3-mei-2026-psa-diaspora-en-investeerders-dialoog.pdf" rel="noopener">{{ 'DNA: spreektekst PSA-Diaspora en Investeerders Dialoog (3 mei 2026)' if nl else 'National Assembly: speech for the PSA Diaspora and Investors Dialogue (3 May 2026)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2026/02/05/psa-aanvragen-schieten-omhoog-diaspora-profiteert-van-lagere-kosten-en-snellere-online-procedure/" rel="noopener">{{ 'Waterkant: lagere PSA-kosten (februari 2026)' if nl else 'Waterkant: lower PSA fees (February 2026)' }}</a></li>
+ <li><a href="https://zoek.officielebekendmakingen.nl/kst-36844-1.html" rel="noopener">{{ 'Kamerstuk 36844 nr. 1: belastingverdrag Curaçao-Suriname, met de status van het verdrag Nederland-Suriname 1975' if nl else 'Dutch parliamentary paper 36844 no. 1: Curaçao-Suriname tax treaty, with the status of the 1975 Netherlands-Suriname treaty' }}</a></li>
+ <li><a href="https://www.jongbloed-fiscaaljuristen.nl/emigratie/belastingverdragen/belastingverdragen/suriname/" rel="noopener">{{ 'Jongbloed Fiscaal Juristen: verdrag Nederland-Suriname, stand april 2026' if nl else 'Jongbloed tax lawyers: Netherlands-Suriname treaty, status April 2026' }}</a></li>
+ <li><a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/internationaal/" rel="noopener">{{ 'Belastingdienst (NL): internationaal' if nl else 'Dutch tax office: international' }}</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2018/1672/oj" rel="noopener">{{ 'Verordening (EU) 2018/1672: aangifte liquide middelen' if nl else 'Regulation (EU) 2018/1672: cash declarations' }}</a></li>
+ <li><a href="https://www.surinamechamber.com/" rel="noopener">{{ 'KKF: rechtsvormen en vergunningsaanvragen' if nl else 'KKF: legal forms and licence applications' }}</a></li>
+ <li><a href="https://gov.sr/eerste-surinaamse-diaspora-business-summit-van-start/" rel="noopener">{{ 'Overheid: eerste Diaspora Business Summit (februari 2025)' if nl else 'Government: first Diaspora Business Summit (February 2025)' }}</a></li>
+ <li><a href="https://www.diasporainstituutnederland.nl/" rel="noopener">Diaspora Instituut Nederland</a></li>
+ <li><a href="https://www.susu.nu/events/business-event-2026" rel="noopener">SUSU &amp; Partners Business Event 2026</a></li>
+ <li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/zo-start-u-een-bedrijf-suriname" rel="noopener">{{ 'RVO: zo start u een bedrijf in Suriname' if nl else 'RVO: starting a business in Suriname' }}</a></li>
+ <li><a href="https://www.pum.nl/country/suriname/" rel="noopener">PUM: Suriname</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of fiscaal advies. Regels over PSA, nationaliteit en belasting kunnen veranderen; controleer ze voordat je beslist.' if nl else 'General information, not legal or tax advice. Rules on PSA, nationality and tax can change; check them before you decide.' }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,470 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Witwasregels voor ondernemers' if nl else 'Anti-money laundering rules for businesses' }}</h1>
+{% if nl %}
+<p class="lead">De witwaswet WMTF (S.B. 2022 no. 138, aangescherpt in augustus 2024 bij S.B. 2024 no. 99) geldt niet alleen voor banken. Ook notarissen, advocaten, accountants, makelaars, autohandelaren, goudhandelaren, casino's en wisselkantoren zijn "dienstverlener" en moeten zich binnen drie maanden registreren bij FIU Suriname, hun klanten kennen, gegevens zeven jaar bewaren en ongebruikelijke transacties melden. De toezichthouder kan boetes tot SRD 1.000.000 opleggen.</p>
+{% else %}
+<p class="lead">The anti-money laundering act WMTF (S.B. 2022 no. 138, tightened in August 2024 by S.B. 2024 no. 99) does not only apply to banks. Notaries, lawyers, accountants, real estate agents, car dealers, gold dealers, casinos and exchange offices are also "service providers" and must register with FIU Suriname within three months, know their customers, keep records for seven years and report unusual transactions. The supervisor can impose fines of up to SRD 1,000,000.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Registratie bij de FIU' if nl else 'FIU registration' }}</div><div class="big">{{ '3 maanden' if nl else '3 months' }}</div><div class="sub">{{ 'na start van de activiteiten, met compliance officer' if nl else 'after starting business, with a compliance officer' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Niet-financiële dienstverleners' if nl else 'Non-financial providers' }}</div><div class="big">272</div><div class="sub">{{ 'geregistreerd bij de FIU, eind 2024' if nl else 'registered with the FIU, end of 2024' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Maximale boete' if nl else 'Maximum fine' }}</div><div class="big">{{ 'SRD 1 mln' if nl else 'SRD 1m' }}</div><div class="sub">{{ 'plus dwangsom tot SRD 100.000 per dag' if nl else 'plus penalty payments up to SRD 100,000 a day' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Val je onder de WMTF, dan heb je vijf plichten: <b>registreren</b> bij FIU Suriname, een <b>risicobeleid</b> met compliance officer, <b>cliëntenonderzoek</b> inclusief UBO, <b>gegevens bewaren</b> (zeven jaar) en <b>melden</b> van ongebruikelijke transacties.</li>
+ <li>Elke sector heeft een eigen <b>meldgrens</b>, bijvoorbeeld USD 25.000 voor autohandel en makelaardij en USD 5.000 voor goudhandel. Een vermoeden meld je altijd, ongeacht het bedrag.</li>
+ <li><b>Toezicht</b>: de FIU voor de meeste niet-financiële beroepen, de Centrale Bank voor financiële en virtuele-activadienstverleners, het Toezicht en Controle Instituut Kansspelen voor casino's en loterijen.</li>
+ <li><b>Sancties</b>: je moet klanten toetsen aan de VN- en nationale sanctielijsten en tegoeden onverwijld bevriezen.</li>
+ <li>De klant mag niet weten dat je hebt gemeld. Wie te goeder trouw meldt, is beschermd.</li>
+ <li>Hoe banken jouw rekening en stortingen beoordelen, staat op <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>. Deze pagina gaat over jouw eigen plichten.</li>
+{% else %}
+ <li>If the WMTF applies to you, you have five duties: <b>register</b> with FIU Suriname, a <b>risk policy</b> with a compliance officer, <b>customer due diligence</b> including the UBO, <b>record keeping</b> (seven years) and <b>reporting</b> unusual transactions.</li>
+ <li>Each sector has its own <b>reporting threshold</b>, for example USD 25,000 for car dealers and real estate and USD 5,000 for gold dealers. A suspicion must always be reported, whatever the amount.</li>
+ <li><b>Supervision</b>: the FIU for most non-financial professions, the Central Bank for financial and virtual asset service providers, and the Gaming Control Institute (Toezicht en Controle Instituut Kansspelen) for casinos and lotteries.</li>
+ <li><b>Sanctions</b>: you must screen customers against the UN and national sanctions lists and freeze assets without delay.</li>
+ <li>The customer must not learn that you reported. Reporting in good faith is protected.</li>
+ <li>How banks assess your account and deposits is on <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>. This page is about your own duties.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'De wet: WMTF en de wijziging van 2024' if nl else 'The law: the WMTF and the 2024 amendment' }}</h2>
+{% if nl %}
+<p>De Wet ter voorkoming en bestrijding van Money Laundering en Terrorismefinanciering (WMTF) is van 19 november 2022. Ze verving de Wet Melding Ongebruikelijke Transacties en de Wet Identificatieplicht Dienstverleners, die sinds 2002 golden. Witwassen zelf is strafbaar gesteld in het Wetboek van Strafrecht en de Wet Strafbaarstelling Money Laundering; de WMTF regelt de preventie: wat bedrijven moeten doen om niet misbruikt te worden.</p>
+<p>Na kritiek in het eerste follow-uprapport van de CFATF is de WMTF in augustus 2024 gewijzigd (S.B. 2024 no. 99). Volgens de richtlijn van FIU Suriname van juli 2025 zijn de belangrijkste wijzigingen:</p>
+<ul>
+ <li>handelaren in <b>zwaar materieel en water- en luchtvaartuigen</b> vallen nu ook onder de meldplicht, naast handelaren in motorrijtuigen;</li>
+ <li><b>cliëntenonderzoek</b> is verplicht bij een losse (incidentele) transactie vanaf <b>USD 15.000</b> of de tegenwaarde in een andere valuta;</li>
+ <li>dienstverleners moeten <b>verscherpte risicomaatregelen</b> nemen bij hogere risico's.</li>
+</ul>
+<p>In dezelfde maand werd ook de Wet Internationale Sancties gewijzigd (S.B. 2024 no. 100); zie verderop.</p>
+{% else %}
+<p>The Money Laundering and Terrorist Financing Prevention Act (WMTF) dates from 19 November 2022. It replaced the Unusual Transactions Reporting Act and the Identification Act for Service Providers, which had applied since 2002. Money laundering itself is a crime under the Penal Code and the Money Laundering Criminalisation Act; the WMTF covers prevention: what businesses must do to avoid being misused.</p>
+<p>After criticism in the CFATF's first follow-up report, the WMTF was amended in August 2024 (S.B. 2024 no. 99). According to the FIU Suriname guideline of July 2025 the main changes are:</p>
+<ul>
+ <li>dealers in <b>heavy equipment and vessels and aircraft</b> now fall under the reporting duty, alongside motor vehicle dealers;</li>
+ <li><b>customer due diligence</b> is required for a one-off (occasional) transaction of <b>USD 15,000</b> or more, or the equivalent in another currency;</li>
+ <li>service providers must take <b>enhanced risk measures</b> for higher risks.</li>
+</ul>
+<p>In the same month the International Sanctions Act was also amended (S.B. 2024 no. 100); see below.</p>
+{% endif %}
+
+<h2>{{ 'Valt mijn bedrijf eronder?' if nl else 'Does my business fall under it?' }}</h2>
+{% if nl %}
+<p>Je bent dienstverlener als je beroeps- of bedrijfsmatig, in of vanuit Suriname, een van de diensten uit artikel 1 van de WMTF verleent aan een klant. De FIU deelt meldingsplichtigen in categorieën in. De meldgrenzen hieronder komen uit de FIU-richtlijn van juli 2025.</p>
+<table class="tbl stack tx"><thead><tr><th>Wie</th><th>Wanneer</th><th>Toezicht</th><th>Objectieve meldgrens</th></tr></thead><tbody>
+ <tr><td data-l="Wie"><b>Notarissen, advocaten, accountants, administratiekantoren, belastingadviseurs</b> (cat. E)</td><td data-l="Wanneer">Bij advies of bijstand rond koop en verkoop van onroerend goed, beheer van geld of rekeningen, oprichten of beheren van vennootschappen, koop van bedrijven, een statutair of correspondentieadres, of optreden als genomineerd aandeelhouder. Accountants ook bij het inrichten en controleren van administraties</td><td data-l="Toezicht">FIU Suriname</td><td data-l="Objectieve meldgrens">USD 25.000</td></tr>
+ <tr><td data-l="Wie"><b>Makelaars en handelaren in onroerend goed</b> (cat. E)</td><td data-l="Wanneer">Handelen in of bemiddelen bij koop en verkoop van onroerende zaken</td><td data-l="Toezicht">FIU Suriname</td><td data-l="Objectieve meldgrens">USD 25.000</td></tr>
+ <tr><td data-l="Wie"><b>Handelaren in goud, edele metalen en edelstenen</b> (cat. F)</td><td data-l="Wanneer">Beroeps- of bedrijfsmatige handel, ook juweliers die in goud handelen</td><td data-l="Toezicht">FIU Suriname</td><td data-l="Objectieve meldgrens">USD 5.000</td></tr>
+ <tr><td data-l="Wie"><b>Handelaren in motorrijtuigen, zwaar materieel, water- en luchtvaartuigen</b> (cat. G)</td><td data-l="Wanneer">Personenauto's, bussen, vrachtwagens, tractoren, graafmachines, brommers, motoren, boten en vliegtuigen</td><td data-l="Toezicht">FIU Suriname</td><td data-l="Objectieve meldgrens">USD 25.000</td></tr>
+ <tr><td data-l="Wie"><b>Aanbieders van kansspelen</b> (cat. H)</td><td data-l="Wanneer">Casino's, loterijen en andere hazardspelen</td><td data-l="Toezicht">Toezicht en Controle Instituut Kansspelen</td><td data-l="Objectieve meldgrens">USD 10.000</td></tr>
+ <tr><td data-l="Wie"><b>Wisselkantoren</b> (cat. C)</td><td data-l="Wanneer">Aan- en verkoop van SRD en vreemde valuta</td><td data-l="Toezicht">Centrale Bank van Suriname</td><td data-l="Objectieve meldgrens">SRD 5.000</td></tr>
+ <tr><td data-l="Wie"><b>Geldovermakingskantoren</b> (cat. D)</td><td data-l="Wanneer">Nationale en internationale overmakingen</td><td data-l="Toezicht">Centrale Bank van Suriname</td><td data-l="Objectieve meldgrens">USD 2.000</td></tr>
+ <tr><td data-l="Wie"><b>Banken, krediet- en beleggingsinstellingen; levensverzekeraars</b> (cat. A en B)</td><td data-l="Wanneer">Financiële diensten uit artikel 1 onder c</td><td data-l="Toezicht">Centrale Bank van Suriname</td><td data-l="Objectieve meldgrens">USD 10.000 (banken), USD 25.000 (levensverzekeraars)</td></tr>
+ <tr><td data-l="Wie"><b>Virtuele-activadienstverleners</b></td><td data-l="Wanneer">Wisselen, overdragen of bewaren van crypto en vergelijkbare activa</td><td data-l="Toezicht">Centrale Bank van Suriname</td><td data-l="Objectieve meldgrens">Mag alleen onder voorwaarden die nog bij wet worden geregeld</td></tr>
+</tbody></table>
+<p class="note">De tweede nationale risicobeoordeling (NRA 2.0) noemt voor sommige sectoren andere grensbedragen. Wij volgen de recentere richtlijn van de toezichthouder zelf (FIU, juli 2025). Twijfel je, vraag het de FIU schriftelijk.</p>
+<h3>Let op</h3>
+<ul>
+ <li><b>Kunst en antiek</b>: wie beroepsmatig handelt in of bemiddelt bij de verkoop van kunstvoorwerpen en antiquiteiten valt ook onder artikel 1 van de WMTF. Vraag de FIU in welke categorie je je registreert.</li>
+ <li><b>Advocaten en notarissen</b>: het bepalen van de rechtspositie van een klant, vertegenwoordiging in een rechtszaak en advies over het voeren of vermijden van een procedure vallen er niet onder (artikel 1 lid 2).</li>
+ <li><b>Gewone winkels</b> zonder deze activiteiten vallen niet onder de WMTF, maar hun bank stelt wel vragen. Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a> en <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Goudsector</b>: ook buiten de WMTF gelden vergunningen en exportregels. Zie <a href="{{ U('gold') }}">{{ L('gold') }}</a> en <a href="{{ U('mining') }}">{{ L('mining') }}</a>.</li>
+</ul>
+{% else %}
+<p>You are a service provider if you provide one of the services in article 1 of the WMTF to a client, professionally or commercially, in or from Suriname. The FIU groups reporting entities into categories. The thresholds below come from the FIU guideline of July 2025.</p>
+<table class="tbl stack tx"><thead><tr><th>Who</th><th>When</th><th>Supervisor</th><th>Objective reporting threshold</th></tr></thead><tbody>
+ <tr><td data-l="Who"><b>Notaries, lawyers, accountants, administration offices, tax advisers</b> (cat. E)</td><td data-l="When">When advising or assisting on buying and selling real estate, managing money or accounts, setting up or managing companies, buying businesses, providing a registered or correspondence address, or acting as nominee shareholder. Accountants also when setting up and auditing accounts</td><td data-l="Supervisor">FIU Suriname</td><td data-l="Objective reporting threshold">USD 25,000</td></tr>
+ <tr><td data-l="Who"><b>Real estate agents and dealers</b> (cat. E)</td><td data-l="When">Trading in or brokering the purchase and sale of real estate</td><td data-l="Supervisor">FIU Suriname</td><td data-l="Objective reporting threshold">USD 25,000</td></tr>
+ <tr><td data-l="Who"><b>Dealers in gold, precious metals and precious stones</b> (cat. F)</td><td data-l="When">Professional or commercial trading, including jewellers that trade in gold</td><td data-l="Supervisor">FIU Suriname</td><td data-l="Objective reporting threshold">USD 5,000</td></tr>
+ <tr><td data-l="Who"><b>Dealers in motor vehicles, heavy equipment, vessels and aircraft</b> (cat. G)</td><td data-l="When">Cars, buses, trucks, tractors, excavators, mopeds, motorcycles, boats and aircraft</td><td data-l="Supervisor">FIU Suriname</td><td data-l="Objective reporting threshold">USD 25,000</td></tr>
+ <tr><td data-l="Who"><b>Gaming operators</b> (cat. H)</td><td data-l="When">Casinos, lotteries and other games of chance</td><td data-l="Supervisor">Gaming Control Institute (Toezicht en Controle Instituut Kansspelen)</td><td data-l="Objective reporting threshold">USD 10,000</td></tr>
+ <tr><td data-l="Who"><b>Exchange offices</b> (cat. C)</td><td data-l="When">Buying and selling SRD and foreign currency</td><td data-l="Supervisor">Central Bank of Suriname</td><td data-l="Objective reporting threshold">SRD 5,000</td></tr>
+ <tr><td data-l="Who"><b>Money transfer offices</b> (cat. D)</td><td data-l="When">Domestic and international transfers</td><td data-l="Supervisor">Central Bank of Suriname</td><td data-l="Objective reporting threshold">USD 2,000</td></tr>
+ <tr><td data-l="Who"><b>Banks, credit and investment institutions; life insurers</b> (cat. A and B)</td><td data-l="When">Financial services under article 1(c)</td><td data-l="Supervisor">Central Bank of Suriname</td><td data-l="Objective reporting threshold">USD 10,000 (banks), USD 25,000 (life insurers)</td></tr>
+ <tr><td data-l="Who"><b>Virtual asset service providers</b></td><td data-l="When">Exchanging, transferring or holding crypto and similar assets</td><td data-l="Supervisor">Central Bank of Suriname</td><td data-l="Objective reporting threshold">Only allowed under conditions still to be set by law</td></tr>
+</tbody></table>
+<p class="note">The second National Risk Assessment (NRA 2.0) mentions different thresholds for some sectors. We follow the more recent guideline of the supervisor itself (FIU, July 2025). If in doubt, ask the FIU in writing.</p>
+<h3>Note</h3>
+<ul>
+ <li><b>Art and antiques</b>: anyone who professionally trades in or brokers the sale of works of art and antiques also falls under article 1 of the WMTF. Ask the FIU which category to register under.</li>
+ <li><b>Lawyers and notaries</b>: determining a client's legal position, representation in court and advice on bringing or avoiding proceedings are excluded (article 1(2)).</li>
+ <li><b>Ordinary shops</b> without these activities do not fall under the WMTF, but their bank will still ask questions. See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a> and <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Gold sector</b>: licences and export rules apply beyond the WMTF. See <a href="{{ U('gold') }}">{{ L('gold') }}</a> and <a href="{{ U('mining') }}">{{ L('mining') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Plicht 1: registreren bij FIU Suriname' if nl else 'Duty 1: register with FIU Suriname' }}</h2>
+{% if nl %}
+<p>Elke dienstverlener registreert zich binnen <b>drie maanden</b> na de start van zijn activiteiten bij FIU Suriname en wijst tegelijk een <b>compliance officer</b> aan (artikel 28). Dat gaat met het registratieformulier op de site van de FIU of een formulier dat je bij de FIU opvraagt. De wettelijke vertegenwoordiger of een gemachtigde levert in:</p>
+<ul class="check">
+ <li>een gewaarmerkt uittreksel uit het handelsregister van de KKF;</li>
+ <li>een kopie van een geldig identiteitsbewijs van de vertegenwoordiger of gemachtigde;</li>
+ <li>bewijs van vertegenwoordigingsbevoegdheid of machtiging;</li>
+ <li>de gegevens van de compliance officer.</li>
+</ul>
+<p>Na registratie volgt een voorlichtingsgesprek, en krijgt de compliance officer toegang tot <b>REPSYS</b>, het meldportaal van de FIU. Een nieuwe of vervangen compliance officer meld je apart. Eind 2024 stonden 50 financiële en 272 niet-financiële dienstverleners geregistreerd: 169 notarissen, makelaars, accountants, administratiekantoren en advocaten, 32 goudhandelaren, 53 autohandelaren en 18 aanbieders van kansspelen.</p>
+<p>De compliance functie moet passen bij de aard en omvang van je bedrijf en onafhankelijk en effectief werken; bij een klein bedrijf kan dat eenvoudig zijn. Volgens de FIU mag de functie ook worden uitbesteed aan een externe partij.</p>
+{% else %}
+<p>Every service provider registers with FIU Suriname within <b>three months</b> of starting business and at the same time appoints a <b>compliance officer</b> (article 28). This is done with the registration form on the FIU's site or a form requested from the FIU. The legal representative or an authorised person submits:</p>
+<ul class="check">
+ <li>a certified extract from the KKF trade register;</li>
+ <li>a copy of valid ID of the representative or authorised person;</li>
+ <li>proof of authority to represent or of the authorisation;</li>
+ <li>the details of the compliance officer.</li>
+</ul>
+<p>After registration there is an information meeting, and the compliance officer gets access to <b>REPSYS</b>, the FIU's reporting portal. A new or replacement compliance officer is reported separately. At the end of 2024, 50 financial and 272 non-financial service providers were registered: 169 notaries, real estate agents, accountants, administration offices and lawyers, 32 gold dealers, 53 car dealers and 18 gaming operators.</p>
+<p>The compliance function must suit the nature and size of your business and work independently and effectively; in a small business it can be simple. According to the FIU it may also be outsourced to an external party.</p>
+{% endif %}
+
+<h2>{{ 'Plicht 2: risicobeleid en compliance functie' if nl else 'Duty 2: risk policy and compliance function' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Risicoanalyse</b> (artikel 3): breng periodiek in kaart welke risico's jouw klanten, producten, diensten, transacties, kanalen en landen meebrengen. Betrek de uitkomsten van de nationale risicobeoordeling. Leg het vast en geef het desgevraagd aan je toezichthouder.</li>
+ <li><b>Nieuwe producten of technologie</b>: beoordeel het risico vóórdat je ze invoert, bijvoorbeeld betalen met crypto of online klantacceptatie.</li>
+ <li><b>Beleid en procedures</b> (artikel 4): passend bij de omvang van je bedrijf, goedgekeurd door de directie, en regelmatig getoetst.</li>
+ <li><b>Compliance functie</b> (artikel 5): onafhankelijk en effectief, verantwoordelijk voor het compliance programma.</li>
+ <li><b>Groep</b>: hoor je bij een groep, dan pas je het groepsbeleid toe voor zover het aan de WMTF voldoet (artikel 6).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Risk assessment</b> (article 3): periodically identify the risks of your customers, products, services, transactions, channels and countries. Use the findings of the national risk assessment. Document it and provide it to your supervisor on request.</li>
+ <li><b>New products or technology</b>: assess the risk before you introduce them, for example crypto payments or online customer onboarding.</li>
+ <li><b>Policies and procedures</b> (article 4): proportionate to the size of your business, approved by senior management, and reviewed regularly.</li>
+ <li><b>Compliance function</b> (article 5): independent and effective, responsible for the compliance programme.</li>
+ <li><b>Group</b>: if you belong to a group, apply the group policy insofar as it meets the WMTF (article 6).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Plicht 3: cliëntenonderzoek en UBO' if nl else 'Duty 3: customer due diligence and UBO' }}</h2>
+{% if nl %}
+<h3>Wanneer</h3>
+<p>Cliëntenonderzoek (customer due diligence, CDD) doe je in elk geval (artikel 7 lid 3):</p>
+<ul>
+ <li>bij het aangaan van een zakelijke relatie;</li>
+ <li>bij een losse transactie vanaf USD 15.000 of de tegenwaarde, ook als die in delen wordt betaald die met elkaar samenhangen;</li>
+ <li>bij een losse buitenlandse elektronische overmaking vanaf USD 1.000 of EUR 1.000;</li>
+ <li>bij aanwijzingen van witwassen of terrorismefinanciering;</li>
+ <li>als je twijfelt aan eerder verkregen gegevens, of als het risico van een bestaande klant daartoe aanleiding geeft.</li>
+</ul>
+<h3>Wat</h3>
+<ol class="steps">
+ <li><b>Identificeer en verifieer de klant.</b> Natuurlijke personen: naam, adres, geboortedatum, nationaliteit, en soort, nummer, datum en plaats van afgifte van het document. Verifiëren met een geldig rijbewijs, ID-kaart of paspoort (artikel 10). Rechtspersonen: een gewaarmerkt KKF-uittreksel of een notariële akte met rechtsvorm, namen, bestuurders, adres en vertegenwoordigers (artikel 11).</li>
+ <li><b>Stel de UBO vast.</b> De uiteindelijk belanghebbende is de natuurlijke persoon die eigenaar is van of zeggenschap heeft over de klant, of namens wie de transactie gebeurt. Bij een vennootschap breng je de eigendoms- en zeggenschapsstructuur in kaart.</li>
+ <li><b>Stel doel en aard vast</b> van de relatie of transactie.</li>
+ <li><b>Controleer de vertegenwoordiger</b>: is de persoon tegenover je bevoegd, en treedt de klant voor zichzelf op of voor een ander?</li>
+ <li><b>Monitor doorlopend</b> of transacties passen bij wat je van de klant weet, met zo nodig onderzoek naar de herkomst van het geld.</li>
+</ol>
+<p>Kun je het onderzoek niet afronden, dan mag je de relatie niet aangaan en de transactie niet uitvoeren (artikel 9). Een notaris mag de identiteit verifiëren op het moment dat identificatie vereist is.</p>
+<h3>Vereenvoudigd en verscherpt</h3>
+<ul>
+ <li><b>Vereenvoudigd</b> (artikel 13): alleen bij aantoonbaar laag risico, bijvoorbeeld bij de Surinaamse overheid of een staats-NV. Overslaan mag nooit.</li>
+ <li><b>Verscherpt</b> (artikel 14) is verplicht bij: klanten die niet in Suriname wonen of gevestigd zijn, klanten die niet fysiek aanwezig zijn, particulier vermogensbeheer, persoonlijke vermogensstructuren, vennootschappen met toonderaandelen of aandelen gehouden voor een ander, klanten uit landen met zwakke witwasregels, politiek prominente personen, correspondentbankrelaties en non-profitorganisaties die geld ontvangen of doorgeven. Je vraagt dan meer informatie, de herkomst van geld en vermogen, goedkeuring van de directie, en je monitort vaker. Je kunt eisen dat de eerste betaling komt van een rekening op naam van de klant bij een bank met gelijkwaardige standaarden.</li>
+ <li><b>Politiek prominente personen</b> (artikel 16): ook hun familieleden en naaste geassocieerden. Directiegoedkeuring, herkomst van vermogen en voortdurende verscherpte controle.</li>
+ <li>Verscherpt onderzoek mag er niet toe leiden dat deze klanten automatisch worden uitgesloten (artikel 14 lid 4).</li>
+</ul>
+<p>Je mag gebruikmaken van onderzoek door een andere dienstverlener die zelf onder vergelijkbare regels en toezicht staat, maar de eindverantwoordelijkheid blijft bij jou (artikel 12).</p>
+{% else %}
+<h3>When</h3>
+<p>You carry out customer due diligence (CDD) in any case (article 7(3)):</p>
+<ul>
+ <li>when starting a business relationship;</li>
+ <li>for a one-off transaction of USD 15,000 or more, or the equivalent, also when it is paid in linked parts;</li>
+ <li>for a one-off foreign electronic transfer of USD 1,000 or EUR 1,000 or more;</li>
+ <li>when there are signs of money laundering or terrorist financing;</li>
+ <li>when you doubt previously obtained information, or the risk of an existing customer calls for it.</li>
+</ul>
+<h3>What</h3>
+<ol class="steps">
+ <li><b>Identify and verify the customer.</b> Individuals: name, address, date of birth, nationality, and type, number, date and place of issue of the document. Verify with a valid driving licence, ID card or passport (article 10). Legal entities: a certified KKF extract or a notarial deed showing legal form, names, directors, address and representatives (article 11).</li>
+ <li><b>Identify the UBO.</b> The ultimate beneficial owner is the natural person who owns or controls the customer, or on whose behalf the transaction is made. For a company, map the ownership and control structure.</li>
+ <li><b>Establish the purpose and nature</b> of the relationship or transaction.</li>
+ <li><b>Check the representative</b>: is the person in front of you authorised, and is the customer acting for themselves or for someone else?</li>
+ <li><b>Monitor on an ongoing basis</b> whether transactions match what you know about the customer, investigating the source of funds where needed.</li>
+</ol>
+<p>If you cannot complete due diligence, you may not start the relationship or carry out the transaction (article 9). A notary may verify identity at the moment identification is required.</p>
+<h3>Simplified and enhanced</h3>
+<ul>
+ <li><b>Simplified</b> (article 13): only where the risk is demonstrably low, for example the Surinamese government or a state-owned NV. Skipping it is never allowed.</li>
+ <li><b>Enhanced</b> (article 14) is required for: customers not resident or established in Suriname, customers not physically present, private wealth management, personal asset-holding vehicles, companies with bearer shares or shares held for someone else, customers from countries with weak AML rules, politically exposed persons, correspondent banking relationships and non-profit organisations that receive or pass on money. You then ask for more information, the source of funds and wealth, senior management approval, and you monitor more often. You may require the first payment to come from an account in the customer's name at a bank with equivalent standards.</li>
+ <li><b>Politically exposed persons</b> (article 16): including family members and close associates. Senior management approval, source of wealth and ongoing enhanced monitoring.</li>
+ <li>Enhanced due diligence must not lead to these customers being excluded automatically (article 14(4)).</li>
+</ul>
+<p>You may rely on due diligence by another service provider that is itself subject to comparable rules and supervision, but final responsibility stays with you (article 12).</p>
+{% endif %}
+
+<h2>{{ 'Plicht 4: gegevens bewaren' if nl else 'Duty 4: record keeping' }}</h2>
+{% if nl %}
+<ul>
+ <li>Bewaar kopieën van ID's en documenten uit het cliëntenonderzoek, rekeninginformatie, zakelijke correspondentie en je analyses <b>minstens zeven jaar</b> na het einde van de dienstverlening of na de transactie (artikelen 19 en 21).</li>
+ <li>Leg per transactie vast wat de wet vraagt (artikel 20). Een autohandelaar noteert een omschrijving van het voertuig en het bedrag; een goudhandelaar een omschrijving van het metaal en het bedrag; een notaris bij overdracht van onroerend goed de omschrijving, ligging en het bedrag.</li>
+ <li>Bewaar zo dat je elke transactie kunt <b>reconstrueren</b>, en langer als een bevoegde autoriteit daarom vraagt.</li>
+ <li>Houd dossiers actueel; de klant moet wijzigingen in identiteits- of UBO-gegevens direct doorgeven.</li>
+ <li><b>Privacy</b> (artikel 22): gebruik deze gegevens alleen voor de witwaspreventie, informeer de klant vooraf over de verwerking, en vernietig de gegevens na de bewaartermijn.</li>
+</ul>
+{% else %}
+<ul>
+ <li>Keep copies of IDs and due diligence documents, account information, business correspondence and your analyses for <b>at least seven years</b> after the service ends or after the transaction (articles 19 and 21).</li>
+ <li>Record per transaction what the law requires (article 20). A car dealer records a description of the vehicle and the amount; a gold dealer a description of the metal and the amount; a notary, for a real estate transfer, the description, location and amount.</li>
+ <li>Keep records so that every transaction can be <b>reconstructed</b>, and longer if a competent authority asks.</li>
+ <li>Keep files up to date; the customer must report changes in identity or UBO details straight away.</li>
+ <li><b>Privacy</b> (article 22): use these data only for AML purposes, inform the customer beforehand about the processing, and destroy the data after the retention period.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Plicht 5: ongebruikelijke transacties melden' if nl else 'Duty 5: reporting unusual transactions' }}</h2>
+{% if nl %}
+<p>Ontdek je bij je werk feiten die op witwassen of terrorismefinanciering kunnen wijzen, dan meld je de verrichte of voorgenomen transactie <b>onverwijld</b> bij FIU Suriname (artikel 29). Er zijn twee soorten meldingen:</p>
+<table class="tbl stack tx"><thead><tr><th>Soort</th><th>Wanneer</th><th>Termijn</th></tr></thead><tbody>
+ <tr><td data-l="Soort"><b>Objectief</b></td><td data-l="Wanneer">De transactie, of een reeks samenhangende transacties, bereikt het grensbedrag van je sector</td><td data-l="Termijn">Uiterlijk binnen 14 dagen</td></tr>
+ <tr><td data-l="Soort"><b>Subjectief</b></td><td data-l="Wanneer">Je hebt een redelijk vermoeden van witwassen, een onderliggend misdrijf of terrorismefinanciering, ongeacht het bedrag</td><td data-l="Termijn">Direct zodra blijkt dat de indicator van toepassing is</td></tr>
+</tbody></table>
+<p>Meldingen gaan digitaal via REPSYS, in het Excel-meldformat van de FIU. Een melding bevat onder meer de identiteit van de klant en de UBO, het identiteitsbewijs, aard, datum, tijd en plaats van de transactie, bedrag en valuta, herkomst en bestemming van het geld, de indicator, en bij een subjectieve melding een situatiebeschrijving: welke feiten en omstandigheden je vermoeden onderbouwen. Je hoeft het vermoeden niet te bewijzen.</p>
+<h3>Signalen uit de FIU-richtlijn</h3>
+<ul>
+ <li>De klant stelt veel vragen over je meldplicht of wil weten hoe een melding kan worden voorkomen.</li>
+ <li>Bedragen worden opgesplitst om onder een grens of identificatie te blijven.</li>
+ <li>De uitleg voor de transactie verandert steeds, of de klant weet weinig over het doel.</li>
+ <li>De klant handelt onder leiding van een ander, of zegt namens een ander te handelen.</li>
+ <li>Betalingen komen van of gaan naar partijen zonder zichtbare band met de klant.</li>
+ <li>Het inkomen of beroep past niet bij de bedragen.</li>
+</ul>
+<p>Voorbeelden uit de NRA 2.0 van wat meldingen opleverde: wijzigingen in het bestuur van stichtingen, het vestigen van hypotheken, de verkoop van percelen, overdracht van onroerend goed voor een symbolisch bedrag, en transacties van lokale politiek prominente personen. In 2024 ontving de FIU in totaal 348.413 meldingen van ongebruikelijke transacties.</p>
+<h3>Geheimhouding en bescherming</h3>
+<ul>
+ <li><b>Niet tippen</b>: je mag de klant niet vertellen dat je hebt gemeld (artikelen 45 en 46). Wie dat toch doet, riskeert tot <b>tien jaar gevangenisstraf</b> en een geldboete van de zesde categorie (artikel 47). Zou je onderzoek de klant waarschuwen, dan mag je het onderzoek stoppen, maar je meldt wel (artikel 8 lid 3).</li>
+ <li><b>Bescherming</b>: wie te goeder trouw meldt, is niet aansprakelijk voor schade van derden (artikel 37) en schendt geen geheimhoudingsplicht (artikel 36). Je melding kan niet als bewijs tegen jezelf worden gebruikt voor witwassen (artikel 34).</li>
+ <li>De FIU mag aanvullende informatie opvragen; die moet je binnen de gestelde termijn geven (artikel 31).</li>
+</ul>
+{% else %}
+<p>If in your work you find facts that may point to money laundering or terrorist financing, you report the completed or intended transaction <b>without delay</b> to FIU Suriname (article 29). There are two kinds of report:</p>
+<table class="tbl stack tx"><thead><tr><th>Kind</th><th>When</th><th>Deadline</th></tr></thead><tbody>
+ <tr><td data-l="Kind"><b>Objective</b></td><td data-l="When">The transaction, or a series of linked transactions, reaches your sector's threshold</td><td data-l="Deadline">Within 14 days at most</td></tr>
+ <tr><td data-l="Kind"><b>Subjective</b></td><td data-l="When">You have a reasonable suspicion of money laundering, an underlying crime or terrorist financing, whatever the amount</td><td data-l="Deadline">Immediately once it is clear the indicator applies</td></tr>
+</tbody></table>
+<p>Reports are filed digitally through REPSYS, in the FIU's Excel reporting format. A report contains, among other things, the identity of the customer and UBO, the ID document, the type, date, time and place of the transaction, amount and currency, origin and destination of the funds, the indicator, and for a subjective report a description of the situation: which facts and circumstances support your suspicion. You do not need to prove the suspicion.</p>
+<h3>Signals from the FIU guideline</h3>
+<ul>
+ <li>The customer asks many questions about your reporting duty or wants to know how to avoid a report.</li>
+ <li>Amounts are split to stay under a threshold or avoid identification.</li>
+ <li>The explanation for the transaction keeps changing, or the customer knows little about its purpose.</li>
+ <li>The customer acts under someone else's direction, or says they act for someone else.</li>
+ <li>Payments come from or go to parties with no visible link to the customer.</li>
+ <li>The income or occupation does not match the amounts.</li>
+</ul>
+<p>Examples from NRA 2.0 of what led to reports: changes in the board of foundations, mortgages being set up, sales of plots, transfers of real estate for a symbolic amount, and transactions of local politically exposed persons. In 2024 the FIU received a total of 348,413 unusual transaction reports.</p>
+<h3>Secrecy and protection</h3>
+<ul>
+ <li><b>No tipping off</b>: you may not tell the customer that you reported (articles 45 and 46). Doing so risks up to <b>ten years in prison</b> and a sixth-category fine (article 47). If your due diligence would alert the customer, you may stop it, but you must still report (article 8(3)).</li>
+ <li><b>Protection</b>: reporting in good faith makes you not liable for third-party damage (article 37) and does not breach confidentiality duties (article 36). Your report cannot be used as evidence against you for money laundering (article 34).</li>
+ <li>The FIU may request additional information, which you must provide within the deadline it sets (article 31).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Sancties en terrorismefinanciering' if nl else 'Sanctions and terrorist financing' }}</h2>
+{% if nl %}
+<p>Naast de WMTF geldt de Wet Internationale Sancties, laatst gewijzigd in augustus 2024 (S.B. 2024 no. 100). De Raad Internationale Sancties (RIS), met onder meer leden van de Centrale Bank, de FIU en het Openbaar Ministerie, houdt de <b>nationale sanctielijst</b> bij, publiceert sanctiebesluiten op zijn website en kan richtlijnen geven aan alle dienstverleners.</p>
+<ul>
+ <li>Dienstverleners moeten sanctiebesluiten en richtlijnen van de Raad en hun toezichthouder <b>onverwijld en stipt</b> opvolgen. Onverwijld betekent volgens de toelichting idealiter binnen enkele uren, zodat tegoeden niet kunnen verdwijnen.</li>
+ <li>Toets nieuwe en bestaande klanten en UBO's tegen de VN-sanctielijsten en de nationale lijst. Bij een treffer pas je de bevriezing uit het sanctiebesluit toe en neem je direct contact op met je toezichthouder.</li>
+ <li>Toezicht ligt bij dezelfde toezichthouders als onder de WMTF. Bij niet-naleving kan een <b>dwangsom tot SRD 1.000.000 per dag</b> volgen; herhaalde niet-naleving binnen twee jaar is strafbaar met hechtenis tot één jaar of een geldboete, en overtreding van het verbod in artikel 9 van die wet met gevangenisstraf tot zes jaar.</li>
+ <li>De NRA 2.0 beoordeelt het risico van terrorismefinanciering in Suriname als <b>middelhoog</b>, hoger dan in de eerste NRA, vooral vanwege de informele economie en banden tussen georganiseerde misdaad en regionale netwerken.</li>
+</ul>
+<p>Werk je met non-profitorganisaties (stichtingen, kerken, goede doelen) die geld ontvangen of doorgeven, dan geldt verscherpt cliëntenonderzoek: controleer de statutaire doelen, wie verantwoordelijk is en waar het geld vandaan komt (artikel 18 WMTF).</p>
+{% else %}
+<p>Alongside the WMTF, the International Sanctions Act applies, last amended in August 2024 (S.B. 2024 no. 100). The International Sanctions Council (Raad Internationale Sancties, RIS), whose members include the Central Bank, the FIU and the Public Prosecution Service, keeps the <b>national sanctions list</b>, publishes sanctions decisions on its website and can issue guidelines to all service providers.</p>
+<ul>
+ <li>Service providers must follow sanctions decisions and guidelines of the Council and their supervisor <b>without delay and strictly</b>. According to the explanatory notes, without delay ideally means within a few hours, so that assets cannot disappear.</li>
+ <li>Screen new and existing customers and UBOs against the UN sanctions lists and the national list. If you get a hit, apply the freeze in the sanctions decision and contact your supervisor straight away.</li>
+ <li>Supervision lies with the same supervisors as under the WMTF. Non-compliance can lead to <b>penalty payments of up to SRD 1,000,000 a day</b>; repeated non-compliance within two years is punishable by detention of up to one year or a fine, and breaching the prohibition in article 9 of that act by up to six years in prison.</li>
+ <li>NRA 2.0 rates the terrorist financing risk in Suriname as <b>medium high</b>, higher than in the first NRA, mainly because of the informal economy and links between organised crime and regional networks.</li>
+</ul>
+<p>If you work with non-profit organisations (foundations, churches, charities) that receive or pass on money, enhanced due diligence applies: check the statutory purposes, who is responsible and where the money comes from (article 18 WMTF).</p>
+{% endif %}
+
+<h2>{{ 'Toezicht, boetes en bezwaar' if nl else 'Supervision, fines and objections' }}</h2>
+{% if nl %}
+<p>De toezichthouder (artikel 38) werkt risicogericht: sectoren met meer risico krijgen vaker controle. De FIU doet off-site inspecties (vragenlijsten en documenten) en on-site inspecties op de zaak. De toezichthouder mag alle informatie opvragen, boeken en documenten inzien en kopiëren, en maatregelen opleggen (artikel 39). Je bent verplicht mee te werken.</p>
+<table class="tbl stack tx"><thead><tr><th>Maatregel</th><th>Wat</th><th>Grondslag</th></tr></thead><tbody>
+ <tr><td data-l="Maatregel"><b>Aanwijzing</b></td><td data-l="Wat">Opdracht om binnen een redelijke termijn een bepaalde gedragslijn te volgen; kan ook aan bestuurders en directeuren</td><td data-l="Grondslag">Artikel 38 lid 4 WMTF</td></tr>
+ <tr><td data-l="Maatregel"><b>Bestuurlijke boete</b></td><td data-l="Wat">Tot SRD 1.000.000, bij niet naleven van richtlijnen of een aanwijzing</td><td data-l="Grondslag">Artikel 38 lid 5 WMTF</td></tr>
+ <tr><td data-l="Maatregel"><b>Dwangsom</b></td><td data-l="Wat">Tot SRD 100.000 per dag als je maatregelen na inspectie niet uitvoert</td><td data-l="Grondslag">Artikel 40 WMTF</td></tr>
+ <tr><td data-l="Maatregel"><b>Tippen</b></td><td data-l="Wat">Tot tien jaar gevangenisstraf en een geldboete van de zesde categorie</td><td data-l="Grondslag">Artikel 47 WMTF</td></tr>
+ <tr><td data-l="Maatregel"><b>Sanctieregels</b></td><td data-l="Wat">Dwangsom tot SRD 1.000.000 per dag; strafrecht bij herhaling</td><td data-l="Grondslag">Wet Internationale Sancties (S.B. 2024 no. 100)</td></tr>
+</tbody></table>
+<p><b>Bezwaar</b>: tegen een besluit van de toezichthouder maak je binnen <b>30 dagen</b> schriftelijk en gemotiveerd bezwaar bij de toezichthouder. Die beslist binnen 15 dagen; geen besluit geldt als afwijzing. Daarna kun je binnen <b>60 dagen</b> naar de kantonrechter (artikelen 41 tot 43). De bevoegdheid om een boete op te leggen vervalt drie jaar na de overtreding (artikel 44).</p>
+{% else %}
+<p>The supervisor (article 38) works on a risk basis: higher-risk sectors are checked more often. The FIU carries out off-site inspections (questionnaires and documents) and on-site inspections at the business. The supervisor may request any information, inspect and copy books and documents, and impose measures (article 39). You must cooperate.</p>
+<table class="tbl stack tx"><thead><tr><th>Measure</th><th>What</th><th>Legal basis</th></tr></thead><tbody>
+ <tr><td data-l="Measure"><b>Instruction</b></td><td data-l="What">Order to follow a specific course of action within a reasonable time; can also target directors</td><td data-l="Legal basis">Article 38(4) WMTF</td></tr>
+ <tr><td data-l="Measure"><b>Administrative fine</b></td><td data-l="What">Up to SRD 1,000,000, for not complying with guidelines or an instruction</td><td data-l="Legal basis">Article 38(5) WMTF</td></tr>
+ <tr><td data-l="Measure"><b>Penalty payment</b></td><td data-l="What">Up to SRD 100,000 a day if you do not carry out measures after an inspection</td><td data-l="Legal basis">Article 40 WMTF</td></tr>
+ <tr><td data-l="Measure"><b>Tipping off</b></td><td data-l="What">Up to ten years in prison and a sixth-category fine</td><td data-l="Legal basis">Article 47 WMTF</td></tr>
+ <tr><td data-l="Measure"><b>Sanctions rules</b></td><td data-l="What">Penalty payment up to SRD 1,000,000 a day; criminal law for repeat breaches</td><td data-l="Legal basis">International Sanctions Act (S.B. 2024 no. 100)</td></tr>
+</tbody></table>
+<p><b>Objection</b>: you object to a supervisor's decision in writing, with reasons, within <b>30 days</b>. The supervisor decides within 15 days; no decision counts as a rejection. You can then go to the cantonal court within <b>60 days</b> (articles 41 to 43). The power to impose a fine lapses three years after the breach (article 44).</p>
+{% endif %}
+
+<h2>{{ 'NRA 2.0: waar de risico\'s zitten' if nl else 'NRA 2.0: where the risks are' }}</h2>
+{% if nl %}
+<p>De tweede National Risk Assessment (NRA 2.0) beslaat 2021 tot en met 2023, met wetgeving tot juli 2024. De hoofdpunten:</p>
+<ul>
+ <li>De algemene kwetsbaarheid van Suriname voor witwassen blijft <b>hoog</b>.</li>
+ <li>Het aantal onderliggende misdrijven met een hoge dreiging steeg van drie naar zes: drugshandel, corruptie, illegale goudactiviteiten, belastingontduiking, illegale houtkap en houthandel, en smokkel.</li>
+ <li>Belangrijkste zwakke plek in de regels: identificatie en verificatie van de uiteindelijk belanghebbenden van rechtspersonen.</li>
+ <li>Makelaardij, autohandel en handel in edele metalen kregen een hogere risicoscore dan in de eerste NRA, vooral door gebrek aan basiskennis over witwassen in die sectoren.</li>
+</ul>
+<p>Het relatieve risico per niet-financiële sector volgens de NRA 2.0:</p>
+<table class="tbl stack tx"><thead><tr><th>Sector</th><th>Totale kwetsbaarheid</th><th>Risico NRA 2.0</th><th>Risico NRA 1.0</th></tr></thead><tbody>
+ <tr><td data-l="Sector">Handelaren in edele metalen en edelstenen</td><td data-l="Totale kwetsbaarheid">Hoog</td><td data-l="Risico NRA 2.0">Hoog</td><td data-l="Risico NRA 1.0">Middelhoog</td></tr>
+ <tr><td data-l="Sector">Makelaardij</td><td data-l="Totale kwetsbaarheid">Hoog</td><td data-l="Risico NRA 2.0">Middelhoog</td><td data-l="Risico NRA 1.0">Middel</td></tr>
+ <tr><td data-l="Sector">Autohandel</td><td data-l="Totale kwetsbaarheid">Middelhoog</td><td data-l="Risico NRA 2.0">Middelhoog</td><td data-l="Risico NRA 1.0">Middel</td></tr>
+ <tr><td data-l="Sector">Casino's</td><td data-l="Totale kwetsbaarheid">Hoog</td><td data-l="Risico NRA 2.0">Middelhoog</td><td data-l="Risico NRA 1.0">Middelhoog</td></tr>
+ <tr><td data-l="Sector">Advocaten</td><td data-l="Totale kwetsbaarheid">Middel</td><td data-l="Risico NRA 2.0">Middel</td><td data-l="Risico NRA 1.0">Middel</td></tr>
+ <tr><td data-l="Sector">Accountants</td><td data-l="Totale kwetsbaarheid">Middel</td><td data-l="Risico NRA 2.0">Middellaag</td><td data-l="Risico NRA 1.0">Middel</td></tr>
+ <tr><td data-l="Sector">Notarissen</td><td data-l="Totale kwetsbaarheid">Middel</td><td data-l="Risico NRA 2.0">Middellaag</td><td data-l="Risico NRA 1.0">Middel</td></tr>
+</tbody></table>
+<p>Je risicoanalyse moet deze uitkomsten meenemen (artikel 3 lid 2 WMTF). Zit je in een hoger-risicosector, verwacht dan vaker inspecties en strengere vragen van je bank.</p>
+{% else %}
+<p>The second National Risk Assessment (NRA 2.0) covers 2021 to 2023, with legislation up to July 2024. The main points:</p>
+<ul>
+ <li>Suriname's overall vulnerability to money laundering remains <b>high</b>.</li>
+ <li>The number of predicate offences with a high threat rose from three to six: drug trafficking, corruption, illegal gold activities, tax evasion, illegal logging and timber trade, and smuggling.</li>
+ <li>Main gap in the rules: identifying and verifying the beneficial owners of legal persons.</li>
+ <li>Real estate, car dealers and dealers in precious metals got a higher risk rating than in the first NRA, mainly because of a lack of basic AML knowledge in those sectors.</li>
+</ul>
+<p>Relative risk per non-financial sector according to NRA 2.0:</p>
+<table class="tbl stack tx"><thead><tr><th>Sector</th><th>Total vulnerability</th><th>Risk NRA 2.0</th><th>Risk NRA 1.0</th></tr></thead><tbody>
+ <tr><td data-l="Sector">Dealers in precious metals and stones</td><td data-l="Total vulnerability">High</td><td data-l="Risk NRA 2.0">High</td><td data-l="Risk NRA 1.0">Medium high</td></tr>
+ <tr><td data-l="Sector">Real estate</td><td data-l="Total vulnerability">High</td><td data-l="Risk NRA 2.0">Medium high</td><td data-l="Risk NRA 1.0">Medium</td></tr>
+ <tr><td data-l="Sector">Car dealers</td><td data-l="Total vulnerability">Medium high</td><td data-l="Risk NRA 2.0">Medium high</td><td data-l="Risk NRA 1.0">Medium</td></tr>
+ <tr><td data-l="Sector">Casinos</td><td data-l="Total vulnerability">High</td><td data-l="Risk NRA 2.0">Medium high</td><td data-l="Risk NRA 1.0">Medium high</td></tr>
+ <tr><td data-l="Sector">Lawyers</td><td data-l="Total vulnerability">Medium</td><td data-l="Risk NRA 2.0">Medium</td><td data-l="Risk NRA 1.0">Medium</td></tr>
+ <tr><td data-l="Sector">Accountants</td><td data-l="Total vulnerability">Medium</td><td data-l="Risk NRA 2.0">Medium low</td><td data-l="Risk NRA 1.0">Medium</td></tr>
+ <tr><td data-l="Sector">Notaries</td><td data-l="Total vulnerability">Medium</td><td data-l="Risk NRA 2.0">Medium low</td><td data-l="Risk NRA 1.0">Medium</td></tr>
+</tbody></table>
+<p>Your risk assessment must take these findings into account (article 3(2) WMTF). If you are in a higher-risk sector, expect more frequent inspections and stricter questions from your bank.</p>
+{% endif %}
+
+<h2>{{ 'Suriname en de CFATF' if nl else 'Suriname and the CFATF' }}</h2>
+{% if nl %}
+<p>Suriname is sinds 1998 lid van de Caribbean Financial Action Task Force (CFATF), de regionale tak van de FATF. In het evaluatierapport (Mutual Evaluation Report) van januari 2023 scoorde Suriname op de 40 technische aanbevelingen 1 keer compliant, 9 keer largely compliant, 23 keer partially compliant en 7 keer non-compliant, en op alle effectiviteitsthema's laag. Daardoor zit Suriname in het <b>verscherpte follow-upproces</b>.</p>
+<ul>
+ <li>Na follow-uprapporten in oktober 2023, oktober 2024 en 2025 staat de score op 10 compliant, 17 largely compliant, 7 partially compliant en 6 non-compliant.</li>
+ <li>De effectiviteit (of de regels in de praktijk werken) is nog niet opnieuw beoordeeld; daar zit de grootste uitdaging.</li>
+ <li>Het volgende follow-uprapport staat gepland voor november 2026.</li>
+ <li>FIU Suriname werd op 5 juni 2024 lid van de Egmont Group, het internationale netwerk van FIU's.</li>
+</ul>
+<p>Waarom dit voor jou telt: de NRA 2.0 waarschuwt dat onvoldoende voortgang de toegang tot correspondentbanken kan bedreigen en de kans op een plaatsing op de "grijze lijst" van de FATF vergroot. Dat raakt elke importeur en exporteur via duurdere en tragere buitenlandse betalingen. Goede naleving door bedrijven zelf telt mee in de beoordeling.</p>
+{% else %}
+<p>Suriname has been a member of the Caribbean Financial Action Task Force (CFATF), the FATF's regional body, since 1998. In the Mutual Evaluation Report of January 2023 Suriname scored, on the 40 technical Recommendations, 1 compliant, 9 largely compliant, 23 partially compliant and 7 non-compliant, and low on all effectiveness outcomes. As a result Suriname is in the <b>enhanced follow-up process</b>.</p>
+<ul>
+ <li>After follow-up reports in October 2023, October 2024 and 2025 the score stands at 10 compliant, 17 largely compliant, 7 partially compliant and 6 non-compliant.</li>
+ <li>Effectiveness (whether the rules work in practice) has not yet been reassessed; that is the biggest challenge.</li>
+ <li>The next follow-up report is due in November 2026.</li>
+ <li>FIU Suriname joined the Egmont Group, the international network of FIUs, on 5 June 2024.</li>
+</ul>
+<p>Why this matters to you: NRA 2.0 warns that insufficient progress may threaten access to correspondent banks and increases the chance of being placed on the FATF "grey list". That affects every importer and exporter through more expensive and slower foreign payments. Good compliance by businesses themselves counts in the assessment.</p>
+{% endif %}
+
+<h2>{{ 'Een compliance programma voor een klein bedrijf' if nl else 'A compliance programme for a small business' }}</h2>
+{% if nl %}
+<p>Je hoeft geen bank te zijn om het goed te doen. Voor een autobedrijf, makelaarskantoor, juwelier of administratiekantoor met een handvol medewerkers volstaat vaak het volgende:</p>
+<ol class="steps">
+ <li><b>Registreer bij de FIU</b> en wijs een compliance officer aan, met een vervanger.</li>
+ <li><b>Schrijf een risicoanalyse van twee tot vijf pagina's</b>: wie zijn je klanten, welke producten en betaalwijzen, welke landen, wat zegt de NRA over je sector, en welke situaties vind je hoog risico.</li>
+ <li><b>Schrijf een procedure</b> op één tot drie pagina's: wanneer doe je cliëntenonderzoek, welke documenten verzamel je, wanneer verscherpt, wie keurt hoog-risicoklanten goed, hoe toets je aan sanctielijsten, hoe en door wie wordt gemeld.</li>
+ <li><b>Maak een klantformulier</b> met ID-gegevens, UBO, doel van de transactie en herkomst van het geld, en een checklist per dossier.</li>
+ <li><b>Beperk contant geld</b>: laat grote bedragen bij voorkeur via de bank betalen, van een rekening op naam van de klant. Dat maakt je dossier sterker. Zie <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Train je personeel</b> jaarlijks op signalen en op het verbod om te tippen, en leg de training vast.</li>
+ <li><b>Toets jezelf</b> elk jaar: steekproef van dossiers, gemiste meldingen, actualiteit van klantgegevens. Pas het beleid aan en laat de directie tekenen.</li>
+ <li><b>Archiveer</b> alles zeven jaar, digitaal en veilig.</li>
+</ol>
+<p>Een accountant of compliance-adviseur kan helpen; zie <a href="{{ U('resources') }}">{{ L('resources') }}</a> en <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Vennootschapsrechtelijke UBO-vragen hangen ook samen met het nieuwe Boek 2 BW: zie <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</p>
+{% else %}
+<p>You do not have to be a bank to get it right. For a car dealer, real estate office, jeweller or administration office with a handful of staff, the following is often enough:</p>
+<ol class="steps">
+ <li><b>Register with the FIU</b> and appoint a compliance officer, with a deputy.</li>
+ <li><b>Write a risk assessment of two to five pages</b>: who your customers are, which products and payment methods, which countries, what the NRA says about your sector, and which situations you treat as high risk.</li>
+ <li><b>Write a procedure</b> of one to three pages: when you do due diligence, which documents you collect, when you apply enhanced measures, who approves high-risk customers, how you screen against sanctions lists, how and by whom reports are made.</li>
+ <li><b>Make a customer form</b> with ID details, UBO, purpose of the transaction and source of funds, and a checklist per file.</li>
+ <li><b>Limit cash</b>: have large amounts paid through the bank, preferably from an account in the customer's name. That strengthens your file. See <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Train your staff</b> yearly on red flags and the ban on tipping off, and record the training.</li>
+ <li><b>Review yourself</b> every year: sample files, missed reports, up-to-date customer data. Update the policy and have management sign it.</li>
+ <li><b>Archive</b> everything for seven years, digitally and securely.</li>
+</ol>
+<p>An accountant or compliance adviser can help; see <a href="{{ U('resources') }}">{{ L('resources') }}</a> and <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>. Company law UBO questions also relate to the new Book 2 of the Civil Code: see <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Vastgesteld of mijn activiteiten onder artikel 1 WMTF vallen, en in welke categorie</li>
+ <li>Geregistreerd bij FIU Suriname binnen drie maanden, compliance officer aangewezen en toegang tot REPSYS</li>
+ <li>Schriftelijke risicoanalyse, met de NRA 2.0 erin verwerkt</li>
+ <li>Procedures goedgekeurd door de directie</li>
+ <li>Klantdossiers met geldig ID, KKF-uittreksel of akte, UBO en doel</li>
+ <li>Verscherpt onderzoek bij niet-ingezetenen, PEP's, complexe structuren en non-profitorganisaties</li>
+ <li>Toetsing aan de VN- en nationale sanctielijst bij acceptatie en bij updates van de lijsten</li>
+ <li>Meldgrens van mijn sector bekend; objectieve meldingen binnen 14 dagen, vermoedens direct</li>
+ <li>Personeel getraind op signalen en geheimhouding</li>
+ <li>Archief van zeven jaar, op orde en doorzoekbaar</li>
+ <li>Jaarlijkse evaluatie gepland</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Established whether my activities fall under article 1 WMTF, and in which category</li>
+ <li>Registered with FIU Suriname within three months, compliance officer appointed and REPSYS access</li>
+ <li>Written risk assessment, taking NRA 2.0 into account</li>
+ <li>Procedures approved by management</li>
+ <li>Customer files with valid ID, KKF extract or deed, UBO and purpose</li>
+ <li>Enhanced due diligence for non-residents, PEPs, complex structures and non-profit organisations</li>
+ <li>Screening against the UN and national sanctions lists at onboarding and when the lists change</li>
+ <li>My sector's threshold known; objective reports within 14 days, suspicions immediately</li>
+ <li>Staff trained on red flags and secrecy</li>
+ <li>Seven-year archive, in order and searchable</li>
+ <li>Yearly review scheduled</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik me nooit heb geregistreerd?</b> Doe het nu, met je KKF-uittreksel en ID, en wijs een compliance officer aan. Wachten tot een inspectie maakt een boete waarschijnlijker.</li>
+ <li><b>...een klant contant wil betalen boven de meldgrens?</b> Je mag de transactie uitvoeren als je cliëntenonderzoek rond is; je meldt haar binnen 14 dagen als objectieve melding. Vraag naar de herkomst van het geld en leg het vast.</li>
+ <li><b>...een klant zijn ID niet wil laten zien?</b> Dan mag je de transactie niet uitvoeren (artikel 9). Overweeg een melding als de weigering verdacht is.</li>
+ <li><b>...ik twijfel of iets verdacht is?</b> Leg je afweging vast. Bij een redelijk vermoeden meld je; je hoeft het niet te bewijzen, en een melding te goeder trouw is beschermd.</li>
+ <li><b>...de FIU of politie gegevens opvraagt?</b> Geef ze binnen de gestelde termijn. Dat schendt je beroepsgeheim niet (artikel 31 lid 3).</li>
+ <li><b>...mijn bank mijn rekening opzegt?</b> Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>. Een goed eigen compliance dossier helpt bij een nieuwe bank.</li>
+ <li><b>...ik het niet eens ben met een boete?</b> Maak binnen 30 dagen bezwaar bij de toezichthouder en ga zo nodig binnen 60 dagen naar de kantonrechter. Zie ook <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I never registered?</b> Do it now, with your KKF extract and ID, and appoint a compliance officer. Waiting for an inspection makes a fine more likely.</li>
+ <li><b>...a customer wants to pay cash above the threshold?</b> You may carry out the transaction once due diligence is complete; you report it within 14 days as an objective report. Ask about the source of the money and record it.</li>
+ <li><b>...a customer refuses to show ID?</b> Then you may not carry out the transaction (article 9). Consider a report if the refusal is suspicious.</li>
+ <li><b>...I am unsure whether something is suspicious?</b> Record your reasoning. With a reasonable suspicion you report; you do not need to prove it, and a good-faith report is protected.</li>
+ <li><b>...the FIU or police request information?</b> Provide it within the deadline. It does not breach professional secrecy (article 31(3)).</li>
+ <li><b>...my bank closes my account?</b> See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>. A solid compliance file of your own helps with a new bank.</li>
+ <li><b>...I disagree with a fine?</b> Object to the supervisor within 30 days and, if needed, go to the cantonal court within 60 days. See also <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://fiusuriname.org/wetgeving/S-B-2022-no-138-WET-van-19-november-2022-vaststelling-regels-voorkomen-bestrijden-money-laundering-en-financiering-terrorisme.pdf" rel="noopener">WMTF, S.B. 2022 no. 138 (FIU Suriname)</a></li>
+ <li><a href="https://fiusuriname.org/wetgeving/Richtlijnen/RICHTLIJN-VOOR-HET-MELDEN-UPDATED-JULI-2025.pdf" rel="noopener">{{ 'FIU Suriname: richtlijn voor het melden (juli 2025)' if nl else 'FIU Suriname: reporting guideline (July 2025)' }}</a></li>
+ <li><a href="https://fiusuriname.org/Jaarverslagen/FIUS-JAARVERSLAG-2024.pdf" rel="noopener">{{ 'FIU Suriname: jaarverslag 2024' if nl else 'FIU Suriname: annual report 2024' }}</a></li>
+ <li><a href="https://www.fiusuriname.org/" rel="noopener">{{ 'FIU Suriname: registratie, meldformulieren en wetgeving' if nl else 'FIU Suriname: registration, reporting forms and legislation' }}</a></li>
+ <li><a href="https://fiusuriname.org/Publicaties/Final-Publieke-versie-NRA2.0.pdf" rel="noopener">{{ 'Tweede National Risk Assessment (NRA 2.0), publieke versie' if nl else 'Second National Risk Assessment (NRA 2.0), public version' }}</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2024/08/S.B.-2024-no.-100-Wet-houdende-nadere-wijziging-van-de-Wet-Internationale-Sancties.pdf" rel="noopener">{{ 'Wijziging Wet Internationale Sancties, S.B. 2024 no. 100' if nl else 'Amendment to the International Sanctions Act, S.B. 2024 no. 100' }}</a></li>
+ <li><a href="https://www.fatf-gafi.org/en/publications/Mutualevaluations/Suriname-FUR-2025.html" rel="noopener">{{ 'FATF/CFATF: Suriname follow-uprapport 2025' if nl else 'FATF/CFATF: Suriname follow-up report 2025' }}</a></li>
+ <li><a href="https://www.fatf-gafi.org/content/fatf-gafi/en/publications/Mutualevaluations/mer-suriname-2023.html" rel="noopener">{{ 'FATF/CFATF: Mutual Evaluation Report Suriname (januari 2023)' if nl else 'FATF/CFATF: Mutual Evaluation Report Suriname (January 2023)' }}</a></li>
+ <li><a href="https://www.cbvs.sr/en/highlights/2929-suriname-s-second-national-risk-assessment-money-laundering-terrorism-financing-and-proliferation-financing-2025" rel="noopener">{{ 'Centrale Bank van Suriname: publicatie NRA 2.0' if nl else 'Central Bank of Suriname: NRA 2.0 publication' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. Meldgrenzen en richtlijnen kunnen wijzigen; controleer de actuele stand bij je toezichthouder.' if nl else 'General information, not legal advice. Thresholds and guidelines may change; check the current position with your supervisor.' }}</p>
+</div>
+{% endblock %}

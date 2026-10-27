@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Prijsregels voor winkels' if nl else 'Price rules for shops' }}</h1>
+{% if nl %}
+<p class="lead">Elke winkel in Suriname moet zijn prijzen duidelijk zichtbaar in SRD aangeven, bij elke verkoop een bon in het Nederlands geven met vaste gegevens, en daarvan tien jaar een kopie bewaren. Op basisgoederen gelden maximale winstmarges en prijzen. De Economische Controle Dienst (ECD) van EZOTI controleert dit, en treedt sinds 2025 en 2026 merkbaar strenger op: waarschuwingen, producten uit de schappen en tijdelijke sluiting.</p>
+{% else %}
+<p class="lead">Every shop in Suriname must display its prices clearly in SRD, give a receipt in Dutch with fixed details on every sale, and keep a copy for ten years. Basic goods are subject to maximum margins and prices. EZOTI's Economic Control Service (ECD) checks this, and since 2025 and 2026 it has been noticeably stricter: warnings, goods taken off the shelves and temporary closures.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Prijsaanduiding' if nl else 'Price display' }}</div><div class="big">SRD</div><div class="sub">{{ 'verplicht; dollar of euro mag ernaast' if nl else 'required; dollar or euro may be added' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Kopie van de bon' if nl else 'Copy of receipt' }}</div><div class="big">{{ '10 jaar' if nl else '10 years' }}</div><div class="sub">{{ 'digitaal of op papier, S.B. 2024 no. 20' if nl else 'digital or paper, S.B. 2024 no. 20' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Klachtenlijn ECD' if nl else 'ECD complaints line' }}</div><div class="big">1940</div><div class="sub">{{ 'ook via WhatsApp en de SRD Check-app' if nl else 'also via WhatsApp and the SRD Check app' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Prijs op elk product</b> of op een duidelijk zichtbare prijslijst, ook in de etalage, in SRD met het symbool "SRD".</li>
+ <li><b>Prijzen in dollars</b> mogen alleen náást de SRD-prijs. De klant mag altijd in SRD betalen tegen de CBvS-koers, tenzij uitdrukkelijk anders afgesproken.</li>
+ <li><b>Bon</b>: bedrijfsnaam en adres zoals bij de KKF, juiste omschrijving, eenheidsprijs, hoeveelheid en maat, totaal, BTW, totaal inclusief BTW, datum en garantie. In het Nederlands. Kopie tien jaar bewaren.</li>
+ <li><b>Basisgoederen</b>: maximale winstmarges en een tweewekelijkse lijst met maximumprijzen. Zonder inkoopbon rekent de ECD met de lijstprijs.</li>
+ <li><b>De ECD</b> mag je zaak binnen, je boeken inzien, goederen in beslag nemen en kan je winkel laten sluiten. Overtreding is een economisch delict.</li>
+{% else %}
+ <li><b>A price on every product</b> or on a clearly visible price list, also in the shop window, in SRD with the symbol "SRD".</li>
+ <li><b>Prices in dollars</b> are only allowed next to the SRD price. Customers may always pay in SRD at the Central Bank rate, unless expressly agreed otherwise.</li>
+ <li><b>Receipt</b>: business name and address as registered with the KKF, correct description, unit price, quantity and size, total, VAT, total including VAT, date and warranty. In Dutch. Keep a copy for ten years.</li>
+ <li><b>Basic goods</b>: maximum profit margins and a fortnightly list of maximum prices. Without a purchase invoice the ECD uses the list price.</li>
+ <li><b>The ECD</b> may enter your premises, inspect your books, seize goods and can have your shop closed. A breach is an economic offence.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Welke regels gelden' if nl else 'Which rules apply' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Regeling</th><th>Waar het over gaat</th><th>Toezicht</th></tr></thead><tbody>
+ <tr><td data-l="Regeling"><b>Wet (Decreet) Prijszetting en Prijsbewaking</b>, S.B. 1984 no. 66, gewijzigd bij S.B. 1996 no. 21</td><td data-l="Waar het over gaat">De minister kan maximale winstmarges en maximumprijzen vaststellen voor goederen, diensten en huren; inzage in boeken; sancties</td><td data-l="Toezicht">ECD (EZOTI)</td></tr>
+ <tr><td data-l="Regeling"><b>Prijsaanduidingsbesluit</b>, S.B. 1998 no. 15, gewijzigd bij S.B. 2024 no. 20</td><td data-l="Waar het over gaat">Prijsaanduiding in de winkel, valuta, bonnen en nota's, bewaarplicht, administratie van importeurs</td><td data-l="Toezicht">ECD</td></tr>
+ <tr><td data-l="Regeling"><b>Standaardenwet</b> en technisch voorschrift etikettering (SSB 003:2013)</td><td data-l="Waar het over gaat">Wat er op het etiket van voorverpakte goederen moet staan; zie <a href="{{ U('standards') }}">{{ L('standards') }}</a></td><td data-l="Toezicht">SSB, ECD</td></tr>
+ <tr><td data-l="Regeling"><b>Wet BTW 2022</b></td><td data-l="Waar het over gaat">Prijzen voor consumenten inclusief BTW, BTW op de bon; zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></td><td data-l="Toezicht">Belastingdienst</td></tr>
+ <tr><td data-l="Regeling"><b>Burgerlijk Wetboek</b>, art. 6:194 en Boek 7</td><td data-l="Waar het over gaat">Misleidende reclame over prijs en aanbieding; rechten van de consument bij gebreken; zie <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a></td><td data-l="Toezicht">Rechter</td></tr>
+</tbody></table>
+<p>Overtreding van de prijsregels is een economisch delict. Het decreet zelf noemt gevangenisstraf tot een jaar en een geldboete voor opzettelijke overtreding, en lagere straffen voor niet-opzettelijke overtreding (art. 7). Na een veroordeling kan de minister de zaak tot een maand laten sluiten (art. 9) en een vergunning intrekken (art. 11).</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Rule</th><th>What it covers</th><th>Supervisor</th></tr></thead><tbody>
+ <tr><td data-l="Rule"><b>Price Setting and Price Monitoring Act (Decree)</b>, S.B. 1984 no. 66, amended by S.B. 1996 no. 21</td><td data-l="What it covers">The minister can set maximum profit margins and maximum prices for goods, services and rents; inspection of books; sanctions</td><td data-l="Supervisor">ECD (EZOTI)</td></tr>
+ <tr><td data-l="Rule"><b>Price Display Decree</b> (Prijsaanduidingsbesluit), S.B. 1998 no. 15, amended by S.B. 2024 no. 20</td><td data-l="What it covers">Price display in the shop, currency, receipts and invoices, retention, importers' records</td><td data-l="Supervisor">ECD</td></tr>
+ <tr><td data-l="Rule"><b>Standards Act</b> and the labelling technical regulation (SSB 003:2013)</td><td data-l="What it covers">What must be on the label of prepackaged goods; see <a href="{{ U('standards') }}">{{ L('standards') }}</a></td><td data-l="Supervisor">SSB, ECD</td></tr>
+ <tr><td data-l="Rule"><b>VAT Act 2022</b></td><td data-l="What it covers">Consumer prices including VAT, VAT on the receipt; see <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a></td><td data-l="Supervisor">Tax authority</td></tr>
+ <tr><td data-l="Rule"><b>Civil Code</b>, art. 6:194 and Book 7</td><td data-l="What it covers">Misleading advertising about price and offers; consumer rights for defects; see <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a></td><td data-l="Supervisor">Courts</td></tr>
+</tbody></table>
+<p>Breaching the price rules is an economic offence. The decree itself provides for imprisonment of up to one year and a fine for intentional breaches, and lighter penalties for unintentional ones (art. 7). After a conviction the minister can have the business closed for up to one month (art. 9) and revoke a licence (art. 11).</p>
+{% endif %}
+
+<h2>{{ 'Prijzen aangeven in de winkel' if nl else 'Displaying prices in the shop' }}</h2>
+{% if nl %}
+<p>Wie in de kleinhandel goederen te koop aanbiedt, moet de prijzen op een voor iedereen duidelijk zichtbare en begrijpelijke manier aangeven: op elk product apart, of op lijsten die zichtbaar zijn opgehangen. Dat geldt ook voor de etalage (art. 6 Prijsaanduidingsbesluit). De prijs staat in Surinaamse dollars, met het symbool <b>"SRD"</b> (art. 7).</p>
+<ul>
+ <li><b>Losse waren</b> zoals aardappelen, uien, rijst en blom: zet een prijs per kilo of per eenheid op het bord. Bij controles in december 2025 ontbraken juist bij deze producten vaak prijzen. Bereken de kiloprijs met <a href="{{ U('unitprice') }}">{{ L('unitprice') }}</a>.</li>
+ <li><b>Schapprijs en kassaprijs</b> moeten gelijk zijn. De ECD controleert steekproefsgewijs of de prijs in het kassasysteem overeenkomt met het schap.</li>
+ <li><b>Gasflessen, brandstof en andere goederen met een vaste prijs</b>: hang de prijs zichtbaar op bij de ingang of de kassa.</li>
+ <li><b>Prijslijst</b> voor je toonbank of etalage maken: <a href="{{ U('pricelist') }}">{{ L('pricelist') }}</a>.</li>
+</ul>
+{% else %}
+<p>Anyone offering goods for sale at retail must show prices in a way that is clearly visible and understandable to everyone: on each product, or on lists posted visibly. This also applies to the shop window (art. 6 Price Display Decree). The price is in Surinamese dollars, with the symbol <b>"SRD"</b> (art. 7).</p>
+<ul>
+ <li><b>Loose goods</b> such as potatoes, onions, rice and flour: put a price per kilo or per unit on the sign. In inspections in December 2025, prices were often missing for exactly these products. Work out the price per kilo with <a href="{{ U('unitprice') }}">{{ L('unitprice') }}</a>.</li>
+ <li><b>Shelf price and till price</b> must match. The ECD spot-checks whether the price in the till system matches the shelf.</li>
+ <li><b>Gas cylinders, fuel and other goods with a fixed price</b>: post the price visibly at the entrance or the till.</li>
+ <li><b>Price list</b> for your counter or window: <a href="{{ U('pricelist') }}">{{ L('pricelist') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Prijzen in SRD of in dollars?' if nl else 'Prices in SRD or in dollars?' }}</h2>
+{% if nl %}
+<p>Tot februari 2024 was het verboden om prijzen in een andere valuta aan te geven, behalve met toestemming van de Deviezencommissie (bijvoorbeeld voor vliegtickets). Dat verbod botste met de Wet Vernoeming en Herleiding van Guldensbedragen tot Dollarbedragen (S.B. 2003 no. 89), die prijsaanduiding in SRD verplicht maar een tweede valuta toestaat. Sinds S.B. 2024 no. 20 geldt:</p>
+<ol class="steps">
+ <li><b>De SRD-prijs is verplicht</b>, duidelijk zichtbaar en leesbaar op de goederen.</li>
+ <li><b>Daarnaast mag</b> je de prijs in een andere valuta noemen, zoals USD of EUR.</li>
+ <li><b>De klant mag altijd in SRD betalen</b>, tenzij jullie uitdrukkelijk iets anders hebben afgesproken.</li>
+ <li><b>Omrekenen</b> gebeurt tegen de op dat moment geldende koers van de Centrale Bank van Suriname. Volgens de toelichting en de ECD vermeld je die koers duidelijk als je ook een buitenlandse prijs noemt.</li>
+</ol>
+<p>Een prijskaartje met alleen "USD 25" is dus niet toegestaan in een winkel. Heb je dollarprijzen omdat je inkoop in dollars is, zet dan de SRD-prijs erbij en werk die bij als de koers verandert. De koers van vandaag: <a href="{{ U('rates') }}">{{ L('rates') }}</a>. In contracten (bijvoorbeeld huur of grote leveringen) bepaalt het Burgerlijk Wetboek dat een schuld in vreemde valuta in SRD mag worden voldaan, tenzij effectieve betaling in die valuta is afgesproken (art. 6:121 BW). De Consumentenkring vroeg EZOTI in december 2025 aandacht voor woninghuren in vreemde valuta; een regeling daarvoor was er bij ons laatste nazicht niet.</p>
+{% else %}
+<p>Until February 2024 it was prohibited to display prices in another currency, except with permission of the Foreign Exchange Commission (for example for airline tickets). That ban conflicted with the Act on Renaming and Converting Guilder Amounts to Dollar Amounts (S.B. 2003 no. 89), which requires prices in SRD but allows a second currency. Since S.B. 2024 no. 20 the rules are:</p>
+<ol class="steps">
+ <li><b>The SRD price is mandatory</b>, clearly visible and legible on the goods.</li>
+ <li><b>In addition</b> you may show the price in another currency, such as USD or EUR.</li>
+ <li><b>The customer may always pay in SRD</b>, unless you expressly agreed otherwise.</li>
+ <li><b>Conversion</b> is at the Central Bank of Suriname rate applicable at that moment. According to the explanatory note and the ECD you state that rate clearly if you also show a foreign price.</li>
+</ol>
+<p>A price tag reading only "USD 25" is therefore not allowed in a shop. If you price in dollars because you buy in dollars, add the SRD price and update it when the rate changes. Today's rate: <a href="{{ U('rates') }}">{{ L('rates') }}</a>. In contracts (for example rent or large deliveries) the Civil Code says a debt in foreign currency may be paid in SRD, unless effective payment in that currency was agreed (art. 6:121 Civil Code). In December 2025 the consumer association Consumentenkring raised residential rents in foreign currency with EZOTI; at our last check there was no rule on this.</p>
+{% endif %}
+
+<h2>{{ 'De bon: wat erop moet staan' if nl else 'The receipt: what it must show' }}</h2>
+{% if nl %}
+<p>Met S.B. 2024 no. 20 (9 februari 2024) zijn de eisen aan bonnen en nota's aangescherpt; die bepalingen gelden sinds mei 2024. Aanleiding: klachten dat op kassabonnen niet te lezen was wat er was gekocht. De bon of nota moet in het <b>Nederlands</b> zijn. Van elke bon bewaar je een kopie <b>tien jaar</b>, op papier of digitaal; dat sluit aan bij de bewaarplicht van de Wet BTW.</p>
+<table class="tbl stack tx"><thead><tr><th>Gegeven</th><th>Winkel (kleinhandel)</th><th>Groothandel</th><th>Dienstverlener</th></tr></thead><tbody>
+ <tr><td data-l="Gegeven">Bedrijfsnaam en adres zoals bij de KKF ingeschreven</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja, op gewaarmerkte nota met bedrukt hoofd</td><td data-l="Dienstverlener">Ja, nota met bedrukt hoofd</td></tr>
+ <tr><td data-l="Gegeven">Naam en adres van de koper</td><td data-l="Winkel">Nee</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Ja</td></tr>
+ <tr><td data-l="Gegeven">Juiste omschrijving van goed of dienst</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Ja, plus duur of periode</td></tr>
+ <tr><td data-l="Gegeven">Eenheidsprijs, hoeveelheid, netto-inhoud en maat</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Niet van toepassing</td></tr>
+ <tr><td data-l="Gegeven">Totaalprijs, BTW en totaal inclusief BTW</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Ja</td></tr>
+ <tr><td data-l="Gegeven">Datum van verkoop of levering</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Ja</td></tr>
+ <tr><td data-l="Gegeven">Garantieperiode, indien van toepassing</td><td data-l="Winkel">Ja</td><td data-l="Groothandel">Ja</td><td data-l="Dienstverlener">Ja</td></tr>
+</tbody></table>
+<p>"Juiste omschrijving" betekent: de klant moet kunnen lezen wat hij kocht. Codes, afkortingen of Chinese karakters zonder Nederlandse omschrijving voldoen niet. In januari 2025 sloot de ECD tijdelijk supermarkten zonder werkend kassasysteem of met bonnen in een onleesbare taal, tot de eigenaar een kassasysteem had dat aan de eisen voldoet.</p>
+<p>Het besluit schrijft een bon voor, geen kassa. Een kleine zaak kan dus werken met een doorlopend genummerd bonboek of een gedrukte bon met alle gegevens. Bij supermarkten eiste de ECD in januari 2025 wel een werkend, conform kassasysteem; voor een grotere winkel is dat in de praktijk de norm. Maak er een met onze <a href="{{ U('receipt') }}">{{ L('receipt') }}</a> of, voor zakelijke klanten, een <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>, en controleer dat alle velden hierboven erop staan. Hoe BTW op de bon werkt: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<p><b>Importeurs en groothandels</b> hebben extra plichten: elke importeur boekt de facturen en nota's van elke zending in een register met een doorlopend nummer per jaar (art. 2), en een groothandel houdt facturen over invoer en verkoop ter plaatse aanwezig en geeft ze direct aan de ECD als die erom vraagt (art. 4).</p>
+{% else %}
+<p>S.B. 2024 no. 20 (9 February 2024) tightened the requirements for receipts and invoices; those provisions have applied since May 2024. The reason: complaints that till receipts did not show what had been bought. The receipt or invoice must be in <b>Dutch</b>. Keep a copy of every receipt for <b>ten years</b>, on paper or digitally; this matches the retention duty under the VAT Act.</p>
+<table class="tbl stack tx"><thead><tr><th>Detail</th><th>Shop (retail)</th><th>Wholesale</th><th>Service provider</th></tr></thead><tbody>
+ <tr><td data-l="Detail">Business name and address as registered with the KKF</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes, on an authenticated invoice with printed letterhead</td><td data-l="Service provider">Yes, invoice with printed letterhead</td></tr>
+ <tr><td data-l="Detail">Buyer's name and address</td><td data-l="Shop">No</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Yes</td></tr>
+ <tr><td data-l="Detail">Correct description of goods or service</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Yes, plus duration or period</td></tr>
+ <tr><td data-l="Detail">Unit price, quantity, net content and size</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Not applicable</td></tr>
+ <tr><td data-l="Detail">Total price, VAT and total including VAT</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Yes</td></tr>
+ <tr><td data-l="Detail">Date of sale or delivery</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Yes</td></tr>
+ <tr><td data-l="Detail">Warranty period, if applicable</td><td data-l="Shop">Yes</td><td data-l="Wholesale">Yes</td><td data-l="Service provider">Yes</td></tr>
+</tbody></table>
+<p>"Correct description" means the customer must be able to read what they bought. Codes, abbreviations or Chinese characters without a Dutch description do not qualify. In January 2025 the ECD temporarily closed supermarkets without a working till system or with receipts in an unreadable language, until the owner had a compliant till system.</p>
+<p>The decree requires a receipt, not a till. A small business can therefore work with a sequentially numbered receipt book or a printed receipt with all details. For supermarkets, however, the ECD demanded a working, compliant till system in January 2025; for a larger shop that is the norm in practice. Make one with our <a href="{{ U('receipt') }}">{{ L('receipt') }}</a> or, for business customers, an <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>, and check that every field above is on it. How VAT works on the receipt: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<p><b>Importers and wholesalers</b> have extra duties: every importer enters the invoices and notes for each shipment in a register with a running number per year (art. 2), and a wholesaler keeps invoices on imports and sales on the premises and hands them to the ECD at once on request (art. 4).</p>
+{% endif %}
+
+<h2>{{ 'Maximumprijzen en winstmarges op basisgoederen' if nl else 'Maximum prices and margins on basic goods' }}</h2>
+{% if nl %}
+<p>Op grond van de Wet Prijszetting en Prijsbewaking kan de minister van EZOTI bij beschikking <b>maximale winstmarges</b> (art. 2) en <b>maximumprijzen</b> (art. 3) vaststellen voor aangewezen goederen, diensten en huren. Voordat zo'n maatregel wordt genomen, moeten de organen van het bedrijfsleven worden gehoord, tenzij het spoed heeft (art. 6). In de praktijk werkt het zo:</p>
+<ul>
+ <li>EZOTI publiceert ongeveer elke twee weken een lijst met maximumprijzen voor <b>basis- en strategische goederen</b> per importeur, voor de groothandel en voor de consument. Die lijst staat doorzoekbaar op <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>. Je mag altijd lager zitten.</li>
+ <li>De toegestane winkelprijs wordt berekend vanaf <b>jouw inkoopprijs</b> plus de vastgestelde marge, apart voor groothandel en winkel. Kun je je inkoopbon niet laten zien, dan zet de ECD de prijs terug naar de lijstprijs. Bewaar dus elke inkoopbon in de winkel of digitaal bij de hand.</li>
+ <li>Verschillen tussen winkels zijn niet automatisch prijsopdrijving: importeurs kopen tegen verschillende prijzen in en soms zit er een tussenhandelaar tussen. Elke schakel mag zijn marge nemen, maar niet meer.</li>
+ <li>In het binnenland liggen prijzen hoger door transport; EZOTI overlegt met importeurs over goedkoper vervoer.</li>
+</ul>
+<h3>SRD Check</h3>
+<p>Op 16 maart 2026 lanceerde EZOTI de webapplicatie <b>SRD Check</b>. Klanten scannen een QR-code op een flyer in de winkel en zien de vastgestelde groothandels- en winkelprijzen van ongeveer twintig basisgoederen, zoals olie, babyvoeding, bruine bonen, aardappelen en uien. Het aantal producten zou in de maanden daarna groeien naar ongeveer vijftig. Klanten kunnen ook prijzen invoeren en klachten melden; een team van EZOTI controleert die meldingen voordat ze worden goedgekeurd. Voor Telesur-klanten is de app zonder data te gebruiken. Ga er dus van uit dat je klant jouw prijs naast de officiële prijs legt. Werk je marges uit met <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</p>
+{% else %}
+<p>Under the Price Setting and Price Monitoring Act the EZOTI minister can set <b>maximum profit margins</b> (art. 2) and <b>maximum prices</b> (art. 3) by order for designated goods, services and rents. Before such a measure is taken, the business organisations must be consulted, unless it is urgent (art. 6). In practice it works like this:</p>
+<ul>
+ <li>EZOTI publishes a list of maximum prices for <b>basic and strategic goods</b> per importer about every two weeks, for wholesale and for consumers. The list is searchable on <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>. You may always charge less.</li>
+ <li>The permitted shop price is calculated from <b>your purchase price</b> plus the set margin, separately for wholesale and retail. If you cannot show your purchase invoice, the ECD resets the price to the list price. So keep every purchase invoice at hand in the shop or digitally.</li>
+ <li>Differences between shops are not automatically price gouging: importers buy at different prices and sometimes there is an intermediary. Each link may take its margin, but no more.</li>
+ <li>In the interior prices are higher because of transport; EZOTI is talking with importers about cheaper transport.</li>
+</ul>
+<h3>SRD Check</h3>
+<p>On 16 March 2026 EZOTI launched the web app <b>SRD Check</b>. Customers scan a QR code on a flyer in the shop and see the set wholesale and retail prices of about twenty basic goods, such as cooking oil, baby formula, brown beans, potatoes and onions. The number of products was to grow to about fifty in the following months. Customers can also enter prices and file complaints; an EZOTI team checks those reports before approving them. Telesur customers can use the app without data. So assume your customer will compare your price with the official one. Work out your margins with <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'De Economische Controle Dienst (ECD)' if nl else 'The Economic Control Service (ECD)' }}</h2>
+{% if nl %}
+<p>De ECD is de handhavingsdienst van EZOTI. Ze controleert prijzen en marges, prijsaanduiding, bonnen en kassasystemen, maar ook etiketten, vervaldata, hygiëne, vergunningen en illegale producten zoals sigaretten en drank. Na de wijziging van 2024 kregen ondernemers tijd om zich aan te passen; sinds januari 2025 kondigt het ministerie strengere handhaving aan. In maart 2026 liet EZOTI ondernemersorganisaties weten dat die aanpassingsperiode voorbij is en dat vanaf 1 juli 2026 strikter op het Prijsaanduidingsbesluit wordt toegezien. In 2026 bleef de dienst bedrijven bezoeken op klachten en in reguliere controles. Volgens de minister had de ECD eind 2025 zo'n 35 tot 40 medewerkers en rukte ze in een drukke week meer dan 120 keer uit. In oktober 2026 kondigde de minister meer middelen en meer buitengewoon agenten van politie (BAVP'ers) aan, ook voor de districten.</p>
+<h3>Wat de ECD mag</h3>
+<ul>
+ <li>Elke plaats betreden waar redelijkerwijs een overtreding kan plaatsvinden; een woning alleen met een hulpofficier van justitie (art. 13 decreet).</li>
+ <li>Op eerste vordering je boeken en bescheiden over prijzen en marges inzien en mondelinge inlichtingen vragen (art. 18).</li>
+ <li>Facturen en nota's meenemen tegen een ontvangstbewijs; originelen komen binnen veertien dagen terug (art. 5 Prijsaanduidingsbesluit).</li>
+ <li>Goederen in beslag nemen, ook bij een gegrond vermoeden dat er een overtreding zal worden gepleegd, en die tegen de vastgestelde prijs laten verkopen (art. 15 en 16 decreet).</li>
+ <li>Een proces-verbaal opmaken. Daarna volgt afdoening via de dienst of het Openbaar Ministerie.</li>
+</ul>
+<h3>Wat er in de praktijk gebeurt</h3>
+<ul>
+ <li>Een waarschuwing of aanwijzing, met direct herstel: prijzen aanbrengen, kassaprijs corrigeren.</li>
+ <li>Vervallen of niet-geëtiketteerde producten (zoals kip of vis zonder etiket) direct uit de schappen.</li>
+ <li>Prijs teruggezet naar de vastgestelde prijs als je geen inkoopbon hebt.</li>
+ <li>Tijdelijke sluiting tot de overtreding is opgeheven, bijvoorbeeld zonder conform kassasysteem of bij ernstige hygiëneproblemen.</li>
+ <li>EZOTI werkt aan een zwarte lijst van winkeliers die herhaaldelijk de wet overtreden (december 2025).</li>
+</ul>
+<p>De minister benadrukte in 2026 dat de ECD niet uit is op straffen maar op naleving, en dat er flyers komen in onder meer Chinees en Portugees voor winkeliers die geen Nederlands spreken. Etiketten moeten bij voorkeur in het Nederlands of Engels zijn.</p>
+{% else %}
+<p>The ECD is EZOTI's enforcement service. It checks prices and margins, price display, receipts and till systems, but also labels, expiry dates, hygiene, licences and illegal products such as cigarettes and alcohol. After the 2024 amendment businesses got time to adapt; since January 2025 the ministry has announced stricter enforcement. In March 2026 EZOTI told business organisations that this adjustment period was over and that compliance with the Price Display Decree would be enforced more strictly from 1 July 2026. In 2026 the service kept visiting businesses on complaints and in routine checks. According to the minister, the ECD had about 35 to 40 staff at the end of 2025 and went out more than 120 times in a busy week. In October 2026 the minister announced more resources and more special police officers (BAVPs), also for the districts.</p>
+<h3>What the ECD may do</h3>
+<ul>
+ <li>Enter any place where an offence may reasonably be taking place; a home only with an assistant public prosecutor (art. 13 decree).</li>
+ <li>On first demand inspect your books and records on prices and margins and ask for oral information (art. 18).</li>
+ <li>Take invoices and notes against a receipt; originals are returned within fourteen days (art. 5 Price Display Decree).</li>
+ <li>Seize goods, also on a reasonable suspicion that an offence will be committed, and have them sold at the set price (art. 15 and 16 decree).</li>
+ <li>Draw up an official report. Settlement then follows through the service or the Public Prosecutor.</li>
+</ul>
+<h3>What happens in practice</h3>
+<ul>
+ <li>A warning or instruction, with immediate correction: put prices up, correct the till price.</li>
+ <li>Expired or unlabelled products (such as chicken or fish without a label) taken off the shelves at once.</li>
+ <li>Price reset to the set price if you have no purchase invoice.</li>
+ <li>Temporary closure until the breach is remedied, for example without a compliant till system or with serious hygiene problems.</li>
+ <li>EZOTI is building a blacklist of shopkeepers who repeatedly break the law (December 2025).</li>
+</ul>
+<p>In 2026 the minister stressed that the ECD aims at compliance rather than punishment, and that flyers would be made in Chinese and Portuguese, among other languages, for shopkeepers who do not speak Dutch. Labels should preferably be in Dutch or English.</p>
+{% endif %}
+
+<h2>{{ 'Brandstofprijzen in 2026' if nl else 'Fuel prices in 2026' }}</h2>
+{% if nl %}
+<p>Brandstof is voor bijna elke winkel een kostenpost, via je eigen transport en via de prijzen van je leveranciers. Op 18 maart 2026 stelde de regering vanwege de internationale crisis een <b>maximumprijs (price cap)</b> in voor brandstof, voor alle nieuwe ladingen vanaf die datum. Eind maart 2026 lag het maximum op SRD 53,27 per liter diesel en SRD 48,32 per liter unleaded. De staat derft daardoor ruim SRD 350 miljoen per maand. Op 4 augustus 2026 besloot de regering de prijzen tot nader order te handhaven; op 21 augustus was er nog geen besluit over afbouw. Houd er rekening mee dat de cap kan worden losgelaten of gefaseerd afgebouwd. Reken het effect op je kosten door met <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> en <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</p>
+{% else %}
+<p>Fuel is a cost for almost every shop, through your own transport and through your suppliers' prices. On 18 March 2026 the government introduced a <b>maximum fuel price (price cap)</b> because of the international crisis, for all new cargoes from that date. At the end of March 2026 the cap was SRD 53.27 per litre of diesel and SRD 48.32 per litre of unleaded. It costs the state over SRD 350 million a month in lost revenue. On 4 August 2026 the government decided to keep prices unchanged until further notice; on 21 August there was still no decision on phasing it out. Bear in mind the cap may be lifted or phased out. Work out the effect on your costs with <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> and <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'BTW in je prijzen' if nl else 'VAT in your prices' }}</h2>
+{% if nl %}
+<p>Prijzen voor consumenten zijn altijd <b>inclusief BTW</b>. Op de bon staan de BTW en het totaal inclusief BTW apart. De Consumentenkring meldde in december 2025 dat dit op veel kassabonnen ontbreekt; het is een punt waar zowel de ECD als de Belastingdienst op let. Ben je niet BTW-plichtig, dan vermeld je geen BTW, maar de overige gegevens wel. Alles over tarieven, aangifte en vrijstellingen: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>; je verkopen bijhouden: <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</p>
+{% else %}
+<p>Consumer prices always <b>include VAT</b>. The receipt shows VAT and the total including VAT separately. In December 2025 the consumer association reported that this is missing on many till receipts; both the ECD and the tax authority pay attention to it. If you are not registered for VAT, you show no VAT, but the other details still apply. Everything about rates, returns and exemptions: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>; tracking your sales: <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Korting, aanbiedingen en uitverkoop' if nl else 'Discounts, offers and sales' }}</h2>
+{% if nl %}
+<p>Wij vonden geen aparte Surinaamse regels voor uitverkoop of kortingsacties. Wel gelden de algemene regels:</p>
+<ul>
+ <li><b>Niet misleiden.</b> Een mededeling over de prijs, de manier van berekenen, de aanleiding van de aanbieding ("opheffingsuitverkoop") of de voorraad mag niet misleidend zijn (art. 6:194 BW). Een "van"-prijs die nooit gevraagd is, of een actie die nooit eindigt, is riskant.</li>
+ <li><b>Ook de actieprijs in SRD</b> en zichtbaar op het product of het bord. Op een basisgoed blijft de maximumprijs gelden, ook in een actie.</li>
+ <li><b>Consumentenrechten blijven.</b> "Afgeprijsd, geen ruil" mag voor ruilen uit ontevredenheid, maar een gebrekkig product moet je ook in de uitverkoop herstellen of vervangen, tenzij je het gebrek vooraf hebt gemeld. Zie <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>Korting op de bon</b>: vermeld het verkochte product, de korting en het betaalde bedrag inclusief BTW, zodat de bon klopt met je kassa en je BTW-aangifte.</li>
+ <li><b>Tegoedbonnen en cadeaubonnen</b>: maak er een met <a href="{{ U('voucher') }}">{{ L('voucher') }}</a> en zet er een geldigheidsdatum op.</li>
+</ul>
+{% else %}
+<p>We found no separate Surinamese rules on clearance sales or discount campaigns. The general rules do apply:</p>
+<ul>
+ <li><b>Do not mislead.</b> A statement about the price, how it is calculated, the reason for the offer ("closing-down sale") or the stock may not be misleading (art. 6:194 Civil Code). A "was" price that was never charged, or a promotion that never ends, is risky.</li>
+ <li><b>The sale price too must be in SRD</b> and visible on the product or sign. On a basic good the maximum price still applies, also during a promotion.</li>
+ <li><b>Consumer rights remain.</b> "Reduced, no exchange" is fine for exchanges because the customer changed their mind, but a defective product must still be repaired or replaced during a sale, unless you disclosed the defect in advance. See <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>Discounts on the receipt</b>: show the product sold, the discount and the amount paid including VAT, so the receipt matches your till and your VAT return.</li>
+ <li><b>Credit notes and gift vouchers</b>: make one with <a href="{{ U('voucher') }}">{{ L('voucher') }}</a> and put an expiry date on it.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist voor je winkel' if nl else 'Checklist for your shop' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Elk product een prijs in SRD, of een zichtbare prijslijst; ook in de etalage</li>
+ <li>Losse waren met prijs per kilo of per stuk</li>
+ <li>Dollar- of europrijs alleen naast de SRD-prijs, met de gebruikte CBvS-koers</li>
+ <li>Schapprijzen en kassaprijzen gelijk; prijswijzigingen tegelijk in de kassa doorgevoerd</li>
+ <li>Kassasysteem of bonboek dat alle verplichte gegevens in het Nederlands print</li>
+ <li>Kopie van elke bon tien jaar bewaard, met een back-up als het digitaal is</li>
+ <li>Inkoopbonnen van basisgoederen direct beschikbaar in de winkel</li>
+ <li>Prijzen van basisgoederen gecontroleerd tegen de laatste maximumprijslijst</li>
+ <li>Vervaldata wekelijks gecontroleerd; vervallen producten uit het schap</li>
+ <li>Vlees, vis en kip met etiket; voorverpakte goederen met een etiket volgens SSB 003:2013</li>
+ <li>BTW correct op de bon als je BTW-plichtig bent</li>
+ <li>KKF-inschrijving en vergunning actueel en in de winkel aanwezig (<a href="{{ U('licences') }}">{{ L('licences') }}</a>)</li>
+ <li>Weegschaal jaarlijks geijkt door de Dienst Waarborg en IJkwezen (zie <a href="{{ U('standards') }}">{{ L('standards') }}</a>)</li>
+ <li>Personeel weet wat te doen bij een controle</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>A price in SRD on every product, or a visible price list; also in the shop window</li>
+ <li>Loose goods with a price per kilo or per piece</li>
+ <li>Dollar or euro prices only next to the SRD price, with the Central Bank rate used</li>
+ <li>Shelf prices and till prices equal; price changes entered in the till at the same time</li>
+ <li>Till system or receipt book that prints all required details in Dutch</li>
+ <li>Copy of every receipt kept for ten years, with a backup if digital</li>
+ <li>Purchase invoices for basic goods available in the shop at once</li>
+ <li>Prices of basic goods checked against the latest maximum price list</li>
+ <li>Expiry dates checked weekly; expired products off the shelf</li>
+ <li>Meat, fish and chicken labelled; prepackaged goods with a label meeting SSB 003:2013</li>
+ <li>VAT correctly shown on the receipt if you are VAT-registered</li>
+ <li>KKF registration and licence up to date and kept in the shop (<a href="{{ U('licences') }}">{{ L('licences') }}</a>)</li>
+ <li>Scales verified yearly by the Assay and Weights and Measures Service (see <a href="{{ U('standards') }}">{{ L('standards') }}</a>)</li>
+ <li>Staff know what to do during an inspection</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Als de controleur komt' if nl else 'When an inspector comes' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Vraag om legitimatie.</b> ECD-controleurs en BAVP'ers kunnen zich legitimeren. Noteer namen en tijd.</li>
+ <li><b>Werk mee.</b> Je bent verplicht inzage te geven in boeken en bescheiden en inlichtingen te verstrekken. Weigeren maakt het erger.</li>
+ <li><b>Laat inkoopbonnen zien</b> voor de producten die worden gecontroleerd. Daarmee wordt jouw toegestane prijs berekend.</li>
+ <li><b>Herstel ter plekke</b> wat kan: prijzen aanbrengen, kassaprijs corrigeren, vervallen producten weghalen.</li>
+ <li><b>Neemt de controleur stukken mee</b>, vraag een ontvangstbewijs. Originelen moeten binnen veertien dagen terug.</li>
+ <li><b>Lees het proces-verbaal</b> of de aanwijzing goed en vraag een kopie. Ben je het oneens, schrijf je opmerkingen op en bespreek ze met een advocaat of je brancheorganisatie (<a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>Bij sluiting</b>: vraag wat er precies moet gebeuren om weer open te mogen, regel het en vraag om een hercontrole.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Ask for identification.</b> ECD inspectors and special police officers (BAVPs) can identify themselves. Note names and time.</li>
+ <li><b>Cooperate.</b> You must give access to books and records and provide information. Refusing makes things worse.</li>
+ <li><b>Show purchase invoices</b> for the products being checked. Your permitted price is calculated from them.</li>
+ <li><b>Fix on the spot</b> what you can: put up prices, correct the till price, remove expired products.</li>
+ <li><b>If the inspector takes documents</b>, ask for a receipt. Originals must come back within fourteen days.</li>
+ <li><b>Read the official report</b> or instruction carefully and ask for a copy. If you disagree, write down your comments and discuss them with a lawyer or your trade association (<a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>If you are closed</b>: ask exactly what must be done to reopen, sort it out and ask for a follow-up inspection.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn inkoopprijs stijgt door de koers?</b> Dan mag je winkelprijs mee omhoog binnen de marge, mits je de nieuwe inkoopbon kunt tonen. Voor basisgoederen past EZOTI de lijst aan; wacht de nieuwe lijst af of houd je bewijs bij de hand.</li>
+ <li><b>...een klant de app laat zien en zegt dat ik te duur ben?</b> Controleer of het om hetzelfde product, dezelfde verpakking en dezelfde importeur gaat. Klopt het, pas je prijs aan. Ga niet in discussie; de minister vraagt klanten om bij twijfel de ECD te bellen in plaats van de confrontatie aan te gaan.</li>
+ <li><b>...ik geen kassasysteem heb?</b> Het besluit eist een correcte bon, niet per se een kassa. Voor een kleine zaak kan een doorlopend genummerd bonboek volstaan. Heb je een supermarkt, reken er dan op dat de ECD een werkend kassasysteem verwacht.</li>
+ <li><b>...ik mijn producten in dollars inkoop en verkoop?</b> Zet altijd de SRD-prijs op het product. Wil je zakelijke klanten in dollars laten betalen, spreek dat uitdrukkelijk af in de offerte of het contract.</li>
+ <li><b>...de ECD mijn winkel sluit?</b> Meestal is dat tijdelijk tot het probleem is opgelost. Een sluiting van maximaal een maand op bevel van de minister volgt pas na een veroordeling; daartegen staat binnen een maand beroep open bij de President (art. 12 decreet).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my purchase price rises because of the exchange rate?</b> Then your shop price may rise within the margin, provided you can show the new purchase invoice. For basic goods EZOTI updates the list; wait for the new list or keep your evidence at hand.</li>
+ <li><b>...a customer shows me the app and says I am too expensive?</b> Check that it is the same product, pack size and importer. If it is, adjust your price. Do not argue; the minister asks customers to call the ECD when in doubt rather than confront the shopkeeper.</li>
+ <li><b>...I have no till system?</b> The decree requires a correct receipt, not necessarily a till. For a small business a sequentially numbered receipt book can be enough. If you run a supermarket, expect the ECD to require a working till system.</li>
+ <li><b>...I buy and sell in dollars?</b> Always put the SRD price on the product. If you want business customers to pay in dollars, agree that expressly in the quote or contract.</li>
+ <li><b>...the ECD closes my shop?</b> Usually that is temporary until the problem is fixed. A closure of up to one month ordered by the minister only follows a conviction; you can appeal to the President within one month (art. 12 decree).</li>
+</ul>
+{% endif %}
+<p class="note">{{ 'Klachten over prijzen kunnen consumenten melden bij de ECD via 1940, WhatsApp +597 853 0915 of telefoon 483949 (stand januari 2025), of via de chat in SRD Check. Algemene informatie, geen juridisch advies.' if nl else 'Consumers can report price complaints to the ECD on 1940, WhatsApp +597 853 0915 or phone 483949 (as of January 2025), or via the chat in SRD Check. General information, not legal advice.' }}</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2024/04/S.B.-2024-no.-20-STAATSBESLUIT-houdende-wijziging-van-het-Prijsaanduidingsbesluit-S.B.-1998-no.-15.pdf" rel="noopener">{{ 'Staatsbesluit wijziging Prijsaanduidingsbesluit, S.B. 2024 no. 20, met nota van toelichting' if nl else 'Decree amending the Price Display Decree, S.B. 2024 no. 20, with explanatory note' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/02/Prijsaanduidingsbesluit-S.B-1998-No-15.pdf" rel="noopener">Prijsaanduidingsbesluit, S.B. 1998 no. 15</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2020/03/SB-1984-No-66-Decreet-Prijszetting-en-Prijsbewaking.pdf" rel="noopener">Decreet Prijszetting en Prijsbewaking, S.B. 1984 no. 66</a></li>
+ <li><a href="https://gov.sr/ministerie-ez-sluit-supermarkten-voor-onduidelijke-kassasystemen-en-andere-overtredingen/" rel="noopener">{{ 'EZOTI: supermarkten gesloten om kassasystemen (21 januari 2025)' if nl else 'EZOTI: supermarkets closed over till systems (21 January 2025)' }}</a></li>
+ <li><a href="https://gov.sr/ondernemersorganisaties-voorzien-van-informatie-over-gewijzigd-prijsaanduidingsbesluit/" rel="noopener">{{ 'EZOTI: infosessie gewijzigd Prijsaanduidingsbesluit (20 september 2024)' if nl else 'EZOTI: information session on the amended decree (20 September 2024)' }}</a></li>
+ <li><a href="https://gov.sr/meer-controles-na-golf-van-klachten-over-hoge-winkelprijzen/" rel="noopener">{{ 'EZOTI: meer controles na klachten over winkelprijzen (17 december 2025)' if nl else 'EZOTI: more inspections after complaints about shop prices (17 December 2025)' }}</a></li>
+ <li><a href="https://gov.sr/klachten-leiden-tot-gerichte-controles-bij-supermarkten-door-ecd/" rel="noopener">{{ 'ECD: gerichte controles bij supermarkten (29 december 2025)' if nl else 'ECD: targeted supermarket inspections (29 December 2025)' }}</a></li>
+ <li><a href="https://gov.sr/ecd-winkelcontroles-leiden-tot-inbeslagnames-correcties-en-waarschuwingen/" rel="noopener">{{ 'ECD: winkelcontroles, prijsaanduiding en vervallen producten (29 december 2025)' if nl else 'ECD: shop inspections, price display and expired products (29 December 2025)' }}</a></li>
+ <li><a href="https://gov.sr/overleg-tussen-ministerie-ezoti-en-consumentenkring-suriname-over-verbetering-winkelcontroles/" rel="noopener">{{ 'EZOTI en Consumentenkring over winkelcontroles (29 december 2025)' if nl else 'EZOTI and Consumentenkring on shop inspections (29 December 2025)' }}</a></li>
+ <li><a href="https://gov.sr/webapplicatie-srd-check-maakt-burger-verlengstuk-van-prijscontrole/" rel="noopener">{{ 'EZOTI: lancering SRD Check (16 maart 2026)' if nl else 'EZOTI: launch of SRD Check (16 March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/webapplicatie-srd-check-gratis-te-gebruiken/" rel="noopener">{{ 'EZOTI: SRD Check gratis te gebruiken (19 maart 2026)' if nl else 'EZOTI: SRD Check free to use (19 March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/economische-controle-dienst-moet-meer-armslag-krijgen/" rel="noopener">{{ 'EZOTI: ECD moet meer armslag krijgen (9 oktober 2026)' if nl else 'EZOTI: ECD to get more resources (9 October 2026)' }}</a></li>
+ <li><a href="https://gov.sr/price-cap-brandstof-nodig-maar-niet-onbeperkt-houdbaar/" rel="noopener">{{ 'Crisisbeheersingsteam: price cap brandstof (26 maart 2026)' if nl else 'Crisis management team: fuel price cap (26 March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/brandstofprijzen-blijven-vooralsnog-ongewijzigd/" rel="noopener">{{ 'Regering: brandstofprijzen blijven ongewijzigd (4 augustus 2026)' if nl else 'Government: fuel prices unchanged (4 August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/regering-nog-in-beraad-over-brandstofcap-en-loononderhandelingen/" rel="noopener">{{ 'Financiën en Planning: nog geen besluit over brandstofcap (21 augustus 2026)' if nl else 'Finance and Planning: no decision yet on the fuel cap (21 August 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Maximumprijzen, marges en de brandstofcap veranderen vaak; controleer de actuele stand bij EZOTI.' if nl else 'Maximum prices, margins and the fuel cap change often; check the current status with EZOTI.' }}</p>
+</div>
+{% endblock %}

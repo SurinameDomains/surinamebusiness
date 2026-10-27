@@ -1,0 +1,444 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Nieuw Burgerlijk Wetboek: wat verandert er voor bedrijven' if nl else 'New Civil Code: what changed for business' }}</h1>
+{% if nl %}
+<p class="lead">Sinds 1 mei 2025 geldt in Suriname een nieuw Burgerlijk Wetboek (S.B. 2024 no. 164). Het regelt hoe je contracten sluit, wat je algemene voorwaarden mogen bevatten, wat een consument van je mag eisen, hoe huur, agentuur en aansprakelijkheid werken en hoe lang een vordering geldig blijft. Bestaande contracten en voorwaarden vallen grotendeels al onder het nieuwe recht; de laatste overgangstermijnen lopen tot 1 mei 2027. Tijd dus om je documenten na te lopen.</p>
+{% else %}
+<p class="lead">Since 1 May 2025 Suriname has a new Civil Code (S.B. 2024 no. 164). It governs how you conclude contracts, what your general terms and conditions may contain, what consumers can demand from you, how leases, agency and liability work and how long a claim stays enforceable. Existing contracts and terms mostly fall under the new law already; the last transition periods run until 1 May 2027. Time to review your documents.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'In werking' if nl else 'In force' }}</div><div class="big">{{ '1 mei 2025' if nl else '1 May 2025' }}</div><div class="sub">{{ 'Resolutie S.B. 2025 no. 14' if nl else 'Resolution S.B. 2025 no. 14' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Wettelijke rente' if nl else 'Statutory interest' }}</div><div class="big">5%</div><div class="sub">{{ 'per jaar, tot er een staatsbesluit komt' if nl else 'a year, until a state decree sets another rate' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Verjaring contractvordering' if nl else 'Limitation, contract claims' }}</div><div class="big">{{ '5 jaar' if nl else '5 years' }}</div><div class="sub">{{ 'art. 3:307 BW, te stuiten met een aanmaning' if nl else 'art. 3:307 Civil Code, interrupted by a written demand' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Acht boeken</b> vervangen het BW van 1869 en het Wetboek van Koophandel. De nummering volgt grotendeels het Nederlandse BW, zodat Nederlandse literatuur en rechtspraak bruikbaar zijn.</li>
+ <li><b>Algemene voorwaarden</b> binden alleen als je ze van toepassing verklaart en vóór of bij het sluiten van de overeenkomst ter hand stelt. Tegenover consumenten gelden een zwarte en een grijze lijst van verboden bedingen.</li>
+ <li><b>Consumenten</b> krijgen sterke rechten: een product moet doen wat ze mogen verwachten, een gebrek binnen zes maanden wordt vermoed er al te zijn, en je mag hooguit de helft vooruit laten betalen.</li>
+ <li><b>Huur van bedrijfsruimte</b> kent geen apart beschermingsregime; de algemene huurregels en je contract bepalen alles. <b>Agenten</b> hebben recht op een klantenvergoeding.</li>
+ <li><b>Wettelijke rente</b> is 5% per jaar en loopt vanaf het verzuim. Vorderingen uit een contract verjaren na vijf jaar.</li>
+ <li><b>Overgangsrecht</b>: het nieuwe recht geldt direct, met uitzonderingen. Oude algemene voorwaarden worden sinds 1 mei 2026 getoetst; oude agentuurcontracten vallen er vanaf 1 mei 2027 onder.</li>
+{% else %}
+ <li><b>Eight books</b> replace the 1869 Civil Code and the Commercial Code. The numbering largely follows the Dutch Civil Code, so Dutch literature and case law remain useful.</li>
+ <li><b>General terms and conditions</b> only bind if you declare them applicable and hand them over before or when the contract is concluded. Towards consumers a black list and a grey list of prohibited clauses apply.</li>
+ <li><b>Consumers</b> get strong rights: a product must do what they may expect, a defect that shows within six months is presumed to have been there at delivery, and you may ask at most half the price in advance.</li>
+ <li><b>Business premises leases</b> have no separate protection regime; the general lease rules and your contract decide. <b>Commercial agents</b> are entitled to a goodwill indemnity.</li>
+ <li><b>Statutory interest</b> is 5% a year and runs from default. Contract claims become time-barred after five years.</li>
+ <li><b>Transition</b>: the new law applies at once, with exceptions. Old general terms have been tested against it since 1 May 2026; old agency contracts fall under it from 1 May 2027.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Opbouw van het nieuwe wetboek' if nl else 'Structure of the new code' }}</h2>
+{% if nl %}
+<p>De Nationale Assemblée nam het pakket op 13 augustus 2024 aan. De wetten zijn gedateerd 5 december 2024 en in januari 2025 in het Staatsblad verschenen. Bij resolutie van 6 februari 2025 (S.B. 2025 no. 14) stelde de President de inwerkingtreding vast op <b>1 mei 2025</b>, voor het wetboek en zes aanverwante wetten tegelijk. Eerder was 1 januari 2025 genoemd; op advies van de begeleidingscommissie werd dat vier maanden later.</p>
+<table class="tbl stack tx"><thead><tr><th>Boek</th><th>Onderwerp</th><th>Wat het voor je bedrijf betekent</th></tr></thead><tbody>
+ <tr><td data-l="Boek">1</td><td data-l="Onderwerp">Personen- en familierecht</td><td data-l="Wat het voor je bedrijf betekent">Huwelijksvermogen is ingrijpend gewijzigd; relevant als je eenmanszaak deel uitmaakt van een gemeenschap van goederen</td></tr>
+ <tr><td data-l="Boek">2</td><td data-l="Onderwerp">Rechtspersonen</td><td data-l="Wat het voor je bedrijf betekent">NV, aandeelhouderbestuurde NV, stichting, vereniging, coöperatie; bestuurdersaansprakelijkheid, fusie en splitsing, enquêterecht</td></tr>
+ <tr><td data-l="Boek">3</td><td data-l="Onderwerp">Vermogensrecht in het algemeen</td><td data-l="Wat het voor je bedrijf betekent">Administratieplicht voor elke ondernemer (art. 3:15i), volmacht, eigendomsoverdracht, pand en hypotheek, verjaring</td></tr>
+ <tr><td data-l="Boek">4</td><td data-l="Onderwerp">Erfrecht</td><td data-l="Wat het voor je bedrijf betekent">Bedrijfsopvolging bij overlijden; de legitieme portie is afgeschaft</td></tr>
+ <tr><td data-l="Boek">5</td><td data-l="Onderwerp">Zakelijke rechten</td><td data-l="Wat het voor je bedrijf betekent">Eigendom, erfpacht, opstal en erfdienstbaarheden op grond en gebouwen</td></tr>
+ <tr><td data-l="Boek">6</td><td data-l="Onderwerp">Verbintenissenrecht</td><td data-l="Wat het voor je bedrijf betekent">Contracten, algemene voorwaarden, wanprestatie, onrechtmatige daad, productaansprakelijkheid, wettelijke rente</td></tr>
+ <tr><td data-l="Boek">7 en 7A</td><td data-l="Onderwerp">Bijzondere overeenkomsten</td><td data-l="Wat het voor je bedrijf betekent">Koop, huur, opdracht, agentuur, arbeid, aanneming, personenvennootschap, borgtocht, verzekering; Boek 7A bevat de oude regels die nog niet zijn vernieuwd, zoals huurkoop</td></tr>
+ <tr><td data-l="Boek">8</td><td data-l="Onderwerp">Verkeersmiddelen en vervoer</td><td data-l="Wat het voor je bedrijf betekent">Vervoer over zee, binnenwater, weg en door de lucht; zie ook <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></td></tr>
+</tbody></table>
+<p>Tegelijk traden in werking: de Overgangswet nieuw BW (S.B. 2024 no. 166), de Overgangswet aanpassingswetgeving (no. 165), de Algemene termijnenwet (no. 167), de Aanpassingswet (no. 168), de Handelsregisterwet (no. 169) en een nieuw Wetboek van Burgerlijke Rechtsvordering (no. 170). Voor de inschrijving bij de KKF en het KKF-nummer op je documenten, zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>; voor de administratieplicht, zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+<p>De <b>Algemene termijnenwet</b> is handig om te kennen: een wettelijke termijn die op een zaterdag, zondag of erkende feestdag eindigt, schuift door naar de eerstvolgende werkdag. Feestdagen per jaar: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+{% else %}
+<p>The National Assembly passed the package on 13 August 2024. The laws are dated 5 December 2024 and were published in the Official Gazette in January 2025. By resolution of 6 February 2025 (S.B. 2025 no. 14) the President set the commencement date at <b>1 May 2025</b>, for the code and six related laws at once. 1 January 2025 had been mentioned earlier; on the advice of the guidance committee it moved four months later.</p>
+<table class="tbl stack tx"><thead><tr><th>Book</th><th>Subject</th><th>What it means for your business</th></tr></thead><tbody>
+ <tr><td data-l="Book">1</td><td data-l="Subject">Persons and family law</td><td data-l="What it means for your business">Matrimonial property was changed substantially; relevant if your sole proprietorship is part of a community of property</td></tr>
+ <tr><td data-l="Book">2</td><td data-l="Subject">Legal persons</td><td data-l="What it means for your business">NV, shareholder-managed NV, foundation, association, cooperative; directors' liability, mergers and demergers, inquiry proceedings</td></tr>
+ <tr><td data-l="Book">3</td><td data-l="Subject">Property law in general</td><td data-l="What it means for your business">Record-keeping duty for every business owner (art. 3:15i), powers of attorney, transfer of ownership, pledge and mortgage, limitation periods</td></tr>
+ <tr><td data-l="Book">4</td><td data-l="Subject">Inheritance law</td><td data-l="What it means for your business">Business succession on death; the compulsory share (legitieme portie) was abolished</td></tr>
+ <tr><td data-l="Book">5</td><td data-l="Subject">Property rights in rem</td><td data-l="What it means for your business">Ownership, long lease, building rights and easements on land and buildings</td></tr>
+ <tr><td data-l="Book">6</td><td data-l="Subject">Law of obligations</td><td data-l="What it means for your business">Contracts, general terms, breach of contract, tort, product liability, statutory interest</td></tr>
+ <tr><td data-l="Book">7 and 7A</td><td data-l="Subject">Specific contracts</td><td data-l="What it means for your business">Sale, lease, services, agency, employment, construction, partnerships, suretyship, insurance; Book 7A holds the old rules not yet modernised, such as hire purchase</td></tr>
+ <tr><td data-l="Book">8</td><td data-l="Subject">Means of transport and carriage</td><td data-l="What it means for your business">Carriage by sea, inland waterway, road and air; see also <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></td></tr>
+</tbody></table>
+<p>At the same time these took effect: the Transition Act for the new Civil Code (S.B. 2024 no. 166), the Transition Act for adapted legislation (no. 165), the General Time Limits Act (no. 167), the Adaptation Act (no. 168), the Trade Register Act (no. 169) and a new Code of Civil Procedure (no. 170). For registration with the Chamber of Commerce (KKF) and the KKF number on your documents, see <a href="{{ U('licences') }}">{{ L('licences') }}</a>; for the record-keeping duty, see <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+<p>The <b>General Time Limits Act</b> is worth knowing: a statutory deadline that ends on a Saturday, Sunday or recognised public holiday moves to the next working day. Holidays per year: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Contracten sluiten' if nl else 'Concluding contracts' }}</h2>
+{% if nl %}
+<p>Een contract komt tot stand door aanbod en aanvaarding. Er is geen vorm voorgeschreven, behalve in bijzondere gevallen zoals de koop van een onroerende zaak (schriftelijk, art. 7:2) of de oprichting van een NV (notariële akte of modelakte). Een mondelinge afspraak of een WhatsApp-bericht kan dus al een contract zijn. Maak het daarom zelf schriftelijk: een offerte die de klant tekent of per e-mail bevestigt, is je beste bewijs. Gebruik onze <a href="{{ U('quote') }}">{{ L('quote') }}</a> en <a href="{{ U('letter') }}">{{ L('letter') }}</a>.</p>
+<ul>
+ <li><b>Afwijkende aanvaarding.</b> Een "ja, maar" geldt als nieuw aanbod. Wijkt het antwoord alleen op ondergeschikte punten af, dan is het contract er toch, tenzij jij direct bezwaar maakt (art. 6:225).</li>
+ <li><b>Redelijkheid en billijkheid.</b> Een contract heeft ook de gevolgen die uit de wet, de gewoonte en de redelijkheid voortvloeien; een beding geldt niet als toepassing ervan onaanvaardbaar zou zijn (art. 6:248).</li>
+ <li><b>Onvoorziene omstandigheden.</b> De rechter kan een contract wijzigen of ontbinden als de omstandigheden zo veranderen dat ongewijzigde voortzetting niet meer te verwachten is (art. 6:258). Leg voor lange contracten zelf vast wat er gebeurt bij koersschokken of prijsstijgingen.</li>
+ <li><b>In gebreke stellen.</b> Komt je wederpartij niet na, dan stuur je een schriftelijke aanmaning met een redelijke termijn. Pas daarna is hij in verzuim (art. 6:82). Is er een vaste betaal- of leverdatum afgesproken, dan treedt het verzuim zonder aanmaning in zodra die datum verstrijkt (art. 6:83).</li>
+ <li><b>Vreemde valuta.</b> Is een bedrag in dollars of euro's uitgedrukt, dan mag de schuldenaar in Suriname in SRD betalen, tenzij uit de wet, de gewoonte of het contract volgt dat hij "effectief" in die valuta moet betalen (art. 6:121). Wil je echt dollars ontvangen, zet dat dan uitdrukkelijk in het contract. Zie ook <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+</ul>
+{% else %}
+<p>A contract is formed by offer and acceptance. No form is required, except in special cases such as the sale of real estate (in writing, art. 7:2) or setting up an NV (notarial deed or model deed). A verbal agreement or a WhatsApp message can therefore already be a contract. So put it in writing yourself: a quote the customer signs or confirms by email is your best evidence. Use our <a href="{{ U('quote') }}">{{ L('quote') }}</a> and <a href="{{ U('letter') }}">{{ L('letter') }}</a>.</p>
+<ul>
+ <li><b>Qualified acceptance.</b> A "yes, but" counts as a new offer. If the reply differs only on minor points, the contract still stands unless you object at once (art. 6:225).</li>
+ <li><b>Reasonableness and fairness.</b> A contract also has the effects that follow from law, custom and reasonableness; a clause does not apply if applying it would be unacceptable (art. 6:248).</li>
+ <li><b>Unforeseen circumstances.</b> A court can amend or dissolve a contract if circumstances change so much that the other party cannot be expected to continue unchanged (art. 6:258). For long contracts, agree yourself what happens with exchange rate shocks or price increases.</li>
+ <li><b>Notice of default.</b> If the other party does not perform, send a written demand with a reasonable deadline. Only then is it in default (art. 6:82). If a fixed payment or delivery date was agreed, default starts without a demand as soon as that date passes (art. 6:83).</li>
+ <li><b>Foreign currency.</b> If an amount is expressed in dollars or euros, the debtor may pay in SRD in Suriname, unless law, custom or the contract says payment must be made "effectively" in that currency (art. 6:121). If you really want to receive dollars, say so expressly in the contract. See also <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Algemene voorwaarden' if nl else 'General terms and conditions' }}</h2>
+{% if nl %}
+<p>Algemene voorwaarden zijn schriftelijke bedingen die je opstelt om in meerdere contracten te gebruiken: leveringstermijnen, betaling, eigendomsvoorbehoud, aansprakelijkheid, klachten. De kern van de prestatie (wat je levert en voor welke prijs) valt er niet onder, mits duidelijk geformuleerd (art. 6:231). De regels staan in Boek 6, titel 5, afdeling 3 (art. 6:231 tot en met 6:247).</p>
+<h3>Wanneer zijn ze bindend?</h3>
+<p>Twee dingen moeten kloppen:</p>
+<ol class="steps">
+ <li><b>Je verklaart ze van toepassing</b>, en de klant aanvaardt dat, door te tekenen of op een andere manier. Dan is hij gebonden, ook als hij ze niet gelezen heeft (art. 6:232).</li>
+ <li><b>Je geeft de klant een redelijke mogelijkheid om ze te lezen</b>: je stelt ze vóór of bij het sluiten van het contract ter hand. Lukt dat redelijkerwijs niet, dan maak je ze op een andere manier beschikbaar en stuur je ze op verzoek direct en kosteloos toe. Doe je dit niet, dan kan de klant elk beding vernietigen (art. 6:233 onder b).</li>
+</ol>
+<p>In de praktijk: zet "Op deze offerte zijn onze algemene voorwaarden van toepassing; die zijn bijgevoegd" op elke offerte, orderbevestiging en factuur, en voeg ze echt bij (als PDF of op de achterkant). Een link alleen is riskant, tenzij de klant online bestelt en ze vóór het afronden kan opslaan. Laat bij grote contracten de klant tekenen voor ontvangst.</p>
+<h3>Wat mag er niet in?</h3>
+<p>Elk beding dat <b>onredelijk bezwarend</b> is, kan worden vernietigd (art. 6:233 onder a). De rechter kijkt naar de aard van het contract, hoe de voorwaarden tot stand kwamen, de belangen van partijen en de omstandigheden. Tegenover consumenten geldt daarnaast:</p>
+<table class="tbl stack tx"><thead><tr><th>Lijst</th><th>Voorbeelden van bedingen</th><th>Gevolg</th></tr></thead><tbody>
+ <tr><td data-l="Lijst"><b>Zwarte lijst</b> (art. 6:236)</td><td data-l="Voorbeelden van bedingen">Klant mag niet meer ontbinden of opschorten; jij bepaalt zelf of je tekortschiet; verjaring korter dan een jaar; prijsverhoging binnen drie maanden zonder recht om op te zeggen; stilzwijgende verlenging van meer dan een jaar; bewijsrecht van de klant beperken; geschil naar een andere instantie dan de bevoegde rechter of arbiters zonder keuzetermijn van een maand</td><td data-l="Gevolg">Altijd onredelijk bezwarend, dus vernietigbaar</td></tr>
+ <tr><td data-l="Lijst"><b>Grijze lijst</b> (art. 6:237)</td><td data-l="Voorbeelden van bedingen">Je eigen verplichtingen wezenlijk beperken; iets anders mogen leveren dan beloofd; aansprakelijkheid uitsluiten; verrekening uitsluiten; een opzegtermijn langer dan drie maanden of langer dan jouw eigen termijn; een vergoeding bij opzegging die hoger is dan je werkelijke schade; contractduur langer dan een jaar zonder jaarlijks opzegrecht</td><td data-l="Gevolg">Vermoed onredelijk bezwarend; jij moet het tegendeel bewijzen</td></tr>
+</tbody></table>
+<p>Tegenover consumenten moeten bedingen ook <b>duidelijk en begrijpelijk</b> zijn; bij twijfel geldt de uitleg die voor de klant het gunstigst is (art. 6:238). Een organisatie die consumentenbelangen behartigt, kan bij het Hof van Justitie een verbod op een beding vragen, maar pas nadat ze jou zes maanden de kans gaf het aan te passen (art. 6:240 en 6:241).</p>
+<h3>Tussen bedrijven</h3>
+<p>De zwarte en grijze lijst gelden formeel alleen tegenover consumenten. Kleine ondernemers kunnen zich wel beroepen op de open norm "onredelijk bezwarend" en op de informatieplicht. Grotere bedrijven die zelf regelmatig vergelijkbare voorwaarden gebruiken, kunnen dat niet (art. 6:235). De regels gelden altijd als beide bedrijven in Suriname gevestigd zijn, ook als je een ander recht hebt gekozen; met een buitenlandse wederpartij gelden ze niet (art. 6:247).</p>
+<h3>Strijdige voorwaarden ("battle of forms")</h3>
+<p>Verwijst jij naar jouw voorwaarden en de klant in zijn order naar de zijne, dan gelden de voorwaarden waarnaar <b>eerst</b> is verwezen, tenzij de tweede partij die uitdrukkelijk van de hand wijst (art. 6:225 lid 3). Praktisch: noem je voorwaarden al in je offerte, en wijs in je orderbevestiging die van de klant uitdrukkelijk af. Let ook op de inkoopvoorwaarden van grote klanten en overheden: die gaan vaak voor.</p>
+{% else %}
+<p>General terms are written clauses you draft to use in several contracts: delivery times, payment, retention of title, liability, complaints. The core of the deal (what you deliver and at what price) is not covered, provided it is worded clearly (art. 6:231). The rules are in Book 6, title 5, section 3 (art. 6:231 to 6:247).</p>
+<h3>When are they binding?</h3>
+<p>Two things must be right:</p>
+<ol class="steps">
+ <li><b>You declare them applicable</b>, and the customer accepts that, by signing or otherwise. The customer is then bound, even without having read them (art. 6:232).</li>
+ <li><b>You give the customer a reasonable opportunity to read them</b>: you hand them over before or when the contract is concluded. If that is not reasonably possible, you make them available another way and send them promptly and free of charge on request. If you do not, the customer can annul any clause (art. 6:233(b)).</li>
+</ol>
+<p>In practice: put "Our general terms and conditions apply to this quote; they are attached" on every quote, order confirmation and invoice, and actually attach them (as a PDF or on the back). A link alone is risky, unless the customer orders online and can save them before completing the order. For large contracts, have the customer sign for receipt.</p>
+<h3>What may they not contain?</h3>
+<p>Any clause that is <b>unreasonably onerous</b> can be annulled (art. 6:233(a)). The court looks at the nature of the contract, how the terms came about, the parties' interests and the circumstances. Towards consumers the following also applies:</p>
+<table class="tbl stack tx"><thead><tr><th>List</th><th>Examples of clauses</th><th>Effect</th></tr></thead><tbody>
+ <tr><td data-l="List"><b>Black list</b> (art. 6:236)</td><td data-l="Examples of clauses">Customer may no longer terminate or suspend; you decide yourself whether you are in breach; limitation period shorter than a year; price increase within three months without a right to cancel; tacit renewal for more than a year; limiting the customer's right to evidence; disputes to a body other than the competent court or arbitrators without a one-month window to choose the court</td><td data-l="Effect">Always unreasonably onerous, so annullable</td></tr>
+ <tr><td data-l="List"><b>Grey list</b> (art. 6:237)</td><td data-l="Examples of clauses">Substantially limiting your own obligations; being allowed to deliver something other than promised; excluding liability; excluding set-off; a notice period over three months or longer than your own; a cancellation fee above your actual loss; a term over one year without a yearly right to cancel</td><td data-l="Effect">Presumed unreasonably onerous; you must prove otherwise</td></tr>
+</tbody></table>
+<p>Towards consumers clauses must also be <b>clear and understandable</b>; in case of doubt the interpretation most favourable to the customer applies (art. 6:238). An organisation representing consumer interests can ask the Court of Justice to ban a clause, but only after giving you six months to change it (art. 6:240 and 6:241).</p>
+<h3>Between businesses</h3>
+<p>The black and grey lists formally apply only towards consumers. Small businesses can still rely on the open standard "unreasonably onerous" and on the duty to provide the terms. Larger companies that regularly use similar terms themselves cannot (art. 6:235). The rules always apply if both businesses are established in Suriname, even if you chose another law; with a foreign counterparty they do not apply (art. 6:247).</p>
+<h3>Conflicting terms ("battle of forms")</h3>
+<p>If you refer to your terms and the customer's order refers to its own, the terms referred to <b>first</b> apply, unless the second party expressly rejects them (art. 6:225(3)). In practice: mention your terms in your quote already, and expressly reject the customer's terms in your order confirmation. Watch out for the purchasing terms of large customers and government bodies: they often prevail.</p>
+{% endif %}
+
+<h2>{{ 'Koop en consumentenkoop' if nl else 'Sale of goods and consumer sales' }}</h2>
+{% if nl %}
+<p>Elke verkochte zaak moet <b>aan de overeenkomst beantwoorden</b>: de eigenschappen hebben die de koper mocht verwachten voor normaal gebruik en voor een bijzonder gebruik dat bij het contract is afgesproken (art. 7:17). Een verkeerd product, een verkeerde hoeveelheid of een afwijking van het getoonde monster telt ook als gebrek. De koper moet een gebrek binnen bekwame tijd na ontdekking melden (art. 7:23).</p>
+<p>Verkoop je als bedrijf aan een particulier, dan is het een <b>consumentenkoop</b> (art. 7:5) en gelden dwingende regels die je niet met voorwaarden kunt uitsluiten (art. 7:6):</p>
+<ul>
+ <li>Een gebrek dat zich binnen <b>zes maanden</b> na levering openbaart, wordt vermoed er al bij levering te zijn geweest (art. 7:18).</li>
+ <li>De klant kan herstel of vervanging eisen, <b>zonder kosten</b>, binnen redelijke tijd. Lukt dat niet, dan mag hij ontbinden of prijsvermindering vragen (art. 7:21 en 7:22).</li>
+ <li>Melden binnen <b>twee maanden</b> na ontdekking is altijd op tijd. Na de melding heeft de klant twee jaar om naar de rechter te gaan (art. 7:23).</li>
+ <li>Je mag hooguit <b>de helft</b> van de prijs vooruit laten betalen (art. 7:26). Een aanbetaling van 100% op meubels of apparaten is dus niet afdwingbaar tegen een consument.</li>
+ <li>Een <b>garantie</b> komt bovenop de wettelijke rechten, niet in plaats ervan. In het garantiebewijs moeten je naam en adres, de duur en het gebied staan, en dat de wettelijke rechten blijven bestaan (art. 7:6a). "Geen garantie op elektronica" of "garantie vervalt na 3 maanden" haalt de wettelijke rechten niet weg.</li>
+ <li>Bezorg je zelf of via je vervoerder, dan is de zaak pas vanaf de bezorging voor risico van de klant (art. 7:11), en mag je bezorgkosten alleen rekenen als je die vooraf apart hebt opgegeven (art. 7:13).</li>
+ <li>Ongevraagd toegezonden producten mag de consument gratis houden (art. 7:7).</li>
+</ul>
+<p><b>Webwinkel en verkoop op afstand.</b> Bij koop op afstand (internet, telefoon, WhatsApp) moet je de klant vooraf onder meer je identiteit, de prijs, bezorgkosten en het ontbindingsrecht melden. De consument mag binnen <b>zeven werkdagen</b> na ontvangst zonder reden ontbinden; je betaalt hem dan zo snel mogelijk en uiterlijk binnen dertig dagen terug (art. 7:46a tot en met 7:46j).</p>
+<p><b>Verhaal op je leverancier.</b> Moet je een consument schadeloosstellen, dan kun je dat verhalen op je eigen zakelijke leverancier; dat recht kan niet worden uitgesloten (art. 7:25). Bewaar dus inkoopfacturen en productinformatie. Voor bonnen en prijsregels in de winkel, zie <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a> en <a href="{{ U('receipt') }}">{{ L('receipt') }}</a>.</p>
+{% else %}
+<p>Every item sold must <b>conform to the contract</b>: have the qualities the buyer may expect for normal use and for any special use agreed in the contract (art. 7:17). A wrong product, a wrong quantity or a deviation from the sample shown also counts as a defect. The buyer must report a defect within a reasonable time after discovering it (art. 7:23).</p>
+<p>If you sell as a business to a private individual, it is a <b>consumer sale</b> (art. 7:5) and mandatory rules apply that you cannot exclude in your terms (art. 7:6):</p>
+<ul>
+ <li>A defect that shows within <b>six months</b> after delivery is presumed to have been present at delivery (art. 7:18).</li>
+ <li>The customer can demand repair or replacement, <b>free of charge</b>, within a reasonable time. If that fails, the customer may terminate or ask for a price reduction (art. 7:21 and 7:22).</li>
+ <li>Reporting within <b>two months</b> of discovery is always in time. After reporting, the customer has two years to go to court (art. 7:23).</li>
+ <li>You may ask at most <b>half</b> the price in advance (art. 7:26). A 100% deposit on furniture or appliances is therefore not enforceable against a consumer.</li>
+ <li>A <b>warranty</b> comes on top of the statutory rights, not instead of them. The warranty document must state your name and address, its duration and area, and that the statutory rights remain (art. 7:6a). "No warranty on electronics" or "warranty expires after 3 months" does not remove the statutory rights.</li>
+ <li>If you deliver yourself or through your carrier, the item is only at the customer's risk from delivery (art. 7:11), and you may only charge delivery costs if you stated them separately in advance (art. 7:13).</li>
+ <li>A consumer may keep unsolicited goods free of charge (art. 7:7).</li>
+</ul>
+<p><b>Web shops and distance sales.</b> For distance sales (internet, phone, WhatsApp) you must tell the customer in advance, among other things, who you are, the price, delivery costs and the right to cancel. The consumer may cancel without giving reasons within <b>seven working days</b> of receipt; you then refund as soon as possible and at the latest within thirty days (art. 7:46a to 7:46j).</p>
+<p><b>Recourse against your supplier.</b> If you must compensate a consumer, you can recover that from your own business supplier; this right cannot be excluded (art. 7:25). So keep purchase invoices and product information. For receipts and price rules in the shop, see <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a> and <a href="{{ U('receipt') }}">{{ L('receipt') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Huur van bedrijfsruimte' if nl else 'Leasing business premises' }}</h2>
+{% if nl %}
+<p>Anders dan in Nederland kent het Surinaamse BW <b>geen apart regime voor bedrijfsruimte</b>, met huurbescherming en verlengingsrecht. Alleen voor woonruimte is er een bijzondere afdeling (die de Huurwet Woonruimte 2020 overneemt). Voor winkels, kantoren, loodsen en werkplaatsen gelden de algemene huurregels (art. 7:201 tot en met 7:231) en vooral wat je in je contract afspreekt.</p>
+<ul>
+ <li><b>Gebreken.</b> De verhuurder moet gebreken op verzoek verhelpen, tenzij dat onredelijk duur is. Doet hij het niet, dan mag jij het (laten) doen en de redelijke kosten verrekenen met de huur. Je hebt recht op huurvermindering zolang het gebrek je gebruik beperkt (art. 7:206 en 7:207). Kleine herstellingen zijn voor de huurder (art. 7:217).</li>
+ <li><b>Onderverhuur</b> mag alleen met toestemming (art. 7:221).</li>
+ <li><b>Verkoop van het pand</b> beëindigt de huur niet: de koper wordt je nieuwe verhuurder. Bij gebouwen kan daarvan niet worden afgeweken (art. 7:226).</li>
+ <li><b>Einde.</b> Een huur voor bepaalde tijd eindigt vanzelf op de einddatum. Blijf je met goedvinden zitten, dan loopt hij voor onbepaalde tijd door (art. 7:230). Een huur voor onbepaalde tijd van een pand zeg je op tegen een betaaldag, met minstens een maand opzegtermijn (art. 7:228).</li>
+ <li><b>Ontbinding</b> van de huur van een gebouw wegens wanbetaling of ander tekortschieten van de huurder kan alleen via de rechter (art. 7:231).</li>
+ <li><b>Veranderingen</b> aan het pand vragen schriftelijke toestemming, behalve dingen die je aan het einde zonder noemenswaardige kosten ongedaan kunt maken (art. 7:215).</li>
+</ul>
+<p><b>Wat je zelf moet regelen</b>, juist omdat de wet weinig beschermt: een looptijd die past bij je investering (inrichting, kassasysteem, reclame), een optie op verlenging, een duidelijke regeling voor huurverhoging en indexatie, wie welk onderhoud doet, de borg en wanneer die terugkomt, en de valuta. Huur in US-dollars is gebruikelijk; zonder afspraak dat effectief in dollars moet worden betaald, mag je in SRD betalen tegen de geldende koers (art. 6:121). Grond en erfpacht: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% else %}
+<p>Unlike the Netherlands, the Surinamese Civil Code has <b>no separate regime for business premises</b> with tenancy protection and a right to renewal. Only residential property has a special section (which incorporates the Residential Tenancy Act 2020). Shops, offices, warehouses and workshops fall under the general lease rules (art. 7:201 to 7:231) and above all under what your contract says.</p>
+<ul>
+ <li><b>Defects.</b> The landlord must remedy defects on request, unless that is unreasonably expensive. If the landlord does not, you may do it (or have it done) and set off the reasonable costs against the rent. You are entitled to a rent reduction while the defect limits your use (art. 7:206 and 7:207). Minor repairs are for the tenant (art. 7:217).</li>
+ <li><b>Subletting</b> is only allowed with consent (art. 7:221).</li>
+ <li><b>Sale of the building</b> does not end the lease: the buyer becomes your new landlord. For buildings this cannot be contracted out (art. 7:226).</li>
+ <li><b>Ending.</b> A fixed-term lease ends automatically on the end date. If you stay on with the landlord's consent, it continues for an indefinite period (art. 7:230). An indefinite lease of premises is ended by notice to a rent payment date, with at least one month's notice (art. 7:228).</li>
+ <li><b>Termination</b> of a building lease because the tenant fails to pay or perform can only be done through the court (art. 7:231).</li>
+ <li><b>Alterations</b> to the premises need written consent, except changes you can undo at the end without significant cost (art. 7:215).</li>
+</ul>
+<p><b>What you must arrange yourself</b>, precisely because the law offers little protection: a term that matches your investment (fit-out, till system, signage), a renewal option, clear rules on rent increases and indexation, who does which maintenance, the deposit and when it is returned, and the currency. Rent in US dollars is common; without an agreement that payment must be made effectively in dollars, the tenant may pay in SRD at the current rate (art. 6:121). Land and long leases: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Leasing en huurkoop' if nl else 'Leasing and hire purchase' }}</h2>
+{% if nl %}
+<p>Leasing is niet apart in de wet geregeld. Volgens de toelichting bij Boek 7 vallen leasecontracten in beginsel onder de huurregels. Komt een lease in feite neer op <b>huurkoop</b> (je betaalt in termijnen en wordt aan het einde eigenaar), dan gelden ook de huurkoopregels, die met de oude nummering in Boek 7A zijn blijven staan, inclusief hun geldigheidseisen. Let bij een lease van een auto, machine of kassasysteem op: wie is eigenaar tijdens de looptijd, wie verzekert, wat gebeurt er bij schade of diefstal, wat kost vroegtijdig stoppen, en in welke valuta betaal je. Een lening of lease vergelijken: <a href="{{ U('loan') }}">{{ L('loan') }}</a> en <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+{% else %}
+<p>Leasing is not regulated separately. According to the explanatory memorandum to Book 7, lease contracts in principle fall under the rental rules. If a lease in fact amounts to <b>hire purchase</b> (you pay in instalments and become the owner at the end), the hire purchase rules, which remained in Book 7A with their old numbering, also apply, including their validity requirements. When leasing a car, machine or till system, check: who owns it during the term, who insures it, what happens on damage or theft, what early termination costs, and in which currency you pay. Comparing a loan or lease: <a href="{{ U('loan') }}">{{ L('loan') }}</a> and <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Agentuur en distributie' if nl else 'Agency and distribution' }}</h2>
+{% if nl %}
+<p>Een <b>handelsagent</b> bemiddelt zelfstandig en tegen provisie bij contracten voor een principaal, en sluit ze soms op diens naam (art. 7:428). Veel Surinaamse importeurs zijn agent van een buitenlands merk, en buitenlandse bedrijven werken hier vaak met een lokale agent. De belangrijkste regels:</p>
+<ul>
+ <li>Elke partij kan een <b>ondertekend document</b> eisen met de geldende afspraken (art. 7:428 lid 2).</li>
+ <li><b>Opzegtermijn</b>: zonder afspraak vier maanden, plus een maand na drie jaar en twee maanden na zes jaar. Afgesproken termijnen mogen niet korter zijn dan een maand in het eerste jaar, twee maanden in het tweede en drie maanden daarna, en voor de principaal niet korter dan voor de agent. Opzeggen gebeurt tegen het einde van een kalendermaand (art. 7:437).</li>
+ <li><b>Klantenvergoeding</b>: bij het einde heeft de agent recht op een vergoeding als hij klanten heeft aangebracht of de omzet flink heeft uitgebreid en de principaal daar nog voordeel van heeft. Maximaal één jaarbeloning, berekend over het gemiddelde van de laatste vijf jaar. De agent moet zijn claim binnen een jaar na het einde melden (art. 7:442).</li>
+ <li>Een <b>concurrentiebeding</b> na afloop is alleen geldig als het schriftelijk is, beperkt tot de producten en het gebied van de agent, en hooguit twee jaar duurt (art. 7:443).</li>
+ <li>Voor agentuurcontracten van vóór 1 mei 2025 gelden deze regels vanaf <b>1 mei 2027</b> (art. 156 Overgangswet).</li>
+</ul>
+<p>Een <b>distributeur</b> koopt en verkoopt op eigen naam en rekening; daarvoor heeft het BW geen aparte regeling. Dan gelden het algemene contractenrecht en je afspraken. Leg daarom vast: exclusiviteit en gebied, minimumafname, prijzen en valuta, merkgebruik, voorraad bij beëindiging en een redelijke opzegtermijn. Je merk beschermen: <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>. Een buitenlandse leverancier zoeken: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>A <b>commercial agent</b> independently negotiates contracts for a principal for commission, and sometimes concludes them in the principal's name (art. 7:428). Many Surinamese importers act as agent for a foreign brand, and foreign companies often work here through a local agent. The main rules:</p>
+<ul>
+ <li>Each party can demand a <b>signed document</b> setting out the current terms (art. 7:428(2)).</li>
+ <li><b>Notice period</b>: without an agreement four months, plus one month after three years and two months after six years. Agreed periods may not be shorter than one month in the first year, two months in the second and three months after that, and not shorter for the principal than for the agent. Notice is given to the end of a calendar month (art. 7:437).</li>
+ <li><b>Goodwill indemnity</b>: at the end the agent is entitled to an indemnity if it brought in customers or substantially increased business and the principal still benefits. At most one year's remuneration, based on the average of the last five years. The agent must claim within one year of the end (art. 7:442).</li>
+ <li>A post-term <b>non-compete clause</b> is only valid if in writing, limited to the agent's products and territory, and for at most two years (art. 7:443).</li>
+ <li>For agency contracts concluded before 1 May 2025 these rules apply from <b>1 May 2027</b> (art. 156 Transition Act).</li>
+</ul>
+<p>A <b>distributor</b> buys and sells in its own name and for its own account; the Civil Code has no separate regime for that. General contract law and your agreement apply. So put in writing: exclusivity and territory, minimum purchases, prices and currency, use of the brand, stock on termination and a reasonable notice period. Protecting your brand: <a href="{{ U('trademark') }}">{{ L('trademark') }}</a>. Finding a foreign supplier: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Personeel en opdrachten' if nl else 'Staff and service contracts' }}</h2>
+{% if nl %}
+<p>De arbeidsovereenkomst staat sinds 1 mei 2025 in Boek 7, titel 10: proeftijd, contracten voor bepaalde tijd, loon bij ziekte, verlof en opzegging. Die regels behandelen we apart in <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>, <a href="{{ U('employer') }}">{{ L('employer') }}</a>, <a href="{{ U('labour') }}">{{ L('labour') }}</a> en <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. Werk je met zelfstandigen of consultants, dan is het meestal een <b>overeenkomst van opdracht</b> (titel 7, vroeger "enkele diensten"). Schrijf op wat het resultaat is, hoe je betaalt en wie aansprakelijk is; of iemand in werkelijkheid werknemer is, hangt af van hoe jullie werken, niet van de titel van het contract.</p>
+{% else %}
+<p>Since 1 May 2025 the employment contract is in Book 7, title 10: probation, fixed-term contracts, sick pay, leave and notice. We cover those rules separately in <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>, <a href="{{ U('employer') }}">{{ L('employer') }}</a>, <a href="{{ U('labour') }}">{{ L('labour') }}</a> and <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. If you work with freelancers or consultants, it is usually a <b>contract for services</b> (title 7, formerly "single services"). Write down the result, how you pay and who is liable; whether someone is really an employee depends on how you actually work together, not on the contract's title.</p>
+{% endif %}
+
+<h2>{{ 'Aansprakelijkheid en schadevergoeding' if nl else 'Liability and damages' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Tekortkoming.</b> Kom je een contract niet na en is dat je toe te rekenen, dan betaal je de schade (art. 6:74). Die omvat geleden verlies en gederfde winst, plus redelijke kosten om schade te beperken, aansprakelijkheid vast te stellen en <b>buitengerechtelijke incassokosten</b> (art. 6:96).</li>
+ <li><b>Onrechtmatige daad.</b> Ook zonder contract ben je aansprakelijk voor schade die je onrechtmatig veroorzaakt, en meestal ook voor fouten van je personeel (art. 6:162 en verder).</li>
+ <li><b>Productaansprakelijkheid.</b> De producent is aansprakelijk voor schade door een gebrekkig product. Wie een product <b>in Suriname invoert</b> om het te verkopen, verhuren of leasen, geldt ook als producent (art. 6:185 en 6:187). Voor importeurs is dit een van de grootste veranderingen: regel verhaal bij je buitenlandse leverancier en kijk naar een aansprakelijkheidsverzekering, zie <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</li>
+ <li><b>Misleidende reclame</b> over prijs, eigenschappen, voorraad of garantie is onrechtmatig (art. 6:194).</li>
+ <li><b>Aansprakelijkheid beperken.</b> Tussen bedrijven mag je aansprakelijkheid beperken, bijvoorbeeld tot het factuurbedrag. Rechters laten zo'n beding meestal niet gelden bij opzet of grove schuld. Tegenover consumenten staat uitsluiting op de grijze lijst.</li>
+ <li><b>Bestuurders.</b> Elke bestuurder van een rechtspersoon moet zijn taak behoorlijk vervullen en is voor het geheel aansprakelijk bij onbehoorlijk bestuur, tenzij hem geen ernstig verwijt treft (art. 2:14). Bij faillissement en een administratie die niet op orde is, wordt kennelijk onbehoorlijk bestuur vermoed. Meer in <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Breach of contract.</b> If you fail to perform and the failure is attributable to you, you pay the damage (art. 6:74). That covers loss suffered and lost profit, plus reasonable costs to limit damage, establish liability and <b>extrajudicial collection costs</b> (art. 6:96).</li>
+ <li><b>Tort.</b> Even without a contract you are liable for damage you cause unlawfully, and usually also for your staff's mistakes (art. 6:162 ff.).</li>
+ <li><b>Product liability.</b> The producer is liable for damage caused by a defective product. Anyone who <b>imports a product into Suriname</b> to sell, rent or lease it also counts as producer (art. 6:185 and 6:187). For importers this is one of the biggest changes: arrange recourse against your foreign supplier and consider liability insurance, see <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</li>
+ <li><b>Misleading advertising</b> about price, features, stock or warranty is unlawful (art. 6:194).</li>
+ <li><b>Limiting liability.</b> Between businesses you may limit liability, for example to the invoice amount. Courts usually do not uphold such a clause in case of intent or gross negligence. Towards consumers an exclusion is on the grey list.</li>
+ <li><b>Directors.</b> Every director of a legal person must perform their duties properly and is jointly liable for improper management, unless no serious blame attaches to them (art. 2:14). In a bankruptcy with records not in order, manifestly improper management is presumed. More in <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wettelijke rente en verjaring' if nl else 'Statutory interest and limitation periods' }}</h2>
+{% if nl %}
+<p>Betaalt een klant te laat, dan is de schade de <b>wettelijke rente</b> over het bedrag, vanaf het moment dat hij in verzuim is (art. 6:119). De rentevoet wordt bij staatsbesluit vastgesteld (art. 6:120). Zolang dat besluit er niet is, is de wettelijke rente <b>5% per jaar</b> (art. 130b Overgangswet). Wij vonden tot oktober 2026 geen staatsbesluit met een ander percentage. Na elk jaar wordt de rente bij de hoofdsom opgeteld. Heb je een hogere contractuele rente afgesproken, dan loopt die door na het verzuim. Er is geen aparte, hogere handelsrente zoals in Nederland; spreek dus zelf een rente af in je voorwaarden.</p>
+<table class="tbl stack tx"><thead><tr><th>Vordering</th><th>Verjaringstermijn</th><th>Artikel</th></tr></thead><tbody>
+ <tr><td data-l="Vordering">Nakoming van een contract (betaling van een factuur, levering)</td><td data-l="Verjaringstermijn">5 jaar na opeisbaarheid</td><td data-l="Artikel">3:307</td></tr>
+ <tr><td data-l="Vordering">Periodieke betalingen: huur, rente, termijnen</td><td data-l="Verjaringstermijn">5 jaar na opeisbaarheid</td><td data-l="Artikel">3:308</td></tr>
+ <tr><td data-l="Vordering">Schadevergoeding of contractuele boete</td><td data-l="Verjaringstermijn">5 jaar na bekend worden van schade en aansprakelijke; uiterlijk 20 jaar</td><td data-l="Artikel">3:310</td></tr>
+ <tr><td data-l="Vordering">Ontbinding of herstel wegens tekortkoming</td><td data-l="Verjaringstermijn">5 jaar na bekend worden; uiterlijk 20 jaar</td><td data-l="Artikel">3:311</td></tr>
+ <tr><td data-l="Vordering">Gebrek bij koop (na melding)</td><td data-l="Verjaringstermijn">2 jaar na de melding</td><td data-l="Artikel">7:23</td></tr>
+ <tr><td data-l="Vordering">Vernietiging (dwaling, bedrog, onredelijk beding)</td><td data-l="Verjaringstermijn">3 jaar</td><td data-l="Artikel">3:52</td></tr>
+ <tr><td data-l="Vordering">Alle andere vorderingen</td><td data-l="Verjaringstermijn">20 jaar</td><td data-l="Artikel">3:306</td></tr>
+</tbody></table>
+<p>Je <b>stuit</b> de verjaring van een contractvordering met een schriftelijke aanmaning of een brief waarin je je recht ondubbelzinnig voorbehoudt (art. 3:317). Daarna begint een nieuwe termijn. Stuur dus elk jaar een aanmaning voor oude openstaande posten. Gebruik onze <a href="{{ U('reminder') }}">{{ L('reminder') }}</a> en houd overzicht met <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>. Incasso, beslag en de rechter: <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</p>
+{% else %}
+<p>If a customer pays late, the damage is the <b>statutory interest</b> on the amount, from the moment the customer is in default (art. 6:119). The rate is set by state decree (art. 6:120). As long as there is no such decree, statutory interest is <b>5% a year</b> (art. 130b Transition Act). Up to October 2026 we found no decree setting another rate. After each year the interest is added to the principal. If you agreed a higher contractual rate, that continues after default. There is no separate, higher commercial rate as in the Netherlands, so agree your own rate in your terms.</p>
+<table class="tbl stack tx"><thead><tr><th>Claim</th><th>Limitation period</th><th>Article</th></tr></thead><tbody>
+ <tr><td data-l="Claim">Performance of a contract (paying an invoice, delivery)</td><td data-l="Limitation period">5 years from when due</td><td data-l="Article">3:307</td></tr>
+ <tr><td data-l="Claim">Periodic payments: rent, interest, instalments</td><td data-l="Limitation period">5 years from when due</td><td data-l="Article">3:308</td></tr>
+ <tr><td data-l="Claim">Damages or contractual penalty</td><td data-l="Limitation period">5 years from knowing the damage and who is liable; at most 20 years</td><td data-l="Article">3:310</td></tr>
+ <tr><td data-l="Claim">Termination or remedy for breach</td><td data-l="Limitation period">5 years from discovery; at most 20 years</td><td data-l="Article">3:311</td></tr>
+ <tr><td data-l="Claim">Defect in goods sold (after notice)</td><td data-l="Limitation period">2 years after the notice</td><td data-l="Article">7:23</td></tr>
+ <tr><td data-l="Claim">Annulment (mistake, fraud, unfair clause)</td><td data-l="Limitation period">3 years</td><td data-l="Article">3:52</td></tr>
+ <tr><td data-l="Claim">All other claims</td><td data-l="Limitation period">20 years</td><td data-l="Article">3:306</td></tr>
+</tbody></table>
+<p>You <b>interrupt</b> the limitation period for a contract claim with a written demand or a letter in which you unambiguously reserve your right (art. 3:317). A new period then starts. So send a reminder every year for old unpaid items. Use our <a href="{{ U('reminder') }}">{{ L('reminder') }}</a> and keep track with <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>. Collection, attachment and going to court: <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Rechtspersonen: wat veranderde' if nl else 'Legal persons: what changed' }}</h2>
+{% if nl %}
+<p>Ja, ook het ondernemingsrecht veranderde. Boek 2 regelt nu alle rechtspersonen; het NV-recht uit het Wetboek van Koophandel (2016) en de Wet op Stichtingen zijn erin opgegaan. Nieuw of aangescherpt zijn onder meer:</p>
+<ul>
+ <li>de <b>aandeelhouderbestuurde NV</b> (ANV, art. 2:239 en verder), waarin elke aandeelhouder bestuurder is;</li>
+ <li>duidelijke regels voor <b>bestuurdersaansprakelijkheid</b> (art. 2:14) en voor commissarissen en leden van een raad van toezicht, die ook voor het geheel aansprakelijk kunnen zijn;</li>
+ <li>het <b>enquêterecht</b>: onderzoek naar het beleid door de rechter op verzoek van aandeelhouders of anderen;</li>
+ <li><b>juridische fusie, splitsing en omzetting</b> van rechtspersonen, zonder alles los over te dragen;</li>
+ <li>aandelen aan toonder zijn niet meer toegestaan; de KKF kan slapende rechtspersonen ontbinden.</li>
+</ul>
+<p>De openbare vennootschap (vroeger VOF) en de commanditaire vennootschap staan nu in Boek 7, titel 13. Uitgewerkt per rechtsvorm, met wat je bij oprichting nodig hebt: <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('invest') }}">{{ L('invest') }}</a>. Eigen statuten of samenwerkingsafspraken van vóór 2025? Laat ze nakijken: bepalingen die strijdig zijn met dwingend recht gelden niet meer.</p>
+{% else %}
+<p>Yes, company law changed too. Book 2 now governs all legal persons; the NV rules from the Commercial Code (2016) and the Foundations Act were folded into it. New or tightened are, among others:</p>
+<ul>
+ <li>the <b>shareholder-managed NV</b> (ANV, art. 2:239 ff.), in which every shareholder is a director;</li>
+ <li>clear rules on <b>directors' liability</b> (art. 2:14) and for supervisory directors and members of a supervisory board, who can also be jointly liable;</li>
+ <li><b>inquiry proceedings</b>: a court investigation of the company's policy at the request of shareholders or others;</li>
+ <li><b>legal mergers, demergers and conversions</b> of legal persons, without transferring each asset separately;</li>
+ <li>bearer shares are no longer allowed; the Chamber of Commerce (KKF) can dissolve dormant legal persons.</li>
+</ul>
+<p>The general partnership (openbare vennootschap, formerly VOF) and the limited partnership are now in Book 7, title 13. Worked out per legal form, with what you need to set one up: <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('invest') }}">{{ L('invest') }}</a>. Articles of association or partnership agreements from before 2025? Have them reviewed: provisions that conflict with mandatory law no longer apply.</p>
+{% endif %}
+
+<h2>{{ 'Overgangsrecht: wat geldt voor oude contracten?' if nl else 'Transitional law: what applies to old contracts?' }}</h2>
+{% if nl %}
+<p>Hoofdregel van de Overgangswet (S.B. 2024 no. 166, art. 2): het nieuwe recht geldt vanaf 1 mei 2025 voor alle bestaande rechtsverhoudingen, tenzij de wet iets anders bepaalt. Je verliest geen rechten die je al had (art. 3), en een contract van vóór 1 mei 2025 wordt niet ongeldig omdat het nieuwe recht strenger is (art. 4). De uitzonderingen die voor bedrijven het meest tellen:</p>
+<table class="tbl stack tx"><thead><tr><th>Onderwerp</th><th>Regel</th><th>Vanaf</th></tr></thead><tbody>
+ <tr><td data-l="Onderwerp">Algemene voorwaarden die je al vóór 1 mei 2025 gebruikte</td><td data-l="Regel">Toetsing aan "onredelijk bezwarend" (art. 6:233 onder a) pas na een jaar; de informatieplicht geldt niet voor voorwaarden die al vóór 1 mei 2025 van toepassing waren verklaard (art. 138)</td><td data-l="Vanaf">1 mei 2026</td></tr>
+ <tr><td data-l="Onderwerp">Koopcontracten van vóór 1 mei 2025</td><td data-l="Regel">Nieuwe koopregels na een jaar; de consumentenregels gelden niet voor oude consumentenkopen; een nieuwe tekortkoming valt wel direct onder het nieuwe recht (art. 143)</td><td data-l="Vanaf">1 mei 2026</td></tr>
+ <tr><td data-l="Onderwerp">Bestaande huurcontracten</td><td data-l="Regel">Bedingen die nu nietig of vernietigbaar zijn, gelden meteen niet meer (art. 148); het verbod op onderverhuur (7:221) geldt niet voor oude contracten (art. 151)</td><td data-l="Vanaf">1 mei 2025</td></tr>
+ <tr><td data-l="Onderwerp">Agentuurcontracten van vóór 1 mei 2025</td><td data-l="Regel">Nieuwe agentuurregels na twee jaar; voor de klantenvergoeding telt waarde van meer dan zes jaar daarvoor niet mee (art. 156)</td><td data-l="Vanaf">1 mei 2027</td></tr>
+ <tr><td data-l="Onderwerp">Productaansprakelijkheid</td><td data-l="Regel">Alleen voor producten die na 1 mei 2025 in het verkeer zijn gebracht (art. 137)</td><td data-l="Vanaf">1 mei 2025</td></tr>
+ <tr><td data-l="Onderwerp">Verjaringstermijnen van een jaar of langer die al liepen</td><td data-l="Regel">Een nieuwe termijn is niet voltooid vóór 1 mei 2026 (art. 8)</td><td data-l="Vanaf">1 mei 2026</td></tr>
+</tbody></table>
+<p>Kort gezegd: sinds 1 mei 2026 worden ook je oude algemene voorwaarden aan het nieuwe recht getoetst. Wie ze nog niet heeft herzien, loopt nu risico.</p>
+{% else %}
+<p>Main rule of the Transition Act (S.B. 2024 no. 166, art. 2): the new law applies from 1 May 2025 to all existing legal relationships, unless the act says otherwise. You do not lose rights you already had (art. 3), and a contract from before 1 May 2025 does not become invalid because the new law is stricter (art. 4). The exceptions that matter most for businesses:</p>
+<table class="tbl stack tx"><thead><tr><th>Subject</th><th>Rule</th><th>From</th></tr></thead><tbody>
+ <tr><td data-l="Subject">General terms you already used before 1 May 2025</td><td data-l="Rule">Test against "unreasonably onerous" (art. 6:233(a)) only after one year; the duty to provide the terms does not apply to terms declared applicable before 1 May 2025 (art. 138)</td><td data-l="From">1 May 2026</td></tr>
+ <tr><td data-l="Subject">Sale contracts from before 1 May 2025</td><td data-l="Rule">New sale rules after one year; the consumer rules do not apply to old consumer sales; a new breach does fall under the new law at once (art. 143)</td><td data-l="From">1 May 2026</td></tr>
+ <tr><td data-l="Subject">Existing leases</td><td data-l="Rule">Clauses that are now void or voidable stop applying at once (art. 148); the subletting ban (7:221) does not apply to old leases (art. 151)</td><td data-l="From">1 May 2025</td></tr>
+ <tr><td data-l="Subject">Agency contracts from before 1 May 2025</td><td data-l="Rule">New agency rules after two years; for the goodwill indemnity, value created more than six years before does not count (art. 156)</td><td data-l="From">1 May 2027</td></tr>
+ <tr><td data-l="Subject">Product liability</td><td data-l="Rule">Only for products put into circulation after 1 May 2025 (art. 137)</td><td data-l="From">1 May 2025</td></tr>
+ <tr><td data-l="Subject">Limitation periods of one year or longer already running</td><td data-l="Rule">A new period is not completed before 1 May 2026 (art. 8)</td><td data-l="From">1 May 2026</td></tr>
+</tbody></table>
+<p>In short: since 1 May 2026 your old general terms are tested against the new law as well. If you have not reviewed them yet, you are now at risk.</p>
+{% endif %}
+
+<h2>{{ 'Het verzoek om uitstel in april 2025' if nl else 'The request to postpone in April 2025' }}</h2>
+{% if nl %}
+<p>Kort voor 1 mei 2025 vroegen ondernemersorganisaties, waaronder de Vereniging Surinaams Bedrijfsleven (VSB), de President om uitstel. Hun argument: ondernemers, rechters en advocaten hadden te weinig tijd gehad om zich voor te bereiden op onder meer persoonlijke en hoofdelijke aansprakelijkheid en strengere administratieplichten. De Federatie van Plantagehouders Para probeerde uitstel af te dwingen in kort geding, maar werd op 30 april 2025 niet-ontvankelijk verklaard. Het Hof van Justitie, de Orde van Advocaten, de notarissen en de begeleidingscommissie adviseerden vast te houden aan de datum, en de President besloot op 30 april 2025 dat het wetboek op 1 mei 2025 in werking trad. De kritiek ging vooral over de snelheid van invoering, niet over de inhoud. Voorlichting liep daarna door; in maart 2026 verscheen een bundel met het nieuwe BW en de wetsgeschiedenis.</p>
+{% else %}
+<p>Shortly before 1 May 2025, business organisations including the Suriname Trade and Industry Association (VSB) asked the President to postpone. Their argument: businesses, judges and lawyers had too little time to prepare for, among other things, personal and joint liability and stricter record-keeping duties. The Federation of Plantation Owners of Para tried to force a delay in summary proceedings but was declared inadmissible on 30 April 2025. The Court of Justice, the Bar Association, the notaries and the guidance committee advised keeping the date, and on 30 April 2025 the President decided the code would take effect on 1 May 2025. Criticism focused on the speed of introduction, not the content. Information sessions continued afterwards; in March 2026 a volume with the new Civil Code and its legislative history was published.</p>
+{% endif %}
+
+<h2>{{ 'Checklist: werk je contracten bij' if nl else 'Checklist: update your contracts' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Algemene voorwaarden herschreven naar het nieuwe BW en getoetst aan de zwarte en grijze lijst als je aan consumenten verkoopt</li>
+ <li>Verwijzing naar je voorwaarden op offerte, orderbevestiging, factuur en website, en de voorwaarden echt meegestuurd</li>
+ <li>In je orderbevestiging de inkoopvoorwaarden van de klant uitdrukkelijk afgewezen</li>
+ <li>Garantietekst aangepast: naam, adres, duur, gebied, en de zin dat wettelijke rechten blijven bestaan</li>
+ <li>Aanbetaling bij consumenten hooguit 50%</li>
+ <li>Webwinkel: informatie vooraf, zeven werkdagen ontbindingsrecht en terugbetaling binnen dertig dagen geregeld</li>
+ <li>Contractuele rente en incassokosten opgenomen; vaste betaaltermijn op elke factuur, zodat het verzuim vanzelf intreedt</li>
+ <li>Valuta-afspraak: "effectief te betalen in USD" waar je echt dollars wilt</li>
+ <li>Huurcontract nagelopen: looptijd, verlengingsoptie, indexatie, onderhoud, borg, valuta</li>
+ <li>Agentuur- en distributiecontracten aangepast vóór 1 mei 2027: opzegtermijnen, klantenvergoeding, concurrentiebeding</li>
+ <li>Importeur: verhaal op de buitenlandse leverancier en een productaansprakelijkheidsverzekering geregeld</li>
+ <li>Statuten en aandeelhoudersafspraken laten nakijken door een notaris of advocaat</li>
+ <li>Arbeidscontracten volgens Boek 7, titel 10 (zie <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>)</li>
+ <li>KKF-nummer op alle uitgaande documenten; administratie bewaard</li>
+ <li>Openstaande vorderingen ouder dan vier jaar: verjaring gestuit met een aanmaning</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>General terms rewritten for the new Civil Code and checked against the black and grey lists if you sell to consumers</li>
+ <li>Reference to your terms on quotes, order confirmations, invoices and website, and the terms actually sent</li>
+ <li>Customer's purchasing terms expressly rejected in your order confirmation</li>
+ <li>Warranty text updated: name, address, duration, area, and the sentence that statutory rights remain</li>
+ <li>Consumer deposits at most 50%</li>
+ <li>Web shop: information in advance, seven working days' right to cancel and refund within thirty days arranged</li>
+ <li>Contractual interest and collection costs included; a fixed payment term on every invoice, so default starts automatically</li>
+ <li>Currency clause: "payable effectively in USD" where you really want dollars</li>
+ <li>Lease reviewed: term, renewal option, indexation, maintenance, deposit, currency</li>
+ <li>Agency and distribution contracts updated before 1 May 2027: notice periods, goodwill indemnity, non-compete</li>
+ <li>Importers: recourse against the foreign supplier and product liability insurance arranged</li>
+ <li>Articles of association and shareholder agreements reviewed by a notary or lawyer</li>
+ <li>Employment contracts in line with Book 7, title 10 (see <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>)</li>
+ <li>KKF number on all outgoing documents; records kept</li>
+ <li>Unpaid claims older than four years: limitation interrupted with a written demand</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Opzet voor je algemene voorwaarden' if nl else 'Outline for your general terms and conditions' }}</h2>
+{% if nl %}
+<p>Geen kant-en-klare tekst, maar de onderdelen die bijna elke handels- of dienstverlenende onderneming nodig heeft. Laat de definitieve tekst nakijken door een advocaat, zeker als je aan consumenten verkoopt.</p>
+<ol>
+ <li><b>Definities en toepasselijkheid</b>: wie de gebruiker is, voor welke offertes en contracten de voorwaarden gelden, dat inkoopvoorwaarden van de klant worden afgewezen.</li>
+ <li><b>Offertes en totstandkoming</b>: geldigheidsduur van offertes, wanneer het contract tot stand komt, kennelijke fouten.</li>
+ <li><b>Prijzen en valuta</b>: inclusief of exclusief BTW (tegenover consumenten altijd inclusief), in welke valuta, koersbasis, prijswijzigingen (consument: niet binnen drie maanden zonder opzegrecht).</li>
+ <li><b>Levering en risico</b>: termijnen (indicatief of fataal), plaats, bezorgkosten, wanneer het risico overgaat.</li>
+ <li><b>Betaling</b>: termijn, aanbetaling (consument: hooguit 50%), contractuele rente, incassokosten, opschorting bij niet-betaling.</li>
+ <li><b>Eigendomsvoorbehoud</b>: zaken blijven van jou tot volledige betaling.</li>
+ <li><b>Keuring en klachten</b>: binnen welke termijn melden (consument: twee maanden is altijd op tijd), hoe en met welk bewijs.</li>
+ <li><b>Garantie</b>: wat je garandeert, hoelang, waar, en dat wettelijke rechten blijven bestaan.</li>
+ <li><b>Aansprakelijkheid</b>: beperking tot bijvoorbeeld het factuurbedrag of de verzekerde som (niet bij opzet of grove schuld; tegenover consumenten zeer beperkt).</li>
+ <li><b>Overmacht</b>: wat telt als overmacht (stroomuitval, invoerstop, koersmaatregelen) en wat er dan gebeurt.</li>
+ <li><b>Opzegging en ontbinding</b>: bij duurcontracten de looptijd en opzegtermijn (consument: maximaal een jaar stilzwijgend verlengen, opzegtermijn hooguit drie maanden).</li>
+ <li><b>Intellectueel eigendom en geheimhouding</b>, bij diensten en maatwerk.</li>
+ <li><b>Persoonsgegevens</b>: hoe je klantgegevens gebruikt.</li>
+ <li><b>Toepasselijk recht en geschillen</b>: Surinaams recht, bevoegde rechter of arbitrage (consument: altijd een maand de keuze voor de gewone rechter laten). Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>Wijziging en versie</b>: datum en versienummer, en hoe je wijzigingen bekendmaakt.</li>
+</ol>
+{% else %}
+<p>Not a ready-made text, but the parts almost every trading or service business needs. Have the final text checked by a lawyer, especially if you sell to consumers.</p>
+<ol>
+ <li><b>Definitions and scope</b>: who the user is, which quotes and contracts the terms cover, that the customer's purchasing terms are rejected.</li>
+ <li><b>Quotes and formation</b>: how long quotes are valid, when the contract is formed, obvious errors.</li>
+ <li><b>Prices and currency</b>: including or excluding VAT (always including towards consumers), which currency, exchange rate basis, price changes (consumers: not within three months without a right to cancel).</li>
+ <li><b>Delivery and risk</b>: delivery times (indicative or firm), place, delivery costs, when risk passes.</li>
+ <li><b>Payment</b>: term, deposit (consumers: at most 50%), contractual interest, collection costs, suspension for non-payment.</li>
+ <li><b>Retention of title</b>: goods remain yours until paid in full.</li>
+ <li><b>Inspection and complaints</b>: within what period to report (consumers: two months is always in time), how and with what evidence.</li>
+ <li><b>Warranty</b>: what you guarantee, for how long, where, and that statutory rights remain.</li>
+ <li><b>Liability</b>: a cap, for example the invoice amount or the insured sum (not for intent or gross negligence; very limited towards consumers).</li>
+ <li><b>Force majeure</b>: what counts (power cuts, import bans, currency measures) and what happens then.</li>
+ <li><b>Termination</b>: for ongoing contracts the term and notice period (consumers: tacit renewal at most one year, notice at most three months).</li>
+ <li><b>Intellectual property and confidentiality</b>, for services and custom work.</li>
+ <li><b>Personal data</b>: how you use customer data.</li>
+ <li><b>Governing law and disputes</b>: Surinamese law, competent court or arbitration (consumers: always leave one month to choose the ordinary court). See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>Amendments and version</b>: date and version number, and how you announce changes.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik nog voorwaarden van vóór 2025 gebruik?</b> Ze gelden nog, maar sinds 1 mei 2026 kan een klant elk onredelijk bezwarend beding vernietigen. Bedingen die naar het oude Wetboek van Koophandel verwijzen, kloppen niet meer. Herzie ze nu.</li>
+ <li><b>...een klant zegt mijn voorwaarden nooit te hebben gekregen?</b> Dan moet jij bewijzen dat je ze vóór of bij het sluiten ter hand hebt gesteld. Zonder bewijs kan hij elk beding vernietigen. Laat daarom tekenen of bewaar de e-mail met bijlage.</li>
+ <li><b>...een consument na vijf maanden met een kapot apparaat komt?</b> Het gebrek wordt vermoed er al te zijn geweest; jij moet het tegendeel aantonen. Bied herstel of vervanging aan, en verhaal de kosten op je leverancier.</li>
+ <li><b>...mijn verhuurder het pand verkoopt?</b> De huur loopt gewoon door met de nieuwe eigenaar (art. 7:226). Betaal de huur aan de nieuwe eigenaar zodra je bericht van de overdracht hebt.</li>
+ <li><b>...mijn buitenlandse principaal het agentschap opzegt?</b> Controleer de opzegtermijn en vraag binnen een jaar schriftelijk je klantenvergoeding. Voor contracten van vóór 1 mei 2025 gelden de nieuwe regels pas vanaf 1 mei 2027; tot die datum geldt het oude recht en je contract.</li>
+ <li><b>...een klant in dollars moet betalen maar in SRD wil afrekenen?</b> Dat mag, tegen de geldende koers, tenzij je uitdrukkelijk hebt afgesproken dat effectief in dollars wordt betaald (art. 6:121).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I still use terms from before 2025?</b> They still apply, but since 1 May 2026 a customer can annul any unreasonably onerous clause. Clauses referring to the old Commercial Code are no longer accurate. Review them now.</li>
+ <li><b>...a customer says they never received my terms?</b> Then you must prove you handed them over before or at conclusion. Without proof the customer can annul any clause. So have them signed or keep the email with the attachment.</li>
+ <li><b>...a consumer returns after five months with a broken appliance?</b> The defect is presumed to have been there already; you must prove otherwise. Offer repair or replacement, and recover the costs from your supplier.</li>
+ <li><b>...my landlord sells the building?</b> The lease simply continues with the new owner (art. 7:226). Pay the rent to the new owner once you are notified of the transfer.</li>
+ <li><b>...my foreign principal terminates the agency?</b> Check the notice period and claim your goodwill indemnity in writing within one year. For contracts from before 1 May 2025 the new rules only apply from 1 May 2027; until then the old law and your contract apply.</li>
+ <li><b>...a customer owes dollars but wants to settle in SRD?</b> That is allowed, at the current rate, unless you expressly agreed payment effectively in dollars (art. 6:121).</li>
+</ul>
+{% endif %}
+<p class="note">{{ 'Deze pagina is algemene informatie, geen juridisch advies. Artikelnummers verwijzen naar het Burgerlijk Wetboek (S.B. 2024 no. 164) tenzij anders vermeld. Laat belangrijke contracten nakijken door een advocaat of notaris.' if nl else 'This page is general information, not legal advice. Article numbers refer to the Civil Code (S.B. 2024 no. 164) unless stated otherwise. Have important contracts checked by a lawyer or notary.' }}</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B-2024-no.-164-Burgerlijk-Wetboek.pdf" rel="noopener">Burgerlijk Wetboek, S.B. 2024 no. 164 ({{ 'boeken 1 tot en met 8 met memorie van toelichting' if nl else 'books 1 to 8 with explanatory memorandum' }})</a></li>
+ <li><a href="https://www.dna.sr/media/na5dn2xm/s-b-_2024_no-_164__boek_3.pdf" rel="noopener">Burgerlijk Wetboek Boek 3 ({{ 'verjaring' if nl else 'limitation' }})</a></li>
+ <li><a href="https://www.dna.sr/media/g1kjnrbj/s-b-_2024_no-_164__boek_7.pdf" rel="noopener">Burgerlijk Wetboek Boek 7 ({{ 'koop, huur, agentuur' if nl else 'sale, lease, agency' }})</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/02/Resolutie-houdende-vaststelling-van-de-inwerkingtreding-van-het-Burgerlijk-Wetboek-S.B.-2025-no.-14.pdf" rel="noopener">{{ 'Resolutie inwerkingtreding, S.B. 2025 no. 14' if nl else 'Commencement resolution, S.B. 2025 no. 14' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-166-Overgangswet-nieuw-Burgerlijk-Wetboek.pdf" rel="noopener">Overgangswet nieuw Burgerlijk Wetboek, S.B. 2024 no. 166</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-165-Overgangswet-aanpassingswetgeving-nieuw-Burgerlijk-Wetboek.pdf" rel="noopener">Overgangswet aanpassingswetgeving, S.B. 2024 no. 165</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-167-Algemene-termijnenwet.pdf" rel="noopener">Algemene termijnenwet, S.B. 2024 no. 167</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-168-Aanpassingswet-nieuw-Burgerlijk-Wetboek.pdf" rel="noopener">Aanpassingswet nieuw Burgerlijk Wetboek, S.B. 2024 no. 168</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-169-Handelsregisterwet.pdf" rel="noopener">Handelsregisterwet, S.B. 2024 no. 169</a></li>
+ <li><a href="https://gov.sr/inwerkingtreding-nieuw-burgerlijk-wetboek-vindt-voortgang-op-1-mei-2025/" rel="noopener">{{ 'Kabinet van de President: inwerkingtreding op 1 mei 2025 (30 april 2025)' if nl else 'Office of the President: commencement on 1 May 2025 (30 April 2025)' }}</a></li>
+ <li><a href="https://gov.sr/minister-van-justitie-en-politie-ontvangt-nieuwe-wetbundel-burgerlijk-wetboek/" rel="noopener">{{ 'Ministerie van Justitie en Politie: wetbundel nieuw BW (10 maart 2026)' if nl else 'Ministry of Justice and Police: new Civil Code volume (10 March 2026)' }}</a></li>
+ <li><a href="https://research.ou.nl/ws/files/94673826/Ramautar-2025-Het-nieuwe-surinaamse-BW-en.pdf" rel="noopener">A.C. Ramautar, Het nieuwe Surinaamse BW, Ars Aequi {{ 'oktober' if nl else 'October' }} 2025</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Controleer of er een staatsbesluit over de wettelijke rente is verschenen voordat je rente vordert.' if nl else 'Check whether a state decree on statutory interest has appeared before claiming interest.' }}</p>
+</div>
+{% endblock %}

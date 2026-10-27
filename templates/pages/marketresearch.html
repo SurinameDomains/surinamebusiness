@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Marktonderzoek in Suriname: zo meet je je markt' if nl else 'Market research in Suriname: how to size your market' }}</h1>
+{% if nl %}
+<p class="lead">Begin met wat er al is: bevolkingscijfers en prijzen van het ABS, invoercijfers per product, het KKF-register en gratis tools zoals ITC Trade Map. Ga daarna zelf de straat op: tel klanten bij concurrenten, noteer prijzen en ondervraag genoeg mensen. Reken je markt van boven naar beneden uit en controleer hem van onder naar boven.</p>
+{% else %}
+<p class="lead">Start with what already exists: population and price data from the ABS statistics bureau, import figures per product, the KKF company register and free tools such as ITC Trade Map. Then go out yourself: count customers at competitors, record prices and interview enough people. Size your market top-down and check it bottom-up.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Inwoners' if nl else 'Population' }}</div><div class="big">{{ '640.000' if nl else '640,000' }}</div><div class="sub">{{ 'schatting Wereldbank 2025; census 2012: 541.638' if nl else 'World Bank estimate 2025; 2012 census: 541,638' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Paramaribo en Wanica' if nl else 'Paramaribo and Wanica' }}</div><div class="big">66%</div><div class="sub">{{ 'van alle inwoners (census 2012)' if nl else 'of all residents (2012 census)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Enquête, marge 5%' if nl else 'Survey, 5% margin' }}</div><div class="big">385</div><div class="sub">{{ 'willekeurige respondenten, 95% betrouwbaarheid' if nl else 'random respondents, 95% confidence' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Bevolking</b>: de nieuwste officiële telling is nog die van 2012. Het veldwerk van Census 9 liep in 2024 en 2025, maar de uitkomsten waren op {{ date('2026-10-26') }} nog niet gepubliceerd. Werk met 2012 per district en ressort en schaal op met de Wereldbank-schatting.</li>
+ <li><b>Uitgaven en prijzen</b>: het ABS meet maandelijks de CPI (316 artikelen, circa 630 meetpunten). Het laatste huishoudbudgetonderzoek is van 2013/2014: bruikbaar voor verhoudingen, niet voor bedragen.</li>
+ <li><b>Invoer als maat voor vraag</b>: zoek je product op HS-code in ITC Trade Map, UN Comtrade of bij het ABS. Invoer plus eigen productie min export is een ruwe schatting van het verbruik.</li>
+ <li><b>Concurrenten</b>: KKF-handelsregister, onze <a href="{{ U('companies') }}">{{ L('companies') }}</a>, Google Maps, Facebook, en zelf gaan kijken.</li>
+ <li><b>Eigen enquête</b>: ongeveer 385 willekeurige respondenten voor een marge van 5%, 97 voor 10%. Polls in je eigen netwerk zijn niet representatief.</li>
+ <li><b>Vastleggen</b>: zet alles in je <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>, met bron en datum per cijfer.</li>
+{% else %}
+ <li><b>Population</b>: the latest official census is still the 2012 one. Census 9 fieldwork ran in 2024 and 2025, but results had not been published as of {{ date('2026-10-26') }}. Work with 2012 figures per district and ressort and scale up with the World Bank estimate.</li>
+ <li><b>Spending and prices</b>: the ABS measures the CPI monthly (316 items, about 630 price points). The latest household budget survey is from 2013/2014: useful for shares, not for amounts.</li>
+ <li><b>Imports as a demand proxy</b>: look up your product by HS code in ITC Trade Map, UN Comtrade or at the ABS. Imports plus local production minus exports is a rough estimate of consumption.</li>
+ <li><b>Competitors</b>: the KKF trade register, our <a href="{{ U('companies') }}">{{ L('companies') }}</a>, Google Maps, Facebook, and going to look yourself.</li>
+ <li><b>Your own survey</b>: about 385 random respondents for a 5% margin, 97 for 10%. Polls in your own network are not representative.</li>
+ <li><b>Write it down</b>: put everything in your <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>, with a source and date for each figure.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Begin met de beslissing, niet met de data' if nl else 'Start with the decision, not the data' }}</h2>
+{% if nl %}
+<p>Marktonderzoek is geen doel op zich. Schrijf eerst op welke beslissing je moet nemen en welke vragen je daarvoor beantwoord wilt hebben. Bijvoorbeeld: open ik een bakkerij in Lelydorp of in Paramaribo-Noord? Hoeveel broden kan ik er per dag verkopen, tegen welke prijs, en wie zijn de concurrenten? Met zulke concrete vragen weet je welke data je nodig hebt en wanneer je genoeg weet.</p>
+<p>Werk in twee rondes. Eerst <b>bureauonderzoek</b>: cijfers die anderen al verzameld hebben (dit kost vooral tijd). Daarna <b>veldonderzoek</b>: wat je zelf ziet, telt en vraagt. In Suriname is het tweede vaak belangrijker, omdat officiële cijfers oud of te grof zijn. Het overzicht van sectoren en districten helpt je kiezen waar je gaat kijken: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> en <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% else %}
+<p>Market research is not a goal in itself. First write down which decision you need to make and which questions must be answered for it. For example: do I open a bakery in Lelydorp or in north Paramaribo? How many loaves can I sell there per day, at what price, and who are the competitors? With concrete questions like these you know which data you need and when you know enough.</p>
+<p>Work in two rounds. First <b>desk research</b>: figures others have already collected (this mostly costs time). Then <b>field research</b>: what you see, count and ask yourself. In Suriname the second is often more important, because official figures are old or too coarse. The overviews of sectors and districts help you choose where to look: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> and <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Officiële statistieken van het ABS' if nl else 'Official statistics from the ABS' }}</h2>
+{% if nl %}
+<p>Het Algemeen Bureau voor de Statistiek (ABS) is de belangrijkste bron. Veel publicaties staan als pdf of Excel op de website; staat iets er niet op, mail of bel dan de afdeling Public Relations en Informatie. Het ABS geeft geen gegevens over individuele personen of bedrijven: is een branche te klein (minder dan drie spelers, of één speler met 95% of meer van de markt), dan krijg je de cijfers niet.</p>
+<table class="tbl stack tx"><thead><tr><th>Bron</th><th>Wat je eruit haalt</th><th>Let op</th></tr></thead><tbody>
+ <tr><td data-l="Bron"><b>Volkstelling 2012</b> (8e census), ook via Redatam</td><td data-l="Wat je eruit haalt">Inwoners, huishoudens, leeftijd, opleiding, werk, woningen per district en ressort</td><td data-l="Let op">Veertien jaar oud. Census 9-uitkomsten nog niet gepubliceerd ({{ date('2026-10-26') }})</td></tr>
+ <tr><td data-l="Bron"><b>Kerncijfers en basisindicatoren</b></td><td data-l="Wat je eruit haalt">Bevolking, economie, prijzen, handel in één overzicht</td><td data-l="Let op">Controleer het jaartal van elk cijfer</td></tr>
+ <tr><td data-l="Bron"><b>Consumentenprijsindex (CPI)</b></td><td data-l="Wat je eruit haalt">Maandelijkse prijsontwikkeling per groep (voeding, vervoer, wonen), 316 artikelen, circa 630 meetpunten in Paramaribo, Wanica en vijf andere districten</td><td data-l="Let op">Een index, geen winkelprijs. Gebruik het om je prijzen en kosten te indexeren</td></tr>
+ <tr><td data-l="Bron"><b>Huishoudbudgetonderzoek 2013/2014</b></td><td data-l="Wat je eruit haalt">Waaraan huishoudens hun geld uitgeven, inkomens, samenstelling van het consumentenpakket</td><td data-l="Let op">Oud: bruikbaar voor verhoudingen, niet voor bedragen in SRD</td></tr>
+ <tr><td data-l="Bron"><b>Huishoudonderzoek (arbeidskrachten)</b></td><td data-l="Wat je eruit haalt">Werkgelegenheid en werkloosheid, vooral Paramaribo en Wanica</td><td data-l="Let op">Beperkte geografische dekking</td></tr>
+ <tr><td data-l="Bron"><b>Handelsstatistieken</b></td><td data-l="Wat je eruit haalt">In- en uitvoer per HS-code en land, uit de douanedata (ASYCUDA World)</td><td data-l="Let op">Kleine branches worden afgeschermd</td></tr>
+ <tr><td data-l="Bron"><b>Bedrijvenstatistieken en bouwprijzen</b></td><td data-l="Wat je eruit haalt">Omzet, lonen en werkgelegenheid per sector (bedrijven met 10 of meer werknemers); lonen en materiaalprijzen in de bouw</td><td data-l="Let op">Kleine en informele bedrijven ontbreken grotendeels</td></tr>
+ <tr><td data-l="Bron"><b>Armoedegrenzen</b> (augustus 2026)</td><td data-l="Wat je eruit haalt">Bedrag per volwassene per maand voor basisvoeding en levensonderhoud</td><td data-l="Let op">Geeft een idee van de koopkracht onderin de markt</td></tr>
+</tbody></table>
+{% else %}
+<p>The General Bureau of Statistics (ABS) is the main source. Many publications are on its website as PDF or Excel; if something is not online, e-mail or call its Public Relations and Information department. The ABS does not release data on individual people or companies: if a branch is too small (fewer than three players, or one player with 95% or more of the market), you will not get the figures.</p>
+<table class="tbl stack tx"><thead><tr><th>Source</th><th>What you get from it</th><th>Watch out</th></tr></thead><tbody>
+ <tr><td data-l="Source"><b>2012 census</b> (8th census), also via Redatam</td><td data-l="What you get">Population, households, age, education, work, housing per district and ressort</td><td data-l="Watch out">Fourteen years old. Census 9 results not yet published ({{ date('2026-10-26') }})</td></tr>
+ <tr><td data-l="Source"><b>Key figures and basic indicators</b></td><td data-l="What you get">Population, economy, prices, trade in one overview</td><td data-l="Watch out">Check the year of each figure</td></tr>
+ <tr><td data-l="Source"><b>Consumer price index (CPI)</b></td><td data-l="What you get">Monthly price trends per group (food, transport, housing), 316 items, about 630 price points in Paramaribo, Wanica and five other districts</td><td data-l="Watch out">An index, not a shelf price. Use it to index your prices and costs</td></tr>
+ <tr><td data-l="Source"><b>Household budget survey 2013/2014</b></td><td data-l="What you get">What households spend their money on, incomes, the consumer basket</td><td data-l="Watch out">Old: useful for shares, not for SRD amounts</td></tr>
+ <tr><td data-l="Source"><b>Household survey (labour force)</b></td><td data-l="What you get">Employment and unemployment, mainly Paramaribo and Wanica</td><td data-l="Watch out">Limited geographic coverage</td></tr>
+ <tr><td data-l="Source"><b>Trade statistics</b></td><td data-l="What you get">Imports and exports per HS code and country, from customs data (ASYCUDA World)</td><td data-l="Watch out">Small branches are suppressed</td></tr>
+ <tr><td data-l="Source"><b>Business statistics and construction prices</b></td><td data-l="What you get">Turnover, wages and employment per sector (firms with 10 or more staff); wages and material prices in construction</td><td data-l="Watch out">Small and informal businesses are largely missing</td></tr>
+ <tr><td data-l="Source"><b>Poverty lines</b> (August 2026)</td><td data-l="What you get">Amount per adult per month for basic food and living costs</td><td data-l="Watch out">Gives an idea of purchasing power at the bottom of the market</td></tr>
+</tbody></table>
+{% endif %}
+{% if nl %}
+<h3>De volkstelling: waar staan we?</h3>
+<p>De achtste volkstelling (2012) telde 541.638 inwoners, van wie 240.924 in Paramaribo en 118.222 in Wanica. Het ABS begon in januari 2024 met het in kaart brengen van alle gebouwen voor Census 9, hield in augustus 2024 een proeftelling en was in 2025 nog in het veld, met een controle-enquête vanaf eind 2025. Op {{ date('2026-10-26') }} toonde de ABS-website nog alleen de resultaten van 2004 en 2012. Totdat Census 9 verschijnt, gebruik je 2012 voor de verdeling over districten en ressorten en schaal je op met de schatting van de Wereldbank (ongeveer 640.000 in 2025). De cijfers per district staan in <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% else %}
+<h3>The census: where do things stand?</h3>
+<p>The eighth census (2012) counted 541,638 people, 240,924 of them in Paramaribo and 118,222 in Wanica. The ABS started mapping all buildings for Census 9 in January 2024, ran a pilot count in August 2024 and was still in the field in 2025, with a post-enumeration survey from late 2025. On {{ date('2026-10-26') }} the ABS website still only showed the 2004 and 2012 results. Until Census 9 appears, use 2012 for the split across districts and ressorts and scale up with the World Bank estimate (about 640,000 in 2025). Figures per district are in <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Economische cijfers: Centrale Bank en internationale bronnen' if nl else 'Economic data: Central Bank and international sources' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Centrale Bank van Suriname (CBvS)</b>: wisselkoersen, inflatie, rente, monetaire cijfers, betalingsbalans en het Economisch Bulletin. Nuttig om je omzet en kosten in SRD en USD te plannen. Onze samenvatting: <a href="{{ U('economy') }}">{{ L('economy') }}</a>; de dagkoersen: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>IMF en Wereldbank</b>: groeiprognoses, bevolkingsschattingen en sectorrapporten. Het Wereldbankrapport <i>Suriname Jobs and Skills Radar 2030</i> (juli 2026) noemt olie en gas, toerisme en agribusiness als groeisectoren.</li>
+ <li><b>Sectorbronnen</b>: het ministerie van LVV voor landbouw en visserij, de Suriname Tourism Foundation voor bezoekersaantallen, Staatsolie voor olie en gas, de SBB voor hout. Zie ook <a href="{{ U('agri') }}">{{ L('agri') }}</a> en <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Central Bank of Suriname (CBvS)</b>: exchange rates, inflation, interest rates, monetary data, the balance of payments and the Economic Bulletin. Useful for planning revenue and costs in SRD and USD. Our summary: <a href="{{ U('economy') }}">{{ L('economy') }}</a>; daily rates: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>IMF and World Bank</b>: growth forecasts, population estimates and sector reports. The World Bank report <i>Suriname Jobs and Skills Radar 2030</i> (July 2026) names oil and gas, tourism and agribusiness as growth sectors.</li>
+ <li><b>Sector sources</b>: the Ministry of Agriculture, Animal Husbandry and Fisheries (LVV) for farming and fishing, the Suriname Tourism Foundation for visitor numbers, Staatsolie for oil and gas, the SBB for timber. See also <a href="{{ U('agri') }}">{{ L('agri') }}</a> and <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Gratis handelsdata en exporttools' if nl else 'Free trade data and export tools' }}</h2>
+{% if nl %}
+<p>Voor importeurs en exporteurs zijn de gratis tools van het International Trade Centre (ITC, een organisatie van de VN en de WTO) het nuttigst. Je hebt de HS-code van je product nodig; zoek die op in het douanetarief of vraag het je expediteur.</p>
+<table class="tbl stack tx"><thead><tr><th>Tool</th><th>Waarvoor</th><th>Tip</th></tr></thead><tbody>
+ <tr><td data-l="Tool"><b>ITC Trade Map</b></td><td data-l="Waarvoor">In- en uitvoer per product en land, per jaar en soms per maand, met spiegeldata</td><td data-l="Tip">Registreer gratis. Kijk naar wat landen aan Suriname leveren als de Surinaamse cijfers ontbreken</td></tr>
+ <tr><td data-l="Tool"><b>ITC Export Potential Map</b></td><td data-l="Waarvoor">Welke producten en markten het meeste onbenutte exportpotentieel hebben</td><td data-l="Tip">Goed startpunt voor een exportplan</td></tr>
+ <tr><td data-l="Tool"><b>ITC Market Access Map</b></td><td data-l="Waarvoor">Invoerrechten en handelsmaatregelen per land en product</td><td data-l="Tip">Vergelijk met de EPA- en CARICOM-tarieven</td></tr>
+ <tr><td data-l="Tool"><b>ITC Sustainability Map</b></td><td data-l="Waarvoor">Keurmerken en duurzaamheidsstandaarden die kopers vragen</td><td data-l="Tip">Handig voor cacao, koffie, hout, vis</td></tr>
+ <tr><td data-l="Tool"><b>UN Comtrade</b></td><td data-l="Waarvoor">Officiële handelsdata van alle landen</td><td data-l="Tip">Ruwere interface, wel gratis downloads</td></tr>
+ <tr><td data-l="Tool"><b>EU Access2Markets</b></td><td data-l="Waarvoor">EU-invoerrechten, regels van oorsprong, productvereisten en handelsstatistieken voor de EU</td><td data-l="Tip">Zie ook <a href="{{ U('euexport') }}">{{ L('euexport') }}</a></td></tr>
+ <tr><td data-l="Tool"><b>CARICOM-statistieken</b></td><td data-l="Waarvoor">Regionale handels- en economische cijfers, censusrapporten van de lidstaten</td><td data-l="Tip">Voor export naar de regio, zie <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></td></tr>
+</tbody></table>
+<p>Het regionale Market Intelligence Portal dat Caribbean Export ooit met EU-geld opzette voor CARIFORUM-exporteurs, en het bijbehorende nationale handelsinformatienetwerk, vonden we in oktober 2026 niet meer als werkende website. Gebruik daarom de ITC-tools hierboven. Exporteren stap voor stap: <a href="{{ U('export') }}">{{ L('export') }}</a>; markten per land: <a href="{{ U('countries') }}">{{ L('countries') }}</a>.</p>
+{% else %}
+<p>For importers and exporters the free tools of the International Trade Centre (ITC, a joint agency of the UN and WTO) are the most useful. You need your product's HS code; look it up in the customs tariff or ask your freight forwarder.</p>
+<table class="tbl stack tx"><thead><tr><th>Tool</th><th>What for</th><th>Tip</th></tr></thead><tbody>
+ <tr><td data-l="Tool"><b>ITC Trade Map</b></td><td data-l="What for">Imports and exports per product and country, per year and sometimes per month, with mirror data</td><td data-l="Tip">Register for free. Look at what countries ship to Suriname when Surinamese figures are missing</td></tr>
+ <tr><td data-l="Tool"><b>ITC Export Potential Map</b></td><td data-l="What for">Which products and markets have the most untapped export potential</td><td data-l="Tip">A good starting point for an export plan</td></tr>
+ <tr><td data-l="Tool"><b>ITC Market Access Map</b></td><td data-l="What for">Import duties and trade measures per country and product</td><td data-l="Tip">Compare with EPA and CARICOM rates</td></tr>
+ <tr><td data-l="Tool"><b>ITC Sustainability Map</b></td><td data-l="What for">Labels and sustainability standards buyers ask for</td><td data-l="Tip">Useful for cocoa, coffee, timber, fish</td></tr>
+ <tr><td data-l="Tool"><b>UN Comtrade</b></td><td data-l="What for">Official trade data of all countries</td><td data-l="Tip">Rougher interface, but free downloads</td></tr>
+ <tr><td data-l="Tool"><b>EU Access2Markets</b></td><td data-l="What for">EU import duties, rules of origin, product requirements and EU trade statistics</td><td data-l="Tip">See also <a href="{{ U('euexport') }}">{{ L('euexport') }}</a></td></tr>
+ <tr><td data-l="Tool"><b>CARICOM statistics</b></td><td data-l="What for">Regional trade and economic data, census reports of member states</td><td data-l="Tip">For exports to the region, see <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></td></tr>
+</tbody></table>
+<p>The regional Market Intelligence Portal that Caribbean Export once set up with EU funding for CARIFORUM exporters, and the national trade information network linked to it, could no longer be found as a working website in October 2026. So use the ITC tools above. Exporting step by step: <a href="{{ U('export') }}">{{ L('export') }}</a>; markets by country: <a href="{{ U('countries') }}">{{ L('countries') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Invoercijfers als maat voor de vraag' if nl else 'Import figures as a measure of demand' }}</h2>
+{% if nl %}
+<p>Suriname voert veel van wat het consumeert in. Daardoor zijn invoercijfers vaak de beste aanwijzing voor de omvang van een markt. Zo pak je het aan:</p>
+<ol class="steps">
+ <li><b>Zoek de HS-code</b> van je product (6 cijfers is internationaal gelijk).</li>
+ <li><b>Haal de invoer op</b> voor de laatste drie tot vijf jaar, in waarde en in hoeveelheid, uit Trade Map, UN Comtrade of bij het ABS.</li>
+ <li><b>Tel de lokale productie op</b> als die er is (bij LVV, brancheorganisaties of door producenten te bellen) en <b>trek de export af</b>.</li>
+ <li><b>Reken per inwoner</b>: deel door ongeveer 640.000. Vergelijk met buurlanden of het Caribisch gemiddelde: ligt Suriname veel lager, dan is er misschien ruimte, of een reden waarom het niet verkoopt.</li>
+ <li><b>Kijk naar de trend en de leveranciers.</b> Groeit de invoer? Uit welke landen komt het, en tegen welke prijs per kilo of per stuk? Dat zegt iets over het prijsniveau dat je moet halen.</li>
+</ol>
+<p>Let op drie valkuilen. <b>Informele handel</b> met Guyana en Frans-Guyana komt niet in de cijfers. <b>Wederuitvoer</b> (bijvoorbeeld naar het binnenland of de buurlanden) blaast de invoer op. En <b>grote eenmalige projecten</b>, zoals olie- en gasinvesteringen, geven pieken die niets zeggen over consumentenvraag. Wat invoer kost als je het zelf doet: <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> en <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<p>Suriname imports much of what it consumes. That makes import figures often the best indicator of a market's size. Here is how:</p>
+<ol class="steps">
+ <li><b>Find the HS code</b> of your product (the first 6 digits are the same worldwide).</li>
+ <li><b>Pull the imports</b> for the last three to five years, in value and quantity, from Trade Map, UN Comtrade or the ABS.</li>
+ <li><b>Add local production</b> if there is any (from LVV, trade associations or by calling producers) and <b>subtract exports</b>.</li>
+ <li><b>Calculate per person</b>: divide by about 640,000. Compare with neighbouring countries or the Caribbean average: if Suriname is much lower, there may be room, or a reason why it does not sell.</li>
+ <li><b>Look at the trend and the suppliers.</b> Are imports growing? From which countries, and at what price per kilo or per unit? That tells you the price level you need to beat.</li>
+</ol>
+<p>Watch out for three traps. <b>Informal trade</b> with Guyana and French Guiana does not show in the figures. <b>Re-exports</b> (for example to the interior or neighbouring countries) inflate imports. And <b>large one-off projects</b>, such as oil and gas investments, cause peaks that say nothing about consumer demand. What importing costs if you do it yourself: <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> and <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Prijzen onderzoeken' if nl else 'Researching prices' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Maximumprijzen</b>: het ministerie van EZOTI publiceert ongeveer elke twee weken de maximumprijzen van basisgoederen per importeur. Doorzoekbaar op <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>. Verkoop je zo'n product, dan is dat je plafond; zie ook <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li><b>Eigen prijzenronde</b>: bezoek op twee of drie verschillende dagen minstens vijf verkooppunten (supermarkt, Chinese winkel, markt, online verkoper) en noteer prijs, verpakking, merk en of er korting is. Doe het opnieuw na een koerswijziging.</li>
+ <li><b>Markten</b>: voor verse producten zijn de Centrale Markt en de districtsmarkten de plek om groothandels- en kleinhandelsprijzen te zien. Vraag verkopers naar seizoensschommelingen.</li>
+ <li><b>Online</b>: Facebook Marketplace, WhatsApp-statussen en webwinkels laten zien wat particulieren en kleine ondernemers vragen.</li>
+ <li><b>Je eigen prijs</b>: reken je kostprijs en marge uit met <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> en kijk vanaf welke omzet je quitte speelt met <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Maximum prices</b>: the Ministry of Economic Affairs (EZOTI) publishes the maximum prices of basic goods per importer about every two weeks. Searchable at <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>. If you sell such a product, that is your ceiling; see also <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li><b>Your own price round</b>: visit at least five outlets (supermarket, Chinese shop, market, online seller) on two or three different days and record price, pack size, brand and any discount. Repeat after an exchange rate change.</li>
+ <li><b>Markets</b>: for fresh produce, the Central Market and district markets are where you see wholesale and retail prices. Ask sellers about seasonal swings.</li>
+ <li><b>Online</b>: Facebook Marketplace, WhatsApp statuses and web shops show what private sellers and small businesses charge.</li>
+ <li><b>Your own price</b>: work out cost price and margin with <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> and see at what revenue you break even with <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bedrijven en concurrenten in kaart brengen' if nl else 'Mapping companies and competitors' }}</h2>
+{% if nl %}
+<p>Het <b>handelsregister van de KKF</b> laat zien welke bedrijven ingeschreven zijn en voor welke activiteiten. Een uittreksel van een specifiek bedrijf vraag je via de E-Services van de KKF. Onze <a href="{{ U('companies') }}">{{ L('companies') }}</a> geeft per plaats en categorie een gratis overzicht, en bedrijven kunnen zich zelf <a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a>. Aanbestedingen laten zien wat de overheid en grote bedrijven inkopen: <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p>
+<p>Maak voor elke serieuze concurrent een korte kaart. Ga zelf langs, op een drukke en een rustige dag, en tel klanten per uur. Dat zegt meer dan elke statistiek.</p>
+<table class="tbl stack tx"><thead><tr><th>Wat</th><th>Concurrent A</th><th>Concurrent B</th><th>Jij</th></tr></thead><tbody>
+ <tr><td data-l="Wat">Locatie en bereikbaarheid</td><td data-l="Concurrent A">Hoofdweg, parkeren voor de deur</td><td data-l="Concurrent B">Zijstraat, geen parkeren</td><td data-l="Jij">?</td></tr>
+ <tr><td data-l="Wat">Aanbod en prijs</td><td data-l="Concurrent A">Breed, middenprijs</td><td data-l="Concurrent B">Smal, goedkoop</td><td data-l="Jij">?</td></tr>
+ <tr><td data-l="Wat">Openingstijden</td><td data-l="Concurrent A">07:00 tot 19:00</td><td data-l="Concurrent B">06:00 tot 13:00</td><td data-l="Jij">?</td></tr>
+ <tr><td data-l="Wat">Klanten per uur (spits)</td><td data-l="Concurrent A">Tel zelf</td><td data-l="Concurrent B">Tel zelf</td><td data-l="Jij">Doel</td></tr>
+ <tr><td data-l="Wat">Betaalmogelijkheden</td><td data-l="Concurrent A">Contant, pin</td><td data-l="Concurrent B">Alleen contant</td><td data-l="Jij">?</td></tr>
+ <tr><td data-l="Wat">Online aanwezig</td><td data-l="Concurrent A">Facebook, actief</td><td data-l="Concurrent B">Geen</td><td data-l="Jij">?</td></tr>
+</tbody></table>
+{% else %}
+<p>The <b>KKF trade register</b> shows which companies are registered and for which activities. You request an extract for a specific company through the KKF E-Services. Our <a href="{{ U('companies') }}">{{ L('companies') }}</a> gives a free overview per town and category, and businesses can <a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a> themselves. Tenders show what government and large companies buy: <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p>
+<p>Make a short card for each serious competitor. Visit in person, on a busy and a quiet day, and count customers per hour. That tells you more than any statistic.</p>
+<table class="tbl stack tx"><thead><tr><th>What</th><th>Competitor A</th><th>Competitor B</th><th>You</th></tr></thead><tbody>
+ <tr><td data-l="What">Location and access</td><td data-l="Competitor A">Main road, parking in front</td><td data-l="Competitor B">Side street, no parking</td><td data-l="You">?</td></tr>
+ <tr><td data-l="What">Range and price</td><td data-l="Competitor A">Wide, mid-price</td><td data-l="Competitor B">Narrow, cheap</td><td data-l="You">?</td></tr>
+ <tr><td data-l="What">Opening hours</td><td data-l="Competitor A">07:00 to 19:00</td><td data-l="Competitor B">06:00 to 13:00</td><td data-l="You">?</td></tr>
+ <tr><td data-l="What">Customers per hour (peak)</td><td data-l="Competitor A">Count yourself</td><td data-l="Competitor B">Count yourself</td><td data-l="You">Target</td></tr>
+ <tr><td data-l="What">Payment options</td><td data-l="Competitor A">Cash, debit card</td><td data-l="Competitor B">Cash only</td><td data-l="You">?</td></tr>
+ <tr><td data-l="What">Online presence</td><td data-l="Competitor A">Facebook, active</td><td data-l="Competitor B">Not online</td><td data-l="You">?</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Zelf onderzoek doen: enquêtes en interviews' if nl else 'Doing your own research: surveys and interviews' }}</h2>
+{% if nl %}
+<h3>Hoeveel mensen moet je vragen?</h3>
+<p>De vuistregel bij 95% betrouwbaarheid en een onbekende uitkomst (het veiligste uitgangspunt van 50%) is: steekproef = 1,96² × 0,25 / marge². Dat geeft:</p>
+<table class="tbl stack tx"><thead><tr><th>Gewenste foutmarge</th><th>Benodigde respondenten</th><th>Wanneer</th></tr></thead><tbody>
+ <tr><td data-l="Gewenste foutmarge">± 5%</td><td data-l="Benodigde respondenten">ongeveer 385</td><td data-l="Wanneer">Als je er een investering of lening op baseert</td></tr>
+ <tr><td data-l="Gewenste foutmarge">± 7%</td><td data-l="Benodigde respondenten">ongeveer 196</td><td data-l="Wanneer">Redelijk beeld voor een kleine start</td></tr>
+ <tr><td data-l="Gewenste foutmarge">± 10%</td><td data-l="Benodigde respondenten">ongeveer 97</td><td data-l="Wanneer">Eerste verkenning</td></tr>
+</tbody></table>
+<p>Is je doelgroep klein, bijvoorbeeld 2.000 huishoudens in één ressort, dan heb je minder nodig: voor ± 5% ongeveer 323. Wil je uitspraken over subgroepen (jong en oud, Paramaribo en Nickerie), dan heb je per subgroep zo'n aantal nodig.</p>
+<h3>Hoe kies je de mensen?</h3>
+<ul>
+ <li><b>Straatinterviews</b>: sta op verschillende plekken, dagen en tijden, en spreek elke zoveelste voorbijganger aan in plaats van wie er aardig uitziet. Houd het onder vijf minuten.</li>
+ <li><b>Huis-aan-huis</b> in je verzorgingsgebied geeft het beste beeld van een buurtmarkt, maar kost tijd. Neem een vast patroon, bijvoorbeeld elk vijfde huis.</li>
+ <li><b>WhatsApp- en Facebookpolls</b> zijn snel en gratis, maar alleen je eigen netwerk antwoordt: vaak jonger, online, en welwillend tegenover jou. Gebruik ze om ideeën te testen, niet om de markt te meten.</li>
+ <li><b>Gesprekken met kenners</b>: leveranciers, groothandels, chauffeurs en marktverkopers weten vaak precies wat er loopt. Vijf goede gesprekken leveren meer op dan vijftig slechte enquêtes.</li>
+</ul>
+<h3>Goede vragen</h3>
+<ul>
+ <li>Vraag naar gedrag in het verleden, niet naar plannen: "Hoe vaak kocht u vorige week brood, en waar?" in plaats van "Zou u bij mij kopen?"</li>
+ <li>Eén onderwerp per vraag, korte antwoordopties, en altijd "anders" en "weet niet".</li>
+ <li>Test de vragenlijst eerst bij vijf mensen. Vraag in het Nederlands en, waar nodig, in het Sranan of een andere taal van de buurt.</li>
+ <li>Vraag niet meer persoonsgegevens dan nodig, zeg waarvoor je ze gebruikt en bewaar ze veilig. Er ligt een wet op de bescherming van persoonsgegevens bij DNA; zie <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% else %}
+<h3>How many people should you ask?</h3>
+<p>The rule of thumb at 95% confidence and an unknown outcome (the safest assumption of 50%) is: sample = 1.96² × 0.25 / margin². That gives:</p>
+<table class="tbl stack tx"><thead><tr><th>Desired margin of error</th><th>Respondents needed</th><th>When</th></tr></thead><tbody>
+ <tr><td data-l="Desired margin of error">± 5%</td><td data-l="Respondents needed">about 385</td><td data-l="When">If you base an investment or a loan on it</td></tr>
+ <tr><td data-l="Desired margin of error">± 7%</td><td data-l="Respondents needed">about 196</td><td data-l="When">A fair picture for a small start</td></tr>
+ <tr><td data-l="Desired margin of error">± 10%</td><td data-l="Respondents needed">about 97</td><td data-l="When">First exploration</td></tr>
+</tbody></table>
+<p>If your target group is small, for example 2,000 households in one ressort, you need fewer: about 323 for ± 5%. If you want conclusions about subgroups (young and old, Paramaribo and Nickerie), you need roughly that number per subgroup.</p>
+<h3>How do you pick the people?</h3>
+<ul>
+ <li><b>Street interviews</b>: stand at different places, days and times, and approach every nth passer-by rather than whoever looks friendly. Keep it under five minutes.</li>
+ <li><b>Door to door</b> in your catchment area gives the best picture of a neighbourhood market, but takes time. Use a fixed pattern, for example every fifth house.</li>
+ <li><b>WhatsApp and Facebook polls</b> are quick and free, but only your own network answers: often younger, online, and well-disposed towards you. Use them to test ideas, not to measure the market.</li>
+ <li><b>Talks with insiders</b>: suppliers, wholesalers, drivers and market vendors often know exactly what sells. Five good conversations yield more than fifty poor surveys.</li>
+</ul>
+<h3>Good questions</h3>
+<ul>
+ <li>Ask about past behaviour, not plans: "How often did you buy bread last week, and where?" instead of "Would you buy from me?"</li>
+ <li>One topic per question, short answer options, and always "other" and "don't know".</li>
+ <li>Test the questionnaire on five people first. Ask in Dutch and, where needed, in Sranan or another language spoken in the area.</li>
+ <li>Ask for no more personal data than needed, say what you use it for and store it safely. A personal data protection bill is before parliament; see <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Rekenvoorbeeld: een buurtbakkerij in Wanica' if nl else 'Worked example: a neighbourhood bakery in Wanica' }}</h2>
+{% if nl %}
+<p>Stel, je wilt een bakkerij openen in een ressort in Wanica. Het voorbeeld hieronder laat de methode zien. De aannames zijn <b>fictief</b>: vervang ze door je eigen cijfers uit de census, je enquête en je tellingen.</p>
+<table class="tbl stack tx"><thead><tr><th>Stap</th><th>Bron</th><th>Rekensom</th><th>Uitkomst</th></tr></thead><tbody>
+ <tr><td data-l="Stap">1. Inwoners in je verzorgingsgebied (2012)</td><td data-l="Bron">ABS census 2012 per ressort (Redatam)</td><td data-l="Rekensom">Aanname: 20.000</td><td data-l="Uitkomst">20.000</td></tr>
+ <tr><td data-l="Stap">2. Ophogen naar nu</td><td data-l="Bron">Wereldbank 640.000 / census 541.638</td><td data-l="Rekensom">20.000 × 1,18</td><td data-l="Uitkomst">ongeveer 23.600</td></tr>
+ <tr><td data-l="Stap">3. Huishoudens</td><td data-l="Bron">Gemiddelde huishoudgrootte uit de census van je ressort</td><td data-l="Rekensom">Aanname: 23.600 / 3,5</td><td data-l="Uitkomst">ongeveer 6.700</td></tr>
+ <tr><td data-l="Stap">4. Vraag per dag</td><td data-l="Bron">Eigen enquête: deel dat dagelijks brood koopt, en hoeveel</td><td data-l="Rekensom">Aanname: 70% koopt 1 brood per dag</td><td data-l="Uitkomst">ongeveer 4.700 broden per dag</td></tr>
+ <tr><td data-l="Stap">5. Haalbaar marktaandeel</td><td data-l="Bron">Concurrentiekaart: 4 bakkerijen en 3 supermarkten in het gebied</td><td data-l="Rekensom">Aanname: 8% in jaar 1</td><td data-l="Uitkomst">ongeveer 375 broden per dag</td></tr>
+ <tr><td data-l="Stap">6. Controle van onderen</td><td data-l="Bron">Tellingen bij concurrenten in de ochtendspits</td><td data-l="Rekensom">Bijvoorbeeld 60 klanten per uur × 1,5 brood × 4 uur</td><td data-l="Uitkomst">360 per dag: past bij stap 5</td></tr>
+</tbody></table>
+<p>Vermenigvuldig het aantal broden met je eigen gemiddelde verkoopprijs (uit je prijzenronde) en 30 dagen voor een maandomzet, en zet daar je kosten tegenover in <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> en <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>. Komen stap 5 en stap 6 ver uit elkaar, zoek dan uit waarom voordat je investeert. Neem meel- en energieprijzen mee als risico: meel hangt af van ingevoerde tarwe en dus van de dollarkoers, en stroomuitval kost je een bakdag; zie <a href="{{ U('outages') }}">{{ L('outages') }}</a> en <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</p>
+{% else %}
+<p>Suppose you want to open a bakery in a ressort in Wanica. The example below shows the method. The assumptions are <b>fictional</b>: replace them with your own figures from the census, your survey and your counts.</p>
+<table class="tbl stack tx"><thead><tr><th>Step</th><th>Source</th><th>Calculation</th><th>Result</th></tr></thead><tbody>
+ <tr><td data-l="Step">1. Residents in your catchment area (2012)</td><td data-l="Source">ABS 2012 census per ressort (Redatam)</td><td data-l="Calculation">Assumption: 20,000</td><td data-l="Result">20,000</td></tr>
+ <tr><td data-l="Step">2. Scale up to today</td><td data-l="Source">World Bank 640,000 / census 541,638</td><td data-l="Calculation">20,000 × 1.18</td><td data-l="Result">about 23,600</td></tr>
+ <tr><td data-l="Step">3. Households</td><td data-l="Source">Average household size from the census for your ressort</td><td data-l="Calculation">Assumption: 23,600 / 3.5</td><td data-l="Result">about 6,700</td></tr>
+ <tr><td data-l="Step">4. Demand per day</td><td data-l="Source">Your survey: share buying bread daily, and how much</td><td data-l="Calculation">Assumption: 70% buy 1 loaf a day</td><td data-l="Result">about 4,700 loaves a day</td></tr>
+ <tr><td data-l="Step">5. Achievable market share</td><td data-l="Source">Competitor map: 4 bakeries and 3 supermarkets in the area</td><td data-l="Calculation">Assumption: 8% in year 1</td><td data-l="Result">about 375 loaves a day</td></tr>
+ <tr><td data-l="Step">6. Bottom-up check</td><td data-l="Source">Counts at competitors during the morning peak</td><td data-l="Calculation">For example 60 customers an hour × 1.5 loaves × 4 hours</td><td data-l="Result">360 a day: consistent with step 5</td></tr>
+</tbody></table>
+<p>Multiply the number of loaves by your own average selling price (from your price round) and 30 days for monthly revenue, and set your costs against it in <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> and <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>. If steps 5 and 6 are far apart, find out why before you invest. Include flour and energy prices as risks: flour depends on imported wheat and so on the dollar rate, and a power cut costs you a baking day; see <a href="{{ U('outages') }}">{{ L('outages') }}</a> and <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</p>
+{% endif %}
+<p class="note">{{ 'Paramaribo en Wanica samen hadden in 2012 359.146 inwoners, 66% van het land. Wanica groeide tussen 2004 en 2012 met 37,5%, sneller dan het landelijk gemiddelde; de ophoogfactor van 1,18 is daarom voor Wanica eerder te laag dan te hoog.' if nl else 'Paramaribo and Wanica together had 359,146 residents in 2012, 66% of the country. Wanica grew 37.5% between 2004 and 2012, faster than the national average; the scaling factor of 1.18 is therefore more likely too low than too high for Wanica.' }}</p>
+
+<h2>{{ 'Checklist marktonderzoek' if nl else 'Market research checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Beslissing en onderzoeksvragen op papier</li>
+ <li>Doelgroep en verzorgingsgebied afgebakend (district, ressort, of land bij export)</li>
+ <li>Bevolking uit census 2012, opgehoogd met een duidelijke factor en bron</li>
+ <li>HS-code gevonden; invoer en export van de laatste 3 tot 5 jaar opgehaald</li>
+ <li>Prijzenronde bij minstens 5 verkooppunten, met datum</li>
+ <li>Concurrenten in kaart, met tellingen op een drukke en een rustige dag</li>
+ <li>Enquête getest, steekproef groot genoeg en willekeurig gekozen</li>
+ <li>Gesprekken met minstens 3 leveranciers of groothandels</li>
+ <li>Marktomvang van boven naar beneden en van onder naar boven, en het verschil verklaard</li>
+ <li>Elke bron met datum in je ondernemingsplan; zwakke cijfers als aanname gemarkeerd</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Decision and research questions written down</li>
+ <li>Target group and catchment area defined (district, ressort, or country for exports)</li>
+ <li>Population from the 2012 census, scaled up with a clear factor and source</li>
+ <li>HS code found; imports and exports for the last 3 to 5 years collected</li>
+ <li>Price round at at least 5 outlets, with dates</li>
+ <li>Competitors mapped, with counts on a busy and a quiet day</li>
+ <li>Survey tested, sample large enough and randomly chosen</li>
+ <li>Talks with at least 3 suppliers or wholesalers</li>
+ <li>Market size top-down and bottom-up, and the difference explained</li>
+ <li>Every source with a date in your business plan; weak figures marked as assumptions</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...er voor mijn product geen cijfers bestaan?</b> Zoek een vergelijkbaar product of een verwante uitgave (bijvoorbeeld invoer van verpakkingen of grondstoffen) en reken van onder naar boven met tellingen en interviews.</li>
+ <li><b>...het ABS de cijfers niet geeft omdat de branche te klein is?</b> Gebruik spiegeldata in Trade Map: wat de leverancierslanden naar Suriname exporteren. Of bel de importeurs zelf.</li>
+ <li><b>...de Census 9-uitkomsten verschijnen terwijl mijn plan klaar is?</b> Werk de bevolkingscijfers bij en kijk of je conclusie verandert. Banken waarderen het als je laat zien dat je de nieuwste cijfers gebruikt.</li>
+ <li><b>...ik wil exporteren maar de buitenlandse markt niet ken?</b> Begin met Export Potential Map en Trade Map, praat met de handelsattaché of een ambassade en bezoek een vakbeurs; zie <a href="{{ U('events') }}">{{ L('events') }}</a> en <a href="{{ U('countries') }}">{{ L('countries') }}</a>.</li>
+ <li><b>...ik een onderzoeksbureau wil inhuren?</b> Vraag om de vragenlijst, de steekproefmethode en de ruwe uitkomsten, niet alleen om een rapport. Zie <a href="{{ U('associations') }}">{{ L('associations') }}</a> voor brancheorganisaties die soms al sectoronderzoek hebben.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...there are no figures for my product?</b> Look for a comparable product or related spending (for example imports of packaging or raw materials) and work bottom-up with counts and interviews.</li>
+ <li><b>...the ABS will not release figures because the branch is too small?</b> Use mirror data in Trade Map: what supplier countries export to Suriname. Or call the importers yourself.</li>
+ <li><b>...Census 9 results come out when my plan is finished?</b> Update the population figures and see whether your conclusion changes. Banks appreciate it when you show you use the latest figures.</li>
+ <li><b>...I want to export but do not know the foreign market?</b> Start with Export Potential Map and Trade Map, talk to a trade attaché or an embassy and visit a trade fair; see <a href="{{ U('events') }}">{{ L('events') }}</a> and <a href="{{ U('countries') }}">{{ L('countries') }}</a>.</li>
+ <li><b>...I want to hire a research firm?</b> Ask for the questionnaire, the sampling method and the raw results, not just a report. See <a href="{{ U('associations') }}">{{ L('associations') }}</a> for trade associations that sometimes already have sector research.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://statistics-suriname.org/" rel="noopener">{{ 'Algemeen Bureau voor de Statistiek (ABS)' if nl else 'General Bureau of Statistics (ABS)' }}</a></li>
+ <li><a href="https://statistics-suriname.org/census/" rel="noopener">{{ 'ABS: census, resultaten 2004 en 2012 en Census 9' if nl else 'ABS: census, 2004 and 2012 results and Census 9' }}</a></li>
+ <li><a href="https://gov.sr/abs-verricht-veldwerk-in-voorbereiding-op-9e-census/" rel="noopener">{{ 'GOV.SR: ABS verricht veldwerk in voorbereiding op 9e census (2024)' if nl else 'GOV.SR: ABS fieldwork in preparation for the 9th census (2024)' }}</a></li>
+ <li><a href="https://statistics-suriname.org/metadata/economische-divisie/consumenten-prijs-index-cpi/" rel="noopener">{{ 'ABS: metadata consumentenprijsindex' if nl else 'ABS: consumer price index metadata' }}</a></li>
+ <li><a href="https://statistics-suriname.org/metadata/economische-divisie/handelsstatistieken/" rel="noopener">{{ 'ABS: handelsstatistieken en afschermingsbeleid' if nl else 'ABS: trade statistics and disclosure policy' }}</a></li>
+ <li><a href="https://statistics-suriname.org/huishoudonderzoeken-en-cartografie/" rel="noopener">{{ 'ABS: huishoudonderzoeken' if nl else 'ABS: household surveys' }}</a></li>
+ <li><a href="https://statistics-suriname.org/bedrijvenstatistieken/" rel="noopener">{{ 'ABS: bedrijvenstatistieken' if nl else 'ABS: business statistics' }}</a></li>
+ <li><a href="https://www.cbvs.sr/" rel="noopener">{{ 'Centrale Bank van Suriname' if nl else 'Central Bank of Suriname' }}</a></li>
+ <li><a href="https://data.worldbank.org/country/suriname" rel="noopener">{{ 'Wereldbank: data Suriname' if nl else 'World Bank: Suriname data' }}</a></li>
+ <li><a href="https://www.trademap.org/" rel="noopener">ITC Trade Map</a>, <a href="https://exportpotential.intracen.org/" rel="noopener">ITC Export Potential Map</a>, <a href="https://www.macmap.org/" rel="noopener">ITC Market Access Map</a>, <a href="https://www.sustainabilitymap.org/" rel="noopener">ITC Sustainability Map</a></li>
+ <li><a href="https://comtradeplus.un.org/" rel="noopener">UN Comtrade</a></li>
+ <li><a href="https://trade.ec.europa.eu/access-to-markets/en/home" rel="noopener">{{ 'Europese Commissie: Access2Markets' if nl else 'European Commission: Access2Markets' }}</a></li>
+ <li><a href="https://statistics.caricom.org/" rel="noopener">{{ 'CARICOM: regionaal statistiekprogramma' if nl else 'CARICOM: Regional Statistics Programme' }}</a></li>
+ <li><a href="https://e-services.surinamechamber.com" rel="noopener">{{ 'KKF: E-Services en handelsregister' if nl else 'KKF: E-Services and trade register' }}</a></li>
+ <li><a href="https://www.devdiscourse.com/article/other/3953214-suriname-faces-race-against-time-to-prepare-workers-for-15000-new-jobs-by-2030-says-report" rel="noopener">{{ 'Devdiscourse over het Wereldbankrapport Suriname Jobs and Skills Radar 2030 (juli 2026)' if nl else 'Devdiscourse on the World Bank report Suriname Jobs and Skills Radar 2030 (July 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Het rekenvoorbeeld gebruikt fictieve aannames om de methode te laten zien. Werk de bevolkingscijfers bij zodra het ABS de Census 9-resultaten publiceert.' if nl else 'The worked example uses fictional assumptions to show the method. Update the population figures as soon as the ABS publishes the Census 9 results.' }}</p>
+</div>
+{% endblock %}

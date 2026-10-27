@@ -1,0 +1,310 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Duurzaam ondernemen' if nl else 'Sustainable business' }}</h1>
+{% if nl %}
+<p class="lead">Voor een Surinaams mkb-bedrijf betekent duurzaam ondernemen vooral: minder geld kwijt aan stroom, brandstof en afval, je personeel goed behandelen, en de vragen van klanten, banken en investeerders kunnen beantwoorden. Er is geen wettelijke rapportageplicht, maar de overheid stuurt met de Green Development Strategy 2025-2050 en banken en buitenlandse klanten vragen steeds vaker naar je milieu- en sociale prestaties.</p>
+{% else %}
+<p class="lead">For a Surinamese SME, sustainable business mainly means: spending less on power, fuel and waste, treating your staff well, and being able to answer the questions of customers, banks and investors. There is no legal reporting duty, but the government is steering with the Green Development Strategy 2025-2050, and banks and foreign customers increasingly ask about your environmental and social performance.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Bosbedekking' if nl else 'Forest cover' }}</div><div class="big">93%</div><div class="sub">{{ 'Suriname is koolstofnegatief' if nl else 'Suriname is carbon negative' }}</div></div>
+ <div class="card"><div class="eyebrow">Green Development Strategy</div><div class="big">2025-2050</div><div class="sub">{{ 'gelanceerd 14 februari 2025' if nl else 'launched 14 February 2025' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Zonnekrediet huishoudens' if nl else 'Household solar loan' }}</div><div class="big">9%</div><div class="sub">{{ 'tot 90 maanden, één bank, juli 2026' if nl else 'up to 90 months, one bank, July 2026' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Begin bij je kosten</b>: stroom, diesel voor de generator, transport en afval. Meten is de eerste stap en levert meestal direct besparing op.</li>
+ <li><b>Zonne-energie</b>: kleinschalige opwekking achter de meter is toegestaan, met verrekening via het net. Regels voor aansluiting en teruglevering: <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+ <li><b>Groene financiering</b>: de banken werken sinds eind 2024 met IDB Invest aan een gezamenlijk protocol voor duurzame financiering. Hakrinbank lanceerde in juli 2026 een zonnekrediet voor huishoudens; vraag je eigen bank naar zakelijke varianten.</li>
+ <li><b>Koolstofkredieten</b>: de staat verkoopt Surinaamse bosresultaten als ITMO's onder artikel 6 van het Parijsakkoord. Een gewoon bedrijf kan zijn eigen bos niet zomaar als kredieten verkopen.</li>
+ <li><b>Klanten en ESG</b>: Europese klanten geven hun eisen door; zie <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Houd een paar basiscijfers bij: energie, brandstof, afval, water, personeel, ongevallen.</li>
+ <li><b>Netwerken</b>: het UN Global Compact heeft sinds 2024 een Caribisch netwerk, en het SDG Platform Suriname verbindt overheid en niet-overheidspartijen.</li>
+{% else %}
+ <li><b>Start with your costs</b>: power, diesel for the generator, transport and waste. Measuring is the first step and usually saves money straight away.</li>
+ <li><b>Solar power</b>: small-scale generation behind the meter is allowed, with net billing. Connection and feed-in rules: <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+ <li><b>Green finance</b>: since late 2024 the banks have worked with IDB Invest on a joint sustainable finance protocol. Hakrinbank launched a solar loan for households in July 2026; ask your own bank about business versions.</li>
+ <li><b>Carbon credits</b>: the state sells Surinamese forest results as ITMOs under Article 6 of the Paris Agreement. An ordinary company cannot simply sell its own forest as credits.</li>
+ <li><b>Customers and ESG</b>: European customers pass their requirements on; see <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Keep some basic figures: energy, fuel, waste, water, staff, accidents.</li>
+ <li><b>Networks</b>: the UN Global Compact has had a Caribbean network since 2024, and the SDG Platform Suriname links government and non-state actors.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wat duurzaam ondernemen in Suriname concreet is' if nl else 'What sustainable business means in Suriname' }}</h2>
+{% if nl %}
+<p>Duurzaam ondernemen is geen apart project naast je bedrijf. Het gaat over drie dingen die je al doet, maar dan bewust en met cijfers:</p>
+<table class="tbl stack tx"><thead><tr><th>Onderdeel</th><th>Voorbeelden</th><th>Wat het oplevert</th></tr></thead><tbody>
+ <tr><td data-l="Onderdeel"><b>Milieu</b> (E)</td><td data-l="Voorbeelden">Zuinige koeling en verlichting, zonnepanelen, minder generatoruren, afval scheiden, geen lozingen</td><td data-l="Wat het oplevert">Lagere kosten, minder stroomuitval-risico, minder kans op sancties (zie <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</td></tr>
+ <tr><td data-l="Onderdeel"><b>Mensen</b> (S)</td><td data-l="Voorbeelden">Eerlijk loon, veilige werkplek, opleiding, geen kinderarbeid, goede band met de buurt</td><td data-l="Wat het oplevert">Minder verloop en verzuim, minder ongevallen (zie <a href="{{ U('safety') }}">{{ L('safety') }}</a>)</td></tr>
+ <tr><td data-l="Onderdeel"><b>Bestuur</b> (G)</td><td data-l="Voorbeelden">Boekhouding op orde, belasting betalen, geen omkoping, duidelijke besluitvorming</td><td data-l="Wat het oplevert">Makkelijker krediet, vertrouwen van klanten en investeerders (zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>)</td></tr>
+</tbody></table>
+<p>Maatschappelijk verantwoord ondernemen (MVO, of CSR in het Engels) is daarbij meer dan sponsoring. Een donatie aan een school is mooi, maar een klant of bank kijkt eerst naar hoe je je eigen werk doet.</p>
+{% else %}
+<p>Sustainable business is not a separate project next to your business. It is about three things you already do, but consciously and with figures:</p>
+<table class="tbl stack tx"><thead><tr><th>Area</th><th>Examples</th><th>What it brings</th></tr></thead><tbody>
+ <tr><td data-l="Area"><b>Environment</b> (E)</td><td data-l="Examples">Efficient cooling and lighting, solar panels, fewer generator hours, waste separation, no discharges</td><td data-l="What it brings">Lower costs, less outage risk, less chance of penalties (see <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</td></tr>
+ <tr><td data-l="Area"><b>People</b> (S)</td><td data-l="Examples">Fair pay, safe workplace, training, no child labour, good relations with the neighbourhood</td><td data-l="What it brings">Less turnover and absence, fewer accidents (see <a href="{{ U('safety') }}">{{ L('safety') }}</a>)</td></tr>
+ <tr><td data-l="Area"><b>Governance</b> (G)</td><td data-l="Examples">Books in order, paying tax, no bribery, clear decision-making</td><td data-l="What it brings">Easier credit, trust from customers and investors (see <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>)</td></tr>
+</tbody></table>
+<p>Corporate social responsibility (CSR, in Dutch MVO) is more than sponsorship. A donation to a school is welcome, but a customer or bank first looks at how you run your own operations.</p>
+{% endif %}
+
+<h2>{{ 'Het beleid: GDS, NDC en een rechtvaardige transitie' if nl else 'Policy: GDS, NDC and a just transition' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Green Development Strategy (GDS) 2025-2050</b>: op 14 februari 2025 gelanceerd. Vier pijlers: duurzame economische diversificatie, natuurbescherming en klimaatbestendigheid, sociale inclusie, en goed bestuur. Doel: de 93% bosbedekking behouden en koolstofnegatief blijven, terwijl landbouw, industrie, toerisme, ICT en financiële diensten groeien. Er zou een GDS-wet en per sector een actieplan met de IDB komen. Na de regeringswissel van juli 2025 valt milieu onder het nieuwe ministerie van Olie, Gas en Milieu.</li>
+ <li><b>NDC 3.0</b>: de nieuwe klimaatbijdrage van Suriname onder het Parijsakkoord voor 2025-2035 werd op 28 oktober 2025 gevalideerd. Kernpunt: olie- en gasinkomsten moeten groene en klimaatbestendige ontwikkeling financieren, met een nieuw systeem om voortgang te meten.</li>
+ <li><b>Elektriciteitssectorplan</b>: de Energie Autoriteit Suriname (EAS) presenteerde op 15 mei 2025 een plan met meer zon en wind en minder afhankelijkheid van fossiele brandstof.</li>
+ <li><b>Rechtvaardige transitie (just transition)</b>: het ministerie van Arbeid rondde in december 2024 met de ILO de voorfase af van beleid dat werknemers beschermt tijdens de overgang naar een groene economie: nieuwe vaardigheden, sociale bescherming en sociale dialoog. Het hoort bij het Decent Work Country Programme 2023-2026.</li>
+ <li><b>Koolstofbelasting</b>: in april 2025 onderzocht de overheid met de EU de haalbaarheid van een koolstofbelasting, eventueel met een binnenlandse koolstofmarkt. De verwachte invoeringstermijn was 1 tot 3 jaar. Er is nog niets besloten.</li>
+</ul>
+<p>Voor ondernemers betekent dit: kansen in ecotoerisme (<a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>), agroverwerking (<a href="{{ U('agri') }}">{{ L('agri') }}</a>), hernieuwbare energie en diensten, en op termijn een prijs op uitstoot. Een overzicht van sectoren: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% else %}
+<ul>
+ <li><b>Green Development Strategy (GDS) 2025-2050</b>: launched on 14 February 2025. Four pillars: sustainable economic diversification, nature protection and climate resilience, social inclusion, and good governance. Aim: keep 93% forest cover and stay carbon negative while agriculture, industry, tourism, ICT and financial services grow. A GDS act and sector action plans with the IDB were planned. After the change of government in July 2025, environment falls under the new Ministry of Oil, Gas and Environment.</li>
+ <li><b>NDC 3.0</b>: Suriname's new climate contribution under the Paris Agreement for 2025-2035 was validated on 28 October 2025. Key point: oil and gas revenue should finance green and climate-resilient development, with a new system to measure progress.</li>
+ <li><b>Electricity Sector Plan</b>: the Energy Authority of Suriname (EAS) presented a plan on 15 May 2025 with more solar and wind and less dependence on fossil fuel.</li>
+ <li><b>Just transition</b>: in December 2024 the labour ministry and the ILO completed the preparatory phase of a policy to protect workers during the shift to a green economy: new skills, social protection and social dialogue. It is part of the Decent Work Country Programme 2023-2026.</li>
+ <li><b>Carbon tax</b>: in April 2025 the government studied, with the EU, the feasibility of a carbon tax, possibly with a domestic carbon market. The expected lead time was 1 to 3 years. Nothing has been decided yet.</li>
+</ul>
+<p>For business owners this means opportunities in ecotourism (<a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>), agro-processing (<a href="{{ U('agri') }}">{{ L('agri') }}</a>), renewable energy and services, and eventually a price on emissions. An overview of sectors: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Energie besparen en zonne-energie' if nl else 'Saving energy and solar power' }}</h2>
+{% if nl %}
+<p>Bij de meeste kleine bedrijven zit de grootste duurzame winst in stroom en brandstof. Koeling, airco en een dieselgenerator voor stroomuitval zijn vaak de grootste posten.</p>
+<ol class="steps">
+ <li><b>Lees je meter</b> een maand lang elke week af en noteer generatoruren en liters diesel. Rekenhulp: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> voor brandstof, <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> voor je maandlasten.</li>
+ <li><b>Pak de makkelijke winst</b>: ledverlichting, airco's met inverter op 24 tot 25 °C, deuren van koelcellen dicht, koelapparatuur onderhouden, apparaten 's nachts uit.</li>
+ <li><b>Bekijk zonnepanelen</b>. Volgens de elektriciteitswet uit 2016 en het rapport van de I-TRACK Foundation (januari 2026) is kleinschalige opwekking bij de afnemer toegestaan, met verrekening van wat je terug levert (net billing). Grootschalige opwekking door particulieren vraagt nog beleid. Combineer panelen met een batterij als je vooral last hebt van uitval.</li>
+ <li><b>Reken het door</b>: investering, besparing per maand, terugverdientijd en rente. Gebruik <a href="{{ U('roi') }}">{{ L('roi') }}</a> en <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</li>
+ <li><b>Regel aansluiting en vergunning</b> met EBS en controleer de regels voor teruglevering; zie <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+</ol>
+<p>Wie hernieuwbare stroom opwekt, kan daar internationale certificaten (I-REC) voor laten uitgeven. In Suriname is de Suriname Energy Chamber de erkende lokale uitgever. Voor de meeste kleine bedrijven is dit pas interessant als een buitenlandse klant aantoonbaar groene stroom vraagt.</p>
+{% else %}
+<p>For most small businesses the biggest sustainability gain is in power and fuel. Cooling, air conditioning and a diesel generator for power cuts are often the largest items.</p>
+<ol class="steps">
+ <li><b>Read your meter</b> every week for a month and record generator hours and litres of diesel. Tools: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> for fuel, <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> for your monthly costs.</li>
+ <li><b>Take the easy wins</b>: LED lighting, inverter air conditioners set at 24 to 25 °C, cold room doors closed, cooling equipment serviced, appliances off at night.</li>
+ <li><b>Look at solar panels</b>. Under the 2016 electricity law and according to the I-TRACK Foundation report (January 2026), small-scale generation at the customer's premises is allowed, with net billing for what you feed back. Large-scale private generation still needs policy. Combine panels with a battery if power cuts are your main problem.</li>
+ <li><b>Do the sums</b>: investment, monthly savings, payback period and interest. Use <a href="{{ U('roi') }}">{{ L('roi') }}</a> and <a href="{{ U('loan') }}">{{ L('loan') }}</a>.</li>
+ <li><b>Arrange connection and permits</b> with EBS and check the feed-in rules; see <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+</ol>
+<p>If you generate renewable power, you can have international certificates (I-RECs) issued for it. In Suriname the Suriname Energy Chamber is the approved local issuer. For most small businesses this only matters when a foreign customer asks for proof of green power.</p>
+{% endif %}
+
+<h2>{{ 'Groene financiering' if nl else 'Green finance' }}</h2>
+{% if nl %}
+<p>Echte "groene leningen" voor bedrijven zijn in Suriname nog schaars, maar er beweegt veel:</p>
+<ul>
+ <li><b>Protocol voor duurzame financiering</b>: in november 2024 startten de Surinaamse Bankiersvereniging (SBV) en IDB Invest een traject voor een gezamenlijk protocol. Doel: richtlijnen voor klimaatrisico's, het herkennen van groene financieringskansen en training van bankpersoneel. Verwacht dat banken bij grotere kredieten vaker vragen naar milieu- en sociale risico's.</li>
+ <li><b>Zonnekrediet</b>: Hakrinbank lanceerde in juli 2026 een kredietfaciliteit voor zonnepanelen voor huishoudens, met SRD 90 miljoen, looptijd tot 90 maanden en 9% rente per jaar. Andere banken bieden leningen voor zonne- en back-upsystemen via leveranciers; vraag bij je eigen bank wat er zakelijk kan.</li>
+ <li><b>NOB en IDB</b>: het leen- en garantieprogramma voor het mkb (2024) bevat USD 2 miljoen uit het Amazon Bioeconomy Fund van het Green Climate Fund voor technische bijstand en garanties voor groene ondernemingen. Zie <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Subsidies en programma's</b> van donoren voor duurzame projecten: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+</ul>
+<p>Wat een bank wil zien bij een groene investering: een offerte van een erkende installateur, je huidige stroom- en brandstofkosten, de verwachte besparing, en je vergunningen. Een goed <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a> helpt.</p>
+{% else %}
+<p>Genuine "green loans" for businesses are still scarce in Suriname, but a lot is moving:</p>
+<ul>
+ <li><b>Sustainable finance protocol</b>: in November 2024 the Suriname Bankers Association (SBV) and IDB Invest started work on a joint protocol. Aim: guidelines for climate risk, identifying green finance opportunities and training bank staff. Expect banks to ask more often about environmental and social risks for larger loans.</li>
+ <li><b>Solar loan</b>: in July 2026 Hakrinbank launched a credit facility for solar panels for households, with SRD 90 million, terms of up to 90 months and 9% interest a year. Other banks offer loans for solar and backup systems through suppliers; ask your own bank what is possible for businesses.</li>
+ <li><b>NOB and IDB</b>: the SME loan and guarantee programme (2024) includes USD 2 million from the Green Climate Fund's Amazon Bioeconomy Fund for technical assistance and guarantees for green enterprises. See <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Grants and programmes</b> from donors for sustainable projects: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+</ul>
+<p>What a bank wants to see for a green investment: a quote from a recognised installer, your current power and fuel costs, the expected savings, and your permits. A good <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a> helps.</p>
+{% endif %}
+
+<h2>{{ 'Koolstofkredieten: wat kan en wat niet' if nl else 'Carbon credits: what you can and cannot do' }}</h2>
+{% if nl %}
+<p>Suriname haalt meer CO2 uit de lucht dan het uitstoot. De staat liet de resultaten van vertraagde ontbossing over 2015-2021 registreren bij het klimaatsecretariaat van de VN en verkoopt die sinds augustus 2024 als overdraagbare emissiereducties (ITMO's) onder artikel 6.2 van het Parijsakkoord, aan landen en aan bedrijven met netto-nuldoelen. Het zijn <b>soevereine</b> kredieten: de opbrengst gaat naar de staat, met een verdeelmechanisme voor investeerders, ontwikkelaars en lokale gemeenschappen.</p>
+<table class="tbl stack tx"><thead><tr><th>Als bedrijf</th><th>Kan het?</th></tr></thead><tbody>
+ <tr><td data-l="Als bedrijf">Je eigen uitstoot meten en verlagen</td><td data-l="Kan het?">Ja, en dat is altijd de eerste stap</td></tr>
+ <tr><td data-l="Als bedrijf">Kredieten kopen om je resterende uitstoot te compenseren</td><td data-l="Kan het?">Ja, maar claim niet "klimaatneutraal" zonder meting, en kies erkende standaarden</td></tr>
+ <tr><td data-l="Als bedrijf">Groene stroom aantonen met I-REC-certificaten</td><td data-l="Kan het?">Ja, via de lokale uitgever</td></tr>
+ <tr><td data-l="Als bedrijf">Je eigen stuk bos of concessie als kredieten verkopen</td><td data-l="Kan het?">Niet zomaar. Een nationaal kader voor particuliere bosprojecten hebben wij niet gevonden, en voor internationale verkoop onder artikel 6 is toestemming (autorisatie) van de staat nodig. Vraag het ministerie van OGM</td></tr>
+ <tr><td data-l="Als bedrijf">Werken als dienstverlener voor koolstofprojecten (metingen, GIS, monitoring)</td><td data-l="Kan het?">Ja, hier liggen de meeste kansen voor Surinaamse bedrijven</td></tr>
+</tbody></table>
+<p>Wees voorzichtig met aanbiedingen van buitenlandse "carbon developers" die exclusieve rechten op grond of bos vragen. Laat elk contract nakijken en controleer of de overheid het project kent. Grondrechten: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% else %}
+<p>Suriname removes more CO2 from the atmosphere than it emits. The state had the results of slowed deforestation for 2015-2021 registered with the UN climate secretariat and has been selling them since August 2024 as internationally transferred mitigation outcomes (ITMOs) under Article 6.2 of the Paris Agreement, to countries and to companies with net-zero targets. They are <b>sovereign</b> credits: the revenue goes to the state, with a benefit-sharing mechanism for investors, developers and local communities.</p>
+<table class="tbl stack tx"><thead><tr><th>As a company</th><th>Possible?</th></tr></thead><tbody>
+ <tr><td data-l="As a company">Measuring and cutting your own emissions</td><td data-l="Possible?">Yes, and it is always the first step</td></tr>
+ <tr><td data-l="As a company">Buying credits to offset remaining emissions</td><td data-l="Possible?">Yes, but do not claim "carbon neutral" without measurement, and choose recognised standards</td></tr>
+ <tr><td data-l="As a company">Proving green power with I-REC certificates</td><td data-l="Possible?">Yes, through the local issuer</td></tr>
+ <tr><td data-l="As a company">Selling your own forest or concession as credits</td><td data-l="Possible?">Not simply. We have not found a national framework for private forest projects, and international sales under Article 6 need state authorisation. Ask the Ministry of Oil, Gas and Environment</td></tr>
+ <tr><td data-l="As a company">Working as a service provider for carbon projects (measurement, GIS, monitoring)</td><td data-l="Possible?">Yes, this is where most opportunities for Surinamese firms lie</td></tr>
+</tbody></table>
+<p>Be careful with offers from foreign "carbon developers" asking for exclusive rights to land or forest. Have every contract reviewed and check whether the government knows the project. Land rights: <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'ESG-vragen van klanten en investeerders' if nl else 'ESG questions from customers and investors' }}</h2>
+{% if nl %}
+<p>Grote kopers, olie- en mijnbedrijven, hotels van internationale ketens en buitenlandse investeerders sturen steeds vaker een duurzaamheidsvragenlijst. Europese regels zoals de ontbossingsverordening (EUDR), de duurzaamheidsrapportage (CSRD) en het verbod op dwangarbeid werken via hen door naar jou; zie <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Wie aan de olie- en gassector levert, krijgt daarnaast HSE- en local-content-eisen; zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<p>Houd daarom deze basisgegevens per jaar bij:</p>
+<ul class="check">
+ <li>Stroomverbruik (kWh) en brandstof (liters diesel en benzine)</li>
+ <li>Waterverbruik en hoe je afvalwater afvoert</li>
+ <li>Afval in kilo's of ritten, gescheiden in gewoon, recyclebaar en gevaarlijk</li>
+ <li>Aantal werknemers, man/vrouw, verloop, opleidingsuren</li>
+ <li>Ongevallen en verzuim (uit je ongevallenregister)</li>
+ <li>Vergunningen en MEA-besluiten (zie <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</li>
+ <li>Een korte gedragscode: geen kinderarbeid, geen dwangarbeid, geen omkoping, klachtenregeling</li>
+</ul>
+{% else %}
+<p>Large buyers, oil and mining companies, international hotel chains and foreign investors increasingly send a sustainability questionnaire. European rules such as the Deforestation Regulation (EUDR), sustainability reporting (CSRD) and the forced labour ban reach you through them; see <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>. Suppliers to the oil and gas sector also get HSE and local content requirements; see <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<p>So keep these basic figures per year:</p>
+<ul class="check">
+ <li>Power use (kWh) and fuel (litres of diesel and petrol)</li>
+ <li>Water use and how you dispose of wastewater</li>
+ <li>Waste in kilos or trips, split into ordinary, recyclable and hazardous</li>
+ <li>Number of employees, men/women, turnover, training hours</li>
+ <li>Accidents and absence (from your accident register)</li>
+ <li>Permits and MEA decisions (see <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</li>
+ <li>A short code of conduct: no child labour, no forced labour, no bribery, a grievance procedure</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Je voetafdruk meten' if nl else 'Measuring your footprint' }}</h2>
+{% if nl %}
+<p>De internationale standaard is het Greenhouse Gas Protocol, met drie lagen:</p>
+<ul>
+ <li><b>Scope 1</b>: wat je zelf verbrandt, zoals diesel in de generator, brandstof in je wagens en gas in de keuken. Reken met ongeveer 2,7 kg CO2 per liter diesel en 2,3 kg per liter benzine.</li>
+ <li><b>Scope 2</b>: de stroom die je inkoopt. Vraag EBS of de EAS naar de uitstootfactor van het net, of rapporteer voorlopig alleen je kWh.</li>
+ <li><b>Scope 3</b>: alles in je keten, zoals ingekochte goederen, vracht en zakenreizen. Begin hier pas mee als een klant erom vraagt.</li>
+</ul>
+<p>Een eenvoudige spreadsheet met maandcijfers voor scope 1 en 2 volstaat voor de meeste klanten. Vergelijk jaar op jaar en noteer wat je hebt veranderd. Een milieumanagementsysteem volgens ISO 14001:2026 is de volgende stap; zie <a href="{{ U('environment') }}">{{ L('environment') }}</a> en <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+{% else %}
+<p>The international standard is the Greenhouse Gas Protocol, with three layers:</p>
+<ul>
+ <li><b>Scope 1</b>: what you burn yourself, such as diesel in the generator, fuel in your vehicles and gas in the kitchen. Use about 2.7 kg CO2 per litre of diesel and 2.3 kg per litre of petrol.</li>
+ <li><b>Scope 2</b>: the electricity you buy. Ask EBS or the EAS for the grid emission factor, or report only your kWh for now.</li>
+ <li><b>Scope 3</b>: everything in your value chain, such as purchased goods, freight and business travel. Only start on this when a customer asks.</li>
+</ul>
+<p>A simple spreadsheet with monthly figures for scopes 1 and 2 is enough for most customers. Compare year on year and note what you changed. An environmental management system under ISO 14001:2026 is the next step; see <a href="{{ U('environment') }}">{{ L('environment') }}</a> and <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Afval, plastic en water' if nl else 'Waste, plastic and water' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Afval verminderen</b>: koop in grotere verpakkingen of met retourverpakking, scheid karton, PET en blik voor recyclers, en houd gevaarlijk afval apart. De regering wil wegwerpplastic uitfaseren en de invoer van expandeerbaar polystyreen (piepschuim-grondstof) is sinds mei 2026 verboden: zoek nu al alternatieven voor bakjes en bekers.</li>
+ <li><b>Producentenverantwoordelijkheid</b>: in 2025 werd met bedrijven een beleidsnota besproken over statiegeld op PET-flessen en blikjes en verantwoordelijkheid van producenten en importeurs voor hun verpakking. Drankenproducenten en importeurs doen er goed aan dit te volgen.</li>
+ <li><b>Water (SDG 6)</b>: repareer lekken, vang regenwater op voor schoonmaak en irrigatie, en loos geen vet, olie of chemicaliën op de goot. Vissterfte door lozingen leidt tot onderzoek door de NMA.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Reducing waste</b>: buy in larger or returnable packaging, separate cardboard, PET and cans for recyclers, and keep hazardous waste apart. The government wants to phase out single-use plastic and imports of expandable polystyrene (the raw material for styrofoam) have been banned since May 2026: look for alternatives for containers and cups now.</li>
+ <li><b>Producer responsibility</b>: in 2025 a policy paper on deposits for PET bottles and cans and on the responsibility of producers and importers for their packaging was discussed with businesses. Beverage producers and importers should follow this.</li>
+ <li><b>Water (SDG 6)</b>: fix leaks, collect rainwater for cleaning and irrigation, and do not discharge fat, oil or chemicals into the drain. Fish kills caused by discharges lead to NMA investigations.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Keurmerken, netwerken en de SDG\'s' if nl else 'Labels, networks and the SDGs' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>UN Global Compact</b>: bedrijven onderschrijven tien principes over mensenrechten, arbeid, milieu en anticorruptie en rapporteren jaarlijks over hun voortgang. Sinds 2024 is er een Global Compact Network Caribbean, vanuit Barbados; Surinaamse bedrijven kunnen zich daar aansluiten. Er geldt een jaarlijkse bijdrage die afhangt van je omzet.</li>
+ <li><b>SDG Platform Suriname</b>: sinds juli 2022 een platform van niet-overheidspartijen naast de Nationale SDG Commissie van de overheid. Ook het bedrijfsleven heeft er een stem; werkgeversorganisaties organiseren SDG-informatiesessies en ontbijtbijeenkomsten voor directeuren. Zie <a href="{{ U('associations') }}">{{ L('associations') }}</a> en <a href="{{ U('events') }}">{{ L('events') }}</a>.</li>
+ <li><b>Productkeurmerken</b>: FSC voor hout, biologisch (EU-organic) voor voeding, Fairtrade of Rainforest Alliance voor cacao en koffie. Ze kosten audits en jaarlijkse fees; ze lonen als je koper erom vraagt of een hogere prijs betaalt. Zie <a href="{{ U('standards') }}">{{ L('standards') }}</a> en <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Managementsystemen</b>: ISO 14001 (milieu), ISO 45001 (veiligheid), ISO 50001 (energie). Pas zinvol als je organisatie en klanten er klaar voor zijn.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>UN Global Compact</b>: companies sign up to ten principles on human rights, labour, environment and anti-corruption and report on progress every year. Since 2024 there has been a Global Compact Network Caribbean, run from Barbados; Surinamese companies can join it. There is an annual contribution based on your revenue.</li>
+ <li><b>SDG Platform Suriname</b>: since July 2022 a platform of non-state actors alongside the government's National SDG Commission. Business also has a voice; employers' organisations hold SDG information sessions and breakfast meetings for CEOs. See <a href="{{ U('associations') }}">{{ L('associations') }}</a> and <a href="{{ U('events') }}">{{ L('events') }}</a>.</li>
+ <li><b>Product labels</b>: FSC for timber, organic (EU organic) for food, Fairtrade or Rainforest Alliance for cocoa and coffee. They involve audits and annual fees; they pay off when your buyer requires them or pays a higher price. See <a href="{{ U('standards') }}">{{ L('standards') }}</a> and <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Management systems</b>: ISO 14001 (environment), ISO 45001 (safety), ISO 50001 (energy). Only worthwhile when your organisation and customers are ready for it.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zet je wettelijke basis op orde</b>: vergunningen, milieuregels, veiligheid, loon. Duurzaamheid zonder naleving overtuigt niemand (<a href="{{ U('environment') }}">{{ L('environment') }}</a>, <a href="{{ U('safety') }}">{{ L('safety') }}</a>, <a href="{{ U('labour') }}">{{ L('labour') }}</a>).</li>
+ <li><b>Meet drie maanden</b>: stroom, brandstof, water, afval. Dat is je nulmeting.</li>
+ <li><b>Kies drie maatregelen</b> die geld besparen, zoals led, airco-instelling en minder generatoruren. Reken de terugverdientijd uit.</li>
+ <li><b>Onderzoek zonne-energie</b> met twee of drie offertes, en vraag je bank naar financiering.</li>
+ <li><b>Schrijf een beleid van één pagina</b>: wat je doet aan milieu, mensen en integriteit, met een verantwoordelijke en jaarlijkse doelen.</li>
+ <li><b>Betrek je personeel</b>: vraag om ideeën, train ze, en deel resultaten.</li>
+ <li><b>Communiceer eerlijk</b>: noem concrete cijfers en geen vage claims als "groen" of "klimaatneutraal" zonder bewijs.</li>
+ <li><b>Herhaal jaarlijks</b> en werk je cijfers bij voor klanten en bank.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Get your legal basics in order</b>: permits, environmental rules, safety, pay. Sustainability without compliance convinces nobody (<a href="{{ U('environment') }}">{{ L('environment') }}</a>, <a href="{{ U('safety') }}">{{ L('safety') }}</a>, <a href="{{ U('labour') }}">{{ L('labour') }}</a>).</li>
+ <li><b>Measure for three months</b>: power, fuel, water, waste. That is your baseline.</li>
+ <li><b>Pick three measures</b> that save money, such as LEDs, air conditioning settings and fewer generator hours. Work out the payback.</li>
+ <li><b>Look into solar</b> with two or three quotes, and ask your bank about financing.</li>
+ <li><b>Write a one-page policy</b>: what you do on environment, people and integrity, with a person in charge and yearly targets.</li>
+ <li><b>Involve your staff</b>: ask for ideas, train them and share results.</li>
+ <li><b>Communicate honestly</b>: give concrete figures, and avoid vague claims such as "green" or "carbon neutral" without evidence.</li>
+ <li><b>Repeat every year</b> and update your figures for customers and the bank.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Vergunningen en milieuregels op orde</li>
+ <li>Maandelijkse registratie van kWh, diesel, water en afval</li>
+ <li>Minstens drie besparingsmaatregelen uitgevoerd</li>
+ <li>Offerte en terugverdienberekening voor zonne-energie</li>
+ <li>Afval gescheiden; gevaarlijk afval apart en geregistreerd</li>
+ <li>Beleid van één pagina met verantwoordelijke en doelen</li>
+ <li>Gedragscode en klachtenregeling voor personeel en leveranciers</li>
+ <li>Map met bewijs voor klanten, bank en investeerders</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Permits and environmental rules in order</li>
+ <li>Monthly records of kWh, diesel, water and waste</li>
+ <li>At least three saving measures carried out</li>
+ <li>Quote and payback calculation for solar power</li>
+ <li>Waste separated; hazardous waste kept apart and recorded</li>
+ <li>One-page policy with a person in charge and targets</li>
+ <li>Code of conduct and grievance procedure for staff and suppliers</li>
+ <li>Folder with evidence for customers, bank and investors</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...een klant vraagt of ik "net zero" ben?</b> Zeg wat je meet en wat je doet. Een eerlijke nulmeting met een plan is beter dan een claim die je niet kunt onderbouwen.</li>
+ <li><b>...een buitenlandse partij mijn bos wil gebruiken voor koolstofkredieten?</b> Teken niets voordat een advocaat en het ministerie van OGM ernaar hebben gekeken.</li>
+ <li><b>...ik geld wil lenen voor zonnepanelen voor mijn bedrijf?</b> Vraag eerst je eigen bank; neem een offerte, je stroomrekeningen en een besparingsberekening mee. Vergelijk met leasing via de leverancier.</li>
+ <li><b>...ik een duurzaam product wil exporteren?</b> Kijk welk keurmerk je koper vraagt en wat de EU eist: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>, <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...a customer asks whether I am "net zero"?</b> Say what you measure and what you do. An honest baseline with a plan is better than a claim you cannot back up.</li>
+ <li><b>...a foreign party wants to use my forest for carbon credits?</b> Sign nothing until a lawyer and the Ministry of Oil, Gas and Environment have looked at it.</li>
+ <li><b>...I want to borrow for solar panels for my business?</b> Ask your own bank first; bring a quote, your electricity bills and a savings calculation. Compare with leasing through the supplier.</li>
+ <li><b>...I want to export a sustainable product?</b> Check which label your buyer asks for and what the EU requires: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>, <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://gov.sr/president-neemt-eerste-exemplaar-green-development-strategy-in-ontvangst/" rel="noopener">Lancering Green Development Strategy (14 februari 2025)</a></li>
+ <li><a href="https://gov.sr/green-development-strategy-vraagt-grote-investeringen-voor-duurzame-ontwikkeling/" rel="noopener">Green Development Strategy en investeringen (april 2025)</a></li>
+ <li><a href="https://gov.sr/suriname-zet-nieuwe-stap-in-klimaattraject-met-validatie-ndc-3-0/" rel="noopener">OGM: validatie NDC 3.0 (oktober 2025)</a></li>
+ <li><a href="https://gov.sr/eas-lanceert-toekomstgericht-elektriciteitssectorplan/" rel="noopener">EAS lanceert Elektriciteitssectorplan (mei 2025)</a></li>
+ <li><a href="https://eas.sr/" rel="noopener">Energie Autoriteit Suriname</a></li>
+ <li><a href="https://climate-laws.org/document/electricity-act-2016_b9ff" rel="noopener">Climate Change Laws of the World: Electricity Act 2016</a></li>
+ <li><a href="https://www.trackingstandard.org/wp-content/uploads/ITSF_CountryAssessmentReport_Suriname_EPP_v2.0_2026_PUBLIC.pdf" rel="noopener">I-TRACK Foundation: Country Assessment Report Suriname (januari 2026)</a></li>
+ <li><a href="https://gov.sr/awj-heeft-voorfase-beleidsformulering-just-transitie-afgerond/" rel="noopener">AWJ en ILO: voorfase beleid Just Transition (december 2024)</a></li>
+ <li><a href="https://gov.sr/suriname-onderzoekt-invoering-van-koolstofbelasting-ter-ondersteuning-van-duurzame-ontwikkeling/" rel="noopener">Suriname onderzoekt koolstofbelasting (april 2025)</a></li>
+ <li><a href="https://gov.sr/suriname-start-met-de-verkoop-van-emissie-reductie-carbon-credits/" rel="noopener">Suriname start verkoop van emissiereductie-kredieten (augustus 2024)</a></li>
+ <li><a href="https://gov.sr/minister-dasai-suriname-eerste-land-ter-wereld-die-koolstofkredieten-kan-verkopen-voor-vertraagde-ontbossing/" rel="noopener">Koolstofkredieten voor vertraagde ontbossing als ITMO's (september 2024)</a></li>
+ <li><a href="https://gov.sr/suriname-committeert-zich-aan-behoud-leidende-rol-in-koolstofkredieten/" rel="noopener">Registratie kredieten 2015-2021 bij UNFCCC (september 2023)</a></li>
+ <li><a href="https://www.hakrinbank.com/persbericht-hakrinbank/" rel="noopener">Hakrinbank: Solar Finance Solution (juli 2026)</a></li>
+ <li><a href="https://keynews.sr/surinaamse-banken-en-idb-invest-zetten-stap-naar-duurzame-financiering" rel="noopener">Key News: Surinaamse banken en IDB Invest, protocol duurzame financiering (november 2024)</a></li>
+ <li><a href="https://www.nob.sr/nob-en-idb-slaan-handen-ineen-voor-duurzaam-ondernemen/" rel="noopener">NOB en IDB: programma voor duurzaam ondernemen (mei 2024)</a></li>
+ <li><a href="https://unglobalcompact.org/engage-locally/latin-america/caribbean" rel="noopener">UN Global Compact: Global Compact Network Caribbean</a></li>
+ <li><a href="https://gov.sr/samenwerking-sdg-commissie-en-sdg-platform/" rel="noopener">BIBIS: SDG Commissie en SDG Platform Suriname (oktober 2023)</a></li>
+ <li><a href="https://gov.sr/suriname-versterkt-strijd-tegen-mariene-afval-via-regionaal-promar-project/" rel="noopener">OGM: PROMAR-project tegen marien afval (november 2025)</a></li>
+ <li><a href="https://ghgprotocol.org/corporate-standard" rel="noopener">Greenhouse Gas Protocol: Corporate Standard</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen financieel of juridisch advies. Productvoorwaarden van banken veranderen; vraag de actuele voorwaarden op bij je bank.' if nl else 'General information, not financial or legal advice. Bank product terms change; ask your bank for the current terms.' }}</p>
+</div>
+{% endblock %}

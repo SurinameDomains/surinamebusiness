@@ -1,0 +1,420 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Milieuregels voor bedrijven' if nl else 'Environmental rules for business' }}</h1>
+{% if nl %}
+<p class="lead">Sinds juli 2024 houdt de Nationale Milieu Autoriteit (NMA) toezicht op de Milieu Raamwet (S.B. 2020 no. 97). Grote en middelgrote projecten hebben vooraf een milieueffectenanalyse (MEA) nodig, en sinds 15 mei 2025 betaal je daarvoor een vergoeding. Werk je met chemicaliën, olie, afval of lawaai, dan heb je meestal ook een milieuvergunning, een vergunning voor gevaarlijke stoffen of een Hinderwetvergunning nodig.</p>
+{% else %}
+<p class="lead">Since July 2024 the National Environmental Authority (NMA) has enforced the Environmental Framework Act (S.B. 2020 no. 97). Large and medium projects need an environmental impact assessment (MEA) before they start, and since 15 May 2025 you pay a fee for it. If you work with chemicals, oil, waste or noise, you usually also need an environmental permit, a hazardous substances permit or a Nuisance Act permit.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Toezichthouder' if nl else 'Regulator' }}</div><div class="big">NMA</div><div class="sub">{{ 'operationeel sinds 26 juli 2024' if nl else 'operating since 26 July 2024' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'MEA-screening' if nl else 'MEA screening' }}</div><div class="big">{{ 'USD 100 tot 1.000' if nl else 'USD 100 to 1,000' }}</div><div class="sub">{{ 'vergoeding fase 1, sinds 15 mei 2025' if nl else 'phase 1 fee, since 15 May 2025' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Invoer kwik' if nl else 'Mercury imports' }}</div><div class="big">{{ 'Verboden' if nl else 'Banned' }}</div><div class="sub">{{ 'sinds 21 mei 2026 (S.B. 2026 no. 39)' if nl else 'since 21 May 2026 (S.B. 2026 no. 39)' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Wie</b>: de NMA (Zinniastraat 33-35, Paramaribo) beslist over MEA's, milieuvergunningen en vergunningen voor gevaarlijke stoffen. Beleid ligt sinds juli 2025 bij het ministerie van Olie, Gas en Milieu (OGM). De Hinderwetvergunning blijft bij de districtscommissaris.</li>
+ <li><b>MEA</b>: categorie A (volledige studie), B (drie trajecten, van extra informatie tot volledige studie) of C (geen MEA). Na een volledige aanvraag beslist de NMA binnen 14 werkdagen over de categorie.</li>
+ <li><b>Kosten</b>: screening USD 100 tot 1.000; voor de studie zelf 0,1% van de projectkosten vanaf USD 6 miljoen, anders minimaal USD 1.500. Daarbovenop betaal je je eigen milieuconsultant.</li>
+ <li><b>Ook categorie C</b> moet volgens het Besluit MEA een milieuvergunning of vergunning voor gevaarlijke stoffen aanvragen. De NMA voert die vergunningen stap voor stap in.</li>
+ <li><b>Chemicaliën</b>: invoer en uitvoer lopen via het Single Window met een NMA-checklist. Kwik is sinds 21 mei 2026 verboden; goudchemicaliën en kwikhoudende producten zijn vergunningplichtig.</li>
+ <li><b>Lekkage of brand</b>: rampenplan uitvoeren en de NMA meteen inlichten. Opzettelijke milieudelicten kunnen tot zes jaar cel en stillegging van je bedrijf leiden.</li>
+{% else %}
+ <li><b>Who</b>: the NMA (Zinniastraat 33-35, Paramaribo) decides on MEAs, environmental permits and hazardous substances permits. Policy has been with the Ministry of Oil, Gas and Environment (OGM) since July 2025. The Nuisance Act permit stays with the district commissioner.</li>
+ <li><b>MEA</b>: category A (full study), B (three tracks, from extra information to a full study) or C (no MEA). After a complete application the NMA decides on the category within 14 working days.</li>
+ <li><b>Cost</b>: screening USD 100 to 1,000; for the study itself 0.1% of project cost from USD 6 million, otherwise at least USD 1,500. On top of that you pay your own environmental consultant.</li>
+ <li><b>Category C too</b> must apply for an environmental permit or a hazardous substances permit under the MEA Decree. The NMA is rolling out these permits step by step.</li>
+ <li><b>Chemicals</b>: imports and exports go through the Single Window with an NMA checklist. Mercury has been banned since 21 May 2026; gold processing chemicals and mercury-added products need a licence.</li>
+ <li><b>Spill or fire</b>: activate your emergency plan and tell the NMA at once. Deliberate environmental offences can lead to up to six years in prison and closure of your business.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie doet wat' if nl else 'Who does what' }}</h2>
+{% if nl %}
+<p>De Milieu Raamwet werd op 26 maart 2020 door De Nationale Assemblée aangenomen en in 2024 gewijzigd (S.B. 2024 no. 56). De wet richtte de NMA op als zelfstandig bestuursorgaan dat de taken van het vroegere NIMOS overnam. Het verschil: NIMOS kon alleen adviseren, de NMA kan vergunnen, controleren, bevelen en laten vervolgen. De NMA is sinds 26 juli 2024 operationeel.</p>
+<table class="tbl stack tx"><thead><tr><th>Instantie</th><th>Waarvoor</th><th>Wanneer ga je erheen</th></tr></thead><tbody>
+ <tr><td data-l="Instantie"><b>Nationale Milieu Autoriteit (NMA)</b></td><td data-l="Waarvoor">MEA, milieuvergunning, vergunning gevaarlijke stoffen, in- en uitvoer van chemicaliën en radioactieve bronnen, milieuklachten, handhaving</td><td data-l="Wanneer ga je erheen">Voordat je bouwt, uitbreidt of met chemicaliën gaat werken</td></tr>
+ <tr><td data-l="Instantie"><b>Ministerie van Olie, Gas en Milieu (OGM)</b></td><td data-l="Waarvoor">Milieubeleid, internationale verdragen (Minamata, Basel, Montreal), afvalbeleid, klimaat</td><td data-l="Wanneer ga je erheen">Consultaties over nieuwe regels, projecten zoals het gevaarlijk-afvalprogramma</td></tr>
+ <tr><td data-l="Instantie"><b>Districtscommissaris</b></td><td data-l="Waarvoor">Hinderwetvergunning, bedrijfsvergunningen voor horeca en standplaatsen, stopzetten van illegale bedrijven</td><td data-l="Wanneer ga je erheen">Als je bedrijf gevaar, schade of overlast voor de buurt kan geven</td></tr>
+ <tr><td data-l="Instantie"><b>OWRO, directoraat Openbaar Groen en Afvalbeheer</b></td><td data-l="Waarvoor">Vuilophaal, stortplaats Ornamibo, milieupolitie</td><td data-l="Wanneer ga je erheen">Afvoer van bedrijfsafval, vragen over storten</td></tr>
+ <tr><td data-l="Instantie"><b>Bureau voor Openbare Gezondheidszorg (BOG)</b></td><td data-l="Waarvoor">Milieu-inspectie en hygiëne</td><td data-l="Wanneer ga je erheen">Voedselbedrijven, horeca, klachten over stank en ongedierte</td></tr>
+ <tr><td data-l="Instantie"><b>Politie, Environmental Crime Unit (ECU)</b></td><td data-l="Waarvoor">Opsporing van milieudelicten, samen met de NMA</td><td data-l="Wanneer ga je erheen">Bij ernstige vervuiling of illegale stort door anderen</td></tr>
+</tbody></table>
+<p>Vergunningen voor je bedrijf in het algemeen, zoals de vestigingsvergunning en het brandweeradvies, staan in <a href="{{ U('licences') }}">{{ L('licences') }}</a>. Alle contactgegevens: <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+{% else %}
+<p>The Environmental Framework Act (Milieu Raamwet) was passed by the National Assembly on 26 March 2020 and amended in 2024 (S.B. 2024 no. 56). It created the NMA as an independent administrative body that took over the tasks of the former NIMOS. The difference: NIMOS could only advise, while the NMA can grant permits, inspect, give orders and refer cases for prosecution. The NMA has been operating since 26 July 2024.</p>
+<table class="tbl stack tx"><thead><tr><th>Body</th><th>Responsible for</th><th>When you go there</th></tr></thead><tbody>
+ <tr><td data-l="Body"><b>National Environmental Authority (NMA)</b></td><td data-l="Responsible for">MEA, environmental permit, hazardous substances permit, import and export of chemicals and radioactive sources, environmental complaints, enforcement</td><td data-l="When you go there">Before you build, expand or start working with chemicals</td></tr>
+ <tr><td data-l="Body"><b>Ministry of Oil, Gas and Environment (OGM)</b></td><td data-l="Responsible for">Environmental policy, international treaties (Minamata, Basel, Montreal), waste policy, climate</td><td data-l="When you go there">Consultations on new rules, projects such as the hazardous waste programme</td></tr>
+ <tr><td data-l="Body"><b>District commissioner</b></td><td data-l="Responsible for">Nuisance Act permit, business permits for food outlets and stalls, shutting down illegal businesses</td><td data-l="When you go there">If your business may cause danger, damage or nuisance to the neighbourhood</td></tr>
+ <tr><td data-l="Body"><b>Public Works (OWRO), Public Green and Waste Management directorate</b></td><td data-l="Responsible for">Waste collection, the Ornamibo landfill, environmental police</td><td data-l="When you go there">Disposal of business waste, questions about dumping</td></tr>
+ <tr><td data-l="Body"><b>Public Health Office (BOG)</b></td><td data-l="Responsible for">Environmental health inspection and hygiene</td><td data-l="When you go there">Food businesses, hospitality, complaints about smells and pests</td></tr>
+ <tr><td data-l="Body"><b>Police, Environmental Crime Unit (ECU)</b></td><td data-l="Responsible for">Investigating environmental offences, together with the NMA</td><td data-l="When you go there">In serious pollution or illegal dumping by others</td></tr>
+</tbody></table>
+<p>General business permits, such as the establishment permit and the fire service advice, are covered in <a href="{{ U('licences') }}">{{ L('licences') }}</a>. All contact details: <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'De milieueffectenanalyse (MEA)' if nl else 'The environmental impact assessment (MEA)' }}</h2>
+{% if nl %}
+<p>Het Besluit Milieu Effecten Analyse (S.B. 2025 no. 23) werd op 28 maart 2025 afgekondigd en geldt sinds de dag erna. Het bevat twee tabellen: tabel I noemt per projecttype wanneer categorie A of B geldt, tabel II noemt de projecten in categorie C. Staat je activiteit er niet in maar kan ze het milieu schaden, dan kan de NMA toch een MEA eisen.</p>
+<h3>De categorieën</h3>
+<ul>
+ <li><b>Categorie A</b>: projecten met ernstige, mogelijk onomkeerbare gevolgen. Altijd een volledige MEA.</li>
+ <li><b>Categorie B</b>: de gevolgen hangen af van locatie en schaal. Traject 1: extra milieu-informatie. Traject 2: een beperkte studie, bijvoorbeeld een milieumanagementplan, afvalmanagementplan of ecologische studie. Traject 3: een volledige MEA zoals bij A.</li>
+ <li><b>Categorie C</b>: bekende, kleine en beheersbare gevolgen. Geen MEA, maar wel een vergunningaanvraag (zie hieronder).</li>
+</ul>
+<h3>Voorbeelden</h3>
+<table class="tbl stack tx"><thead><tr><th>Activiteit</th><th>Categorie</th></tr></thead><tbody>
+ <tr><td data-l="Activiteit">Kapsalon of schoonheidssalon, uitdeuk- en spuitinrichting, goud- en zilversmid, houtmarkt, mobiele zaagmolen</td><td data-l="Categorie">C</td></tr>
+ <tr><td data-l="Activiteit">Winkel in brandstof in vaten of in landbouwchemicaliën</td><td data-l="Categorie">C</td></tr>
+ <tr><td data-l="Activiteit">Niet-industriële bakkerij; hotel of resort met minder dan 10 kamers; woningbouw met minder dan 10 woningen en minder dan 1 ha</td><td data-l="Categorie">C</td></tr>
+ <tr><td data-l="Activiteit">Landbouw tot 1 ha op al gebruikte grond of secundair bos; kleinschalige intensieve veeteelt; krachtcentrale onder 5 MW</td><td data-l="Categorie">C</td></tr>
+ <tr><td data-l="Activiteit">Industriële bakkerij, brouwerij, begraafplaats, bouw en herstel van bruggen</td><td data-l="Categorie">B</td></tr>
+ <tr><td data-l="Activiteit">Aquacultuur van 1 tot en met 10 ha (semi-intensief)</td><td data-l="Categorie">B</td></tr>
+ <tr><td data-l="Activiteit">Aquacultuur groter dan 10 ha of met exotische soorten; biomassacentrales</td><td data-l="Categorie">A</td></tr>
+</tbody></table>
+<p class="note">Dit is een greep uit de tabellen. Controleer je eigen projecttype in de bijlage van S.B. 2025 no. 23 of vraag het de NMA via mea@nmasuriname.org. Een uitbreiding van een bestaand bedrijf kan ook onder een categorie vallen.</p>
+<h3>Zo verloopt het</h3>
+<ol class="steps">
+ <li><b>Screeningsaanvraag</b> bij de NMA, met het bewijs van betaling van de vergoeding voor fase 1. Je geeft onder meer de locatie met GPS-coördinaten, een situatiekaart met de windrichting, een niet-technische beschrijving en de mogelijke milieugevolgen. Heb je ook een andere vergunning nodig, dan verwijst die instantie je naar de NMA.</li>
+ <li><b>Besluit over de categorie</b> binnen 14 werkdagen na een volledige aanvraag. De NMA publiceert dat besluit.</li>
+ <li><b>Scoping</b> (bij A, B3 en de beperkte B2-studies): je publiceert een intentieverklaring, raadpleegt instanties, ngo's en omwonenden, en dient een scopingsrapport in. De NMA beslist binnen 14 werkdagen, en binnen 7 werkdagen op een aangepast rapport.</li>
+ <li><b>De studie</b> door een onafhankelijke, gekwalificeerde consultant. Bij A en B3 heeft de projectleider minstens een masterdiploma en vijf eerdere MEA's als projectleider.</li>
+ <li><b>Inspraak</b>: binnen 7 werkdagen maak je in een dagblad bekend dat het rapport (MER) ter inzage ligt; het publiek heeft 30 tot 90 dagen om te reageren. Je houdt ook een openbare vergadering, aangekondigd minstens 14 dagen vooraf.</li>
+ <li><b>Beoordeling</b> uiterlijk 95 werkdagen na indiening van het MER. Is het onvolledig, dan heb je 12 maanden om het aan te vullen; daarna beslist de NMA binnen 30 werkdagen.</li>
+</ol>
+<p>De NMA waarschuwt zelf dat een volledige MEA langer dan een jaar kan duren. Neem die tijd op in je planning en je financiering. Rapporten van andere projecten staan in de openbare MEA-repository van de NMA: handig om te zien wat er van je verwacht wordt.</p>
+{% else %}
+<p>The Environmental Impact Assessment Decree (S.B. 2025 no. 23) was published on 28 March 2025 and has applied since the following day. It contains two tables: table I sets out per project type when category A or B applies, table II lists the projects in category C. If your activity is not listed but may harm the environment, the NMA can still require an MEA.</p>
+<h3>The categories</h3>
+<ul>
+ <li><b>Category A</b>: projects with serious, possibly irreversible effects. Always a full MEA.</li>
+ <li><b>Category B</b>: effects depend on location and scale. Track 1: extra environmental information. Track 2: a limited study, for example an environmental management plan, waste management plan or ecological study. Track 3: a full MEA as for A.</li>
+ <li><b>Category C</b>: known, small and manageable effects. No MEA, but a permit application (see below).</li>
+</ul>
+<h3>Examples</h3>
+<table class="tbl stack tx"><thead><tr><th>Activity</th><th>Category</th></tr></thead><tbody>
+ <tr><td data-l="Activity">Hair or beauty salon, panel beating and spray shop, gold and silversmith, timber market, mobile sawmill</td><td data-l="Category">C</td></tr>
+ <tr><td data-l="Activity">Shop selling fuel in drums or agricultural chemicals</td><td data-l="Category">C</td></tr>
+ <tr><td data-l="Activity">Non-industrial bakery; hotel or resort with fewer than 10 rooms; housing with fewer than 10 units and under 1 ha</td><td data-l="Category">C</td></tr>
+ <tr><td data-l="Activity">Farming up to 1 ha on land already in use or secondary forest; small-scale intensive livestock; power plant under 5 MW</td><td data-l="Category">C</td></tr>
+ <tr><td data-l="Activity">Industrial bakery, brewery, cemetery, building or rehabilitating bridges</td><td data-l="Category">B</td></tr>
+ <tr><td data-l="Activity">Aquaculture of 1 to 10 ha (semi-intensive)</td><td data-l="Category">B</td></tr>
+ <tr><td data-l="Activity">Aquaculture over 10 ha or with exotic species; biomass power projects</td><td data-l="Category">A</td></tr>
+</tbody></table>
+<p class="note">This is a selection from the tables. Check your own project type in the annex to S.B. 2025 no. 23 or ask the NMA at mea@nmasuriname.org. An expansion of an existing business can also fall into a category.</p>
+<h3>How it works</h3>
+<ol class="steps">
+ <li><b>Screening application</b> to the NMA, with proof of payment of the phase 1 fee. You provide, among other things, the location with GPS coordinates, a site map showing the wind direction, a non-technical description and the possible environmental effects. If you also need another permit, that authority refers you to the NMA.</li>
+ <li><b>Category decision</b> within 14 working days of a complete application. The NMA publishes the decision.</li>
+ <li><b>Scoping</b> (for A, B3 and the limited B2 studies): you publish a notice of intent, consult authorities, NGOs and neighbours, and submit a scoping report. The NMA decides within 14 working days, and within 7 working days on a revised report.</li>
+ <li><b>The study</b> by an independent, qualified consultant. For A and B3 the project leader needs at least a master's degree and five previous MEAs as project leader.</li>
+ <li><b>Public comment</b>: within 7 working days you announce in a newspaper that the report (MER) is open for inspection; the public has 30 to 90 days to respond. You also hold a public meeting, announced at least 14 days in advance.</li>
+ <li><b>Review</b> within 95 working days of submitting the MER. If it is incomplete, you have 12 months to complete it; the NMA then decides within 30 working days.</li>
+</ol>
+<p>The NMA itself warns that a full MEA can take more than a year. Build that time into your planning and your financing. Reports from other projects are in the NMA's public MEA repository: useful to see what will be expected of you.</p>
+{% endif %}
+
+<h2>{{ 'Wat kost het?' if nl else 'What does it cost?' }}</h2>
+{% if nl %}
+<p>Tot mei 2025 was een MEA-aanvraag gratis. Sinds 15 mei 2025 rekent de NMA de vergoedingen uit artikel 18 van het Besluit MEA. Je mag in SRD betalen tegen de koers van de Centrale Bank op de dag van betaling.</p>
+<table class="tbl stack tx"><thead><tr><th>Onderdeel</th><th>Vergoeding aan de NMA</th><th>Wanneer betalen</th></tr></thead><tbody>
+ <tr><td data-l="Onderdeel">Fase 1: screening</td><td data-l="Vergoeding aan de NMA">USD 100 tot 1.000, naar bestede uren</td><td data-l="Wanneer betalen">Bij de screeningsaanvraag</td></tr>
+ <tr><td data-l="Onderdeel">Fase 2: scoping tot en met MER, project vanaf USD 6 miljoen</td><td data-l="Vergoeding aan de NMA">0,1% van de totale ontwikkelingskosten (USD 6.000 bij USD 6 miljoen)</td><td data-l="Wanneer betalen">Bij het scopingsrapport of het milieumanagementplan</td></tr>
+ <tr><td data-l="Onderdeel">Fase 2, project onder USD 6 miljoen</td><td data-l="Vergoeding aan de NMA">Minimaal USD 1.500</td><td data-l="Wanneer betalen">Idem</td></tr>
+ <tr><td data-l="Onderdeel">Externe deskundige die de NMA inhuurt om je MER te beoordelen</td><td data-l="Vergoeding aan de NMA">Voor rekening van de aanvrager</td><td data-l="Wanneer betalen">Wordt in de scopingsfase gemeld</td></tr>
+</tbody></table>
+<p>De grootste kostenpost is meestal niet de NMA maar je eigen consultant, de metingen (water, lucht, geluid, biodiversiteit), de publicaties en de openbare vergadering. Vraag twee of drie offertes en controleer of de consultant aan de eisen van artikel 7 voldoet. Rekenhulp voor de totale investering: <a href="{{ U('roi') }}">{{ L('roi') }}</a>.</p>
+{% else %}
+<p>Until May 2025 an MEA application was free. Since 15 May 2025 the NMA has charged the fees in article 18 of the MEA Decree. You may pay in SRD at the Central Bank rate on the day of payment.</p>
+<table class="tbl stack tx"><thead><tr><th>Item</th><th>Fee to the NMA</th><th>When to pay</th></tr></thead><tbody>
+ <tr><td data-l="Item">Phase 1: screening</td><td data-l="Fee to the NMA">USD 100 to 1,000, based on hours spent</td><td data-l="When to pay">With the screening application</td></tr>
+ <tr><td data-l="Item">Phase 2: scoping up to the MER, project of USD 6 million or more</td><td data-l="Fee to the NMA">0.1% of total development cost (USD 6,000 for USD 6 million)</td><td data-l="When to pay">With the scoping report or the environmental management plan</td></tr>
+ <tr><td data-l="Item">Phase 2, project under USD 6 million</td><td data-l="Fee to the NMA">At least USD 1,500</td><td data-l="When to pay">Same</td></tr>
+ <tr><td data-l="Item">External expert hired by the NMA to review your MER</td><td data-l="Fee to the NMA">Paid by the applicant</td><td data-l="When to pay">Announced in the scoping phase</td></tr>
+</tbody></table>
+<p>The biggest cost is usually not the NMA but your own consultant, the measurements (water, air, noise, biodiversity), the publications and the public meeting. Get two or three quotes and check that the consultant meets the requirements of article 7. To work out the total investment: <a href="{{ U('roi') }}">{{ L('roi') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Milieuvergunning en vergunning voor gevaarlijke stoffen' if nl else 'Environmental permit and hazardous substances permit' }}</h2>
+{% if nl %}
+<p>Naast de MEA kent de Milieu Raamwet twee vergunningen van de NMA: de <b>milieuvergunning</b> (artikel 28) voor milieubelastende activiteiten en de <b>vergunning voor gevaarlijke stoffen</b> (artikel 35) voor wie gevaarlijke stoffen opslaat, behandelt, gebruikt of verwerkt. Het Besluit MEA zegt uitdrukkelijk dat ook projecten in categorie C zo'n vergunning moeten aanvragen, en dat bestaande projecten die al onder de oude NIMOS-richtlijnen een studie deden de vergunning toch nodig hebben.</p>
+<p>In de praktijk voert de NMA dit stap voor stap in. Wat nu al loopt:</p>
+<ul>
+ <li><b>In- en uitvoer van chemicaliën en radioactieve bronnen</b> via het Suriname Electronic Single Window (SESW), met een NMA-procedure en checklist. Vragen: vergunningen@nmasuriname.org.</li>
+ <li><b>Registratie van goudchemicaliën</b> (Gold Dressing Agents zoals Jin Chan): importeurs, wederverkopers en eindgebruikers moesten zich van 28 maart tot 28 april 2025 registreren. De NMA noemt dit de voorloper van de verplichte vergunning voor gevaarlijke stoffen.</li>
+ <li><b>Inventarisatie van opslag van gevaarlijke stoffen</b>: in augustus 2026 riep de NMA bedrijven op hun opslagplaatsen te melden.</li>
+</ul>
+<p>Weet je niet of jouw activiteit al een vergunning nodig heeft, vraag het dan schriftelijk aan de NMA en bewaar het antwoord. Dat is je bewijs bij een controle, bij je bank en bij een buitenlandse klant.</p>
+<h3>Hinderwet</h3>
+<p>De Hinderwet (G.B. 1930 no. 64, laatst gewijzigd bij S.B. 2001 no. 61) bestaat naast de Milieu Raamwet. Een bedrijf dat gevaar, schade of hinder voor de omgeving kan veroorzaken, zoals een werkplaats, zagerij, bakkerij, opslag van brandstof of een bedrijf met zware machines, heeft een Hinderwetvergunning van de districtscommissaris nodig. Buren kunnen bezwaar maken. Formulieren, leges en geldigheid verschillen per ressort; zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+{% else %}
+<p>Besides the MEA, the Framework Act has two NMA permits: the <b>environmental permit</b> (article 28) for activities that burden the environment, and the <b>hazardous substances permit</b> (article 35) for anyone who stores, handles, uses or processes hazardous substances. The MEA Decree states explicitly that category C projects must also apply for such a permit, and that existing projects which already did a study under the old NIMOS guidelines still need the permit.</p>
+<p>In practice the NMA is introducing this step by step. What already applies:</p>
+<ul>
+ <li><b>Import and export of chemicals and radioactive sources</b> through the Suriname Electronic Single Window (SESW), with an NMA procedure and checklist. Questions: vergunningen@nmasuriname.org.</li>
+ <li><b>Registration of gold processing chemicals</b> (Gold Dressing Agents such as Jin Chan): importers, resellers and end users had to register from 28 March to 28 April 2025. The NMA calls this the forerunner of the mandatory hazardous substances permit.</li>
+ <li><b>Inventory of hazardous substance storage</b>: in August 2026 the NMA called on businesses to report their storage facilities.</li>
+</ul>
+<p>If you do not know whether your activity already needs a permit, ask the NMA in writing and keep the answer. That is your evidence during an inspection, for your bank and for a foreign customer.</p>
+<h3>Nuisance Act</h3>
+<p>The Nuisance Act (Hinderwet, G.B. 1930 no. 64, last amended by S.B. 2001 no. 61) exists alongside the Framework Act. A business that may cause danger, damage or nuisance to its surroundings, such as a workshop, sawmill, bakery, fuel storage or a business with heavy machinery, needs a Nuisance Act permit from the district commissioner. Neighbours can object. Forms, fees and validity differ per district; see <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Afval' if nl else 'Waste' }}</h2>
+{% if nl %}
+<p>Suriname heeft geen aparte afvalstoffenwet. De Milieu Raamwet geeft de NMA wel bevoegdheden: ze kan de in- of uitvoer van afval verbieden, het weggooien van recyclebaar afval verbieden, regels stellen voor afvalverwerking en de opschoning van stortplaatsen eisen. Daarnaast geldt het beginsel "de vervuiler betaalt": wie vervuilt, draagt de kosten van herstel.</p>
+<h3>Gewoon bedrijfsafval</h3>
+<p>Het meeste afval gaat naar de stortplaats Ornamibo in Wanica, die onder het ministerie van Openbare Werken en Ruimtelijke Ordening valt en regelmatig in brand staat, het laatst in augustus 2026. Bedrijven regelen de afvoer meestal via een particuliere ophaaldienst. Sinds 28 september 2026 controleert een handhavingsteam ("Krin Kondre") met de milieupolitie, de BOG-milieu-inspectie, de brandweer, de politie en de Economische Controle Dienst op vuile erven en illegale stort; overtreders krijgen eerst een aanmaning.</p>
+<h3>Gevaarlijk afval</h3>
+<p>Er is nog geen centrale opslag voor gevaarlijk afval zoals afgewerkte olie, chemicaliënresten, medisch afval en batterijen. Binnen het GEF ISLANDS-programma werkt OGM met het Basel-centrum voor de Cariben (BCRC-Caribbean) aan een nationale routekaart en een haalbaarheidsstudie voor een centrale opslagfaciliteit en betere werkwijzen op Ornamibo. In oktober 2025 en februari 2026 waren er workshops voor bedrijven over identificatie, scheiding met kleurcodes, veilige opslag en registratie.</p>
+<p>Wacht daarom niet op nieuwe regels. Houd gevaarlijk afval apart, gelabeld en overdekt, op een vloer die lekkage opvangt, en registreer wat je hebt en aan wie je het afgeeft. Suriname is partij bij het Verdrag van Basel: gevaarlijk afval uitvoeren voor verwerking in het buitenland kan, maar alleen met voorafgaande toestemming van de landen van uitvoer, doorvoer en invoer.</p>
+<h3>Plastic</h3>
+<p>Op 28 augustus 2024 meldde de regering dat wegwerpplastic wordt uitgefaseerd. Op 20 december 2024 volgde de eerste bijeenkomst met bedrijven over de uitfasering van wegwerpplastic (zakjes, bestek, rietjes) en kwikhoudende producten. Een algemeen verbod op plastic tasjes of bestek hebben wij op 26 oktober 2026 nog niet in het Staatsblad gevonden. Wel verbiedt de gewijzigde Negatieve Lijst sinds 21 mei 2026 de invoer van bepaalde styreenpolymeren, waaronder expandeerbaar polystyreen, de grondstof voor piepschuim. Volgens de stichting SUWAMA ontstond in 2023 meer dan 15.000 ton plastic afval. Een beleidsnota over producentenverantwoordelijkheid en statiegeld op PET-flessen en blikjes is in 2025 met bedrijven besproken.</p>
+{% else %}
+<p>Suriname has no separate waste act. The Framework Act does give the NMA powers: it can ban the import or export of waste, ban the disposal of recyclable waste, set rules for waste processing and order the clean-up of dumpsites. The "polluter pays" principle also applies: whoever pollutes bears the cost of remediation.</p>
+<h3>Ordinary business waste</h3>
+<p>Most waste goes to the Ornamibo landfill in Wanica, which falls under the Ministry of Public Works and Spatial Planning and regularly catches fire, most recently in August 2026. Businesses usually arrange disposal through a private collector. Since 28 September 2026 an enforcement team ("Krin Kondre") with the environmental police, the BOG environmental health inspection, the fire service, the police and the Economic Control Service has been checking for dirty premises and illegal dumping; offenders first get a warning.</p>
+<h3>Hazardous waste</h3>
+<p>There is no central storage for hazardous waste such as used oil, chemical residues, medical waste and batteries yet. Under the GEF ISLANDS programme, OGM is working with the Basel Convention Regional Centre for the Caribbean (BCRC-Caribbean) on a national roadmap and a feasibility study for a central storage facility and better practices at Ornamibo. Workshops for businesses on identification, colour-coded separation, safe storage and record-keeping took place in October 2025 and February 2026.</p>
+<p>So do not wait for new rules. Keep hazardous waste separate, labelled and covered, on a floor that contains spills, and record what you have and to whom you hand it over. Suriname is a party to the Basel Convention: exporting hazardous waste for treatment abroad is possible, but only with prior consent from the countries of export, transit and import.</p>
+<h3>Plastic</h3>
+<p>On 28 August 2024 the government announced that single-use plastic will be phased out. On 20 December 2024 the first meeting with businesses followed on phasing out single-use plastics (bags, cutlery, straws) and mercury-added products. As of 26 October 2026 we have not found a general ban on plastic bags or cutlery in the Official Gazette. The amended Negative List does, since 21 May 2026, ban imports of certain styrene polymers, including expandable polystyrene, the raw material for styrofoam. According to the SUWAMA foundation, more than 15,000 tonnes of plastic waste were generated in 2023. A policy paper on producer responsibility and deposits on PET bottles and cans was discussed with businesses in 2025.</p>
+{% endif %}
+
+<h2>{{ 'Kwik en het Verdrag van Minamata' if nl else 'Mercury and the Minamata Convention' }}</h2>
+{% if nl %}
+<p>Suriname is partij bij het Verdrag van Minamata en werkt aan het uitbannen van kwik, vooral in de kleinschalige goudwinning. Sinds de wijziging van het Besluit Negatieve Lijst (S.B. 2026 no. 39, van kracht 21 mei 2026):</p>
+<ul>
+ <li>is de <b>invoer van kwik verboden</b> (het stond eerder op de lijst van vergunningplichtige goederen);</li>
+ <li>zijn <b>kwikhoudende producten</b>, zoals bepaalde batterijen en elektrische elementen, vergunningplichtig bij invoer;</li>
+ <li>zijn <b>goudchemicaliën</b> (Gold Ore Dressing Agents) vergunningplichtig;</li>
+ <li>zijn apparaten met CFK's en andere ozonafbrekende stoffen verboden. De Nationale Ozon Unit bij de NMA houdt per koelmiddel bij wat verboden of vergunningplichtig is.</li>
+</ul>
+<p>Voor winkels en importeurs betekent dit: controleer de HS-code van lampen, batterijen, thermometers, cosmetica en koelapparatuur voordat je bestelt. Meer over de Negatieve Lijst in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> en <a href="{{ U('import') }}">{{ L('import') }}</a>. Goudwinning en kwikvrije methoden: <a href="{{ U('mining') }}">{{ L('mining') }}</a>.</p>
+{% else %}
+<p>Suriname is a party to the Minamata Convention and is working to eliminate mercury, especially in small-scale gold mining. Since the amendment of the Negative List Decree (S.B. 2026 no. 39, in force 21 May 2026):</p>
+<ul>
+ <li><b>importing mercury is banned</b> (it was previously on the list of goods needing a licence);</li>
+ <li><b>mercury-added products</b>, such as certain batteries and electrical elements, need an import licence;</li>
+ <li><b>gold processing chemicals</b> (Gold Ore Dressing Agents) need a licence;</li>
+ <li>appliances with CFCs and other ozone-depleting substances are banned. The National Ozone Unit at the NMA keeps track, per refrigerant, of what is banned or needs a licence.</li>
+</ul>
+<p>For shops and importers this means: check the HS code of lamps, batteries, thermometers, cosmetics and cooling equipment before you order. More on the Negative List in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> and <a href="{{ U('import') }}">{{ L('import') }}</a>. Gold mining and mercury-free methods: <a href="{{ U('mining') }}">{{ L('mining') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Water, lucht, geluid en chemicaliën' if nl else 'Water, air, noise and chemicals' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Lozingen.</b> De NMA heeft de wettelijke taak om nationale milieukwaliteitseisen en normen op te stellen. Algemene lozingsnormen voor afvalwater hebben wij niet gepubliceerd gevonden; de NMA kan eisen stellen in je MEA-besluit of vergunning. Veel bedrijven die voor buitenlandse klanten of financiers werken, gebruiken daarom internationale richtwaarden, zoals de EHS-richtlijnen van de Wereldbank-groep, als ondergrens.</li>
+ <li><b>Vissterfte en incidenten.</b> Na vissterfte in de Boven-Saramacca (juni 2026) en bij Creola (oktober 2026) nam de NMA water-, sediment- en vismonsters, samen met de ECU en het Viskeuringsinstituut. Een lozing die tot zo'n onderzoek leidt, kan grote gevolgen hebben voor je bedrijf.</li>
+ <li><b>Geluid en stank.</b> Overlast valt onder de Hinderwet (voorwaarden in je vergunning) en kan door de politie worden aangepakt. Bewoners kunnen milieuklachten via WhatsApp (8764835) of een ticketsysteem bij de NMA melden.</li>
+ <li><b>Bestrijdingsmiddelen.</b> Toelating en gebruik vallen onder de Bestrijdingsmiddelenwet (G.B. 1972 no. 151) bij het ministerie van LVV; zie <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>Olie en brandstof.</b> Wie een terrein, voertuig of vaartuig met olie, afval of gevaarlijke stoffen beheert, kan door de NMA verplicht worden een rampenbestrijdingsplan op te stellen (artikel 36). Bij een lekkage voer je het plan uit en meld je het incident meteen bij de NMA. Voor schepen en havens geldt daarnaast de Maritieme Autoriteit Suriname (MAS); zie <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</li>
+</ul>
+<p>Hoe streng dit wordt gehandhaafd, liet een zaak in Para zien: een illegale olieverwerker die meerdere waarschuwingen negeerde, moest na een brand in zijn tanks stoppen, de grond saneren volgens een door de NMA goedgekeurd plan en de laboratoriumkosten betalen. Een nieuwe vergunningaanvraag onder een andere naam voor dezelfde locatie werd pas in behandeling genomen na sanering.</p>
+{% else %}
+<ul>
+ <li><b>Discharges.</b> The NMA has the legal task of setting national environmental quality requirements and standards. We have not found published general discharge limits for wastewater; the NMA can set requirements in your MEA decision or permit. Many businesses that work for foreign customers or lenders therefore use international benchmarks, such as the World Bank Group EHS Guidelines, as a minimum.</li>
+ <li><b>Fish kills and incidents.</b> After fish kills in the Upper Saramacca (June 2026) and near Creola (October 2026) the NMA took water, sediment and fish samples, together with the ECU and the Fish Inspection Institute. A discharge that triggers such an investigation can have serious consequences for your business.</li>
+ <li><b>Noise and smells.</b> Nuisance falls under the Nuisance Act (conditions in your permit) and can be dealt with by the police. Residents can report environmental complaints to the NMA by WhatsApp (8764835) or through a ticket system.</li>
+ <li><b>Pesticides.</b> Registration and use fall under the Pesticides Act (G.B. 1972 no. 151) at the Ministry of Agriculture (LVV); see <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>Oil and fuel.</b> Anyone managing a site, vehicle or vessel with oil, waste or hazardous substances can be required by the NMA to draw up an emergency response plan (article 36). In a spill you carry out the plan and report the incident to the NMA at once. For ships and ports the Maritime Authority Suriname (MAS) is also involved; see <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</li>
+</ul>
+<p>A case in Para showed how strictly this can be enforced: an illegal oil processor who ignored several warnings had to stop after a fire in his tanks, clean up the site under an NMA-approved plan and pay the laboratory costs. A new permit application under another name for the same site was only processed after the clean-up.</p>
+{% endif %}
+
+<h2>{{ 'Mijnbouw, olie en gas' if nl else 'Mining, oil and gas' }}</h2>
+{% if nl %}
+<p>Mijnbouw, olie- en gasprojecten vallen bijna altijd in categorie A of B. Grote operators zoals Staatsolie, TotalEnergies en de goudmijnen leggen hun MER's ter inzage bij de NMA; in 2025 lagen er onder meer rapporten voor een boorprogramma, een geofysisch onderzoek offshore en een zonnepark bij een goudmijn. Als toeleverancier krijg je hun milieueisen in je contract: afvalscheiding, opslag van chemicaliën, lekbakken, rapportage van incidenten. Specifieke regels per sector: <a href="{{ U('mining') }}">{{ L('mining') }}</a>, <a href="{{ U('gold') }}">{{ L('gold') }}</a> en <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% else %}
+<p>Mining, oil and gas projects almost always fall into category A or B. Large operators such as Staatsolie, TotalEnergies and the gold mines put their MERs on public display at the NMA; in 2025 these included reports for a drilling programme, an offshore geophysical survey and a solar park at a gold mine. As a supplier you get their environmental requirements in your contract: waste separation, chemical storage, drip trays, incident reporting. Sector-specific rules: <a href="{{ U('mining') }}">{{ L('mining') }}</a>, <a href="{{ U('gold') }}">{{ L('gold') }}</a> and <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Controles en sancties' if nl else 'Inspections and penalties' }}</h2>
+{% if nl %}
+<p>Milieucontroleurs van de NMA en de politie hebben toegang tot bedrijfsterreinen. In augustus 2026 werkte de NMA met het Openbaar Ministerie, de ECU en andere toezichthouders aan een nationale standaardprocedure voor de aanpak van milieudelicten, zodat incidenten sneller en eenduidiger worden afgehandeld.</p>
+<h3>Waar een inspecteur naar kijkt</h3>
+<ul class="check">
+ <li>MEA-besluit, milieuvergunning of vergunning gevaarlijke stoffen, en de Hinderwetvergunning</li>
+ <li>Opslag van brandstof, olie en chemicaliën: overdekt, gelabeld, met lekbakken of opvangvloer</li>
+ <li>Veiligheidsinformatiebladen (SDS) van de stoffen die je gebruikt</li>
+ <li>Afvalscheiding en bewijs van afvoer (bonnen of register)</li>
+ <li>Afvoer van afvalwater: zichtbare lozingen in sloot of kanaal, olie op het water</li>
+ <li>Rampenbestrijdingsplan, blusmiddelen en absorptiemateriaal voor lekkages</li>
+ <li>Klachten van buren over geluid, stof, rook of stank</li>
+</ul>
+<h3>Sancties</h3>
+<ul>
+ <li>Opzettelijk overtreden van de milieuwetten of voorschriften van de NMA: tot zes jaar gevangenisstraf en een geldboete van de vijfde categorie.</li>
+ <li>Schuld aan vervuiling of aantasting van het milieu: tot vier jaar en een boete van de vierde categorie.</li>
+ <li>Niet-opzettelijke overtreding van voorschriften: een geldboete van de vijfde categorie.</li>
+ <li>Bijkomende straffen, waaronder gehele of gedeeltelijke stillegging van de onderneming. De NMA kan ook bevelen activiteiten te staken bij onmiddellijk gevaar voor het milieu.</li>
+</ul>
+{% else %}
+<p>NMA environmental inspectors and the police have access to business premises. In August 2026 the NMA worked with the Public Prosecutor, the ECU and other supervisors on a national standard procedure for environmental offences, so that incidents are handled faster and more consistently.</p>
+<h3>What an inspector checks</h3>
+<ul class="check">
+ <li>MEA decision, environmental permit or hazardous substances permit, and the Nuisance Act permit</li>
+ <li>Storage of fuel, oil and chemicals: covered, labelled, with drip trays or a containment floor</li>
+ <li>Safety data sheets (SDS) for the substances you use</li>
+ <li>Waste separation and proof of disposal (receipts or a register)</li>
+ <li>Wastewater: visible discharges into a ditch or canal, oil on the water</li>
+ <li>Emergency response plan, fire extinguishers and absorbent material for spills</li>
+ <li>Complaints from neighbours about noise, dust, smoke or smell</li>
+</ul>
+<h3>Penalties</h3>
+<ul>
+ <li>Deliberately breaching environmental laws or NMA requirements: up to six years in prison and a fifth-category fine.</li>
+ <li>Being at fault for pollution or damage to the environment: up to four years and a fourth-category fine.</li>
+ <li>Non-deliberate breach of requirements: a fifth-category fine.</li>
+ <li>Additional penalties, including full or partial closure of the business. The NMA can also order activities to stop when there is immediate danger to the environment.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'ISO 14001:2026' if nl else 'ISO 14001:2026' }}</h2>
+{% if nl %}
+<p>In april 2026 verscheen de nieuwe versie van ISO 14001, de internationale norm voor milieumanagementsystemen. Nieuw zijn onder meer: meer aandacht voor biodiversiteit, vervuiling en grondstoffen naast klimaat, een apart onderdeel voor milieuaspecten, een vast proces voor het beheren van wijzigingen, een levenscyclusblik van inkoop tot afval, en eisen aan alle ingekochte producten en diensten in plaats van alleen uitbestede processen. Certificeringsinstellingen verwachten een overgangsperiode van drie jaar, tot ongeveer 2029.</p>
+<p>Voor een klein bedrijf is certificering geen wettelijke plicht. Het loont vooral als een buitenlandse klant, een mijn- of oliebedrijf of een financier erom vraagt. Begin anders met de basis van de norm: weet welke milieuaspecten je hebt, welke regels gelden, wie verantwoordelijk is en hoe je verbetert. Normen en certificering in Suriname: <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+{% else %}
+<p>A new version of ISO 14001, the international standard for environmental management systems, was published in April 2026. New elements include: more attention to biodiversity, pollution and resources alongside climate, a separate clause for environmental aspects, a set process for managing change, a life cycle view from sourcing to end of life, and requirements for all externally provided products and services instead of only outsourced processes. Certification bodies expect a three-year transition period, to around 2029.</p>
+<p>For a small business certification is not a legal duty. It pays off mainly when a foreign customer, a mining or oil company or a lender asks for it. Otherwise start with the basics of the standard: know your environmental aspects, which rules apply, who is responsible and how you improve. Standards and certification in Suriname: <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Breng in kaart wat je doet.</b> Welke stoffen, hoeveel brandstof, welk afval, welk afvalwater, welk geluid? Teken je terrein met opslag, afvoer en buren.</li>
+ <li><b>Zoek je projecttype op</b> in de tabellen van het Besluit MEA. Twijfel je, dien dan een screeningsaanvraag in: dan weet je het binnen 14 werkdagen zwart op wit.</li>
+ <li><b>Vraag de NMA</b> schriftelijk of je al een milieuvergunning of vergunning voor gevaarlijke stoffen nodig hebt, en de districtscommissaris of je een Hinderwetvergunning nodig hebt.</li>
+ <li><b>Begroot tijd en geld</b>: NMA-vergoeding, consultant, metingen, publicaties. Bij categorie A of B3 reken je op een jaar of meer.</li>
+ <li><b>Richt je opslag in</b>: overdekt, gelabeld, lekbakken, blusmiddelen, absorptiekorrels, SDS bij de hand.</li>
+ <li><b>Regel je afval</b>: scheiden, een vaste ophaaldienst, een register van gevaarlijk afval.</li>
+ <li><b>Schrijf een kort rampenplan</b>: wie doet wat bij lekkage of brand, wie belt de NMA en de brandweer (zie <a href="{{ U('safety') }}">{{ L('safety') }}</a>).</li>
+ <li><b>Bewaar alles in één map</b>: besluiten, vergunningen, correspondentie, afvalbonnen. Die heb je ook nodig voor duurzaamheidsvragen van klanten (zie <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a> en <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>).</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Map what you do.</b> Which substances, how much fuel, what waste, what wastewater, what noise? Draw your site with storage, drainage and neighbours.</li>
+ <li><b>Look up your project type</b> in the tables of the MEA Decree. If in doubt, file a screening application: within 14 working days you have it in writing.</li>
+ <li><b>Ask the NMA</b> in writing whether you already need an environmental permit or hazardous substances permit, and the district commissioner whether you need a Nuisance Act permit.</li>
+ <li><b>Budget time and money</b>: NMA fee, consultant, measurements, publications. For category A or B3, count on a year or more.</li>
+ <li><b>Set up your storage</b>: covered, labelled, drip trays, extinguishers, absorbent granules, SDS at hand.</li>
+ <li><b>Arrange your waste</b>: separation, a regular collector, a hazardous waste register.</li>
+ <li><b>Write a short emergency plan</b>: who does what in a spill or fire, who calls the NMA and the fire service (see <a href="{{ U('safety') }}">{{ L('safety') }}</a>).</li>
+ <li><b>Keep everything in one folder</b>: decisions, permits, correspondence, waste receipts. You will also need them for customers' sustainability questions (see <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a> and <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>).</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Checklist per soort bedrijf' if nl else 'Checklist per type of business' }}</h2>
+{% if nl %}
+<h3>Garage, spuiterij of metaalwerkplaats</h3>
+<ul class="check">
+ <li>Uitdeuk- en spuitinrichting: categorie C, wel vergunningaanvraag bij de NMA en Hinderwetvergunning</li>
+ <li>Afgewerkte olie, filters en accu's apart en overdekt bewaren, afgeven aan een vaste afnemer met bon</li>
+ <li>Spuitcabine met afzuiging; verfresten en verdunners als gevaarlijk afval</li>
+ <li>Geen olie of was-water in de goot; een olie-afscheider als je auto's wast</li>
+</ul>
+<h3>Voedingsbedrijf of drankenfabriek</h3>
+<ul class="check">
+ <li>Industriële bakkerij of brouwerij: categorie B, dus vooraf screening; niet-industriële bakkerij: C</li>
+ <li>Afvalwater met vet, suiker of reinigingsmiddelen niet ongezuiverd lozen; vetvang plaatsen</li>
+ <li>Organisch afval dagelijks afvoeren of composteren; ongedierte bestrijden (BOG)</li>
+ <li>Koelinstallaties: controleer of je koelmiddel nog mag (Nationale Ozon Unit)</li>
+</ul>
+<h3>Landbouwbedrijf of veeteelt</h3>
+<ul class="check">
+ <li>Nieuwe grond in gebruik nemen of meer dan 1 ha: controleer de MEA-categorie; ontbossing raakt ook je EU-export (EUDR)</li>
+ <li>Alleen toegelaten bestrijdingsmiddelen, opgeslagen achter slot, lege verpakkingen niet verbranden of in de kreek gooien</li>
+ <li>Mest en spoelwater van stallen niet direct op open water lozen</li>
+ <li>Aquacultuur: vanaf 1 ha categorie B, boven 10 ha categorie A</li>
+</ul>
+<h3>Bouwbedrijf of projectontwikkelaar</h3>
+<ul class="check">
+ <li>Woningbouw vanaf 10 woningen of 1 ha: MEA-screening; ook wegen en bruggen vallen onder het besluit</li>
+ <li>Bouw- en sloopafval scheiden, asbest en chemicaliën als gevaarlijk afval behandelen</li>
+ <li>Stof, modder op de weg en lawaai buiten werktijden beperken; buren vooraf informeren</li>
+ <li>Brandstof voor machines in een bak met opvang, niet los op de grond</li>
+</ul>
+{% else %}
+<h3>Garage, spray shop or metal workshop</h3>
+<ul class="check">
+ <li>Panel beating and spray shop: category C, but a permit application to the NMA and a Nuisance Act permit</li>
+ <li>Keep used oil, filters and batteries separate and covered, hand them to a regular buyer with a receipt</li>
+ <li>Spray booth with extraction; paint residues and thinners as hazardous waste</li>
+ <li>No oil or wash water in the drain; an oil separator if you wash cars</li>
+</ul>
+<h3>Food or beverage factory</h3>
+<ul class="check">
+ <li>Industrial bakery or brewery: category B, so screening first; non-industrial bakery: C</li>
+ <li>Do not discharge wastewater with fat, sugar or cleaning agents untreated; install a grease trap</li>
+ <li>Remove or compost organic waste daily; control pests (BOG)</li>
+ <li>Cooling plants: check whether your refrigerant is still allowed (National Ozone Unit)</li>
+</ul>
+<h3>Farm or livestock business</h3>
+<ul class="check">
+ <li>Clearing new land or more than 1 ha: check the MEA category; deforestation also affects your EU exports (EUDR)</li>
+ <li>Only registered pesticides, stored under lock, empty containers not burned or thrown in the creek</li>
+ <li>Do not discharge manure and stable wash water directly into open water</li>
+ <li>Aquaculture: from 1 ha category B, over 10 ha category A</li>
+</ul>
+<h3>Construction company or developer</h3>
+<ul class="check">
+ <li>Housing from 10 units or 1 ha: MEA screening; roads and bridges are also covered by the decree</li>
+ <li>Separate construction and demolition waste, treat asbestos and chemicals as hazardous waste</li>
+ <li>Limit dust, mud on the road and noise outside working hours; inform neighbours in advance</li>
+ <li>Fuel for machines in a container with containment, not loose on the ground</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn bedrijf al jaren draait zonder MEA of milieuvergunning?</b> Projecten die al liepen of een studie volgens de NIMOS-richtlijnen hadden, hoeven geen nieuwe MEA te doen, maar moeten wel een vergunning aanvragen. Neem zelf contact op met de NMA; wachten tot een klacht of controle is duurder.</li>
+ <li><b>...er een lekkage of brand is?</b> Eerst mensen in veiligheid en de brandweer bellen. Daarna lekkage indammen, je rampenplan uitvoeren en de NMA direct inlichten. Maak foto's en noteer tijden en hoeveelheden.</li>
+ <li><b>...een buurman over mij klaagt bij de NMA?</b> De NMA registreert de klacht en kan een inspectie doen. Reageer schriftelijk, laat zien welke maatregelen je neemt en houd je aan de termijnen uit een aanmaning.</li>
+ <li><b>...ik vervuiling door een ander bedrijf zie?</b> Meld het bij de NMA via WhatsApp 8764835 of het klachtenformulier, met locatie, foto en tijdstip.</li>
+ <li><b>...mijn EU-klant om milieubewijs vraagt?</b> Stuur je MEA-besluit, vergunningen en afvalregistratie, en lees <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my business has run for years without an MEA or environmental permit?</b> Projects already under way, or with a study under the NIMOS guidelines, need no new MEA but must still apply for a permit. Contact the NMA yourself; waiting for a complaint or inspection costs more.</li>
+ <li><b>...there is a spill or fire?</b> First get people to safety and call the fire service. Then contain the spill, carry out your emergency plan and inform the NMA at once. Take photos and note times and quantities.</li>
+ <li><b>...a neighbour complains about me to the NMA?</b> The NMA registers the complaint and may inspect. Respond in writing, show what measures you are taking and meet the deadlines in any warning.</li>
+ <li><b>...I see pollution by another business?</b> Report it to the NMA by WhatsApp 8764835 or the complaint form, with location, photo and time.</li>
+ <li><b>...my EU customer asks for environmental evidence?</b> Send your MEA decision, permits and waste records, and read <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2020/05/mileuraamwet.pdf" rel="noopener">Milieu Raamwet, S.B. 2020 no. 97</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/wet-wijz-milieu-raamwet-2024/" rel="noopener">DNA: wijziging Milieu Raamwet, S.B. 2024 no. 56</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/05/S.B.-2025-no.-23-STAATSBESLUIT-van-12-februari-2025-ter-uitvoering-van-artikelen-22-lid-1-en-2.pdf" rel="noopener">Besluit Milieu Effecten Analyse, S.B. 2025 no. 23</a></li>
+ <li><a href="https://www.nmasuriname.org/Nieuws/post/behandeling-mea-aanvragen-niet-langer-kosteloos" rel="noopener">NMA: MEA-aanvragen niet langer kosteloos, vergoeding per 15 mei 2025 (7 mei 2025)</a></li>
+ <li><a href="https://www.nmasuriname.org/wet-en-regelgeving" rel="noopener">NMA: wet- en regelgeving</a></li>
+ <li><a href="https://www.nmasuriname.org/vergunning-en-verlening" rel="noopener">NMA: vergunningverlening, in- en uitvoer van chemicaliën via SESW</a></li>
+ <li><a href="https://www.nmasuriname.org/voor-gda-s-gebruikers" rel="noopener">NMA: verplichte registratie gebruikers Gold Dressing Agents (2025)</a></li>
+ <li><a href="https://www.nmasuriname.org/milieu-effecten-analyse-repository" rel="noopener">NMA: MEA-repository en bekendmakingen</a></li>
+ <li><a href="https://www.nmasuriname.org/Nieuws" rel="noopener">NMA: nieuws (vissterfte, standaardprocedure milieudelicten, inventarisatie opslag gevaarlijke stoffen, 2026)</a></li>
+ <li><a href="https://www.nmasuriname.org/milieu-klacht-doorgeven" rel="noopener">NMA: milieuklacht melden</a></li>
+ <li><a href="https://www.nmasuriname.org/NOU-Suriname" rel="noopener">NMA: Nationale Ozon Unit</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-39-Staatsbesluit-houdende-nadere-wijziging-van-het-Besluit-Negatieve-Lijst.pdf" rel="noopener">Wijziging Besluit Negatieve Lijst, S.B. 2026 no. 39</a></li>
+ <li><a href="https://gov.sr/suriname-bevestigt-inzet-tegen-kwikvervuiling-op-minamata-cop-6-met-focus-op-duurzame-goudwinning-en-verantwoord-afvalbeheer/" rel="noopener">OGM: Suriname op Minamata COP-6 (november 2025)</a></li>
+ <li><a href="https://gov.sr/regering-bespreekt-duurzame-aanpak-woningbouw-landbouw-en-uitfaseren-single-use-plastic/" rel="noopener">Regering: uitfaseren wegwerpplastic (28 augustus 2024)</a></li>
+ <li><a href="https://gov.sr/suriname-zet-stap-naar-uitfasering-single-use-plastics-en-kwikhoudende-producten/" rel="noopener">ROM: stakeholdersbijeenkomst wegwerpplastic en kwikhoudende producten (december 2024)</a></li>
+ <li><a href="https://gov.sr/suriname-zet-belangrijke-stap-richting-duurzaam-beheer-van-gevaarlijk-afval/" rel="noopener">OGM: workshop gevaarlijk afval, GEF ISLANDS (oktober 2025)</a></li>
+ <li><a href="https://gov.sr/tweedaagse-workshop-versterkt-kennis-over-beheer-van-gevaarlijk-afval/" rel="noopener">OGM: training beheer gevaarlijk afval (februari 2026)</a></li>
+ <li><a href="https://gov.sr/krin-kondre-handhavingsteam-maakt-samenleving-bewust-van-milieuovertredingen/" rel="noopener">OWRO: Krin Kondre-handhavingsteam (september 2026)</a></li>
+ <li><a href="https://gov.sr/brand-ornamibo-onder-controle-vermoedelijk-brandstichting/" rel="noopener">Brand Ornamibo (augustus 2026)</a></li>
+ <li><a href="https://gov.sr/suriname-versterkt-strijd-tegen-mariene-afval-via-regionaal-promar-project/" rel="noopener">OGM: PROMAR-project tegen marien afval (november 2025)</a></li>
+ <li><a href="https://www.srherald.com/?p=343797" rel="noopener">Suriname Herald: PROMAR, producentenverantwoordelijkheid en plastic afval (april 2025)</a></li>
+ <li><a href="https://www.surinametimes.com/artikel/nma-says-entrepreneurignored-multiple-warnings" rel="noopener">Times of Suriname: NMA over illegale olieverwerker in Para (2026)</a></li>
+ <li><a href="https://www.dqsglobal.com/en/explore/blog/iso-14001-2026-transition-guide" rel="noopener">DQS: ISO 14001:2026, wijzigingen en overgang (april 2026)</a></li>
+ <li><a href="https://www.basel.int/" rel="noopener">Verdrag van Basel</a> en <a href="https://minamataconvention.org/" rel="noopener">Verdrag van Minamata</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. De NMA voert vergunningen stap voor stap in; vraag bij twijfel schriftelijk wat voor jouw bedrijf geldt.' if nl else 'General information, not legal advice. The NMA is rolling out permits step by step; if in doubt, ask in writing what applies to your business.' }}</p>
+</div>
+{% endblock %}

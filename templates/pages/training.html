@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set std = (F.VAT.standard * 100)|round|int %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Personeel opleiden en stagiairs begeleiden' if nl else 'Training staff and taking on interns' }}</h1>
+{% if nl %}
+<p class="lead">Goed personeel vind je in Suriname steeds vaker niet kant-en-klaar: je leidt het zelf op. Voor vakmensen kun je terecht bij de SAO, het NATIN en het PTC, voor kwaliteit en voedselveiligheid bij het SSB, en voor management bij FHR en de AdeKUS. Een stagiair is een goedkope manier om talent te leren kennen, maar zodra die gewoon productief meewerkt tegen betaling, gelden de regels van een werknemer.</p>
+{% else %}
+<p class="lead">In Suriname you increasingly cannot hire ready-made skilled staff: you train them yourself. For tradespeople you can turn to SAO, NATIN and PTC, for quality and food safety to the Suriname Standards Bureau (SSB), and for management to FHR and the Anton de Kom University. An intern is a low-cost way to get to know talent, but once they simply do productive work for pay, the rules for an employee apply.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Banen tot 2030' if nl else 'Jobs by 2030' }}</div><div class="big">{{ '15.000+' if nl else '15,000+' }}</div><div class="sub">{{ 'nieuw of opgewaardeerd, Wereldbank (juli 2026)' if nl else 'new or upgraded, World Bank (July 2026)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Stage vanaf' if nl else 'Internship from' }}</div><div class="big">{{ '14 jaar' if nl else 'age 14' }}</div><div class="sub">{{ 'max. 7 uur per dag, 35 per week, lestijd meegeteld' if nl else 'max. 7 hours a day, 35 a week, class time included' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Minimumuurloon' if nl else 'Minimum hourly wage' }}</div><div class="big">SRD {{ num(F.MIN_WAGE.hour) }}</div><div class="sub">{{ 'sinds' if nl else 'since' }} {{ date(F.MIN_WAGE.effective) }}, {{ 'als de stagiair werknemer is' if nl else 'if the intern is an employee' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Vakopleiding</b>: SAO (bouw, lassen, koeltechniek, elektra, ook avondcursussen), NATIN (middelbaar technisch), PTC (hbo techniek en ICT, plus korte trainingen). Hospitality: het Suriname Hospitality and Tourism Training Centre (SHTTC).</li>
+ <li><b>Kwaliteit en veiligheid</b>: het SSB geeft trainingen in HACCP, ISO 9001, ISO 22000, ISO 45001 en etikettering, ook in-company.</li>
+ <li><b>Management en administratie</b>: FHR, de AdeKUS en MBO Para (IMEAO). Kies een opleiding die door het NOVA (accreditatie-orgaan) erkend is.</li>
+ <li><b>Stagiair</b>: maak een stageovereenkomst met de school, wijs een begeleider aan en regel de verzekering. Onder de 18 gelden strikte uren en geen gevaarlijk werk.</li>
+ <li><b>Buitenlandse stagiair</b>: langer dan drie maanden betekent vooraf een MKV en daarna een verblijfsvergunning. Gaat het om betaald werk, dan is een werkvergunning nodig.</li>
+ <li><b>Kosten</b>: opleidingskosten zijn gewone bedrijfskosten. Onderwijs van erkende instellingen is btw-vrij; commerciële trainingen hebben meestal {{ std }}% btw.</li>
+{% else %}
+ <li><b>Vocational training</b>: SAO (construction, welding, refrigeration, electrical, also evening courses), NATIN (technical secondary), PTC (higher technical and ICT, plus short courses). Hospitality: the Suriname Hospitality and Tourism Training Centre (SHTTC).</li>
+ <li><b>Quality and safety</b>: the SSB runs courses in HACCP, ISO 9001, ISO 22000, ISO 45001 and labelling, also in-company.</li>
+ <li><b>Management and administration</b>: FHR, the Anton de Kom University (AdeKUS) and MBO Para (IMEAO). Choose a programme recognised by NOVA, the accreditation body.</li>
+ <li><b>Intern</b>: sign an internship agreement with the school, appoint a supervisor and arrange insurance. Under 18, strict hours apply and no hazardous work.</li>
+ <li><b>Foreign intern</b>: more than three months means an MKV before travel and a residence permit after arrival. If it is paid work, a work permit is needed.</li>
+ <li><b>Costs</b>: training costs are ordinary business expenses. Education by recognised institutions is VAT-exempt; commercial courses usually carry {{ std }}% VAT.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Waarom zelf opleiden loont' if nl else 'Why training your own staff pays' }}</h2>
+{% if nl %}
+<p>In juli 2026 publiceerde de Wereldbank het rapport <i>Suriname Jobs and Skills Radar 2030</i>. De kern: tot 2030 ontstaan meer dan 15.000 nieuwe of opgewaardeerde banen in olie en gas, toerisme en agribusiness. Het GranMorgu-project alleen al levert volgens het rapport ruim 6.000 banen op, waarvan ongeveer 2.000 direct. Tegelijk is er nu al een tekort aan ingenieurs, lassers, elektriciens, industriële technici, veiligheidskundigen, logistiek personeel, hospitality-managers en geschoolde landbouwers.</p>
+<p>Werkgevers noemen in het rapport ook tekorten die niets met techniek te maken hebben: Engels, klantenservice, communicatie, werkhouding, voedselveiligheid en kwaliteitszorg. Veel bedrijven moeten eerst basisrekenen, taal en gedrag op de werkvloer bijbrengen voordat de vaktraining kan beginnen. De Wereldbank adviseert onder meer gestructureerde leerwerktrajecten, sectorale skills-raden en gedeelde trainingscentra van overheid en bedrijfsleven.</p>
+<p>Voor jou als ondernemer betekent dat: wacht niet tot de arbeidsmarkt de mensen levert. Wie nu investeert in eigen opleiding, houdt personeel vast als olie- en gasbedrijven met hogere lonen gaan werven. Meer over de sector: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>. Over lonen en kosten: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% else %}
+<p>In July 2026 the World Bank published the report <i>Suriname Jobs and Skills Radar 2030</i>. The key message: by 2030 more than 15,000 new or upgraded jobs will be created in oil and gas, tourism and agribusiness. According to the report, the GranMorgu project alone will create over 6,000 jobs, about 2,000 of them direct. At the same time there is already a shortage of engineers, welders, electricians, industrial technicians, safety specialists, logistics staff, hospitality managers and skilled farm workers.</p>
+<p>Employers in the report also name gaps that have nothing to do with technology: English, customer service, communication, work readiness, food safety and quality assurance. Many companies first have to teach basic numeracy, language and workplace behaviour before technical training can start. The World Bank recommends, among other things, structured apprenticeships, sector skills councils and shared training centres run by government and business together.</p>
+<p>For you as a business owner this means: do not wait for the labour market to deliver the people. If you invest in training now, you keep your staff when oil and gas companies start recruiting with higher pay. More on the sector: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>. On wages and costs: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Waar kun je personeel laten opleiden?' if nl else 'Where can you have staff trained?' }}</h2>
+{% if nl %}
+<p>Het overzicht hieronder is niet volledig, maar dekt de instellingen waar de meeste bedrijven mee werken. Het aanbod en de data wisselen per jaar; vraag altijd naar de actuele kalender en prijs. Contactgegevens vind je in onze <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+<table class="tbl stack tx"><thead><tr><th>Instelling</th><th>Wat</th><th>Handig voor</th></tr></thead><tbody>
+ <tr><td data-l="Instelling"><b>SAO</b> (Stichting Arbeidsmobilisatie en Ontwikkeling)</td><td data-l="Wat">Vakopleidingen op instapniveau: bouw, schilderen, lassen en constructie, koeltechniek, gas-water-sanitair, elektra-huisinstallatie, printplaatreparatie. Ook avondopleidingen van vier maanden voor werknemers</td><td data-l="Handig voor">Bouw, installatie, werkplaatsen; bijscholing van eigen personeel. Werkgevers betalen vaak de training</td></tr>
+ <tr><td data-l="Instelling"><b>NATIN</b> (Natuurtechnisch Instituut)</td><td data-l="Wat">Middelbaar beroepsonderwijs in de sectoren natuur, techniek en groen (onder meer chemisch en medisch analist), met 21 richtingen op drie locaties: Leysweg, Lelydorp en Lachmonstraat; ook een olie- en gasprogramma voor afgestudeerden</td><td data-l="Handig voor">Stagiairs en jonge technici, laboratoria, industrie</td></tr>
+ <tr><td data-l="Instelling"><b>PTC</b> (Polytechnic College, University of Applied Sciences)</td><td data-l="Wat">Bachelor- en masteropleidingen in techniek en ICT (onder meer werktuigbouwkunde, data science), plus trainingen, masterclasses en olie- en gascursussen met partners</td><td data-l="Handig voor">Hbo-stagiairs, afstudeerprojecten, bijscholing van technisch kader</td></tr>
+ <tr><td data-l="Instelling"><b>MBO Para (IMEAO)</b> en andere mbo- en lbo-scholen</td><td data-l="Wat">Economisch en administratief beroepsonderwijs; lbo en mbo vallen onder het ministerie van Onderwijs, Wetenschap en Cultuur (OWC)</td><td data-l="Handig voor">Administratie, verkoop, kantoor; stagiairs</td></tr>
+ <tr><td data-l="Instelling"><b>FHR</b> (Institute for Higher Education)</td><td data-l="Wat">Bachelor en master in bedrijfskunde, onder meer Small &amp; Medium Enterprise Management, HRM, accounting, marketing, recht; MBA</td><td data-l="Handig voor">Leidinggevenden, boekhouders, HR</td></tr>
+ <tr><td data-l="Instelling"><b>AdeKUS</b> (Anton de Kom Universiteit)</td><td data-l="Wat">Universitaire bachelors en masters, onderzoek</td><td data-l="Handig voor">Afstudeerders, onderzoek, specialisten</td></tr>
+ <tr><td data-l="Instelling"><b>SHTTC</b> (Suriname Hospitality and Tourism Training Centre)</td><td data-l="Wat">Koks, brood en banket, housekeeping, front office, keukenassistent, tour operating, klantenservice</td><td data-l="Handig voor">Hotels, restaurants, touroperators</td></tr>
+ <tr><td data-l="Instelling"><b>SSB</b> (Surinaams Standaarden Bureau)</td><td data-l="Wat">Kwaliteitsmanager in de praktijk, voedselveiligheid, HACCP, ISO 9001, ISO 22000, FSSC 22000, ISO 14001, ISO 45001, etikettering; meest online, ook in-company</td><td data-l="Handig voor">Voedingsbedrijven, exporteurs, iedereen die certificering wil</td></tr>
+</tbody></table>
+{% else %}
+<p>The overview below is not complete, but covers the institutions most companies work with. Programmes and dates change each year; always ask for the current calendar and price. Contact details are in our <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+<table class="tbl stack tx"><thead><tr><th>Institution</th><th>What</th><th>Useful for</th></tr></thead><tbody>
+ <tr><td data-l="Institution"><b>SAO</b> (Labour Mobilisation and Development Foundation)</td><td data-l="What">Entry-level trade courses: construction, painting, welding and steel construction, refrigeration, plumbing and gas, domestic electrical installation, circuit board repair. Also four-month evening courses for workers</td><td data-l="Useful for">Construction, installation, workshops; upskilling your own staff. Employers often pay for the course</td></tr>
+ <tr><td data-l="Institution"><b>NATIN</b> (Natural Technical Institute)</td><td data-l="What">Secondary vocational education in science, engineering and agriculture (including chemical and medical lab analysts), with 21 programmes at three sites: Leysweg, Lelydorp and Lachmonstraat; also an oil and gas programme for graduates</td><td data-l="Useful for">Interns and young technicians, laboratories, industry</td></tr>
+ <tr><td data-l="Institution"><b>PTC</b> (Polytechnic College, University of Applied Sciences)</td><td data-l="What">Bachelor's and master's programmes in engineering and ICT (including mechanical engineering, data science), plus courses, master classes and oil and gas courses with partners</td><td data-l="Useful for">Higher-level interns, graduation projects, upskilling technical staff</td></tr>
+ <tr><td data-l="Institution"><b>MBO Para (IMEAO)</b> and other secondary vocational schools</td><td data-l="What">Economic and administrative vocational education; lower (LBO) and secondary (MBO) vocational schools fall under the Ministry of Education, Science and Culture (OWC)</td><td data-l="Useful for">Administration, sales, office work; interns</td></tr>
+ <tr><td data-l="Institution"><b>FHR</b> (Institute for Higher Education)</td><td data-l="What">Bachelor's and master's in business, including Small &amp; Medium Enterprise Management, HRM, accounting, marketing, law; MBA</td><td data-l="Useful for">Managers, accountants, HR</td></tr>
+ <tr><td data-l="Institution"><b>AdeKUS</b> (Anton de Kom University)</td><td data-l="What">University bachelor's and master's programmes, research</td><td data-l="Useful for">Graduation students, research, specialists</td></tr>
+ <tr><td data-l="Institution"><b>SHTTC</b> (Suriname Hospitality and Tourism Training Centre)</td><td data-l="What">Cooks, bread and pastry, housekeeping, front office, kitchen assistant, tour operating, customer service</td><td data-l="Useful for">Hotels, restaurants, tour operators</td></tr>
+ <tr><td data-l="Institution"><b>SSB</b> (Suriname Standards Bureau)</td><td data-l="What">Practical quality manager course, food safety, HACCP, ISO 9001, ISO 22000, FSSC 22000, ISO 14001, ISO 45001, labelling; mostly online, also in-company</td><td data-l="Useful for">Food businesses, exporters, anyone seeking certification</td></tr>
+</tbody></table>
+{% endif %}
+{% if nl %}
+<h3>Wat er nu loopt</h3>
+<ul>
+ <li><b>SSB-trainingskalender eind 2026</b>: Kwaliteitsmanager in de praktijk (food en non-food) van 9 november 2026 tot 22 januari 2027; Voedselveiligheid op 13 en 16 november; HACCP op 30 november en 4 december; ISO 9001 en ISO 22000 in november en december 2026. Prijzen zijn exclusief de normen zelf.</li>
+ <li><b>SAO</b>: de overheid en de Inter-Amerikaanse Ontwikkelingsbank (IDB) bekeken in april 2026 hoe de verouderde lokalen en machines gemoderniseerd kunnen worden. Vraag welke richtingen op dit moment draaien en wanneer een nieuwe groep start.</li>
+ <li><b>SHTTC</b>: gaf eind 2024 en begin 2025 gratis trainingen aan werkzoekenden, betaald uit een IDB-lening via het ministerie dat over Arbeid gaat. Zulke rondes komen vaker terug; houd <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a> in de gaten.</li>
+ <li><b>Veiligheid</b>: voor een basis in arbeidsveiligheid zijn er ISO 45001-trainingen bij het SSB en de ILO-cursus EOSH (Essentials of Occupational Safety and Health), die in Suriname af en toe in groepen wordt gegeven. Wat je wettelijk moet regelen staat in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% else %}
+<h3>What is running now</h3>
+<ul>
+ <li><b>SSB course calendar, late 2026</b>: practical quality manager (food and non-food) from 9 November 2026 to 22 January 2027; food safety on 13 and 16 November; HACCP on 30 November and 4 December; ISO 9001 and ISO 22000 in November and December 2026. Prices exclude the standards themselves.</li>
+ <li><b>SAO</b>: in April 2026 the government and the Inter-American Development Bank (IDB) looked at how to modernise its outdated classrooms and machines. Ask which trades are running and when a new group starts.</li>
+ <li><b>SHTTC</b>: ran free courses for job seekers in late 2024 and early 2025, paid from an IDB loan through the ministry responsible for Labour. Such rounds recur; keep an eye on <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>Safety</b>: for basic occupational safety there are ISO 45001 courses at the SSB and the ILO course EOSH (Essentials of Occupational Safety and Health), which is run in Suriname from time to time in groups. What you must arrange by law is in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Leren op de werkvloer en leerwerktrajecten' if nl else 'On-the-job learning and apprenticeships' }}</h2>
+{% if nl %}
+<p>Suriname heeft geen landelijk leerlingstelsel waarin werken en leren standaard worden gecombineerd, zoals de BBL in Nederland. Gestructureerde leerwerktrajecten zijn nog schaars; de Wereldbank raadt juist aan ze uit te breiden. Je kunt het wel zelf organiseren:</p>
+<ul>
+ <li><b>Combineer werk met een avondopleiding</b>, bijvoorbeeld bij de SAO of een avond-mto (AMTO). Spreek af wie het lesgeld betaalt, hoeveel lesuren in werktijd vallen en wat er gebeurt als de werknemer stopt.</li>
+ <li><b>Koppel een nieuwe kracht aan een ervaren collega</b> (meester-gezel). Schrijf op welke taken hij na 1, 3 en 6 maanden zelfstandig moet kunnen doen en teken het af.</li>
+ <li><b>Gebruik leveranciers</b>. Leveranciers van machines, koelinstallaties, software en voertuigen geven vaak training bij aankoop. Vraag het mee in je offerte, zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>Laat certificaten tellen</b>. Een lasser met een erkend certificaat, een kok met HACCP of een chauffeur met een veiligheidscursus is meer waard voor jou en voor klanten zoals olie- en mijnbouwbedrijven, die certificaten eisen van onderaannemers.</li>
+</ul>
+<p>Spreek je af dat een werknemer studiekosten terugbetaalt als hij binnen een bepaalde tijd vertrekt, leg dat dan vooraf schriftelijk vast: bedrag, looptijd en hoe het afbouwt. Laat zo'n regeling toetsen aan het nieuwe Burgerlijk Wetboek; zie <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a> en <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% else %}
+<p>Suriname has no national apprenticeship system that routinely combines work and study, like the Dutch BBL track. Structured apprenticeships are still scarce; the World Bank recommends expanding them. You can organise it yourself:</p>
+<ul>
+ <li><b>Combine work with an evening course</b>, for example at SAO or an evening technical school (AMTO). Agree who pays the fees, how many class hours fall in working time and what happens if the employee leaves.</li>
+ <li><b>Pair a new worker with an experienced colleague</b> (master and apprentice). Write down which tasks they must do on their own after 1, 3 and 6 months, and sign it off.</li>
+ <li><b>Use your suppliers</b>. Suppliers of machinery, refrigeration, software and vehicles often provide training with a purchase. Ask for it in your quote, see <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>Make certificates count</b>. A welder with a recognised certificate, a cook with HACCP or a driver with a safety course is worth more to you and to customers such as oil and mining companies, which require certificates from subcontractors.</li>
+</ul>
+<p>If you agree that an employee repays training costs when leaving within a set period, put it in writing beforehand: amount, period and how it reduces over time. Have such a clause checked against the new Civil Code; see <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a> and <a href="{{ U('labour') }}">{{ L('labour') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Studiebeurzen: wat grote bedrijven doen' if nl else 'Scholarships: what large companies do' }}</h2>
+{% if nl %}
+<p>Grote bedrijven investeren met beurzen in toekomstig personeel. Twee recente voorbeelden laten zien hoe zo'n programma eruitziet:</p>
+<ul>
+ <li><b>TotalEnergies</b> (uitgevoerd door BPP Energy Solutions): elk jaar 30 volledige beurzen voor een bacheloropleiding aan een NOVA-erkende instelling in Suriname, met inschrijf- en collegegeld, toelagen voor boeken, laptop, vervoer en huisvesting, plus mentorschap. Tegenprestatie: na afstuderen minstens 2 jaar in Suriname werken. De aanmelding voor cohort 3 sloot op 12 augustus 2026.</li>
+ <li><b>Kersten</b>: lanceerde in juli 2026 met de AdeKUS een studiebeurs van in totaal USD 50.000 voor talentvolle studenten die hun studie anders niet kunnen betalen.</li>
+</ul>
+<p>Als klein of middelgroot bedrijf kun je hetzelfde op kleinere schaal doen: betaal een deel van het lesgeld van een veelbelovende stagiair, in ruil voor een afgesproken periode bij jou na het diploma. Of bied een vaste stageplek per jaar aan een school aan; dat levert je elk jaar een kans op om talent te leren kennen.</p>
+{% else %}
+<p>Large companies invest in future staff through scholarships. Two recent examples show what such a programme looks like:</p>
+<ul>
+ <li><b>TotalEnergies</b> (run by BPP Energy Solutions): every year 30 full scholarships for a bachelor's programme at a NOVA-recognised institution in Suriname, covering registration and tuition fees, allowances for books, a laptop, transport and housing, plus mentoring. In return: work in Suriname for at least 2 years after graduating. Applications for cohort 3 closed on 12 August 2026.</li>
+ <li><b>Kersten</b>: launched a scholarship worth USD 50,000 in total with the Anton de Kom University in July 2026, for talented students who could not otherwise afford their studies.</li>
+</ul>
+<p>As a small or medium-sized business you can do the same on a smaller scale: pay part of the fees of a promising intern in exchange for an agreed period with you after graduation. Or offer a school one fixed internship place a year; that gives you a yearly chance to get to know talent.</p>
+{% endif %}
+
+<h2>{{ 'Personeel werven via platforms' if nl else 'Recruiting through job platforms' }}</h2>
+{% if nl %}
+<p>Opleiden en werven horen bij elkaar. <b>EnergyJobs.sr</b>, eind november 2025 gelanceerd door TotalEnergies met Airswift, is een banenplatform voor de energiesector waarop onder meer Staatsolie en internationale dienstverleners vacatures zetten. Het platform richt zich op Surinaamse professionals, studenten in technische opleidingen en de diaspora. Voor andere sectoren kun je gratis een vacature plaatsen op <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>; alle vacatures staan op <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>. Hoe je iemand correct in dienst neemt: <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</p>
+{% else %}
+<p>Training and recruiting go together. <b>EnergyJobs.sr</b>, launched in late November 2025 by TotalEnergies with Airswift, is a job platform for the energy sector where Staatsolie and international service companies, among others, post vacancies. It targets Surinamese professionals, students in technical programmes and the diaspora. For other sectors you can post a vacancy for free at <a href="{{ U('postjob') }}">{{ L('postjob') }}</a>; all vacancies are on <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>. How to hire someone correctly: <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Een stagiair aannemen' if nl else 'Taking on an intern' }}</h2>
+{% if nl %}
+<p>Scholen als het NATIN, het PTC, MBO Para, FHR en de AdeKUS zoeken elk jaar stageplaatsen. Vaak is er een snuffelstage van enkele weken in het begin van de opleiding en een langere afstudeerstage aan het eind. De school geeft meestal een eigen stageovereenkomst die jij, de student en de school tekenen.</p>
+<h3>Stage of werk: waar ligt de grens?</h3>
+<p>De Wet Minimumloon (S.B. 2019 no. 101) geldt voor werk op basis van een arbeidsovereenkomst. Een echte leerstage, waarbij de student vooral leert, een opdracht van school uitvoert en begeleid wordt, is meestal geen arbeidsovereenkomst. Dan hoef je geen loon te betalen; een stagevergoeding mag wel. Maar laat je de stagiair gewoon meedraaien als volwaardige kracht, onder jouw gezag en tegen betaling, dan kan het een arbeidsovereenkomst zijn. Dan gelden het minimumloon, loonbelasting, AOV, pensioen, basiszorg en ongevallenverzekering zoals bij elke werknemer. Zie <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> en <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<p>Betaal je een vaste stagevergoeding, vraag dan bij de Belastingdienst na of je daarover loonbelasting en AOV moet inhouden. Een aparte regeling voor stagevergoedingen vonden we niet. Gebruik een gewone loonstrook als je inhoudt: <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
+<h3>Jonge stagiairs</h3>
+<p>Volgens de Wet Arbeid Kinderen en Jeugdige Personen (2018) mag licht werk als stage of vakopleiding vanaf 14 jaar, maximaal 7 uur per dag en 35 uur per week, lestijd meegeteld. Jongeren van 16 en 17 doen geen nachtwerk (19:00 tot 06:00) en geen gevaarlijk werk. Je houdt de namen en leeftijden van alle werknemers en stagiairs bij. De volledige tabel staat in <a href="{{ U('labour') }}">{{ L('labour') }}</a>; voor machines en chemicaliën zie <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+<h3>Verzekering</h3>
+<p>Vraag je verzekeraar schriftelijk of stagiairs onder je ongevallenverzekering en je aansprakelijkheidsverzekering vallen, en laat ze anders bijschrijven. Rijdt een stagiair met een bedrijfsauto, controleer dan ook de autopolis. Zie <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+{% else %}
+<p>Schools such as NATIN, PTC, MBO Para, FHR and the Anton de Kom University look for internship places every year. There is often a short orientation placement of a few weeks early in the programme and a longer graduation internship at the end. The school usually provides its own internship agreement, signed by you, the student and the school.</p>
+<h3>Internship or job: where is the line?</h3>
+<p>The Minimum Wage Act (S.B. 2019 no. 101) applies to work under an employment contract. A genuine learning internship, where the student mainly learns, carries out a school assignment and is supervised, is usually not an employment contract. You then need not pay wages; an internship allowance is allowed. But if the intern simply works as a full member of staff, under your direction and for pay, it can be an employment contract. Then the minimum wage, wage tax, AOV, pension, basic health insurance and accident insurance apply as for any employee. See <a href="{{ U('minwage') }}">{{ L('minwage') }}</a> and <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<p>If you pay a fixed internship allowance, ask the Tax Authority whether you must withhold wage tax and AOV on it. We found no separate rule for internship allowances. Use a normal payslip if you withhold: <a href="{{ U('payslip') }}">{{ L('payslip') }}</a>.</p>
+<h3>Young interns</h3>
+<p>Under the Child and Youth Labour Act (2018), light work as an internship or vocational training is allowed from age 14, up to 7 hours a day and 35 a week, class time included. Young people of 16 and 17 do no night work (19:00 to 06:00) and no hazardous work. You keep the names and ages of all employees and interns. The full table is in <a href="{{ U('labour') }}">{{ L('labour') }}</a>; for machinery and chemicals see <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+<h3>Insurance</h3>
+<p>Ask your insurer in writing whether interns are covered by your accident and liability insurance, and have them added if not. If an intern drives a company car, check the motor policy too. See <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Buitenlandse stagiairs, bijvoorbeeld uit Nederland' if nl else 'Foreign interns, for example from the Netherlands' }}</h2>
+{% if nl %}
+<p>Nederlandse en Belgische hogescholen sturen elk jaar studenten naar Suriname. Voor jou als stagebedrijf gaat het om drie lagen:</p>
+<ol class="steps">
+ <li><b>Inreizen.</b> De student betaalt de entry fee of vraagt een e-visum aan, en vult het ICF-formulier in. Details in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> en <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li><b>Verblijf.</b> Blijft de stagiair langer dan drie maanden en is hij visumplichtig, dan vraagt hij vóór vertrek een MKV (machtiging tot kort verblijf) aan bij de Surinaamse ambassade of het consulaat, en na aankomst een verblijfsvergunning bij Vreemdelingenzaken. De stageovereenkomst dient daarbij als bewijsstuk; soms wordt ook een garantieverklaring van het stagebedrijf gevraagd. Studenten van Surinaamse afkomst zijn vrijgesteld van de MKV.</li>
+ <li><b>Werk.</b> De Wet Werkvergunning Vreemdelingen verbiedt een werkgever een vreemdeling arbeid te laten verrichten zonder vergunning, en definieert werkgever via de arbeidsovereenkomst. Voor een onbetaalde studiestage vonden we geen officiële regeling. Betaal je een salaris of doet de stagiair gewoon werk, vraag dan een werkvergunning aan. Twijfel je, vraag het vooraf schriftelijk aan de afdeling Werkvergunning Vreemdelingen van het ministerie dat over Arbeid gaat.</li>
+</ol>
+<p>Spreek af dat de student zelf een ziektekosten- en reisverzekering heeft voor de hele periode, en regel huisvesting en vervoer ruim op tijd. Een buitenlandse stagiair die met persoonsgegevens van jouw klanten werkt, tekent een geheimhoudingsverklaring.</p>
+{% else %}
+<p>Dutch and Belgian universities of applied sciences send students to Suriname every year. As the host company you deal with three layers:</p>
+<ol class="steps">
+ <li><b>Entry.</b> The student pays the entry fee or applies for an e-visa, and fills in the ICF form. Details in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> and <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li><b>Stay.</b> If the intern stays more than three months and needs a visa, they apply for an MKV (authorisation for temporary stay) at the Surinamese embassy or consulate before departure, and for a residence permit at the Aliens Department after arrival. The internship agreement serves as supporting evidence; sometimes a guarantee statement from the host company is also requested. Students of Surinamese origin are exempt from the MKV.</li>
+ <li><b>Work.</b> The Foreign Work Permits Act forbids an employer to have a foreigner work without a permit, and defines the employer through the employment contract. We found no official rule for unpaid study internships. If you pay a salary or the intern does ordinary work, apply for a work permit. If in doubt, ask the Foreign Work Permits department of the ministry responsible for Labour in writing beforehand.</li>
+</ol>
+<p>Agree that the student has their own health and travel insurance for the whole period, and arrange housing and transport well in advance. A foreign intern who handles your customers' personal data signs a confidentiality statement.</p>
+{% endif %}
+
+<h2>{{ 'Kosten en belasting' if nl else 'Costs and tax' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Aftrekbaar als bedrijfskosten.</b> De winst wordt berekend volgens goed koopmansgebruik (artikel 7 Inkomstenbelasting 1922). Cursusgeld, examens, reiskosten en de uren van een interne trainer zijn dus gewone kosten. Een extra aftrek of premie speciaal voor opleidingen vonden we niet. Zie <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>Btw.</b> Onderwijs door erkende instellingen onder toezicht van het ministerie van Onderwijs is vrijgesteld van btw. Een commerciële training of consultant rekent meestal {{ std }}% btw, die je als ondernemer kunt aftrekken als je zelf btw-plichtig bent. Zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Subsidie en gratis rondes.</b> Programma's van de IDB, de ILO en de overheid betalen soms trainingen voor werkzoekenden of voor werkgevers in groeisectoren. Zie <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>Begroot het.</b> Zet opleiding als vaste regel in je begroting, bijvoorbeeld een bedrag per werknemer per jaar, en neem het op in je ondernemingsplan: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Deductible as business expenses.</b> Profit is calculated according to sound business practice (article 7, Income Tax Act 1922). Course fees, exams, travel and the hours of an internal trainer are therefore ordinary costs. We found no extra deduction or bonus specifically for training. See <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>VAT.</b> Education by recognised institutions supervised by the Ministry of Education is VAT-exempt. A commercial course or consultant usually charges {{ std }}% VAT, which you can deduct if you are VAT-registered yourself. See <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Subsidies and free rounds.</b> Programmes of the IDB, the ILO and the government sometimes pay for training for job seekers or for employers in growth sectors. See <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>Budget for it.</b> Put training in your budget as a fixed line, for example an amount per employee per year, and include it in your business plan: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Een opleidingsplan maken' if nl else 'Writing a training plan' }}</h2>
+{% if nl %}
+<p>Een opleidingsplan hoeft niet ingewikkeld te zijn. Eén pagina per jaar is genoeg voor de meeste kleine bedrijven. Zo pak je het aan:</p>
+<ol class="steps">
+ <li><b>Kijk naar je doelen.</b> Wat wil je komend jaar bereiken: een nieuwe machine, een HACCP-certificaat, export, een tweede filiaal? Welke vaardigheden heb je daarvoor nodig?</li>
+ <li><b>Breng in kaart wat je mensen nu kunnen.</b> Per functie: welke taken, welke certificaten, wat gaat goed en wat niet. Vraag het ook aan de medewerkers zelf.</li>
+ <li><b>Bepaal de gaten en kies prioriteiten.</b> Eerst wat wettelijk of door klanten verplicht is (veiligheid, voedselhygiëne, rijbewijzen), dan wat de meeste omzet of de minste fouten oplevert.</li>
+ <li><b>Kies per gat de vorm.</b> Interne instructie, een cursus bij de SAO of het SSB, een training van een leverancier, online leren, of een opleiding met diploma.</li>
+ <li><b>Reken en plan.</b> Kosten, uren, wie vervangt de cursist, en welke afspraken over terugbetaling.</li>
+ <li><b>Leg vast en evalueer.</b> Bewaar certificaten en presentielijsten in het personeelsdossier. Bespreek na afloop wat de training opleverde.</li>
+</ol>
+<table class="tbl stack tx"><thead><tr><th>Medewerker of functie</th><th>Wat moet beter</th><th>Hoe en wanneer</th><th>Kosten en bewijs</th></tr></thead><tbody>
+ <tr><td data-l="Medewerker of functie">Kok (2 personen)</td><td data-l="Wat moet beter">Voedselveiligheid, eis van hotelklant</td><td data-l="Hoe en wanneer">HACCP-training SSB, november</td><td data-l="Kosten en bewijs">Offerte SSB; certificaat in dossier</td></tr>
+ <tr><td data-l="Medewerker of functie">Monteur</td><td data-l="Wat moet beter">Koeltechniek, nieuwe installaties</td><td data-l="Hoe en wanneer">Avondopleiding SAO, 4 maanden</td><td data-l="Kosten en bewijs">Lesgeld; terugbetaalafspraak 12 maanden</td></tr>
+ <tr><td data-l="Medewerker of functie">Verkoopmedewerkers</td><td data-l="Wat moet beter">Klantenservice in het Engels</td><td data-l="Hoe en wanneer">Interne training, elke vrijdag 1 uur</td><td data-l="Kosten en bewijs">Eigen uren; presentielijst</td></tr>
+ <tr><td data-l="Medewerker of functie">Alle staf</td><td data-l="Wat moet beter">Brandblussen en EHBO</td><td data-l="Hoe en wanneer">Jaarlijkse oefening</td><td data-l="Kosten en bewijs">Verslag oefening</td></tr>
+</tbody></table>
+<p class="note">De voorbeelden in de tabel zijn illustraties, geen prijzen of verplichtingen. Vraag altijd een offerte.</p>
+{% else %}
+<p>A training plan need not be complicated. One page a year is enough for most small businesses. Here is how to go about it:</p>
+<ol class="steps">
+ <li><b>Start from your goals.</b> What do you want to achieve next year: a new machine, a HACCP certificate, exports, a second branch? Which skills do you need for that?</li>
+ <li><b>Map what your people can do now.</b> Per role: which tasks, which certificates, what goes well and what does not. Ask the staff themselves too.</li>
+ <li><b>Identify the gaps and set priorities.</b> First what is required by law or by customers (safety, food hygiene, driving licences), then what brings the most revenue or the fewest mistakes.</li>
+ <li><b>Choose the format per gap.</b> Internal instruction, a course at SAO or the SSB, supplier training, online learning, or a programme with a diploma.</li>
+ <li><b>Cost it and plan it.</b> Costs, hours, who covers for the trainee, and what repayment terms apply.</li>
+ <li><b>Record and review.</b> Keep certificates and attendance lists in the personnel file. Discuss afterwards what the training delivered.</li>
+</ol>
+<table class="tbl stack tx"><thead><tr><th>Employee or role</th><th>What needs improving</th><th>How and when</th><th>Cost and evidence</th></tr></thead><tbody>
+ <tr><td data-l="Employee or role">Cook (2 people)</td><td data-l="What needs improving">Food safety, required by hotel customer</td><td data-l="How and when">SSB HACCP course, November</td><td data-l="Cost and evidence">SSB quote; certificate on file</td></tr>
+ <tr><td data-l="Employee or role">Mechanic</td><td data-l="What needs improving">Refrigeration, new installations</td><td data-l="How and when">SAO evening course, 4 months</td><td data-l="Cost and evidence">Fees; 12-month repayment agreement</td></tr>
+ <tr><td data-l="Employee or role">Sales staff</td><td data-l="What needs improving">Customer service in English</td><td data-l="How and when">Internal training, 1 hour every Friday</td><td data-l="Cost and evidence">Own hours; attendance list</td></tr>
+ <tr><td data-l="Employee or role">All staff</td><td data-l="What needs improving">Fire extinguishing and first aid</td><td data-l="How and when">Yearly drill</td><td data-l="Cost and evidence">Drill report</td></tr>
+</tbody></table>
+<p class="note">The examples in the table are illustrations, not prices or obligations. Always ask for a quote.</p>
+{% endif %}
+
+<h2>{{ 'Checklist voor een stagiair' if nl else 'Intern checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Stageovereenkomst getekend door school, student en bedrijf, met begin- en einddatum, werktijden en opdracht</li>
+ <li>Leeftijd gecontroleerd; bij minderjarigen uren en taken volgens de jeugdregels, ouders tekenen mee</li>
+ <li>Naam en leeftijd opgenomen in je personeelsregister</li>
+ <li>Begeleider aangewezen met tijd voor wekelijkse gesprekken</li>
+ <li>Ongevallen- en aansprakelijkheidsverzekering dekt stagiairs (schriftelijke bevestiging)</li>
+ <li>Veiligheidsinstructie en persoonlijke beschermingsmiddelen gegeven</li>
+ <li>Afspraak over stagevergoeding, en navraag of loonbelasting en AOV gelden</li>
+ <li>Geheimhoudingsverklaring als de stagiair met klantgegevens werkt</li>
+ <li>Buitenlandse stagiair: MKV en verblijfsvergunning geregeld; bij betaald werk een werkvergunning</li>
+ <li>Beoordeling ingevuld en teruggestuurd naar de school</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Internship agreement signed by school, student and company, with start and end date, working hours and assignment</li>
+ <li>Age checked; for minors, hours and tasks under the youth rules, parents co-sign</li>
+ <li>Name and age recorded in your staff register</li>
+ <li>Supervisor appointed with time for weekly check-ins</li>
+ <li>Accident and liability insurance covers interns (written confirmation)</li>
+ <li>Safety briefing given and personal protective equipment provided</li>
+ <li>Agreement on the internship allowance, and checked whether wage tax and AOV apply</li>
+ <li>Confidentiality statement if the intern handles customer data</li>
+ <li>Foreign intern: MKV and residence permit arranged; work permit if it is paid work</li>
+ <li>Evaluation completed and returned to the school</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...een werknemer vlak na een dure opleiding vertrekt?</b> Zonder schriftelijke terugbetalingsafspraak kun je meestal niets terugvragen. Leg het daarom vooraf vast, met een bedrag dat per maand afneemt.</li>
+ <li><b>...een stagiair op de werkvloer gewond raakt?</b> Verleen eerste hulp, meld het ongeval en schakel je verzekeraar in. Hoe je een ongeval meldt, staat in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>...ik geen tijd heb om een stagiair te begeleiden?</b> Neem dan geen stagiair. Een stagiair zonder begeleiding leert niets en kost je tijd en reputatie bij de school.</li>
+ <li><b>...de stagiair na zijn stage bij mij wil blijven?</b> Dan wordt het een gewone arbeidsovereenkomst met alle plichten van een werkgever. Zie <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</li>
+ <li><b>...ik buitenlandse specialisten wil laten overkomen om mijn mensen te trainen?</b> Kort bezoek voor training is iets anders dan werken; voor langer of betaald werk heb je een werkvergunning nodig. Zie <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...an employee leaves right after an expensive course?</b> Without a written repayment agreement you usually cannot claim anything back. So agree it beforehand, with an amount that reduces each month.</li>
+ <li><b>...an intern gets injured at work?</b> Give first aid, report the accident and contact your insurer. How to report an accident is in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>...I have no time to supervise an intern?</b> Then do not take one. An unsupervised intern learns nothing and costs you time and your reputation with the school.</li>
+ <li><b>...the intern wants to stay on after the internship?</b> Then it becomes an ordinary employment contract with all employer obligations. See <a href="{{ U('hiring') }}">{{ L('hiring') }}</a>.</li>
+ <li><b>...I want foreign specialists to come and train my staff?</b> A short visit for training is different from working; for longer or paid work you need a work permit. See <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.devdiscourse.com/article/other/3953214-suriname-faces-race-against-time-to-prepare-workers-for-15000-new-jobs-by-2030-says-report" rel="noopener">{{ 'Devdiscourse over het Wereldbankrapport Suriname Jobs and Skills Radar 2030 (23 juli 2026)' if nl else 'Devdiscourse on the World Bank report Suriname Jobs and Skills Radar 2030 (23 July 2026)' }}</a></li>
+ <li><a href="https://www.ssb.sr/diensten/trainingen/" rel="noopener">{{ 'Surinaams Standaarden Bureau: trainingen en kalender' if nl else 'Suriname Standards Bureau: courses and calendar' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/04/17/idb-vraagt-concreet-plan-voor-modernisering-sao/" rel="noopener">{{ 'Suriname Herald: IDB vraagt concreet plan voor modernisering SAO (17 april 2026)' if nl else 'Suriname Herald: IDB asks for a concrete plan to modernise SAO (17 April 2026)' }}</a></li>
+ <li><a href="https://keynews.sr/sao-start-avondopleidingen-koeltechniek-en-gawasa-voor-werknemers" rel="noopener">{{ 'Key News: SAO start avondopleidingen voor werknemers (oktober 2024)' if nl else 'Key News: SAO starts evening courses for workers (October 2024)' }}</a></li>
+ <li><a href="https://keynews.sr/vakopleidingen-bij-sao-bewijzen-waarde-op-arbeidsmarkt" rel="noopener">{{ 'Key News: vakopleidingen bij SAO (januari 2025)' if nl else 'Key News: SAO trade courses (January 2025)' }}</a></li>
+ <li><a href="https://keynews.sr/gratis-trainingen-shttc-versterken-toerismesector-suriname" rel="noopener">{{ 'Key News: gratis trainingen SHTTC (december 2024)' if nl else 'Key News: free SHTTC courses (December 2024)' }}</a></li>
+ <li><a href="https://www.natin.sr/" rel="noopener">NATIN</a>, <a href="https://www.ptc.edu.sr/" rel="noopener">Polytechnic College</a>, <a href="https://www.fhrinstitute.sr/" rel="noopener">FHR</a>, <a href="https://www.uvs.edu/" rel="noopener">Anton de Kom Universiteit</a></li>
+ <li><a href="https://www.bppenergysolutions.com/scholarship/" rel="noopener">{{ 'BPP Energy Solutions: TotalEnergies Scholarship Program, cohort 3 (2026)' if nl else 'BPP Energy Solutions: TotalEnergies Scholarship Program, cohort 3 (2026)' }}</a></li>
+ <li><a href="https://www.kersten.sr/news/kersten-lanceert-studiebeurs-van-usd-50-000-en-investeert-in-de-toekomst-van-surinaamse-studenten/" rel="noopener">{{ 'Kersten: studiebeurs van USD 50.000 (28 juli 2026)' if nl else 'Kersten: USD 50,000 scholarship (28 July 2026)' }}</a></li>
+ <li><a href="https://energyjobs.sr/" rel="noopener">EnergyJobs.sr</a></li>
+ <li><a href="https://www.dna.sr/media/vm2mao52/sb_2019___101.pdf" rel="noopener">{{ 'Wet Minimumloon (S.B. 2019 no. 101)' if nl else 'Minimum Wage Act (S.B. 2019 no. 101)' }}</a></li>
+ <li><a href="https://www.dna.sr/media/4lfjc0fn/sb_2018___76.pdf" rel="noopener">{{ 'Wet Arbeid Kinderen en Jeugdige Personen (S.B. 2018 no. 76)' if nl else 'Child and Youth Labour Act (S.B. 2018 no. 76)' }}</a></li>
+ <li><a href="https://www.dna.sr/media/c0higvnc/werkvergunning_vreemdelingen.pdf" rel="noopener">{{ 'Wet Werkvergunning Vreemdelingen (S.B. 1981 no. 162)' if nl else 'Foreign Work Permits Act (S.B. 1981 no. 162)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/10/Verblijfsvergunningen.pdf" rel="noopener">{{ 'Ministerie van Justitie en Politie: verblijfsvergunningen' if nl else 'Ministry of Justice and Police: residence permits' }}</a></li>
+ <li><a href="https://www.dna.sr/media/qizfxbvj/inkomstenbelasting_1922.pdf" rel="noopener">{{ 'Wet Inkomstenbelasting 1922 (DNA)' if nl else 'Income Tax Act 1922 (DNA)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of fiscaal advies. Opleidingsaanbod en data veranderen; vraag de instelling naar de actuele kalender.' if nl else 'General information, not legal or tax advice. Course offerings and dates change; ask the institution for the current calendar.' }}</p>
+</div>
+{% endblock %}

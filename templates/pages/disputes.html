@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Incasso en geschillen' if nl else 'Debt collection and disputes' }}</h1>
+{% if nl %}
+<p class="lead">Betaalt een klant niet, stuur dan eerst een schriftelijke ingebrekestelling; vanaf het verzuim loopt de wettelijke rente. Helpt dat niet, dan laat je de klant via een deurwaarder oproepen voor de kantonrechter; kleine vorderingen tot SRD 20.000 of USD 2.500 gaan via de snelle Kleine Handelsrol. Sinds 1 mei 2025 gelden het nieuwe Burgerlijk Wetboek en Wetboek van Burgerlijke Rechtsvordering: een factuurvordering verjaart na vijf jaar, en arbitrale vonnissen zijn sinds 2023 internationaal uitvoerbaar onder het Verdrag van New York.</p>
+{% else %}
+<p class="lead">If a customer does not pay, first send a written notice of default; statutory interest runs from the moment of default. If that does not work, have the customer summoned by a bailiff before the cantonal court; small claims up to SRD 20,000 or USD 2,500 go through the faster Small Commercial Roll. Since 1 May 2025 the new Civil Code and Code of Civil Procedure apply: an invoice claim becomes time-barred after five years, and since 2023 arbitral awards are enforceable internationally under the New York Convention.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Verjaring factuur' if nl else 'Invoice limitation' }}</div><div class="big">{{ '5 jaar' if nl else '5 years' }}</div><div class="sub">{{ 'na opeisbaarheid, art. 3:307 BW' if nl else 'after falling due, art. 3:307 Civil Code' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Kleine Handelsrol' if nl else 'Small Commercial Roll' }}</div><div class="big">{{ 'SRD 20.000' if nl else 'SRD 20,000' }}</div><div class="sub">{{ 'of USD/EUR 2.500, eenvoudige zaken' if nl else 'or USD/EUR 2,500, simple cases' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Hoger beroep' if nl else 'Appeal' }}</div><div class="big">{{ '6 weken' if nl else '6 weeks' }}</div><div class="sub">{{ 'na de uitspraak; 3 weken in kort geding' if nl else 'after judgment; 3 weeks in summary proceedings' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Voorkomen</b>: duidelijke offerte, betalingstermijn en algemene voorwaarden; voorschot bij nieuwe klanten.</li>
+ <li><b>Herinneren en ingebreke stellen</b>: schriftelijk, met een redelijke termijn. Bij een verstreken afgesproken termijn is de klant meestal al in verzuim.</li>
+ <li><b>Rente en kosten</b>: wettelijke rente (5% per jaar zolang er geen staatsbesluit is) vanaf het verzuim, en redelijke buitengerechtelijke incassokosten. Een hogere afgesproken rente loopt door.</li>
+ <li><b>Rechter</b>: de kantonrechter is de rechter in eerste aanleg; spoed gaat via kort geding; hoger beroep bij het Hof van Justitie.</li>
+ <li><b>Beslag</b>: vóór de uitspraak met verlof van de rechter (conservatoir), daarna executoriaal via de deurwaarder.</li>
+ <li><b>Buiten de rechter</b>: arbitrage, bindend advies of mediation, bijvoorbeeld bij het Surinaams Arbitrage Instituut (SAI).</li>
+{% else %}
+ <li><b>Prevent</b>: clear quote, payment term and general terms; a deposit from new customers.</li>
+ <li><b>Remind and give notice of default</b>: in writing, with a reasonable deadline. If an agreed term has passed, the customer is usually already in default.</li>
+ <li><b>Interest and costs</b>: statutory interest (5% a year until a state decree sets another rate) from default, and reasonable extrajudicial collection costs. A higher agreed rate continues to apply.</li>
+ <li><b>Court</b>: the cantonal court is the court of first instance; urgent matters go through summary proceedings (kort geding); appeal to the Court of Justice.</li>
+ <li><b>Attachment</b>: before judgment with the court's leave (prejudgment), afterwards by execution through the bailiff.</li>
+ <li><b>Outside court</b>: arbitration, binding advice or mediation, for example at the Suriname Arbitration Institute (SAI).</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Welke route wanneer' if nl else 'Which route when' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Situatie</th><th>Route</th><th>Wie doet het</th><th>Let op</th></tr></thead><tbody>
+ <tr><td data-l="Situatie">Klant is laat, de schuld zelf staat niet ter discussie</td><td data-l="Route">Herinnering, daarna ingebrekestelling en betalingsregeling</td><td data-l="Wie doet het">Jij zelf</td><td data-l="Let op">Schriftelijk; stuit ook de verjaring</td></tr>
+ <tr><td data-l="Situatie">Kleine vordering, tot SRD 20.000 of USD/EUR 2.500</td><td data-l="Route">Kleine Handelsrol bij de kantonrechter</td><td data-l="Wie doet het">Jij, een gemachtigde of een deurwaarder</td><td data-l="Let op">Snel, eenvoudig, ook voor huur- en arbeidszaken</td></tr>
+ <tr><td data-l="Situatie">Grotere of ingewikkelde vordering</td><td data-l="Route">Grote Handelsrol bij de kantonrechter</td><td data-l="Wie doet het">Bij voorkeur een advocaat</td><td data-l="Let op">Duurt langer; bewijs goed voorbereiden</td></tr>
+ <tr><td data-l="Situatie">Kans dat de schuldenaar bezit of saldo laat verdwijnen</td><td data-l="Route">Conservatoir beslag met verlof van de kantonrechter</td><td data-l="Wie doet het">Advocaat en deurwaarder</td><td data-l="Let op">Hoofdzaak binnen de gestelde termijn beginnen; je kunt aansprakelijk zijn als het beslag onterecht blijkt</td></tr>
+ <tr><td data-l="Situatie">Spoed: een veiling, levering of ontruiming tegenhouden</td><td data-l="Route">Kort geding</td><td data-l="Wie doet het">Advocaat</td><td data-l="Let op">Alleen een voorlopige voorziening; niet voor ingewikkelde zaken</td></tr>
+ <tr><td data-l="Situatie">Contract met arbitrageclausule, of buitenlandse partner</td><td data-l="Route">Arbitrage, bijvoorbeeld bij het SAI</td><td data-l="Wie doet het">Partijen en arbiters</td><td data-l="Let op">Vonnis uitvoerbaar in verdragslanden van het Verdrag van New York</td></tr>
+ <tr><td data-l="Situatie">Je wilt de klant of partner houden</td><td data-l="Route">Mediation</td><td data-l="Wie doet het">Onafhankelijke mediator</td><td data-l="Let op">Vrijwillig en vertrouwelijk</td></tr>
+ <tr><td data-l="Situatie">Technische vraag: kwaliteit, maat, waarde</td><td data-l="Route">Bindend advies door een deskundige</td><td data-l="Wie doet het">Afgesproken deskundige of het SAI</td><td data-l="Let op">Stuit de verjaring als je het tijdig aankondigt</td></tr>
+ <tr><td data-l="Situatie">Conflict met een werknemer</td><td data-l="Route">Kantonrechter (arbeidszaken)</td><td data-l="Wie doet het">Jij, gemachtigde of advocaat</td><td data-l="Let op">Zie <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a></td></tr>
+ <tr><td data-l="Situatie">De overheid betaalt niet</td><td data-l="Route">Schriftelijk aanmanen, overleg met het ministerie, als laatste stap de rechter</td><td data-l="Wie doet het">Jij, zo nodig een advocaat</td><td data-l="Let op">Beperkte beslagmogelijkheden op de Staat</td></tr>
+</tbody></table>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Situation</th><th>Route</th><th>Who does it</th><th>Note</th></tr></thead><tbody>
+ <tr><td data-l="Situation">Customer is late, the debt itself is not disputed</td><td data-l="Route">Reminder, then notice of default and a payment plan</td><td data-l="Who does it">You</td><td data-l="Note">In writing; it also interrupts limitation</td></tr>
+ <tr><td data-l="Situation">Small claim, up to SRD 20,000 or USD/EUR 2,500</td><td data-l="Route">Small Commercial Roll at the cantonal court</td><td data-l="Who does it">You, an authorised person or a bailiff</td><td data-l="Note">Fast and simple, also for rent and employment cases</td></tr>
+ <tr><td data-l="Situation">Larger or complex claim</td><td data-l="Route">Large Commercial Roll at the cantonal court</td><td data-l="Who does it">Preferably a lawyer</td><td data-l="Note">Takes longer; prepare your evidence well</td></tr>
+ <tr><td data-l="Situation">Risk that the debtor makes assets or balances disappear</td><td data-l="Route">Prejudgment attachment with leave of the cantonal court</td><td data-l="Who does it">Lawyer and bailiff</td><td data-l="Note">Start the main case within the set period; you can be liable if the attachment proves wrongful</td></tr>
+ <tr><td data-l="Situation">Urgent: stop an auction, delivery or eviction</td><td data-l="Route">Summary proceedings (kort geding)</td><td data-l="Who does it">Lawyer</td><td data-l="Note">Only a provisional measure; not for complex cases</td></tr>
+ <tr><td data-l="Situation">Contract with an arbitration clause, or a foreign partner</td><td data-l="Route">Arbitration, for example at the SAI</td><td data-l="Who does it">Parties and arbitrators</td><td data-l="Note">Award enforceable in New York Convention states</td></tr>
+ <tr><td data-l="Situation">You want to keep the customer or partner</td><td data-l="Route">Mediation</td><td data-l="Who does it">Independent mediator</td><td data-l="Note">Voluntary and confidential</td></tr>
+ <tr><td data-l="Situation">Technical question: quality, measurement, value</td><td data-l="Route">Binding advice by an expert</td><td data-l="Who does it">Agreed expert or the SAI</td><td data-l="Note">Interrupts limitation if announced in time</td></tr>
+ <tr><td data-l="Situation">Conflict with an employee</td><td data-l="Route">Cantonal court (employment cases)</td><td data-l="Who does it">You, an authorised person or a lawyer</td><td data-l="Note">See <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a></td></tr>
+ <tr><td data-l="Situation">The government does not pay</td><td data-l="Route">Written reminders, talks with the ministry, court as a last step</td><td data-l="Who does it">You, a lawyer if needed</td><td data-l="Note">Limited options to attach State assets</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Voorkomen is goedkoper' if nl else 'Prevention is cheaper' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Schriftelijke afspraken</b>: prijs, levering, betalingstermijn, rente bij te late betaling en wie welke kosten draagt. Maak een offerte met <a href="{{ U('quote') }}">{{ L('quote') }}</a> en laat die tekenen of per e-mail bevestigen.</li>
+ <li><b>Algemene voorwaarden</b> gelden alleen als je ze uitdrukkelijk van toepassing verklaart en de klant ze vooraf kon lezen, bijvoorbeeld als bijlage bij de offerte. Tegenover consumenten zijn sommige bedingen altijd onredelijk bezwarend (artikel 236 van Boek 6) en andere vermoedelijk (artikel 237). Meer over het nieuwe BW: <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>Spreek een eigen rente af</b>: een bedongen rente die hoger is dan de wettelijke rente loopt na het verzuim door (artikel 119 lid 3 van Boek 6).</li>
+ <li><b>Valuta</b>: wil je echt in USD of EUR betaald worden, schrijf dan in het contract dat de klant "effectief" in die valuta moet betalen. Zonder die afspraak mag een schuldenaar in Surinaams geld betalen (artikel 121 van Boek 6).</li>
+ <li><b>Voorschot en zekerheid</b> bij nieuwe of grote klanten: aanbetaling via een <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>, een bankgarantie of een borg.</li>
+ <li><b>Ken je klant</b>: vraag het KKF-uittreksel, controleer wie mag tekenen, en kijk of de rechtsvorm aansprakelijk is. Zie <a href="{{ U('companies') }}">{{ L('companies') }}</a>.</li>
+ <li><b>Factureer meteen en volg op</b>: zie <a href="{{ U('payments') }}">{{ L('payments') }}</a> en houd je debiteuren bij met de <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Written agreements</b>: price, delivery, payment term, interest for late payment and who bears which costs. Create a quote with the <a href="{{ U('quote') }}">{{ L('quote') }}</a> and have it signed or confirmed by email.</li>
+ <li><b>General terms</b> only apply if you expressly declare them applicable and the customer could read them in advance, for example as an attachment to the quote. Towards consumers some clauses are always unreasonably onerous (article 236 of Book 6) and others presumed to be (article 237). More on the new Civil Code: <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>Agree your own interest rate</b>: an agreed rate higher than the statutory rate continues after default (article 119(3) of Book 6).</li>
+ <li><b>Currency</b>: if you really want to be paid in USD or EUR, write in the contract that the customer must pay "effectively" in that currency. Without that term a debtor may pay in Surinamese money (article 121 of Book 6).</li>
+ <li><b>Deposit and security</b> from new or large customers: advance payment through a <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>, a bank guarantee or a guarantor.</li>
+ <li><b>Know your customer</b>: ask for the KKF extract, check who may sign, and whether the legal form carries liability. See <a href="{{ U('companies') }}">{{ L('companies') }}</a>.</li>
+ <li><b>Invoice straight away and follow up</b>: see <a href="{{ U('payments') }}">{{ L('payments') }}</a> and track receivables with the <a href="{{ U('receivables') }}">{{ L('receivables') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Herinnering, aanmaning en verzuim' if nl else 'Reminders, notices and default' }}</h2>
+{% if nl %}
+<p>Onder het nieuwe Burgerlijk Wetboek (Boek 6, artikelen 81 tot 83) is een schuldenaar in <b>verzuim</b> als hij niet betaalt nadat de vordering opeisbaar is en aan een van deze voorwaarden is voldaan:</p>
+<ul>
+ <li>een <b>afgesproken betalingstermijn</b> is verstreken: dan geldt het verzuim zonder aanmaning, tenzij die termijn een andere strekking had;</li>
+ <li>je hebt een <b>schriftelijke ingebrekestelling</b> gestuurd met een redelijke termijn, en hij betaalt niet binnen die termijn;</li>
+ <li>de klant heeft laten weten dat hij niet gaat betalen; dan is een aanmaning niet nodig.</li>
+</ul>
+<ol class="steps">
+ <li><b>Vriendelijke herinnering</b> enkele dagen na de vervaldatum, met kopie van de factuur. Gebruik de <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li><b>Bellen of WhatsApp</b>: vraag wat er speelt. Een betalingsregeling op schrift is vaak sneller dan een rechtszaak.</li>
+ <li><b>Ingebrekestelling</b>: een brief of e-mail waarin je het bedrag, de factuur, een concrete laatste termijn (bijvoorbeeld 14 dagen) en de gevolgen noemt: wettelijke rente, incassokosten en een procedure. Bewaar bewijs van verzending. Een opzet maak je met de <a href="{{ U('letter') }}">{{ L('letter') }}</a>.</li>
+ <li><b>Laatste sommatie</b> door een advocaat of deurwaarder, als je klant schrijven van jou negeert.</li>
+ <li><b>Procedure of beslag</b>: zie hieronder.</li>
+</ol>
+<p>Elke schriftelijke aanmaning waarin je je recht op betaling ondubbelzinnig voorbehoudt, <b>stuit de verjaring</b> (artikel 317 van Boek 3). Bewaar daarom kopieën.</p>
+{% else %}
+<p>Under the new Civil Code (Book 6, articles 81 to 83) a debtor is in <b>default</b> if they do not pay after the claim has fallen due and one of these conditions is met:</p>
+<ul>
+ <li>an <b>agreed payment term</b> has passed: default then applies without a reminder, unless the term had another purpose;</li>
+ <li>you sent a <b>written notice of default</b> with a reasonable deadline, and they do not pay within it;</li>
+ <li>the customer has said they will not pay; then a reminder is not needed.</li>
+</ul>
+<ol class="steps">
+ <li><b>Friendly reminder</b> a few days after the due date, with a copy of the invoice. Use the <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li><b>Call or WhatsApp</b>: ask what is going on. A written payment plan is often faster than a lawsuit.</li>
+ <li><b>Notice of default</b>: a letter or email stating the amount, the invoice, a concrete final deadline (for example 14 days) and the consequences: statutory interest, collection costs and proceedings. Keep proof of sending. Draft it with the <a href="{{ U('letter') }}">{{ L('letter') }}</a>.</li>
+ <li><b>Final demand</b> by a lawyer or bailiff, if your customer ignores letters from you.</li>
+ <li><b>Proceedings or attachment</b>: see below.</li>
+</ol>
+<p>Every written reminder in which you unambiguously reserve your right to payment <b>interrupts the limitation period</b> (article 317 of Book 3). So keep copies.</p>
+{% endif %}
+
+<h2>{{ 'Wettelijke rente, incassokosten en valuta' if nl else 'Statutory interest, collection costs and currency' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Wettelijke rente</b>: de schadevergoeding voor te late betaling van een geldsom is de wettelijke rente over de tijd dat de schuldenaar in verzuim is. Na elk jaar wordt de rente bij de hoofdsom opgeteld (artikel 119 van Boek 6).</li>
+ <li><b>Hoogte</b>: de rentevoet wordt bij staatsbesluit vastgesteld (artikel 120). Zolang dat besluit er niet is, is de wettelijke rente <b>5% per jaar</b> (artikel 130b Overgangswet nieuw BW). Wij vonden tot {{ date('2026-10-26') }} geen staatsbesluit met een ander percentage. Meer hierover op <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>. Wil je meer, spreek dan zelf een hogere rente af in je voorwaarden.</li>
+ <li><b>Buitengerechtelijke kosten</b>: redelijke kosten om buiten de rechter betaling te krijgen komen voor vergoeding in aanmerking (artikel 96 lid 2 van Boek 6), behalve voor zover de regels over proceskosten gelden. Houd de kosten in verhouding tot de vordering en documenteer ze.</li>
+ <li><b>Proceskosten</b>: verlies je klant de zaak, dan veroordeelt de rechter hem meestal in de proceskosten.</li>
+ <li><b>Vorderingen in USD of EUR</b>: in een procedure in Suriname mag je kiezen of je veroordeling vraagt in de vreemde valuta of in SRD (artikel 123). Omrekening gebeurt tegen de koers op de dag van betaling (artikel 124). Koersschade na het verzuim kun je in beginsel vergoed krijgen, behalve bij een SRD-vordering die in Suriname betaald moet worden aan een schuldeiser die hier woonde (artikel 125).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Statutory interest</b>: the compensation for late payment of a sum of money is statutory interest over the period the debtor is in default. After each year the interest is added to the principal (article 119 of Book 6).</li>
+ <li><b>Rate</b>: the rate is set by state decree (article 120). As long as there is no such decree, statutory interest is <b>5% a year</b> (article 130b of the Transitional Act for the new Civil Code). Up to {{ date('2026-10-26') }} we found no decree setting another rate. More on <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>. If you want more, agree a higher rate in your terms.</li>
+ <li><b>Extrajudicial costs</b>: reasonable costs of obtaining payment out of court qualify for compensation (article 96(2) of Book 6), except where the rules on legal costs apply. Keep costs proportionate to the claim and document them.</li>
+ <li><b>Legal costs</b>: if your customer loses the case, the court usually orders them to pay the legal costs.</li>
+ <li><b>Claims in USD or EUR</b>: in proceedings in Suriname you may choose whether to ask for judgment in the foreign currency or in SRD (article 123). Conversion is at the rate on the day of payment (article 124). Exchange rate losses after default can in principle be compensated, except for an SRD claim payable in Suriname to a creditor who lived here (article 125).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Verjaring onder het nieuwe BW' if nl else 'Limitation periods under the new Civil Code' }}</h2>
+{% if nl %}
+<p>Het nieuwe Burgerlijk Wetboek (S.B. 2024 no. 164) is op 1 mei 2025 in werking getreden. Boek 3 regelt wanneer je een vordering niet meer via de rechter kunt afdwingen. Het volledige overzicht, ook voor koop en vernietiging, staat op <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>; hieronder wat voor incasso telt:</p>
+<table class="tbl stack tx"><thead><tr><th>Vordering</th><th>Termijn</th><th>Begint</th><th>Artikel</th></tr></thead><tbody>
+ <tr><td data-l="Vordering">Betaling of nakoming uit een overeenkomst (factuur)</td><td data-l="Termijn">5 jaar</td><td data-l="Begint">Dag na opeisbaarheid</td><td data-l="Artikel">3:307</td></tr>
+ <tr><td data-l="Vordering">Huur, rente en alles wat per jaar of korter wordt betaald</td><td data-l="Termijn">5 jaar</td><td data-l="Begint">Dag na opeisbaarheid</td><td data-l="Artikel">3:308</td></tr>
+ <tr><td data-l="Vordering">Onverschuldigde betaling terugvorderen</td><td data-l="Termijn">5 jaar, uiterlijk 20 jaar</td><td data-l="Begint">Dag na bekendheid met vordering en ontvanger</td><td data-l="Artikel">3:309</td></tr>
+ <tr><td data-l="Vordering">Schadevergoeding of boete</td><td data-l="Termijn">5 jaar, uiterlijk 20 jaar</td><td data-l="Begint">Dag na bekendheid met schade en aansprakelijke</td><td data-l="Artikel">3:310</td></tr>
+ <tr><td data-l="Vordering">Ontbinding of herstel bij tekortkoming</td><td data-l="Termijn">5 jaar, uiterlijk 20 jaar</td><td data-l="Begint">Dag na bekendheid met de tekortkoming</td><td data-l="Artikel">3:311</td></tr>
+ <tr><td data-l="Vordering">Overige vorderingen</td><td data-l="Termijn">20 jaar</td><td data-l="Begint">Volgens de wet</td><td data-l="Artikel">3:306</td></tr>
+ <tr><td data-l="Vordering">Een vonnis ten uitvoer leggen</td><td data-l="Termijn">20 jaar (5 jaar voor periodieke bedragen)</td><td data-l="Begint">Dag na de uitspraak</td><td data-l="Artikel">3:324</td></tr>
+</tbody></table>
+<p><b>Stuiten</b>: de verjaring wordt gestuit door een schriftelijke aanmaning of een schriftelijk ondubbelzinnig voorbehoud (artikel 317), door het instellen van een eis (artikel 316) en doordat de schuldenaar de schuld erkent (artikel 318). Daarna begint een nieuwe termijn. Rente verjaart niet later dan de hoofdsom (artikel 312).</p>
+<p class="note">Vorderingen van vóór 1 mei 2025 vallen onder het overgangsrecht (Overgangswet nieuw Burgerlijk Wetboek, S.B. 2024 no. 166). Een nieuwe termijn van een jaar of langer die al vóór die datum zou zijn begonnen, kon niet vóór 1 mei 2026 aflopen. Bij oude facturen: laat je adviseren en stuur in elk geval nu een stuitingsbrief.</p>
+{% else %}
+<p>The new Civil Code (S.B. 2024 no. 164) entered into force on 1 May 2025. Book 3 sets out when you can no longer enforce a claim through the courts. The full overview, including sales and annulment, is on <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>; below is what matters for collection:</p>
+<table class="tbl stack tx"><thead><tr><th>Claim</th><th>Period</th><th>Starts</th><th>Article</th></tr></thead><tbody>
+ <tr><td data-l="Claim">Payment or performance under a contract (invoice)</td><td data-l="Period">5 years</td><td data-l="Starts">Day after it fell due</td><td data-l="Article">3:307</td></tr>
+ <tr><td data-l="Claim">Rent, interest and anything payable yearly or more often</td><td data-l="Period">5 years</td><td data-l="Starts">Day after it fell due</td><td data-l="Article">3:308</td></tr>
+ <tr><td data-l="Claim">Recovering an undue payment</td><td data-l="Period">5 years, at most 20 years</td><td data-l="Starts">Day after knowing of the claim and the recipient</td><td data-l="Article">3:309</td></tr>
+ <tr><td data-l="Claim">Damages or a contractual penalty</td><td data-l="Period">5 years, at most 20 years</td><td data-l="Starts">Day after knowing of the damage and the liable party</td><td data-l="Article">3:310</td></tr>
+ <tr><td data-l="Claim">Termination or repair for a breach</td><td data-l="Period">5 years, at most 20 years</td><td data-l="Starts">Day after knowing of the breach</td><td data-l="Article">3:311</td></tr>
+ <tr><td data-l="Claim">Other claims</td><td data-l="Period">20 years</td><td data-l="Starts">As set by law</td><td data-l="Article">3:306</td></tr>
+ <tr><td data-l="Claim">Enforcing a judgment</td><td data-l="Period">20 years (5 years for periodic amounts)</td><td data-l="Starts">Day after the judgment</td><td data-l="Article">3:324</td></tr>
+</tbody></table>
+<p><b>Interruption</b>: limitation is interrupted by a written reminder or an unambiguous written reservation (article 317), by bringing a claim (article 316) and by the debtor acknowledging the debt (article 318). A new period then starts. Interest does not become time-barred later than the principal (article 312).</p>
+<p class="note">Claims from before 1 May 2025 fall under transitional law (Transitional Act for the new Civil Code, S.B. 2024 no. 166). A new period of one year or longer that would have started before that date could not end before 1 May 2026. For old invoices: get advice and in any case send an interruption letter now.</p>
+{% endif %}
+
+<h2>{{ 'Incassobureaus en deurwaarders' if nl else 'Collection agencies and bailiffs' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>De deurwaarder</b> heeft wettelijke taken die niemand anders mag doen: hij roept de tegenpartij op voor de kantonrechter (de oproeping moet volgens de wet via een deurwaarder), betekent vonnissen en legt beslag. Hij mag je ook vertegenwoordigen op de Kleine Handelsrol, voor vorderingen tot SRD 20.000 of USD 2.500 en in huur-, ontruimings- en verklaringszaken.</li>
+ <li><b>Een incassobureau</b> of advocaat kan namens jou aanmanen en onderhandelen over een regeling. Zonder vonnis of andere executoriale titel kan niemand beslag leggen of goederen meenemen, behalve via conservatoir beslag met verlof van de rechter.</li>
+ <li><b>Afspraken over kosten</b>: vraag vooraf schriftelijk wat de deurwaarder of het bureau rekent (vast bedrag, percentage, no cure no pay) en wat je terugkrijgt als de schuldenaar betaalt.</li>
+ <li><b>Gedrag</b>: incasso moet zakelijk blijven. Dreigen, publiek te schande zetten of contact met familie en werkgever schaadt je zaak en kan onrechtmatig zijn.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>The bailiff (deurwaarder)</b> has legal tasks nobody else may perform: they summon the other party before the cantonal court (by law the summons must go through a bailiff), serve judgments and carry out attachments. A bailiff may also represent you on the Small Commercial Roll, for claims up to SRD 20,000 or USD 2,500 and in rent, eviction and declaration cases.</li>
+ <li><b>A collection agency</b> or lawyer can send demands on your behalf and negotiate a settlement. Without a judgment or other enforceable title nobody can attach or take goods, except through a prejudgment attachment with the court's leave.</li>
+ <li><b>Agree costs</b>: ask in writing beforehand what the bailiff or agency charges (fixed fee, percentage, no cure no pay) and what you get back if the debtor pays.</li>
+ <li><b>Conduct</b>: collection must stay businesslike. Threats, public shaming or contacting family and employers harm your case and may be unlawful.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Naar de kantonrechter' if nl else 'Going to the cantonal court' }}</h2>
+{% if nl %}
+<p>In Suriname behandelt de <b>kantonrechter</b> civiele zaken in eerste aanleg: leningen, huur, arbeid, loon, ontruiming, niet nagekomen overeenkomsten, schadevergoeding en grondzaken. De handelszaken lopen via de Handelsrol:</p>
+<ul>
+ <li><b>Kleine Handelsrol</b>: eenvoudige zaken en geldvorderingen tot SRD 20.000, EUR 2.500 of USD 2.500, plus huur-, ontruimings-, arbeidszaken en verklaringsprocedures. Bedoeld voor snelle beslissingen.</li>
+ <li><b>Grote Handelsrol</b>: alle andere zaken; meestal langer.</li>
+</ul>
+<ol class="steps">
+ <li><b>Verzoekschrift</b>: jij, een gemachtigde of een advocaat stelt het op volgens artikel 111 van het Wetboek van Burgerlijke Rechtsvordering: wie, wat, waarom, en bewijsstukken. In tweevoud bij één tegenpartij.</li>
+ <li><b>Vastrecht betalen</b> bij het Ministerie van Justitie. Het bedrag hangt af van de hoogte van de vordering; voor sommige zaken is geen vastrecht nodig. Vraag het actuele tarief bij de griffie.</li>
+ <li><b>Indienen</b> bij de griffie der kantongerechten, Afdeling Agenda. Na controle krijgt de zaak een AR-nummer en geeft de rolrechter een datum.</li>
+ <li><b>Oproeping</b> van de tegenpartij door een deurwaarder, binnen de wettelijke termijnen.</li>
+ <li><b>Rolzitting</b>: verschijnt de gedaagde niet terwijl hij goed is opgeroepen, dan kan de rechter verstek verlenen en vonnis wijzen. Verschijnt hij wel, dan volgen antwoord, soms een comparitie (gesprek met de rechter) en bewijslevering.</li>
+ <li><b>Vonnis</b>: de rechter wijst toe of af en veroordeelt de verliezer meestal in de proceskosten.</li>
+</ol>
+<p>Wie de kosten van een advocaat niet kan dragen, kan bij het Bureau Rechtszorg van het Ministerie van Justitie een pro-deo-advocaat aanvragen. Contactgegevens van instanties: <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</p>
+<h3>Kort geding</h3>
+<p>Een kort geding (artikelen 226 tot 235 Rv) is voor zaken die zo dringend zijn dat de gewone procedure niet kan worden afgewacht, bijvoorbeeld een veiling, levering of ontruiming tegenhouden. De rechter treft alleen een voorlopige voorziening: hij kan een overeenkomst bijvoorbeeld schorsen, maar niet ontbinden. Is de zaak te ingewikkeld, dan verwijst hij naar de bodemprocedure. Een geldvordering kan in kort geding alleen bij duidelijke spoed en een vrijwel zekere vordering.</p>
+<h3>Hoger beroep</h3>
+<p>Tegen een vonnis van de kantonrechter ga je in hoger beroep bij het <b>Hof van Justitie</b>, waar drie rechters de zaak opnieuw behandelen. Je stelt het in met een schriftelijke mededeling aan de griffier van het kantongerecht. Het nieuwe Wetboek van Burgerlijke Rechtsvordering (S.B. 2024 no. 170, sinds 1 mei 2025) stelt de termijn op <b>zes weken</b> na de uitspraak (artikel 264), en in kort geding de helft: <b>drie weken</b> (artikel 235). De site van het Hof noemde in oktober 2026 nog de oude termijnen van 30 en 14 dagen. Ga daarom zo snel mogelijk en controleer de termijn bij de griffie. Hoger beroep schorst de tenuitvoerlegging, tenzij het vonnis uitvoerbaar bij voorraad is verklaard.</p>
+{% else %}
+<p>In Suriname the <b>cantonal court</b> (kantonrechter) hears civil cases at first instance: loans, rent, employment, wages, eviction, breach of contract, damages and land matters. Commercial cases go through the Commercial Roll (Handelsrol):</p>
+<ul>
+ <li><b>Small Commercial Roll</b>: simple cases and money claims up to SRD 20,000, EUR 2,500 or USD 2,500, plus rent, eviction, employment cases and declaration procedures. Designed for fast decisions.</li>
+ <li><b>Large Commercial Roll</b>: all other cases; usually longer.</li>
+</ul>
+<ol class="steps">
+ <li><b>Petition</b>: you, an authorised person or a lawyer draws it up in line with article 111 of the Code of Civil Procedure: who, what, why, and supporting documents. Two copies if there is one other party.</li>
+ <li><b>Pay the court fee (vastrecht)</b> at the Ministry of Justice. The amount depends on the size of the claim; some cases need no fee. Ask the registry for the current rate.</li>
+ <li><b>File</b> at the registry of the cantonal courts, Agenda department. After checking, the case gets an AR number and the roll judge sets a date.</li>
+ <li><b>Summons</b> of the other party by a bailiff, within the statutory periods.</li>
+ <li><b>Roll hearing</b>: if the defendant does not appear despite being properly summoned, the court can grant a default judgment. If they appear, a defence follows, sometimes a hearing with the judge (comparitie) and evidence.</li>
+ <li><b>Judgment</b>: the court grants or dismisses the claim and usually orders the loser to pay the legal costs.</li>
+</ol>
+<p>If you cannot afford a lawyer, you can apply for a pro bono lawyer at the Legal Aid Bureau (Bureau Rechtszorg) of the Ministry of Justice. Contact details of institutions: <a href="{{ U('contacts') }}">{{ L('contacts') }}</a>.</p>
+<h3>Summary proceedings (kort geding)</h3>
+<p>Summary proceedings (articles 226 to 235 of the Code of Civil Procedure) are for matters so urgent that the normal procedure cannot be awaited, for example stopping an auction, delivery or eviction. The court only grants a provisional measure: it can suspend a contract, for example, but not terminate it. If the case is too complex, it refers the parties to proceedings on the merits. A money claim in summary proceedings only works with clear urgency and a near-certain claim.</p>
+<h3>Appeal</h3>
+<p>You appeal a cantonal court judgment to the <b>Court of Justice</b> (Hof van Justitie), where three judges hear the case again. You file it with a written notice to the registrar of the cantonal court. The new Code of Civil Procedure (S.B. 2024 no. 170, since 1 May 2025) sets the deadline at <b>six weeks</b> after the judgment (article 264), and half of that in summary proceedings: <b>three weeks</b> (article 235). In October 2026 the court's website still gave the old periods of 30 and 14 days. So act as quickly as possible and check the deadline with the registry. An appeal suspends enforcement, unless the judgment was declared provisionally enforceable.</p>
+{% endif %}
+
+<h2>{{ 'Beslag en tenuitvoerlegging' if nl else 'Attachment and enforcement' }}</h2>
+{% if nl %}
+<h3>Conservatoir beslag (vóór het vonnis)</h3>
+<ul>
+ <li>Je vraagt <b>verlof</b> aan de kantonrechter met een verzoekschrift waarin staan: het soort beslag, je vordering en het (maximum)bedrag (artikel 700 Rv). De rechter beslist na een summier onderzoek en stelt het bedrag vast, inclusief kosten.</li>
+ <li>Is de hoofdzaak nog niet begonnen, dan moet je die starten binnen de termijn die de rechter bepaalt, minstens acht dagen na het beslag; anders vervalt het beslag.</li>
+ <li>De rechter kan eisen dat je <b>zekerheid</b> stelt voor schade door het beslag (artikel 701). Blijkt het beslag onterecht, dan kun je aansprakelijk zijn.</li>
+ <li>Krijg je een uitvoerbaar vonnis, dan gaat het conservatoir beslag over in een executoriaal beslag (artikel 704).</li>
+</ul>
+<h3>Executoriaal beslag (na het vonnis)</h3>
+<ul>
+ <li>Met een vonnis laat je de deurwaarder beslag leggen op roerende zaken, registergoederen (grond, huizen, voertuigen, schepen), aandelen, of op tegoeden en betalingen bij derden, zoals een bank of een klant van je schuldenaar (derdenbeslag).</li>
+ <li>Een vonnis kun je tot twintig jaar na de uitspraak ten uitvoer leggen (artikel 324 van Boek 3).</li>
+ <li><b>Tegen de Staat</b> is derdenbeslag toegestaan, maar alleen op vorderingen of zaken die in het exploot zijn omschreven, en de Staat kan om redenen van openbaar belang in kort geding opheffing vragen (artikel 479 Rv). Goederen bestemd voor de openbare dienst zijn niet vatbaar voor beslag (artikelen 436 en 703).</li>
+</ul>
+{% else %}
+<h3>Prejudgment attachment (before judgment)</h3>
+<ul>
+ <li>You ask the cantonal court for <b>leave</b> with a petition stating the type of attachment, your claim and the (maximum) amount (article 700 of the Code of Civil Procedure). The court decides after a summary review and sets the amount, including costs.</li>
+ <li>If the main case has not started, you must start it within the period the court sets, at least eight days after the attachment; otherwise the attachment lapses.</li>
+ <li>The court may require you to provide <b>security</b> for damage caused by the attachment (article 701). If the attachment proves wrongful, you may be liable.</li>
+ <li>Once you obtain an enforceable judgment, the prejudgment attachment becomes an executory attachment (article 704).</li>
+</ul>
+<h3>Executory attachment (after judgment)</h3>
+<ul>
+ <li>With a judgment you have the bailiff attach movable property, registered property (land, houses, vehicles, ships), shares, or balances and payments held by third parties, such as a bank or a customer of your debtor (garnishment).</li>
+ <li>A judgment can be enforced for up to twenty years after it was given (article 324 of Book 3).</li>
+ <li><b>Against the State</b> garnishment is allowed, but only on claims or goods described in the writ, and the State can ask for it to be lifted in summary proceedings for reasons of public interest (article 479 of the Code of Civil Procedure). Goods intended for public service cannot be attached (articles 436 and 703).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Arbitrage, bindend advies en mediation' if nl else 'Arbitration, binding advice and mediation' }}</h2>
+{% if nl %}
+<h3>Arbitrage</h3>
+<p>Bij arbitrage beslissen een of meer arbiters die de partijen zelf kiezen, in plaats van de rechter. De regels staan in Boek 4 van het nieuwe Wetboek van Burgerlijke Rechtsvordering (artikel 1020 en verder):</p>
+<ul>
+ <li>De arbitrageovereenkomst moet blijken uit een <b>geschrift</b>; een verwijzing naar algemene voorwaarden met een arbitrageclausule die de wederpartij heeft aanvaard, volstaat (artikel 1021).</li>
+ <li>Begint de wederpartij toch bij de rechter, dan verklaart die zich onbevoegd als jij je op tijd op de arbitrageclausule beroept (artikel 1022).</li>
+ <li>Arbitraal hoger beroep bestaat alleen als partijen dat hebben afgesproken (artikel 1050). Tegen een arbitraal vonnis staan verder alleen vernietiging en herroeping open; vernietiging vraag je binnen drie maanden na neerlegging van het vonnis bij de kantonrechter (artikel 1064).</li>
+</ul>
+<p>Het <b>Surinaams Arbitrage Instituut (SAI)</b> werd in 1954 opgericht op initiatief van het georganiseerde bedrijfsleven en in 2013 opnieuw actief. Het biedt arbitrage, bindend advies en mediation, met eigen reglementen en een bestand van arbiters en mediators, en werkt samen met het Nederlands Arbitrage Instituut. Kies je voor arbitrage, neem dan bij het begin van de samenwerking een clausule op; als het conflict er eenmaal is, lukt dat zelden nog.</p>
+<h3>Verdrag van New York</h3>
+<p>Suriname trad op 10 november 2022 toe tot het Verdrag van New York van 1958 over de erkenning en tenuitvoerlegging van buitenlandse arbitrale vonnissen. Het geldt sinds <b>8 februari 2023</b>. Suriname maakte twee voorbehouden: het verdrag geldt alleen voor vonnissen uit andere verdragslanden en alleen voor geschillen die naar Surinaams recht als handelszaak gelden. Voor buitenlandse partners betekent dit dat een arbitraal vonnis in Suriname ten uitvoer kan worden gelegd, en omgekeerd. Relevant als je exporteert of importeert: <a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+<h3>Bindend advies</h3>
+<p>Bij bindend advies leggen partijen een vraag voor aan een deskundige, bijvoorbeeld over de kwaliteit van een bouwwerk of een levering, en spreken af zich aan het oordeel te houden. Een handeling om een bindend advies te krijgen stuit de verjaring, als je dat met bekwame spoed aan de wederpartij meedeelt en het advies er komt (artikel 316 lid 3 van Boek 3).</p>
+<h3>Mediation</h3>
+<p>Bij mediation zoeken partijen onder leiding van een onafhankelijke mediator samen naar een oplossing. Het is vrijwillig en vertrouwelijk en eindigt in een vaststellingsovereenkomst. Het werkt het best als je de relatie wilt houden: een vaste klant, leverancier, huurder of compagnon.</p>
+{% else %}
+<h3>Arbitration</h3>
+<p>In arbitration one or more arbitrators chosen by the parties decide instead of a judge. The rules are in Book 4 of the new Code of Civil Procedure (article 1020 onwards):</p>
+<ul>
+ <li>The arbitration agreement must be evidenced <b>in writing</b>; a reference to general terms with an arbitration clause that the other party accepted is enough (article 1021).</li>
+ <li>If the other party goes to court anyway, the court declines jurisdiction if you invoke the arbitration clause in time (article 1022).</li>
+ <li>Arbitral appeal only exists if the parties agreed to it (article 1050). Otherwise only setting aside and revocation are available against an award; you apply to the cantonal court for setting aside within three months after the award is deposited (article 1064).</li>
+</ul>
+<p>The <b>Suriname Arbitration Institute (SAI)</b> was founded in 1954 at the initiative of organised business and reactivated in 2013. It offers arbitration, binding advice and mediation, with its own rules and a pool of arbitrators and mediators, and cooperates with the Netherlands Arbitration Institute. If you choose arbitration, put a clause in at the start of the relationship; once the conflict exists, that rarely works.</p>
+<h3>New York Convention</h3>
+<p>Suriname acceded on 10 November 2022 to the 1958 New York Convention on the recognition and enforcement of foreign arbitral awards. It has applied since <b>8 February 2023</b>. Suriname made two reservations: the Convention only applies to awards made in other contracting states and only to disputes considered commercial under Surinamese law. For foreign partners this means an arbitral award can be enforced in Suriname, and vice versa. Relevant if you export or import: <a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</p>
+<h3>Binding advice</h3>
+<p>With binding advice the parties put a question to an expert, for example about the quality of a building or a delivery, and agree to accept the outcome. An act aimed at obtaining binding advice interrupts limitation, if you inform the other party promptly and the advice is given (article 316(3) of Book 3).</p>
+<h3>Mediation</h3>
+<p>In mediation the parties look for a solution together, led by an independent mediator. It is voluntary and confidential and ends in a settlement agreement. It works best when you want to keep the relationship: a regular customer, supplier, tenant or business partner.</p>
+{% endif %}
+
+<h2>{{ 'Als de overheid niet betaalt' if nl else 'When the government does not pay' }}</h2>
+{% if nl %}
+<p>Late betalingen door ministeries, ziekenhuizen en andere overheidsinstellingen zijn een terugkerend probleem voor leveranciers en aannemers. In 2021 voerde de minister van Financiën en Planning gesprekken met lokale aannemers over het herschikken van achterstallige betalingen, en in 2024 wachtten leveranciers van medische zuurstof nog op uitbetaling van tientallen miljoenen SRD, waarbij het ministerie aangaf alleen in SRD uit de begroting te kunnen betalen.</p>
+<ul>
+ <li><b>Vooraf</b>: vraag bij een opdracht om het schriftelijke contract of de opdrachtbrief, de begrotingspost waarop het is vastgelegd, en wie de betaling goedkeurt. Bij aanbestedingen staan de betalingsvoorwaarden in de stukken; zie <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Factureer exact</b> volgens de eisen van de instelling, met de juiste referenties, en bewaar ontvangstbevestigingen.</li>
+ <li><b>Maan schriftelijk aan</b>, met kopie aan de directeur van het ministerie of de instelling. Dat stuit ook de verjaring.</li>
+ <li><b>Overleg</b>: vraag naar een betalingsplanning. Bundel bij grote achterstanden met andere leveranciers via je branche- of werkgeversorganisatie; zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>Juridisch</b>: de Staat is aan dezelfde verbintenissen gebonden en ook wettelijke rente kan verschuldigd zijn. Maar beslag is beperkt (zie hierboven) en een procedure kost tijd. Weeg dat af tegen je kaspositie; zie <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> en <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+</ul>
+{% else %}
+<p>Late payments by ministries, hospitals and other public bodies are a recurring problem for suppliers and contractors. In 2021 the Minister of Finance and Planning held talks with local contractors about rescheduling arrears, and in 2024 suppliers of medical oxygen were still waiting for tens of millions of SRD, with the ministry saying it could only pay in SRD from the budget.</p>
+<ul>
+ <li><b>Beforehand</b>: for any order, ask for the written contract or order letter, the budget line it is committed to, and who approves payment. For tenders the payment terms are in the documents; see <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Invoice exactly</b> to the body's requirements, with the right references, and keep proof of receipt.</li>
+ <li><b>Send written reminders</b>, copied to the director of the ministry or body. That also interrupts limitation.</li>
+ <li><b>Talk</b>: ask for a payment schedule. With large arrears, join forces with other suppliers through your sector or employers' association; see <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>Legal action</b>: the State is bound by the same obligations and statutory interest can be due. But attachment is limited (see above) and proceedings take time. Weigh that against your cash position; see <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> and <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Arbeidsgeschillen en klachten van consumenten' if nl else 'Employment disputes and consumer complaints' }}</h2>
+{% if nl %}
+<h3>Arbeidsgeschillen</h3>
+<p>Een conflict met een werknemer over loon, ontslag of arbeidsvoorwaarden komt bij de kantonrechter, vaak op de Kleine Handelsrol. Voor ontslag gelden eigen regels en procedures: zie <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. De algemene regels staan op <a href="{{ U('labour') }}">{{ L('labour') }}</a>, en je plichten als werkgever op <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Leg afspraken en waarschuwingen altijd schriftelijk vast.</p>
+<h3>Klachten van consumenten</h3>
+<ul>
+ <li>Reageer snel en schriftelijk, en bied waar het redelijk is herstel, vervanging of terugbetaling. Een klacht die je goed afhandelt, wordt zelden een rechtszaak.</li>
+ <li>Het nieuwe BW beschermt consumenten tegen onredelijke bedingen in algemene voorwaarden: zie de lijsten in de artikelen 236 en 237 van Boek 6. Een beding als "geen garantie, geen retour, nooit" kan nietig zijn.</li>
+ <li>Prijsklachten over basisgoederen lopen via het ministerie van Economische Zaken; zie <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a> en <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li>In 2020 is een initiatiefvoorstel voor een Consumentenbeschermingswet ingediend bij De Nationale Assemblée. Wij konden niet bevestigen dat het is aangenomen; volg de stand op <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% else %}
+<h3>Employment disputes</h3>
+<p>A conflict with an employee about wages, dismissal or terms of employment goes to the cantonal court, often on the Small Commercial Roll. Dismissal has its own rules and procedures: see <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. The general rules are on <a href="{{ U('labour') }}">{{ L('labour') }}</a>, and your duties as an employer on <a href="{{ U('employer') }}">{{ L('employer') }}</a>. Always put agreements and warnings in writing.</p>
+<h3>Consumer complaints</h3>
+<ul>
+ <li>Respond quickly and in writing, and where reasonable offer repair, replacement or a refund. A complaint handled well rarely becomes a lawsuit.</li>
+ <li>The new Civil Code protects consumers against unreasonable clauses in general terms: see the lists in articles 236 and 237 of Book 6. A clause like "no warranty, no returns, ever" may be void.</li>
+ <li>Price complaints about basic goods go through the Ministry of Economic Affairs; see <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a> and <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li>In 2020 a private member's bill for a Consumer Protection Act was submitted to the National Assembly. We could not confirm that it has been passed; follow its status on <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist: een onbetaalde factuur' if nl else 'Checklist: an unpaid invoice' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Offerte, opdrachtbevestiging of contract met de afgesproken prijs en betalingstermijn</li>
+ <li>Factuur met datum, nummer en vervaldatum, en bewijs van verzending</li>
+ <li>Afleverbewijs, werkbon of acceptatie door de klant</li>
+ <li>Herinnering en schriftelijke ingebrekestelling met termijn, met bewijs van verzending</li>
+ <li>Overzicht van wettelijke of afgesproken rente en gemaakte incassokosten</li>
+ <li>KKF-uittreksel van de klant: juiste naam, rechtsvorm en adres voor de oproeping</li>
+ <li>Correspondentie, WhatsApp-berichten en notities van gesprekken</li>
+ <li>Verjaringsdatum genoteerd, met stuitingsbrief op tijd</li>
+ <li>Afweging: regeling, Kleine of Grote Handelsrol, beslag, arbitrage of mediation</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Quote, order confirmation or contract with the agreed price and payment term</li>
+ <li>Invoice with date, number and due date, and proof of sending</li>
+ <li>Delivery note, job sheet or customer acceptance</li>
+ <li>Reminder and written notice of default with a deadline, with proof of sending</li>
+ <li>Calculation of statutory or agreed interest and collection costs incurred</li>
+ <li>KKF extract of the customer: correct name, legal form and address for the summons</li>
+ <li>Correspondence, WhatsApp messages and notes of conversations</li>
+ <li>Limitation date noted, with an interruption letter sent in time</li>
+ <li>Decision: settlement, Small or Large Commercial Roll, attachment, arbitration or mediation</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...de klant zegt dat het werk niet goed was?</b> Dan is het een geschil, geen gewone wanbetaling. Vraag schriftelijk wat er mis is, bied herstel aan, en overweeg bindend advies door een deskundige.</li>
+ <li><b>...de klant failliet gaat?</b> Meld je vordering bij de curator. Je kunt dan meestal niet meer zelf beslag leggen. Het nieuwe Boek 2 BW maakt bestuurders in sommige gevallen persoonlijk aansprakelijk; zie <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>...de schuldenaar in het buitenland zit?</b> Kijk welke rechter bevoegd is volgens je contract. Met een arbitrageclausule is een vonnis via het Verdrag van New York uitvoerbaar in de meeste landen.</li>
+ <li><b>...ik een vonnis heb maar niets krijg?</b> Laat de deurwaarder beslag leggen op bankrekeningen, voertuigen of vorderingen van de schuldenaar op derden. Je hebt twintig jaar.</li>
+ <li><b>...ik zelf word aangeklaagd?</b> Let op de datum in de oproeping. Verschijn, zelf of via een gemachtigde, anders kan verstek worden verleend. Bel tijdig een advocaat.</li>
+ <li><b>...de vordering in USD is en de klant in SRD wil betalen?</b> Zonder afspraak over betaling "effectief" in USD mag dat, tegen de koers van de dag van betaling.</li>
+ <li><b>...een toezichthouder mij een boete geeft?</b> Dat is bestuursrecht met eigen termijnen; voor witwasboetes zie <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...the customer says the work was not done properly?</b> Then it is a dispute, not plain non-payment. Ask in writing what is wrong, offer to fix it, and consider binding advice by an expert.</li>
+ <li><b>...the customer goes bankrupt?</b> File your claim with the trustee. You can then usually no longer attach assets yourself. The new Book 2 of the Civil Code makes directors personally liable in some cases; see <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>.</li>
+ <li><b>...the debtor is abroad?</b> Check which court has jurisdiction under your contract. With an arbitration clause, an award is enforceable in most countries under the New York Convention.</li>
+ <li><b>...I have a judgment but get nothing?</b> Have the bailiff attach bank accounts, vehicles or the debtor's claims on third parties. You have twenty years.</li>
+ <li><b>...I am sued myself?</b> Note the date in the summons. Appear, yourself or through an authorised person, or a default judgment may be given. Call a lawyer in time.</li>
+ <li><b>...the claim is in USD and the customer wants to pay in SRD?</b> Without an agreement to pay "effectively" in USD that is allowed, at the rate on the day of payment.</li>
+ <li><b>...a supervisor fines me?</b> That is administrative law with its own deadlines; for anti-money laundering fines see <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.dna.sr/media/0fchjnyn/s-b-_2024_no-_164__boek_6.pdf" rel="noopener">{{ 'Burgerlijk Wetboek Boek 6, S.B. 2024 no. 164 (De Nationale Assemblée)' if nl else 'Civil Code Book 6, S.B. 2024 no. 164 (National Assembly)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/03/S.B.-2024-no.-164-BOEK-3.pdf" rel="noopener">{{ 'Burgerlijk Wetboek Boek 3, S.B. 2024 no. 164 (verjaring)' if nl else 'Civil Code Book 3, S.B. 2024 no. 164 (limitation)' }}</a></li>
+ <li><a href="https://sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-166-Overgangswet-nieuw-Burgerlijk-Wetboek.pdf" rel="noopener">{{ 'Overgangswet nieuw Burgerlijk Wetboek, S.B. 2024 no. 166 (art. 130b: wettelijke rente 5%)' if nl else 'Transitional Act new Civil Code, S.B. 2024 no. 166 (art. 130b: statutory interest 5%)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-170-Wetboek-van-Burgerlijke-Rechtsvordering.pdf" rel="noopener">{{ 'Wetboek van Burgerlijke Rechtsvordering, S.B. 2024 no. 170' if nl else 'Code of Civil Procedure, S.B. 2024 no. 170' }}</a></li>
+ <li><a href="https://www.curacao-law.com/wp-content/uploads/2026/07/Frielink-Nieuw-Boek-2-BW-Suriname-MvO-april-2026.pdf" rel="noopener">{{ 'Frielink: nieuw Boek 2 BW Suriname, inwerkingtreding 1 mei 2025 (april 2026)' if nl else 'Frielink: new Book 2 Civil Code Suriname, in force 1 May 2025 (April 2026)' }}</a></li>
+ <li><a href="https://rechtspraak.sr/rechtspraak/civiele-rechtspraak/kanton-civiel/handel/" rel="noopener">{{ 'Hof van Justitie: Handelsrol bij de kantonrechter' if nl else 'Court of Justice: Commercial Roll at the cantonal court' }}</a></li>
+ <li><a href="https://rechtspraak.sr/rechtspraak/civiele-rechtspraak/kanton-civiel/kort-geding/" rel="noopener">{{ 'Hof van Justitie: kort geding' if nl else 'Court of Justice: summary proceedings' }}</a></li>
+ <li><a href="https://rechtspraak.sr/rechtspraak/civiele-rechtspraak/hof-civiel/hoger-beroep/" rel="noopener">{{ 'Hof van Justitie: hoger beroep' if nl else 'Court of Justice: appeal' }}</a></li>
+ <li><a href="https://www.sai.sr/" rel="noopener">{{ 'Surinaams Arbitrage Instituut (SAI)' if nl else 'Suriname Arbitration Institute (SAI)' }}</a></li>
+ <li><a href="https://uncitral.un.org/en/texts/arbitration/conventions/foreign_arbitral_awards/status2" rel="noopener">{{ 'UNCITRAL: status Verdrag van New York (1958)' if nl else 'UNCITRAL: status of the New York Convention (1958)' }}</a></li>
+ <li><a href="https://gov.sr/minister-achaibersing-overlegt-met-lokale-aannemers-over-schuldherschikking/" rel="noopener">{{ 'Overheid Suriname: minister overlegt met lokale aannemers over schuldherschikking (april 2021)' if nl else 'Government of Suriname: minister meets local contractors on debt rescheduling (April 2021)' }}</a></li>
+ <li><a href="https://keynews.sr/medische-zuurstofleveranciers-wachten-nog-op-uitbetaling-achterstallige-gelden" rel="noopener">{{ 'Key News: zuurstofleveranciers wachten op achterstallige betalingen (maart 2024)' if nl else 'Key News: oxygen suppliers waiting for arrears (March 2024)' }}</a></li>
+ <li><a href="https://www.dna.sr/media/0wsjlvyo/aanb-_initiatiefvoorstel_consumentenbeschermingswet.pdf" rel="noopener">{{ 'De Nationale Assemblée: initiatiefvoorstel Consumentenbeschermingswet (2020)' if nl else 'National Assembly: private member\'s bill Consumer Protection Act (2020)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. Termijnen zijn streng: laat je bij een concreet geschil tijdig adviseren door een advocaat.' if nl else 'General information, not legal advice. Deadlines are strict: in a concrete dispute, get advice from a lawyer in time.' }}</p>
+</div>
+{% endblock %}

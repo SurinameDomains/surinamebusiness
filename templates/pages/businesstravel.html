@@ -1,0 +1,440 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Zakenreis naar Suriname: inreizen, vluchten, geld en afspraken' if nl else 'Business trip to Suriname: entry, flights, money and meetings' }}</h1>
+{% if nl %}
+<p class="lead">Voor een zakenreis naar Suriname regel je vooraf drie dingen online: je toegang (een zakelijk e-visum, of de entry fee als je alleen als bezoeker komt), het gratis ICF-formulier met QR-code, en een paspoort dat nog minstens 6 maanden geldig is. Neem contant USD of EUR mee, want pinautomaten zijn soms leeg en niet elke winkel neemt een buitenlandse kaart. Plan afspraken 's ochtends: overheidskantoren sluiten vroeg.</p>
+{% else %}
+<p class="lead">For a business trip to Suriname you arrange three things online before you fly: your entry (a business e-visa, or the entry fee if you come only as a visitor), the free ICF form with its QR code, and a passport valid for at least 6 more months. Bring USD or EUR in cash, because ATMs sometimes run dry and not every shop takes a foreign card. Book meetings in the morning: government offices close early.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">Entry fee</div><div class="big">USD/EUR 50</div><div class="sub">{{ 'sinds 15 mei 2024, was 25' if nl else 'since 15 May 2024, was 25' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Paspoort' if nl else 'Passport' }}</div><div class="big">{{ '6 maanden' if nl else '6 months' }}</div><div class="sub">{{ 'minimaal geldig bij aankomst' if nl else 'minimum validity on arrival' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Tijdzone' if nl else 'Time zone' }}</div><div class="big">UTC-3</div><div class="sub">{{ 'geen zomertijd; 4 uur achter op Nederland in de winter, 5 in de zomer' if nl else 'no daylight saving; 4 hours behind the Netherlands in winter, 5 in summer' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Toegang</b>: komt je nationaliteit op de entry-fee-lijst en kom je als bezoeker, dan betaal je USD of EUR 50 bij VFS Global. Kom je voor zaken (vergaderingen, onderhandelingen, een beurs), dan vragen de Nederlandse en Amerikaanse overheid je om een zakelijk e-visum via hetzelfde portaal. Werken is iets anders: daarvoor heb je een werkvergunning nodig.</li>
+ <li><b>ICF</b>: iedere reiziger van 18 jaar en ouder vult vóór aankomst en vóór vertrek het gratis Immigration Customs Form in op icf.sr. Zonder QR-code laat de luchtvaartmaatschappij je niet aan boord.</li>
+ <li><b>Gele koorts</b>: vaccinatie wordt aanbevolen en is verplicht als je uit een gele-koortsland komt (ook bij een overstap van meer dan 12 uur daar).</li>
+ <li><b>Geld</b>: de SRD stond eind oktober 2026 rond 37,5 tot 37,8 per USD. Wissel bij een bank of erkend wisselkantoor, nooit op straat.</li>
+ <li><b>Rijden</b>: links. Een Nederlands rijbewijs geldt 14 dagen; daarna, en bij veel autoverhuurders meteen, heb je een internationaal rijbewijs nodig.</li>
+ <li><b>Monsters</b>: Suriname kent geen ATA-carnet. Tijdelijke invoer van demo-goederen gaat met een borg ter hoogte van de invoerrechten.</li>
+{% else %}
+ <li><b>Entry</b>: if your nationality is on the entry fee list and you come as a visitor, you pay USD or EUR 50 through VFS Global. If you come on business (meetings, negotiations, a trade fair), the Dutch and US governments tell travellers to get a business e-visa through the same portal. Working is something else: that needs a work permit.</li>
+ <li><b>ICF</b>: every traveller aged 18 or over fills in the free Immigration Customs Form at icf.sr before arrival and before departure. Without the QR code the airline will not board you.</li>
+ <li><b>Yellow fever</b>: vaccination is recommended, and compulsory if you arrive from a yellow fever country (including a transit of more than 12 hours there).</li>
+ <li><b>Money</b>: the SRD traded around 37.5 to 37.8 per USD in late October 2026. Change money at a bank or licensed exchange office, never on the street.</li>
+ <li><b>Driving</b>: on the left. A Dutch licence is valid for 14 days; after that, and at many rental firms from day one, you need an International Driving Permit.</li>
+ <li><b>Samples</b>: Suriname does not accept ATA carnets. Temporary import of demo goods works with a deposit equal to the import duties.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Visum of entry fee: wat heb je nodig?' if nl else 'Visa or entry fee: what do you need?' }}</h2>
+{% if nl %}
+<p>Suriname schafte in juli 2022 het visum voor de meeste landen af en voerde een <b>entry fee</b> in van USD of EUR 25. Sinds 15 januari 2024 moet je die vooraf online betalen, en op 15 mei 2024 ging het tarief naar <b>USD 50 of EUR 50</b>. Op 1 mei 2023 kwam de visumplicht terug voor 21 landen, waaronder India, Nigeria, Ghana, Pakistan, Egypte, Cuba en Venezuela. Alles loopt via het portaal van VFS Global.</p>
+<p>De entry fee is bedoeld voor toerisme en familiebezoek. Het VFS-portaal heeft daarnaast een aparte categorie <b>Business</b> voor "zakelijke activiteiten, vergaderingen en conferenties". De Nederlandse overheid schrijft in haar reisadvies (oktober 2026) dat je voor zaken een visum nodig hebt, en de Amerikaanse overheid zegt hetzelfde. Kies dus de zakelijke categorie als je komt praten over contracten, een vestiging of investeringen. Een zakenvisum geeft geen recht om te werken; wie in Suriname in loondienst gaat, heeft een werk- en verblijfsvergunning nodig.</p>
+<table class="tbl stack tx"><thead><tr><th>Jouw situatie</th><th>Wat je regelt</th><th>Let op</th></tr></thead><tbody>
+ <tr><td data-l="Jouw situatie">Zakenreis, nationaliteit op de VFS-lijst (o.a. Nederland, België, Frankrijk, Duitsland, VS, China)</td><td data-l="Wat je regelt">Zakelijk e-visum via VFS Global, plus ICF</td><td data-l="Let op">Tarief volgens de VFS-tarieflijst; niet terugbetaalbaar bij weigering</td></tr>
+ <tr><td data-l="Jouw situatie">Kort bezoek, toerisme of familie</td><td data-l="Wat je regelt">Entry fee USD/EUR 50 (enkel of meervoudig), plus ICF</td><td data-l="Let op">Meervoudig: tot 5 keer inreizen binnen 3 maanden</td></tr>
+ <tr><td data-l="Jouw situatie">Nationaliteit met visumplicht (21 landen)</td><td data-l="Wat je regelt">E-visum in de juiste categorie</td><td data-l="Let op">Haïtianen krijgen geen visum</td></tr>
+ <tr><td data-l="Jouw situatie">CARICOM-paspoort, PSA-document of -kaart, ingezetene</td><td data-l="Wat je regelt">Geen entry fee; wel ICF</td><td data-l="Let op">CARICOM: wel een MKV bij langer verblijf</td></tr>
+ <tr><td data-l="Jouw situatie">Brazilië, Colombia, Japan</td><td data-l="Wat je regelt">Volgens VFS visumvrij voor alle paspoorten; check de categorie voor zaken</td><td data-l="Let op">Lijst wijzigt geregeld</td></tr>
+ <tr><td data-l="Jouw situatie">Je gaat in Suriname werken</td><td data-l="Wat je regelt">MKV, verblijfs- en werkvergunning</td><td data-l="Let op"><a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></td></tr>
+</tbody></table>
+<p>Nieuw in 2026: burgers van de Dominicaanse Republiek met een geldig Schengen- of VS-visum kunnen sinds 1 september 2026 met de entry fee inreizen. De lijst verandert dus; kijk vlak voor je boekt op het VFS-portaal. Doorreizigers die het vliegveld niet verlaten, hebben geen visum nodig.</p>
+<p class="note">De entry fee is per persoon. Reis je met collega's, dan betaalt ieder apart. Bewaar het betaalbewijs op je telefoon: je toont het bij het inchecken en bij aankomst.</p>
+{% else %}
+<p>Suriname scrapped visas for most countries in July 2022 and introduced an <b>entry fee</b> of USD or EUR 25. Since 15 January 2024 it must be paid online in advance, and on 15 May 2024 the rate went up to <b>USD 50 or EUR 50</b>. On 1 May 2023 visas came back for 21 countries, including India, Nigeria, Ghana, Pakistan, Egypt, Cuba and Venezuela. Everything runs through the VFS Global portal.</p>
+<p>The entry fee is meant for tourism and family visits. The VFS portal also has a separate <b>Business</b> category for "business activity, meetings and conferences". The Dutch government's travel advice (October 2026) says you need a visa for business, and the US government says the same. So pick the business category if you come to discuss contracts, a branch or an investment. A business visa does not allow you to work; anyone taking a job in Suriname needs a work and residence permit.</p>
+<table class="tbl stack tx"><thead><tr><th>Your situation</th><th>What you arrange</th><th>Watch out</th></tr></thead><tbody>
+ <tr><td data-l="Your situation">Business trip, nationality on the VFS list (incl. Netherlands, Belgium, France, Germany, US, China)</td><td data-l="What you arrange">Business e-visa through VFS Global, plus ICF</td><td data-l="Watch out">Fee per the VFS fee list; not refunded if refused</td></tr>
+ <tr><td data-l="Your situation">Short visit, tourism or family</td><td data-l="What you arrange">Entry fee USD/EUR 50 (single or multiple), plus ICF</td><td data-l="Watch out">Multiple: up to 5 entries within 3 months</td></tr>
+ <tr><td data-l="Your situation">Nationality that needs a visa (21 countries)</td><td data-l="What you arrange">E-visa in the right category</td><td data-l="Watch out">Haitians are not issued visas</td></tr>
+ <tr><td data-l="Your situation">CARICOM passport, PSA document or card, resident</td><td data-l="What you arrange">No entry fee; ICF still required</td><td data-l="Watch out">CARICOM: an MKV for longer stays</td></tr>
+ <tr><td data-l="Your situation">Brazil, Colombia, Japan</td><td data-l="What you arrange">Visa-exempt for all passports according to VFS; check the category for business</td><td data-l="Watch out">The list changes often</td></tr>
+ <tr><td data-l="Your situation">You will work in Suriname</td><td data-l="What you arrange">MKV, residence and work permit</td><td data-l="Watch out"><a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></td></tr>
+</tbody></table>
+<p>New in 2026: citizens of the Dominican Republic holding a valid Schengen or US visa can enter on the entry fee since 1 September 2026. The list changes, so check the VFS portal just before you book. Transit passengers who do not leave the airport need no visa.</p>
+<p class="note">The entry fee is per person. If you travel with colleagues, each pays separately. Keep the receipt on your phone: you show it at check-in and on arrival.</p>
+{% endif %}
+
+<h2>{{ 'ICF, paspoort en vaccinatiebewijs' if nl else 'ICF, passport and vaccination record' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Immigration Customs Form (ICF)</b>: verplicht sinds 15 januari 2025 voor iedereen van 18 jaar en ouder, bij aankomst én vertrek. Het formulier op icf.sr opent 7 dagen voor je reis en geeft een QR-code. Maak er een schermafbeelding van.</li>
+ <li><b>Paspoort</b>: nog minstens 6 maanden geldig bij aankomst, met een lege pagina voor stempels.</li>
+ <li><b>Gele koorts</b>: het gele vaccinatieboekje meenemen als je uit een land met gele koorts komt of daar langer dan 12 uur overstapt. De prik moet minstens 10 dagen voor aankomst gezet zijn.</li>
+ <li><b>Kinderen</b>: reis je alleen met een minderjarig kind, neem dan een geboorteakte of ander bewijs van de relatie mee, en zo nodig een toestemmingsverklaring van de andere ouder.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Immigration Customs Form (ICF)</b>: compulsory since 15 January 2025 for everyone aged 18 or over, on arrival and on departure. The form at icf.sr opens 7 days before your trip and gives you a QR code. Take a screenshot.</li>
+ <li><b>Passport</b>: valid for at least 6 more months on arrival, with a blank page for stamps.</li>
+ <li><b>Yellow fever</b>: bring your yellow vaccination booklet if you come from a yellow fever country or transit there for more than 12 hours. The shot must be given at least 10 days before arrival.</li>
+ <li><b>Children</b>: if you travel alone with a minor, bring a birth certificate or other proof of the relationship, and, where needed, a consent letter from the other parent.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Vluchten en luchthavens' if nl else 'Flights and airports' }}</h2>
+{% if nl %}
+<p>Internationale vluchten landen op de <b>Johan Adolf Pengel International Airport</b> (PBM) bij Zanderij, 45 km ten zuiden van Paramaribo. In 2025 reisden daar 519.171 internationale passagiers (aankomst en vertrek), 6% meer dan in 2024.</p>
+<table class="tbl stack tx"><thead><tr><th>Vanaf</th><th>Maatschappij</th><th>Opmerking</th></tr></thead><tbody>
+ <tr><td data-l="Vanaf">Amsterdam</td><td data-l="Maatschappij">KLM, Surinam Airways (SLM)</td><td data-l="Opmerking">Rond 24 aankomsten per maand</td></tr>
+ <tr><td data-l="Vanaf">Miami</td><td data-l="Maatschappij">SLM</td><td data-l="Opmerking">Sinds mei 2026 via Georgetown, niet meer via Curaçao</td></tr>
+ <tr><td data-l="Vanaf">Panama City</td><td data-l="Maatschappij">Copa Airlines</td><td data-l="Opmerking">Overstap naar Noord- en Zuid-Amerika</td></tr>
+ <tr><td data-l="Vanaf">Belém</td><td data-l="Maatschappij">SLM, Gol</td><td data-l="Opmerking">Verbinding met Brazilië</td></tr>
+ <tr><td data-l="Vanaf">Georgetown</td><td data-l="Maatschappij">SLM, Fly Allways, Sky High</td><td data-l="Opmerking">Deels seizoensgebonden</td></tr>
+ <tr><td data-l="Vanaf">Curaçao, Aruba</td><td data-l="Maatschappij">SLM</td><td data-l="Opmerking">Jaarrond</td></tr>
+ <tr><td data-l="Vanaf">Port of Spain, Santo Domingo, Kingston</td><td data-l="Maatschappij">Caribbean Airlines, Sky High, Fly Allways</td><td data-l="Opmerking">Regionale verbindingen</td></tr>
+</tbody></table>
+<p>Stand oktober 2026; schema's veranderen per seizoen. Inchecken voor Amsterdam begint 5 uur en sluit 2 uur voor vertrek; voor regionale vluchten begint het 3 uur ervoor. De luchthaven heeft een betaalde <b>Airport Courtesy Service</b> voor begeleiding bij aankomst en vertrek (reserveren met naam, paspoortnummer en vluchtgegevens).</p>
+<p><b>Zorg en Hoop</b> is het kleine vliegveld in Paramaribo zelf. Daar vertrekken de binnenlandvluchten, bijvoorbeeld naar lodges en mijnbouwgebieden. Let op: de Europese Commissie heeft alle Surinaamse luchtvaartmaatschappijen op de EU Air Safety List gezet. De trans-Atlantische vluchten van SLM vallen daar volgens de Nederlandse overheid niet onder, de binnenlandse en regionale vluchten wel. Bedrijven met een Europees reisbeleid moeten dat soms eerst laten goedkeuren.</p>
+{% else %}
+<p>International flights land at <b>Johan Adolf Pengel International Airport</b> (PBM) at Zanderij, 45 km south of Paramaribo. In 2025 it handled 519,171 international passengers (arrivals and departures), 6% more than in 2024.</p>
+<table class="tbl stack tx"><thead><tr><th>From</th><th>Airline</th><th>Note</th></tr></thead><tbody>
+ <tr><td data-l="From">Amsterdam</td><td data-l="Airline">KLM, Surinam Airways (SLM)</td><td data-l="Note">About 24 arrivals a month</td></tr>
+ <tr><td data-l="From">Miami</td><td data-l="Airline">SLM</td><td data-l="Note">Via Georgetown since May 2026, no longer via Curaçao</td></tr>
+ <tr><td data-l="From">Panama City</td><td data-l="Airline">Copa Airlines</td><td data-l="Note">Connections across the Americas</td></tr>
+ <tr><td data-l="From">Belém</td><td data-l="Airline">SLM, Gol</td><td data-l="Note">Link to Brazil</td></tr>
+ <tr><td data-l="From">Georgetown</td><td data-l="Airline">SLM, Fly Allways, Sky High</td><td data-l="Note">Partly seasonal</td></tr>
+ <tr><td data-l="From">Curaçao, Aruba</td><td data-l="Airline">SLM</td><td data-l="Note">Year-round</td></tr>
+ <tr><td data-l="From">Port of Spain, Santo Domingo, Kingston</td><td data-l="Airline">Caribbean Airlines, Sky High, Fly Allways</td><td data-l="Note">Regional links</td></tr>
+</tbody></table>
+<p>As of October 2026; schedules change by season. Check-in for Amsterdam opens 5 hours and closes 2 hours before departure; for regional flights it opens 3 hours before. The airport offers a paid <b>Airport Courtesy Service</b> to escort you on arrival and departure (book with name, passport number and flight details).</p>
+<p><b>Zorg en Hoop</b> is the small airfield inside Paramaribo. Domestic flights leave from there, for example to lodges and mining areas. Note: the European Commission has put all Surinamese airlines on the EU Air Safety List. According to the Dutch government SLM's transatlantic flights are not affected, but domestic and regional flights are. Companies with a European travel policy may need approval first.</p>
+{% endif %}
+
+<h2>{{ 'Van de luchthaven naar de stad' if nl else 'From the airport to town' }}</h2>
+{% if nl %}
+<p>Reken op ongeveer een uur rijden naar Paramaribo, langer in de spits of bij regen. De meeste vluchten uit Europa landen in de middag, die uit de regio vaak 's avonds of 's nachts. Je opties:</p>
+<ul>
+ <li><b>Ophalen door je hotel of zakenpartner</b>: de veiligste keuze bij aankomst in het donker. Vraag de naam van de chauffeur en het kenteken.</li>
+ <li><b>Taxi</b>: spreek de prijs en de valuta af voordat je instapt. De Amerikaanse overheid raadt aan taxi's via je hotel te nemen.</li>
+ <li><b>Huurauto</b>: verhuurders hebben balies op de luchthaven. Ze vragen meestal een internationaal rijbewijs en een creditcard voor de borg.</li>
+</ul>
+<p>Openbaar vervoer (minibussen) rijdt wel, maar is voor een eerste bezoek met bagage geen goed idee.</p>
+{% else %}
+<p>Allow about an hour's drive to Paramaribo, more at rush hour or in rain. Most flights from Europe land in the afternoon, regional ones often in the evening or at night. Your options:</p>
+<ul>
+ <li><b>Pick-up by your hotel or business partner</b>: the safest choice if you arrive after dark. Ask for the driver's name and the licence plate.</li>
+ <li><b>Taxi</b>: agree the price and the currency before you get in. The US government recommends taxis arranged through your hotel.</li>
+ <li><b>Rental car</b>: rental firms have desks at the airport. They usually ask for an International Driving Permit and a credit card for the deposit.</li>
+</ul>
+<p>Public minibuses run, but they are not a good idea on a first visit with luggage.</p>
+{% endif %}
+
+<h2>{{ 'Geld: contant, kaarten en wisselen' if nl else 'Money: cash, cards and exchange' }}</h2>
+{% if nl %}
+<p>De munt is de <b>Surinaamse dollar (SRD)</b>. De koers is vrij: eind oktober 2026 kocht je bij wisselkantoor CME een dollar voor ongeveer SRD 37,8 en een euro voor ongeveer SRD 42,1.{% if rates and not rates.stale %} De verkoopkoers van vandaag ({{ date(rates.business_date) }}): 1 USD = SRD {{ num(rates.usd.sell) }}, 1 EUR = SRD {{ num(rates.eur.sell) }}.{% endif %} Actuele koersen: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+<ul>
+ <li><b>Contant</b>: neem voldoende USD of EUR mee in kleine coupures. De US-dollar wordt veel geaccepteerd.</li>
+ <li><b>Pinnen</b>: automaten accepteren buitenlandse kaarten, maar rekenen extra kosten en zijn soms leeg, vooral aan het eind van de maand. Kaarten met alleen een V-Pay-logo werken niet overal.</li>
+ <li><b>Creditcard</b>: volgens de Amerikaanse overheid accepteren maar weinig zaken buitenlandse creditcards. Reken erop vooral bij hotels en grotere bedrijven, en vraag het vooraf.</li>
+ <li><b>Wisselen</b>: bij banken en wisselkantoren (cambio's) met een vergunning van de Centrale Bank. Wissel nooit op straat.</li>
+ <li><b>Grens</b>: de Amerikaanse overheid noemt USD 10.000 of de tegenwaarde als grens voor contant geld bij in- en uitreis. Heb je meer bij je, vraag dan vooraf bij de Douane hoe je het aangeeft.</li>
+</ul>
+<p>Hoe Surinaamse bedrijven betalingen ontvangen (POS, overboekingen via SNEPS, mobiel betalen): <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</p>
+{% else %}
+<p>The currency is the <b>Surinamese dollar (SRD)</b>. It floats: in late October 2026 the CME exchange office sold a dollar for about SRD 37.8 and a euro for about SRD 42.1.{% if rates and not rates.stale %} Today's selling rate ({{ date(rates.business_date) }}): 1 USD = SRD {{ num(rates.usd.sell) }}, 1 EUR = SRD {{ num(rates.eur.sell) }}.{% endif %} Current rates: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+<ul>
+ <li><b>Cash</b>: bring enough USD or EUR in small notes. The US dollar is widely accepted.</li>
+ <li><b>ATMs</b>: they accept foreign cards but charge extra fees and sometimes run out of cash, especially at the end of the month. Cards with only a V Pay logo do not work everywhere.</li>
+ <li><b>Credit cards</b>: according to the US government only a few places accept foreign credit cards. Count on them mainly at hotels and larger businesses, and ask first.</li>
+ <li><b>Exchange</b>: at banks and exchange offices (cambios) licensed by the Central Bank. Never change money on the street.</li>
+ <li><b>Border</b>: the US government gives USD 10,000 or the equivalent as the cash threshold when entering and leaving. If you carry more, ask Customs beforehand how to declare it.</li>
+</ul>
+<p>How Surinamese businesses take payments (POS, SNEPS transfers, mobile payments): <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Telefoon en internet' if nl else 'Phone and internet' }}</h2>
+{% if nl %}
+<p>Er zijn twee mobiele netwerken: <b>Telesur</b> (staatsbedrijf) en <b>Digicel</b>. Beide verkopen een prepaid simkaart of eSIM.</p>
+<table class="tbl stack tx"><thead><tr><th>Aanbieder</th><th>Product</th><th>Prijs (oktober 2026)</th></tr></thead><tbody>
+ <tr><td data-l="Aanbieder">Telesur</td><td data-l="Product">Prepaid sim of eSIM, in de jubileumactie met 45 belminuten en 1 GB</td><td data-l="Prijs (oktober 2026)">SRD 115</td></tr>
+ <tr><td data-l="Aanbieder">Digicel</td><td data-l="Product">Toeristen-eSIM, 30 dagen, 5 / 10 / 15 GB</td><td data-l="Prijs (oktober 2026)">SRD 400 / 600 / 800 exclusief belasting</td></tr>
+ <tr><td data-l="Aanbieder">Digicel</td><td data-l="Product">SIM-To-Go, prepaid sim met data, bij pompstations, apotheken en winkels</td><td data-l="Prijs (oktober 2026)">Vraag de verkoper</td></tr>
+</tbody></table>
+<p>Telesur-filialen zijn open van maandag tot en met vrijdag van 08:00 tot 15:30. Check vooraf of je telefoon eSIM ondersteunt en simlockvrij is. Hotels en kantoren hebben wifi, maar de verbinding is niet overal stabiel; een eigen databundel als back-up voorkomt problemen tijdens videogesprekken.</p>
+{% else %}
+<p>There are two mobile networks: <b>Telesur</b> (state-owned) and <b>Digicel</b>. Both sell prepaid SIM cards and eSIMs.</p>
+<table class="tbl stack tx"><thead><tr><th>Provider</th><th>Product</th><th>Price (October 2026)</th></tr></thead><tbody>
+ <tr><td data-l="Provider">Telesur</td><td data-l="Product">Prepaid SIM or eSIM, anniversary offer with 45 call minutes and 1 GB</td><td data-l="Price (October 2026)">SRD 115</td></tr>
+ <tr><td data-l="Provider">Digicel</td><td data-l="Product">Tourist eSIM, 30 days, 5 / 10 / 15 GB</td><td data-l="Price (October 2026)">SRD 400 / 600 / 800 excluding tax</td></tr>
+ <tr><td data-l="Provider">Digicel</td><td data-l="Product">SIM-To-Go, prepaid SIM with data, at petrol stations, pharmacies and shops</td><td data-l="Price (October 2026)">Ask the seller</td></tr>
+</tbody></table>
+<p>Telesur branches open Monday to Friday from 08:00 to 15:30. Check beforehand that your phone supports eSIM and is unlocked. Hotels and offices have Wi-Fi, but the connection is not stable everywhere; your own data bundle as a backup saves trouble during video calls.</p>
+{% endif %}
+
+<h2>{{ 'Vervoer ter plaatse' if nl else 'Getting around' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Links rijden</b>: in Suriname rijd je links en de meeste auto's hebben het stuur rechts.</li>
+ <li><b>Rijbewijs</b>: een Nederlands rijbewijs is 14 dagen na aankomst geldig. Blijf je langer, dan heb je een internationaal rijbewijs nodig (model 1949), samen met je eigen rijbewijs. Veel verhuurders vragen het internationale rijbewijs meteen.</li>
+ <li><b>Wegen</b>: gaten in het wegdek, weinig markering en slechte verlichting. In de regentijd (lang: mei tot augustus; kort: december tot februari) staan straten geregeld onder water. Rijd 's nachts buiten de stad liever niet.</li>
+ <li><b>Regels</b>: gordel verplicht, bellen alleen handsfree. Bij een ernstig ongeluk laat je de auto staan, bel je de politie en wacht je tot die er is.</li>
+ <li><b>Districten</b>: een rit naar Nickerie of Albina is een dag op zich. Bekijk de afstanden en wat er per district te doen is op <a href="{{ U('districts') }}">{{ L('districts') }}</a>. Brandstofkosten per rit: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>.</li>
+ <li><b>Binnenland</b>: per vliegtuigje vanaf Zorg en Hoop, of per boot. Laat dat regelen door een erkend reisbureau of je gastheer.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Drive on the left</b>: Suriname drives on the left and most cars are right-hand drive.</li>
+ <li><b>Licence</b>: a Dutch licence is valid for 14 days after arrival. If you stay longer you need an International Driving Permit (1949 model) together with your own licence. Many rental firms ask for the international permit from day one.</li>
+ <li><b>Roads</b>: potholes, few markings and poor lighting. In the rainy seasons (long: May to August; short: December to February) streets often flood. Avoid driving outside town at night.</li>
+ <li><b>Rules</b>: seat belts are compulsory, phones hands-free only. After a serious accident, leave the car where it is, call the police and wait for them.</li>
+ <li><b>Districts</b>: a drive to Nickerie or Albina takes a day. See distances and what each district offers at <a href="{{ U('districts') }}">{{ L('districts') }}</a>. Fuel cost per trip: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>.</li>
+ <li><b>Interior</b>: by small plane from Zorg en Hoop, or by boat. Have a licensed travel agency or your host arrange it.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Hotel kiezen voor een zakenreis' if nl else 'Choosing a hotel for business' }}</h2>
+{% if nl %}
+<p>De zakelijke hotels liggen in en rond het centrum van Paramaribo en langs de Surinamerivier. Let bij het boeken vooral op:</p>
+<ul class="check">
+ <li>Een noodstroomaggregaat. Stroomonderbrekingen komen voor; zie <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li>Betrouwbare wifi en een werkplek of vergaderruimte.</li>
+ <li>Luchthavenvervoer, zeker als je 's avonds landt.</li>
+ <li>Een factuur op naam van je bedrijf, met BTW apart vermeld als je die wilt terugvragen of verantwoorden. Vraag vooraf in welke valuta je factuur komt.</li>
+ <li>Bewaakte parkeerplaats als je een auto huurt.</li>
+ <li>Loopafstand of korte rit naar de ministeries en banken in de binnenstad.</li>
+</ul>
+<p>Rondkijken na je afspraken: <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a>.</p>
+{% else %}
+<p>Business hotels are in and around central Paramaribo and along the Suriname River. When booking, check mainly for:</p>
+<ul class="check">
+ <li>A backup generator. Power cuts happen; see <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li>Reliable Wi-Fi and a desk or meeting room.</li>
+ <li>Airport transfers, especially if you land in the evening.</li>
+ <li>An invoice in your company's name, with VAT shown separately if you need to reclaim or account for it. Ask beforehand which currency the invoice will be in.</li>
+ <li>Guarded parking if you rent a car.</li>
+ <li>A short walk or drive to the ministries and banks in the old town.</li>
+</ul>
+<p>Looking around after your meetings: <a href="https://exploresuriname.com/visitor-guide.html" rel="noopener">Explore Suriname visitor guide</a>.</p>
+{% endif %}
+
+<h2>{{ 'Zakencultuur en afspraken' if nl else 'Business culture and meetings' }}</h2>
+{% if nl %}
+<p>De Nederlandse overheid (RVO, met de ambassade in Paramaribo) zet de belangrijkste omgangsregels op een rij. Wij voegen er wat praktijk aan toe:</p>
+<ul>
+ <li><b>Eerst de relatie.</b> Begin met een kennismakingsgesprek en val niet met de deur in huis. Een lunch of etentje hoort erbij; ga in op een uitnodiging.</li>
+ <li><b>Formeel in zaken.</b> Mensen zijn privé informeel, maar in zaken tel titels en functies. Gebruik "u" en de achternaam bij een eerste ontmoeting.</li>
+ <li><b>Hiërarchie.</b> Komt de directeur van de andere partij, stuur dan ook iemand van gelijk niveau. Besluiten worden vaak bovenin genomen en kosten tijd.</li>
+ <li><b>Op tijd.</b> Kom op tijd en verwacht dat ook van de ander. Plan toch ruimte tussen afspraken: verkeer en regen vertragen.</li>
+ <li><b>Diplomatiek formuleren.</b> Directe kritiek valt slecht. Breng slecht nieuws zorgvuldig en liefst onder vier ogen.</li>
+ <li><b>Geen informele tussenpersonen.</b> Bouw rechtstreekse contacten op. Iemand die "de juiste mensen kent" en daarvoor betaald wil worden, is een risico op corruptie.</li>
+ <li><b>Taal.</b> Zaken gaan in het Nederlands; Engels gaat meestal goed, zeker bij banken en grotere bedrijven. Sranantongo opent deuren in informele gesprekken.</li>
+ <li><b>Bevestig schriftelijk.</b> Stuur na elke afspraak een korte mail of WhatsApp met wat je hebt afgesproken. Visitekaartjes zijn nog gangbaar: <a href="{{ U('businesscard') }}">{{ L('businesscard') }}</a>.</li>
+</ul>
+{% else %}
+<p>The Netherlands Enterprise Agency (RVO, with the Dutch embassy in Paramaribo) lists the main rules of conduct. We add some practice:</p>
+<ul>
+ <li><b>Relationship first.</b> Open with small talk and do not rush into business. Lunch or dinner is part of it; accept an invitation.</li>
+ <li><b>Formal in business.</b> People are informal in private, but titles and positions count in business. Use surnames at a first meeting.</li>
+ <li><b>Hierarchy.</b> If the other side's director attends, send someone of equal rank. Decisions are often made at the top and take time.</li>
+ <li><b>Be on time.</b> Arrive punctually and expect the same. Still leave room between meetings: traffic and rain cause delays.</li>
+ <li><b>Diplomatic wording.</b> Direct criticism lands badly. Bring bad news carefully, preferably in private.</li>
+ <li><b>No informal middlemen.</b> Build direct contacts. Someone who "knows the right people" and wants paying for it is a corruption risk.</li>
+ <li><b>Language.</b> Business is done in Dutch; English usually works, especially at banks and larger companies. Sranantongo opens doors in informal talk.</li>
+ <li><b>Confirm in writing.</b> After each meeting send a short email or WhatsApp with what was agreed. Business cards are still common: <a href="{{ U('businesscard') }}">{{ L('businesscard') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Openingstijden en feestdagen' if nl else 'Opening hours and public holidays' }}</h2>
+{% if nl %}
+<p>Suriname begint vroeg. Overheidskantoren werken meestal van 's ochtends vroeg tot begin van de middag; de Belastingdienst bijvoorbeeld van maandag tot en met donderdag van 07:30 tot 14:00 en op vrijdag tot 13:00. Plan afspraken bij ministeries daarom tussen 08:00 en 12:00. Banken en bedrijven zijn langer open, maar ook daar ligt het zwaartepunt in de ochtend.</p>
+<p>Let op feestdagen: in november 2026 vallen Divali (verwacht 8 november) en Onafhankelijkheidsdag (25 november), daarna de kerstdagen en Nieuwjaar. Hindoestaanse en islamitische feestdagen verschuiven elk jaar. Alle data: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>. Rond 25 november en tussen kerst en de eerste week van januari zijn veel beslissers afwezig.</p>
+{% else %}
+<p>Suriname starts early. Government offices usually work from early morning to early afternoon; the tax office, for example, Monday to Thursday from 07:30 to 14:00 and Friday until 13:00. So book meetings at ministries between 08:00 and 12:00. Banks and businesses stay open longer, but there too the morning is when things get done.</p>
+<p>Watch the public holidays: November 2026 has Divali (expected 8 November) and Independence Day (25 November), followed by Christmas and New Year. Hindu and Muslim holidays move every year. All dates: <a href="{{ U('holidays') }}">{{ L('holidays') }}</a>. Around 25 November and between Christmas and the first week of January many decision makers are away.</p>
+{% endif %}
+
+<h2>{{ 'Veiligheid' if nl else 'Safety' }}</h2>
+{% if nl %}
+<p>De Amerikaanse overheid geeft Suriname sinds 8 september 2026 niveau 1 ("normale voorzorg"), de Nederlandse overheid kleurcode geel ("let op, bijzondere veiligheidsrisico's"). In de praktijk:</p>
+<ul>
+ <li>Zakkenrollers en beroving komen voor in de winkel- en zakenwijken van Paramaribo. Loop 's avonds niet alleen, ook niet rond de grote hotels, en vermijd de Palmentuin na donker.</li>
+ <li>Laat niets zichtbaar liggen in de auto en rijd met ramen dicht en deuren op slot.</li>
+ <li>Buiten Paramaribo is de politie minder aanwezig. De Amerikaanse overheid noemt beroving langs de Oost-Westverbinding en de Afobakaweg, en in Albina, Moengo en Brokopondo. Reis daar met een gevestigde organisatie of je zakenpartner.</li>
+ <li>Drugs, ook softdrugs, zijn verboden en de straffen zijn zwaar.</li>
+ <li><b>Noodnummers</b> volgens de Nederlandse overheid: 115 politie en ambulance, 110 brandweer, 117 particuliere ambulance. De Amerikaanse overheid noemt 113 voor medische hulp.</li>
+ <li>Het ministerie van TCT lanceerde op 14 oktober 2026 <b>Safe Guide</b> (safe-guide.sr, ook als gratis app) met veiligheidsinformatie, noodnummers en de mogelijkheid je reis te registreren.</li>
+</ul>
+{% else %}
+<p>Since 8 September 2026 the US government rates Suriname level 1 ("exercise normal precautions"); the Dutch government uses colour code yellow ("take care, specific safety risks"). In practice:</p>
+<ul>
+ <li>Pickpocketing and robbery happen in Paramaribo's shopping and business districts. Do not walk alone at night, including near the big hotels, and avoid the Palm Garden after dark.</li>
+ <li>Leave nothing visible in the car and drive with windows closed and doors locked.</li>
+ <li>Outside Paramaribo there is less police presence. The US government mentions robberies along the East-West Highway and the Afobaka road, and in Albina, Moengo and Brokopondo. Travel there with an established organisation or your business partner.</li>
+ <li>Drugs, including soft drugs, are illegal and penalties are severe.</li>
+ <li><b>Emergency numbers</b> according to the Dutch government: 115 police and ambulance, 110 fire, 117 private ambulance. The US government gives 113 for medical help.</li>
+ <li>On 14 October 2026 the Ministry of Transport, Communication and Tourism launched <b>Safe Guide</b> (safe-guide.sr, also a free app) with safety information, emergency numbers and trip registration.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Gezondheid' if nl else 'Health' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Vaccinaties</b>: het Nederlandse LCR (oktober 2026) adviseert gele koorts, DTP en hepatitis A. Gele koorts is verplicht als je uit een gele-koortsland komt.</li>
+ <li><b>Muggen</b>: dengue, chikungunya en zika komen voor. In 2026 was er een chikungunya-uitbraak; gebruik DEET en lange mouwen in de schemering. De WHO verklaarde Suriname in 2025 malariavrij.</li>
+ <li><b>Zorg</b>: privé-ziekenhuiszorg is er alleen in Paramaribo. Ziekenhuizen en artsen vragen vaak vooraf betaling. Ambulances zijn buiten Paramaribo en Nickerie onbetrouwbaar.</li>
+ <li><b>Verzekering</b>: neem een reisverzekering die medische kosten en repatriëring dekt. De Nederlandse basisverzekering vergoedt niet altijd alles.</li>
+ <li><b>Water</b>: kraanwater in Paramaribo is met voorzichtigheid drinkbaar, daarbuiten niet. Neem flessenwater.</li>
+ <li><b>Medicijnen</b>: neem genoeg mee in de originele verpakking, met een medicijnverklaring als dat nodig is.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Vaccinations</b>: the Dutch travel health centre LCR (October 2026) advises yellow fever, DTP and hepatitis A. Yellow fever is compulsory if you come from a yellow fever country.</li>
+ <li><b>Mosquitoes</b>: dengue, chikungunya and Zika occur. There was a chikungunya outbreak in 2026; use DEET and long sleeves at dusk. WHO declared Suriname malaria-free in 2025.</li>
+ <li><b>Care</b>: private hospital care is only available in Paramaribo. Hospitals and doctors often ask for payment up front. Ambulances are unreliable outside Paramaribo and Nickerie.</li>
+ <li><b>Insurance</b>: take travel insurance that covers medical costs and evacuation. Home health insurance does not always pay in full.</li>
+ <li><b>Water</b>: tap water in Paramaribo is drinkable with caution, elsewhere not. Drink bottled water.</li>
+ <li><b>Medicines</b>: bring enough in the original packaging, with a medical certificate where needed.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Monsters, demo-apparatuur en laptops' if nl else 'Samples, demo equipment and laptops' }}</h2>
+{% if nl %}
+<p>Suriname heeft de ATA-conventie niet getekend, dus een ATA-carnet werkt hier niet. Neem je goederen mee voor een demonstratie, beurs of klus, dan kun je ze tijdelijk invoeren met een <b>borg</b> ter hoogte van de normale invoerrechten, contant of met een bankgarantie. Bij wederuitvoer krijg je de borg terug. De Wet Tarief van Invoerrechten kent ook een vrijstelling voor monsters van geringe waarde en voor monsters die na het opnemen van bestellingen weer worden uitgevoerd; de minister stelt de voorwaarden. Neem een paklijst met waarden en serienummers mee en vraag de Douane vooraf welke route geldt. Gewone persoonlijke spullen zoals je laptop en telefoon vallen onder reisbagage.</p>
+<p>Ga je daarna echt handel drijven, lees dan <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<p>Suriname has not signed the ATA Convention, so an ATA carnet does not work here. If you bring goods for a demonstration, trade fair or job, you can import them temporarily against a <b>deposit</b> equal to the normal import duties, in cash or by bank guarantee. You get the deposit back when you re-export. The Import Duties Tariff Act also exempts samples of negligible value and samples that are re-exported after taking orders; the minister sets the conditions. Bring a packing list with values and serial numbers and ask Customs beforehand which route applies. Ordinary personal items such as your laptop and phone count as travel luggage.</p>
+<p>If you then start trading for real, read <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Praktisch: klimaat, stroom en tijd' if nl else 'Practical: climate, power and time' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Tijd</b>: Surinaamse tijd is UTC-3, het hele jaar. Met Nederland scheelt het 4 uur in de winter en 5 uur in de zomer. Handig voor vergaderingen: de Surinaamse ochtend is de Nederlandse middag.</li>
+ <li><b>Klimaat</b>: warm en vochtig, rond 30 graden. Lichte zakelijke kleding; een colbert hoeft vaak niet, behalve bij ministeries en formele gelegenheden. Neem een paraplu mee in de regentijd.</li>
+ <li><b>Stroom</b>: stekkers en spanning verschillen per gebouw; je ziet zowel Amerikaanse als Europese stopcontacten. Neem een universele adapter mee en check of je laders 100 tot 240 V aankunnen.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Time</b>: Suriname time is UTC-3, all year. The difference with the Netherlands is 4 hours in winter and 5 in summer. Handy for meetings: the Surinamese morning is the Dutch afternoon.</li>
+ <li><b>Climate</b>: hot and humid, around 30 degrees. Light business wear; a jacket is often not needed except at ministries and formal occasions. Bring an umbrella in the rainy season.</li>
+ <li><b>Power</b>: plugs and voltage differ between buildings; you see both American and European sockets. Bring a universal adapter and check that your chargers handle 100 to 240 V.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Voorbeeldprogramma: een week oriënteren' if nl else 'Sample programme: a fact-finding week' }}</h2>
+{% if nl %}
+<p>Een oriëntatiereis van een week, voor wie wil uitzoeken of investeren, importeren of een vestiging openen zin heeft. Maak de afspraken minstens twee weken vooraf en bevestig ze een dag ervoor.</p>
+<table class="tbl stack tx"><thead><tr><th>Dag</th><th>Programma</th></tr></thead><tbody>
+ <tr><td data-l="Dag">Zondag</td><td data-l="Programma">Aankomst, simkaart of eSIM regelen, contant geld wisselen, rustig avondeten met je lokale contact.</td></tr>
+ <tr><td data-l="Dag">Maandag</td><td data-l="Programma">Ochtend: <b>SITA</b> (Suriname Investment and Trade Agency) voor investeringsinformatie en contacten. Middag: <b>KKF</b> over inschrijving, vergunningen en een bedrijvenlijst in jouw sector. Zie <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</td></tr>
+ <tr><td data-l="Dag">Dinsdag</td><td data-l="Programma">Het vakministerie (bijvoorbeeld EZOTI voor handel en vergunningen, LVV voor landbouw, TCT voor toerisme). Middag: een brancheorganisatie, zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</td></tr>
+ <tr><td data-l="Dag">Woensdag</td><td data-l="Programma">Twee banken: zakelijke rekening, deviezen, financiering (<a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>). Middag: een accountant of belastingadviseur over BTW en winstbelasting (<a href="{{ U('biztax') }}">{{ L('biztax') }}</a>).</td></tr>
+ <tr><td data-l="Dag">Donderdag</td><td data-l="Programma">Bedrijfsbezoeken: mogelijke klanten, leveranciers, distributeurs. Zoek ze in <a href="{{ U('companies') }}">{{ L('companies') }}</a>. Middag: een advocaat of notaris over rechtsvorm, contracten of grond (<a href="{{ U('land') }}">{{ L('land') }}</a>).</td></tr>
+ <tr><td data-l="Dag">Vrijdag</td><td data-l="Programma">Locatiebezoek: kantoor, loods of perceel, eventueel in Wanica of Commewijne. Kijk naar stroom, water en internet (<a href="{{ U('utilities') }}">{{ L('utilities') }}</a>). Vroeg stoppen: veel kantoren sluiten vrijdag eerder.</td></tr>
+ <tr><td data-l="Dag">Zaterdag</td><td data-l="Programma">Markt en winkels bezoeken voor prijzen en concurrentie (<a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>), notities uitwerken, vervolgafspraken plannen.</td></tr>
+</tbody></table>
+<p>De ambassade van je eigen land in Paramaribo (als die er is) of je handelsbevorderingsorganisatie, in Nederland RVO, kan introducties regelen. Lopen er beurzen of conferenties in je week, kijk dan op <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% else %}
+<p>A one-week orientation trip for anyone checking whether investing, importing or opening a branch makes sense. Book meetings at least two weeks ahead and confirm them the day before.</p>
+<table class="tbl stack tx"><thead><tr><th>Day</th><th>Programme</th></tr></thead><tbody>
+ <tr><td data-l="Day">Sunday</td><td data-l="Programme">Arrive, sort out a SIM or eSIM, change cash, quiet dinner with your local contact.</td></tr>
+ <tr><td data-l="Day">Monday</td><td data-l="Programme">Morning: <b>SITA</b> (Suriname Investment and Trade Agency) for investment information and contacts. Afternoon: <b>KKF</b> (Chamber of Commerce) on registration, licences and a list of companies in your sector. See <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</td></tr>
+ <tr><td data-l="Day">Tuesday</td><td data-l="Programme">The relevant ministry (for example EZOTI for trade and licences, LVV for agriculture, TCT for tourism). Afternoon: a business association, see <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</td></tr>
+ <tr><td data-l="Day">Wednesday</td><td data-l="Programme">Two banks: business account, foreign currency, financing (<a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>). Afternoon: an accountant or tax adviser on VAT and profit tax (<a href="{{ U('biztax') }}">{{ L('biztax') }}</a>).</td></tr>
+ <tr><td data-l="Day">Thursday</td><td data-l="Programme">Company visits: potential customers, suppliers, distributors. Find them in <a href="{{ U('companies') }}">{{ L('companies') }}</a>. Afternoon: a lawyer or notary on legal form, contracts or land (<a href="{{ U('land') }}">{{ L('land') }}</a>).</td></tr>
+ <tr><td data-l="Day">Friday</td><td data-l="Programme">Site visit: office, warehouse or plot, possibly in Wanica or Commewijne. Check power, water and internet (<a href="{{ U('utilities') }}">{{ L('utilities') }}</a>). Finish early: many offices close earlier on Friday.</td></tr>
+ <tr><td data-l="Day">Saturday</td><td data-l="Programme">Visit markets and shops for prices and competition (<a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>), write up notes, plan follow-up meetings.</td></tr>
+</tbody></table>
+<p>Your own country's embassy in Paramaribo (if there is one) or your trade promotion agency, in the Netherlands RVO, can arrange introductions. For fairs or conferences during your week, see <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Checklist voor vertrek' if nl else 'Checklist before you leave' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>4 weken vooraf</b>: check paspoort (6 maanden geldig), visumcategorie op het VFS-portaal en je vaccinaties bij een reizigersvaccinatiebureau.</li>
+ <li><b>3 weken vooraf</b>: vraag het zakelijk e-visum aan of betaal de entry fee. Boek hotel en luchthavenvervoer. Vraag een internationaal rijbewijs aan als je wilt rijden.</li>
+ <li><b>2 weken vooraf</b>: plan en bevestig je afspraken. Stuur een korte bedrijfsintroductie in het Nederlands of Engels mee.</li>
+ <li><b>7 dagen vooraf</b>: vul het ICF in en bewaar de QR-code. Sluit je reisverzekering af of check de dekking.</li>
+ <li><b>Inpakken</b>: zie de lijst hieronder.</li>
+ <li><b>Na aankomst</b>: koop een sim of eSIM, wissel geld bij een bank of erkend wisselkantoor, en registreer je reis eventueel in Safe Guide.</li>
+ <li><b>Voor vertrek naar huis</b>: vul het ICF opnieuw in voor de uitreis en reken op 2 tot 5 uur incheckvenster.</li>
+</ol>
+<ul class="check">
+ <li>Paspoort, e-visum of entry-fee-bewijs, ICF-QR-code (ook offline)</li>
+ <li>Geel vaccinatieboekje</li>
+ <li>Rijbewijs plus internationaal rijbewijs</li>
+ <li>USD of EUR contant in kleine coupures, plus twee betaalkaarten van verschillende banken</li>
+ <li>Universele stekkeradapter en een powerbank</li>
+ <li>Muggenmiddel met DEET, zonnebrand, paraplu</li>
+ <li>Visitekaartjes en een korte presentatie op je laptop én telefoon</li>
+ <li>Paklijst met waarden als je monsters of apparatuur meeneemt</li>
+ <li>Medicijnen in de originele verpakking</li>
+</ul>
+{% else %}
+<ol class="steps">
+ <li><b>4 weeks ahead</b>: check your passport (6 months valid), the visa category on the VFS portal and your vaccinations at a travel clinic.</li>
+ <li><b>3 weeks ahead</b>: apply for the business e-visa or pay the entry fee. Book hotel and airport transfer. Get an International Driving Permit if you plan to drive.</li>
+ <li><b>2 weeks ahead</b>: plan and confirm your meetings. Send a short company introduction in Dutch or English.</li>
+ <li><b>7 days ahead</b>: fill in the ICF and save the QR code. Take out travel insurance or check your cover.</li>
+ <li><b>Packing</b>: see the list below.</li>
+ <li><b>After arrival</b>: buy a SIM or eSIM, change money at a bank or licensed exchange office, and register your trip in Safe Guide if you like.</li>
+ <li><b>Before flying home</b>: fill in the ICF again for departure and allow for the 2 to 5 hour check-in window.</li>
+</ol>
+<ul class="check">
+ <li>Passport, e-visa or entry fee receipt, ICF QR code (also offline)</li>
+ <li>Yellow vaccination booklet</li>
+ <li>Driving licence plus International Driving Permit</li>
+ <li>USD or EUR cash in small notes, plus two payment cards from different banks</li>
+ <li>Universal plug adapter and a power bank</li>
+ <li>DEET insect repellent, sunscreen, umbrella</li>
+ <li>Business cards and a short presentation on both laptop and phone</li>
+ <li>Packing list with values if you bring samples or equipment</li>
+ <li>Medicines in the original packaging</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...de luchtvaartmaatschappij me niet laat inchecken?</b> Meestal ontbreekt de ICF-QR-code of het bewijs van entry fee of visum. Vul het ICF op je telefoon in en betaal de entry fee online; beide gaan binnen minuten. Een e-visum duurt langer, dus regel dat ruim vooraf.</li>
+ <li><b>...ik tijdens de reis een contract wil tekenen of een bedrijf wil oprichten?</b> Daar is een zakenvisum voor bedoeld. Voor het oprichten van een NV heb je een notaris nodig; zie <a href="{{ U('start') }}">{{ L('start') }}</a>. Wil je daarna zelf in Suriname gaan werken, dan geldt <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>...ik langer wil blijven dan gepland?</b> De entry fee geldt voor een verblijf tot 90 dagen en ook een zakenvisum is voor een kort verblijf. Wie langer blijft, heeft een verblijfsvergunning nodig en, als je visumplichtig bent, eerst een MKV uit het land van herkomst. Zie <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>...mijn pinpas niet werkt?</b> Probeer een automaat van een andere bank, of een creditcard. Daarom: altijd een reserve aan contant geld en twee kaarten.</li>
+ <li><b>...ik bestolen word?</b> Doe aangifte bij de politie en vraag een kopie van de aangifte voor je verzekering. Een gestolen paspoort meld je bij je eigen ambassade in Paramaribo.</li>
+ <li><b>...ik wil verhuizen en blijven?</b> Lees <a href="{{ U('expat') }}">{{ L('expat') }}</a>. Heb je Surinaamse roots: <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...the airline won't check me in?</b> Usually the ICF QR code or the proof of entry fee or visa is missing. Fill in the ICF on your phone and pay the entry fee online; both take minutes. An e-visa takes longer, so arrange it well in advance.</li>
+ <li><b>...I want to sign a contract or set up a company during the trip?</b> That is what a business visa is for. To set up an NV you need a notary; see <a href="{{ U('start') }}">{{ L('start') }}</a>. If you then want to work in Suriname yourself, see <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>...I want to stay longer than planned?</b> The entry fee covers a stay of up to 90 days and a business visa is also for a short stay. Anyone staying longer needs a residence permit and, if you need a visa, first an MKV from your home country. See <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>...my debit card doesn't work?</b> Try another bank's ATM, or a credit card. That is why you always carry spare cash and two cards.</li>
+ <li><b>...I am robbed?</b> Report it to the police and ask for a copy of the report for your insurer. Report a stolen passport to your own embassy in Paramaribo.</li>
+ <li><b>...I want to move and stay?</b> Read <a href="{{ U('expat') }}">{{ L('expat') }}</a>. If you have Surinamese roots: <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+{% endif %}
+<p><a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a> &middot; <a href="{{ U('economy') }}">{{ L('economy') }}</a> &middot; <a href="{{ U('sectors') }}">{{ L('sectors') }}</a> &middot; <a href="{{ U('countries') }}">{{ L('countries') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://suriname.vfsevisa.com/suriname/online/home/entry-fee" rel="noopener">VFS Global Suriname: entry fee {{ 'en e-visum' if nl else 'and e-visa' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/12/2024.03.27-Announcement-Entry-Fee-Adjustment.pdf" rel="noopener">{{ 'Buitenlandse Zaken: entry fee USD/EUR 50 per 15 mei 2024' if nl else 'Foreign Affairs: entry fee USD/EUR 50 from 15 May 2024' }}</a></li>
+ <li><a href="https://keynews.sr/nieuwe-regeling-entry-fee-per-15-januari-van-kracht" rel="noopener">Key News: {{ 'entry fee vooraf online betalen per 15 januari 2024' if nl else 'entry fee paid online in advance from 15 January 2024' }}</a></li>
+ <li><a href="https://www.japi-airport.com/?page_id=8947" rel="noopener">{{ 'J.A. Pengel luchthaven: entry fee en vrijstellingen (2022)' if nl else 'J.A. Pengel Airport: entry fee and exemptions (2022)' }}</a></li>
+ <li><a href="https://icf.sr/" rel="noopener">Immigration Customs Form (ICF)</a></li>
+ <li><a href="https://www.nederlandwereldwijd.nl/reisadvies/suriname" rel="noopener">{{ 'Nederlandse overheid: reisadvies Suriname (16 oktober 2026)' if nl else 'Dutch government: travel advice Suriname (16 October 2026)' }}</a></li>
+ <li><a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Suriname.html" rel="noopener">U.S. Department of State: Suriname {{ 'landeninformatie (september 2026)' if nl else 'country information (September 2026)' }}</a></li>
+ <li><a href="https://www.lcr.nl/landen/suriname" rel="noopener">LCR: {{ 'reizigersadvies Suriname (20 oktober 2026)' if nl else 'travel health advice Suriname (20 October 2026)' }}</a></li>
+ <li><a href="https://www.japi-airport.com/" rel="noopener">{{ 'J.A. Pengel luchthaven: incheck-tijden, autoverhuur, tarieven' if nl else 'J.A. Pengel Airport: check-in times, car rental, charges' }}</a></li>
+ <li><a href="https://usercontent.one/wp/www.japi-airport.com/wp-content/uploads/2026/01/PBM-Stats-2020-2025.pdf" rel="noopener">{{ 'Luchthavenbeheer: passagiersstatistiek 2020 tot 2025' if nl else 'Airport Management: passenger statistics 2020 to 2025' }}</a></li>
+ <li><a href="https://www.flightconnections.com/flights-to-paramaribo-pbm" rel="noopener">FlightConnections: {{ 'routes naar Paramaribo (oktober 2026)' if nl else 'routes to Paramaribo (October 2026)' }}</a></li>
+ <li><a href="https://www.curacaochronicle.com/post/local/surinam-airways-ends-curacaomiami-route-as-of-may-1" rel="noopener">Curaçao Chronicle: {{ 'SLM stopt Curaçao-Miami, Miami via Georgetown (april 2026)' if nl else 'SLM ends Curaçao-Miami, Miami via Georgetown (April 2026)' }}</a></li>
+ <li><a href="https://www.anwb.nl/vakantie/suriname/reisvoorbereiding/reisdocumenten" rel="noopener">ANWB: {{ 'rijbewijs en internationaal rijbewijs in Suriname' if nl else 'driving licence and IDP in Suriname' }}</a></li>
+ <li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/zakencultuur-suriname" rel="noopener">RVO: {{ 'zakencultuur in Suriname (oktober 2026)' if nl else 'business culture in Suriname (October 2026)' }}</a></li>
+ <li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/exportregels-en-producteisen" rel="noopener">RVO: {{ 'geen ATA-carnet, tijdelijke invoer met borg' if nl else 'no ATA carnet, temporary import against deposit' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/02/WET-van-28-december-1995.pdf" rel="noopener">Wet Tarief van Invoerrechten 1996, S.B. 1995 no. 111 ({{ 'art. 29 en 30' if nl else 'arts. 29 and 30' }})</a></li>
+ <li><a href="https://www.telesur.sr/sim-kaarten/" rel="noopener">Telesur: {{ 'simkaart en eSIM' if nl else 'SIM card and eSIM' }}</a></li>
+ <li><a href="https://www.digicelgroup.com/sr/nl/mobile/tourist_sim" rel="noopener">Digicel Suriname: {{ 'toeristen-eSIM en SIM-To-Go' if nl else 'tourist eSIM and SIM-To-Go' }}</a></li>
+ <li><a href="https://www.cme.sr/" rel="noopener">Central Money Exchange: {{ 'wisselkoersen' if nl else 'exchange rates' }}</a></li>
+ <li><a href="https://gov.sr/ministerie-van-transport-communicatie-en-toerisme-lanceert-safe-guide-nieuw-online-platform-voor-veilig-en-verantwoord-toerisme/" rel="noopener">GOV.SR: {{ 'TCT lanceert Safe Guide (14 oktober 2026)' if nl else 'TCT launches Safe Guide (14 October 2026)' }}</a></li>
+ <li><a href="https://www.timeanddate.com/time/zone/suriname/paramaribo" rel="noopener">timeanddate.com: {{ 'tijdzone Paramaribo' if nl else 'Paramaribo time zone' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Inreisregels, tarieven en vluchtschema\'s veranderen; controleer ze vlak voor je reis bij VFS Global en je luchtvaartmaatschappij.' if nl else 'Entry rules, fees and flight schedules change; check them with VFS Global and your airline just before you travel.' }}</p>
+</div>
+{% endblock %}

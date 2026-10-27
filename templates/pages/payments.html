@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Betalingen ontvangen in Suriname' if nl else 'Accepting payments in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Een Surinaams bedrijf kan in 2026 op zes manieren geld ontvangen: contant (SRD, USD en EUR), overboeking via SNEPS, pinpas op een POS-apparaat, creditcard, een QR-wallet op de telefoon en een buitenlandse overmaking. Sinds juni 2026 gaan overboekingen tussen banken binnen kantooruren veel sneller, en de Centrale Bank mikt op 24/7 binnen 15 minuten tegen eind 2026. Kies wat jouw klanten gebruiken, vergelijk de kosten zelf en lever pas als het geld echt binnen is.</p>
+{% else %}
+<p class="lead">In 2026 a Surinamese business can get paid in six ways: cash (SRD, USD and EUR), bank transfer through SNEPS, debit card on a POS terminal, credit card, a QR wallet on a phone and a transfer from abroad. Since June 2026 transfers between banks are much faster within office hours, and the Central Bank aims for 24/7 processing within 15 minutes by the end of 2026. Offer what your customers use, compare costs yourself and only deliver once the money has really arrived.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">SNEPS Fast Payments</div><div class="big">{{ '8 jun' if nl else '8 Jun' }}</div><div class="sub">{{ '2026, snellere overboekingen binnen kantooruren' if nl else '2026, faster transfers within office hours' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Doel Centrale Bank' if nl else 'Central Bank target' }}</div><div class="big">{{ '15 min' }}</div><div class="sub">{{ '24/7 tussen alle banken, eind 2026' if nl else '24/7 between all banks, end of 2026' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Pinlimiet klant' if nl else 'Customer card limit' }}</div><div class="big">{{ 'SRD 100.000' if nl else 'SRD 100,000' }}</div><div class="sub">{{ 'maximaal per dag, verschilt per bank' if nl else 'maximum per day, differs per bank' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Contant</b> is nog steeds veel gebruikt, maar kost je tijd, risico op vals geld en diefstal, en vragen van de bank bij grote stortingen.</li>
+ <li><b>Overboeking</b> in SRD of USD gaat via SNEPS, het nationale betalingssysteem van de Centrale Bank en de banken. Sinds 8 juni 2026 sneller binnen kantooruren.</li>
+ <li><b>Pinpas (POS)</b>: voor de klant gratis, voor jou huur en commissie die je bij je bank opvraagt.</li>
+ <li><b>QR-wallets</b> zoals Mopé en Uni5Pay+ werken met je telefoon of kassasysteem, ook voor webshops.</li>
+ <li><b>Buitenland</b>: SWIFT-overmaking met kosten aan beide kanten. Exporteurs moeten sinds 17 augustus 2026 opbrengsten binnenhalen en 35% binnen drie werkdagen verkopen.</li>
+ <li><b>Vuistregel</b>: geen levering op een screenshot. Controleer de bijschrijving zelf.</li>
+{% else %}
+ <li><b>Cash</b> is still widely used, but costs you time and carries the risk of counterfeit notes, theft and questions from the bank about large deposits.</li>
+ <li><b>Bank transfers</b> in SRD or USD run through SNEPS, the national payment system of the Central Bank and the banks. Faster within office hours since 8 June 2026.</li>
+ <li><b>Debit card (POS)</b>: free for the customer; for you, rent and commission that you ask your bank for.</li>
+ <li><b>QR wallets</b> such as Mopé and Uni5Pay+ work with your phone or till system, and for web shops.</li>
+ <li><b>From abroad</b>: SWIFT transfer with fees on both sides. Since 17 August 2026 exporters must bring proceeds in and sell 35% within three working days.</li>
+ <li><b>Rule of thumb</b>: no delivery on a screenshot. Check the credit yourself.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Vergelijking per betaalmethode' if nl else 'Comparison by payment method' }}</h2>
+{% if nl %}
+<p>Alleen wat we konden controleren. Tarieven voor bedrijven publiceren banken en wallet-aanbieders meestal niet op hun site: vraag ze schriftelijk op en vergelijk op jouw verwachte aantallen en bedragen.</p>
+<table class="tbl stack tx"><thead><tr><th>Methode</th><th>Kosten voor jou</th><th>Snelheid</th><th>Grootste risico</th></tr></thead><tbody>
+ <tr><td data-l="Methode"><b>Contant</b> (SRD, USD, EUR)</td><td data-l="Kosten voor jou">Geen kosten bij de verkoop; wel tijd, beveiliging en stortingskosten bij de bank, vooral voor USD en EUR</td><td data-l="Snelheid">Direct in de kassa, pas op je rekening na storting</td><td data-l="Grootste risico">Vals geld, diefstal, kasverschillen, vragen over herkomst bij grote stortingen</td></tr>
+ <tr><td data-l="Methode"><b>Overboeking via SNEPS</b> (SRD, USD)</td><td data-l="Kosten voor jou">Meestal laag; tarief per bank en pakket</td><td data-l="Snelheid">Sinds juni 2026 snel binnen kantooruren; daarbuiten de volgende werkdag</td><td data-l="Grootste risico">Nep-betaalbewijzen (screenshots), verkeerde omschrijving zodat je de betaling niet kunt koppelen</td></tr>
+ <tr><td data-l="Methode"><b>Pinpas (POS)</b></td><td data-l="Kosten voor jou">Huur en/of aanschaf, aansluitkosten, commissie per transactie: opvragen bij de bank</td><td data-l="Snelheid">Afrekening per bank verschillend: vraag het</td><td data-l="Grootste risico">Storingen van terminal of netwerk; houd een terugvaloptie</td></tr>
+ <tr><td data-l="Methode"><b>Creditcard</b> (Visa, Mastercard, UnionPay)</td><td data-l="Kosten voor jou">Commissie meestal hoger dan pin; niet gepubliceerd</td><td data-l="Snelheid">Volgens contract met je bank</td><td data-l="Grootste risico">Terugboekingen (chargebacks) en fraude, vooral bij online en telefonische verkoop</td></tr>
+ <tr><td data-l="Methode"><b>QR-wallet</b> (Mopé, Uni5Pay+)</td><td data-l="Kosten voor jou">Merchanttarieven niet gepubliceerd: offerte vragen</td><td data-l="Snelheid">Melding direct in de app; uitbetaling naar je bank volgens de aanbieder</td><td data-l="Grootste risico">Klant zonder saldo of app; controleer de bevestiging in je eigen merchant-app</td></tr>
+ <tr><td data-l="Methode"><b>Buitenlandse overmaking</b> (SWIFT)</td><td data-l="Kosten voor jou">Inkomende kosten van je bank plus kosten van tussenbanken</td><td data-l="Snelheid">Meestal enkele werkdagen</td><td data-l="Grootste risico">Ingehouden kosten, vertraging door compliancevragen, koersverschil</td></tr>
+</tbody></table>
+{% else %}
+<p>Only what we could check. Banks and wallet providers usually do not publish business fees on their sites: ask for them in writing and compare on your expected numbers and amounts.</p>
+<table class="tbl stack tx"><thead><tr><th>Method</th><th>Cost to you</th><th>Speed</th><th>Main risk</th></tr></thead><tbody>
+ <tr><td data-l="Method"><b>Cash</b> (SRD, USD, EUR)</td><td data-l="Cost to you">No fee at the sale; but time, security and bank deposit fees, especially for USD and EUR</td><td data-l="Speed">Immediately in the till, in your account only after deposit</td><td data-l="Main risk">Counterfeit notes, theft, till differences, questions about origin of large deposits</td></tr>
+ <tr><td data-l="Method"><b>Transfer via SNEPS</b> (SRD, USD)</td><td data-l="Cost to you">Usually low; fee per bank and package</td><td data-l="Speed">Fast within office hours since June 2026; otherwise the next working day</td><td data-l="Main risk">Fake proof of payment (screenshots), wrong reference so you cannot match the payment</td></tr>
+ <tr><td data-l="Method"><b>Debit card (POS)</b></td><td data-l="Cost to you">Rent and/or purchase, set-up fee, commission per transaction: ask your bank</td><td data-l="Speed">Settlement differs per bank: ask</td><td data-l="Main risk">Terminal or network outages; keep a fallback</td></tr>
+ <tr><td data-l="Method"><b>Credit card</b> (Visa, Mastercard, UnionPay)</td><td data-l="Cost to you">Commission usually higher than debit; not published</td><td data-l="Speed">As agreed with your bank</td><td data-l="Main risk">Chargebacks and fraud, especially for online and phone sales</td></tr>
+ <tr><td data-l="Method"><b>QR wallet</b> (Mopé, Uni5Pay+)</td><td data-l="Cost to you">Merchant fees not published: ask for an offer</td><td data-l="Speed">Notification in the app at once; payout to your bank as set by the provider</td><td data-l="Main risk">Customer without balance or app; check the confirmation in your own merchant app</td></tr>
+ <tr><td data-l="Method"><b>Transfer from abroad</b> (SWIFT)</td><td data-l="Cost to you">Incoming fee from your bank plus intermediary bank charges</td><td data-l="Speed">Usually a few working days</td><td data-l="Main risk">Deducted charges, delays from compliance questions, exchange rate spread</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Contant geld: SRD, USD en EUR' if nl else 'Cash: SRD, USD and EUR' }}</h2>
+{% if nl %}
+<p>Suriname is nog grotendeels een contante economie. De tweede nationale risicobeoordeling (NRA 2.0) noemt het hoge gebruik van contant geld en de omvang van de informele economie als een belangrijke kwetsbaarheid. Voor jou als ondernemer betekent contant geld vooral werk en risico.</p>
+<h3>Kasbeheer</h3>
+<ul>
+ <li><b>Tel aan het begin en eind van elke dienst</b>, per valuta, met twee personen als het kan. Gebruik de <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a> om per coupure op te tellen.</li>
+ <li><b>Houd een kasboek bij</b> en bewaar kassabonnen en dagrapporten. Dat is je bewijs van herkomst als de bank vraagt waar een storting vandaan komt, en je basis voor de BTW-aangifte. Zie <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+ <li><b>Stort regelmatig</b> en houd weinig contant op de zaak. Varieer tijdstip en route.</li>
+ <li><b>Splits stortingen niet</b> om onder een meldgrens te blijven. Dat is juist een signaal waarop banken letten. Hoe het melden bij banken werkt staat op <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Wisselgeld</b>: houd genoeg kleine coupures aan; dat scheelt discussies en fouten.</li>
+</ul>
+<h3>Vals geld herkennen</h3>
+<ul>
+ <li>Controleer bij grote coupures in SRD, USD en EUR de echtheidskenmerken die de uitgevende centrale bank publiceert: watermerk, veiligheidsdraad, voelbare druk en kleurwisselende inkt.</li>
+ <li>Een UV-lamp of detectiepen helpt, maar vervangt kijken en voelen niet.</li>
+ <li>Twijfel je, weiger het biljet dan beleefd. Geef een biljet waarvan je weet dat het vals is nooit door: bewust vals geld in omloop brengen is strafbaar. Meld het bij de politie.</li>
+ <li>Train nieuw kassapersoneel hierop in de eerste week.</li>
+</ul>
+<h3>Buitenlandse valuta</h3>
+<p>Veel zaken nemen USD en soms EUR contant aan. Zet duidelijk welke koers je hanteert en hoe je wisselgeld teruggeeft, en controleer de koers dagelijks met de <a href="{{ U('rates') }}">{{ L('rates') }}</a>. Regels over prijsaanduiding in SRD en vreemde valuta staan op <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>. Vraag je bank wat het storten van contante USD en EUR kost; dat is vaak duurder dan SRD.</p>
+<p class="note">Werk je in een sector met een eigen meldplicht, zoals autohandel, goud- en sieradenhandel, makelaardij of kansspelen, dan gelden voor contante betalingen extra regels. Zie <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</p>
+{% else %}
+<p>Suriname is still largely a cash economy. The second National Risk Assessment (NRA 2.0) names the high use of cash and the size of the informal economy as a key vulnerability. For you as a business owner, cash mainly means work and risk.</p>
+<h3>Cash handling</h3>
+<ul>
+ <li><b>Count at the start and end of every shift</b>, per currency, with two people where possible. Use the <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a> to add up per denomination.</li>
+ <li><b>Keep a cash book</b> and keep till receipts and daily reports. That is your proof of origin when the bank asks where a deposit comes from, and your basis for the VAT return. See <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</li>
+ <li><b>Deposit regularly</b> and keep little cash on the premises. Vary times and routes.</li>
+ <li><b>Do not split deposits</b> to stay under a reporting threshold. That is exactly the kind of signal banks watch for. How bank reporting works is on <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>Change</b>: keep enough small denominations; it saves arguments and mistakes.</li>
+</ul>
+<h3>Spotting counterfeit notes</h3>
+<ul>
+ <li>For large SRD, USD and EUR notes, check the security features published by the issuing central bank: watermark, security thread, raised print and colour-shifting ink.</li>
+ <li>A UV lamp or detector pen helps, but does not replace looking and feeling.</li>
+ <li>If in doubt, politely refuse the note. Never pass on a note you know is fake: knowingly putting counterfeit money into circulation is a criminal offence. Report it to the police.</li>
+ <li>Train new till staff on this in their first week.</li>
+</ul>
+<h3>Foreign currency</h3>
+<p>Many businesses accept USD and sometimes EUR in cash. Show clearly which rate you use and how you give change, and check the rate daily with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>. Rules on showing prices in SRD and foreign currency are on <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>. Ask your bank what depositing USD and EUR cash costs; it is often more than SRD.</p>
+<p class="note">If you work in a sector with its own reporting duty, such as car dealing, gold and jewellery trading, real estate or gaming, extra rules apply to cash payments. See <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Overboeking en SNEPS' if nl else 'Bank transfers and SNEPS' }}</h2>
+{% if nl %}
+<p>SNEPS (Suriname National Electronic Payment System) is het systeem van de Centrale Bank van Suriname (CBvS) waarmee banken, de overheid en andere financiële instellingen geld naar elkaar overmaken. SRD-betalingen lopen er sinds 2015 over, USD-betalingen sinds 2019. Cheques bestaan niet meer: banken schaften ze per 1 augustus 2020 af.</p>
+<h3>Wat er in 2026 veranderde</h3>
+<ul>
+ <li><b>8 juni 2026</b>: de CBvS en de Surinaamse Bankiersvereniging namen de eerste fase van <b>SNEPS Fast Payments</b> in gebruik. Overmakingen tussen banken worden binnen kantooruren met aanzienlijk kortere verwerkingstijden afgehandeld, waar dat eerder één of meer werkdagen duurde.</li>
+ <li><b>Volgende fase</b>: volgens de CBvS een betalingsinfrastructuur waarbij overmakingen tussen alle banken uiterlijk binnen 15 minuten worden verwerkt, 24 uur per dag en 7 dagen per week, met als doel eind 2026.</li>
+ <li>Tot die fase live is, kan een betaling die na kantoortijd of in het weekend wordt gedaan pas de volgende werkdag bij jou binnenkomen. Vraag je bank naar de actuele afkaptijden.</li>
+</ul>
+<h3>Zo zorg je dat overboekingen goed binnenkomen</h3>
+<ul class="check">
+ <li>Zet op elke factuur je rekeningnummer per valuta (SRD en USD), de naam van de rekeninghouder en de bank. Maak facturen met <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>.</li>
+ <li>Vraag de klant het factuurnummer als omschrijving te gebruiken, zodat je de betaling kunt koppelen.</li>
+ <li>Laat een USD-factuur betalen op een USD-rekening; anders rekent de bank om tegen haar eigen koers.</li>
+ <li>Controleer de bijschrijving in je eigen internetbankieren. Een screenshot of "het is al overgemaakt" is geen betaling.</li>
+ <li>Gebruik zakelijke rekeningen, niet je privérekening. Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li>Zet je betaalgegevens in een QR-code op factuur of toonbank met de <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</li>
+</ul>
+{% else %}
+<p>The Suriname National Electronic Payment System (SNEPS) has been the Central Bank of Suriname's (CBvS) electronic payment system for payments between banks, the government and other financial institutions since 2015. It handles SRD since 2015 and USD since 2019. Cheques no longer exist: banks abolished them from 1 August 2020.</p>
+<h3>What changed in 2026</h3>
+<ul>
+ <li><b>8 June 2026</b>: the CBvS and the Suriname Bankers Association launched the first phase of <b>SNEPS Fast Payments</b>. Interbank transfers within office hours are now processed with considerably shorter processing times, where they used to take one or more working days.</li>
+ <li><b>Next phase</b>: according to the CBvS, an infrastructure in which transfers between all banks are processed within 15 minutes at most, 24 hours a day and 7 days a week, with the end of 2026 as the target.</li>
+ <li>Until that phase is live, a payment made after office hours or at the weekend may only reach you the next working day. Ask your bank for the current cut-off times.</li>
+</ul>
+<h3>Making sure transfers arrive properly</h3>
+<ul class="check">
+ <li>Put your account number per currency (SRD and USD), the account holder's name and the bank on every invoice. Create invoices with the <a href="{{ U('invoice') }}">{{ L('invoice') }}</a>.</li>
+ <li>Ask the customer to use the invoice number as the reference, so you can match the payment.</li>
+ <li>Have a USD invoice paid into a USD account; otherwise the bank converts at its own rate.</li>
+ <li>Check the credit in your own internet banking. A screenshot or "I already paid" is not a payment.</li>
+ <li>Use business accounts, not your personal account. See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li>Put your payment details in a QR code on your invoice or counter with the <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Pinpas en POS-apparaat' if nl else 'Debit cards and POS terminals' }}</h2>
+{% if nl %}
+<p>Met een POS-apparaat (pinautomaat) betalen klanten met hun bankpas. Volgens de Surinaamse Bankiersvereniging is pinnen voor de klant gratis en kan een klant tot maximaal SRD 100.000 per dag pinnen; de werkelijke limiet verschilt per bank en per pas. Je vraagt een terminal aan bij je eigen bank.</p>
+<h3>Vraag je bank schriftelijk</h3>
+<ul class="check">
+ <li>Huur of aankoop van de terminal, aansluitkosten en maandkosten</li>
+ <li>Commissie per transactie, als percentage of vast bedrag</li>
+ <li>Welke passen de terminal accepteert: pinpassen van alle Surinaamse banken, en welke creditcards (Visa, Mastercard, UnionPay)</li>
+ <li>Hoe snel en in welke valuta het geld op je rekening staat</li>
+ <li>Of de terminal mobiel werkt (4G of wifi) voor bezorging en markten</li>
+ <li>Wat er gebeurt bij storing: vervangtermijn en helpdesk</li>
+ <li>Of er een koppeling met je kassasysteem mogelijk is</li>
+</ul>
+<p>Houd bij storing een terugvaloptie: een QR-wallet, een overboeking met betaalverzoek of contant. Zet bij de kassa wat je dan accepteert, zodat klanten niet weglopen. Dagelijkse POS-rapporten zijn ook je bewijs voor de boekhouding.</p>
+{% else %}
+<p>With a POS terminal customers pay with their bank card. According to the Suriname Bankers Association, paying by debit card is free for the customer and a customer can pay up to SRD 100,000 a day; the actual limit differs per bank and per card. You apply for a terminal at your own bank.</p>
+<h3>Ask your bank in writing</h3>
+<ul class="check">
+ <li>Rent or purchase of the terminal, set-up and monthly fees</li>
+ <li>Commission per transaction, as a percentage or fixed amount</li>
+ <li>Which cards the terminal accepts: debit cards from all Surinamese banks, and which credit cards (Visa, Mastercard, UnionPay)</li>
+ <li>How fast and in which currency the money reaches your account</li>
+ <li>Whether the terminal works on mobile data (4G or wifi) for deliveries and markets</li>
+ <li>What happens if it fails: replacement time and helpdesk</li>
+ <li>Whether it can be linked to your till system</li>
+</ul>
+<p>Keep a fallback for outages: a QR wallet, a transfer with a payment request, or cash. Show at the till what you accept then, so customers do not walk away. Daily POS reports are also your evidence for the books.</p>
+{% endif %}
+
+<h2>{{ 'Creditcards' if nl else 'Credit cards' }}</h2>
+{% if nl %}
+<p>Toeristen, zakenreizigers en een deel van de lokale klanten betalen graag met creditcard. Of je Visa, Mastercard of UnionPay kunt accepteren, hangt af van het contract met je bank (de "acquirer"). Banken publiceren de commissies voor bedrijven niet; vraag een offerte en vergelijk.</p>
+<ul>
+ <li><b>Commissie</b>: meestal hoger dan bij de pinpas, en soms verschillend per kaartsoort.</li>
+ <li><b>Valuta</b>: vraag of je in SRD of USD afrekent en tegen welke koers de bank omrekent.</li>
+ <li><b>Toeristen en hotels</b>: zie ook <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>.</li>
+ <li><b>Terugboekingen (chargebacks)</b>: een kaarthouder kan via zijn eigen bank een betaling betwisten, bijvoorbeeld bij "niet geleverd" of "niet herkend". Je moet dan bewijzen dat de klant betaalde en dat je leverde. Bewaar bonnen met handtekening of pincode-bevestiging, afleverbewijzen en correspondentie.</li>
+</ul>
+{% else %}
+<p>Tourists, business travellers and some local customers like to pay by credit card. Whether you can accept Visa, Mastercard or UnionPay depends on your contract with your bank (the "acquirer"). Banks do not publish commission rates for businesses; ask for an offer and compare.</p>
+<ul>
+ <li><b>Commission</b>: usually higher than for debit cards, and sometimes different per card type.</li>
+ <li><b>Currency</b>: ask whether you settle in SRD or USD and at what rate the bank converts.</li>
+ <li><b>Tourists and hotels</b>: see also <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>.</li>
+ <li><b>Chargebacks</b>: a cardholder can dispute a payment through their own bank, for example as "not delivered" or "not recognised". You must then prove that the customer paid and that you delivered. Keep slips with signature or PIN confirmation, delivery receipts and correspondence.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Mobiele wallets en QR-betalingen' if nl else 'Mobile wallets and QR payments' }}</h2>
+{% if nl %}
+<p>Met een wallet betaalt de klant met zijn telefoon, meestal door een QR-code te scannen. In oktober 2026 vonden we twee wallets die in Suriname breed bij winkels en webshops worden aangeboden (alfabetisch, zonder voorkeur):</p>
+<table class="tbl stack tx"><thead><tr><th>Wallet</th><th>Aanbieder</th><th>Hoe de klant betaalt</th><th>Voor bedrijven</th></tr></thead><tbody>
+ <tr><td data-l="Wallet"><b>Mopé</b></td><td data-l="Aanbieder">Hakrinbank (verkoper van de app in de app-winkels)</td><td data-l="Hoe de klant betaalt">Telefoonnummer als wallet; betalen via QR-code of betaalverzoek, online en offline</td><td data-l="Voor bedrijven">Zakelijk gebruik mogelijk; saldo overmaken naar eigen bankrekening</td></tr>
+ <tr><td data-l="Wallet"><b>Uni5Pay+</b></td><td data-l="Aanbieder">UPPS (Unified Payment Platform Suriname)</td><td data-l="Hoe de klant betaalt">QR-code scannen in de winkel of online; wallet in SRD en USD</td><td data-l="Voor bedrijven">Merchant-app, koppeling met kassasysteem en een gateway voor webshops</td></tr>
+</tbody></table>
+<p>Daarnaast bieden de banken mobiel bankieren waarmee klanten direct een overboeking doen. Vraag ook je eigen bank naar QR-betaalverzoeken. Nieuwe aanbieders komen en gaan; controleer bij de Centrale Bank of een aanbieder onder toezicht staat.</p>
+<h3>Vraag elke aanbieder</h3>
+<ul class="check">
+ <li>Wat kost het per transactie of per maand? Is er een minimum?</li>
+ <li>Hoe snel staat het geld op mijn bankrekening, en in welke valuta?</li>
+ <li>Welke documenten heb ik nodig (KKF-uittreksel, bedrijfsvergunning, ID van de tekenbevoegde)?</li>
+ <li>Kan ik meerdere vestigingen en kassamedewerkers toevoegen?</li>
+ <li>Is er koppeling met mijn kassasysteem of webshop?</li>
+ <li>Hoe gaan terugbetalingen bij een retour?</li>
+</ul>
+<p>Een wallet maakt je niet minder afhankelijk van je bank: het geld moet uiteindelijk op je zakelijke rekening komen. Bied er gerust meer dan één aan; klanten kiezen zelf.</p>
+{% else %}
+<p>With a wallet the customer pays by phone, usually by scanning a QR code. In October 2026 we found two wallets widely offered at shops and web shops in Suriname (alphabetical, no preference):</p>
+<table class="tbl stack tx"><thead><tr><th>Wallet</th><th>Provider</th><th>How the customer pays</th><th>For businesses</th></tr></thead><tbody>
+ <tr><td data-l="Wallet"><b>Mopé</b></td><td data-l="Provider">Hakrinbank (seller of the app in the app stores)</td><td data-l="How the customer pays">Phone number as wallet; pay by QR code or payment request, online and offline</td><td data-l="For businesses">Business use possible; balance can be transferred to your own bank account</td></tr>
+ <tr><td data-l="Wallet"><b>Uni5Pay+</b></td><td data-l="Provider">UPPS (Unified Payment Platform Suriname)</td><td data-l="How the customer pays">Scan a QR code in the shop or online; wallet in SRD and USD</td><td data-l="For businesses">Merchant app, till system integration and a gateway for web shops</td></tr>
+</tbody></table>
+<p>In addition, banks offer mobile banking so customers can make a transfer straight away. Ask your own bank about QR payment requests too. Providers come and go; check with the Central Bank whether a provider is supervised.</p>
+<h3>Ask every provider</h3>
+<ul class="check">
+ <li>What does it cost per transaction or per month? Is there a minimum?</li>
+ <li>How fast does the money reach my bank account, and in which currency?</li>
+ <li>Which documents do I need (KKF extract, business licence, ID of the signatory)?</li>
+ <li>Can I add several branches and till staff?</li>
+ <li>Can it be linked to my till system or web shop?</li>
+ <li>How do refunds work for returns?</li>
+</ul>
+<p>A wallet does not make you less dependent on your bank: the money must end up in your business account. Feel free to offer more than one; customers choose for themselves.</p>
+{% endif %}
+
+<h2>{{ 'Online verkopen en betaallinks' if nl else 'Selling online and payment links' }}</h2>
+{% if nl %}
+<p>Voor een webshop of verkoop via WhatsApp en sociale media heb je drie opties:</p>
+<ol class="steps">
+ <li><b>Betaallink of betaalverzoek</b> van een wallet of bank. Je stuurt de klant een link of QR-code; je levert na bevestiging. Simpel en geschikt voor kleine aantallen. Een WhatsApp-link met je bestelgegevens maak je met de <a href="{{ U('walink') }}">{{ L('walink') }}</a>.</li>
+ <li><b>Gateway in je webshop</b>. De webshop stuurt een transactieverzoek naar de gateway van een wallet of bank, de klant betaalt, en je site krijgt een melding om de bestelling te verwerken. Vraag naar plug-ins voor gangbare webshopsoftware.</li>
+ <li><b>Overboeking vooraf</b> met het ordernummer als omschrijving. Goedkoop, maar trager en meer handwerk.</li>
+</ol>
+<p>Internationale diensten zijn beperkt: Stripe noemde Suriname in oktober 2026 niet bij de ondersteunde landen. PayPal heeft een site voor Suriname; controleer vooraf of je zakelijk betalingen kunt ontvangen en naar een lokale rekening kunt opnemen, en wat dat kost. Verkoop je aan klanten in de EU, lees dan ook <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> over de AVG.</p>
+{% else %}
+<p>For a web shop or sales through WhatsApp and social media you have three options:</p>
+<ol class="steps">
+ <li><b>Payment link or payment request</b> from a wallet or bank. You send the customer a link or QR code and deliver after confirmation. Simple and suitable for small volumes. Create a WhatsApp link with your order details using the <a href="{{ U('walink') }}">{{ L('walink') }}</a>.</li>
+ <li><b>Gateway in your web shop</b>. The shop sends a transaction request to the gateway of a wallet or bank, the customer pays, and your site gets a notification to process the order. Ask about plug-ins for common web shop software.</li>
+ <li><b>Transfer in advance</b> with the order number as the reference. Cheap, but slower and more manual work.</li>
+</ol>
+<p>International services are limited: in October 2026 Stripe did not list Suriname among its supported countries. PayPal has a site for Suriname; check beforehand whether you can receive business payments and withdraw to a local account, and what it costs. If you sell to customers in the EU, also read <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> on the GDPR.</p>
+{% endif %}
+
+<h2>{{ 'Betalingen uit het buitenland' if nl else 'Payments from abroad' }}</h2>
+{% if nl %}
+<p>Klanten in het buitenland betalen meestal met een internationale (SWIFT-)overmaking. Geef ze de exacte gegevens die je bank opgeeft: naam en adres van de rekeninghouder, rekeningnummer, naam en SWIFT/BIC-code van je bank, en voor USD of EUR zo nodig de tussenbank (correspondentbank). Een fout in die gegevens kost dagen en extra kosten.</p>
+<ul>
+ <li><b>Kosten</b>: je bank rekent inkomende kosten, en tussenbanken houden onderweg vaak een bedrag in. Spreek met je klant af wie welke kosten draagt (bij voorkeur: alle kosten buiten Suriname voor de betaler) en zet dat op de factuur.</li>
+ <li><b>Vragen van de bank</b>: banken moeten de herkomst en het doel van betalingen kunnen verklaren. Houd contract, factuur en vrachtpapieren bij de hand. Voor een losse buitenlandse elektronische overmaking vanaf USD 1.000 of EUR 1.000 moet de dienstverlener volgens de WMTF een cliëntenonderzoek doen.</li>
+ <li><b>Exporteurs</b>: sinds 17 augustus 2026 moeten exportopbrengsten via een lokale bank binnenkomen en moet minstens 35% binnen drie werkdagen aan een lokale bank worden verkocht (Algemene Beschikking no. 228 van de Deviezencommissie). Zie <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Familie en diaspora</b>: geld van particulieren komt vaak via een geldovermakingskantoor. Voor zakelijke betalingen is een overmaking naar je zakelijke rekening beter voor je administratie. Zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+ <li><b>Koers</b>: kijk wat je bank rekent bij omwisselen tegenover de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+</ul>
+{% else %}
+<p>Customers abroad usually pay by international (SWIFT) transfer. Give them the exact details your bank provides: account holder's name and address, account number, your bank's name and SWIFT/BIC code, and for USD or EUR the intermediary (correspondent) bank where needed. A mistake in those details costs days and extra fees.</p>
+<ul>
+ <li><b>Fees</b>: your bank charges an incoming fee, and intermediary banks often deduct an amount along the way. Agree with your customer who pays which charges (preferably: all charges outside Suriname for the payer) and put it on the invoice.</li>
+ <li><b>Questions from the bank</b>: banks must be able to explain the origin and purpose of payments. Keep the contract, invoice and shipping documents at hand. Under the WMTF, a service provider must carry out due diligence for a one-off foreign electronic transfer of USD 1,000 or EUR 1,000 or more.</li>
+ <li><b>Exporters</b>: since 17 August 2026 export proceeds must come in through a local bank and at least 35% must be sold to a local bank within three working days (General Decision no. 228 of the Foreign Exchange Commission). See <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Family and diaspora</b>: money from private individuals often comes through a money transfer office. For business payments, a transfer to your business account is better for your records. See <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+ <li><b>Exchange rate</b>: compare what your bank charges for conversion with the <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'De Nationale Betaalraad' if nl else 'The National Payments Council' }}</h2>
+{% if nl %}
+<p>De Centrale Bank van Suriname lanceerde in maart 2024 de Nationale Betaalraad Suriname. Daarin zitten vertegenwoordigers van ministeries, banken en maatschappelijke organisaties. Het doel is betalingen in Suriname tijdig, veilig en efficiënt te laten verlopen, zowel binnenlands als met het buitenland. De raad neemt geen besluiten over jouw tarieven, maar is wel het overleg waar onderwerpen als minder contant geld, het samenwerken van betaalsystemen en fraudebestrijding op tafel komen. Heb je als ondernemer een knelpunt in het betalingsverkeer, dan kun je dat via je branche- of werkgeversorganisatie inbrengen; zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% else %}
+<p>The Central Bank of Suriname launched the National Payments Council of Suriname (Nationale Betaalraad) in March 2024. It brings together representatives of ministries, banks and civil society organisations. Its aim is timely, safe and efficient payments in Suriname, both domestic and with other countries. The council does not set your fees, but it is the forum where topics such as less cash, payment systems working together and fighting fraud are discussed. If you have a bottleneck in payments as a business owner, you can raise it through your sector or employers' association; see <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Factureren en betalingstermijnen' if nl else 'Invoicing and payment terms' }}</h2>
+{% if nl %}
+<p>De meeste wanbetaling begint bij een onduidelijke afspraak. Leg daarom vooraf vast wanneer en hoe betaald wordt.</p>
+<ul>
+ <li><b>Spreek een betalingstermijn af</b> in je offerte, contract of algemene voorwaarden (bijvoorbeeld 14 of 30 dagen). Is een termijn afgesproken en betaalt de klant niet op tijd, dan is hij volgens het nieuwe Burgerlijk Wetboek in de regel zonder aanmaning in verzuim. Maak offertes met <a href="{{ U('quote') }}">{{ L('quote') }}</a> en vraag bij nieuwe klanten een voorschot via een <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+ <li><b>Factureer meteen</b> na levering, met factuurnummer, datum, je FIN-nummer, BTW waar van toepassing, betalingstermijn en je rekeningnummers.</li>
+ <li><b>Volg je debiteuren</b> wekelijks met de <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> en stuur op tijd een herinnering met de <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li><b>Correctie</b> van een factuur gaat met een <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a>, niet door de oude factuur aan te passen.</li>
+ <li><b>Wordt er niet betaald</b>, volg dan de stappen op <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+<p>Hoe lang je met de rekening van een klant kunt wachten, hangt af van je eigen kas. Reken dat door met de <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</p>
+{% else %}
+<p>Most non-payment starts with an unclear agreement. So set out in advance when and how payment is made.</p>
+<ul>
+ <li><b>Agree a payment term</b> in your quote, contract or general terms (for example 14 or 30 days). If a term was agreed and the customer does not pay on time, under the new Civil Code they are as a rule in default without a reminder. Create quotes with the <a href="{{ U('quote') }}">{{ L('quote') }}</a> and ask new customers for a deposit with a <a href="{{ U('proforma') }}">{{ L('proforma') }}</a>.</li>
+ <li><b>Invoice straight away</b> after delivery, with invoice number, date, your FIN (tax) number, VAT where applicable, payment term and your account numbers.</li>
+ <li><b>Track your receivables</b> weekly with the <a href="{{ U('receivables') }}">{{ L('receivables') }}</a> and send a timely reminder with the <a href="{{ U('reminder') }}">{{ L('reminder') }}</a>.</li>
+ <li><b>Corrections</b> to an invoice are made with a <a href="{{ U('creditnote') }}">{{ L('creditnote') }}</a>, not by changing the old invoice.</li>
+ <li><b>If you are not paid</b>, follow the steps on <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+<p>How long you can wait for a customer's payment depends on your own cash position. Work it out with the <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Kassabon, factuur en BTW' if nl else 'Receipts, invoices and VAT' }}</h2>
+{% if nl %}
+<p>Elke betaling hoort bij een document. Ben je BTW-plichtig (verplicht vanaf SRD 1.000.000 omzet per jaar), dan geef je zakelijke klanten een BTW-factuur en consumenten een doorlopend genummerde kassabon of factuur. Wat er precies op moet staat in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<ul>
+ <li>Geen kassasysteem? Maak een genummerde kwitantie met de <a href="{{ U('receipt') }}">{{ L('receipt') }}</a>.</li>
+ <li>Houd per betaalmethode bij wat er binnenkwam: kas, POS-rapport, wallet-overzicht, bankafschrift. Zo sluit je dagomzet aan op je BTW-register; zie <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</li>
+ <li>Contant, pin of wallet: voor de BTW maakt de betaalmethode geen verschil. Wanneer de BTW verschuldigd is, lees je in de BTW-gids.</li>
+</ul>
+{% else %}
+<p>Every payment belongs with a document. If you are VAT-registered (required from SRD 1,000,000 turnover a year), give business customers a VAT invoice and consumers a sequentially numbered till receipt or invoice. What exactly must be on it is in <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</p>
+<ul>
+ <li>No till system? Make a numbered receipt with the <a href="{{ U('receipt') }}">{{ L('receipt') }}</a>.</li>
+ <li>Record per payment method what came in: cash, POS report, wallet statement, bank statement. That way your daily turnover matches your VAT register; see <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>.</li>
+ <li>Cash, card or wallet: the payment method makes no difference for VAT. When VAT is due is explained in the VAT guide.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Fraude en terugboekingen voorkomen' if nl else 'Preventing fraud and chargebacks' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Nep-betaalbewijs</b>: een bewerkte screenshot van een overboeking of wallet-betaling. Lever pas na controle in je eigen bank- of merchant-app.</li>
+ <li><b>Te veel betaald</b>: een "klant" betaalt te veel en vraagt het verschil terug te storten, vaak naar een andere rekening. Stort alleen terug naar dezelfde rekening en pas nadat het oorspronkelijke bedrag definitief binnen is.</li>
+ <li><b>Gewijzigde rekeninggegevens</b>: een e-mail of bericht "van een leverancier" met een nieuw rekeningnummer. Bel de leverancier op een nummer dat je al had.</li>
+ <li><b>Kaart niet aanwezig</b>: bij telefonische of online creditcardbetalingen is het risico op terugboeking het grootst. Vraag bij grote bedragen een overboeking of laat de kaart bij afhalen tonen.</li>
+ <li><b>Interne controle</b>: scheid kassa en boekhouding waar het kan, gebruik in internetbankieren dubbele goedkeuring, en controleer kasverschillen dagelijks.</li>
+ <li><b>Bewijs bewaren</b>: bonnen, afleverbewijzen, chatberichten en foto's van afgeleverde goederen. Die heb je nodig bij een terugboeking of een geschil.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Fake proof of payment</b>: an edited screenshot of a transfer or wallet payment. Only deliver after checking in your own bank or merchant app.</li>
+ <li><b>Overpayment</b>: a "customer" pays too much and asks you to send the difference back, often to another account. Only refund to the same account and only once the original amount has definitely arrived.</li>
+ <li><b>Changed account details</b>: an email or message "from a supplier" with a new account number. Call the supplier on a number you already had.</li>
+ <li><b>Card not present</b>: phone and online credit card payments carry the highest chargeback risk. For large amounts ask for a transfer or have the card shown at pick-up.</li>
+ <li><b>Internal control</b>: separate till and bookkeeping where possible, use dual approval in internet banking, and check till differences daily.</li>
+ <li><b>Keep evidence</b>: receipts, delivery notes, chat messages and photos of delivered goods. You need them for a chargeback or a dispute.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist: betalingen inrichten' if nl else 'Checklist: setting up payments' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zakelijke rekening</b> in SRD en zo nodig USD. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>Bepaal welke methoden je klanten gebruiken</b>: vraag het ze, en kijk wat concurrenten aanbieden.</li>
+ <li><b>Vraag offertes</b> bij je bank (POS, creditcard, e-commerce) en bij minstens twee wallet-aanbieders. Vergelijk op jouw aantallen.</li>
+ <li><b>Regel de documenten</b>: KKF-uittreksel, bedrijfsvergunning indien nodig, ID van tekenbevoegden. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Pas je facturen en kassabonnen aan</b>: rekeningnummers, betalingstermijn, QR-code.</li>
+ <li><b>Maak een kasprocedure</b>: tellen, kasboek, storten, vals geld.</li>
+ <li><b>Train je personeel</b> op terminal, wallet-app en fraudesignalen.</li>
+ <li><b>Sluit dagelijks af</b>: kas, POS-rapport en wallet-overzicht tegen de verkopen.</li>
+ <li><b>Controleer maandelijks de kosten</b> per betaalmethode op je bankafschrift.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Business account</b> in SRD and USD if needed. <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a></li>
+ <li><b>Decide which methods your customers use</b>: ask them, and see what competitors offer.</li>
+ <li><b>Get offers</b> from your bank (POS, credit card, e-commerce) and from at least two wallet providers. Compare on your volumes.</li>
+ <li><b>Arrange the documents</b>: KKF extract, business licence if required, ID of signatories. <a href="{{ U('start') }}">{{ L('start') }}</a></li>
+ <li><b>Update your invoices and receipts</b>: account numbers, payment term, QR code.</li>
+ <li><b>Write a cash procedure</b>: counting, cash book, deposits, counterfeit notes.</li>
+ <li><b>Train your staff</b> on the terminal, the wallet app and fraud signals.</li>
+ <li><b>Close every day</b>: cash, POS report and wallet statement against sales.</li>
+ <li><b>Check costs monthly</b> per payment method on your bank statement.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...de POS-terminal of het netwerk uitvalt?</b> Bied een QR-wallet of overboeking aan en noteer openstaande bedragen met naam en telefoonnummer. Meld de storing bij je bank. Bij grotere storingen van nutsbedrijven, zie <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>...een klant zegt dat hij heeft betaald maar ik zie niets?</b> Vraag de datum, bank en referentie, en kijk na de volgende verwerkingsronde opnieuw. Lever niet tot het binnen is.</li>
+ <li><b>...ik een vals biljet heb aangenomen?</b> Geef het niet door. Meld het bij de politie; het verlies is helaas voor jou. Scherp je controle aan.</li>
+ <li><b>...een creditcardbetaling wordt teruggeboekt?</b> Reageer binnen de termijn die je bank noemt, met bon, afleverbewijs en correspondentie.</li>
+ <li><b>...mijn bank vraagt waar een grote storting vandaan komt?</b> Dat is normaal. Laat kasboek, facturen en contracten zien. Zie <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>...een klant al maanden niet betaalt?</b> Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...the POS terminal or the network goes down?</b> Offer a QR wallet or transfer and note outstanding amounts with name and phone number. Report the fault to your bank. For larger utility outages, see <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>...a customer says they paid but I see nothing?</b> Ask for the date, bank and reference, and check again after the next processing round. Do not deliver until it has arrived.</li>
+ <li><b>...I accepted a counterfeit note?</b> Do not pass it on. Report it to the police; unfortunately the loss is yours. Tighten your checks.</li>
+ <li><b>...a credit card payment is charged back?</b> Respond within the deadline your bank gives, with the slip, delivery proof and correspondence.</li>
+ <li><b>...my bank asks where a large deposit comes from?</b> That is normal. Show your cash book, invoices and contracts. See <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+ <li><b>...a customer has not paid for months?</b> See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.cbvs.sr/images/content/2026/Persberichten/SNEPS-FastPayments_FinalPersbericht08062026.pdf" rel="noopener">{{ 'Centrale Bank van Suriname: persbericht SNEPS Fast Payments (8 juni 2026)' if nl else 'Central Bank of Suriname: press release SNEPS Fast Payments (8 June 2026)' }}</a></li>
+ <li><a href="https://www.sbv.sr/nieuws/uitfaseren-van-cheques/" rel="noopener">{{ 'Surinaamse Bankiersvereniging: uitfaseren van cheques en SNEPS in SRD en USD' if nl else 'Suriname Bankers Association: phasing out cheques, SNEPS in SRD and USD' }}</a></li>
+ <li><a href="https://www.sbv.sr/nieuws/pos-limieten-zijn-verhoogd/" rel="noopener">{{ 'Surinaamse Bankiersvereniging: POS-limieten verhoogd' if nl else 'Suriname Bankers Association: POS limits raised' }}</a></li>
+ <li><a href="https://keynews.sr/nationale-betaalraad-suriname-een-feit" rel="noopener">{{ 'Key News: Nationale Betaalraad Suriname een feit (19 maart 2024)' if nl else 'Key News: National Payments Council of Suriname launched (19 March 2024)' }}</a></li>
+ <li><a href="https://fiusuriname.org/Publicaties/Final-Publieke-versie-NRA2.0.pdf" rel="noopener">{{ 'Tweede National Risk Assessment Suriname (NRA 2.0), publieke versie' if nl else 'Suriname Second National Risk Assessment (NRA 2.0), public version' }}</a></li>
+ <li><a href="https://fiusuriname.org/wetgeving/S-B-2022-no-138-WET-van-19-november-2022-vaststelling-regels-voorkomen-bestrijden-money-laundering-en-financiering-terrorisme.pdf" rel="noopener">WMTF, S.B. 2022 no. 138</a></li>
+ <li><a href="https://apps.apple.com/nl/app/id1481055917" rel="noopener">{{ 'Mopé in de App Store' if nl else 'Mopé in the App Store' }}</a></li>
+ <li><a href="https://uni5pay.sr/registratie" rel="noopener">{{ 'Uni5Pay+: aanmelden als merchant' if nl else 'Uni5Pay+: merchant sign-up' }}</a></li>
+ <li><a href="https://stripe.com/global" rel="noopener">{{ 'Stripe: ondersteunde landen' if nl else 'Stripe: supported countries' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/01/S.B.-2024-no.-170-Wetboek-van-Burgerlijke-Rechtsvordering.pdf" rel="noopener">{{ 'Wetboek van Burgerlijke Rechtsvordering, S.B. 2024 no. 170' if nl else 'Code of Civil Procedure, S.B. 2024 no. 170' }}</a></li>
+ <li><a href="https://www.dna.sr/media/0fchjnyn/s-b-_2024_no-_164__boek_6.pdf" rel="noopener">{{ 'Burgerlijk Wetboek Boek 6, S.B. 2024 no. 164 (verzuim)' if nl else 'Civil Code Book 6, S.B. 2024 no. 164 (default)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie. Tarieven en tijden verschillen per bank en aanbieder; vraag ze schriftelijk op. Deze site is onafhankelijk en beveelt geen bank of betaalaanbieder aan.' if nl else 'General information. Fees and times differ per bank and provider; ask for them in writing. This site is independent and does not recommend any bank or payment provider.' }}</p>
+</div>
+{% endblock %}

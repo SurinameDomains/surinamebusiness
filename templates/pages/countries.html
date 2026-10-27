@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set i = 0 if nl else 1 %}
+{% set cpre = '/land/' if nl else '/en/country/' %}
+{% macro musd(v) %}USD {{ num(v, 2 if v < 1 else 1) }} {{ 'mln' if nl else 'm' }}{% endmacro %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Zakendoen per land' if nl else 'Doing business by country' }}</h1>
+{% if nl %}
+<p class="lead">Suriname koopt het meest in de Verenigde Staten, China en Nederland, en verkoopt het meest (goud) aan Zwitserland en de Verenigde Arabische Emiraten. Binnen CARICOM en naar de EU betaal je geen invoerrecht als je product Surinaams is; met de VS, China en India is er geen akkoord. Hieronder per land de cijfers, de regels, de verbindingen en wie je verder helpt.</p>
+{% else %}
+<p class="lead">Suriname buys most from the United States, China and the Netherlands, and sells most (gold) to Switzerland and the United Arab Emirates. Within CARICOM and to the EU you pay no import duty if your product is Surinamese; there is no agreement with the US, China or India. Below, for each country: the figures, the rules, the transport links and who can help.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Grootste leverancier (2025)' if nl else 'Largest supplier (2025)' }}</div><div class="big">China</div><div class="sub">{{ 'USD 541 mln, voor de VS (USD 487 mln) en Nederland (USD 286 mln)' if nl else 'USD 541m, ahead of the US (USD 487m) and the Netherlands (USD 286m)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Grootste koper (2025)' if nl else 'Largest buyer (2025)' }}</div><div class="big">{{ 'Zwitserland' if nl else 'Switzerland' }}</div><div class="sub">{{ 'USD 1.221 mln, vrijwel alleen goud' if nl else 'USD 1,221m, almost all gold' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Zonder invoerrecht' if nl else 'Duty free' }}</div><div class="big">CARICOM + EU</div><div class="sub">{{ 'met bewijs van Surinaamse oorsprong' if nl else 'with proof of Surinamese origin' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Goud is veruit de grootste export en gaat naar Zwitserland en de VAE. Zonder goud zijn de VS (vis), Jamaica (vis en rijst), Guyana (brandstof) en Frans-Guyana de belangrijkste afzetmarkten.</li>
+ <li>CARICOM (Guyana, Trinidad en Tobago, Barbados, Jamaica): geen invoerrecht met CARICOM-certificaat van oorsprong.</li>
+ <li>EU (Nederland, België, Frankrijk en Frans-Guyana): rechten- en quotavrij onder de EPA, maar de EU-productregels gelden volledig.</li>
+ <li>VS, China, India, VAE, Brazilië: geen vrijhandel. De Amerikaanse tarieven veranderden in 2025 en 2026 drie keer.</li>
+ <li>Kijk niet alleen naar het tarief: transport (de Canawaima-veerboot, overslag, vluchten), taal en betalingen bepalen vaak of een markt werkt.</li>
+{% else %}
+ <li>Gold is by far the largest export and goes to Switzerland and the UAE. Excluding gold, the US (fish), Jamaica (fish and rice), Guyana (fuel) and French Guiana are the main markets.</li>
+ <li>CARICOM (Guyana, Trinidad and Tobago, Barbados, Jamaica): no duty with a CARICOM certificate of origin.</li>
+ <li>EU (Netherlands, Belgium, France and French Guiana): duty and quota free under the EPA, but EU product rules apply in full.</li>
+ <li>US, China, India, UAE, Brazil: no free trade. US tariffs changed three times in 2025 and 2026.</li>
+ <li>Look beyond the tariff: transport (the Canawaima ferry, transhipment, flights), language and payments often decide whether a market works.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Dertien landen in cijfers' if nl else 'Thirteen countries in figures' }}</h2>
+{% if nl %}
+<p>Export en import van Suriname per land, in miljoenen Amerikaanse dollars. Klik op een land voor de regels, het transport, de ambassades en de kansen.</p>
+{% else %}
+<p>Suriname's exports and imports per country, in millions of US dollars. Click a country for the rules, transport, embassies and opportunities.</p>
+{% endif %}
+<table class="tbl stack tx"><thead><tr><th>{{ 'Land' if nl else 'Country' }}</th><th>{{ 'Export van Suriname' if nl else 'Exports from Suriname' }}</th><th>{{ 'Import door Suriname' if nl else 'Imports into Suriname' }}</th><th>{{ 'Handelsregime' if nl else 'Trade regime' }}</th></tr></thead><tbody>
+{% for c in countries %}
+ <tr><td data-l="{{ 'Land' if nl else 'Country' }}">{{ c.flag }} <a href="{{ cpre }}{{ c.key }}"><b>{{ c.short[i] }}</b></a></td><td data-l="{{ 'Export' if nl else 'Exports' }}">{{ musd(c.exp_musd) }} ({{ c.trade_year }})</td><td data-l="{{ 'Import' if nl else 'Imports' }}">{{ musd(c.imp_musd) }} ({{ c.trade_year }})</td><td data-l="{{ 'Regime' if nl else 'Regime' }}">{{ c.agree_short[i] }}</td></tr>
+{% endfor %}
+</tbody></table>
+{% if nl %}
+<p class="note">Bron: UN Comtrade, cijfers van het partnerland (opgevraagd 26 oktober 2026); voor de VS het US Census Bureau; voor Curaçao en Aruba de Surinaamse cijfers over 2023. Frankrijk telt Frans-Guyana mee. We gebruiken de cijfers van het partnerland omdat Suriname zijn goudexport niet per land rapporteert. Invoer is meestal inclusief vracht (CIF) en uitvoer zonder (FOB), dus de cijfers van beide kanten verschillen.</p>
+{% else %}
+<p class="note">Source: UN Comtrade, partner country figures (queried 26 October 2026); for the US the US Census Bureau; for Curaçao and Aruba Suriname's own figures for 2023. France includes French Guiana. We use partner figures because Suriname does not report its gold exports by country. Imports usually include freight (CIF) and exports do not (FOB), so the two sides differ.</p>
+{% endif %}
+
+<h2>{{ 'Per regio' if nl else 'By region' }}</h2>
+{% set groups = [('caricom', 'CARICOM', 'CARICOM'), ('eu', 'Europese Unie', 'European Union'), ('americas', 'Amerika en Caribisch Koninkrijk', 'Americas and Dutch Caribbean'), ('asia', 'Azië en het Midden-Oosten', 'Asia and the Middle East')] %}
+{% for g, gnl, gen in groups %}
+<h3>{{ gnl if nl else gen }}</h3>
+<ul class="ilinks">
+{% for c in countries if c.region == g %}
+ <li><a href="{{ cpre }}{{ c.key }}">{{ c.short[i] }}</a></li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% if nl %}
+<p><b>CARICOM-landen</b> zijn de makkelijkste stap voor goederen: geen invoerrecht, Engelstalig, korte afstanden. De drempels zitten in transport (weinig rechtstreekse lijnen) en in fytosanitaire en andere eisen die per land verschillen. <b>EU-landen</b> geven nultarief, maar de productregels zijn streng; voor voedsel, hout en cacao is <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> de belangrijkste gids. <b>De VS, China en India</b> zijn vooral inkoopmarkten; wie er wil verkopen, betaalt het normale tarief en moet zich vaak eerst laten registreren.</p>
+{% else %}
+<p><b>CARICOM countries</b> are the easiest step for goods: no duty, English-speaking, short distances. The hurdles are transport (few direct services) and phytosanitary and other requirements that differ per country. <b>EU countries</b> give a zero tariff, but product rules are strict; for food, timber and cocoa <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> is the key guide. <b>The US, China and India</b> are mainly sourcing markets; selling there means paying the normal tariff and often registering first.</p>
+{% endif %}
+
+<h2>{{ 'Een doelmarkt kiezen' if nl else 'Choosing a target market' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Begin bij wat al verkoopt.</b> Kijk in de tabel en op de landpagina's welke producten al uit Suriname naar een land gaan. Een bestaande stroom betekent bestaande kopers, papieren en transport. <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a></li>
+ <li><b>Vergelijk het tarief.</b> Zoek per land het invoerrecht voor je HS-code op en of je voorkeur krijgt. <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></li>
+ <li><b>Toets de eisen.</b> Registratie (FDA, GACC), certificaten, etiketten en normen bepalen de kosten van de eerste zending. <a href="{{ U('export') }}">{{ L('export') }}</a> &middot; <a href="{{ U('standards') }}">{{ L('standards') }}</a></li>
+ <li><b>Reken het transport door.</b> Is er een rechtstreekse vlucht of lijndienst, of gaat alles via overslag? <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></li>
+ <li><b>Regel betaling en deviezen.</b> Hoe betaalt de klant, in welke munt, en wat betekent de deviezenregel voor exporteurs? <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li><b>Ga kijken of laat je uitnodigen.</b> Handelsmissies, beurzen en de kamers in dit overzicht leveren de eerste kopers. <a href="{{ U('events') }}">{{ L('events') }}</a></li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Start with what already sells.</b> Use the table and country pages to see which products already go from Suriname to a country. An existing flow means existing buyers, paperwork and transport. <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a></li>
+ <li><b>Compare the tariff.</b> Look up the import duty for your HS code in each country and whether you get a preference. <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a></li>
+ <li><b>Check the requirements.</b> Registration (FDA, GACC), certificates, labels and standards decide the cost of the first shipment. <a href="{{ U('export') }}">{{ L('export') }}</a> &middot; <a href="{{ U('standards') }}">{{ L('standards') }}</a></li>
+ <li><b>Work out the transport.</b> Is there a direct flight or liner service, or does everything go via transhipment? <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></li>
+ <li><b>Arrange payment and foreign exchange.</b> How does the customer pay, in which currency, and what does the foreign exchange rule mean for exporters? <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li><b>Go and see, or get invited.</b> Trade missions, trade fairs and the chambers on these pages bring the first buyers. <a href="{{ U('events') }}">{{ L('events') }}</a></li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Belangrijke ontwikkelingen in 2025 en 2026' if nl else 'Key developments in 2025 and 2026' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>VS-tarieven.</b> Een extra tarief van 10% (april 2025), vernietigd door het Hooggerechtshof (20 februari 2026), vervangen door een tijdelijk 10%-tarief tot 24 juli 2026, daarna Section 301-heffingen voor 60 landen. Suriname stond in juli 2026 niet op die lijst. <a href="{{ cpre }}united-states">{{ 'Verenigde Staten' }}</a></li>
+ <li><b>Havenbeveiliging.</b> Sinds 17 september 2025 moeten schepen die via Suriname naar de VS varen extra beveiligingsmaatregelen nemen.</li>
+ <li><b>Guyana.</b> De Canawaima-veerboot lag in augustus 2026 stil, Suriname wil de Corantijnbrug zelf bouwen, en Guyana protesteerde tegen rivierheffingen. <a href="{{ cpre }}guyana">Guyana</a></li>
+ <li><b>Frankrijk.</b> Het grensprotocol over de Marowijne is nog niet geratificeerd. <a href="{{ cpre }}france-french-guiana">{{ 'Frankrijk en Frans-Guyana' }}</a></li>
+ <li><b>Nederland.</b> Staatsbezoek in december 2025, met een MoU tussen VSB en VNO-NCW en afspraken over een tweede Makandra-programma. <a href="{{ cpre }}netherlands">Nederland</a></li>
+ <li><b>Brazilië.</b> Presidentieel bezoek aan Brasília op 28 mei 2026 en plannen voor een wegenring door de Guyana's. <a href="{{ cpre }}brazil">{{ 'Brazilië' }}</a></li>
+</ul>
+{% else %}
+<ul>
+ <li><b>US tariffs.</b> An extra 10% tariff (April 2025), struck down by the Supreme Court (20 February 2026), replaced by a temporary 10% tariff until 24 July 2026, then Section 301 duties for 60 countries. Suriname was not on that list in July 2026. <a href="{{ cpre }}united-states">United States</a></li>
+ <li><b>Port security.</b> Since 17 September 2025 ships sailing to the US via Suriname must take extra security measures.</li>
+ <li><b>Guyana.</b> The Canawaima ferry was suspended in August 2026, Suriname wants to build the Corentyne bridge itself, and Guyana protested against river charges. <a href="{{ cpre }}guyana">Guyana</a></li>
+ <li><b>France.</b> The border protocol on the Marowijne has not been ratified. <a href="{{ cpre }}france-french-guiana">France and French Guiana</a></li>
+ <li><b>Netherlands.</b> State visit in December 2025, with an MoU between VSB and VNO-NCW and agreement on a second Makandra programme. <a href="{{ cpre }}netherlands">Netherlands</a></li>
+ <li><b>Brazil.</b> Presidential visit to Brasília on 28 May 2026 and plans for a road ring through the Guianas. <a href="{{ cpre }}brazil">Brazil</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Andere landen' if nl else 'Other countries' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Zwitserland.</b> De grootste koper van Surinaams goud: in 2025 voor USD 1.221 miljoen (Zwitserse cijfers via UN Comtrade). Geen handelsakkoord; voor goud gelden strenge herkomstcontroles bij de raffinaderijen.</li>
+ <li><b>Dominicaanse Republiek.</b> CARICOM heeft sinds 1998 een vrijhandelsakkoord met de Dominicaanse Republiek. In oktober 2023 tekenden de regeringen MoU&#x27;s over landbouw, luchtvaart, sanitaire en fytosanitaire zaken en koolwaterstoffen. Van 31 mei tot 2 juni 2026 ging een Surinaamse handels- en investeringsmissie naar Santo Domingo, met bezoeken aan het exportagentschap ProDominicana en de raad voor vrije zones. Sky High vliegt tussen Paramaribo en Santo Domingo.</li>
+ <li><b>Duitsland.</b> Leverde in 2024 voor USD 51,8 miljoen aan Suriname, vooral machines en voertuigen. EU-regels en de EPA gelden.</li>
+ <li><b>Japan.</b> Suriname importeerde in 2023 voor USD 60,7 miljoen uit Japan (Surinaamse cijfers). Japan heeft geen ambassade in Paramaribo; de ambassade in Port of Spain is bevoegd.</li>
+ <li><b>Indonesië.</b> Ambassades over en weer en een handelsovereenkomst voor goederen voor beurzen en tentoonstellingen. De Javaans-Surinaamse gemeenschap geeft culturele banden; de handel zelf is klein.</li>
+ <li><b>Cuba.</b> CARICOM-akkoord over handel en economische samenwerking (2000) en ambassades over en weer. Fly All Ways vliegt naar Havana, Camagüey en Santiago de Cuba.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Switzerland.</b> The largest buyer of Surinamese gold: USD 1,221 million in 2025 (Swiss figures via UN Comtrade). No trade agreement; refineries apply strict origin checks to gold.</li>
+ <li><b>Dominican Republic.</b> CARICOM has had a free trade agreement with the Dominican Republic since 1998. In October 2023 the governments signed MoUs on agriculture, air services, sanitary and phytosanitary matters and hydrocarbons. From 31 May to 2 June 2026 a Surinamese trade and investment mission went to Santo Domingo, visiting the export agency ProDominicana and the free zone council. Sky High flies between Paramaribo and Santo Domingo.</li>
+ <li><b>Germany.</b> Supplied USD 51.8 million to Suriname in 2024, mainly machinery and vehicles. EU rules and the EPA apply.</li>
+ <li><b>Japan.</b> Suriname imported USD 60.7 million from Japan in 2023 (Surinamese figures). Japan has no embassy in Paramaribo; its embassy in Port of Spain covers Suriname.</li>
+ <li><b>Indonesia.</b> Embassies in both capitals and a trade agreement for goods for trade fairs and exhibitions. The Javanese-Surinamese community provides cultural ties; trade itself is small.</li>
+ <li><b>Cuba.</b> CARICOM agreement on trade and economic cooperation (2000) and embassies in both capitals. Fly All Ways flies to Havana, Camagüey and Santiago de Cuba.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Buitenlands bedrijf en Suriname als markt?' if nl else 'Foreign company looking at Suriname?' }}</h2>
+{% if nl %}
+<p>Elke landpagina werkt ook andersom: je ziet wat jouw land al aan Suriname levert, welke ambassade en kamer je helpen en hoe het transport loopt. Hoe je een bedrijf opzet, investeert en personeel aanneemt, staat in <a href="{{ U('invest') }}">{{ L('invest') }}</a>, <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. Voor je eerste bezoek: <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>. De economie in cijfers: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% else %}
+<p>Every country page also works the other way round: you see what your country already supplies to Suriname, which embassy and chamber can help and how transport works. How to set up a company, invest and hire staff is in <a href="{{ U('invest') }}">{{ L('invest') }}</a>, <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>. For your first visit: <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>. The economy in figures: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://comtradeplus.un.org/" rel="noopener">UN Comtrade: {{ 'handelscijfers per land en product (opgevraagd 26 oktober 2026)' if nl else 'trade data by country and product (queried 26 October 2026)' }}</a></li>
+ <li><a href="https://www.census.gov/foreign-trade/balance/c3150.html" rel="noopener">US Census Bureau: Trade in Goods with Suriname</a></li>
+ <li><a href="https://ssb.sr/media/1455/suriname-import-export-gids-final-nl.pdf" rel="noopener">EZOTI: Suriname Import-Export Gids (2024)</a></li>
+ <li><a href="https://www.hklaw.com/en/insights/publications/2026/07/and-the-tariff-beat-goes-on" rel="noopener">Holland &amp; Knight: Section 301 {{ 'heffingen voor 60 landen (juli 2026)' if nl else 'duties on 60 countries (July 2026)' }}</a></li>
+ <li><a href="https://www.govinfo.gov/content/pkg/FR-2025-09-03/html/2025-16845.htm" rel="noopener">Federal Register: {{ 'havenbeveiliging Suriname (3 september 2025)' if nl else 'Suriname port security (3 September 2025)' }}</a></li>
+ <li><a href="https://keynews.sr/suriname-en-dominicaanse-republiek-tekenen-viertal-mous" rel="noopener">Key News Suriname: {{ 'Suriname en de Dominicaanse Republiek tekenen vier MoU\'s (oktober 2023)' if nl else 'Suriname and the Dominican Republic sign four MoUs (October 2023)' }}</a></li>
+ <li><a href="https://en.wikipedia.org/wiki/Johan_Adolf_Pengel_International_Airport" rel="noopener">{{ 'Luchthaven Zanderij: maatschappijen en bestemmingen' if nl else 'Zanderij airport: airlines and destinations' }}</a></li>
+ <li><a href="https://embassies.gov.sr/" rel="noopener">{{ 'Ministerie van Buitenlandse Zaken: ambassades en consulaten van Suriname' if nl else 'Ministry of Foreign Affairs: Suriname\'s embassies and consulates' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of douane-advies. Handelscijfers worden elk jaar in januari bijgewerkt.' if nl else 'General information, not legal or customs advice. Trade figures are updated every January.' }}</p>
+</div>
+{% endblock %}

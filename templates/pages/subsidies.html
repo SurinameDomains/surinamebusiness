@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: calls open and close all the time. Re-check the status column of the overview table every month
+    (SITA, Caribbean Export funding page, CDB newsroom, EU-LAC, GEF SGP) and bump the asof date when you do.
+    Loans (PKF, NOB, KMO fund, FTBP loans, Garantiefonds) live on the finance page: link, do not repeat. -#}
+<div class="prose">
+<h1>{{ "Subsidies en ondersteunings&shy;programma's voor bedrijven in Suriname"|safe if nl else 'Grants and support programmes for businesses in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Gratis geld zonder eigen bijdrage bestaat bijna niet. Wat er wel is: regelingen die 60 tot 90% van een concrete uitgave terugbetalen, gratis coaching en training, en regionale calls die een paar keer per jaar open gaan. Op 26 oktober 2026 staan de exportregelingen van SITA open (doorlopend), en sluit op 16 november 2026 een call van de Caribische Ontwikkelingsbank voor organisaties die ondernemers ondersteunen. Grote programma's zoals SURGE en de digitale subsidie van Caribbean Export zijn afgelopen; houd ze in de gaten voor een nieuwe ronde.</p>
+{% else %}
+<p class="lead">Free money with no contribution of your own hardly exists. What does exist: schemes that refund 60 to 90% of a specific expense, free coaching and training, and regional calls that open a few times a year. On 26 October 2026 SITA's export schemes are open (rolling), and a Caribbean Development Bank call for organisations that support entrepreneurs closes on 16 November 2026. Large programmes such as SURGE and Caribbean Export's digital grant have ended; watch them for a new round.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'SITA Cost Share Grant' if nl else 'SITA Cost Share Grant' }}</div><div class="big">90%</div><div class="sub">{{ 'maximaal terugbetaald voor beurzen, certificering en marketing' if nl else 'maximum refunded for trade fairs, certification and marketing' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Exportplan met coach' if nl else 'Export plan with a coach' }}</div><div class="big">{{ 'USD 600' }}</div><div class="sub">{{ 'eigen bijdrage, op een traject van USD 4.000' if nl else 'own contribution, on a USD 4,000 programme' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'CDB PROPEL-call' if nl else 'CDB PROPEL call' }}</div><div class="big">{{ '16 nov' if nl else '16 Nov' }}</div><div class="sub">{{ '2026, voor ondersteuningsorganisaties' if nl else '2026, for business support organisations' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Exporteur of bijna-exporteur?</b> Begin bij SITA: eerst een exportplan met een gecertificeerde coach (85% betaald), daarna tot 90% terugbetaling van beurzen, certificering, tests, monsters en marketing.</li>
+ <li><b>Brancheorganisatie, kamer of ondersteuningsorganisatie?</b> De CDB-call PROPEL sluit op 16 november 2026. Ook EU-calls zijn vaak alleen voor organisaties en consortia.</li>
+ <li><b>Vrouwelijke ondernemer met een energie-innovatie?</b> De CDB opent in het eerste kwartaal van 2027 een call met een R&amp;D-subsidie van USD 100.000; Suriname doet mee.</li>
+ <li><b>NGO of gemeenschapsorganisatie?</b> Kijk naar het GEF Small Grants Programme (USD 5.000 tot 50.000 per project).</li>
+ <li><b>Advies en training</b> krijg je gratis of goedkoop via PUM (Nederlandse senior experts), SPWE, het SSB, de KKF-ondernemersavonden en het Caribbean Digital Transformation Institute.</li>
+ <li><b>Leningen</b> (PKF, NOB, KMO-fonds, garantiefonds) staan niet hier maar in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+{% else %}
+ <li><b>Exporter or almost exporter?</b> Start with SITA: first an export plan with a certified coach (85% paid), then up to 90% refund of trade fairs, certification, tests, samples and marketing.</li>
+ <li><b>Industry body, chamber or support organisation?</b> The CDB's PROPEL call closes on 16 November 2026. EU calls are also often only for organisations and consortia.</li>
+ <li><b>Woman entrepreneur with an energy innovation?</b> The CDB opens a call in the first quarter of 2027 with a USD 100,000 R&amp;D grant; Suriname is eligible.</li>
+ <li><b>NGO or community organisation?</b> Look at the GEF Small Grants Programme (USD 5,000 to 50,000 per project).</li>
+ <li><b>Advice and training</b> are free or cheap through PUM (Dutch senior experts), SPWE, the Suriname Standards Bureau, the Chamber's business evenings and the Caribbean Digital Transformation Institute.</li>
+ <li><b>Loans</b> (PKF, NOB, KMO fund, guarantee fund) are not on this page but in <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Hoe ondersteuning hier werkt' if nl else 'How support works here' }}</h2>
+{% if nl %}
+<p>Bijna alle regelingen voor bedrijven in Suriname vallen in een van vijf soorten. Weet welke soort je aanvraagt, dan weet je ook wat je zelf moet voorschieten en wat de beoordelaar wil zien.</p>
+<ul>
+ <li><b>Kostendeling (cost-share).</b> Je betaalt eerst zelf, daarna krijg je een vast percentage terug na bewijs van betaling. Voorbeeld: de Cost Share Grant van SITA. Je hebt dus werkkapitaal nodig om voor te schieten.</li>
+ <li><b>Matching grant.</b> Je krijgt een bedrag als je zelf ook een deel investeert, meestal in apparatuur, certificering of training volgens een goedgekeurd groeiplan. Voorbeeld: SURGE, en de BRIDGE-subsidie van Caribbean Export (maximaal 60% van het project).</li>
+ <li><b>Technische bijstand in natura.</b> Je krijgt geen geld maar een adviseur, coach of expert. Voorbeeld: PUM, de exportcoaches van SITA, de bedrijfsdiagnose van SURGE.</li>
+ <li><b>Training en kennis.</b> Gratis of goedkope cursussen, workshops en online programma's. Voorbeeld: SPWE, SSB, het Caribbean Digital Transformation Institute.</li>
+ <li><b>Projectsubsidie voor organisaties.</b> Grotere bedragen (EUR 100.000 en meer) voor consortia, NGO's, kamers en brancheorganisaties. Voorbeeld: EU-LAC-calls, Interreg, GEF, CDB PROPEL. Een losse ondernemer kan hier vaak alleen via een partnerorganisatie aan meedoen.</li>
+</ul>
+<p>Bijna altijd moet je bedrijf formeel bestaan: ingeschreven bij de KKF, een FIN-nummer, een vergunning als je activiteit die vereist, een zakelijke bankrekening en cijfers over minstens één tot twee jaar. Wie dat nog niet op orde heeft, begint bij <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% else %}
+<p>Almost every scheme for businesses in Suriname falls into one of five types. If you know which type you are applying for, you also know what you must pay upfront and what the assessor wants to see.</p>
+<ul>
+ <li><b>Cost-share.</b> You pay first, then you get a fixed percentage back on proof of payment. Example: SITA's Cost Share Grant. So you need working capital to pre-finance.</li>
+ <li><b>Matching grant.</b> You receive an amount if you invest a share yourself, usually in equipment, certification or training under an approved growth plan. Examples: SURGE, and Caribbean Export's BRIDGE grant (up to 60% of the project).</li>
+ <li><b>Technical assistance in kind.</b> You get an adviser, coach or expert instead of money. Examples: PUM, SITA's export coaches, SURGE's business diagnostic.</li>
+ <li><b>Training and knowledge.</b> Free or cheap courses, workshops and online programmes. Examples: SPWE, the Standards Bureau, the Caribbean Digital Transformation Institute.</li>
+ <li><b>Project grants for organisations.</b> Larger amounts (EUR 100,000 and up) for consortia, NGOs, chambers and industry bodies. Examples: EU-LAC calls, Interreg, GEF, CDB PROPEL. An individual entrepreneur can often only take part through a partner organisation.</li>
+</ul>
+<p>Your business almost always has to exist formally: registered with the Chamber of Commerce (KKF), a tax number (FIN), a licence if your activity needs one, a business bank account and accounts for at least one or two years. If that is not in order yet, start with <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Overzicht en status op 26 oktober 2026' if nl else 'Overview and status on 26 October 2026' }}</h2>
+{% set c1 = 'Programma' if nl else 'Programme' %}{% set c2 = 'Voor wie' if nl else 'For whom' %}{% set c3 = 'Wat je krijgt' if nl else 'What you get' %}{% set c4 = 'Status' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>SITA Export Growth Programme</b></td><td data-l="{{ c2 }}">Surinaamse bedrijven met exportambitie, niet in mijnbouw, olie of rondhout</td><td data-l="{{ c3 }}">Exportmarketingplan met een gecertificeerde coach; 85% van USD 4.000 betaald</td><td data-l="{{ c4 }}">Open, doorlopend</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SITA Cost Share Grant</b></td><td data-l="{{ c2 }}">Kmo's met een goedgekeurd exportplan</td><td data-l="{{ c3 }}">Tot 90% terug van beurzen, certificering, tests, monsters, marketing, B2B-reizen, e-commerce</td><td data-l="{{ c4 }}">Open, geen sluitingsdatum</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SURGE</b> (EZOTI, Wereldbank)</td><td data-l="{{ c2 }}">Groeiende kmo's met kopers in zicht</td><td data-l="{{ c3 }}">Bedrijfsdiagnose, coaching en matching grants</td><td data-l="{{ c4 }}">Gesloten; laatste ronde 2025, geen nieuwe ronde aangekondigd</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FTBP</b> (via NOB)</td><td data-l="{{ c2 }}">Productie- en dienstenbedrijven (niet de handel); brancheorganisaties</td><td data-l="{{ c3 }}">Goedkope leningen voor studies en training; schenking tot USD 25.000 voor branchestudies</td><td data-l="{{ c4 }}">Open</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Caribbean Export</b> (EU)</td><td data-l="{{ c2 }}">Exporterende of exportklare bedrijven in CARIFORUM</td><td data-l="{{ c3 }}">Grants per call (BRIDGE 2025: max. EUR 50.000, 60%), training, gratis digitale check</td><td data-l="{{ c4 }}">Geen grant-call open; training en CDTI open</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>CDB PROPEL</b></td><td data-l="{{ c2 }}">Kamers, brancheorganisaties, coöperaties, ontwikkelingsfinanciers</td><td data-l="{{ c3 }}">Technische bijstand om je organisatie te versterken</td><td data-l="{{ c4 }}">Open tot 16 november 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SheTrades Caribbean Tech It Up</b> (CDB)</td><td data-l="{{ c2 }}">Door vrouwen geleide bedrijven met schone-energie-innovatie</td><td data-l="{{ c3 }}">Coaching, en één R&amp;D-subsidie van USD 100.000</td><td data-l="{{ c4 }}">Call opent eerste kwartaal 2027</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EU-LAC Social Accelerator</b></td><td data-l="{{ c2 }}">Consortia van NGO's, coöperaties, sociale ondernemingen uit EU en LAC</td><td data-l="{{ c3 }}">EUR 100.000 tot 250.000 per project</td><td data-l="{{ c4 }}">Gesloten 8 april 2026; voorbeeld van terugkerende EU-calls</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Interreg Amazonia</b></td><td data-l="{{ c2 }}">Projecten samen met Frans-Guyana</td><td data-l="{{ c3 }}">Projectfinanciering uit het EU-regiofonds (circa EUR 20 miljoen, 2021-2027)</td><td data-l="{{ c4 }}">Per call; altijd met Frans-Guyaanse partner</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>GEF Small Grants Programme</b> (UNDP)</td><td data-l="{{ c2 }}">Geregistreerde NGO's en gemeenschapsorganisaties</td><td data-l="{{ c3 }}">USD 5.000 tot 50.000 per project</td><td data-l="{{ c4 }}">Call 2025 gesloten; nieuwe calls binnen fase 8</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PUM</b></td><td data-l="{{ c2 }}">Kmo's die advies nodig hebben</td><td data-l="{{ c3 }}">Nederlandse senior expert, meestal enkele weken op locatie of online</td><td data-l="{{ c4 }}">Doorlopend aan te vragen</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Caribbean Digital Transformation Institute</b></td><td data-l="{{ c2 }}">Micro-, kleine en middelgrote bedrijven in de Cariben</td><td data-l="{{ c3 }}">Gratis Digital Check-Up en e-learning</td><td data-l="{{ c4 }}">Open sinds april 2026</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>SITA Export Growth Programme</b></td><td data-l="{{ c2 }}">Surinamese businesses with export ambition, not in mining, oil or round logs</td><td data-l="{{ c3 }}">Export marketing plan with a certified coach; 85% of USD 4,000 paid</td><td data-l="{{ c4 }}">Open, rolling</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SITA Cost Share Grant</b></td><td data-l="{{ c2 }}">SMEs with an approved export plan</td><td data-l="{{ c3 }}">Up to 90% back on trade fairs, certification, tests, samples, marketing, B2B travel, e-commerce</td><td data-l="{{ c4 }}">Open, no closing date</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SURGE</b> (EZOTI, World Bank)</td><td data-l="{{ c2 }}">Growing SMEs with buyers in sight</td><td data-l="{{ c3 }}">Business diagnostic, coaching and matching grants</td><td data-l="{{ c4 }}">Closed; last round 2025, no new round announced</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FTBP</b> (via NOB)</td><td data-l="{{ c2 }}">Production and service firms (not trading); industry bodies</td><td data-l="{{ c3 }}">Cheap loans for studies and training; grant up to USD 25,000 for sector studies</td><td data-l="{{ c4 }}">Open</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Caribbean Export</b> (EU)</td><td data-l="{{ c2 }}">Exporting or export-ready firms in CARIFORUM</td><td data-l="{{ c3 }}">Grants per call (BRIDGE 2025: max EUR 50,000, 60%), training, free digital check</td><td data-l="{{ c4 }}">No grant call open; training and CDTI open</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>CDB PROPEL</b></td><td data-l="{{ c2 }}">Chambers, industry bodies, cooperatives, development finance institutions</td><td data-l="{{ c3 }}">Technical assistance to strengthen your organisation</td><td data-l="{{ c4 }}">Open until 16 November 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>SheTrades Caribbean Tech It Up</b> (CDB)</td><td data-l="{{ c2 }}">Women-led firms with a clean energy innovation</td><td data-l="{{ c3 }}">Coaching, and one USD 100,000 R&amp;D grant</td><td data-l="{{ c4 }}">Call opens in Q1 2027</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EU-LAC Social Accelerator</b></td><td data-l="{{ c2 }}">Consortia of NGOs, cooperatives, social enterprises from the EU and LAC</td><td data-l="{{ c3 }}">EUR 100,000 to 250,000 per project</td><td data-l="{{ c4 }}">Closed 8 April 2026; an example of recurring EU calls</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Interreg Amazonia</b></td><td data-l="{{ c2 }}">Projects together with French Guiana</td><td data-l="{{ c3 }}">Project funding from the EU regional fund (about EUR 20 million, 2021-2027)</td><td data-l="{{ c4 }}">Per call; always with a French Guiana partner</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>GEF Small Grants Programme</b> (UNDP)</td><td data-l="{{ c2 }}">Registered NGOs and community organisations</td><td data-l="{{ c3 }}">USD 5,000 to 50,000 per project</td><td data-l="{{ c4 }}">2025 call closed; new calls within phase 8</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PUM</b></td><td data-l="{{ c2 }}">SMEs that need advice</td><td data-l="{{ c3 }}">A Dutch senior expert, usually for a few weeks on site or online</td><td data-l="{{ c4 }}">Apply any time</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Caribbean Digital Transformation Institute</b></td><td data-l="{{ c2 }}">Micro, small and medium firms in the Caribbean</td><td data-l="{{ c3 }}">Free Digital Check-Up and e-learning</td><td data-l="{{ c4 }}">Open since April 2026</td></tr>
+{% endif %}
+</tbody></table>
+<p class="note">{{ 'Status gecontroleerd op de officiële sites op 26 oktober 2026. Calls gaan vaak met weinig aankondiging open en blijven maar vier tot acht weken open. Schrijf je in voor de nieuwsbrieven van SITA, Caribbean Export en de CDB.' if nl else 'Status checked on the official sites on 26 October 2026. Calls often open with little notice and stay open for only four to eight weeks. Subscribe to the newsletters of SITA, Caribbean Export and the CDB.' }}</p>
+
+<h2>{{ 'SITA: exportplan en Cost Share Grant' if nl else 'SITA: export plan and Cost Share Grant' }}</h2>
+{% if nl %}
+<p>De Suriname Investment and Trade Agency (SITA) heeft twee regelingen die op elkaar aansluiten. Ze zijn gefinancierd door de Inter-Amerikaanse Ontwikkelingsbank (IDB) en worden uitgevoerd samen met de Nationale Ontwikkelingsbank (NOB). De Cost Share Grant is op 30 oktober 2025 gelanceerd.</p>
+<h3>Stap 1: Export Growth Programme (het exportplan)</h3>
+<p>Samen met een door SITA gecertificeerde exportcoach maak je een Export Marketing Strategy: welke markt, welke kopers, welke positie, welke acties en welk budget. De coach doet onderzoek en schrijft mee, jij beslist. Het traject is USD 4.000 waard; het programma betaalt 85%, je eigen bijdrage is <b>USD 600</b>. Je meldt je aan via het registratieformulier op de site van SITA, daarna volgt een intakegesprek over je product, capaciteit, exportervaring en financiële positie.</p>
+<h3>Stap 2: Cost Share Grant (de uitvoering)</h3>
+<ul>
+ <li><b>Wie:</b> formeel gevestigde kmo's in Suriname, ingeschreven bij de KKF, met een geldige vergunning als die nodig is, buiten mijnbouw, olie en gas en rondhout, met een goedgekeurd exportplan. Eerste exporteurs en bedrijven van vrouwen krijgen voorrang.</li>
+ <li><b>Wat:</b> tot 90% terugbetaling van marktbewerkingskosten, zoals deelname aan een beurs, productcertificering en tests, verpakking en etiket, monsters, marketingmateriaal, reizen naar kopers en e-commerce. Je kunt in één aanvraag meerdere categorieën vragen, elk met een eigen maximum.</li>
+ <li><b>Aanvragen:</b> doorlopend, zonder sluitingsdatum. Je levert je exportplan, een bedrijfsformulier, een formulier met de kostenposten en offertes, en een lijst van <b>minstens tien potentiële kopers</b> met contactgegevens en bewijs dat ze jouw soort product kopen.</li>
+ <li><b>Uitbetaling:</b> SITA bevestigt binnen 10 dagen. Jij contracteert en betaalt de leverancier; de NOB betaalt je het toegezegde bedrag binnen twee weken na ontvangst van de factuur en het betalingsbewijs. Voor beurzen en certificering kun je tot 50% voorschot krijgen op een proforma van een goedgekeurde leverancier.</li>
+</ul>
+<p>Meer over exporteren: <a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> en <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>. Welke beurs je kunt kiezen: <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% else %}
+<p>The Suriname Investment and Trade Agency (SITA) runs two schemes that fit together. They are funded by the Inter-American Development Bank (IDB) and run with the National Development Bank (NOB). The Cost Share Grant was launched on 30 October 2025.</p>
+<h3>Step 1: Export Growth Programme (the export plan)</h3>
+<p>With an export coach certified by SITA you write an Export Marketing Strategy: which market, which buyers, which positioning, which actions and what budget. The coach does research and helps write it, you decide. The programme is worth USD 4,000; it pays 85%, your own contribution is <b>USD 600</b>. You sign up through the registration form on SITA's site, followed by an intake about your product, capacity, export experience and financial position.</p>
+<h3>Step 2: Cost Share Grant (carrying it out)</h3>
+<ul>
+ <li><b>Who:</b> formally established SMEs in Suriname, registered with the KKF, with a valid licence where required, outside mining, oil and gas and round logs, with an approved export plan. First-time exporters and women-owned firms get priority.</li>
+ <li><b>What:</b> up to 90% refund of market entry costs such as trade fair participation, product certification and testing, packaging and labelling, samples, marketing material, buyer visits and e-commerce. One application can cover several categories, each with its own cap.</li>
+ <li><b>How to apply:</b> rolling, no closing date. You submit your export plan, a company form, a form with the cost items and quotes, and a list of <b>at least ten potential buyers</b> with contact details and evidence that they buy your kind of product.</li>
+ <li><b>Payment:</b> SITA confirms within 10 days. You contract and pay the supplier; the NOB pays you the agreed amount within two weeks of receiving the invoice and proof of payment. For trade fairs and certification you can get an advance of up to 50% against a pro forma from an approved supplier.</li>
+</ul>
+<p>More on exporting: <a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> and <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>. Which trade fair to choose: <a href="{{ U('events') }}">{{ L('events') }}</a>.</p>
+{% endif %}
+
+<h2>{{ "Andere Surinaamse programma's" if nl else 'Other Surinamese programmes' }}</h2>
+{% if nl %}
+<h3>SURGE (afgerond, wacht op opvolging)</h3>
+<p>Suriname's Growth Enterprises was het grootste matching-grantprogramma van het land, uitgevoerd door het ministerie van EZOTI met een lening van de Wereldbank. Volgens SURGE zelf kregen meer dan 660 bedrijven bedrijfsondersteuning, werden 413 bedrijven geselecteerd en ging er USD 8,2 miljoen aan matching grants uit, met USD 3,7 miljoen aan eigen investeringen van de bedrijven. De aanpak was "buyer-led": wie al verkocht en een koper of markt kon aanwijzen, maakte de meeste kans. Op 18 april 2026 hield SURGE een Impact Event. Een nieuwe ronde was op 26 oktober 2026 niet aangekondigd. Komt er een opvolger, verwacht dan dezelfde eisen: groeicijfers, een concreet investeringsplan en een eigen bijdrage.</p>
+<h3>FTBP: studies, training en certificering</h3>
+<p>Het Fonds Technische Bijstand Particuliere Sector (beheerd door de NOB) is vooral een goedkope lening (4% in SRD, 3% in valuta) voor haalbaarheidsstudies, marktonderzoek, pilots, training en certificeringstrajecten, steeds met 10% eigen inbreng. Voor <b>branche- en sectorstudies</b> geeft het fonds een schenking tot USD 25.000 als je organisatie meer dan de helft van de sector vertegenwoordigt. Details en de andere leningen: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+<h3>Training: SPWE, SSB en KKF</h3>
+<ul>
+ <li><b>SPWE</b> (Stichting Productieve Werkeenheden, onder het ministerie van Volksgezondheid, Welzijn en Arbeid) geeft trainingen in bedrijfsmanagement en basisboekhouden voor starters en kleine ondernemers. In oktober 2025 begon een opleiding van Small Business Coaches om meer ondernemers te kunnen begeleiden.</li>
+ <li><b>Het Surinaams Standaarden Bureau (SSB)</b> geeft trainingen in ISO 9001, kwaliteitsmanagement en etikettering, ook in-company, en bereidt het National Quality Awards-programma 2027 voor (ook voor kleine ondernemingen en agroverwerkers). Zie <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</li>
+ <li><b>De KKF</b> houdt geregeld gratis ondernemersavonden over belastingen, jaarrekening, ISO, cybersecurity en AI in de landbouw, en elke maandagochtend een informatieloket over de olie- en gassector.</li>
+</ul>
+<p>Personeel laten opleiden: <a href="{{ U('training') }}">{{ L('training') }}</a>.</p>
+{% else %}
+<h3>SURGE (finished, awaiting a successor)</h3>
+<p>Suriname's Growth Enterprises was the country's largest matching grant programme, run by the Ministry of Economic Affairs (EZOTI) with a World Bank loan. According to SURGE, more than 660 businesses received business development services, 413 were selected and USD 8.2 million in matching grants was paid out, with USD 3.7 million of the firms' own co-investment. The approach was buyer-led: firms that already sold and could point to a buyer or market stood the best chance. SURGE held an Impact Event on 18 April 2026. No new round had been announced on 26 October 2026. If a successor comes, expect the same requirements: growth figures, a concrete investment plan and a contribution of your own.</p>
+<h3>FTBP: studies, training and certification</h3>
+<p>The Private Sector Technical Assistance Fund (FTBP, managed by the NOB) is mainly a cheap loan (4% in SRD, 3% in foreign currency) for feasibility studies, market research, pilots, training and certification, always with a 10% own contribution. For <b>industry and sector studies</b> the fund gives a grant of up to USD 25,000 if your organisation represents more than half of the sector. Details and the other loans: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</p>
+<h3>Training: SPWE, SSB and the Chamber</h3>
+<ul>
+ <li><b>SPWE</b> (Productive Work Units Foundation, under the Ministry of Health, Welfare and Labour) trains starters and small business owners in business management and basic bookkeeping. In October 2025 it started training Small Business Coaches to support more entrepreneurs.</li>
+ <li><b>The Suriname Standards Bureau (SSB)</b> trains in ISO 9001, quality management and labelling, also in-company, and is preparing the National Quality Awards programme 2027 (also open to small firms and agro-processors). See <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</li>
+ <li><b>The KKF</b> (Chamber of Commerce) regularly holds free business evenings on tax, annual accounts, ISO, cybersecurity and AI in farming, and every Monday morning an information desk on the oil and gas sector.</li>
+</ul>
+<p>Training your staff: <a href="{{ U('training') }}">{{ L('training') }}</a>.</p>
+{% endif %}
+
+<h2>{{ "Caribische programma's" if nl else 'Caribbean programmes' }}</h2>
+{% if nl %}
+<h3>Caribbean Export Development Agency</h3>
+<p>Caribbean Export is het handels- en investeringsagentschap van CARIFORUM, met geld van onder meer de Europese Unie. Suriname is lid, dus Surinaamse bedrijven kunnen meedoen.</p>
+<ul>
+ <li><b>Grants per call.</b> Onder het EU-programma voor de private sector (RPSDP) liepen de Direct Assistance Grant Scheme, de Direct Support Grants en in 2025 de <b>BRIDGE Digital Transformation Grant</b>: tot EUR 50.000, maximaal 60% van een project van EUR 80.000 tot 100.000, voor e-commerce, automatisering, cybersecurity, apps en digitale vaardigheden. Eisen: minstens twee jaar actief met jaarrekeningen, exporterend of aantoonbaar exportpotentieel, zakelijke bankrekening. De call sloot op 9 november 2025. Op 26 oktober 2026 stond er geen grant-call open.</li>
+ <li><b>Caribbean Digital Transformation Institute (CDTI).</b> Samen met de IDB en Compete Caribbean: een gratis Digital Check-Up en e-learning over online aanwezigheid, digitale marketing, data, cybersecurity, e-commerce en digitale bedrijfsvoering. Gelanceerd op 8 april 2026.</li>
+ <li><b>Training en workshops.</b> ProNET, Services Go Global, ISO-training, webinars op aanvraag, en workshops in de lidstaten, ook in Paramaribo (eind 2025 over de EPA met de EU en toegang tot financiering). Caribbean Export organiseert ook het Caribbean Investment Forum (zie <a href="{{ U('events') }}">{{ L('events') }}</a>).</li>
+</ul>
+<h3>Caribische Ontwikkelingsbank (CDB)</h3>
+<p>Suriname is leenlid van de CDB. De bank werkt vooral via overheden en banken, maar heeft ook regelingen voor de private sector.</p>
+<ul>
+ <li><b>CDB PROPEL</b>, opvolger van het CTCS-netwerk voor technische bijstand. Op 26 oktober 2026 opende een call "Institutional Strengthening for MSME Development" voor organisaties die ondernemers ondersteunen: ontwikkelingsagentschappen, kamers, brancheorganisaties, coöperaties en ontwikkelingsfinanciers. Sluiting: <b>16 november 2026</b>. Losse bedrijven kunnen niet aanvragen.</li>
+ <li><b>SheTrades Caribbean Tech It Up Facility</b> (USD 550.000, 2026-2028): steun voor door vrouwen geleide bedrijven die schone-energie-ideeën op de markt willen brengen, met één R&amp;D-subsidie van USD 100.000, plus mentoring en hulp met intellectueel eigendom. Suriname is een van de acht deelnemende landen. De call opent in het eerste kwartaal van 2027 via het Submittable-portaal van de CDB.</li>
+ <li>De nieuwe <b>strategie 2026-2035</b> belooft meer leningen aan de private sector en een handelsfinancieringsprogramma voor export. Dat loopt vooral via lokale banken; vraag je bank ernaar.</li>
+</ul>
+<h3>IDB en IDB Lab</h3>
+<p>De IDB financiert de SITA-regelingen en, via het Green Climate Fund, een kredietprogramma van de NOB voor kmo's en bio-ondernemingen (zie <a href="{{ U('finance') }}">{{ L('finance') }}</a>). IDB Lab, de innovatietak, financiert vernieuwende projecten, meestal via organisaties en fondsen en niet als loket voor losse bedrijven.</p>
+{% else %}
+<h3>Caribbean Export Development Agency</h3>
+<p>Caribbean Export is CARIFORUM's trade and investment agency, funded by the European Union among others. Suriname is a member, so Surinamese firms can take part.</p>
+<ul>
+ <li><b>Grants per call.</b> Under the EU private sector programme (RPSDP) there were the Direct Assistance Grant Scheme, the Direct Support Grants and in 2025 the <b>BRIDGE Digital Transformation Grant</b>: up to EUR 50,000, at most 60% of a project of EUR 80,000 to 100,000, for e-commerce, automation, cybersecurity, apps and digital skills. Requirements: at least two years in operation with financial statements, exporting or showing export potential, a business bank account. The call closed on 9 November 2025. On 26 October 2026 no grant call was open.</li>
+ <li><b>Caribbean Digital Transformation Institute (CDTI).</b> With the IDB and Compete Caribbean: a free Digital Check-Up and e-learning on online presence, digital marketing, data, cybersecurity, e-commerce and digital operations. Launched on 8 April 2026.</li>
+ <li><b>Training and workshops.</b> ProNET, Services Go Global, ISO training, on-demand webinars, and workshops in member states, including Paramaribo (late 2025, on the EPA with the EU and access to finance). Caribbean Export also runs the Caribbean Investment Forum (see <a href="{{ U('events') }}">{{ L('events') }}</a>).</li>
+</ul>
+<h3>Caribbean Development Bank (CDB)</h3>
+<p>Suriname is a borrowing member of the CDB. The bank works mainly through governments and banks, but also has schemes for the private sector.</p>
+<ul>
+ <li><b>CDB PROPEL</b>, successor to the CTCS technical assistance network. On 26 October 2026 it opened a call "Institutional Strengthening for MSME Development" for organisations that support entrepreneurs: development agencies, chambers, industry associations, cooperatives and development finance institutions. Closing date: <b>16 November 2026</b>. Individual firms cannot apply.</li>
+ <li><b>SheTrades Caribbean Tech It Up Facility</b> (USD 550,000, 2026-2028): support for women-led firms bringing clean energy ideas to market, with one USD 100,000 R&amp;D grant plus mentoring and intellectual property help. Suriname is one of the eight eligible countries. The call opens in Q1 2027 through the CDB's Submittable portal.</li>
+ <li>The new <b>2026-2035 strategy</b> promises more lending to the private sector and a trade finance programme for exports. That runs mainly through local banks; ask your bank.</li>
+</ul>
+<h3>IDB and IDB Lab</h3>
+<p>The IDB funds the SITA schemes and, through the Green Climate Fund, a NOB credit programme for SMEs and bio-businesses (see <a href="{{ U('finance') }}">{{ L('finance') }}</a>). IDB Lab, the innovation arm, funds innovative projects, usually through organisations and funds rather than as a counter for individual firms.</p>
+{% endif %}
+
+<h2>{{ "Europese en internationale programma's" if nl else 'European and international programmes' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>EU-LAC-calls.</b> Onder de Global Gateway-agenda van de EU lopen calls voor Latijns-Amerika en de Cariben. Voorbeeld: de EU-LAC Social Accelerator (budget EUR 1,8 miljoen, EUR 100.000 tot 250.000 per project, 18 tot 24 maanden, deadline 8 april 2026) voor consortia van organisaties uit de EU en de regio. Caribbean Export voert daarnaast de EU-LAC Digital Accelerator uit, die digitale bedrijven koppelt aan grote bedrijven voor open innovatie.</li>
+ <li><b>Interreg Amazonia.</b> Het grensoverschrijdende programma 2021-2027 van Frans-Guyana met Suriname, Brazilië en Guyana heeft circa EUR 20 miljoen uit het Europees Fonds voor Regionale Ontwikkeling. Thema's: economische vernieuwing, duurzame ontwikkeling, mobiliteit, sociale inclusie. Surinaamse partijen doen alleen mee in een project met een Frans-Guyaanse partner. Exporteren naar Frans-Guyana: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>Global Environment Facility (GEF).</b> In de cyclus GEF-9 (2026-2030) gaat het om klimaat, biodiversiteit, landgebruik, afval en water. Bedrijven krijgen geen geld rechtstreeks: je doet mee via een project van de overheid of een NGO, ingediend door een GEF-agentschap zoals UNDP of de Wereldbank. Leg je idee eerst kort voor aan de GEF Operational Focal Point bij het ministerie van Olie, Gas en Milieu.</li>
+ <li><b>GEF Small Grants Programme</b> (UNDP): USD 5.000 tot 50.000 per project voor geregistreerde NGO's en gemeenschapsorganisaties, met prioriteit voor natuurbehoud, eco- en agrotoerisme in het binnenland en duurzame landbouw en visserij. Voor projecten met inheemse en tribale gemeenschappen is vooraf geïnformeerde toestemming (FPIC) verplicht. In 2025 liep een call voor de achtste fase. Een bedrijf kan partner zijn van een NGO-aanvrager. Duurzaam ondernemen: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</li>
+ <li><b>UNIDO Programme for Country Partnership 2026-2031.</b> In november 2025 ondertekend door EZOTI en UNIDO: industriebeleid en kmo's, agrofoodketens en agro-industriële parken, kwaliteitsinfrastructuur voor export, speciale economische zones en technisch beroepsonderwijs. Het is geen subsidieloket; let op projecten en aanbestedingen die eruit voortkomen (<a href="{{ U('tenders') }}">{{ L('tenders') }}</a>).</li>
+ <li><b>ILO MyGreenEnterprise.</b> Een trainingsmethode om kleine ondernemers te helpen met groene bedrijfsideeën en groenere bedrijfsvoering. In februari 2025 werden in Paramaribo nieuwe Nederlandstalige trainers opgeleid. Vraag bij de werkgeversorganisatie of het ministerie van Arbeid naar de volgende training.</li>
+ <li><b>ITC Alliances for Action.</b> Het International Trade Centre ondersteunde met EU-geld de kokosketen in de Cariben, ook in Suriname (waardetoevoeging, voedselveiligheid, beursdeelname). Het programma liep via een netwerk van boeren en verwerkers en had geen open loket; zie het als voorbeeld van ketenprogramma's die terugkomen.</li>
+ <li><b>SDG Investment Fair</b> (VN, New York, 20 tot 24 april 2026). Geen subsidie maar een investeerdersbeurs voor projecten vanaf USD 30 miljoen; je dient in via het ministerie van Buitenlandse Zaken. Zie <a href="{{ U('events') }}">{{ L('events') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>EU-LAC calls.</b> Under the EU's Global Gateway agenda there are calls for Latin America and the Caribbean. Example: the EU-LAC Social Accelerator (budget EUR 1.8 million, EUR 100,000 to 250,000 per project, 18 to 24 months, deadline 8 April 2026) for consortia of organisations from the EU and the region. Caribbean Export also runs the EU-LAC Digital Accelerator, which links digital firms with large companies for open innovation.</li>
+ <li><b>Interreg Amazonia.</b> The 2021-2027 cross-border programme of French Guiana with Suriname, Brazil and Guyana has about EUR 20 million from the European Regional Development Fund. Themes: economic innovation, sustainable development, mobility, social inclusion. Surinamese parties only take part in a project with a French Guiana partner. Exporting to French Guiana: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li><b>Global Environment Facility (GEF).</b> In the GEF-9 cycle (2026-2030) the themes are climate, biodiversity, land use, waste and water. Companies get no money directly: you take part in a project of the government or an NGO, submitted by a GEF agency such as UNDP or the World Bank. First present your idea briefly to the GEF Operational Focal Point at the Ministry of Oil, Gas and Environment.</li>
+ <li><b>GEF Small Grants Programme</b> (UNDP): USD 5,000 to 50,000 per project for registered NGOs and community organisations, with priority for conservation, eco and agro-tourism in the interior and sustainable farming and fishing. Projects with Indigenous and tribal communities require free, prior and informed consent (FPIC). A call for the eighth phase ran in 2025. A company can be a partner of an NGO applicant. Sustainable business: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</li>
+ <li><b>UNIDO Programme for Country Partnership 2026-2031.</b> Signed by EZOTI and UNIDO in November 2025: industrial policy and SMEs, agrifood chains and agro-industrial parks, quality infrastructure for exports, special economic zones and technical vocational training. It is not a grant counter; watch for projects and tenders that come out of it (<a href="{{ U('tenders') }}">{{ L('tenders') }}</a>).</li>
+ <li><b>ILO MyGreenEnterprise.</b> A training method that helps small entrepreneurs with green business ideas and greener operations. In February 2025 new Dutch-speaking trainers were trained in Paramaribo. Ask the employers' association or the Ministry of Labour about the next course.</li>
+ <li><b>ITC Alliances for Action.</b> The International Trade Centre used EU money to support the coconut value chain in the Caribbean, including Suriname (value addition, food safety, trade fair participation). It worked through a network of farmers and processors and had no open window; treat it as an example of value chain programmes that come back.</li>
+ <li><b>SDG Investment Fair</b> (UN, New York, 20 to 24 April 2026). Not a grant but an investor fair for projects of USD 30 million and up; you submit through the Ministry of Foreign Affairs. See <a href="{{ U('events') }}">{{ L('events') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ "Nederlandse programma's en experts" if nl else 'Dutch programmes and experts' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>PUM Netherlands senior experts</b> is actief in Suriname, onder meer in landbouw, horeca, toerisme, zorg, energie en marketing. Een ervaren (vaak gepensioneerde) vakspecialist adviseert je bedrijf als vrijwilliger, op locatie of online. Aanvragen gaat via de PUM-landenvertegenwoordiger; vraag naar de voorwaarden en wat je zelf betaalt (meestal lokale kosten).</li>
+ <li><b>CBI</b> (Centrum tot Bevordering van de Import uit ontwikkelingslanden) publiceert gratis marktstudies over Europese markten per product, van specerijen tot toerisme. De begeleidingsprojecten lopen in een beperkt aantal landen; controleer op de site of je sector en land meedoen.</li>
+ <li><b>DECP</b> (Dutch Employers Cooperation Programme) werkt met werkgeversorganisaties in partnerlanden, waaronder Suriname. Je merkt het via trainingen van je brancheorganisatie. Zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>RVO</b> heeft voor Nederlandse bedrijven die in Suriname willen starten de regelingen Starters International Business (SIB, een coach) en DHI (bijdrage in haalbaarheids- en investeringsvoorbereiding). Handig als je partner, of je eigen bedrijf vanuit de diaspora, in Nederland is gevestigd. Zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>PUM Netherlands senior experts</b> is active in Suriname, among others in farming, hospitality, tourism, health care, energy and marketing. An experienced (often retired) specialist advises your business as a volunteer, on site or online. You apply through PUM's country representative; ask about the conditions and what you pay yourself (usually local costs).</li>
+ <li><b>CBI</b> (Dutch Centre for the Promotion of Imports from developing countries) publishes free market studies on European markets per product, from spices to tourism. Its coaching projects run in a limited number of countries; check the site whether your sector and country take part.</li>
+ <li><b>DECP</b> (Dutch Employers Cooperation Programme) works with employers' organisations in partner countries, including Suriname. You notice it through training by your industry body. See <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</li>
+ <li><b>RVO</b> (Netherlands Enterprise Agency) has the Starters International Business (SIB, a coach) and DHI (a contribution to feasibility and investment preparation) schemes for Dutch companies that want to start in Suriname. Useful if your partner, or your own diaspora company, is based in the Netherlands. See <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zo schrijf je een aanvraag die wint' if nl else 'How to write an application that wins' }}</h2>
+{% if nl %}
+<p>Beoordelaars lezen tientallen aanvragen en geven punten op een vast schema. Wie hun vragen in hun volgorde beantwoordt, met cijfers en bewijs, wint van wie een mooi verhaal schrijft.</p>
+<ol class="steps">
+ <li><b>Lees de richtlijnen twee keer.</b> Markeer de eisen (wie mag aanvragen, wat wordt betaald, wat niet), de beoordelingscriteria met hun gewicht, en de verplichte bijlagen. Een ontbrekende bijlage betekent vaak afwijzing zonder dat iemand je plan leest.</li>
+ <li><b>Check of je past.</b> Rechtsvorm, sector, omvang, leeftijd van het bedrijf, eigendom, land. Twijfel je, mail de contactpersoon vóór de deadline. Bewaar het antwoord.</li>
+ <li><b>Begin bij het probleem, niet bij de oplossing.</b> Welk concreet knelpunt houdt je groei tegen (geen certificaat, te weinig koelcapaciteit, geen koper in de EU)? Gebruik cijfers: omzet, productie, verlies, gemiste orders.</li>
+ <li><b>Laat de koper of markt zien.</b> Intentieverklaringen, e-mails van kopers, lijsten van distributeurs, beursbezoeken. Programma's als SITA en SURGE belonen bewezen vraag boven goede bedoelingen.</li>
+ <li><b>Maak een begroting die klopt.</b> Elke post met offerte, in de valuta van de regeling, met wisselkoers en datum. Splits wat de subsidie betaalt en wat jij betaalt. Reken je eigen bijdrage en het voorfinancieren door met <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li><b>Formuleer meetbare resultaten.</b> "Exportomzet van 0 naar USD 60.000 binnen 18 maanden, 4 banen erbij, HACCP-certificaat in maand 9." Geen vage doelen.</li>
+ <li><b>Plan in de tijd.</b> Een eenvoudige planning per maand met mijlpalen en wie verantwoordelijk is.</li>
+ <li><b>Noem de risico's zelf.</b> Wisselkoers, levertijden, vergunningen, weer. Zeg hoe je ze opvangt. Dat kost geen punten, het levert ze op.</li>
+ <li><b>Laat iemand anders lezen.</b> Iemand die je bedrijf niet kent moet het binnen tien minuten begrijpen. Schrap jargon.</li>
+ <li><b>Dien op tijd in en bewaar bewijs.</b> Niet op de laatste dag (portalen lopen vast), in het gevraagde formaat, met de onderwerpregel die de richtlijn voorschrijft.</li>
+</ol>
+<p>Je ondernemingsplan is de basis van bijna elke aanvraag: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a> en de gratis tool <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a>. Cijfers voor je aanvraag: <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> en <a href="{{ U('roi') }}">{{ L('roi') }}</a>. Voor marktbewijs: <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>.</p>
+{% else %}
+<p>Assessors read dozens of applications and score them on a fixed grid. Whoever answers their questions in their order, with figures and evidence, beats whoever writes a nice story.</p>
+<ol class="steps">
+ <li><b>Read the guidelines twice.</b> Mark the requirements (who may apply, what is paid, what is not), the scoring criteria with their weights, and the mandatory annexes. A missing annex often means rejection without anyone reading your plan.</li>
+ <li><b>Check that you fit.</b> Legal form, sector, size, age of the business, ownership, country. If in doubt, email the contact person before the deadline. Keep the reply.</li>
+ <li><b>Start with the problem, not the solution.</b> Which concrete bottleneck holds back your growth (no certificate, too little cold storage, no buyer in the EU)? Use figures: turnover, output, losses, missed orders.</li>
+ <li><b>Show the buyer or market.</b> Letters of intent, emails from buyers, lists of distributors, trade fair visits. Programmes like SITA and SURGE reward proven demand over good intentions.</li>
+ <li><b>Make a budget that adds up.</b> Every item with a quote, in the scheme's currency, with exchange rate and date. Split what the grant pays and what you pay. Check your own contribution and pre-financing with <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>.</li>
+ <li><b>State measurable results.</b> "Export sales from 0 to USD 60,000 within 18 months, 4 new jobs, HACCP certificate in month 9." No vague goals.</li>
+ <li><b>Plan over time.</b> A simple monthly plan with milestones and who is responsible.</li>
+ <li><b>Name the risks yourself.</b> Exchange rate, lead times, permits, weather. Say how you handle them. That does not cost points, it earns them.</li>
+ <li><b>Have someone else read it.</b> Someone who does not know your business should understand it within ten minutes. Cut the jargon.</li>
+ <li><b>Submit on time and keep proof.</b> Not on the last day (portals jam), in the requested format, with the subject line the guidelines prescribe.</li>
+</ol>
+<p>Your business plan is the basis of almost every application: <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a> and the free tool <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a>. Figures for your application: <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a> and <a href="{{ U('roi') }}">{{ L('roi') }}</a>. For market evidence: <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Checklist: dit heb je bijna altijd nodig' if nl else 'Checklist: what you almost always need' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Recent KKF-uittreksel en, bij een NV, de statuten en het aandeelhoudersregister</li>
+ <li>FIN-nummer en een recente belastingverklaring (geen schuld of een regeling)</li>
+ <li>Bedrijfsvergunning als je activiteit die vereist (<a href="{{ U('licences') }}">{{ L('licences') }}</a>)</li>
+ <li>Jaarrekeningen of interne cijfers over de laatste twee jaar</li>
+ <li>Bankafschriften van de zakelijke rekening</li>
+ <li>Ondernemingsplan of exportplan met begroting</li>
+ <li>Offertes voor elke kostenpost, liefst twee of drie per post</li>
+ <li>Bewijs van vraag: kopers, intentieverklaringen, bestellingen</li>
+ <li>ID van bestuurders en UBO-verklaring</li>
+ <li>Cv's van de mensen die het project uitvoeren</li>
+ <li>Bij NGO-calls: statuten, bestuurssamenstelling, jaarverslag en referentieprojecten</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Recent KKF extract and, for an NV, the articles of association and share register</li>
+ <li>Tax number (FIN) and a recent tax clearance (no arrears or an arrangement)</li>
+ <li>Business licence if your activity requires one (<a href="{{ U('licences') }}">{{ L('licences') }}</a>)</li>
+ <li>Annual accounts or management figures for the last two years</li>
+ <li>Bank statements of the business account</li>
+ <li>Business plan or export plan with budget</li>
+ <li>Quotes for every cost item, preferably two or three per item</li>
+ <li>Evidence of demand: buyers, letters of intent, orders</li>
+ <li>IDs of directors and a UBO declaration</li>
+ <li>CVs of the people carrying out the project</li>
+ <li>For NGO calls: statutes, board composition, annual report and reference projects</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Valkuilen' if nl else 'Pitfalls' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Uitgaven vóór goedkeuring.</b> Bijna geen regeling vergoedt kosten die je maakte voordat het contract getekend is. Wacht met bestellen.</li>
+ <li><b>Geen geld om voor te schieten.</b> Kostendeling betaalt achteraf. Regel werkkapitaal of vraag naar het voorschot.</li>
+ <li><b>Te veel tegelijk vragen.</b> Een kleiner, scherp project wint vaker dan een groot plan met veel losse onderdelen.</li>
+ <li><b>Betaalde "subsidieadviseurs"</b> die een gegarandeerde toekenning beloven. Officiële programma's rekenen geen aanvraagkosten en geven geen garanties. Twijfel? Bel de uitvoerder zelf.</li>
+ <li><b>Rapportage vergeten.</b> Na toekenning moet je bonnen, foto's en voortgangsrapporten inleveren. Wie dat niet doet, moet soms terugbetalen en maakt geen kans op een volgende ronde.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Spending before approval.</b> Almost no scheme refunds costs incurred before the contract is signed. Wait before you order.</li>
+ <li><b>No money to pre-finance.</b> Cost-share pays afterwards. Arrange working capital or ask about the advance.</li>
+ <li><b>Asking for too much at once.</b> A smaller, focused project wins more often than a large plan with many loose parts.</li>
+ <li><b>Paid "grant consultants"</b> who promise a guaranteed award. Official programmes charge no application fees and give no guarantees. In doubt? Call the programme yourself.</li>
+ <li><b>Forgetting the reporting.</b> After the award you must hand in receipts, photos and progress reports. If you do not, you may have to repay and you will not stand a chance in the next round.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik nog niet exporteer en geen plan heb?</b> Dan is het Export Growth Programme van SITA precies voor jou: je maakt het plan met een coach voor USD 600 eigen bijdrage.</li>
+ <li><b>...mijn bedrijf jonger is dan twee jaar?</b> Veel grants vragen twee jaar cijfers. Begin met training (SPWE, KKF, CDTI) en een lening (<a href="{{ U('finance') }}">{{ L('finance') }}</a>), en bouw je administratie op voor de volgende ronde.</li>
+ <li><b>...ik in de handel zit?</b> Handel is vaak uitgesloten (FTBP, PKF). Kijk naar digitalisering (CDTI, toekomstige Caribbean Export-calls) en naar de Cost Share Grant als je dienst of product exporteert.</li>
+ <li><b>...ik vanuit het buitenland wil meedoen?</b> De meeste regelingen eisen een bedrijf dat in Suriname gevestigd is. Richt eerst een NV op; zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> en <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>...mijn aanvraag wordt afgewezen?</b> Vraag om de scores en de motivatie. Die gebruik je voor de volgende call; programma's met rondes komen vaak terug.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I do not export yet and have no plan?</b> Then SITA's Export Growth Programme is exactly for you: you write the plan with a coach for a USD 600 contribution.</li>
+ <li><b>...my business is less than two years old?</b> Many grants ask for two years of figures. Start with training (SPWE, KKF, CDTI) and a loan (<a href="{{ U('finance') }}">{{ L('finance') }}</a>), and build up your records for the next round.</li>
+ <li><b>...I am in trading?</b> Trading is often excluded (FTBP, PKF). Look at digitalisation (CDTI, future Caribbean Export calls) and the Cost Share Grant if you export a service or product.</li>
+ <li><b>...I want to take part from abroad?</b> Most schemes require a business established in Suriname. Set up an NV first; see <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> and <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>...my application is rejected?</b> Ask for the scores and the reasons. Use them for the next call; programmes with rounds often come back.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://sita.sr/?p=7291" rel="noopener">SITA: Export Growth Programme</a></li>
+ <li><a href="https://sita.sr/?p=6919" rel="noopener">SITA: Cost Share Grant</a></li>
+ <li><a href="https://sita.sr/?p=7009" rel="noopener">{{ 'SITA: lancering Cost Share Grant en EIP fase II (30 oktober 2025)' if nl else 'SITA: launch of the Cost Share Grant and EIP phase II (30 October 2025)' }}</a></li>
+ <li><a href="https://surge.sr/" rel="noopener">{{ 'SURGE: resultaten en Impact Event 2026' if nl else 'SURGE: results and 2026 Impact Event' }}</a></li>
+ <li><a href="https://gov.sr/fondsen/" rel="noopener">{{ 'Overheid van Suriname: fondsen (FTBP, PKF, SURGE, NOFA, SCF)' if nl else 'Government of Suriname: funds (FTBP, PKF, SURGE, NOFA, SCF)' }}</a></li>
+ <li><a href="https://gov.sr/ftbp/" rel="noopener">{{ 'Fonds Technische Bijstand Particuliere Sector' if nl else 'Private Sector Technical Assistance Fund (FTBP)' }}</a></li>
+ <li><a href="https://gov.sr/spwe-start-opleiding-small-business-coach-ter-versterking-van-ondernemerschapsbegeleiding/" rel="noopener">{{ 'SPWE: opleiding Small Business Coach (oktober 2025)' if nl else 'SPWE: Small Business Coach training (October 2025)' }}</a></li>
+ <li><a href="https://www.ssb.sr/media/1602/2e-editie-nieuwsbrief-2026.pdf" rel="noopener">{{ 'SSB: nieuwsbrief 2e editie 2026' if nl else 'Suriname Standards Bureau: newsletter, 2nd edition 2026' }}</a></li>
+ <li><a href="https://www.carib-export.com/en/resources/funding" rel="noopener">{{ 'Caribbean Export: grants (DAGS, Direct Support, BRIDGE 2025)' if nl else 'Caribbean Export: grants (DAGS, Direct Support, BRIDGE 2025)' }}</a></li>
+ <li><a href="https://digitaltransformationinstitute.com/" rel="noopener">Caribbean Digital Transformation Institute</a></li>
+ <li><a href="https://www.caribank.org/newsroom/news-and-events/cdb-propel-programme-launches-call-proposals-strengthen-msme-support-institutions" rel="noopener">{{ 'CDB: call CDB PROPEL (26 oktober 2026)' if nl else 'CDB: CDB PROPEL call (26 October 2026)' }}</a></li>
+ <li><a href="https://www.caribank.org/newsroom/news-and-events/cdb-launches-shetrades-caribbean-tech-it-facility-commercialise-clean-energy-research-and-solutions" rel="noopener">{{ 'CDB: SheTrades Caribbean Tech It Up Facility (30 september 2026)' if nl else 'CDB: SheTrades Caribbean Tech It Up Facility (30 September 2026)' }}</a></li>
+ <li><a href="https://www.iadb.org/en/whats-our-impact/SU-G1007" rel="noopener">{{ 'IDB: programma SU-G1007 met de NOB' if nl else 'IDB: programme SU-G1007 with the NOB' }}</a></li>
+ <li><a href="https://www.idblab.org/en" rel="noopener">IDB Lab</a></li>
+ <li><a href="https://eulacsocialaccelerator.cainco.org.bo/publico/convocatorias" rel="noopener">EU-LAC Social Accelerator: {{ 'oproepen' if nl else 'calls' }}</a></li>
+ <li><a href="https://keynews.sr/suriname-en-frans-guyana-intensiveren-samenwerking-voor-duurzame-regionale-ontwikkeling" rel="noopener">{{ 'Key News: Suriname en Frans-Guyana, Interreg Amazonia (februari 2025)' if nl else 'Key News: Suriname and French Guiana, Interreg Amazonia (February 2025)' }}</a></li>
+ <li><a href="https://www.thegef.org/" rel="noopener">Global Environment Facility</a></li>
+ <li><a href="https://sgp.undp.org/" rel="noopener">GEF Small Grants Programme (UNDP)</a></li>
+ <li><a href="https://intracen.org/fr/node/353896" rel="noopener">{{ 'ITC: kokosketen in Suriname' if nl else 'ITC: coconut value chain in Suriname' }}</a></li>
+ <li><a href="https://www.pum.nl/country/suriname/" rel="noopener">PUM: Suriname</a></li>
+ <li><a href="https://www.cbi.eu/market-information" rel="noopener">{{ 'CBI: marktinformatie' if nl else 'CBI: market information' }}</a></li>
+ <li><a href="https://www.decp.nl/" rel="noopener">DECP</a></li>
+ <li><a href="https://www.rvo.nl/onderwerpen/landen-en-gebieden/suriname/zo-start-u-een-bedrijf-suriname" rel="noopener">{{ 'RVO: zo start u een bedrijf in Suriname (SIB, DHI)' if nl else 'RVO: starting a business in Suriname (SIB, DHI)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Calls en bedragen veranderen vaak. Controleer de actuele voorwaarden altijd bij de uitvoerder voordat je kosten maakt.' if nl else 'Calls and amounts change often. Always check the current conditions with the programme before you spend money.' }}</p>
+</div>
+{% endblock %}

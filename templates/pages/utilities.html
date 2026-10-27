@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check the EBS tariff page (nvebs.com/elektriciteit/stroomtarieven), SWM connection page and Telesur business prices
+    every six months, and immediately when EBS or the EAS announces new tariffs or a change in load shedding. Bump the asof date when you do. -#}
+<div class="prose">
+<h1>{{ 'Stroom, water en internet voor je bedrijf' if nl else 'Power, water and internet for your business' }}</h1>
+{% if nl %}
+<p class="lead">Stroom krijg je van EBS, water van de SWM en internet en telefonie van Telesur of Digicel. Voor elk geldt: begin vroeg, want een nieuwe aansluiting loopt via een erkende installateur en kost weken. Sinds eind augustus 2026 schakelt EBS in Paramaribo en omgeving beurtelings stroom af omdat er te weinig opwekcapaciteit is, dus reken op noodstroom als je zaak niet stil mag vallen.</p>
+{% else %}
+<p class="lead">Electricity comes from EBS, water from SWM, and internet and phone from Telesur or Digicel. For each one: start early, because a new connection goes through an approved installer and takes weeks. Since late August 2026 EBS has been switching off power in rotation in and around Paramaribo because generating capacity is short, so plan for backup power if your business cannot stop.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Zakelijk stroomtarief (laagspanning)' if nl else 'Business power tariff (low voltage)' }}</div><div class="big">{{ 'SRD 4,82' if nl else 'SRD 4.82' }}</div><div class="sub">{{ 'per kWh, plus basistarief, geldig sinds december 2024' if nl else 'per kWh, plus a fixed charge, valid since December 2024' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Tekort bij piekvraag' if nl else 'Shortfall at peak demand' }}</div><div class="big">{{ '± 26 MW' if nl else '≈ 26 MW' }}</div><div class="sub">{{ 'vraag 280 MW, aanbod 254 MW (september 2026)' if nl else 'demand 280 MW, supply 254 MW (September 2026)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Zakelijk glasvezel Telesur' if nl else 'Telesur business fibre' }}</div><div class="big">{{ 'SRD 1.124,96' if nl else 'SRD 1,124.96' }}</div><div class="sub">{{ 'per maand excl. BTW, 400 Mbps, 2-jarig contract' if nl else 'per month excl. VAT, 400 Mbps, 2-year contract' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Stroom (EBS):</b> een door EBS erkende installateur legt aan en dient de aanvraag in; daarna krijg je een offerte met aansluitkosten en waarborgsom. Grote verbruikers vragen eerst een vermogensaanvraag aan.</li>
+ <li><b>Tarief:</b> bedrijven betalen een vast basistarief per maand plus SRD 4,82 per kWh (laagspanning). Grootverbruikers op hoogspanning hebben dag- en nachttarieven.</li>
+ <li><b>Loadshedding:</b> sinds 25 augustus 2026 in het EPAR-gebied, minimaal drie uur per keer, zonder vaste lijst vooraf. Controleer dagelijks online of je aansluiting in het schema staat.</li>
+ <li><b>Zonnepanelen:</b> je mag onder de Elektriciteitswet 2016 zelf opwekken en terugleveren; EBS koppelt installaties tot 63 ampère met een tweerichtingsmeter.</li>
+ <li><b>Water (SWM):</b> commerciële aansluiting via een erkende installateur, offerte binnen drie weken, aanleg minimaal zes weken.</li>
+ <li><b>Internet:</b> Telesur-glasvezel voor bedrijven in vier tot zes weken; neem een tweede verbinding als back-up.</li>
+{% else %}
+ <li><b>Power (EBS):</b> an EBS-approved installer wires the premises and files the application; you then get a quote with connection costs and a deposit. Large users first file a capacity request.</li>
+ <li><b>Tariff:</b> businesses pay a fixed monthly charge plus SRD 4.82 per kWh (low voltage). Large high-voltage users have day and night rates.</li>
+ <li><b>Load shedding:</b> since 25 August 2026 in the EPAR grid area, at least three hours at a time, with no fixed list in advance. Check online every day whether your connection is in the schedule.</li>
+ <li><b>Solar:</b> under the Electricity Act 2016 you may generate your own power and feed back surplus; EBS connects installations up to 63 amperes with a two-way meter.</li>
+ <li><b>Water (SWM):</b> commercial connection through an approved installer, quote within three weeks, works at least six weeks.</li>
+ <li><b>Internet:</b> Telesur business fibre in four to six weeks; add a second connection as backup.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie levert wat' if nl else 'Who supplies what' }}</h2>
+{% set c1 = 'Dienst' if nl else 'Service' %}{% set c2 = 'Bedrijf of instantie' if nl else 'Company or body' %}{% set c3 = 'Contact' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Stroom en gas</b></td><td data-l="{{ c2 }}">N.V. Energiebedrijven Suriname (EBS)</td><td data-l="{{ c3 }}">Tel. 175, Noorderkerkstraat 2-14, Paramaribo; nvebs.com</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Toezicht energie</b></td><td data-l="{{ c2 }}">Energie Autoriteit Suriname (EAS)</td><td data-l="{{ c3 }}">Tel. 554000, Kristalstraat 1, Paramaribo; eas.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Drinkwater</b></td><td data-l="{{ c2 }}">N.V. Surinaamsche Waterleiding Maatschappij (SWM)</td><td data-l="{{ c3 }}">Tel. 471414; meterstanden 170; swm.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Vaste lijn, glasvezel, mobiel, datalijnen</b></td><td data-l="{{ c2 }}">Telesur (staatsbedrijf)</td><td data-l="{{ c3 }}">Zakelijke klantenservice 24/7; telesur.sr/zakelijk</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Mobiel en internet</b></td><td data-l="{{ c2 }}">Digicel Suriname, zakelijk via Digicel Business</td><td data-l="{{ c3 }}">digicelgroup.com/sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Datacenter en cloud</b></td><td data-l="{{ c2 }}">Datasur (opgericht door Telesur)</td><td data-l="{{ c3 }}">datasur.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Toezicht telecom</b></td><td data-l="{{ c2 }}">Telecommunicatie Autoriteit Suriname (TAS)</td><td data-l="{{ c3 }}">tas.sr</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Electricity and gas</b></td><td data-l="{{ c2 }}">N.V. Energiebedrijven Suriname (EBS)</td><td data-l="{{ c3 }}">Tel. 175, Noorderkerkstraat 2-14, Paramaribo; nvebs.com</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Energy regulator</b></td><td data-l="{{ c2 }}">Energy Authority Suriname (EAS)</td><td data-l="{{ c3 }}">Tel. 554000, Kristalstraat 1, Paramaribo; eas.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Drinking water</b></td><td data-l="{{ c2 }}">N.V. Surinaamsche Waterleiding Maatschappij (SWM)</td><td data-l="{{ c3 }}">Tel. 471414; meter readings 170; swm.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Fixed line, fibre, mobile, data lines</b></td><td data-l="{{ c2 }}">Telesur (state-owned)</td><td data-l="{{ c3 }}">Business support 24/7; telesur.sr/zakelijk</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Mobile and internet</b></td><td data-l="{{ c2 }}">Digicel Suriname, business through Digicel Business</td><td data-l="{{ c3 }}">digicelgroup.com/sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Data centre and cloud</b></td><td data-l="{{ c2 }}">Datasur (founded by Telesur)</td><td data-l="{{ c3 }}">datasur.sr</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Telecom regulator</b></td><td data-l="{{ c2 }}">Telecommunications Authority Suriname (TAS)</td><td data-l="{{ c3 }}">tas.sr</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Meer instanties met adressen:' if nl else 'More institutions with addresses:' }} <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+
+<h2>{{ 'Een stroomaansluiting voor je bedrijf' if nl else 'A power connection for your business' }}</h2>
+{% if nl %}
+<p>EBS werkt alleen via <b>door EBS erkende installateurs</b>; de lijst staat op de website van EBS. De installateur ontwerpt de installatie, dient de aanvraag in en laat de installatie keuren. Neem al tijdens de verbouwing contact op, niet pas als je wilt openen.</p>
+<ol class="steps">
+ <li><b>Bepaal hoeveel vermogen je nodig hebt.</b> Tel airco's, koelcellen, ovens, compressoren en machines op. Voor een winkel of kantoor met meerdere airco's is een 2- of 3-fase aansluiting op 220 V gebruikelijk; een enkele fase op 127 V is bedoeld voor kleine verbruikers.</li>
+ <li><b>Grote verbruiker? Dien eerst een vermogensaanvraag in.</b> Daarmee beoordeelt EBS of er op jouw locatie genoeg vermogen beschikbaar is. Dat kan vóórdat de installatie gebouwd is: via je installateur, per brief aan de Noorderkerkstraat, per e-mail of online.</li>
+ <li><b>Laat de installatie aanleggen</b> door een erkende installateur. Kies boven- of ondergrondse aansluiting.</li>
+ <li><b>Keuring.</b> EBS keurt de installatie.</li>
+ <li><b>Offerte.</b> Je krijgt een offerte met de aansluitkosten, inclusief waarborgsom.</li>
+ <li><b>Registratie en betaling.</b> Registreer de aansluiting op naam van je bedrijf en betaal de offerte; daarna plaatst EBS de meter.</li>
+</ol>
+<ul>
+ <li><b>Tijdelijke aansluiting</b> voor de bouw of een evenement: ook via een erkende installateur.</li>
+ <li><b>Uitbreiding</b>: meer vermogen of overstap van 127 V naar 220 V.</li>
+ <li><b>Pand overnemen?</b> Laat de aansluiting overschrijven op je bedrijf. Was de meter langer dan een jaar weg, dan volgt een controlekeuring; voldoet de installatie niet meer, dan is een revisie nodig.</li>
+</ul>
+<p class="note">EBS publiceert geen vaste aansluitprijzen of doorlooptijden; die staan in je offerte. Vraag je installateur vooraf om een schatting, inclusief eventuele netuitbreiding.</p>
+{% else %}
+<p>EBS works only through <b>EBS-approved installers</b>; the list is on the EBS website. The installer designs the installation, files the application and has the installation inspected. Get in touch during the fit-out, not when you want to open.</p>
+<ol class="steps">
+ <li><b>Work out how much capacity you need.</b> Add up air conditioners, cold rooms, ovens, compressors and machines. For a shop or office with several air conditioners a 2- or 3-phase connection at 220 V is usual; a single phase at 127 V is meant for small users.</li>
+ <li><b>Large user? File a capacity request first.</b> EBS uses it to assess whether enough capacity is available at your location. You can do this before the installation is built: through your installer, by letter to Noorderkerkstraat, by email or online.</li>
+ <li><b>Have the installation built</b> by an approved installer. Choose an overhead or underground connection.</li>
+ <li><b>Inspection.</b> EBS inspects the installation.</li>
+ <li><b>Quote.</b> You receive a quote with the connection costs, including a deposit.</li>
+ <li><b>Registration and payment.</b> Register the connection in your company's name and pay the quote; EBS then installs the meter.</li>
+</ol>
+<ul>
+ <li><b>Temporary connection</b> for construction or an event: also through an approved installer.</li>
+ <li><b>Upgrade</b>: more capacity or a switch from 127 V to 220 V.</li>
+ <li><b>Taking over premises?</b> Have the connection transferred to your company. If the meter has been removed for more than a year, a re-inspection follows; if the installation no longer complies, a revision is needed.</li>
+</ul>
+<p class="note">EBS does not publish fixed connection prices or lead times; they are in your quote. Ask your installer for an estimate beforehand, including any grid extension.</p>
+{% endif %}
+
+<h2>{{ 'Stroomtarieven voor bedrijven' if nl else 'Electricity tariffs for businesses' }}</h2>
+{% if nl %}
+<p>EBS rekent een vast <b>basistarief</b> per maand, afhankelijk van het aantal fasen, plus een <b>verbruikstarief</b> per kWh. Bedrijven (niet-huishoudelijk) betalen één tarief per kWh, zonder de goedkopere schijven van huishoudens.</p>
+{% set c1 = 'Categorie' %}{% set c2 = 'Basistarief per maand' %}{% set c3 = 'Verbruik per kWh' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Laagspanning niet-huishoudelijk</b>, 1 / 2 / 3 fase</td><td data-l="{{ c2 }}">SRD 335,16 / 670,32 / 718,20</td><td data-l="{{ c3 }}">SRD 4,820</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Hoogspanning commercieel of industrieel</b> (grootverbruiker)</td><td data-l="{{ c2 }}">SRD 798, plus SRD 26,909 per kVA</td><td data-l="{{ c3 }}">Laagtarief SRD 2,653; hoogtarief SRD 3,960</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Reclameborden</b></td><td data-l="{{ c2 }}">Volgens aansluiting</td><td data-l="{{ c3 }}">SRD 4,820</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Sociale instellingen</b></td><td data-l="{{ c2 }}">Als niet-huishoudelijk</td><td data-l="{{ c3 }}">SRD 4,520; kwetsbare afnemers krijgen 50% korting via de EAS</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ter vergelijking: huishoudens</b></td><td data-l="{{ c2 }}">SRD 211,78 tot 349,13</td><td data-l="{{ c3 }}">SRD 1,971 (eerste 400 kWh) tot SRD 4,680 (boven 1.500 kWh)</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Hoog- en laagtarief</b> (hoogspanning): op werkdagen hoog van 9:00 tot 23:00 uur, in het weekend van 11:00 tot 23:00 uur. Verschuif zware processen naar de nacht als dat kan.</li>
+ <li><b>Cos phi-boete:</b> hoogspanningsafnemers met een arbeidsfactor onder 0,8 betalen extra per kWh. Laat zo nodig compensatie installeren.</li>
+ <li><b>Stand van de tarieven:</b> dit zijn de tarieven die EBS publiceert als geldig sinds verbruiksmaand december 2024. In februari 2025 liet EBS weten dat de tarieven niet werden aangepast, en op 26 oktober 2026 stond hetzelfde overzicht nog online.</li>
+ <li><b>Risico op verhoging:</b> stroom is in Suriname gesubsidieerd. In februari 2024 noemde de regering een gemiddeld tarief van USD 0,04 per kWh tegen USD 0,12 tot 0,15 in de buurlanden, en het voornemen de subsidie geleidelijk af te bouwen. Reken in je businessplan met hogere stroomprijzen (<a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>).</li>
+</ul>
+<p>Je rekening schatten kan met de verbruikscalculator van EBS. Meterstand doorgeven en betalen gaat via MyAccount op nvebs.com.</p>
+{% else %}
+<p>EBS charges a fixed monthly <b>base charge</b>, depending on the number of phases, plus a <b>consumption charge</b> per kWh. Businesses (non-household) pay a single rate per kWh, without the cheaper household bands.</p>
+{% set c1 = 'Category' %}{% set c2 = 'Monthly base charge' %}{% set c3 = 'Consumption per kWh' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Low-voltage non-household</b>, 1 / 2 / 3 phase</td><td data-l="{{ c2 }}">SRD 335.16 / 670.32 / 718.20</td><td data-l="{{ c3 }}">SRD 4.820</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>High-voltage commercial or industrial</b> (large user)</td><td data-l="{{ c2 }}">SRD 798, plus SRD 26.909 per kVA</td><td data-l="{{ c3 }}">Off-peak SRD 2.653; peak SRD 3.960</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Billboards</b></td><td data-l="{{ c2 }}">According to connection</td><td data-l="{{ c3 }}">SRD 4.820</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Social institutions</b></td><td data-l="{{ c2 }}">As non-household</td><td data-l="{{ c3 }}">SRD 4.520; vulnerable customers get 50% off through the EAS</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>For comparison: households</b></td><td data-l="{{ c2 }}">SRD 211.78 to 349.13</td><td data-l="{{ c3 }}">SRD 1.971 (first 400 kWh) to SRD 4.680 (above 1,500 kWh)</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Peak and off-peak</b> (high voltage): on weekdays peak runs from 9:00 to 23:00, at weekends from 11:00 to 23:00. Move heavy processes to the night where you can.</li>
+ <li><b>Power factor penalty:</b> high-voltage customers with a power factor below 0.8 pay extra per kWh. Install compensation if needed.</li>
+ <li><b>Status of the tariffs:</b> these are the tariffs EBS publishes as valid since consumption month December 2024. In February 2025 EBS said tariffs were not being changed, and on 26 October 2026 the same overview was still online.</li>
+ <li><b>Risk of increases:</b> electricity in Suriname is subsidised. In February 2024 the government cited an average tariff of USD 0.04 per kWh against USD 0.12 to 0.15 in neighbouring countries, and its intention to phase out the subsidy gradually. Assume higher power prices in your business plan (<a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>).</li>
+</ul>
+<p>You can estimate your bill with the EBS consumption calculator. Submitting meter readings and paying is done through MyAccount on nvebs.com.</p>
+{% endif %}
+
+<h2>{{ 'Loadshedding in 2026 en hoe je doordraait' if nl else 'Load shedding in 2026 and how to keep running' }}</h2>
+{% if nl %}
+<p>Op 25 augustus 2026 maakte EBS bekend dat het verbruik in de droge tijd veel sterker was gestegen dan voorspeld en dat er <b>geen reservevermogen</b> meer was. Sindsdien worden delen van het EPAR-gebied (Paramaribo, Wanica, Para en delen van Commewijne en Saramacca) beurtelings afgeschakeld, telkens <b>minimaal drie uur</b>. Volgens minister Abiamofo van Natuurlijke Hulpbronnen was de piekvraag begin september ongeveer 280 MW tegen 254 MW beschikbaar, en lag de vraag zo'n 10% hoger dan in 2025. De regering laat het stuwmeer van Afobaka niet sneller leeglopen, om eind 2026 of begin 2027 geen groter tekort te krijgen.</p>
+<ul>
+ <li><b>Controleer je aansluiting.</b> EBS heeft een loadsheddingpagina waar je met je aansluitnummer of meternummer ziet of je die dag in de planning staat. Staan in het schema betekent niet dat je zeker wordt afgeschakeld; niet in het schema staan geeft ook geen garantie.</li>
+ <li><b>Ook water raakt het.</b> In oktober 2026 meldde de SWM lage druk en onderbrekingen in Paramaribo-Noord doordat productiestation Blauwgrond door loadshedding stilviel.</li>
+ <li><b>Gepland onderhoud</b> staat los van loadshedding; dat vind je op <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+</ul>
+<h3>Je opties voor continuïteit</h3>
+{% set c1 = 'Oplossing' %}{% set c2 = 'Goed voor' %}{% set c3 = 'Let op' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>UPS</b></td><td data-l="{{ c2 }}">Kassa, computers, server, router, alarm: minuten tot een paar uur</td><td data-l="{{ c3 }}">Accu's slijten sneller bij vaak ontladen; test maandelijks</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Generator</b></td><td data-l="{{ c2 }}">Koeling, airco, productie: uren achter elkaar</td><td data-l="{{ c3 }}">Laat een omschakelaar door een erkende installateur plaatsen, zodat je niet terugvoedt op het net. Brandstof, onderhoud, geluid en uitlaatgassen</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Zonnepanelen met batterij</b></td><td data-l="{{ c2 }}">Overdag verbruik en een deel van de avond, lagere rekening</td><td data-l="{{ c3 }}">Hogere investering; zonnepanelen zonder batterij vallen bij uitval meestal ook uit</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Verbruik verschuiven</b></td><td data-l="{{ c2 }}">Minder kans op tekort, lagere rekening bij hoogspanning</td><td data-l="{{ c3 }}">EBS noemde in 2024 als piekuren rond 11:00 tot 15:00 en 19:00 tot 22:00 uur</td></tr>
+</tbody></table>
+<p>Reken uit of noodstroom of zonne-energie zich terugverdient met <a href="{{ U('roi') }}">{{ L('roi') }}</a> en <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>. Schade door stroomuitval of spanningspieken meld je bij EBS via de schadeclaimprocedure; verzeker voorraad en apparatuur (<a href="{{ U('insurance') }}">{{ L('insurance') }}</a>).</p>
+{% else %}
+<p>On 25 August 2026 EBS announced that consumption in the dry season had risen far more than forecast and that it had <b>no reserve capacity</b> left. Since then parts of the EPAR grid area (Paramaribo, Wanica, Para and parts of Commewijne and Saramacca) have been switched off in rotation, each time for <b>at least three hours</b>. According to Natural Resources Minister Abiamofo, peak demand in early September was about 280 MW against 254 MW available, and demand was some 10% higher than in 2025. The government is not drawing down the Afobaka reservoir faster, to avoid a bigger shortfall in late 2026 or early 2027.</p>
+<ul>
+ <li><b>Check your connection.</b> EBS has a load shedding page where you can see with your connection or meter number whether you are in that day's schedule. Being in the schedule does not mean you will certainly be switched off; not being in it is no guarantee either.</li>
+ <li><b>Water is affected too.</b> In October 2026 SWM reported low pressure and interruptions in north Paramaribo because the Blauwgrond production station lost power during load shedding.</li>
+ <li><b>Planned maintenance</b> is separate from load shedding; you find it on <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+</ul>
+<h3>Your continuity options</h3>
+{% set c1 = 'Solution' %}{% set c2 = 'Good for' %}{% set c3 = 'Watch out' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>UPS</b></td><td data-l="{{ c2 }}">Tills, computers, server, router, alarm: minutes to a few hours</td><td data-l="{{ c3 }}">Batteries wear faster with frequent discharge; test monthly</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Generator</b></td><td data-l="{{ c2 }}">Refrigeration, air conditioning, production: hours on end</td><td data-l="{{ c3 }}">Have an approved installer fit a changeover switch so you never feed back into the grid. Fuel, maintenance, noise and exhaust</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Solar panels with battery</b></td><td data-l="{{ c2 }}">Daytime use and part of the evening, lower bill</td><td data-l="{{ c3 }}">Higher investment; solar panels without a battery usually also shut down during an outage</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Shifting consumption</b></td><td data-l="{{ c2 }}">Less risk of shortage, lower bill on high voltage</td><td data-l="{{ c3 }}">In 2024 EBS named peak hours of about 11:00 to 15:00 and 19:00 to 22:00</td></tr>
+</tbody></table>
+<p>Work out whether backup power or solar pays off with <a href="{{ U('roi') }}">{{ L('roi') }}</a> and <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>. Report damage from outages or voltage spikes to EBS through its damage claim procedure; insure stock and equipment (<a href="{{ U('insurance') }}">{{ L('insurance') }}</a>).</p>
+{% endif %}
+
+<h2>{{ 'Zelf opwekken en terugleveren' if nl else 'Generating your own power and feeding back' }}</h2>
+{% if nl %}
+<p>De <b>Elektriciteitswet</b> en de <b>Wet Energie Autoriteit Suriname</b>, beide van 1 maart 2016, geven klanten het recht om voor eigen gebruik duurzame stroom op te wekken, het overschot aan het net te leveren en dat met hun verbruik te <b>salderen</b> (op jaarbasis: wat EBS levert min wat jij teruglevert). De precieze technische voorwaarden en verrekening moeten in het Elektriciteitssectorplan worden uitgewerkt. In afwachting daarvan koppelt EBS zelfopwekkers met een vermogen tot <b>63 ampère</b>.</p>
+<ol class="steps">
+ <li>Kies een installateur van de lijst van door EBS erkende PV-installateurs.</li>
+ <li>Dien het aanvraagformulier in (via een EBS-dienstencentrum, digitaal of op papier).</li>
+ <li>De keuringsdienst van EBS beoordeelt de aanvraag.</li>
+ <li>Bij goedkeuring plaatst EBS een tweerichtingsmeter tussen je opwekinstallatie en je verbruik. Lees vooraf de algemene en aansluitvoorwaarden voor zelfopwekkers.</li>
+</ol>
+<p>Grotere opwekking voor derden of het net (bijvoorbeeld een zonnepark) loopt via de EAS. Sinds september 2026 krijgt elk voorstel eerst een pre-screening op criteria als technische haalbaarheid, betrouwbaarheid, kosten en bijdrage aan de netstabiliteit. Meer over duurzaam ondernemen: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+{% else %}
+<p>The <b>Electricity Act</b> and the <b>Energy Authority Suriname Act</b>, both of 1 March 2016, give customers the right to generate renewable power for their own use, feed the surplus into the grid and <b>net</b> it against their consumption (annually: what EBS supplies minus what you feed back). The exact technical conditions and settlement are to be set out in the Electricity Sector Plan. Pending that, EBS connects self-generators with a capacity of up to <b>63 amperes</b>.</p>
+<ol class="steps">
+ <li>Choose an installer from the list of EBS-approved PV installers.</li>
+ <li>Submit the application form (at an EBS service centre, digitally or on paper).</li>
+ <li>The EBS inspection department assesses the application.</li>
+ <li>If approved, EBS fits a two-way meter between your generating installation and your consumption. Read the general and connection conditions for self-generators beforehand.</li>
+</ol>
+<p>Larger generation for third parties or the grid (a solar park, for example) goes through the EAS. Since September 2026 every proposal first gets a pre-screening on criteria such as technical feasibility, reliability, cost and contribution to grid stability. More on sustainable business: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Energiebeleid: wat eraan komt' if nl else 'Energy policy: what is coming' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Elektriciteitssectorplan 2024-2044.</b> De EAS presenteerde het plan op 15 mei 2025: een visie voor twintig jaar, een technisch plan voor uitbreiding van opwekking en netten in vijf jaar, en een reguleringsplan voor toezicht en tarieven. De regering heeft het plan in 2026 goedgekeurd. De EAS wil dat het nu wordt omgezet in bindende regels en prestatie-eisen.</li>
+ <li><b>Meer capaciteit en diversificatie.</b> De regering wil van zware stookolie naar gas en zonne-energie; in het afgelopen jaar kwamen er drie zonne-energiecentrales bij. Het net wordt uitgebreid naar Oost-Suriname. Het doel is "Energy for All by 2030".</li>
+ <li><b>Binnenland.</b> In december 2025 is met UNDP een beleidskader voor elektrificatie van het binnenland gevalideerd. Medio 2027 start het BIO SWEET-project, dat 26 gemeenschappen van stroom en drinkwater voorziet. Voor bedrijven in het binnenland (toerisme, mijnbouw, landbouw) blijft eigen opwekking voorlopig nodig.</li>
+ <li><b>Tarieven.</b> Afbouw van subsidie betekent op termijn hogere tarieven; volg de berichten van EBS en de EAS en zie <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> en <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Electricity Sector Plan 2024-2044.</b> The EAS presented the plan on 15 May 2025: a twenty-year vision, a technical plan for expanding generation and grids over five years, and a regulatory plan for supervision and tariffs. The government approved the plan in 2026. The EAS wants it turned into binding rules and performance requirements now.</li>
+ <li><b>More capacity and diversification.</b> The government wants to move from heavy fuel oil to gas and solar; three solar power plants were added in the past year. The grid is being extended to East Suriname. The goal is "Energy for All by 2030".</li>
+ <li><b>Interior.</b> In December 2025 a policy framework for electrifying the interior was validated with UNDP. In mid-2027 the BIO SWEET project starts, bringing electricity and drinking water to 26 communities. Businesses in the interior (tourism, mining, farming) will need their own generation for now.</li>
+ <li><b>Tariffs.</b> Phasing out subsidies means higher tariffs over time; follow EBS and EAS announcements and see <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> and <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Water: een aansluiting bij de SWM' if nl else 'Water: a connection with SWM' }}</h2>
+{% if nl %}
+<p>Ligt je pand in een voorzieningsgebied van de SWM, dan vraag je een <b>commerciële aansluiting</b> aan voor een kantoor, bedrijf of winkel. De procedure is dezelfde als voor een huisaansluiting:</p>
+<ol class="steps">
+ <li><b>Erkende installateur.</b> Een door de SWM erkende installateur maakt een installatietekening en dient die in; je betaalt de aanvraagkosten.</li>
+ <li><b>Controle en keuringen.</b> De SWM controleert de locatie, doet een tussenkeuring voordat muren worden dichtgemetseld en een eindkeuring na plaatsing van ramen en deuren.</li>
+ <li><b>Aanvraag bij de klantenservice</b> met de goedkeuringsbrief en een kopie van ID of paspoort.</li>
+ <li><b>Offerte</b> voor de aanlegkosten binnen drie weken, 30 dagen geldig. De waarborgsom voor een commerciële aansluiting is SRD 155.</li>
+ <li><b>Aanleg</b> na betaling, minimaal zes weken. Houd de werkplek vrij van onkruid en obstakels.</li>
+</ol>
+<ul>
+ <li><b>Tarief:</b> commerciële aansluitingen vallen in tariefgroep 41; tijdens de bouw geldt het bouwkraantarief (groep 60). De SWM publiceert de prijs per kubieke meter niet op haar website; vraag hem bij de klantenservice.</li>
+ <li><b>Kosten:</b> meterhuur SRD 55 per maand voor de meeste tariefgroepen, 5% BTW op water sinds juli 2024, een minimumbedrag per rekening.</li>
+ <li><b>Betalen:</b> de rekening komt op de 25e en moet uiterlijk de 24e van de volgende maand betaald zijn, anders komt er SRD 275 incassokosten bij. Betalen kan aan de kas, per bank, via HOP, Uni5Pay+ of Mopé (zie <a href="{{ U('payments') }}">{{ L('payments') }}</a>).</li>
+ <li><b>Waterdruk:</b> bij lage druk of onderbrekingen helpen een opslagtank (durotank) en een hydrofoor. De SWM biedt reiniging van durotanks aan.</li>
+ <li><b>Buiten het SWM-gebied</b> ben je aangewezen op een eigen put of regenwater. Laat het water testen; de SWM heeft een laboratorium voor wateronderzoek. Voor horeca en voedselbedrijven is veilig water onmisbaar.</li>
+</ul>
+{% else %}
+<p>If your premises are in an SWM supply area, you apply for a <b>commercial connection</b> for an office, business or shop. The procedure is the same as for a house connection:</p>
+<ol class="steps">
+ <li><b>Approved installer.</b> An SWM-approved installer makes an installation drawing and submits it; you pay the application fee.</li>
+ <li><b>Checks and inspections.</b> SWM checks the site, carries out an interim inspection before walls are closed and a final inspection once windows and doors are in.</li>
+ <li><b>Application at customer service</b> with the approval letter and a copy of your ID or passport.</li>
+ <li><b>Quote</b> for the construction costs within three weeks, valid for 30 days. The deposit for a commercial connection is SRD 155.</li>
+ <li><b>Construction</b> after payment, at least six weeks. Keep the work area clear of weeds and obstacles.</li>
+</ol>
+<ul>
+ <li><b>Tariff:</b> commercial connections are in tariff group 41; during construction the building tap tariff (group 60) applies. SWM does not publish the price per cubic metre on its website; ask customer service.</li>
+ <li><b>Costs:</b> meter rent of SRD 55 a month for most tariff groups, 5% VAT on water since July 2024, a minimum amount per bill.</li>
+ <li><b>Paying:</b> the bill comes out on the 25th and must be paid by the 24th of the following month, or SRD 275 collection costs are added. You can pay at the cash desk, by bank, through HOP, Uni5Pay+ or Mopé (see <a href="{{ U('payments') }}">{{ L('payments') }}</a>).</li>
+ <li><b>Water pressure:</b> with low pressure or interruptions a storage tank (durotank) and a booster pump help. SWM offers durotank cleaning.</li>
+ <li><b>Outside the SWM area</b> you depend on your own well or rainwater. Have the water tested; SWM has a laboratory for water analysis. For food businesses, safe water is essential.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Internet en telefonie' if nl else 'Internet and telephony' }}</h2>
+{% if nl %}
+<p><b>Telesur</b> heeft het vaste net en legt glasvezel aan; volgens Telesur was eind 2025 ongeveer 70% van Paramaribo op glasvezel overgezet, en klachten over snelheid komen vooral nog van koperaansluitingen. Zakelijke pakketten (oktober 2026):</p>
+{% set c1 = 'Pakket' %}{% set c2 = 'Snelheid' %}{% set c3 = 'Prijs per maand' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Telesur zakelijk glasvezel, Basic</b></td><td data-l="{{ c2 }}">Tot 400 Mbps download en upload</td><td data-l="{{ c3 }}">SRD 1.124,96 excl. BTW, 2-jarig contract</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Telesur zakelijk glasvezel, hogere snelheid</b></td><td data-l="{{ c2 }}">Tot 1 Gbps download en upload</td><td data-l="{{ c3 }}">SRD 1.899,95 excl. BTW, 2-jarig contract</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Aanvragen</b> via het aanvraagformulier (e-mail naar de klantenservice), een Telesur-vestiging of MyTelesur. Een standaardinstallatie kost nu geen aansluitkosten; maatwerk krijgt een offerte, en extra graafwerk betaal je aan een aannemer. Reken op <b>vier tot zes weken</b>.</li>
+ <li><b>Extra's voor bedrijven:</b> vast IP-adres, datalijnen en VPN tussen vestigingen, internationale dataverbindingen, SIP-trunks en IP-telefooncentrales. De zakelijke klantenservice is 24/7 bereikbaar en Telesur publiceert storingen online.</li>
+ <li><b>Internationale capaciteit:</b> in november 2025 tekenden Telesur en Orange Wholesale voor 100 Gbps capaciteit via de onderzeese Kanawa-kabel (Paramaribo-Albina-Cayenne-Martinique), naast bestaande verbindingen.</li>
+ <li><b>Binnenland:</b> eind december 2025 had Telesur 4G in meer dan dertig woongebieden in het binnenland, en Telesur moderniseert 74 zendmasten. Handig voor lodges, mijnen en winkels in het binnenland; test de dekking ter plaatse.</li>
+ <li><b>Digicel</b> biedt mobiel en internet, zakelijk via Digicel Business. Vergelijk prijs, dekking op jouw locatie en contractduur.</li>
+</ul>
+<h3>Afspraken over storingen</h3>
+<p>Standaardpakketten hebben meestal geen harde garantie op beschikbaarheid. Kan je bedrijf niet zonder internet (betaalterminals, kassa, callcenter, werk voor buitenlandse klanten), dan:</p>
+<ul>
+ <li>vraag je naar een <b>service level agreement</b>: beschikbaarheid in procenten, reactie- en hersteltijd, compensatie;</li>
+ <li>neem je een <b>tweede verbinding</b> van een andere aanbieder of een 4G-router als back-up;</li>
+ <li>zet je router, switch en betaalterminal op een <b>UPS</b>, anders valt internet bij loadshedding ook weg.</li>
+</ul>
+<p>Werk je voor Europese klanten, dan vragen zij steeds vaker naar beveiliging en continuïteit: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+<h3>Datacenter en cloud</h3>
+<p><b>Datasur</b>, in 2014 opgericht door Telesur, is een lokaal datacenter met ISO 27001- en ISO 22301-certificering, voor hosting, co-locatie en cloud. In september 2025 tekende Datasur een samenwerkingsovereenkomst met Cloud Carib voor een "sovereign cloud", waarbij gegevens in Suriname blijven, en voor regionale uitwijk bij calamiteiten. Kies je voor een buitenlandse cloud, let dan op waar je data staan en hoe je bij een internetstoring toch kunt doorwerken.</p>
+{% else %}
+<p><b>Telesur</b> runs the fixed network and is rolling out fibre; according to Telesur, about 70% of Paramaribo had been moved to fibre by late 2025, and speed complaints now come mainly from copper lines. Business packages (October 2026):</p>
+{% set c1 = 'Package' %}{% set c2 = 'Speed' %}{% set c3 = 'Price per month' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Telesur business fibre, Basic</b></td><td data-l="{{ c2 }}">Up to 400 Mbps download and upload</td><td data-l="{{ c3 }}">SRD 1,124.96 excl. VAT, 2-year contract</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Telesur business fibre, higher speed</b></td><td data-l="{{ c2 }}">Up to 1 Gbps download and upload</td><td data-l="{{ c3 }}">SRD 1,899.95 excl. VAT, 2-year contract</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Applying</b> through the application form (emailed to customer service), a Telesur branch or MyTelesur. A standard installation currently has no connection fee; custom work gets a quote, and you pay a contractor for extra digging. Allow <b>four to six weeks</b>.</li>
+ <li><b>Extras for businesses:</b> fixed IP address, data lines and VPN between sites, international data links, SIP trunks and IP phone systems. Business support is available 24/7 and Telesur publishes outages online.</li>
+ <li><b>International capacity:</b> in November 2025 Telesur and Orange Wholesale signed for 100 Gbps of capacity over the Kanawa submarine cable (Paramaribo-Albina-Cayenne-Martinique), alongside existing links.</li>
+ <li><b>Interior:</b> by late December 2025 Telesur had 4G in more than thirty communities in the interior, and Telesur is modernising 74 masts. Useful for lodges, mines and shops in the interior; test coverage on site.</li>
+ <li><b>Digicel</b> offers mobile and internet, for businesses through Digicel Business. Compare price, coverage at your location and contract length.</li>
+</ul>
+<h3>Agreements on outages</h3>
+<p>Standard packages usually carry no firm availability guarantee. If your business cannot do without internet (payment terminals, till, call centre, work for foreign clients):</p>
+<ul>
+ <li>ask for a <b>service level agreement</b>: availability as a percentage, response and repair times, compensation;</li>
+ <li>add a <b>second connection</b> from another provider or a 4G router as backup;</li>
+ <li>put your router, switch and payment terminal on a <b>UPS</b>, or the internet goes down during load shedding too.</li>
+</ul>
+<p>If you work for European clients, they increasingly ask about security and continuity: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+<h3>Data centre and cloud</h3>
+<p><b>Datasur</b>, founded by Telesur in 2014, is a local data centre certified to ISO 27001 and ISO 22301, for hosting, colocation and cloud. In September 2025 Datasur signed a memorandum of understanding with Cloud Carib for a "sovereign cloud" in which data stays in Suriname, and for regional disaster recovery. If you choose a foreign cloud, check where your data is held and how you keep working during an internet outage.</p>
+{% endif %}
+
+<h2>{{ 'Stappenplan: nutsvoorzieningen voor een nieuw pand' if nl else 'Step plan: utilities for new premises' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Vóór je huurt of koopt:</b> vraag de verhuurder naar de bestaande aansluitingen (fasen, vermogen, wateraansluiting, glasvezel), openstaande rekeningen en of de meters op naam kunnen. Check op de EBS-pagina of de wijk vaak in het loadsheddingschema staat. Zie <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>Maak een lijst van je verbruik:</b> airco's, koeling, machines, verlichting. Daarmee kiest je installateur het vermogen.</li>
+ <li><b>Schakel erkende installateurs in</b> voor stroom (EBS-erkend) en water (SWM-erkend), en vraag bij groot verbruik direct een vermogensaanvraag aan.</li>
+ <li><b>Vraag internet aan</b> zodra het adres vaststaat; reken vier tot zes weken.</li>
+ <li><b>Plan noodstroom:</b> UPS voor kassa en netwerk, en een generator of zon met batterij als koeling of productie door moet.</li>
+ <li><b>Regel bouw- of tijdelijke aansluitingen</b> als je verbouwt.</li>
+ <li><b>Overschrijven of nieuw aanvragen</b> op naam van je bedrijf, met KKF-uittreksel en ID.</li>
+ <li><b>Betaalwijze instellen</b> en de vervaldagen in je kasplanning zetten (<a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>).</li>
+ <li><b>Vergunningen voor de rest van je zaak</b>, zoals bouw-, milieu- en bedrijfsvergunningen: <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Before you rent or buy:</b> ask the landlord about existing connections (phases, capacity, water connection, fibre), unpaid bills and whether the meters can be transferred. Check on the EBS page whether the area is often in the load shedding schedule. See <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>List your consumption:</b> air conditioners, refrigeration, machines, lighting. Your installer uses it to choose the capacity.</li>
+ <li><b>Hire approved installers</b> for power (EBS-approved) and water (SWM-approved), and file a capacity request straight away for heavy use.</li>
+ <li><b>Order internet</b> as soon as the address is fixed; allow four to six weeks.</li>
+ <li><b>Plan backup power:</b> a UPS for the till and network, and a generator or solar with battery if refrigeration or production must keep running.</li>
+ <li><b>Arrange construction or temporary connections</b> if you are fitting out.</li>
+ <li><b>Transfer or apply</b> in your company's name, with a KKF extract and ID.</li>
+ <li><b>Set up payment</b> and put the due dates in your cash plan (<a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a>).</li>
+ <li><b>Permits for the rest of your business</b>, such as building, environmental and business licences: <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn apparatuur kapot is na een stroomuitval?</b> Maak foto's, bewaar de kapotte onderdelen en de factuur, en dien een schadeclaim in bij EBS. Meld het ook bij je verzekeraar.</li>
+ <li><b>...mijn rekening ineens veel hoger is?</b> Vergelijk met je eigen meterstand. Vaak is een eerder geschatte stand gecorrigeerd. Geef de juiste stand door en vraag om herberekening.</li>
+ <li><b>...EBS zegt dat er op mijn locatie te weinig vermogen is?</b> Vraag welke netuitbreiding nodig is en wat die kost, en reken een eigen opwekinstallatie door als alternatief.</li>
+ <li><b>...ik in het binnenland een lodge of mijnkamp heb?</b> Daar is meestal geen EBS-net. Combineer zonne-energie, batterijen en een generator, en volg de projecten voor binnenlandelektrificatie.</li>
+ <li><b>...de SWM mijn wijk niet bedient?</b> Vraag of een uitbreiding van de hoofdleiding gepland is; de kosten van een hoofdbuis worden apart berekend.</li>
+ <li><b>...mijn internet dagen plat ligt?</b> Meld het en vraag een storingsnummer; met een SLA kun je compensatie vragen. Zorg voor een mobiele back-up.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my equipment is damaged after a power failure?</b> Take photos, keep the broken parts and the invoice, and file a damage claim with EBS. Also notify your insurer.</li>
+ <li><b>...my bill is suddenly much higher?</b> Compare with your own meter reading. Often an earlier estimated reading has been corrected. Submit the correct reading and ask for a recalculation.</li>
+ <li><b>...EBS says there is not enough capacity at my location?</b> Ask what grid extension is needed and what it costs, and cost out your own generating installation as an alternative.</li>
+ <li><b>...I run a lodge or mining camp in the interior?</b> There is usually no EBS grid. Combine solar, batteries and a generator, and follow the interior electrification projects.</li>
+ <li><b>...SWM does not serve my area?</b> Ask whether an extension of the main is planned; the cost of a main pipe is charged separately.</li>
+ <li><b>...my internet is down for days?</b> Report it and get a fault number; with an SLA you can claim compensation. Keep a mobile backup.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Verbruikslijst gemaakt en vermogen bepaald met een erkende installateur</li>
+ <li>Vermogensaanvraag bij EBS (bij groot verbruik)</li>
+ <li>Stroomaansluiting gekeurd, geregistreerd op naam van het bedrijf</li>
+ <li>Wateraansluiting (tariefgroep 41) of eigen waterbron getest</li>
+ <li>Glasvezel aangevraagd, plus een back-upverbinding</li>
+ <li>UPS voor kassa, router en betaalterminal</li>
+ <li>Generator of zon met batterij voor koeling en productie</li>
+ <li>Loadsheddingpagina van EBS als bladwijzer, aansluitnummer bij de hand</li>
+ <li>Stroom- en waterkosten met hogere tarieven doorgerekend in je plan</li>
+ <li>Verzekering voor schade door uitval en spanningspieken</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Consumption list made and capacity set with an approved installer</li>
+ <li>Capacity request filed with EBS (for heavy use)</li>
+ <li>Power connection inspected and registered in the company's name</li>
+ <li>Water connection (tariff group 41) or own water source tested</li>
+ <li>Fibre ordered, plus a backup connection</li>
+ <li>UPS for till, router and payment terminal</li>
+ <li>Generator or solar with battery for refrigeration and production</li>
+ <li>EBS load shedding page bookmarked, connection number to hand</li>
+ <li>Power and water costs with higher tariffs included in your plan</li>
+ <li>Insurance for damage from outages and voltage spikes</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://nvebs.com/elektriciteit/stroomtarieven" rel="noopener">{{ 'EBS: stroomtarieven (geldig per december 2024)' if nl else 'EBS: electricity tariffs (valid from December 2024)' }}</a></li>
+ <li><a href="https://nvebs.com/elektriciteit/self-service-diensten/aansluitingen-aanvragen" rel="noopener">{{ 'EBS: aansluitingen aanvragen' if nl else 'EBS: applying for a connection' }}</a></li>
+ <li><a href="https://nvebs.com/elektriciteit/zelf-opwekken-en-terugleveren" rel="noopener">{{ 'EBS: zelf opwekken en terugleveren' if nl else 'EBS: self-generation and feed-in' }}</a></li>
+ <li><a href="https://nvebs.com/nieuws/1112/stroomtarieven-niet-verhoogd" rel="noopener">{{ 'EBS: stroomtarieven niet verhoogd (11 februari 2025)' if nl else 'EBS: tariffs not increased (11 February 2025)' }}</a></li>
+ <li><a href="https://www.gfcnieuws.com/ebs-kondigt-minimaal-drie-uur-loadshedding-aan-door-sterk-stijgend-energieverbruik/" rel="noopener">{{ 'GFC Nieuws: EBS kondigt loadshedding aan (25 augustus 2026)' if nl else 'GFC Nieuws: EBS announces load shedding (25 August 2026)' }}</a></li>
+ <li><a href="https://dagbladdewest.com/2026/09/03/abiamofo-loadshedding-is-door-tekort-aan-opwekkingcapaciteit-en-niet-door-gestegen-brandstofprijzen/" rel="noopener">{{ 'De West: minister Abiamofo over het tekort (3 september 2026)' if nl else 'De West: Minister Abiamofo on the shortfall (3 September 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/09/15/ebs-klanten-kunnen-loadshedding-dagelijks-online-per-aansluiting-controleren/" rel="noopener">{{ 'Suriname Herald: loadshedding online controleren (15 september 2026)' if nl else 'Suriname Herald: checking load shedding online (15 September 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/14/loadshedding-ebs-treft-ook-watervoorziening-in-paramaribo-noord/" rel="noopener">{{ 'Suriname Herald: loadshedding raakt watervoorziening (14 oktober 2026)' if nl else 'Suriname Herald: load shedding hits water supply (14 October 2026)' }}</a></li>
+ <li><a href="https://nvebs.com/nieuws/1013/bezuinig-energieverbuik-voorkom-loadshedding" rel="noopener">{{ 'EBS: piekuren en energie besparen (augustus 2024)' if nl else 'EBS: peak hours and saving energy (August 2024)' }}</a></li>
+ <li><a href="https://gov.sr/regering-benadrukt-urgentie-van-zuinig-energieverbruik/" rel="noopener">{{ 'Regering: energiesubsidie en gemiddeld tarief (februari 2024)' if nl else 'Government: energy subsidy and average tariff (February 2024)' }}</a></li>
+ <li><a href="https://gov.sr/eas-lanceert-toekomstgericht-elektriciteitssectorplan/" rel="noopener">{{ 'EAS: Elektriciteitssectorplan gelanceerd (15 mei 2025)' if nl else 'EAS: Electricity Sector Plan launched (15 May 2025)' }}</a></li>
+ <li><a href="https://eas.sr/energiecrisis-onderstreept-noodzaak-van-structurele-regulering-en-uitvoering-electriciteit-sector-plan/" rel="noopener">{{ 'EAS: energiecrisis en uitvoering ESP (augustus 2026)' if nl else 'EAS: energy crisis and implementing the ESP (August 2026)' }}</a></li>
+ <li><a href="https://eas.sr/eas-wil-meer-inzicht-in-voorstellen-voor-uitbreiding-van-elektriciteitsvoorziening/" rel="noopener">{{ 'EAS: pre-screening van energievoorstellen (september 2026)' if nl else 'EAS: pre-screening of energy proposals (September 2026)' }}</a></li>
+ <li><a href="https://eas.sr/kwetsbare-afnemers-ontvangen-50-korting-op-maandelijkse-stroomrekening/" rel="noopener">{{ 'EAS: 50% korting voor kwetsbare afnemers' if nl else 'EAS: 50% discount for vulnerable customers' }}</a></li>
+ <li><a href="https://gov.sr/investeringen-in-drinkwater-en-energie-in-lijn-met-toekomstige-ontwikkelingen/" rel="noopener">{{ 'Jaarrede 2027: drinkwater en energie (30 september 2026)' if nl else 'Annual address 2027: drinking water and energy (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/validatie-energiebeleidsdocument-in-gang-gezet-richtinggevend-kader-energiebeleid-binnenland/" rel="noopener">{{ 'NH: energiebeleid binnenland gevalideerd (december 2025)' if nl else 'NH: interior energy policy validated (December 2025)' }}</a></li>
+ <li><a href="https://swm.sr/e-diensten/aansluiting-aanvragen/" rel="noopener">{{ 'SWM: aansluiting aanvragen' if nl else 'SWM: applying for a connection' }}</a></li>
+ <li><a href="https://swm.sr/betalen/" rel="noopener">{{ 'SWM: betalen en veelgestelde vragen' if nl else 'SWM: payments and FAQ' }}</a></li>
+ <li><a href="https://www.telesur.sr/zakelijk/internet/" rel="noopener">{{ 'Telesur: zakelijk internet (oktober 2026)' if nl else 'Telesur: business internet (October 2026)' }}</a></li>
+ <li><a href="https://www.telesur.sr/zakelijk/data/" rel="noopener">{{ 'Telesur: zakelijke dataverbindingen' if nl else 'Telesur: business data connections' }}</a></li>
+ <li><a href="https://dwtonline.com/telesur-breidt-internetcapaciteit-uit/" rel="noopener">{{ 'De Ware Tijd: Telesur en Orange Wholesale (20 november 2025)' if nl else 'De Ware Tijd: Telesur and Orange Wholesale (20 November 2025)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2025/12/27/telesur-breidt-4g-dekking-fors-uit-in-het-binnenland/" rel="noopener">{{ 'Suriname Herald: 4G in het binnenland (27 december 2025)' if nl else 'Suriname Herald: 4G in the interior (27 December 2025)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2025/09/21/telesur-moderniseert-74-zendmasten-in-binnenland-voor-4g-lte/" rel="noopener">{{ 'Suriname Herald: modernisering 74 zendmasten (september 2025)' if nl else 'Suriname Herald: 74 masts modernised (September 2025)' }}</a></li>
+ <li><a href="https://datasur.sr/about/" rel="noopener">{{ 'Datasur: over Datasur' if nl else 'Datasur: about' }}</a></li>
+ <li><a href="https://datasur.sr/?p=9220" rel="noopener">{{ 'Datasur en Cloud Carib: sovereign cloud (september 2025)' if nl else 'Datasur and Cloud Carib: sovereign cloud (September 2025)' }}</a></li>
+ <li><a href="https://www.digicelgroup.com/sr/nl" rel="noopener">Digicel Suriname</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Tarieven en loadshedding veranderen; controleer de actuele stand bij EBS, de SWM en je telecomaanbieder.' if nl else 'Tariffs and load shedding change; check the current position with EBS, SWM and your telecom provider.' }}</p>
+</div>
+{% endblock %}

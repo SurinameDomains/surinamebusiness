@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check in January and whenever the Mining Act, the DAS law or the Gold Board law reaches DNA (dna.sr "In behandeling"),
+    when a new royalty decree appears on sris.sr, and when EITI Suriname publishes a new report. Bump the asof date when you do. -#}
+<div class="prose">
+<h1>{{ 'Mijnbouw en goud: vergunningen, regels en kansen' if nl else 'Mining and gold in Suriname: licences, rules and opportunities' }}</h1>
+{% if nl %}
+<p class="lead">Mijnrechten krijg je van de minister van Natuurlijke Hulpbronnen, op advies van de Geologisch Mijnbouwkundige Dienst (GMD), onder het Mijnbouwdecreet van 1986. Een kleinschalig goudrecht dekt maximaal 200 hectare voor twee jaar; de grote mijnen werken met een mineralenovereenkomst die De Nationale Assemblée goedkeurt. De regering scherpt in 2026 het toezicht op de goudsector aan: er komt een Gold Board, een herziene Mijnbouwwet ligt klaar en na de vervuiling van de Saramaccarivier moeten overtreders sluiten.</p>
+{% else %}
+<p class="lead">Mining rights are granted by the Minister of Natural Resources, on the advice of the Geological Mining Service (GMD), under the 1986 Mining Decree. A small-scale gold right covers at most 200 hectares for two years; the large mines operate under a mineral agreement approved by the National Assembly. In 2026 the government is tightening control of the gold sector: a Gold Board is coming, a revised Mining Act is ready, and after the pollution of the Saramacca River operators who break the rules are to be shut down.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Kleinschalig mijnrecht' if nl else 'Small-scale mining right' }}</div><div class="big">200 ha</div><div class="sub">{{ 'maximaal, 2 jaar, verlengbaar' if nl else 'maximum, 2 years, renewable' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Goudproductie 2024' if nl else 'Gold production 2024' }}</div><div class="big">{{ '27.642 kg' if nl else '27,642 kg' }}</div><div class="sub">{{ 'waarvan 40% klein- en middenschalig (CBvS, EITI)' if nl else 'of which 40% small and medium scale (CBvS, EITI)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Overheidsontvangsten mijnbouw' if nl else 'Government mining receipts' }}</div><div class="big">{{ 'SRD 6,9 mld' if nl else 'SRD 6.9 bn' }}</div><div class="sub">{{ 'in 2024, volgens het EITI-rapport' if nl else 'in 2024, according to the EITI report' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>De basis is het <b>Mijnbouwdecreet E-58</b> (S.B. 1986 no. 28). Het kent vijf rechten: verkenning, exploratie, exploitatie, kleinschalige mijnbouw en bouwmaterialen (zand, grind, steen).</li>
+ <li>Je vraagt aan bij het ministerie van <b>Natuurlijke Hulpbronnen (NH)</b>; de GMD controleert of het gebied vrij is en vraagt advies aan het ministerie dat over grond gaat en de districtscommissaris.</li>
+ <li>Een herziene <b>Mijnbouwwet</b> en een wet op de <b>Delfstoffen Autoriteit Suriname (DAS)</b> zijn uitgewerkt, maar lagen op 26 oktober 2026 niet bij DNA. Een wet voor een <b>Gold Board</b> moet in het vierde kwartaal van 2026 naar het parlement.</li>
+ <li>Kleinschalige goudzoekers kunnen zich sinds juli 2026 laten registreren bij de commissie <b>OKGS</b>. Goud verkopen mag alleen aan vergunde opkopers en exporteurs.</li>
+ <li>Kwik, cyanide en JinChan komen onder strenger toezicht. Wie vervuilt, riskeert sluiting.</li>
+ <li>De meeste kansen voor gewone bedrijven zitten in <b>toelevering</b> aan de grote mijnen: transport, onderhoud, catering, laboratoria, beveiliging en herstel van mijngebieden.</li>
+{% else %}
+ <li>The basis is the <b>Mining Decree E-58</b> (S.B. 1986 no. 28). It provides five rights: reconnaissance, exploration, exploitation, small-scale mining and building materials (sand, gravel, stone).</li>
+ <li>You apply to the Ministry of <b>Natural Resources (NH)</b>; the GMD checks whether the area is free and asks the ministry responsible for land and the district commissioner for advice.</li>
+ <li>A revised <b>Mining Act</b> and a law creating the <b>Suriname Minerals Authority (DAS)</b> have been drafted, but were not before parliament on 26 October 2026. A bill for a <b>Gold Board</b> is due to go to parliament in the fourth quarter of 2026.</li>
+ <li>Small-scale miners can register with the <b>OKGS</b> commission since July 2026. Gold may only be sold to licensed buyers and exporters.</li>
+ <li>Mercury, cyanide and JinChan are coming under stricter control. Polluters risk closure.</li>
+ <li>Most opportunities for ordinary businesses are in <b>supplying</b> the large mines: transport, maintenance, catering, laboratories, security and rehabilitation of mined areas.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie regelt wat' if nl else 'Who does what' }}</h2>
+{% set c1 = 'Instantie' if nl else 'Body' %}{% set c2 = 'Rol' if nl else 'Role' %}{% set c3 = 'Je hebt ermee te maken als' if nl else 'You deal with it when' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Ministerie van Natuurlijke Hulpbronnen (NH)</b></td><td data-l="{{ c2 }}">Mijnbouwbeleid, verlenen van mijnrechten, monitoringcommissie voor de grote mijnen</td><td data-l="{{ c3 }}">je een mijnrecht aanvraagt, verlengt of overdraagt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Geologisch Mijnbouwkundige Dienst (GMD)</b></td><td data-l="{{ c2 }}">Kadaster van mijnrechten, geologische kaarten, mijninspectie, advies aan de minister</td><td data-l="{{ c3 }}">je wilt weten of een gebied vrij is, of een inspectie krijgt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Commissie Ordening Kleinschalige Goudsector (OKGS)</b></td><td data-l="{{ c2 }}">Registratie van kleinschalige goudmijnbouwers, optreden tegen illegale mijnbouw, onder het Kabinet van de President</td><td data-l="{{ c3 }}">je in de kleinschalige goudsector werkt of eraan levert</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Nationale Milieu Autoriteit (NMA) en ministerie van Olie, Gas en Milieu (OGM)</b></td><td data-l="{{ c2 }}">Milieuvergunningen, milieueffectrapportage, toezicht op chemicaliën</td><td data-l="{{ c3 }}">je gaat delven, verwerken of chemicaliën gebruikt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Deviezencommissie en ministerie van Economische Zaken</b></td><td data-l="{{ c2 }}">Jaarlijkse vergunning voor goudopkopers en -exporteurs; toestemming per exportzending</td><td data-l="{{ c3 }}">je goud wilt opkopen of uitvoeren</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Belastingdienst</b></td><td data-l="{{ c2 }}">Royalty, inkomstenbelasting, loonbelasting, consent- en statistiekrecht</td><td data-l="{{ c3 }}">je produceert, exporteert of personeel hebt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Bauxiet Instituut Suriname (BIS) en Grassalco</b></td><td data-l="{{ c2 }}">Advies over bauxietbeleid; staatsmijnbouwbedrijf met eigen concessies</td><td data-l="{{ c3 }}">je samenwerkt in bauxiet of op een staatsconcessie</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EITI Suriname</b></td><td data-l="{{ c2 }}">Publiceert wat mijnbouw- en oliebedrijven betalen en wat de staat ontvangt</td><td data-l="{{ c3 }}">je een partner of de sector wilt doorlichten</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Ministry of Natural Resources (NH)</b></td><td data-l="{{ c2 }}">Mining policy, granting mining rights, monitoring committee for the large mines</td><td data-l="{{ c3 }}">you apply for, renew or transfer a mining right</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Geological Mining Service (GMD)</b></td><td data-l="{{ c2 }}">Cadastre of mining rights, geological maps, mine inspection, advice to the minister</td><td data-l="{{ c3 }}">you want to know whether an area is free, or you are inspected</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Small-Scale Gold Sector Regulation Commission (OKGS)</b></td><td data-l="{{ c2 }}">Registration of small-scale gold miners, action against illegal mining, under the Cabinet of the President</td><td data-l="{{ c3 }}">you work in or supply the small-scale gold sector</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>National Environmental Authority (NMA) and Ministry of Oil, Gas and Environment (OGM)</b></td><td data-l="{{ c2 }}">Environmental permits, impact assessment, control of chemicals</td><td data-l="{{ c3 }}">you mine, process or use chemicals</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Foreign Exchange Commission and Ministry of Economic Affairs</b></td><td data-l="{{ c2 }}">Annual licence for gold buyers and exporters; permission for each export shipment</td><td data-l="{{ c3 }}">you want to buy or export gold</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Tax Administration</b></td><td data-l="{{ c2 }}">Royalty, income tax, wage tax, consent and statistical fees</td><td data-l="{{ c3 }}">you produce, export or employ staff</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Bauxite Institute (BIS) and Grassalco</b></td><td data-l="{{ c2 }}">Advice on bauxite policy; state mining company with its own concessions</td><td data-l="{{ c3 }}">you partner in bauxite or on a state concession</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EITI Suriname</b></td><td data-l="{{ c2 }}">Publishes what mining and oil companies pay and what the state receives</td><td data-l="{{ c3 }}">you want to vet a partner or the sector</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'De wetten: oud decreet, nieuwe wetten in aantocht' if nl else 'The law: an old decree, new laws on the way' }}</h2>
+{% if nl %}
+<p>Het <b>Decreet Mijnbouw</b> van 8 mei 1986 (E-58, S.B. 1986 no. 28) en het Staatsbesluit van 11 mei 1989 (S.B. 1989 no. 39) zijn nog steeds de kern. Alle delfstoffen in de bodem en in de exclusieve economische zone zijn eigendom van de staat, los van wie de grond bezit. Een grondtitel of een houtconcessie geeft je dus geen recht om te delven. Het decreet onderscheidt vijf groepen: bauxiet, radioactieve mineralen, koolwaterstoffen, overige mineralen (zoals goud) en bouwmaterialen. Rechten op radioactieve mineralen en olie en gas krijgen alleen staatsbedrijven; olie en gas lopen via Staatsolie (zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>).</p>
+<p>Het decreet vraagt mijnbouw volgens moderne internationale methoden, bescherming van gezondheid, veiligheid en ecosystemen, en <b>voorrang voor lokale werknemers en lokale inkoop</b> als die tegen vergelijkbare prijs en kwaliteit beschikbaar zijn. Grote projecten krijgen een eigen <b>mineralenovereenkomst</b> met de staat, die DNA als wet goedkeurt; wijzigingen gaan ook via DNA.</p>
+<h3>Wat er verandert</h3>
+<ul>
+ <li><b>Herziene Mijnbouwwet en DAS-wet.</b> Het ontwerp Mijnbouwwet 2024 en de conceptwet voor de Delfstoffen Autoriteit Suriname zijn in juli 2024 gepresenteerd, met onder meer local content, milieu- en sociale effectrapportage, rechten van inheemse en tribale volken, hogere boetes en meer transparantie. De DAS krijgt drie afdelingen: geologische dienst, kadaster en mijninspectie. Volgens het EITI-rapport zijn beide wetten in definitieve versie; op 26 oktober 2026 stonden ze niet op de lijst van ontwerpwetten bij DNA. Minister Abiamofo noemde in juni 2026 "benefit sharing" met gemeenschappen als belangrijk punt.</li>
+ <li><b>Gold Board.</b> President Simons kondigde op 3 augustus en in haar jaarrede van 30 september 2026 een bij wet in te stellen Goud Autoriteit aan, die toezicht houdt van winning tot export, met volledige traceerbaarheid. De conceptwet moest in het vierde kwartaal van 2026 naar het parlement.</li>
+ <li><b>Strategie kleinschalige goudwinning.</b> Op 25 mei 2026 is de Responsible Mining Strategy and Action Plan 2026-2036 gevalideerd: zes pijlers, van schonere technologie tot formalisering en handhaving.</li>
+</ul>
+<p>Volg de stand op <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% else %}
+<p>The <b>Mining Decree</b> of 8 May 1986 (E-58, S.B. 1986 no. 28) and the State Decree of 11 May 1989 (S.B. 1989 no. 39) are still the core. All minerals in the ground and in the exclusive economic zone belong to the state, separately from whoever owns the land. A land title or a timber concession therefore gives you no right to mine. The decree distinguishes five groups: bauxite, radioactive minerals, hydrocarbons, other minerals (such as gold) and building materials. Rights to radioactive minerals and to oil and gas are only granted to state companies; oil and gas run through Staatsolie (see <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>).</p>
+<p>The decree requires mining by modern international methods, protection of health, safety and ecosystems, and <b>priority for local workers and local purchasing</b> where these are available at comparable price and quality. Large projects get their own <b>mineral agreement</b> with the state, which parliament approves as a law; amendments also go through parliament.</p>
+<h3>What is changing</h3>
+<ul>
+ <li><b>Revised Mining Act and DAS law.</b> The draft Mining Act 2024 and the draft law for the Suriname Minerals Authority (DAS) were presented in July 2024, covering local content, environmental and social impact assessment, rights of indigenous and tribal peoples, higher fines and more transparency. The DAS will have three departments: geological survey, cadastre and mine inspection. According to the EITI report both laws are in final form; on 26 October 2026 they were not on parliament's list of bills. In June 2026 Minister Abiamofo named benefit sharing with communities as a key provision.</li>
+ <li><b>Gold Board.</b> On 3 August and in her annual address of 30 September 2026, President Simons announced a Gold Authority to be set up by law, supervising the chain from extraction to export with full traceability. The draft law was due to go to parliament in the fourth quarter of 2026.</li>
+ <li><b>Small-scale gold strategy.</b> The Responsible Mining Strategy and Action Plan 2026-2036 was validated on 25 May 2026: six pillars, from cleaner technology to formalisation and enforcement.</li>
+</ul>
+<p>Track the status on <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Soorten mijnrechten' if nl else 'Types of mining rights' }}</h2>
+{% set c1 = 'Recht' if nl else 'Right' %}{% set c2 = 'Looptijd' if nl else 'Term' %}{% set c3 = 'Maximaal' if nl else 'Maximum area' %}{% set c4 = 'Overdraagbaar' if nl else 'Transferable' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Verkenning</b>: algemeen onderzoek naar delfstoffen</td><td data-l="{{ c2 }}">2 jaar, eenmaal 1 jaar verlengbaar</td><td data-l="{{ c3 }}">200.000 ha</td><td data-l="{{ c4 }}">Nee</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploratie</b>: gericht zoeken en boren</td><td data-l="{{ c2 }}">3 jaar, tweemaal 2 jaar verlengbaar; het gebied krimpt telkens 25%</td><td data-l="{{ c3 }}">40.000 ha</td><td data-l="{{ c4 }}">Ja, met schriftelijke goedkeuring</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploitatie</b>: winning op industriële schaal</td><td data-l="{{ c2 }}">Tot 25 jaar, verlengbaar</td><td data-l="{{ c3 }}">10.000 ha</td><td data-l="{{ c4 }}">Ja, met schriftelijke goedkeuring</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Kleinschalige mijnbouw</b>: verkenning, exploratie en winning in één recht</td><td data-l="{{ c2 }}">2 jaar, telkens 2 jaar verlengbaar</td><td data-l="{{ c3 }}">200 ha</td><td data-l="{{ c4 }}">Nee</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Bouwmaterialen</b>: zand, grind, steen, klei</td><td data-l="{{ c2 }}">5 jaar, telkens tot 5 jaar verlengbaar</td><td data-l="{{ c3 }}">400 ha</td><td data-l="{{ c4 }}">Ja</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Reconnaissance</b>: general search for minerals</td><td data-l="{{ c2 }}">2 years, one 1-year extension</td><td data-l="{{ c3 }}">200,000 ha</td><td data-l="{{ c4 }}">No</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploration</b>: targeted search and drilling</td><td data-l="{{ c2 }}">3 years, two 2-year extensions; the area shrinks 25% each time</td><td data-l="{{ c3 }}">40,000 ha</td><td data-l="{{ c4 }}">Yes, with written approval</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploitation</b>: industrial-scale extraction</td><td data-l="{{ c2 }}">Up to 25 years, renewable</td><td data-l="{{ c3 }}">10,000 ha</td><td data-l="{{ c4 }}">Yes, with written approval</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Small-scale mining</b>: reconnaissance, exploration and extraction in one right</td><td data-l="{{ c2 }}">2 years, renewable for 2 years at a time</td><td data-l="{{ c3 }}">200 ha</td><td data-l="{{ c4 }}">No</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Building materials</b>: sand, gravel, stone, clay</td><td data-l="{{ c2 }}">5 years, renewable for up to 5 years at a time</td><td data-l="{{ c3 }}">400 ha</td><td data-l="{{ c4 }}">Yes</td></tr>
+{% endif %}
+</tbody></table>
+<p class="note">{{ 'Bron: tabel 19 van het EITI-rapport 2023-2024, op basis van hoofdstuk IV tot VIII van het Mijnbouwdecreet. Rechten op bauxiet krijgen staats- en particuliere bedrijven; rechten op overige mineralen en bouwmaterialen ook particulieren.' if nl else 'Source: table 19 of the EITI report 2023-2024, based on chapters IV to VIII of the Mining Decree. Bauxite rights go to state and private companies; rights to other minerals and building materials also to individuals.' }}</p>
+
+<h2>{{ 'Een mijnrecht aanvragen' if nl else 'Applying for a mining right' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Zoek uit of het gebied vrij is.</b> Lever bij de GMD persoonlijk een kaart in met het gewenste gebied en de coördinaten. De GMD kijkt in het kadaster of er al een recht op rust. Het online kaartportaal van de GMD vraagt een login; het EITI-rapport noemt het register daarom niet echt openbaar.</li>
+ <li><b>Stel de aanvraag op.</b> Schriftelijk, in het Nederlands, in drievoud gericht aan de minister van NH, gedateerd en ondertekend (artikel 10 van het decreet). Natuurlijke personen geven naam, geboortedatum en -plaats, nationaliteit en adres in Suriname. Rechtspersonen leveren onder meer gewaarmerkte statuten, de laatste jaarrekening met accountantsverklaring, het kapitaal en de namen van bestuurders en een vertegenwoordiger in Suriname. Zorg dat je bedrijf bij de KKF staat: <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+ <li><b>Voeg het werkplan toe.</b> Voor kleinschalige mijnbouw een werkplan; voor exploratie een algemeen programma en een gedetailleerd plan voor de eerste 12 maanden met budget, plus een toezegging om een minimumbedrag te besteden (de minister kan een bankgarantie vragen); voor bouwmaterialen de wijze van winning, de jaarlijkse hoeveelheid en een plan om het terrein daarna weer bruikbaar te maken.</li>
+ <li><b>Toon je capaciteit aan.</b> Artikel 9 eist bewijs van financiële positie, technische en organisatorische capaciteit en ervaring met het mineraal.</li>
+ <li><b>Advisering.</b> De GMD vraagt advies aan het ministerie dat over grond gaat en aan de districtscommissaris. Bij een positief advies stuurt de GMD een voorstel naar de minister, die beslist.</li>
+ <li><b>Beschikking en inschrijving.</b> Het recht staat in een beschikking met type, locatie, coördinaten en district, en wordt van kracht door inschrijving in het register bij het hypotheekkantoor.</li>
+ <li><b>Regel de rest vóór je begint.</b> Milieuvergunning bij de NMA (zie <a href="{{ U('environment') }}">{{ L('environment') }}</a>), afspraken met de gemeenschap, personeel en eventueel werkvergunningen (<a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>), en verzekeringen (<a href="{{ U('insurance') }}">{{ L('insurance') }}</a>).</li>
+</ol>
+<p class="note">Behandeltermijnen en aanvraagkosten worden niet online gepubliceerd. Vraag ze bij het Directoraat Mijnbouw van NH of de GMD, en vraag om een ontvangstbewijs met datum: het EITI-rapport stelt vast dat er geen openbaar overzicht is van ingediende aanvragen en hun status.</p>
+{% else %}
+<ol class="steps">
+ <li><b>Find out whether the area is free.</b> Hand in a map with the desired area and coordinates in person at the GMD. The GMD checks the cadastre for existing rights. The GMD's online map portal requires a login, so the EITI report does not consider the register truly public.</li>
+ <li><b>Draft the application.</b> In writing, in Dutch, in triplicate, addressed to the Minister of NH, dated and signed (article 10 of the decree). Individuals give name, date and place of birth, nationality and address in Suriname. Companies supply certified articles of association, the latest audited accounts, capital, and the names of directors and of a representative in Suriname. Make sure your company is registered with the KKF: <a href="{{ U('start') }}">{{ L('start') }}</a>.</li>
+ <li><b>Attach the work plan.</b> For small-scale mining a work plan; for exploration a general programme and a detailed plan for the first 12 months with budget, plus a commitment to spend a minimum amount (the minister may ask for a bank guarantee); for building materials the method of extraction, the annual quantity and a plan to make the land usable again afterwards.</li>
+ <li><b>Show your capacity.</b> Article 9 requires proof of financial position, technical and organisational capacity and experience with the mineral.</li>
+ <li><b>Advice.</b> The GMD asks for advice from the ministry responsible for land and from the district commissioner. If the advice is positive, the GMD sends a proposal to the minister, who decides.</li>
+ <li><b>Decision and registration.</b> The right is set out in a decision stating type, location, coordinates and district, and takes effect once entered in the register at the mortgage office.</li>
+ <li><b>Sort out the rest before you start.</b> Environmental permit from the NMA (see <a href="{{ U('environment') }}">{{ L('environment') }}</a>), agreements with the community, staff and any work permits (<a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>), and insurance (<a href="{{ U('insurance') }}">{{ L('insurance') }}</a>).</li>
+</ol>
+<p class="note">Processing times and application fees are not published online. Ask the Mining Directorate of NH or the GMD, and ask for a dated receipt: the EITI report found there is no public overview of applications and their status.</p>
+{% endif %}
+
+<h2>{{ 'Wat je betaalt' if nl else 'What you pay' }}</h2>
+{% if nl %}
+<p>Het decreet kent een jaarlijkse <b>oppervlaktebelasting</b> per hectare voor houders van exploratierechten (artikel 63) en een <b>royalty</b> voor houders van exploitatie-, kleinschalige en bouwmaterialenrechten, vastgesteld bij staatsbesluit (artikel 65). Daarnaast betaal je gewone belastingen: inkomstenbelasting, loonbelasting en AOV voor personeel (<a href="{{ U('biztax') }}">{{ L('biztax') }}</a>), BTW en bij invoer van materieel invoerrechten, consent- en statistiekrecht (<a href="{{ U('import') }}">{{ L('import') }}</a>).</p>
+<h3>Royalty op kleinschalig goud</h3>
+<p>Kleine en middelgrote mijnbouwers betalen de royalty niet zelf: zij verkopen hun goud aan opkopers en exporteurs, en de <b>exporteur</b> betaalt de royalty bij uitvoer. Het tarief is vaak gewijzigd:</p>
+<ul>
+ <li>1997: verlaagd van 3% naar 1%; 2015: naar 2,75%.</li>
+ <li>2021: verhoogd naar 7,5%, maar door protest en vrees voor smokkel nooit toegepast; per 1 januari 2022 vastgesteld op 4,5%.</li>
+ <li>2023: 5,5% (S.B. 2023 no. 35), het tarief in de EITI-jaren 2023 en 2024.</li>
+ <li>Maart 2026: de regering heeft de royalty <b>tijdelijk verlaagd</b> om smokkel tegen te gaan, met de aankondiging dat het tarief weer omhoog kan als smokkel niet afneemt. Het nieuwe percentage stond niet in de berichten die wij vonden; vraag het actuele tarief bij de Belastingdienst.</li>
+</ul>
+<h3>Grote mijnen</h3>
+<p>Rosebel betaalt volgens de mineralenovereenkomst 2,25% van de maandelijkse geraffineerde productie in natura, plus 4,25% in geld als de goudprijs boven USD 425 per troy ounce ligt. Newmont betaalt 6% van de netto smelteropbrengst. Ook bouwmaterialen hebben een eigen royalty, verhoogd in 2017.</p>
+{% else %}
+<p>The decree provides for an annual <b>area tax</b> per hectare for holders of exploration rights (article 63) and a <b>royalty</b> for holders of exploitation, small-scale and building-materials rights, set by state decree (article 65). On top of that you pay ordinary taxes: income tax, wage tax and AOV for staff (<a href="{{ U('biztax') }}">{{ L('biztax') }}</a>), VAT, and on imported equipment import duty, consent and statistical fees (<a href="{{ U('import') }}">{{ L('import') }}</a>).</p>
+<h3>Royalty on small-scale gold</h3>
+<p>Small and medium miners do not pay the royalty themselves: they sell their gold to buyers and exporters, and the <b>exporter</b> pays the royalty on export. The rate has changed often:</p>
+<ul>
+ <li>1997: cut from 3% to 1%; 2015: raised to 2.75%.</li>
+ <li>2021: raised to 7.5%, but never applied after protests and fears of smuggling; set at 4.5% from 1 January 2022.</li>
+ <li>2023: 5.5% (S.B. 2023 no. 35), the rate during the EITI years 2023 and 2024.</li>
+ <li>March 2026: the government <b>temporarily lowered</b> the royalty to counter smuggling, saying the rate may go up again if smuggling does not fall. The new percentage was not in the reports we found; ask the Tax Administration for the current rate.</li>
+</ul>
+<h3>Large mines</h3>
+<p>Under its mineral agreement Rosebel pays 2.25% of monthly refined production in kind, plus 4.25% in cash when the gold price is above USD 425 per troy ounce. Newmont pays 6% of net smelter returns. Building materials also carry their own royalty, raised in 2017.</p>
+{% endif %}
+
+<h2>{{ 'Kleinschalige goudwinning: registratie en toezicht' if nl else 'Small-scale gold mining: registration and oversight' }}</h2>
+{% if nl %}
+<p>De kleinschalige sector is groot en grotendeels informeel. In 2024 kwam 11.042 kg van de 27.642 kg goud uit klein- en middenschalige winning. Het EITI-rapport noemt schattingen tot 60.000 mensen in de sector, veel van hen migranten.</p>
+<ul>
+ <li><b>Registratie bij OKGS.</b> In de tweede week van juli 2026 startte de Commissie Ordening Kleinschalige Goudsector met een proefproject van zes maanden om iedereen te registreren die in of rond de goudsector werkt. Aanmelden kan op het OKGS-kantoor aan de Mr. Jagernath Lachmonstraat 181 in Paramaribo. Eerder gaf de commissie Ordening Goudsector (OGS, sinds 2011) registratiekaarten uit aan ongeveer 19.000 goudzoekers.</li>
+ <li><b>Beschermde gebieden.</b> In natuurparken en reservaten is goudwinning verboden. In augustus 2026 nam OKGS bij de Irenevallen in het Brownsberg Natuurpark materieel in beslag en stuurde goudzoekers weg.</li>
+ <li><b>Veiligheid.</b> President Simons sprak in maart 2026 van zwaarbewapende criminelen in de sector en kondigde voor 2026 een speciale politie-eenheid aan. Overvallen in het binnenland komen veel voor; houd daar rekening mee bij transport van goud, brandstof en geld. Zie ook <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>Goud verkopen.</b> Alleen aan opkopers en exporteurs met een vergunning van de Deviezencommissie. In maart 2026 waren 39 bedrijven vergund, maar exporteerden er maar enkele echt. Vraag bij elke verkoop een kwitantie; het EITI-rapport wijst erop dat die nu geen herkomst vermeldt, wat de Gold Board moet veranderen.</li>
+ <li><b>Witwasrisico.</b> Goudhandel is een risicosector voor witwassen. Opkopers moeten klanten identificeren en ongebruikelijke transacties melden: <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+</ul>
+{% else %}
+<p>The small-scale sector is large and largely informal. In 2024, 11,042 kg of the 27,642 kg of gold came from small and medium-scale mining. The EITI report cites estimates of up to 60,000 people in the sector, many of them migrants.</p>
+<ul>
+ <li><b>Registration with OKGS.</b> In the second week of July 2026 the Small-Scale Gold Sector Regulation Commission started a six-month pilot to register everyone working in or around the gold sector. You can sign up at the OKGS office, Mr. Jagernath Lachmonstraat 181, Paramaribo. Earlier, the Gold Sector Regulation commission (OGS, since 2011) issued registration cards to about 19,000 miners.</li>
+ <li><b>Protected areas.</b> Gold mining is banned in nature parks and reserves. In August 2026 OKGS seized equipment near the Irene Falls in Brownsberg Nature Park and ordered miners to leave.</li>
+ <li><b>Security.</b> In March 2026 President Simons spoke of heavily armed criminals in the sector and announced a special police unit for 2026. Robberies in the interior are common; plan for this when moving gold, fuel and cash. See also <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>Selling gold.</b> Only to buyers and exporters licensed by the Foreign Exchange Commission. In March 2026, 39 companies were licensed, but only a few actually exported. Ask for a receipt with every sale; the EITI report notes that receipts currently do not state the origin, which the Gold Board is meant to change.</li>
+ <li><b>Money laundering risk.</b> Gold trading is a high-risk sector for money laundering. Buyers must identify customers and report unusual transactions: <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Kwik, cyanide en JinChan' if nl else 'Mercury, cyanide and JinChan' }}</h2>
+{% if nl %}
+<p>Suriname is sinds 2018 partij bij het <b>Minamata-verdrag</b> over kwik en maakte in december 2023 een Nationaal Actieplan om kwik in de kleinschalige goudwinning terug te dringen. Een nationale wet die kwikgebruik in de mijnbouw regelt, bestaat volgens het EITI-rapport nog niet. Wat wel verandert:</p>
+<ul>
+ <li><b>Invoer van chemicaliën.</b> Sinds de gewijzigde Negatieve Lijst van 2026 zijn chemicaliën voor goudwinning (de zogenoemde Gold Ore Dressing Agents) vergunningplichtig bij invoer. Zie <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>JinChan.</b> Dit uitloogmiddel wordt veel gebruikt, vaak samen met kwik. NH, OGM en de NMA kondigden in april 2026 strengere regels aan voor invoer, opslag, transport en gebruik.</li>
+ <li><b>Handhaving na de Saramaccarivier.</b> Na de vervuiling van de Saramaccarivier in 2026 heeft de NMA opdracht gekregen goudwinningsbedrijven die zich niet aan de regels houden te sluiten (jaarrede 30 september 2026).</li>
+ <li><b>Alternatieven.</b> Het EMSAGS-project en planetGOLD (UNDP, GEF en NH) trainen mijnbouwers in kwikvrije methoden. Het tweede Mining, Training and Extension Center opende op 27 maart 2026 in Snesi Kondre. Grassalco laat bij Maripaston zien dat winning zonder kwik kan.</li>
+</ul>
+<p>Grote mijnen gebruiken cyanide onder toezicht van de NMA. Wie chemicaliën verkoopt of vervoert aan de sector, moet rekenen op meer vragen over herkomst, vergunningen en opslag.</p>
+{% else %}
+<p>Suriname has been a party to the <b>Minamata Convention</b> on mercury since 2018 and adopted a National Action Plan in December 2023 to reduce mercury in small-scale gold mining. According to the EITI report there is still no national law regulating mercury use in mining. What is changing:</p>
+<ul>
+ <li><b>Chemical imports.</b> Since the amended Negative List of 2026, chemicals for gold processing (Gold Ore Dressing Agents) need an import licence. See <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>JinChan.</b> This leaching agent is widely used, often together with mercury. In April 2026 NH, OGM and the NMA announced stricter rules on import, storage, transport and use.</li>
+ <li><b>Enforcement after the Saramacca River.</b> After the pollution of the Saramacca River in 2026, the NMA was instructed to close gold mining operations found breaking the rules (annual address, 30 September 2026).</li>
+ <li><b>Alternatives.</b> The EMSAGS project and planetGOLD (UNDP, GEF and NH) train miners in mercury-free methods. The second Mining, Training and Extension Center opened in Snesi Kondre on 27 March 2026. Grassalco shows at Maripaston that gold can be recovered without mercury.</li>
+</ul>
+<p>Large mines use cyanide under NMA supervision. If you sell or transport chemicals to the sector, expect more questions about origin, licences and storage.</p>
+{% endif %}
+
+<h2>{{ 'Milieuplichten' if nl else 'Environmental duties' }}</h2>
+{% if nl %}
+<p>Voor mijnbouw heb je naast het mijnrecht een <b>milieuvergunning</b> nodig onder de Milieu Raamwet, met een milieu- en sociale effectbeoordeling (ESIA) voor grotere projecten. Bij het einde van je recht moet je volgens het decreet de openbare veiligheid waarborgen, het gebied herstellen en het milieu beschermen. Het oude decreet stelt voor kleinschalige mijnbouw geen eisen aan een herstelplan; de nieuwe wet en de NMA doen dat wel. Reken de kosten van herstel en herbeplanting dus mee in je begroting. Alles over vergunningen, ESIA en handhaving: <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% else %}
+<p>Besides the mining right you need an <b>environmental permit</b> under the Environmental Framework Act, with an environmental and social impact assessment (ESIA) for larger projects. When your right ends, the decree requires you to ensure public safety, rehabilitate the area and protect the environment. The old decree sets no rehabilitation plan requirement for small-scale mining; the new law and the NMA do. So include the cost of rehabilitation and replanting in your budget. Everything on permits, ESIA and enforcement: <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Gemeenschappen en traditionele rechten' if nl else 'Communities and traditional rights' }}</h2>
+{% if nl %}
+<p>Veel goudgebieden liggen in of naast woon- en leefgebieden van inheemse en tribale (marron) gemeenschappen. Hun collectieve grondenrechten zijn in Suriname nog niet bij wet geregeld: twee ontwerpwetten over collectieve rechten liggen bij DNA. Het Inter-Amerikaans Hof voor de Rechten van de Mens oordeelde in de zaken van het Saramaccaanse volk (2007) en de Kaliña en Lokono (2015) dat Suriname die rechten moet erkennen en gemeenschappen vooraf moet raadplegen. President Simons zei op 30 september 2026 dat de bescherming van woon- en leefgebieden voorop komt te staan.</p>
+<ul>
+ <li><b>Praat vroeg</b> met het traditioneel gezag (kapitein, granman) en de districtscommissaris, vóór je materieel stuurt.</li>
+ <li><b>Werk volgens vrije, voorafgaande en geïnformeerde toestemming (FPIC).</b> Internationale financiers en grote kopers eisen dat, en het ontwerp van de nieuwe Mijnbouwwet neemt rechten van inheemse en tribale volken op.</li>
+ <li><b>Leg afspraken schriftelijk vast</b>: toegang, werkgelegenheid, compensatie, water en wegen. Grote mijnen werken met fondsen, zoals het Rosebel Community Fund en de Newmont Pamaka Community Development Foundation.</li>
+ <li><b>Reken op conflicten</b> tussen kleinschalige mijnbouwers en grote concessies, en tussen mijnbouw en houtkap, landbouw of toerisme in hetzelfde gebied. Zie ook <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+</ul>
+{% else %}
+<p>Many gold areas lie in or next to the lands of indigenous and tribal (Maroon) communities. Their collective land rights are not yet regulated by law in Suriname: two bills on collective rights are before parliament. The Inter-American Court of Human Rights ruled in the Saramaka People case (2007) and the Kaliña and Lokono case (2015) that Suriname must recognise those rights and consult communities beforehand. On 30 September 2026 President Simons said the protection of these living areas will come first.</p>
+<ul>
+ <li><b>Talk early</b> with the traditional authority (captain, granman) and the district commissioner, before you send in equipment.</li>
+ <li><b>Work on the basis of free, prior and informed consent (FPIC).</b> International lenders and large buyers require it, and the draft Mining Act includes rights of indigenous and tribal peoples.</li>
+ <li><b>Put agreements in writing</b>: access, jobs, compensation, water and roads. Large mines work through funds, such as the Rosebel Community Fund and the Newmont Pamaka Community Development Foundation.</li>
+ <li><b>Expect conflicts</b> between small-scale miners and large concessions, and between mining and logging, farming or tourism in the same area. See also <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'De grote projecten' if nl else 'The large projects' }}</h2>
+{% set c1 = 'Project' %}{% set c2 = 'Eigenaar' if nl else 'Owner' %}{% set c3 = 'Stand' if nl else 'Status' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Rosebel</b> (Brokopondo), goud</td><td data-l="{{ c2 }}">Zijin Mining 95%, staat 5% (sinds 2023, daarvoor IAMGOLD)</td><td data-l="{{ c3 }}">Dagbouw sinds 2004; productie 2024: 8.055 kg</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Saramacca</b> (Pikin Saramacca), goud</td><td data-l="{{ c2 }}">Rosebel 70%, Staatsolie 30%</td><td data-l="{{ c3 }}">In productie sinds 2019; verlengt de levensduur van Rosebel tot 2033</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Merian</b> (zuid van Moengo), goud</td><td data-l="{{ c2 }}">Newmont 75%, Staatsolie 25%</td><td data-l="{{ c3 }}">Commerciële productie sinds 1 oktober 2016; productie 2024: 8.545 kg; tweede opslag voor mijnafval nodig vanaf 2027</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Bauxiet West-Suriname</b> (Bakhuis, Apoera)</td><td data-l="{{ c2 }}">MoU met Chinalco (november 2024), staat 13%</td><td data-l="{{ c3 }}">Mijnbouwovereenkomst in september 2025 teruggehaald uit DNA voor heronderhandeling; de president zei in november 2025 dat ruwe bauxiet niet geëxporteerd wordt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploratie</b> (onder meer Sela Creek, Nassau, Majorodam)</td><td data-l="{{ c2 }}">Buitenlandse juniors met Surinaamse partners, zoals Miata Metals en Greenheart Gold</td><td data-l="{{ c3 }}">Boorprogramma's in 2025; kansen voor boor-, kamp- en transportdiensten</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Rosebel</b> (Brokopondo), gold</td><td data-l="{{ c2 }}">Zijin Mining 95%, state 5% (since 2023, before that IAMGOLD)</td><td data-l="{{ c3 }}">Open pit since 2004; 2024 production: 8,055 kg</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Saramacca</b> (Pikin Saramacca), gold</td><td data-l="{{ c2 }}">Rosebel 70%, Staatsolie 30%</td><td data-l="{{ c3 }}">Producing since 2019; extends Rosebel's mine life to 2033</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Merian</b> (south of Moengo), gold</td><td data-l="{{ c2 }}">Newmont 75%, Staatsolie 25%</td><td data-l="{{ c3 }}">Commercial production since 1 October 2016; 2024 production: 8,545 kg; second tailings facility needed from 2027</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>West Suriname bauxite</b> (Bakhuis, Apoera)</td><td data-l="{{ c2 }}">MoU with Chinalco (November 2024), state 13%</td><td data-l="{{ c3 }}">Mining agreement withdrawn from parliament in September 2025 for renegotiation; in November 2025 the President said raw bauxite will not be exported</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploration</b> (including Sela Creek, Nassau, Majorodam)</td><td data-l="{{ c2 }}">Foreign juniors with Surinamese partners, such as Miata Metals and Greenheart Gold</td><td data-l="{{ c3 }}">Drilling programmes in 2025; openings for drilling, camp and transport services</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>De Chinalco-deal was omstreden: het bedrijfsleven en milieuorganisaties wezen op belastingvrijstellingen, verlies van primair bos, ontbrekende ESIA en de belangen van de gemeenschappen bij Apoera. De huidige regering wil dat bauxiet in Suriname wordt verwerkt. Sectorcijfers en andere kansen: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% else %}
+<p>The Chinalco deal was contested: business groups and environmental organisations pointed to tax exemptions, loss of primary forest, the lack of an ESIA and the interests of the communities near Apoera. The current government wants bauxite to be processed in Suriname. Sector figures and other opportunities: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Goudexport en de Centrale Bank' if nl else 'Gold exports and the Central Bank' }}</h2>
+{% if nl %}
+<p>Goudexporteurs hebben een jaarlijkse vergunning van de Deviezencommissie nodig en per zending toestemming van het ministerie van Economische Zaken. Gehalte en gewicht worden vóór export vastgesteld, de royalty gaat vooraf, en sinds 17 augustus 2026 verkopen goudexporteurs 35% van hun opbrengst aan de Centrale Bank. De procedure staat op <a href="{{ U('export') }}">{{ L('export') }}</a>; de actuele goudprijs en de goudcertificaten van de Centrale Bank op <a href="{{ U('gold') }}">{{ L('gold') }}</a>. Volgens de Deviezencommissie gaat het meeste goud naar de Verenigde Arabische Emiraten, Frankrijk en Luxemburg.</p>
+<p>Verkoop je aan een Europese raffinaderij of koper, dan moet die onder de EU-verordening conflictmineralen (2017/821) de herkomst van het goud kunnen nagaan. Reken op vragen over vergunningen, mijnlocatie en kwikgebruik: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+{% else %}
+<p>Gold exporters need an annual licence from the Foreign Exchange Commission and permission from the Ministry of Economic Affairs for each shipment. Purity and weight are determined before export, the royalty is paid in advance, and since 17 August 2026 gold exporters sell 35% of their proceeds to the Central Bank. The procedure is on <a href="{{ U('export') }}">{{ L('export') }}</a>; today's gold price and the Central Bank's gold certificates on <a href="{{ U('gold') }}">{{ L('gold') }}</a>. According to the Foreign Exchange Commission most gold goes to the United Arab Emirates, France and Luxembourg.</p>
+<p>If you sell to a European refinery or buyer, it must be able to trace the origin of the gold under the EU Conflict Minerals Regulation (2017/821). Expect questions about licences, mine location and mercury use: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'EITI: wat de sector betaalt' if nl else 'EITI: what the sector pays' }}</h2>
+{% if nl %}
+<p>Het Extractive Industries Transparency Initiative (EITI) is een internationale standaard: bedrijven melden wat ze aan de staat betalen, de staat meldt wat hij ontvangt, en een onafhankelijke partij legt die cijfers naast elkaar. Het rapport over 2023 en 2024 is in januari 2026 gepubliceerd (de Nederlandse vertaling op 28 januari 2026), opgesteld door BDO in opdracht van de multi-stakeholdergroep onder NH, met financiering van de Wereldbank.</p>
+{% set c1 = 'Gegeven' %}{% set c2 = '2023' %}{% set c3 = '2024' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}">Overheidsontvangsten uit mijnbouw</td><td data-l="{{ c2 }}">SRD 6,2 miljard</td><td data-l="{{ c3 }}">SRD 6,9 miljard</td></tr>
+ <tr><td data-l="{{ c1 }}">Goudproductie totaal</td><td data-l="{{ c2 }}">30.108 kg</td><td data-l="{{ c3 }}">27.642 kg</td></tr>
+ <tr><td data-l="{{ c1 }}">waarvan klein- en middenschalig</td><td data-l="{{ c2 }}">11.760 kg</td><td data-l="{{ c3 }}">11.042 kg</td></tr>
+ <tr><td data-l="{{ c1 }}">Royalty's (mijnbouw en olie samen)</td><td data-l="{{ c2 }}">SRD 3,7 miljard</td><td data-l="{{ c3 }}">SRD 3,8 miljard</td></tr>
+</tbody></table>
+<p>Nuttig voor ondernemers: het rapport noemt de vergunde goudexporteurs, de betalingen per groot bedrijf en de zwakke plekken, zoals tegenstrijdige gegevens tussen GMD, Deviezencommissie en Economische Zaken. Gebruik het om een zakenpartner of een concessie door te lichten. In 2025 zakte de productie volgens de Centrale Bank verder; zie <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% else %}
+<p>The Extractive Industries Transparency Initiative (EITI) is an international standard: companies report what they pay the state, the state reports what it receives, and an independent party reconciles the figures. The report on 2023 and 2024 was published in January 2026 (the Dutch translation on 28 January 2026), prepared by BDO for the multi-stakeholder group under NH, with World Bank funding.</p>
+{% set c1 = 'Item' %}{% set c2 = '2023' %}{% set c3 = '2024' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}">Government receipts from mining</td><td data-l="{{ c2 }}">SRD 6.2 billion</td><td data-l="{{ c3 }}">SRD 6.9 billion</td></tr>
+ <tr><td data-l="{{ c1 }}">Total gold production</td><td data-l="{{ c2 }}">30,108 kg</td><td data-l="{{ c3 }}">27,642 kg</td></tr>
+ <tr><td data-l="{{ c1 }}">of which small and medium scale</td><td data-l="{{ c2 }}">11,760 kg</td><td data-l="{{ c3 }}">11,042 kg</td></tr>
+ <tr><td data-l="{{ c1 }}">Royalties (mining and oil combined)</td><td data-l="{{ c2 }}">SRD 3.7 billion</td><td data-l="{{ c3 }}">SRD 3.8 billion</td></tr>
+</tbody></table>
+<p>Useful for business owners: the report names the licensed gold exporters, the payments per large company and the weak spots, such as conflicting data between the GMD, the Foreign Exchange Commission and Economic Affairs. Use it to vet a business partner or a concession. In 2025 production fell further according to the Central Bank; see <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Leverancier worden van een mijn' if nl else 'Becoming a supplier to a mine' }}</h2>
+{% if nl %}
+<p>Dit is voor de meeste Surinaamse bedrijven de echte kans. Het decreet geeft lokale inkoop voorrang bij vergelijkbare prijs en kwaliteit, en een Local Content-wet is in voorbereiding (<a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>). Newmont investeerde in 2023 en 2024 volgens het EITI-rapport minstens USD 11 miljoen in gemeenschappen en lokale inkoop. Wat grote mijnen van een leverancier vragen:</p>
+<ul>
+ <li><b>Registratie in hun leveranciersportaal</b>, met complete bedrijfsgegevens. Onvolledige informatie is de meest genoemde reden voor vertraging of afwijzing.</li>
+ <li><b>Compliance</b>: KKF-uittreksel, belastingverklaring, verzekeringen, anti-corruptieverklaring en soms een kijk op je eigenaren.</li>
+ <li><b>Veiligheid</b>: een veiligheidsbeleid, getraind personeel, ongevallenregistratie en de juiste uitrusting. Op de mijn gelden strenge regels. Zie <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>Strakke administratie</b>: een order bevestigen voordat je levert, en facturen die precies aansluiten op de inkooporder. Gebruik desnoods onze <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> en <a href="{{ U('quote') }}">{{ L('quote') }}</a>.</li>
+ <li><b>Capaciteit en continuïteit</b>: kunnen leveren in het binnenland, ook in de regentijd, met reservemateriaal en een plan voor stroom- en communicatieuitval (<a href="{{ U('utilities') }}">{{ L('utilities') }}</a>).</li>
+</ul>
+<p>Begin klein, bijvoorbeeld met catering, transport (<a href="{{ U('logistics') }}">{{ L('logistics') }}</a>), onderhoud, laboratoriumwerk of herbeplanting, en bouw referenties op. Volg de inkoopberichten van de mijnen en de aanbestedingen op <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>. Meer over toeleveren aan grote bedrijven: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>. Branche- en werkgeversorganisaties organiseren af en toe leverancierstrainingen met de mijnen: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% else %}
+<p>For most Surinamese companies this is the real opportunity. The decree gives local purchasing priority at comparable price and quality, and a Local Content Act is being prepared (<a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>). According to the EITI report, Newmont invested at least USD 11 million in host communities and local procurement in 2023 and 2024. What large mines ask of a supplier:</p>
+<ul>
+ <li><b>Registration in their supplier portal</b>, with complete company details. Incomplete information is the most common reason for delay or rejection.</li>
+ <li><b>Compliance</b>: KKF extract, tax clearance, insurance, an anti-corruption declaration and sometimes a look at your owners.</li>
+ <li><b>Safety</b>: a safety policy, trained staff, incident records and the right equipment. Strict rules apply on site. See <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>Tight paperwork</b>: confirm an order before you deliver, and send invoices that match the purchase order exactly. Our <a href="{{ U('invoice') }}">{{ L('invoice') }}</a> and <a href="{{ U('quote') }}">{{ L('quote') }}</a> tools can help.</li>
+ <li><b>Capacity and continuity</b>: able to deliver in the interior, also in the rainy season, with spare equipment and a plan for power and telecom outages (<a href="{{ U('utilities') }}">{{ L('utilities') }}</a>).</li>
+</ul>
+<p>Start small, for example with catering, transport (<a href="{{ U('logistics') }}">{{ L('logistics') }}</a>), maintenance, laboratory work or replanting, and build references. Follow the mines' procurement notices and the tenders on <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>. More on supplying large companies: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>. Business and employers' associations hold supplier trainings with the mines from time to time: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Risico\'s' if nl else 'Risks' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Rechtsonzekerheid.</b> Het decreet is uit 1986, nieuwe wetten zijn aangekondigd maar niet aangenomen, en de royalty verandert vaak. Leg je afspraken met de staat schriftelijk vast.</li>
+ <li><b>Onduidelijke rechten.</b> Overlappende titels, een niet-openbaar kadaster en illegale goudzoekers op je concessie. Laat een recht altijd natrekken bij de GMD en het hypotheekkantoor voor je investeert of koopt.</li>
+ <li><b>Grondgebruik.</b> Grote uitgiftes van bos voor landbouw, zoals 113.465 ha in Nickerie waarover in 2025 en 2026 discussie was omdat NMA-vergunningen zouden ontbreken, laten zien dat bestemmingen kunnen botsen. Zie <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>Veiligheid en logistiek</b> in het binnenland: overvallen, slechte wegen in de regentijd, dure brandstof.</li>
+ <li><b>Milieuaansprakelijkheid</b>: sluiting en herstelkosten bij vervuiling.</li>
+ <li><b>Prijs en valuta</b>: de goudprijs kan hard dalen, en de 35%-regel en deviezenregels raken je kasstroom (<a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('rates') }}">{{ L('rates') }}</a>).</li>
+ <li><b>Reputatie</b>: Europese en internationale kopers kijken naar kwik, kinderarbeid, grondrechten en herkomst.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Legal uncertainty.</b> The decree dates from 1986, new laws are announced but not passed, and the royalty changes often. Put your arrangements with the state in writing.</li>
+ <li><b>Unclear rights.</b> Overlapping titles, a cadastre that is not public, and illegal miners on your concession. Always have a right checked at the GMD and the mortgage office before you invest or buy.</li>
+ <li><b>Land use.</b> Large releases of forest for agriculture, such as 113,465 ha in Nickerie, debated in 2025 and 2026 because NMA permits were reportedly missing, show that land uses can clash. See <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>Security and logistics</b> in the interior: robberies, poor roads in the rainy season, expensive fuel.</li>
+ <li><b>Environmental liability</b>: closure and clean-up costs after pollution.</li>
+ <li><b>Price and currency</b>: the gold price can fall sharply, and the 35% rule and FX rules affect your cash flow (<a href="{{ U('export') }}">{{ L('export') }}</a>, <a href="{{ U('rates') }}">{{ L('rates') }}</a>).</li>
+ <li><b>Reputation</b>: European and international buyers look at mercury, child labour, land rights and origin.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik grond heb gekocht met goud in de bodem?</b> De delfstoffen zijn van de staat. Je hebt een mijnrecht nodig, en dat kan ook aan een ander worden gegeven. Laat je adviseren voor je gaat delven.</li>
+ <li><b>...er goudzoekers op mijn concessie werken?</b> Leg het vast met foto's en coördinaten en meld het bij de GMD, de OKGS en de politie. Ga niet zelf handhaven.</li>
+ <li><b>...ik een mijnrecht wil kopen van iemand anders?</b> Een kleinschalig recht is niet overdraagbaar. Exploratie- en exploitatierechten wel, maar alleen met schriftelijke goedkeuring. Check eerst het register en lopende geschillen.</li>
+ <li><b>...ik zand of grind wil winnen voor de bouw?</b> Daarvoor bestaat een apart recht voor bouwmaterialen (maximaal 400 ha, 5 jaar), met royalty en een herstelplan. Vraag het aan bij NH.</li>
+ <li><b>...ik materieel of chemicaliën wil invoeren?</b> Controleer de Negatieve Lijst en vraag de vergunning aan vóór je bestelt: <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+ <li><b>...ik buitenlandse specialisten nodig heb?</b> Vraag tijdig werkvergunningen aan: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I bought land with gold in the ground?</b> The minerals belong to the state. You need a mining right, and it may be granted to someone else. Get advice before you start digging.</li>
+ <li><b>...miners are working on my concession?</b> Record it with photos and coordinates and report it to the GMD, the OKGS and the police. Do not enforce it yourself.</li>
+ <li><b>...I want to buy a mining right from someone else?</b> A small-scale right cannot be transferred. Exploration and exploitation rights can, but only with written approval. Check the register and any disputes first.</li>
+ <li><b>...I want to extract sand or gravel for construction?</b> There is a separate building-materials right (at most 400 ha, 5 years), with royalty and a rehabilitation plan. Apply to NH.</li>
+ <li><b>...I want to import equipment or chemicals?</b> Check the Negative List and apply for the licence before you order: <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+ <li><b>...I need foreign specialists?</b> Apply for work permits in time: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Bedrijf ingeschreven bij de KKF, met FIN-nummer en een vertegenwoordiger in Suriname</li>
+ <li>Gebied gecontroleerd in het GMD-kadaster en bij het hypotheekkantoor</li>
+ <li>Aanvraag in drievoud, in het Nederlands, met werkplan en bewijs van capaciteit</li>
+ <li>Ontvangstbewijs met datum van je aanvraag</li>
+ <li>Milieuvergunning of ESIA geregeld bij de NMA</li>
+ <li>Afspraken met traditioneel gezag en districtscommissaris op papier</li>
+ <li>Registratie bij OKGS (kleinschalige goudsector)</li>
+ <li>Goud alleen verkocht aan vergunde opkopers of exporteurs, met kwitantie</li>
+ <li>Geen kwik; chemicaliën met invoervergunning en veilige opslag</li>
+ <li>Begroting met royalty, belastingen, herstel en beveiliging</li>
+ <li>Veiligheidsplan, verzekeringen en communicatie voor het binnenland</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Company registered with the KKF, with a FIN tax number and a representative in Suriname</li>
+ <li>Area checked in the GMD cadastre and at the mortgage office</li>
+ <li>Application in triplicate, in Dutch, with work plan and proof of capacity</li>
+ <li>Dated receipt for your application</li>
+ <li>Environmental permit or ESIA arranged with the NMA</li>
+ <li>Agreements with the traditional authority and district commissioner on paper</li>
+ <li>Registration with OKGS (small-scale gold sector)</li>
+ <li>Gold sold only to licensed buyers or exporters, with a receipt</li>
+ <li>No mercury; chemicals with an import licence and safe storage</li>
+ <li>Budget covering royalty, taxes, rehabilitation and security</li>
+ <li>Safety plan, insurance and communications for the interior</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://eitisuriname.gov.sr/wp-content/uploads/2026/01/Final-Vertaling-SR-EITI-Rapport-2023-2024-28.01.2026.pdf" rel="noopener">{{ 'EITI Suriname: rapport 2023-2024 (Nederlandse vertaling, 28 januari 2026)' if nl else 'EITI Suriname: report 2023-2024 (Dutch translation, 28 January 2026)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/surinaamse-wetten/geldende-teksten-t-m-2005/decreet-mijnbouw-1986" rel="noopener">Decreet Mijnbouw 1986 (E-58)</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/03/Wijz.-besluit-Royalty-Klein-mijnbouw-ter-zake-van-Goud-en-exploitatie-bouwmaterialen-S.B.-2023-no.-35.pdf" rel="noopener">S.B. 2023 no. 35: {{ 'wijziging Besluit Royalty Kleinmijnbouw' if nl else 'amendment of the small-scale mining royalty decree' }}</a></li>
+ <li><a href="https://gov.sr/presentatie-ontwerp-mijnbouwwet-en-conceptwet-instelling-das/" rel="noopener">{{ 'NH: presentatie ontwerp Mijnbouwwet en conceptwet DAS (juli 2024)' if nl else 'NH: presentation of the draft Mining Act and DAS law (July 2024)' }}</a></li>
+ <li><a href="https://gov.sr/?p=157754" rel="noopener">{{ 'NH: minister Abiamofo over modernisering mijnbouwwetgeving (juni 2026)' if nl else 'NH: Minister Abiamofo on modernising mining law (June 2026)' }}</a></li>
+ <li><a href="https://gov.sr/nh-valideert-nationale-strategie-voor-verantwoorde-goudmijnbouw/" rel="noopener">{{ 'NH: validatie Responsible Mining Strategy 2026-2036 (mei 2026)' if nl else 'NH: validation of the Responsible Mining Strategy 2026-2036 (May 2026)' }}</a></li>
+ <li><a href="https://gov.sr/ordening-goudsector-blijft-aandachtspunt-voor-de-regering/" rel="noopener">{{ 'Kabinet van de President: Gold Board (3 augustus 2026)' if nl else 'Cabinet of the President: Gold Board (3 August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/goudsector-cruciaal-voor-surinaamse-economie-ordening-daarom-een-noodzaak/" rel="noopener">{{ 'Jaarrede 2027: ordening goudsector (30 september 2026)' if nl else 'Annual address 2027: regulating the gold sector (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/toezicht-op-goudsector-wordt-versterkt-na-vervuiling-saramaccarivier/" rel="noopener">{{ 'Jaarrede 2027: toezicht na vervuiling Saramaccarivier (30 september 2026)' if nl else 'Annual address 2027: oversight after the Saramacca River pollution (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/maatregelen-goudsector-moeten-smokkel-tegengaan-en-inkomsten-verhogen/" rel="noopener">{{ 'Kabinet van de President: royaltyverlaging en 39 vergunde exporteurs (6 maart 2026)' if nl else 'Cabinet of the President: royalty cut and 39 licensed exporters (6 March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/commissie-ordening-kleinschalige-goudsector-orienteert-zich-in-brownsberg-natuurpark/" rel="noopener">{{ 'OKGS: registratie en Brownsberg (augustus 2026)' if nl else 'OKGS: registration and Brownsberg (August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/ministeries-werken-aan-integrale-aanpak-van-jinchan-gebruik-in-de-goudsector/" rel="noopener">{{ 'NH en OGM: aanpak JinChan (april 2026)' if nl else 'NH and OGM: action on JinChan (April 2026)' }}</a></li>
+ <li><a href="https://gov.sr/snesikondre-krijgt-mtec-belangrijke-stap-naar-duurzamere-goudsector/" rel="noopener">{{ 'OGM: MTEC Snesi Kondre (maart 2026)' if nl else 'OGM: MTEC Snesi Kondre (March 2026)' }}</a></li>
+ <li><a href="https://minamataconvention.org/sites/default/files/documents/national_action_plan/Suriname-NAP-2024-EN.pdf" rel="noopener">{{ 'Minamata-verdrag: Nationaal Actieplan Suriname' if nl else 'Minamata Convention: Suriname National Action Plan' }}</a></li>
+ <li><a href="https://caribbeantoday.com/sections/business-blog/president-greelings-simons-says-suriname-will-not-export-bauxite-under-any-circumstances" rel="noopener">{{ 'Caribbean Today: president over bauxiet en Chinalco (november 2025)' if nl else 'Caribbean Today: President on bauxite and Chinalco (November 2025)' }}</a></li>
+ <li><a href="https://news.mongabay.com/2026/02/another-controversial-land-deal-in-suriname-threatens-the-amazon-rainforest/" rel="noopener">{{ 'Mongabay: landuitgifte Nickerie (februari 2026)' if nl else 'Mongabay: Nickerie land deal (February 2026)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">{{ 'DNA: ontwerpwetten in behandeling (onder meer collectieve rechten inheemse en tribale volken)' if nl else 'DNA: bills under consideration (including collective rights of indigenous and tribal peoples)' }}</a></li>
+ <li><a href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_172_ing.pdf" rel="noopener">{{ 'Inter-Amerikaans Hof: Saramaka People v. Suriname (2007)' if nl else 'Inter-American Court: Saramaka People v. Suriname (2007)' }}</a></li>
+ <li><a href="https://www.corteidh.or.cr/docs/casos/articulos/seriec_309_ing.pdf" rel="noopener">{{ 'Inter-Amerikaans Hof: Kaliña and Lokono Peoples v. Suriname (2015)' if nl else 'Inter-American Court: Kaliña and Lokono Peoples v. Suriname (2015)' }}</a></li>
+ <li><a href="https://eur-lex.europa.eu/eli/reg/2017/821/oj" rel="noopener">{{ 'Verordening (EU) 2017/821 (conflictmineralen)' if nl else 'Regulation (EU) 2017/821 (conflict minerals)' }}</a></li>
+ <li><a href="https://eitisuriname.gov.sr/" rel="noopener">EITI Suriname</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. Mijnbouwregels en tarieven veranderen; vraag de actuele stand bij NH, de GMD of de Belastingdienst.' if nl else 'General information, not legal advice. Mining rules and rates change; ask NH, the GMD or the Tax Administration for the current position.' }}</p>
+</div>
+{% endblock %}

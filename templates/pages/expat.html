@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Wonen en werken in Suriname: de praktische gids voor nieuwkomers' if nl else 'Living and working in Suriname: a practical guide for newcomers' }}</h1>
+{% if nl %}
+<p class="lead">Verhuis je naar Suriname voor een baan, een investering of terug naar je roots? Regel eerst je verblijf en eventuele werkvergunning, en daarna de rest: een woning met een schriftelijk contract, de verplichte basiszorgverzekering, een school, een bankrekening en een Surinaams rijbewijs. Reken op een gewenningsperiode van een paar maanden en houd een buffer in dollars of euro's aan.</p>
+{% else %}
+<p class="lead">Moving to Suriname for a job, an investment or back to your roots? Sort out your residence and any work permit first, then the rest: a home with a written contract, the compulsory basic health insurance, a school, a bank account and a Surinamese driving licence. Expect a settling-in period of a few months and keep a buffer in dollars or euros.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Basiszorgverzekering' if nl else 'Basic health insurance' }}</div><div class="big">{{ 'Verplicht' if nl else 'Compulsory' }}</div><div class="sub">{{ 'voor iedere ingezetene; werkgever betaalt minstens de helft' if nl else 'for every resident; employer pays at least half' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Inflatie september 2026' if nl else 'Inflation September 2026' }}</div><div class="big">{{ '7,3%' if nl else '7.3%' }}</div><div class="sub">{{ 'jaar op jaar, ABS; in april nog 10,9%' if nl else 'year on year, ABS; 10.9% in April' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Nederlands rijbewijs' if nl else 'Dutch licence' }}</div><div class="big">{{ '14 dagen' if nl else '14 days' }}</div><div class="sub">{{ 'met internationaal rijbewijs tot 1 jaar; ingezetenen een Surinaams rijbewijs' if nl else 'up to 1 year with an IDP; residents need a Surinamese licence' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Vergunningen eerst</b>: verblijfsvergunning (en voor visumplichtigen vooraf een MKV), daarna de werkvergunning die je werkgever aanvraagt. PSA-houders en remigranten van Surinaamse afkomst hebben het makkelijker. Alles staat in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>Wonen</b>: verhuurders noemen hun prijs vaak in US-dollars. Teken altijd een schriftelijk contract; sinds 1 mei 2025 geldt het nieuwe Burgerlijk Wetboek.</li>
+ <li><b>Zorg</b>: iedere ingezetene moet een basiszorgverzekering hebben. Neem daarnaast een internationale polis met repatriëring; goede privézorg is er alleen in Paramaribo.</li>
+ <li><b>School</b>: het gewone onderwijs is Nederlandstalig. Engelstalige internationale scholen in Paramaribo zijn onder meer QSI International School of Suriname en de International Academy of Suriname.</li>
+ <li><b>Spullen en dieren</b>: gebruikte verhuisboedel kan vrij van invoerrecht naar binnen, onder voorwaarden van de minister. Voor een hond of kat heb je een veterinaire invoervergunning nodig en volgt 2 weken isolatie.</li>
+ <li><b>Belasting</b>: als ingezetene betaal je loonbelasting en AOV via je werkgever; de eerste SRD 108.000 per jaar is belastingvrij.</li>
+{% else %}
+ <li><b>Permits first</b>: residence permit (and for visa nationals an MKV beforehand), then the work permit your employer applies for. PSA holders and returnees of Surinamese origin have it easier. Everything is in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li><b>Housing</b>: landlords often quote rents in US dollars. Always sign a written contract; the new Civil Code has applied since 1 May 2025.</li>
+ <li><b>Health</b>: every resident must have basic health insurance. Add an international policy with evacuation cover; good private care is only available in Paramaribo.</li>
+ <li><b>School</b>: regular education is in Dutch. English-language international schools in Paramaribo include QSI International School of Suriname and the International Academy of Suriname.</li>
+ <li><b>Belongings and pets</b>: used household goods can come in free of import duty, on the minister's conditions. A dog or cat needs a veterinary import permit and 2 weeks' isolation.</li>
+ <li><b>Tax</b>: as a resident you pay wage tax and AOV through your employer; the first SRD 108,000 a year is tax-free.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Voor wie deze gids is' if nl else 'Who this guide is for' }}</h2>
+{% if nl %}
+<p>Drie groepen verhuizen naar Suriname, elk met een eigen startpunt:</p>
+<table class="tbl stack tx"><thead><tr><th>Wie</th><th>Verblijf en werk</th><th>Lees ook</th></tr></thead><tbody>
+ <tr><td data-l="Wie">Buitenlandse werknemer</td><td data-l="Verblijf en werk">Verblijfsvergunning plus werkvergunning op naam van je werkgever; sneller via de One Stop Unit</td><td data-l="Lees ook"><a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></td></tr>
+ <tr><td data-l="Wie">Investeerder of ondernemer</td><td data-l="Verblijf en werk">Verblijfsvergunning met bewijs van middelen van bestaan; geen werkvergunning voor je eigen zaak</td><td data-l="Lees ook"><a href="{{ U('invest') }}">{{ L('invest') }}</a>, <a href="{{ U('start') }}">{{ L('start') }}</a></td></tr>
+ <tr><td data-l="Wie">Remigrant of persoon van Surinaamse afkomst</td><td data-l="Verblijf en werk">Surinaams paspoort of PSA-document: geen werkvergunning nodig; vrijgesteld van de MKV</td><td data-l="Lees ook"><a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a></td></tr>
+</tbody></table>
+<p>Deze gids herhaalt de vergunningsregels niet. Hij gaat over alles wat daarna komt.</p>
+{% else %}
+<p>Three groups move to Suriname, each with its own starting point:</p>
+<table class="tbl stack tx"><thead><tr><th>Who</th><th>Residence and work</th><th>See also</th></tr></thead><tbody>
+ <tr><td data-l="Who">Foreign employee</td><td data-l="Residence and work">Residence permit plus a work permit in your employer's name; faster through the One Stop Unit</td><td data-l="See also"><a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a></td></tr>
+ <tr><td data-l="Who">Investor or entrepreneur</td><td data-l="Residence and work">Residence permit with proof of means of support; no work permit for your own business</td><td data-l="See also"><a href="{{ U('invest') }}">{{ L('invest') }}</a>, <a href="{{ U('start') }}">{{ L('start') }}</a></td></tr>
+ <tr><td data-l="Who">Returnee or person of Surinamese origin</td><td data-l="Residence and work">Surinamese passport or PSA document: no work permit needed; exempt from the MKV</td><td data-l="See also"><a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a></td></tr>
+</tbody></table>
+<p>This guide does not repeat the permit rules. It covers everything that comes after.</p>
+{% endif %}
+
+<h2>{{ 'Een woning vinden' if nl else 'Finding a home' }}</h2>
+{% if nl %}
+<p>De meeste nieuwkomers huren eerst. Kopen kan later, als je de buurten kent; grond is vaak domeingrond in grondhuur, zie <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+<h3>Waar</h3>
+<p>Veel expats wonen in het noorden van Paramaribo, bijvoorbeeld in Zorg en Hoop en Maretraite, of dicht bij hun werk en de school van de kinderen. Verkeer in de spits is druk en sommige straten lopen bij hevige regen onder water, dus de afstand in minuten telt meer dan in kilometers. Wie werkt in Wanica, Commewijne of Para kan daar vaak ruimer wonen. Een eerste indruk per district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+<h3>Wat het kost</h3>
+<p>Er is geen officiële statistiek van huurprijzen in Suriname, en de prijzen op advertentiesites lopen sterk uiteen. Verhuurders aan buitenlanders noemen hun prijs vaak in US-dollars. Vraag minstens drie aanbiedingen in dezelfde buurt, vraag of nutsvoorzieningen, beveiliging en tuinonderhoud inbegrepen zijn, en vergelijk gemeubileerd met ongemeubileerd. Reken naar SRD met de <a href="{{ U('rates') }}">{{ L('rates') }}</a> als je loon in SRD is.</p>
+<h3>Waar je op let bij een bezichtiging</h3>
+<ul class="check">
+ <li>Bezoek de woning na een flinke regenbui: staat de straat of het erf onder water?</li>
+ <li>Is er een noodstroomvoorziening of aansluiting voor een aggregaat? Stroomonderbrekingen komen voor; zie <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li>Waterdruk en een wateropslag (tank en pomp).</li>
+ <li>Inbraakbeveiliging: traliewerk, verlichting, omheining, eventueel bewaking.</li>
+ <li>Internet: welke aanbieder levert glasvezel of kabel op dit adres? Zie <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+ <li>Airco's: hoeveel, hoe oud, wie betaalt onderhoud.</li>
+ <li>Afstand tot werk, school en een supermarkt, gemeten in de ochtendspits.</li>
+</ul>
+<h3>Het huurcontract</h3>
+<p>Sinds 1 mei 2025 geldt het nieuwe Burgerlijk Wetboek, ook voor huur. Hoe het nieuwe huurrecht in elkaar zit staat in <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>. Praktisch: leg alles schriftelijk vast.</p>
+<ul>
+ <li><b>Huurprijs en valuta</b>: in welke munt je betaalt en wat er gebeurt als de koers sterk beweegt.</li>
+ <li><b>Borg en vooruitbetaling</b>: hoeveel, waar de borg blijft en binnen welke termijn je hem terugkrijgt.</li>
+ <li><b>Nutsvoorzieningen</b>: op wiens naam stroom (EBS), water (SWM) en internet staan, en wie betaalt.</li>
+ <li><b>Onderhoud</b>: wie betaalt reparaties aan dak, pomp, airco en tuin.</li>
+ <li><b>Looptijd en opzegging</b>: einddatum, verlenging, opzegtermijn, en een clausule voor vertrek als je contract met je werkgever eindigt.</li>
+ <li><b>Inventarislijst</b>: met foto's, bij intrek en vertrek getekend door beide partijen.</li>
+</ul>
+<p class="note">Betaal geen borg voordat je de woning hebt gezien en weet dat de verhuurder ook echt de eigenaar is of een volmacht heeft. Vraag bij twijfel een kopie van de eigendoms- of grondhuurtitel.</p>
+{% else %}
+<p>Most newcomers rent first. Buying can come later, once you know the neighbourhoods; land is often state land on a lease, see <a href="{{ U('land') }}">{{ L('land') }}</a>.</p>
+<h3>Where</h3>
+<p>Many expats live in the north of Paramaribo, for example Zorg en Hoop and Maretraite, or close to work and their children's school. Rush-hour traffic is heavy and some streets flood in heavy rain, so distance in minutes matters more than in kilometres. If you work in Wanica, Commewijne or Para you can often live more spaciously there. A first look at each district: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+<h3>What it costs</h3>
+<p>There are no official rent statistics for Suriname, and prices on listing sites vary widely. Landlords renting to foreigners often quote in US dollars. Get at least three offers in the same area, ask whether utilities, security and garden maintenance are included, and compare furnished with unfurnished. Convert to SRD with <a href="{{ U('rates') }}">{{ L('rates') }}</a> if you are paid in SRD.</p>
+<h3>What to check at a viewing</h3>
+<ul class="check">
+ <li>Visit after a heavy downpour: does the street or yard flood?</li>
+ <li>Is there backup power or a connection for a generator? Power cuts happen; see <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li>Water pressure and water storage (tank and pump).</li>
+ <li>Burglary protection: bars, lighting, fencing, possibly a guard.</li>
+ <li>Internet: which provider offers fibre or cable at this address? See <a href="{{ U('utilities') }}">{{ L('utilities') }}</a>.</li>
+ <li>Air conditioners: how many, how old, who pays for maintenance.</li>
+ <li>Distance to work, school and a supermarket, timed in the morning rush.</li>
+</ul>
+<h3>The lease</h3>
+<p>The new Civil Code has applied since 1 May 2025, including to rentals. How the new tenancy rules work is covered in <a href="{{ U('civilcode') }}">{{ L('civilcode') }}</a>. In practice: put everything in writing.</p>
+<ul>
+ <li><b>Rent and currency</b>: which currency you pay in and what happens if the exchange rate moves sharply.</li>
+ <li><b>Deposit and advance</b>: how much, where the deposit is held and how soon you get it back.</li>
+ <li><b>Utilities</b>: whose name the power (EBS), water (SWM) and internet accounts are in, and who pays.</li>
+ <li><b>Maintenance</b>: who pays for repairs to the roof, pump, air conditioning and garden.</li>
+ <li><b>Term and notice</b>: end date, renewal, notice period, and a clause allowing you to leave if your employment ends.</li>
+ <li><b>Inventory</b>: with photos, signed by both sides when you move in and out.</li>
+</ul>
+<p class="note">Do not pay a deposit before you have seen the property and know the landlord really is the owner or holds a power of attorney. If in doubt, ask for a copy of the title deed or land lease.</p>
+{% endif %}
+
+<h2>{{ 'Kosten van levensonderhoud' if nl else 'Cost of living' }}</h2>
+{% if nl %}
+<p>De prijzen stegen de afgelopen jaren hard, maar het tempo is gezakt: 7,3% inflatie in september 2026, na 10,9% in april. De dollar staat sinds het voorjaar van 2026 vrij stabiel rond SRD 37,5 tot 37,8. Alle kerncijfers met bron: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<ul>
+ <li><b>Boodschappen</b>: lokale groente, fruit, vis en rijst zijn betaalbaar; geïmporteerde merkproducten liggen dichter bij Europese prijzen. Voor een aantal basisgoederen gelden maximumprijzen: <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>.</li>
+ <li><b>Wonen en nutsvoorzieningen</b>: huur is voor nieuwkomers meestal de grootste post. Stroom, water en kookgas vallen onder het verlaagde BTW-tarief van 5%.</li>
+ <li><b>School</b>: internationale scholen rekenen volgens een overzicht van The Rio Times (juli 2026) USD 5.000 tot 15.000 per kind per jaar aan lesgeld. Vraag de actuele tarieven bij de school.</li>
+ <li><b>Vervoer</b>: openbaar vervoer is beperkt, dus de meeste expats hebben een auto. Brandstofprijzen volgen de wereldmarkt.</li>
+ <li><b>Zorg</b>: basiszorgpremie plus een aanvullende internationale verzekering.</li>
+</ul>
+<p>Onderhandel je over je salaris, vergelijk dan je netto loon in SRD met deze kosten: <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Afspraken in USD beschermen tegen koersverlies; vraag hoe je werkgever loonbelasting berekent als je in dollars wordt betaald.</p>
+{% else %}
+<p>Prices rose sharply in recent years, but the pace has slowed: 7.3% inflation in September 2026, after 10.9% in April. The dollar has been fairly stable around SRD 37.5 to 37.8 since spring 2026. All key figures with sources: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+<ul>
+ <li><b>Groceries</b>: local vegetables, fruit, fish and rice are affordable; imported branded products are closer to European prices. Some basic goods have maximum prices: <a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a>.</li>
+ <li><b>Housing and utilities</b>: rent is usually the biggest item for newcomers. Electricity, water and cooking gas carry the reduced 5% VAT rate.</li>
+ <li><b>School</b>: according to an overview by The Rio Times (July 2026), international schools charge USD 5,000 to 15,000 per child per year in tuition. Ask the school for current fees.</li>
+ <li><b>Transport</b>: public transport is limited, so most expats have a car. Fuel prices follow the world market.</li>
+ <li><b>Health</b>: basic insurance premium plus a supplementary international policy.</li>
+</ul>
+<p>When negotiating your salary, compare your net pay in SRD with these costs: <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Agreements in USD protect against currency loss; ask how your employer calculates wage tax if you are paid in dollars.</p>
+{% endif %}
+
+<h2>{{ 'Zorgverzekering en ziekenhuizen' if nl else 'Health insurance and hospitals' }}</h2>
+{% if nl %}
+<p>Volgens de <b>Wet Nationale Basiszorgverzekering</b> (S.B. 2014 no. 114) moet iedere ingezetene een basiszorgverzekering hebben, ook een buitenlander met een verblijfsvergunning. Ben je in loondienst, dan regelt je werkgever de verzekering en betaalt minstens de helft van de premie. De wettelijke minimumpremie voor volwassenen van 21 tot en met 59 jaar is SRD 165 per maand, maar verzekeraars rekenen in de praktijk meer. De BZV wordt uitgevoerd door het Staatsziekenfonds (SZF) en particuliere verzekeraars zoals Assuria, Parsasco en Self Reliance. Details voor werkgevers: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<p>De basiszorg dekt de huisarts, ziekenhuisopname en basismedicijnen in Suriname. Voor expats is dat zelden genoeg. Neem een <b>internationale ziektekostenverzekering met medische evacuatie</b>: voor complexe ingrepen word je soms naar het buitenland overgebracht, en dan lopen de kosten snel op.</p>
+<table class="tbl stack tx"><thead><tr><th>Waar</th><th>Wat</th></tr></thead><tbody>
+ <tr><td data-l="Waar">Paramaribo</td><td data-l="Wat">Academisch Ziekenhuis Paramaribo (AZP, met de spoedeisende hulp), 's Lands Hospitaal, Diakonessenhuis en Sint Vincentius Ziekenhuis</td></tr>
+ <tr><td data-l="Waar">Nickerie</td><td data-l="Wat">Mungra Medisch Centrum</td></tr>
+ <tr><td data-l="Waar">Districten aan de kust</td><td data-l="Wat">Poliklinieken van de Regionale Gezondheidsdienst (RGD)</td></tr>
+ <tr><td data-l="Waar">Binnenland</td><td data-l="Wat">Medische posten van de Medische Zending</td></tr>
+</tbody></table>
+<p>Ziekenhuizen en artsen vragen vaak eerst betaling of een garantie van je verzekeraar. Kies in je eerste week een huisarts en een apotheek, en bewaar het polisnummer en het alarmnummer van je internationale verzekeraar in je telefoon. Noodnummers: 115 voor politie en ambulance, 110 voor brandweer.</p>
+{% else %}
+<p>Under the <b>National Basic Health Insurance Act</b> (S.B. 2014 no. 114) every resident must have basic health insurance, including a foreigner with a residence permit. If you are employed, your employer arranges the insurance and pays at least half of the premium. The legal minimum premium for adults aged 21 to 59 is SRD 165 a month, but insurers charge more in practice. The scheme is run by the State Health Fund (SZF) and private insurers such as Assuria, Parsasco and Self Reliance. Details for employers: <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</p>
+<p>Basic cover pays for the GP, hospital admission and basic medicines in Suriname. For expats that is rarely enough. Take <b>international health insurance with medical evacuation</b>: for complex treatment you may be flown abroad, and costs rise fast.</p>
+<table class="tbl stack tx"><thead><tr><th>Where</th><th>What</th></tr></thead><tbody>
+ <tr><td data-l="Where">Paramaribo</td><td data-l="What">Academic Hospital Paramaribo (AZP, with the emergency department), 's Lands Hospitaal, Diakonessenhuis and Sint Vincentius Hospital</td></tr>
+ <tr><td data-l="Where">Nickerie</td><td data-l="What">Mungra Medical Centre</td></tr>
+ <tr><td data-l="Where">Coastal districts</td><td data-l="What">Clinics of the Regional Health Service (RGD)</td></tr>
+ <tr><td data-l="Where">Interior</td><td data-l="What">Medical posts of the Medical Mission (Medische Zending)</td></tr>
+</tbody></table>
+<p>Hospitals and doctors often ask for payment or an insurer's guarantee first. In your first week choose a GP and a pharmacy, and save your policy number and your international insurer's emergency line in your phone. Emergency numbers: 115 for police and ambulance, 110 for fire.</p>
+{% endif %}
+
+<h2>{{ 'Scholen voor je kinderen' if nl else 'Schools for your children' }}</h2>
+{% if nl %}
+<p>Het Surinaamse onderwijs is Nederlandstalig. Voor kinderen die Nederlands spreken is een gewone of bijzondere (vaak religieuze) school een goede en goedkopere optie. Voor Engelstalige gezinnen zijn er internationale scholen in Paramaribo:</p>
+<table class="tbl stack tx"><thead><tr><th>School</th><th>Programma</th><th>Contact</th></tr></thead><tbody>
+ <tr><td data-l="School">QSI International School of Suriname</td><td data-l="Programma">Engelstalig, Amerikaanse opzet, van preschool tot en met secondary, met Advanced Placement; onderdeel van het netwerk Quality Schools International</td><td data-l="Contact">suriname.qsi.org</td></tr>
+ <tr><td data-l="School">International Academy of Suriname (IAS)</td><td data-l="Programma">Engelstalig, Noord-Amerikaans, christelijke grondslag, Pre-K tot en met grade 12, met ESL-ondersteuning en AP</td><td data-l="Contact">J.S. Lawtonlaan 20, Paramaribo; 499461; iasuriname.org</td></tr>
+</tbody></table>
+<p>Er zijn ook kleinere Engelstalige en tweetalige scholen. Vraag bij elke school naar accreditatie, aansluiting op vervolgonderwijs in je thuisland, wachtlijsten, lesgeld en bijkomende kosten (inschrijving, uniform, vervoer). Vraag wanneer het schooljaar begint en meld je ruim op tijd aan. Neem schoolrapporten en vaccinatiebewijzen mee, zo nodig vertaald.</p>
+{% else %}
+<p>Surinamese education is in Dutch. For Dutch-speaking children a public or denominational school is a good and cheaper option. For English-speaking families there are international schools in Paramaribo:</p>
+<table class="tbl stack tx"><thead><tr><th>School</th><th>Programme</th><th>Contact</th></tr></thead><tbody>
+ <tr><td data-l="School">QSI International School of Suriname</td><td data-l="Programme">English-language, American-style, preschool through secondary, with Advanced Placement; part of the Quality Schools International network</td><td data-l="Contact">suriname.qsi.org</td></tr>
+ <tr><td data-l="School">International Academy of Suriname (IAS)</td><td data-l="Programme">English-language, North American, Christian, Pre-K to grade 12, with ESL support and AP</td><td data-l="Contact">J.S. Lawtonlaan 20, Paramaribo; 499461; iasuriname.org</td></tr>
+</tbody></table>
+<p>There are also smaller English-language and bilingual schools. Ask each school about accreditation, how it connects to further education in your home country, waiting lists, tuition and extra costs (enrolment, uniform, transport). Ask when the school year starts and apply well in advance. Bring school reports and vaccination records, translated where needed.</p>
+{% endif %}
+
+<h2>{{ 'Bankieren en geld als particulier' if nl else 'Personal banking and money' }}</h2>
+{% if nl %}
+<p>Surinaamse banken bieden rekeningen in SRD, USD en EUR. Een rekening heb je nodig voor je salaris, huur en nutsrekeningen. Banken vragen meestal een geldig paspoort, je verblijfsvergunning (of het ontvangstbewijs van de aanvraag) of PSA-document, een bewijs van adres en een werkgeversverklaring. Vraag de precieze lijst vooraf, want die verschilt per bank. PSA-houders hebben volgens de wet recht op een bankrekening.</p>
+<ul>
+ <li>Overboekingen binnen Suriname in SRD en USD lopen snel via SNEPS. Overmakingen naar het buitenland gaan via SWIFT en kosten meer.</li>
+ <li>Houd in je eerste maanden een buitenlandse rekening en kaart aan als buffer.</li>
+ <li>Contant geld blijft belangrijk; zie de tips in <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li>Begin je een bedrijf, dan heb je een aparte zakelijke rekening nodig: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+</ul>
+{% else %}
+<p>Surinamese banks offer accounts in SRD, USD and EUR. You need one for your salary, rent and utility bills. Banks usually ask for a valid passport, your residence permit (or the receipt of the application) or PSA document, proof of address and an employer's letter. Ask for the exact list beforehand, as it differs between banks. By law, PSA holders have the right to open a bank account.</p>
+<ul>
+ <li>Transfers within Suriname in SRD and USD go quickly through SNEPS. Transfers abroad go via SWIFT and cost more.</li>
+ <li>Keep a foreign account and card as a buffer in your first months.</li>
+ <li>Cash still matters; see the tips in <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li>If you start a business you need a separate business account: <a href="{{ U('bankaccount') }}">{{ L('bankaccount') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Rijbewijs en auto' if nl else 'Driving licence and car' }}</h2>
+{% if nl %}
+<p>In Suriname rijd je links. Een Nederlands rijbewijs is 14 dagen na aankomst geldig; met een internationaal rijbewijs erbij mag je volgens de ANWB een jaar rijden. Word je ingezetene, dan moet je een <b>Surinaams rijbewijs</b> aanvragen. Rijbewijzen vallen onder het Korps Politie Suriname; sinds 2025 wordt een digitaal rijbewijzensysteem ingevoerd waarin je met je digitale ID aanvragen kunt doen en volgen. Vraag bij de politie welke documenten je nodig hebt om je buitenlandse rijbewijs om te zetten en of je examen moet doen; dat hangt af van het land van afgifte.</p>
+<p>Een auto kopen kan lokaal (nieuw of tweedehands) of via invoer. Invoerrechten hangen af van type, leeftijd en motor; reken het vooraf uit met <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> en lees <a href="{{ U('import') }}">{{ L('import') }}</a>. Een auto heeft een verzekering en een periodieke keuring nodig.</p>
+{% else %}
+<p>Suriname drives on the left. A Dutch licence is valid for 14 days after arrival; with an International Driving Permit as well you may drive for a year, according to the Dutch motoring club ANWB. Once you become a resident you must get a <b>Surinamese licence</b>. Licences fall under the Suriname Police Force; since 2025 a digital licensing system is being introduced in which you apply and track requests with your digital ID. Ask the police which documents you need to convert your foreign licence and whether you must sit a test; that depends on the issuing country.</p>
+<p>You can buy a car locally (new or used) or import one. Import duties depend on type, age and engine; calculate them first with <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> and read <a href="{{ U('import') }}">{{ L('import') }}</a>. A car needs insurance and periodic inspection.</p>
+{% endif %}
+
+<h2>{{ 'Je spullen meenemen: verhuisboedel' if nl else 'Bringing your belongings: household removals' }}</h2>
+{% if nl %}
+<p>De Wet Tarief van Invoerrechten 1996 (artikel 29) geeft <b>volledige vrijstelling van invoerrecht</b> voor een verhuisboedel, voor zover die uit gebruikte goederen bestaat. De minister van Financiën stelt de voorwaarden en kan de vrijstelling voorwaardelijk maken, bijvoorbeeld zodat je de spullen een tijd niet mag verkopen. Hetzelfde artikel stelt de uitzet en huwelijksgeschenken vrij van iemand die met een ingezetene trouwt en zich daarom in Suriname vestigt.</p>
+<ul>
+ <li>Maak een genummerde inventarislijst met waarde per doos, in het Nederlands of Engels.</li>
+ <li>Nieuwe goederen vallen niet onder de vrijstelling; houd aankoopbonnen apart.</li>
+ <li>De vrijstelling geldt voor invoerrecht. Vraag de Douane of je expediteur of andere heffingen, zoals BTW bij invoer, wel verschuldigd zijn.</li>
+ <li>Laat een erkende expediteur de aangifte doen; die kent de actuele voorwaarden en documenten.</li>
+ <li>Neem je een auto mee, vraag dan apart hoe die wordt behandeld en reken de invoerrechten vooraf uit.</li>
+</ul>
+<p>Over zeevracht, containers en inklaren: <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</p>
+{% else %}
+<p>The Import Duties Tariff Act 1996 (article 29) grants <b>full exemption from import duty</b> for household removals, to the extent they consist of used goods. The Minister of Finance sets the conditions and can make the exemption conditional, for example so you may not sell the items for a period. The same article exempts the trousseau and wedding gifts of someone who marries a resident and settles in Suriname as a result.</p>
+<ul>
+ <li>Make a numbered inventory with the value per box, in Dutch or English.</li>
+ <li>New goods are not covered; keep their receipts separate.</li>
+ <li>The exemption covers import duty. Ask Customs or your broker whether other charges, such as import VAT, still apply.</li>
+ <li>Have a licensed customs broker file the declaration; they know the current conditions and documents.</li>
+ <li>If you bring a car, ask separately how it is treated and calculate the duties beforehand.</li>
+</ul>
+<p>On sea freight, containers and clearance: <a href="{{ U('logistics') }}">{{ L('logistics') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Huisdieren meenemen' if nl else 'Bringing pets' }}</h2>
+{% if nl %}
+<p>Voor een hond of kat heb je een <b>veterinaire invoervergunning</b> nodig van de Veterinaire Dienst (Directoraat Veeteelt, ministerie van LVV). Je vraagt het formulier aan en dient het in op papier of per e-mail. De voorwaarden, gepubliceerd in augustus 2026:</p>
+<ol class="steps">
+ <li><b>Rabiës</b>: het dier is gevaccineerd. Kom je uit een land dat niet rabiësvrij is, dan is ook een antistoffentest nodig, 3 tot 12 maanden voor vertrek, met een uitslag van minstens 0,5 IE/ml.</li>
+ <li><b>Honden</b>: daarnaast gevaccineerd tegen parvo, hondenziekte, leptospirose, coronavirus, hepatitis en parainfluenza.</li>
+ <li><b>Binnen 7 dagen voor vertrek</b>: klinisch onderzoek zonder tekenen van besmettelijke ziekte of parasieten, plus een ontworming en een behandeling tegen vlooien en teken.</li>
+ <li><b>Gezondheidsverklaring</b> van de officiële dierenartsdienst van het land van herkomst, in het Nederlands of Engels.</li>
+ <li><b>48 uur voor aankomst</b> meld je tijd en plaats van aankomst aan het hoofd van de Veterinaire Dienst.</li>
+ <li><b>Na aankomst</b>: het dier blijft minstens 2 weken gescheiden van andere dieren.</li>
+</ol>
+<p>Vraag de luchtvaartmaatschappij apart naar haar regels voor dieren in de cabine of het ruim.</p>
+{% else %}
+<p>A dog or cat needs a <b>veterinary import permit</b> from the Veterinary Service (Directorate of Livestock, Ministry of Agriculture, LVV). You request the form and file it on paper or by email. The conditions, published in August 2026:</p>
+<ol class="steps">
+ <li><b>Rabies</b>: the animal is vaccinated. If you come from a country that is not rabies-free, an antibody test is also needed 3 to 12 months before departure, with a result of at least 0.5 IU/ml.</li>
+ <li><b>Dogs</b>: also vaccinated against parvovirus, distemper, leptospirosis, coronavirus, hepatitis and parainfluenza.</li>
+ <li><b>Within 7 days before departure</b>: a clinical check showing no signs of contagious disease or parasites, plus deworming and treatment against fleas and ticks.</li>
+ <li><b>Health certificate</b> from the official veterinary authority of the country of origin, in Dutch or English.</li>
+ <li><b>48 hours before arrival</b> notify the head of the Veterinary Service of the time and place of arrival.</li>
+ <li><b>After arrival</b>: the animal is kept apart from other animals for at least 2 weeks.</li>
+</ol>
+<p>Ask your airline separately about its rules for animals in the cabin or hold.</p>
+{% endif %}
+
+<h2>{{ 'Gezin' if nl else 'Family' }}</h2>
+{% if nl %}
+<ul>
+ <li>Iedere gezinslid heeft een eigen verblijfsvergunning nodig. Het VFS-portaal heeft een e-visumcategorie voor gezinshereniging. Details in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li>Je partner mag niet automatisch werken. Alleen wie met een Surinamer getrouwd is, is vrijgesteld; anders vraagt de werkgever van je partner een eigen werkvergunning aan.</li>
+ <li>Neem gelegaliseerde huwelijks- en geboorteakten mee, vertaald als ze niet in het Nederlands of Engels zijn.</li>
+ <li>Na je verblijfsvergunning schrijf je jezelf en je gezin in bij het Directoraat Burgerzaken (voorheen CBB).</li>
+ <li>Kinderopvang en naschoolse opvang zijn er vooral in Paramaribo; vraag op school en bij collega's naar ervaringen.</li>
+</ul>
+{% else %}
+<ul>
+ <li>Every family member needs their own residence permit. The VFS portal has an e-visa category for family reunification. Details in <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</li>
+ <li>Your partner may not automatically work. Only someone married to a Surinamese citizen is exempt; otherwise your partner's employer applies for a separate work permit.</li>
+ <li>Bring legalised marriage and birth certificates, translated if they are not in Dutch or English.</li>
+ <li>Once you have your residence permit, register yourself and your family with the Directorate of Civil Affairs (formerly CBB).</li>
+ <li>Childcare and after-school care are mainly available in Paramaribo; ask the school and colleagues for experiences.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Belasting als ingezetene' if nl else 'Tax as a resident' }}</h2>
+{% if nl %}
+<p>Woon je in Suriname, dan ben je hier belastingplichtig. Je werkgever houdt <b>loonbelasting</b> en <b>AOV-premie</b> in. De eerste SRD 108.000 per jaar van je zuiver inkomen is belastingvrij, daarboven gelden schijven van 8%, 18%, 28% en 38%. Heb je alleen loon van één werkgever, dan hoef je meestal geen aangifte te doen; met huurinkomsten, rente of een eigen bedrijf wel.</p>
+<ul>
+ <li>Wat je netto overhoudt: <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Tarieven en tabellen: <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</li>
+ <li>Aangifte, termijnen en bezwaar: <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</li>
+ <li>Houd je inkomen of bezit in je vorige woonland, vraag dan een belastingadviseur hoe je dubbele belasting voorkomt en wanneer je daar uitgeschreven bent.</li>
+</ul>
+{% else %}
+<p>If you live in Suriname you are taxable here. Your employer withholds <b>wage tax</b> and the <b>AOV</b> state pension contribution. The first SRD 108,000 a year of your net income is tax-free; above that, brackets of 8%, 18%, 28% and 38% apply. If you only have wages from one employer you usually need not file a return; with rental income, interest or your own business you do.</p>
+<ul>
+ <li>What you keep: <a href="{{ U('salary') }}">{{ L('salary') }}</a>. Rates and tables: <a href="{{ U('tax') }}">{{ L('tax') }}</a>.</li>
+ <li>Returns, deadlines and objections: <a href="{{ U('incometax') }}">{{ L('incometax') }}</a>.</li>
+ <li>If you keep income or assets in your previous country, ask a tax adviser how to avoid double taxation and when you count as having left.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Veiligheid in het dagelijks leven' if nl else 'Safety in daily life' }}</h2>
+{% if nl %}
+<p>De Amerikaanse overheid noemt Suriname over het algemeen veilig (niveau 1, september 2026); de Nederlandse overheid hanteert kleurcode geel. Diefstal en beroving komen voor, ook met wapens. Wat expats in de praktijk doen:</p>
+<ul>
+ <li>Kies een woning met goede verlichting, traliewerk en een afgesloten erf; overweeg een alarm of bewakingsdienst.</li>
+ <li>Laat geen tassen of telefoons zichtbaar in de auto en rijd met deuren op slot.</li>
+ <li>Loop 's avonds niet alleen door stille straten en neem een bekende taxi.</li>
+ <li>Bewaar kopieën van paspoort en verblijfsvergunning digitaal.</li>
+ <li>Volg het nieuws en lokale WhatsApp-groepen van je buurt.</li>
+</ul>
+<p>Werkgevers hebben hun eigen plichten voor een veilige werkplek: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+{% else %}
+<p>The US government considers Suriname generally safe (level 1, September 2026); the Dutch government uses colour code yellow. Theft and robbery happen, sometimes with weapons. What expats do in practice:</p>
+<ul>
+ <li>Choose a home with good lighting, bars and a closed yard; consider an alarm or security service.</li>
+ <li>Leave no bags or phones visible in the car and drive with doors locked.</li>
+ <li>Do not walk alone on quiet streets at night and use a known taxi.</li>
+ <li>Keep digital copies of your passport and residence permit.</li>
+ <li>Follow the news and your neighbourhood WhatsApp groups.</li>
+</ul>
+<p>Employers have their own duties for a safe workplace: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'De eerste 90 dagen' if nl else 'Your first 90 days' }}</h2>
+{% if nl %}
+<h3>Voor vertrek</h3>
+<ul class="check">
+ <li>Werk- en verblijfsvergunning gestart (of MKV als je visumplichtig bent); arbeidsovereenkomst getekend</li>
+ <li>Gelegaliseerde akten, diploma's en schoolrapporten, vertaald waar nodig</li>
+ <li>Internationale zorgverzekering met evacuatie</li>
+ <li>Internationaal rijbewijs</li>
+ <li>Veterinaire invoervergunning voor je huisdier</li>
+ <li>Inventarislijst voor de verhuisboedel en een expediteur gekozen</li>
+ <li>Tijdelijke woonruimte voor de eerste weken</li>
+</ul>
+<h3>Dag 1 tot 30</h3>
+<ol class="steps">
+ <li><b>Telefoon</b>: Surinaams nummer (Telesur of Digicel), nodig voor bank, school en WhatsApp-contact met verhuurders.</li>
+ <li><b>Verblijf</b>: aanvraag of ophalen van je verblijfsvergunning; bewaar het ontvangstbewijs.</li>
+ <li><b>Zorg</b>: basiszorgverzekering via je werkgever geregeld; huisarts en apotheek gekozen.</li>
+ <li><b>Woning</b>: bezichtigen, contract laten nakijken, inventaris met foto's.</li>
+ <li><b>School</b>: inschrijving afronden, uniform en vervoer regelen.</li>
+</ol>
+<h3>Dag 31 tot 60</h3>
+<ol class="steps">
+ <li><b>Bank</b>: persoonlijke rekening openen zodra je verblijfsdocument er is; salaris laten overmaken.</li>
+ <li><b>Nutsvoorzieningen</b>: stroom, water en internet op je naam of schriftelijk geregeld met de verhuurder.</li>
+ <li><b>Burgerzaken</b>: inschrijving van jou en je gezin.</li>
+ <li><b>Verhuisboedel</b>: inklaren met je expediteur; bonnen en inventarislijst bij de hand.</li>
+</ol>
+<h3>Dag 61 tot 90</h3>
+<ol class="steps">
+ <li><b>Rijbewijs</b>: aanvraag van het Surinaamse rijbewijs starten, ruim voor je internationale rijbewijs verloopt.</li>
+ <li><b>Auto</b>: kopen of invoeren, verzekeren, keuren.</li>
+ <li><b>Agenda</b>: einddata van verblijfs- en werkvergunning noteren; verlengen begint 3 maanden ervoor.</li>
+ <li><b>Netwerk</b>: aansluiten bij een ondernemers- of beroepsvereniging (<a href="{{ U('associations') }}">{{ L('associations') }}</a>) en evenementen bezoeken (<a href="{{ U('events') }}">{{ L('events') }}</a>).</li>
+</ol>
+{% else %}
+<h3>Before you leave</h3>
+<ul class="check">
+ <li>Work and residence permit under way (or an MKV if you need a visa); employment contract signed</li>
+ <li>Legalised certificates, diplomas and school reports, translated where needed</li>
+ <li>International health insurance with evacuation cover</li>
+ <li>International Driving Permit</li>
+ <li>Veterinary import permit for your pet</li>
+ <li>Inventory for your household goods and a customs broker chosen</li>
+ <li>Temporary accommodation for the first weeks</li>
+</ul>
+<h3>Days 1 to 30</h3>
+<ol class="steps">
+ <li><b>Phone</b>: a Surinamese number (Telesur or Digicel), needed for the bank, school and WhatsApp contact with landlords.</li>
+ <li><b>Residence</b>: apply for or collect your residence permit; keep the receipt.</li>
+ <li><b>Health</b>: basic health insurance arranged through your employer; GP and pharmacy chosen.</li>
+ <li><b>Home</b>: viewings, have the lease checked, inventory with photos.</li>
+ <li><b>School</b>: complete enrolment, arrange uniform and transport.</li>
+</ol>
+<h3>Days 31 to 60</h3>
+<ol class="steps">
+ <li><b>Bank</b>: open a personal account once you have your residence document; have your salary paid in.</li>
+ <li><b>Utilities</b>: power, water and internet in your name or agreed in writing with the landlord.</li>
+ <li><b>Civil Affairs</b>: register yourself and your family.</li>
+ <li><b>Household goods</b>: clear them with your broker; receipts and inventory to hand.</li>
+</ol>
+<h3>Days 61 to 90</h3>
+<ol class="steps">
+ <li><b>Licence</b>: start the Surinamese licence application well before your IDP expires.</li>
+ <li><b>Car</b>: buy or import, insure, inspect.</li>
+ <li><b>Calendar</b>: note the expiry dates of residence and work permits; renewals start 3 months before.</li>
+ <li><b>Network</b>: join a business or professional association (<a href="{{ U('associations') }}">{{ L('associations') }}</a>) and go to events (<a href="{{ U('events') }}">{{ L('events') }}</a>).</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn werkvergunning er nog niet is als ik wil beginnen?</b> Buiten de One Stop Unit-route mag je niet beginnen voordat de vergunning er is. Gebruik de tijd voor woning, school en zorg.</li>
+ <li><b>...de verhuurder mijn borg niet teruggeeft?</b> Verwijs naar het contract en de getekende inventaris met foto's. Stuur een schriftelijke aanmaning met een termijn; daarna kun je naar de kantonrechter. Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...ik ziek word en mijn basisverzekering het niet dekt?</b> Bel eerst het alarmnummer van je internationale verzekeraar; die geeft vaak een betalingsgarantie aan het ziekenhuis.</li>
+ <li><b>...mijn contract eindigt en ik wil blijven?</b> Een werkvergunning hoort bij één werkgever. Een nieuwe werkgever vraagt een nieuwe aan; je verblijfsvergunning moet dan nog minstens 2 maanden geldig zijn.</li>
+ <li><b>...ik zelf een bedrijf wil beginnen?</b> Lees <a href="{{ U('start') }}">{{ L('start') }}</a> en <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my work permit isn't ready when I want to start?</b> Outside the One Stop Unit route you may not start before the permit is issued. Use the time for housing, school and health care.</li>
+ <li><b>...the landlord won't return my deposit?</b> Point to the lease and the signed inventory with photos. Send a written demand with a deadline; after that you can go to the cantonal court. See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...I fall ill and basic insurance doesn't cover it?</b> First call your international insurer's emergency line; they often give the hospital a payment guarantee.</li>
+ <li><b>...my contract ends and I want to stay?</b> A work permit belongs to one employer. A new employer applies for a new one; your residence permit must then still be valid for at least 2 months.</li>
+ <li><b>...I want to start my own business?</b> Read <a href="{{ U('start') }}">{{ L('start') }}</a> and <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% endif %}
+<p><a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('jobs') }}">{{ L('jobs') }}</a> &middot; <a href="{{ U('labour') }}">{{ L('labour') }}</a> &middot; <a href="{{ U('contacts') }}">{{ L('contacts') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/02/WET-van-28-december-1995.pdf" rel="noopener">Wet Tarief van Invoerrechten 1996, S.B. 1995 no. 111 ({{ 'art. 29 verhuisboedel' if nl else 'art. 29 household removals' }})</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2023/12/beleidsdocument-reductie-vrijstellingen.pdf" rel="noopener">{{ 'Ministerie van Financiën en Planning: beleidsnota vrijstellingen bij invoer (2022)' if nl else 'Ministry of Finance and Planning: policy note on import exemptions (2022)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2026/08/Veterinaire-voorwaarden-voor-de-import-van-honden-naar-Suriname-Veterinary-requirements-for-the-importation-of-dogs-to-Suriname.pdf" rel="noopener">{{ 'LVV: veterinaire voorwaarden import honden (augustus 2026)' if nl else 'LVV: veterinary requirements for importing dogs (August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2026/08/Veterinaire-voorwaarden-voor-de-import-van-katten-Veterinary-requirements-for-the-importation-of-cats-to-Suriname.pdf" rel="noopener">{{ 'LVV: veterinaire voorwaarden import katten (augustus 2026)' if nl else 'LVV: veterinary requirements for importing cats (August 2026)' }}</a></li>
+ <li><a href="https://www.anwb.nl/vakantie/suriname/reisvoorbereiding/reisdocumenten" rel="noopener">ANWB: {{ 'rijbewijs, internationaal rijbewijs en wonen in Suriname' if nl else 'driving licence, IDP and living in Suriname' }}</a></li>
+ <li><a href="https://gov.sr/digitale-transformatie-rijbewijzensysteem-%f0%9f%96%a5%ef%b8%8f/" rel="noopener">GOV.SR / e-Government: {{ 'digitaal rijbewijzensysteem KPS (mei 2025)' if nl else 'KPS digital driving licence system (May 2025)' }}</a></li>
+ <li><a href="https://suriname.qsi.org/" rel="noopener">QSI International School of Suriname</a></li>
+ <li><a href="https://iasuriname.org/" rel="noopener">International Academy of Suriname</a></li>
+ <li><a href="https://www.riotimesonline.com/suriname-cost-of-living-guide-for-expats-2026/" rel="noopener">The Rio Times: {{ 'kosten van levensonderhoud voor expats (juli 2026)' if nl else 'cost of living for expats (July 2026)' }}</a></li>
+ <li><a href="https://www.nederlandwereldwijd.nl/reisadvies/suriname" rel="noopener">{{ 'Nederlandse overheid: reisadvies Suriname (oktober 2026)' if nl else 'Dutch government: travel advice Suriname (October 2026)' }}</a></li>
+ <li><a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Suriname.html" rel="noopener">U.S. Department of State: Suriname {{ 'landeninformatie (september 2026)' if nl else 'country information (September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-buitenlandse-zaken-internationale-handel-samenwerking/personen-van-surinaamse-afkomst-psa/" rel="noopener">{{ 'Buitenlandse Zaken: Personen van Surinaamse Afkomst (PSA)' if nl else 'Foreign Affairs: Persons of Surinamese Origin (PSA)' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2024/10/Verblijfsvergunningen.pdf" rel="noopener">{{ 'Justitie en Politie: verblijfsvergunningen' if nl else 'Justice and Police: residence permits' }}</a></li>
+ <li><a href="https://statistics-suriname.org/" rel="noopener">{{ 'Algemeen Bureau voor de Statistiek: consumentenprijsindex' if nl else 'General Bureau of Statistics: consumer price index' }}</a></li>
+ <li><a href="https://www.telesur.sr/sim-kaarten/" rel="noopener">Telesur: {{ 'simkaarten' if nl else 'SIM cards' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of fiscaal advies. Voorwaarden van douane, banken en scholen veranderen; vraag ze na voordat je verhuist.' if nl else 'General information, not legal or tax advice. Customs, bank and school conditions change; check them before you move.' }}</p>
+</div>
+{% endblock %}

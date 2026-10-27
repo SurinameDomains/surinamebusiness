@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set std = (F.VAT.standard * 100)|round|int %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Bedrijfsverzekeringen in Suriname' if nl else 'Business insurance in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">Drie verzekeringen zijn voor de meeste bedrijven wettelijk verplicht: een WA-verzekering voor elk motorvoertuig, een ongevallenverzekering voor je werknemers en de basiszorgverzekering voor je personeel. Al het andere is vrijwillig, maar een brand, inbraak of claim kan een klein bedrijf in één keer failliet maken. Verzeker vooral wat je niet zelf kunt dragen, en verzeker het voor de echte waarde, liefst in de munt waarin je het hebt betaald.</p>
+{% else %}
+<p class="lead">Three types of insurance are required by law for most businesses: third-party cover for every motor vehicle, accident insurance for your employees and basic health insurance for your staff. Everything else is voluntary, but a fire, burglary or claim can bankrupt a small business in one go. Insure mainly what you cannot carry yourself, and insure it for its real value, preferably in the currency you paid for it in.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Wettelijk verplicht' if nl else 'Required by law' }}</div><div class="big">3</div><div class="sub">{{ 'WA motorvoertuigen, ongevallen, basiszorg' if nl else 'motor third party, accident, basic health' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Onder toezicht CBvS' if nl else 'Supervised by CBvS' }}</div><div class="big">12</div><div class="sub">{{ 'verzekeraars en 1 holding' if nl else 'insurers and 1 holding company' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Btw op schadepolissen' if nl else 'VAT on non-life policies' }}</div><div class="big">{{ std }}%</div><div class="sub">{{ 'leven en lokale ziektekosten vrijgesteld' if nl else 'life and local health exempt' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Verplicht</b>: WAM voor elk voertuig op de openbare weg; ongevallenverzekering voor alle werknemers vanaf de eerste werkdag; basiszorgverzekering voor werknemers. Premies en verdeling staan in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+ <li><b>Bijna altijd verstandig</b>: brand en inventaris, aansprakelijkheid (AVB), inbraak en diefstal, en voor wie afhankelijk is van één locatie een bedrijfsschadeverzekering.</li>
+ <li><b>Per sector</b>: transport (lading, goederen onderweg), werkplaatsen (machinebreuk), dienstverleners (beroepsaansprakelijkheid), bedrijven met veel data (cyber).</li>
+ <li><b>Landbouw</b>: een breed aanbod van oogst- of veeverzekeringen is er in Suriname niet. Verzeker gebouwen, machines en voorraad, en bouw zelf een buffer op.</li>
+ <li><b>Toezicht</b>: de CBvS, nog op basis van een wet uit 1968. Een nieuwe Wet Toezicht Verzekeringswezen, ook voor tussenpersonen, ligt bij DNA.</li>
+ <li><b>Schade</b>: beperk de schade, maak foto's, doe aangifte bij diefstal en meld het direct. Controleer elk jaar of je verzekerde sommen nog kloppen met de koers.</li>
+{% else %}
+ <li><b>Required</b>: WAM third-party cover for every vehicle on public roads; accident insurance for all employees from their first working day; basic health insurance for employees. Premiums and the split are in <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+ <li><b>Almost always sensible</b>: fire and contents, general liability, burglary and theft, and business interruption cover if you depend on one location.</li>
+ <li><b>By sector</b>: transport (cargo, goods in transit), workshops (machinery breakdown), service providers (professional indemnity), data-heavy businesses (cyber).</li>
+ <li><b>Agriculture</b>: there is no broad offer of crop or livestock insurance in Suriname. Insure buildings, machinery and stock, and build your own buffer.</li>
+ <li><b>Supervision</b>: the Central Bank (CBvS), still under a 1968 law. A new Insurance Supervision Act, also covering intermediaries, is before parliament.</li>
+ <li><b>Claims</b>: limit the damage, take photos, file a police report for theft and notify the insurer right away. Check every year whether your sums insured still match the exchange rate.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Verplichte verzekeringen' if nl else 'Mandatory insurance' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Verzekering</th><th>Voor wie</th><th>Wat je moet weten</th></tr></thead><tbody>
+ <tr><td data-l="Verzekering"><b>WA motorrijtuigen (WAM)</b></td><td data-l="Voor wie">Elk motorvoertuig dat op de openbare weg rijdt: auto's, bussen, vrachtwagens, motoren, ook bedrijfsvoertuigen</td><td data-l="Wat je moet weten">Dekt schade die je met het voertuig aan anderen toebrengt, niet je eigen voertuig. Meld een verkoop of einde gebruik binnen de termijn in je polis (bij Assuria bijvoorbeeld 8 dagen)</td></tr>
+ <tr><td data-l="Verzekering"><b>Ongevallenverzekering</b> (Ongevallenregeling 1947)</td><td data-l="Voor wie">Alle werknemers, vanaf de eerste werkdag</td><td data-l="Wat je moet weten">Premie volledig voor de werkgever. Dekt bedrijfsongevallen, ook op weg van en naar het werk. Een nieuwe Ongevallenregeling ligt bij DNA; zie <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></td></tr>
+ <tr><td data-l="Verzekering"><b>Basiszorgverzekering (BZV)</b></td><td data-l="Voor wie">Alle werknemers</td><td data-l="Wat je moet weten">Werkgever en werknemer delen de premie; de verzekeraar bepaalt de hoogte. Zie <a href="{{ U('employer') }}">{{ L('employer') }}</a> en <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></td></tr>
+</tbody></table>
+<p>Daarnaast kunnen klanten, banken en verhuurders verzekeringen eisen. Een bank vraagt bij een lening met onderpand bijna altijd een brandverzekering op het pand, met de bank als begunstigde (zie <a href="{{ U('finance') }}">{{ L('finance') }}</a>). Overheidsaanbestedingen en olie-, gas- en mijnbouwbedrijven vragen van aannemers vaak een aansprakelijkheidsverzekering met een minimumbedrag en soms een bankgarantie; lees de voorwaarden van elke opdracht. Zie <a href="{{ U('tenders') }}">{{ L('tenders') }}</a> en <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Insurance</th><th>Who</th><th>What to know</th></tr></thead><tbody>
+ <tr><td data-l="Insurance"><b>Motor third party (WAM)</b></td><td data-l="Who">Every motor vehicle on public roads: cars, buses, trucks, motorbikes, including company vehicles</td><td data-l="What to know">Covers damage you cause to others with the vehicle, not your own vehicle. Report a sale or end of use within the term in your policy (at Assuria, for example, 8 days)</td></tr>
+ <tr><td data-l="Insurance"><b>Accident insurance</b> (Accident Regulation 1947)</td><td data-l="Who">All employees, from the first working day</td><td data-l="What to know">Premium paid entirely by the employer. Covers workplace accidents, including on the way to and from work. A new Accident Regulation is before parliament; see <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a></td></tr>
+ <tr><td data-l="Insurance"><b>Basic health insurance (BZV)</b></td><td data-l="Who">All employees</td><td data-l="What to know">Employer and employee share the premium; the insurer sets the amount. See <a href="{{ U('employer') }}">{{ L('employer') }}</a> and <a href="{{ U('hiring') }}">{{ L('hiring') }}</a></td></tr>
+</tbody></table>
+<p>Customers, banks and landlords may also require insurance. For a secured loan a bank almost always asks for fire insurance on the building, with the bank as beneficiary (see <a href="{{ U('finance') }}">{{ L('finance') }}</a>). Government tenders and oil, gas and mining companies often require contractors to carry liability insurance with a minimum amount and sometimes a bank guarantee; read the terms of each contract. See <a href="{{ U('tenders') }}">{{ L('tenders') }}</a> and <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Verstandige verzekeringen voor bedrijven' if nl else 'Sensible insurance for businesses' }}</h2>
+{% if nl %}
+<p>Welke polissen je nodig hebt hangt af van wat je bezit, wat je doet en wat een schade je zou kosten. Niet elke verzekeraar biedt alles aan; voor grote of bijzondere risico's plaatsen Surinaamse verzekeraars een deel bij herverzekeraars in het buitenland. Vraag minstens twee of drie offertes.</p>
+<table class="tbl stack tx"><thead><tr><th>Polis</th><th>Dekt</th><th>Vooral voor</th></tr></thead><tbody>
+ <tr><td data-l="Polis"><b>Brand en opstal</b></td><td data-l="Dekt">Het gebouw tegen brand, bliksem, ontploffing en vaak storm. Overstroming en wateroverlast zijn vaak uitgesloten of extra</td><td data-l="Vooral voor">Iedereen die een pand bezit; verplicht bij een hypotheek</td></tr>
+ <tr><td data-l="Polis"><b>Inventaris en voorraad</b></td><td data-l="Dekt">Inrichting, machines, computers en voorraad tegen brand, en met uitbreiding tegen inbraak en diefstal</td><td data-l="Vooral voor">Winkels, werkplaatsen, kantoren, ook als je huurt</td></tr>
+ <tr><td data-l="Polis"><b>Bedrijfsschade (bedrijfsonderbreking)</b></td><td data-l="Dekt">Doorlopende kosten en gederfde winst na een gedekte schade, bijvoorbeeld een brand</td><td data-l="Vooral voor">Bedrijven met één locatie, horeca, productie</td></tr>
+ <tr><td data-l="Polis"><b>Aansprakelijkheid (AVB)</b></td><td data-l="Dekt">Schade aan personen of spullen van anderen door jouw bedrijf, je personeel of je producten</td><td data-l="Vooral voor">Iedereen met klanten op locatie, aannemers, producenten</td></tr>
+ <tr><td data-l="Polis"><b>Beroepsaansprakelijkheid</b></td><td data-l="Dekt">Financiële schade door een fout in je advies of dienst</td><td data-l="Vooral voor">Accountants, ingenieurs, IT-bedrijven, consultants</td></tr>
+ <tr><td data-l="Polis"><b>Transport en lading</b> (marine, cargo)</td><td data-l="Dekt">Goederen tijdens zee- of luchttransport naar of van Suriname</td><td data-l="Vooral voor">Importeurs en exporteurs; let op wie volgens de Incoterm verzekert</td></tr>
+ <tr><td data-l="Polis"><b>Goederen onderweg</b></td><td data-l="Dekt">Lading in je eigen of ingehuurde vrachtwagen of boot binnen Suriname</td><td data-l="Vooral voor">Groothandels, distributeurs, vervoerders</td></tr>
+ <tr><td data-l="Polis"><b>Geld</b></td><td data-l="Dekt">Contant geld in de zaak, in de kluis en onderweg naar de bank</td><td data-l="Vooral voor">Winkels, tankstations, cambio's, horeca</td></tr>
+ <tr><td data-l="Polis"><b>Machinebreuk en elektronica</b></td><td data-l="Dekt">Plotselinge schade aan machines en apparatuur, ook door spanningspieken</td><td data-l="Vooral voor">Productie, koelhuizen, werkplaatsen</td></tr>
+ <tr><td data-l="Polis"><b>Motorrijtuigen casco</b></td><td data-l="Dekt">Schade aan je eigen voertuigen, bovenop de verplichte WA</td><td data-l="Vooral voor">Nieuwe of dure voertuigen, wagenparken</td></tr>
+ <tr><td data-l="Polis"><b>Cyber</b></td><td data-l="Dekt">Kosten na een hack, ransomware of datalek: herstel, onderzoek, soms claims</td><td data-l="Vooral voor">Webwinkels, IT-dienstverleners, bedrijven met klantdata</td></tr>
+ <tr><td data-l="Polis"><b>Bestuurdersaansprakelijkheid (D&amp;O)</b></td><td data-l="Dekt">Persoonlijke aansprakelijkheid van directeuren en commissarissen</td><td data-l="Vooral voor">Grotere NV's, bedrijven met externe investeerders</td></tr>
+</tbody></table>
+<p class="note">Of een verzekeraar cyber-, D&amp;O- of beroepsaansprakelijkheidspolissen aanbiedt, verschilt per maatschappij en per jaar. Vraag het na en lees de uitsluitingen.</p>
+{% else %}
+<p>Which policies you need depends on what you own, what you do and what a loss would cost you. Not every insurer offers everything; for large or unusual risks Surinamese insurers place part of the risk with reinsurers abroad. Ask for at least two or three quotes.</p>
+<table class="tbl stack tx"><thead><tr><th>Policy</th><th>Covers</th><th>Mainly for</th></tr></thead><tbody>
+ <tr><td data-l="Policy"><b>Fire and buildings</b></td><td data-l="Covers">The building against fire, lightning, explosion and often storm. Flood and water damage are often excluded or extra</td><td data-l="Mainly for">Anyone who owns premises; required with a mortgage</td></tr>
+ <tr><td data-l="Policy"><b>Contents and stock</b></td><td data-l="Covers">Fittings, machinery, computers and stock against fire, and with an extension against burglary and theft</td><td data-l="Mainly for">Shops, workshops, offices, also if you rent</td></tr>
+ <tr><td data-l="Policy"><b>Business interruption</b></td><td data-l="Covers">Ongoing costs and lost profit after a covered loss, such as a fire</td><td data-l="Mainly for">Single-site businesses, hospitality, manufacturing</td></tr>
+ <tr><td data-l="Policy"><b>General liability</b></td><td data-l="Covers">Injury to people or damage to others' property caused by your business, staff or products</td><td data-l="Mainly for">Anyone with customers on site, contractors, producers</td></tr>
+ <tr><td data-l="Policy"><b>Professional indemnity</b></td><td data-l="Covers">Financial loss caused by an error in your advice or service</td><td data-l="Mainly for">Accountants, engineers, IT firms, consultants</td></tr>
+ <tr><td data-l="Policy"><b>Marine and cargo</b></td><td data-l="Covers">Goods during sea or air freight to or from Suriname</td><td data-l="Mainly for">Importers and exporters; check who insures under the Incoterm</td></tr>
+ <tr><td data-l="Policy"><b>Goods in transit</b></td><td data-l="Covers">Cargo in your own or a hired truck or boat within Suriname</td><td data-l="Mainly for">Wholesalers, distributors, carriers</td></tr>
+ <tr><td data-l="Policy"><b>Cash</b></td><td data-l="Covers">Cash on the premises, in the safe and on the way to the bank</td><td data-l="Mainly for">Shops, fuel stations, exchange offices, hospitality</td></tr>
+ <tr><td data-l="Policy"><b>Machinery breakdown and electronics</b></td><td data-l="Covers">Sudden damage to machinery and equipment, including from power surges</td><td data-l="Mainly for">Manufacturing, cold stores, workshops</td></tr>
+ <tr><td data-l="Policy"><b>Motor own damage (casco)</b></td><td data-l="Covers">Damage to your own vehicles, on top of the required third-party cover</td><td data-l="Mainly for">New or expensive vehicles, fleets</td></tr>
+ <tr><td data-l="Policy"><b>Cyber</b></td><td data-l="Covers">Costs after a hack, ransomware or data breach: recovery, investigation, sometimes claims</td><td data-l="Mainly for">Web shops, IT service providers, businesses holding customer data</td></tr>
+ <tr><td data-l="Policy"><b>Directors and officers (D&amp;O)</b></td><td data-l="Covers">Personal liability of directors and supervisory board members</td><td data-l="Mainly for">Larger companies (NV), firms with outside investors</td></tr>
+</tbody></table>
+<p class="note">Whether an insurer offers cyber, D&amp;O or professional indemnity policies differs per company and per year. Ask, and read the exclusions.</p>
+{% endif %}
+
+<h2>{{ 'Landbouw en veeteelt' if nl else 'Farming and livestock' }}</h2>
+{% if nl %}
+<p>Een oogst- of veeverzekering zoals boeren die in andere landen kennen, wordt in Suriname niet breed aangeboden. In 2022 sprak de toenmalige minister van LVV over een calamiteitenfonds waarin boeren zelf een vast bedrag storten, maar zo'n fonds vonden we niet als werkende regeling. Bij rampen springt de overheid soms bij: in december 2024 kregen kleine padieboeren (0 tot 50 hectare) die oogst verloren door extreem weer SRD 3.500 per ingezaaide hectare en SRD 750 per hectare die al geploegd was. Daar kun je niet op plannen.</p>
+<p>Wat je wel kunt doen: verzeker gebouwen, opslag, machines, pompen, voertuigen en voorraad zoals elk ander bedrijf; vraag je verzekeraar of vee of kassen te verzekeren zijn; spreid je teelten en je afzet; en houd een eigen reserve aan. Meer over de sector: <a href="{{ U('agri') }}">{{ L('agri') }}</a>. Steunprogramma's: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</p>
+{% else %}
+<p>Crop or livestock insurance as farmers know it in other countries is not widely offered in Suriname. In 2022 the then Minister of Agriculture spoke of a disaster fund into which farmers would pay a fixed amount, but we found no such fund operating. After disasters the government sometimes steps in: in December 2024 small rice farmers (0 to 50 hectares) who lost harvests to extreme weather received SRD 3,500 per sown hectare and SRD 750 per hectare already ploughed. You cannot plan on that.</p>
+<p>What you can do: insure buildings, storage, machinery, pumps, vehicles and stock like any other business; ask your insurer whether livestock or greenhouses can be covered; spread your crops and your buyers; and keep your own reserve. More on the sector: <a href="{{ U('agri') }}">{{ L('agri') }}</a>. Support programmes: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Verzekeraars en toezicht' if nl else 'Insurers and supervision' }}</h2>
+{% if nl %}
+<p>De <b>Centrale Bank van Suriname (CBvS)</b> houdt toezicht op verzekeraars. De taak komt uit artikel 10 van de Bankwet 2022 (S.B. 2023 no. 65). De inhoudelijke regels komen nog steeds uit de Wet Toezicht Bank- en Kredietwezen 1968, zoals gewijzigd in 1986, die oorspronkelijk voor banken was geschreven. Volgens de CBvS vallen er 12 verzekeringsmaatschappijen en 1 holding onder haar toezicht. Wie het verzekeringsbedrijf wil uitoefenen, heeft een verklaring van geen bezwaar van de CBvS nodig en een vergunning van het ministerie van EZOTI. Sinds 2021 toetst de CBvS bestuurders van verzekeraars op deskundigheid en betrouwbaarheid.</p>
+<h3>Nieuwe wet in de maak</h3>
+<p>De <b>ontwerpwet Toezicht Verzekeringswezen 2024</b> werd in januari 2025 in De Nationale Assemblée besproken. De wet geeft de CBvS meer bevoegdheden, brengt ook houdstermaatschappijen onder toezicht en maakt <b>verzekeringstussenpersonen</b> (agenten en makelaars) vergunningplichtig. Assembleeleden vroegen tijdens het debat om betere bescherming van verzekerden bij schade-uitkeringen en meer uitleg bij premieverhogingen. Op {{ date('2026-10-26') }} stond de ontwerpwet nog bij DNA in behandeling. Tot die wet er is, staan tussenpersonen niet onder apart toezicht: vraag een makelaar welke verzekeraars hij vertegenwoordigt en hoe hij betaald wordt. Zie ook <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+<h3>Welke verzekeraars?</h3>
+<p>Op de website van de CBvS vonden we geen openbare lijst van verzekeraars onder toezicht. Bekende schade-, leven- en zorgverzekeraars zijn onder meer Assuria, Fatum, Parsasco en Self Reliance (alfabetisch, zonder rangorde); er zijn er meer. Controleer bij twijfel bij de CBvS of een maatschappij onder toezicht staat. Websites en telefoonnummers staan in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+{% else %}
+<p>The <b>Central Bank of Suriname (CBvS)</b> supervises insurers. The mandate comes from article 10 of the Central Bank Act 2022 (S.B. 2023 no. 65). The detailed rules still come from the Banking and Credit System Supervision Act 1968, as amended in 1986, which was originally written for banks. According to the CBvS, 12 insurance companies and 1 holding company fall under its supervision. Anyone wanting to carry on insurance business needs a declaration of no objection from the CBvS and a licence from the Ministry of Economic Affairs (EZOTI). Since 2021 the CBvS has tested insurers' directors for fitness and propriety.</p>
+<h3>A new law in the making</h3>
+<p>The <b>draft Insurance Supervision Act 2024</b> was debated in parliament in January 2025. It gives the CBvS more powers, brings holding companies under supervision and requires <b>insurance intermediaries</b> (agents and brokers) to hold a licence. During the debate members of parliament asked for better protection of policyholders when claims are paid out and more explanation of premium increases. On {{ date('2026-10-26') }} the bill was still pending in parliament. Until it passes, intermediaries are not separately supervised: ask a broker which insurers they represent and how they are paid. See also <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+<h3>Which insurers?</h3>
+<p>We found no public list of supervised insurers on the CBvS website. Well-known non-life, life and health insurers include Assuria, Fatum, Parsasco and Self Reliance (alphabetical, no ranking); there are more. If in doubt, check with the CBvS whether a company is supervised. Websites and phone numbers are in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Hoeveel verzeker je, en in welke munt?' if nl else 'How much to insure, and in which currency?' }}</h2>
+{% if nl %}
+<h3>Onderverzekering</h3>
+<p>Is de verzekerde som lager dan de werkelijke waarde, dan ben je onderverzekerd. De meeste polissen passen dan bij schade de <b>evenredigheidsregel</b> toe: je krijgt een deel van de schade vergoed, in dezelfde verhouding als je verzekerd was.</p>
+<table class="tbl stack tx"><thead><tr><th>Voorbeeld</th><th>Bedrag</th></tr></thead><tbody>
+ <tr><td data-l="Voorbeeld">Werkelijke waarde van je inventaris</td><td data-l="Bedrag">SRD 1.000.000</td></tr>
+ <tr><td data-l="Voorbeeld">Verzekerde som</td><td data-l="Bedrag">SRD 600.000 (60%)</td></tr>
+ <tr><td data-l="Voorbeeld">Schade na inbraak</td><td data-l="Bedrag">SRD 200.000</td></tr>
+ <tr><td data-l="Voorbeeld">Uitkering bij evenredigheidsregel</td><td data-l="Bedrag">60% van SRD 200.000 = SRD 120.000, min eigen risico</td></tr>
+</tbody></table>
+<p>Kies voor gebouwen de <b>herbouwwaarde</b> (wat het kost om opnieuw te bouwen, niet de verkoopwaarde met grond) en voor inventaris de <b>nieuwwaarde</b> als je polis dat toestaat. Vraag of er een <b>clausule tegen onderverzekering</b> of automatische indexering mogelijk is.</p>
+<h3>SRD of USD</h3>
+<p>Machines, voertuigen, onderdelen en veel voorraad worden in dollars ingekocht. Stijgt de koers, dan stijgt ook de vervangingswaarde in SRD, maar je polis niet vanzelf. Na de grote koersstijgingen van de afgelopen jaren kan een polis die lang niet is aangepast ver onder de echte waarde liggen. Vraag je verzekeraar of je de verzekerde som in USD of EUR kunt vastleggen, of laat de sommen minstens elk jaar en na elke grote koerswijziging aanpassen. Houd een lijst bij van je bezittingen met aankoopbedrag, datum en munt; met <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a> kun je die bijhouden, en de actuele koersen staan op <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<h3>Underinsurance</h3>
+<p>If the sum insured is lower than the real value, you are underinsured. Most policies then apply the <b>average clause</b> (proportionality rule) when you claim: you are paid part of the loss, in the same proportion as you were insured.</p>
+<table class="tbl stack tx"><thead><tr><th>Example</th><th>Amount</th></tr></thead><tbody>
+ <tr><td data-l="Example">Real value of your contents</td><td data-l="Amount">SRD 1,000,000</td></tr>
+ <tr><td data-l="Example">Sum insured</td><td data-l="Amount">SRD 600,000 (60%)</td></tr>
+ <tr><td data-l="Example">Loss after a burglary</td><td data-l="Amount">SRD 200,000</td></tr>
+ <tr><td data-l="Example">Payout under the average clause</td><td data-l="Amount">60% of SRD 200,000 = SRD 120,000, minus the excess</td></tr>
+</tbody></table>
+<p>For buildings choose the <b>rebuilding value</b> (what it costs to rebuild, not the sale value including land) and for contents the <b>replacement value</b> if your policy allows. Ask whether a <b>clause against underinsurance</b> or automatic indexation is available.</p>
+<h3>SRD or USD</h3>
+<p>Machinery, vehicles, spare parts and much stock are bought in dollars. When the exchange rate rises, the replacement value in SRD rises too, but your policy does not follow automatically. After the large exchange rate increases of recent years, a policy that has not been updated for a while can be far below the real value. Ask your insurer whether you can set the sum insured in USD or EUR, or have the sums adjusted at least every year and after every large rate change. Keep a list of your assets with purchase price, date and currency; <a href="{{ U('depreciation') }}">{{ L('depreciation') }}</a> helps you track it, and current rates are on <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Premie, btw en belasting' if nl else 'Premium, VAT and tax' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Btw</b>: over schadeverzekeringen zoals brand, auto en aansprakelijkheid betaal je het algemene tarief van {{ std }}%, berekend over de hele premie inclusief poliskosten. Lokale ziektekosten- en levensverzekeringen zijn vrijgesteld. Vraag je verzekeraar hoe de ongevallenverzekering voor werknemers wordt behandeld. Zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Aftrek</b>: premies voor bedrijfsverzekeringen zijn gewone bedrijfskosten. Ben je btw-plichtig, dan kun je de btw op de premie in principe als voorbelasting aftrekken. Zie <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>Premie verlagen</b>: een hoger eigen risico, alarm en camera's, brandblussers en een kluis, en het combineren van polissen bij één verzekeraar leveren vaak korting op. Vraag het na.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>VAT</b>: non-life insurance such as fire, motor and liability carries the standard rate of {{ std }}%, charged on the whole premium including policy costs. Local health and life insurance are exempt. Ask your insurer how the employee accident insurance is treated. See <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Deduction</b>: premiums for business insurance are ordinary business expenses. If you are VAT-registered, the VAT on the premium is in principle deductible as input tax. See <a href="{{ U('biztax') }}">{{ L('biztax') }}</a>.</li>
+ <li><b>Lowering the premium</b>: a higher excess, an alarm and cameras, fire extinguishers and a safe, and combining policies with one insurer often earn a discount. Ask.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Een verzekering afsluiten: stap voor stap' if nl else 'Taking out insurance: step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Maak een risicolijst.</b> Wat kan er misgaan (brand, inbraak, ongeval, stroomuitval, overstroming, een claim van een klant) en wat kost het als het gebeurt?</li>
+ <li><b>Bepaal de waarden.</b> Herbouwwaarde van het pand, nieuwwaarde van inventaris en voorraad, en hoeveel omzet je verliest als je een maand dicht bent.</li>
+ <li><b>Vraag minstens twee of drie offertes</b> met dezelfde uitgangspunten, zodat je ze kunt vergelijken.</li>
+ <li><b>Vergelijk niet alleen de premie</b>: eigen risico, uitsluitingen (overstroming, stroomuitval, slijtage), maximale uitkering, wachttijden en de munt van de verzekerde som.</li>
+ <li><b>Vul het aanvraagformulier eerlijk in.</b> Een verzwegen risico, zoals opslag van brandbare stoffen of een eerdere schade, kan later betekenen dat de verzekeraar niet uitkeert.</li>
+ <li><b>Lees de polis en de voorwaarden</b> en bewaar ze, ook digitaal buiten de zaak.</li>
+ <li><b>Controleer elk jaar</b> waarden, nieuwe machines, extra locaties en de koers.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Make a risk list.</b> What can go wrong (fire, burglary, accident, power failure, flooding, a customer's claim) and what does it cost if it happens?</li>
+ <li><b>Set the values.</b> Rebuilding value of the premises, replacement value of contents and stock, and how much revenue you lose if you are closed for a month.</li>
+ <li><b>Ask for at least two or three quotes</b> on the same basis, so you can compare them.</li>
+ <li><b>Compare more than the premium</b>: excess, exclusions (flood, power failure, wear and tear), maximum payout, waiting periods and the currency of the sum insured.</li>
+ <li><b>Fill in the application honestly.</b> A concealed risk, such as storing flammable materials or a previous loss, can later mean the insurer does not pay.</li>
+ <li><b>Read the policy and conditions</b> and keep them, also digitally away from the premises.</li>
+ <li><b>Review every year</b>: values, new machinery, extra locations and the exchange rate.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Schade melden en uitbetaald krijgen' if nl else 'Reporting a loss and getting paid' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Beperk de schade</b> en zorg voor veiligheid: stroom eraf, water stoppen, gewonden helpen. De verzekeraar verwacht dat je redelijke maatregelen neemt.</li>
+ <li><b>Leg alles vast</b>: foto's en video van de schade, de plek en de oorzaak, met datum. Gooi beschadigde spullen niet weg voordat de verzekeraar of de expert ze heeft gezien.</li>
+ <li><b>Doe aangifte bij de politie</b> bij inbraak, diefstal, vandalisme en verkeersongevallen met letsel. Vraag een kopie of het nummer van het proces-verbaal.</li>
+ <li><b>Meld de schade direct</b> bij je verzekeraar of tussenpersoon, schriftelijk, binnen de termijn in je polis. Te laat melden kan je uitkering kosten.</li>
+ <li><b>Lever bewijs aan</b>: aankoopbonnen, facturen, voorraadadministratie, offertes voor herstel. Een goede <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> en een actuele <a href="{{ U('stock') }}">{{ L('stock') }}</a> maken dit veel makkelijker.</li>
+ <li><b>Erken geen aansprakelijkheid</b> tegenover een ander voordat je verzekeraar dat heeft beoordeeld.</li>
+ <li><b>Ben je het niet eens</b> met de beslissing, vraag dan schriftelijk om uitleg en een heroverweging, eventueel met een eigen expert. Komt je er niet uit, dan kun je naar de rechter; zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ol>
+<p>Een bedrijfsongeval met een werknemer meld je ook bij de Arbeidsinspectie; hoe dat werkt staat in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+{% else %}
+<ol class="steps">
+ <li><b>Limit the damage</b> and make it safe: power off, stop the water, help the injured. The insurer expects you to take reasonable measures.</li>
+ <li><b>Record everything</b>: photos and video of the damage, the location and the cause, with dates. Do not throw away damaged items before the insurer or loss adjuster has seen them.</li>
+ <li><b>File a police report</b> for burglary, theft, vandalism and road accidents with injuries. Ask for a copy or the report number.</li>
+ <li><b>Notify the loss right away</b> to your insurer or intermediary, in writing, within the term in your policy. Late notice can cost you your payout.</li>
+ <li><b>Provide evidence</b>: receipts, invoices, stock records, repair quotes. Good <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a> and an up-to-date <a href="{{ U('stock') }}">{{ L('stock') }}</a> make this much easier.</li>
+ <li><b>Do not admit liability</b> to a third party before your insurer has assessed it.</li>
+ <li><b>If you disagree</b> with the decision, ask in writing for an explanation and a review, possibly with your own loss adjuster. If that fails, you can go to court; see <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+</ol>
+<p>A workplace accident involving an employee must also be reported to the Labour Inspectorate; how that works is in <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Checklist per type bedrijf' if nl else 'Checklist by type of business' }}</h2>
+{% if nl %}
+<h3>Winkel</h3>
+<ul class="check">
+ <li>Ongevallen- en basiszorgverzekering voor personeel</li>
+ <li>Inventaris en voorraad tegen brand, inbraak en diefstal, op nieuwwaarde</li>
+ <li>Geldverzekering voor kassa, kluis en de rit naar de bank</li>
+ <li>Aansprakelijkheid voor klanten in de winkel (uitglijden, vallende schappen)</li>
+ <li>Glas, als je grote etalageruiten hebt</li>
+</ul>
+<h3>Werkplaats of productiebedrijf</h3>
+<ul class="check">
+ <li>Ongevallen- en basiszorgverzekering, en veiligheidsmaatregelen die de verzekeraar vraagt</li>
+ <li>Gebouw (als eigenaar) en machines tegen brand; machinebreuk en spanningsschade</li>
+ <li>Bedrijfsschade voor stilstand na brand of machinebreuk</li>
+ <li>Productaansprakelijkheid als je producten levert aan anderen</li>
+ <li>Milieuschade, als je met olie, chemicaliën of afval werkt; zie <a href="{{ U('environment') }}">{{ L('environment') }}</a></li>
+</ul>
+<h3>Transportbedrijf</h3>
+<ul class="check">
+ <li>WAM voor elk motorvoertuig, casco voor nieuwe of dure voertuigen, en een aparte WA-polis voor boten</li>
+ <li>Ongevallenverzekering voor chauffeurs en bijrijders</li>
+ <li>Goederen onderweg, of vervoerdersaansprakelijkheid, met de maximale waarde per rit</li>
+ <li>Inzittendenverzekering voor personenvervoer</li>
+ <li>Stilstand van voertuigen na schade (vervangend vervoer of bedrijfsschade)</li>
+</ul>
+<h3>Landbouwbedrijf</h3>
+<ul class="check">
+ <li>Ongevallenverzekering voor werknemers, ook seizoenskrachten</li>
+ <li>Schuren, opslag, droog- en koelinstallaties tegen brand en storm</li>
+ <li>Tractoren, pompen en voertuigen (WAM en casco)</li>
+ <li>Aansprakelijkheid, bijvoorbeeld bij sproeien of loslopend vee</li>
+ <li>Vraag of vee of kassen te verzekeren zijn; houd anders een eigen reserve aan</li>
+</ul>
+<h3>Kantoor of dienstverlener</h3>
+<ul class="check">
+ <li>Ongevallen- en basiszorgverzekering</li>
+ <li>Inventaris en elektronica, ook laptops buiten kantoor</li>
+ <li>Beroepsaansprakelijkheid als klanten op je advies of werk vertrouwen</li>
+ <li>Cyber, als je klantgegevens of betalingen verwerkt; zie <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li>Back-ups buiten kantoor, zodat een brand of inbraak niet ook je administratie kost</li>
+</ul>
+{% else %}
+<h3>Shop</h3>
+<ul class="check">
+ <li>Accident and basic health insurance for staff</li>
+ <li>Contents and stock against fire, burglary and theft, at replacement value</li>
+ <li>Cash cover for the till, the safe and the trip to the bank</li>
+ <li>Liability for customers in the shop (slips, falling shelves)</li>
+ <li>Glass, if you have large display windows</li>
+</ul>
+<h3>Workshop or manufacturer</h3>
+<ul class="check">
+ <li>Accident and basic health insurance, and the safety measures the insurer asks for</li>
+ <li>Building (if you own it) and machinery against fire; machinery breakdown and power surge damage</li>
+ <li>Business interruption for downtime after a fire or breakdown</li>
+ <li>Product liability if you supply products to others</li>
+ <li>Environmental damage, if you work with oil, chemicals or waste; see <a href="{{ U('environment') }}">{{ L('environment') }}</a></li>
+</ul>
+<h3>Transport company</h3>
+<ul class="check">
+ <li>WAM for every motor vehicle, own-damage cover for new or expensive vehicles, and a separate liability policy for boats</li>
+ <li>Accident insurance for drivers and helpers</li>
+ <li>Goods in transit, or carrier's liability, with the maximum value per trip</li>
+ <li>Passenger insurance for passenger transport</li>
+ <li>Vehicle downtime after a loss (replacement transport or business interruption)</li>
+</ul>
+<h3>Farm</h3>
+<ul class="check">
+ <li>Accident insurance for employees, including seasonal workers</li>
+ <li>Barns, storage, drying and cooling installations against fire and storm</li>
+ <li>Tractors, pumps and vehicles (WAM and own damage)</li>
+ <li>Liability, for example when spraying or for straying livestock</li>
+ <li>Ask whether livestock or greenhouses can be insured; otherwise keep your own reserve</li>
+</ul>
+<h3>Office or service provider</h3>
+<ul class="check">
+ <li>Accident and basic health insurance</li>
+ <li>Contents and electronics, including laptops outside the office</li>
+ <li>Professional indemnity if clients rely on your advice or work</li>
+ <li>Cyber, if you handle customer data or payments; see <a href="{{ U('payments') }}">{{ L('payments') }}</a></li>
+ <li>Off-site backups, so a fire or burglary does not also cost you your records</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik geen ongevallenverzekering heb en een werknemer raakt gewond?</b> Dan ben je als werkgever zelf aansprakelijk voor de kosten en de uitkering die de Ongevallenregeling voorschrijft. Regel de verzekering vóór de eerste werkdag; zie <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+ <li><b>...mijn pand onderloopt na zware regen?</b> Kijk in je polis of wateroverlast en overstroming gedekt zijn; dat verschilt sterk. Maak foto's, beperk de schade en meld het direct.</li>
+ <li><b>...een stroomstoring mijn koelcel of machines beschadigt?</b> Gewone brandpolissen dekken dat meestal niet. Een machinebreuk- of elektronicapolis soms wel, en bederf van koelwaren alleen met een aparte uitbreiding. Zie <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>...de verzekeraar weigert uit te keren?</b> Vraag de weigering schriftelijk met de polisbepaling waarop die steunt. Laat je zo nodig bijstaan door een advocaat of een onafhankelijke expert. Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...ik vanuit het buitenland een bedrijf in Suriname start?</b> Een buitenlandse polis dekt zelden risico's in Suriname. Sluit de verplichte en de belangrijkste polissen lokaal af. Zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> en <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I have no accident insurance and an employee is injured?</b> Then as the employer you are personally liable for the costs and benefits the Accident Regulation prescribes. Arrange the insurance before the first working day; see <a href="{{ U('employer') }}">{{ L('employer') }}</a>.</li>
+ <li><b>...my premises flood after heavy rain?</b> Check your policy for water damage and flood cover; it varies widely. Take photos, limit the damage and notify the insurer right away.</li>
+ <li><b>...a power failure damages my cold store or machinery?</b> Ordinary fire policies usually do not cover it. A machinery breakdown or electronics policy sometimes does, and spoilage of chilled goods only with a separate extension. See <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>...the insurer refuses to pay?</b> Ask for the refusal in writing with the policy clause it relies on. If needed, get a lawyer or an independent loss adjuster. See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...I start a business in Suriname from abroad?</b> A foreign policy rarely covers risks in Suriname. Take out the required and most important policies locally. See <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> and <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www3.cbvs.sr/en/supervision-policy/regulations/insurance-supervision" rel="noopener">{{ 'CBvS: toezicht op verzekeraars (wettelijke basis, 12 verzekeraars en 1 holding)' if nl else 'CBvS: insurance supervision (legal basis, 12 insurers and 1 holding company)' }}</a></li>
+ <li><a href="https://www.cbvs.sr/images/content/pdf/Wetten/Bankwet17april2023.pdf" rel="noopener">{{ 'Bankwet 2022 (S.B. 2023 no. 65)' if nl else 'Central Bank Act 2022 (S.B. 2023 no. 65)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">{{ 'DNA: ontwerpwetten in behandeling, waaronder Toezicht Verzekeringswezen 2024' if nl else 'National Assembly: bills under consideration, including Insurance Supervision 2024' }}</a></li>
+ <li><a href="https://dwtonline.com/verscherpte-ordening-en-regulering-verzekeringsbedrijven-onder-toezicht-centrale-bank/" rel="noopener">{{ 'De Ware Tijd: verscherpte regulering verzekeringsbedrijven (17 januari 2025)' if nl else 'De Ware Tijd: tighter regulation of insurers (17 January 2025)' }}</a></li>
+ <li><a href="https://www.dbsuriname.com/2025/01/27/dna-leden-willen-meer-toezicht-op-bescherming-rechten-verzekerden/" rel="noopener">{{ 'Dagblad Suriname: DNA-leden willen meer bescherming van verzekerden (27 januari 2025)' if nl else 'Dagblad Suriname: MPs want more protection for policyholders (27 January 2025)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/01/Ongevallenregeling-G.B.-1947-no.-45.pdf" rel="noopener">{{ 'Ongevallenregeling (G.B. 1947 no. 45)' if nl else 'Accident Regulation (G.B. 1947 no. 45)' }}</a></li>
+ <li><a href="https://gov.sr/thema/basiszorgverzekering/" rel="noopener">{{ 'GOV.SR: basiszorgverzekering' if nl else 'GOV.SR: basic health insurance' }}</a></li>
+ <li><a href="https://www.assuria.sr/media/z23l5lih/bijzondere-voorwaarden-motorrijtuigenverzekeringen-wam-plus_oktober-2025-1.pdf" rel="noopener">{{ 'Assuria: bijzondere voorwaarden motorrijtuigenverzekeringen WAM Plus (oktober 2025, voorbeeld van voorwaarden)' if nl else 'Assuria: special conditions for motor insurance, WAM Plus (October 2025, example of terms)' }}</a></li>
+ <li><a href="https://belastingdienst.sr/wp-content/uploads/2026/01/BTWS.B.-2022-no.-121-WET-BTW-2022.pdf" rel="noopener">{{ 'Wet BTW 2022, S.B. 2022 no. 121 (vrijstelling lokale ziektekosten- en levensverzekering)' if nl else 'VAT Act 2022, S.B. 2022 no. 121 (exemption for local health and life insurance)' }}</a></li>
+ <li><a href="https://keynews.sr/regering-biedt-compensatie-aan-padieboeren-focus-op-kleine-boeren" rel="noopener">{{ 'Key News: compensatie voor padieboeren (24 december 2024)' if nl else 'Key News: compensation for rice farmers (24 December 2024)' }}</a></li>
+ <li><a href="https://keynews.sr/crop-insurance-kan-boeren-besparen-van-grote-verliezen" rel="noopener">{{ 'Key News: crop insurance en calamiteitenfonds (11 juni 2022)' if nl else 'Key News: crop insurance and disaster fund (11 June 2022)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen verzekeringsadvies. Dekking en voorwaarden verschillen per verzekeraar en polis; lees altijd de polisvoorwaarden.' if nl else 'General information, not insurance advice. Cover and conditions differ per insurer and policy; always read the policy conditions.' }}</p>
+</div>
+{% endblock %}

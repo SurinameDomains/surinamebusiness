@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: only put a date in this page when the organiser or a government source has published it.
+    Otherwise write "usually in <month>". Re-check every quarter (SEOGS, IBC, Agrarische Beurs, CIF, SelectUSA,
+    diaspora events in NL) and move past editions to "last edition". Bump the asof date. -#}
+<div class="prose">
+<h1>{{ 'Zakelijke evenementen en beurzen voor Surinaamse bedrijven' if nl else 'Business events and trade fairs for Surinamese companies' }}</h1>
+{% if nl %}
+<p class="lead">De zakelijke agenda van Suriname heeft een paar vaste ankers: de olie- en gastop SEOGS in juni, de Agrarische Beurs begin mei, de International Business Conference Suriname-Guyana in oktober en de maandelijkse ondernemersavonden van de KKF. In de regio tellen het Caribbean Investment Forum en de grote energiebeurzen, en in Nederland groeit het aantal diaspora-evenementen. Hieronder staat per evenement wie er komt, wanneer, wie organiseert en waarom je zou gaan, plus een maandkalender en praktische tips voor beurzen en handelsmissies.</p>
+{% else %}
+<p class="lead">Suriname's business calendar has a few fixed anchors: the SEOGS oil and gas summit in June, the Agricultural Fair in early May, the Suriname-Guyana International Business Conference in October and the Chamber of Commerce's monthly business evenings. In the region the Caribbean Investment Forum and the big energy fairs count, and in the Netherlands the number of diaspora events is growing. Below, for each event: who attends, when, who organises and why you would go, plus a calendar by month and practical tips for trade fairs and trade missions.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">SEOGS 2026</div><div class="big">{{ '23-26 jun' if nl else '23-26 Jun' }}</div><div class="sub">{{ "6e editie, Roeli's Event Center, Paramaribo" if nl else "6th edition, Roeli's Event Center, Paramaribo" }}</div></div>
+ <div class="card"><div class="eyebrow">IBC Suriname-Guyana</div><div class="big">{{ '13-15 okt' if nl else '13-15 Oct' }}</div><div class="sub">{{ '2026, 4e editie, Assuria Event Center' if nl else '2026, 4th edition, Assuria Event Center' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Volgende grote: SelectUSA' if nl else 'Next big one: SelectUSA' }}</div><div class="big">{{ '2-5 mei' if nl else '2-5 May' }}</div><div class="sub">{{ '2027, National Harbor bij Washington' if nl else '2027, National Harbor near Washington' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Toeleverancier van olie en gas?</b> SEOGS in juni is het belangrijkste podium: Staatsolie, TotalEnergies, buitenlandse contractors en honderden standhouders op één plek.</li>
+ <li><b>Agro of voeding?</b> De Agrarische Beurs van LVV (begin mei, KKF-beursterrein) is ook een verkoopbeurs.</li>
+ <li><b>Investeerders zoeken?</b> IBC Suriname-Guyana (oktober), het Caribbean Investment Forum (oktober, wisselend land) en SelectUSA voor wie in de VS wil uitbreiden.</li>
+ <li><b>Beginnend ondernemer?</b> De gratis ondernemersavonden van de KKF en het informatieloket olie en gas (elke maandagochtend) zijn het makkelijkste begin.</li>
+ <li><b>Uit de diaspora?</b> In Nederland: SUSU-businessevent (3 december 2026, Amsterdam) en de SUSU Summit (april 2027). Zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+ <li><b>Beurskosten terugkrijgen:</b> de SITA Cost Share Grant vergoedt tot 90% van beursdeelname voor exporteurs. Zie <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+{% else %}
+ <li><b>Supplier to oil and gas?</b> SEOGS in June is the main stage: Staatsolie, TotalEnergies, foreign contractors and hundreds of exhibitors in one place.</li>
+ <li><b>Farming or food?</b> The Ministry of Agriculture's Agricultural Fair (early May, KKF fairground) is also a selling fair.</li>
+ <li><b>Looking for investors?</b> IBC Suriname-Guyana (October), the Caribbean Investment Forum (October, host country rotates) and SelectUSA if you want to expand into the US.</li>
+ <li><b>New entrepreneur?</b> The free business evenings of the Chamber of Commerce (KKF) and its oil and gas information desk (every Monday morning) are the easiest start.</li>
+ <li><b>From the diaspora?</b> In the Netherlands: the SUSU business event (3 December 2026, Amsterdam) and the SUSU Summit (April 2027). See <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+ <li><b>Getting trade fair costs back:</b> SITA's Cost Share Grant refunds up to 90% of trade fair participation for exporters. See <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Kalender per maand' if nl else 'Calendar by month' }}</h2>
+{% if nl %}
+<p>Een datum staat er alleen als de organisator of de overheid die heeft gepubliceerd. Anders staat er de maand waarin het evenement meestal plaatsvindt. Controleer altijd de actuele datum bij de organisator voordat je boekt.</p>
+{% else %}
+<p>A date is only given if the organiser or the government has published it. Otherwise you see the month in which the event usually takes place. Always check the current date with the organiser before you book.</p>
+{% endif %}
+{% set c1 = 'Maand' if nl else 'Month' %}{% set c2 = 'Evenement' if nl else 'Event' %}{% set c3 = 'Waar' if nl else 'Where' %}{% set c4 = 'Voor wie' if nl else 'For whom' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}">Elke maand</td><td data-l="{{ c2 }}">KKF-ondernemersavonden; informatieloket olie en gas (maandag 9 tot 13 uur)</td><td data-l="{{ c3 }}">KKF, Gravenberchstraat 33</td><td data-l="{{ c4 }}">Alle ondernemers, gratis</td></tr>
+ <tr><td data-l="{{ c1 }}">Februari</td><td data-l="{{ c2 }}">FHR Business Fair (studentenbedrijven, begin februari); Suriname Silicon Valley Summit (10 februari 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Starters, ICT, recruiters</td></tr>
+ <tr><td data-l="{{ c1 }}">Februari</td><td data-l="{{ c2 }}">Guyana Energy Conference and Supply Chain Expo (meestal februari)</td><td data-l="{{ c3 }}">Georgetown</td><td data-l="{{ c4 }}">Olie- en gastoeleveranciers</td></tr>
+ <tr><td data-l="{{ c1 }}">Maart-april</td><td data-l="{{ c2 }}">Caribbean Energy Week (eerste editie 30 maart tot 1 april 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Energie, mijnbouw, financiers</td></tr>
+ <tr><td data-l="{{ c1 }}">April</td><td data-l="{{ c2 }}">SDG Investment Fair van de VN (20 tot 24 april 2026); SUSU Summit (april 2027)</td><td data-l="{{ c3 }}">New York; Amsterdam</td><td data-l="{{ c4 }}">Grote projecten; diaspora</td></tr>
+ <tr><td data-l="{{ c1 }}">Mei</td><td data-l="{{ c2 }}">Agrarische Beurs van LVV (1 tot 3 mei 2026); SelectUSA (2 tot 5 mei 2027); SUMADE Expo (28 en 29 mei 2026)</td><td data-l="{{ c3 }}">KKF-beursterrein; Maryland; Ballroom Prince</td><td data-l="{{ c4 }}">Agro en voeding; uitbreiden naar de VS; lokale producten</td></tr>
+ <tr><td data-l="{{ c1 }}">Juni</td><td data-l="{{ c2 }}">SEOGS (23 tot 26 juni 2026)</td><td data-l="{{ c3 }}">Roeli's Event Center</td><td data-l="{{ c4 }}">Olie, gas, energie, toelevering</td></tr>
+ <tr><td data-l="{{ c1 }}">Juli</td><td data-l="{{ c2 }}">ICT Summit Suriname (meestal begin juli); Nationaal Compliance Congres (meestal juli)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">ICT; banken, compliance-officers</td></tr>
+ <tr><td data-l="{{ c1 }}">Juli-augustus</td><td data-l="{{ c2 }}">Green Awareness Expo (31 juli tot 2 augustus 2025)</td><td data-l="{{ c3 }}">Torarica</td><td data-l="{{ c4 }}">Duurzame producten en diensten</td></tr>
+ <tr><td data-l="{{ c1 }}">Augustus-oktober</td><td data-l="{{ c2 }}">National Development Summit en Suriname 3.0 Summit (3 augustus en 22 oktober 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Beleid, sectororganisaties</td></tr>
+ <tr><td data-l="{{ c1 }}">September</td><td data-l="{{ c2 }}">HUB Cámara Santo Domingo (meestal september); Guyane Excellence (eerste editie september 2025)</td><td data-l="{{ c3 }}">Santo Domingo; Cayenne</td><td data-l="{{ c4 }}">Inkopers, exporteurs</td></tr>
+ <tr><td data-l="{{ c1 }}">Oktober</td><td data-l="{{ c2 }}">Caribbean Investment Forum (5 tot 7 oktober 2026); IBC Suriname-Guyana (13 tot 15 oktober 2026)</td><td data-l="{{ c3 }}">Barbados; Paramaribo</td><td data-l="{{ c4 }}">Investeerders, projectontwikkelaars</td></tr>
+ <tr><td data-l="{{ c1 }}">December</td><td data-l="{{ c2 }}">SUSU &amp; Partners Business Event (3 december 2026); Ondernemerschap Beurs &amp; Braderie (13 december 2025)</td><td data-l="{{ c3 }}">Amsterdam; Congreshal</td><td data-l="{{ c4 }}">Diaspora; jonge ondernemers</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}">Every month</td><td data-l="{{ c2 }}">KKF business evenings; oil and gas information desk (Monday 9 am to 1 pm)</td><td data-l="{{ c3 }}">KKF, Gravenberchstraat 33</td><td data-l="{{ c4 }}">All entrepreneurs, free</td></tr>
+ <tr><td data-l="{{ c1 }}">February</td><td data-l="{{ c2 }}">FHR Business Fair (student companies, early February); Suriname Silicon Valley Summit (10 February 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Starters, ICT, recruiters</td></tr>
+ <tr><td data-l="{{ c1 }}">February</td><td data-l="{{ c2 }}">Guyana Energy Conference and Supply Chain Expo (usually February)</td><td data-l="{{ c3 }}">Georgetown</td><td data-l="{{ c4 }}">Oil and gas suppliers</td></tr>
+ <tr><td data-l="{{ c1 }}">March-April</td><td data-l="{{ c2 }}">Caribbean Energy Week (first edition 30 March to 1 April 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Energy, mining, financiers</td></tr>
+ <tr><td data-l="{{ c1 }}">April</td><td data-l="{{ c2 }}">UN SDG Investment Fair (20 to 24 April 2026); SUSU Summit (April 2027)</td><td data-l="{{ c3 }}">New York; Amsterdam</td><td data-l="{{ c4 }}">Large projects; diaspora</td></tr>
+ <tr><td data-l="{{ c1 }}">May</td><td data-l="{{ c2 }}">Agricultural Fair of the Ministry of Agriculture (1 to 3 May 2026); SelectUSA (2 to 5 May 2027); SUMADE Expo (28 and 29 May 2026)</td><td data-l="{{ c3 }}">KKF fairground; Maryland; Ballroom Prince</td><td data-l="{{ c4 }}">Farming and food; expanding into the US; local products</td></tr>
+ <tr><td data-l="{{ c1 }}">June</td><td data-l="{{ c2 }}">SEOGS (23 to 26 June 2026)</td><td data-l="{{ c3 }}">Roeli's Event Center</td><td data-l="{{ c4 }}">Oil, gas, energy, supply chain</td></tr>
+ <tr><td data-l="{{ c1 }}">July</td><td data-l="{{ c2 }}">ICT Summit Suriname (usually early July); National Compliance Congress (usually July)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">ICT; banks, compliance officers</td></tr>
+ <tr><td data-l="{{ c1 }}">July-August</td><td data-l="{{ c2 }}">Green Awareness Expo (31 July to 2 August 2025)</td><td data-l="{{ c3 }}">Torarica</td><td data-l="{{ c4 }}">Sustainable products and services</td></tr>
+ <tr><td data-l="{{ c1 }}">August-October</td><td data-l="{{ c2 }}">National Development Summit and Suriname 3.0 Summit (3 August and 22 October 2026)</td><td data-l="{{ c3 }}">Paramaribo</td><td data-l="{{ c4 }}">Policy, sector bodies</td></tr>
+ <tr><td data-l="{{ c1 }}">September</td><td data-l="{{ c2 }}">HUB Cámara Santo Domingo (usually September); Guyane Excellence (first edition September 2025)</td><td data-l="{{ c3 }}">Santo Domingo; Cayenne</td><td data-l="{{ c4 }}">Buyers, exporters</td></tr>
+ <tr><td data-l="{{ c1 }}">October</td><td data-l="{{ c2 }}">Caribbean Investment Forum (5 to 7 October 2026); IBC Suriname-Guyana (13 to 15 October 2026)</td><td data-l="{{ c3 }}">Barbados; Paramaribo</td><td data-l="{{ c4 }}">Investors, project developers</td></tr>
+ <tr><td data-l="{{ c1 }}">December</td><td data-l="{{ c2 }}">SUSU &amp; Partners Business Event (3 December 2026); Entrepreneurship Fair &amp; Braderie (13 December 2025)</td><td data-l="{{ c3 }}">Amsterdam; Congress Hall</td><td data-l="{{ c4 }}">Diaspora; young entrepreneurs</td></tr>
+{% endif %}
+</tbody></table>
+<p class="note">{{ 'Data in het verleden zijn de laatste editie die we konden controleren; de volgende editie valt meestal in dezelfde maand.' if nl else 'Past dates are the last edition we could verify; the next edition usually falls in the same month.' }}</p>
+
+<h2>{{ 'Grote evenementen in Suriname' if nl else 'Major events in Suriname' }}</h2>
+{% if nl %}
+<h3>SEOGS: Suriname Energy, Oil &amp; Gas Summit &amp; Exhibition</h3>
+<p><b>Wat:</b> de grootste energieconferentie en -beurs van het land, met een executive summit, een technische conferentie en een expositie. <b>Organisator:</b> Staatsolie is gastheer, met steun van de overheid. <b>Wanneer:</b> elk jaar in juni; de 6e editie was van 23 tot 26 juni 2026 in Roeli's Event Center, onder het thema "Unlocking Energy, Empowering Nations". De Jamaicaanse premier sprak er op 24 juni. <b>Wie komt:</b> Staatsolie, de offshore-operators, internationale contractors, ministeries, banken, buitenlandse delegaties (in 2025 een Amerikaanse delegatie via de U.S. Commercial Service, in 2025 en 2026 een paviljoen van de Suriname-Guyana Chamber of Commerce) en lokale toeleveranciers. <b>Waarom gaan:</b> wie aan de olie- en gasketen wil leveren, ziet hier in vier dagen de inkopers, hoort welke contracten eraan komen en kan zich laten registreren. Kaartjes zijn duur (in 2025 had een driedaagse technische pas een waarde van USD 1.390), maar de beursvloer is voor bezoekers vaak toegankelijker. Zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<h3>International Business Conference (IBC) Suriname-Guyana</h3>
+<p><b>Wat:</b> een investeringsconferentie met panels en business matching. <b>Organisator:</b> de Suriname-Guyana Chamber of Commerce, met steun van SITA en het Guyana Office for Investment; Caribbean Export was in 2026 Business Support Partner. <b>Wanneer:</b> de 4e editie was van 13 tot 15 oktober 2026 in het Assuria Event Center, thema "From Energy to Industry: Investing in the Suriname-Guyana Value Chain". Het gastland wisselt tussen Suriname en Guyana. <b>Waarom gaan:</b> je ontmoet Guyanese en internationale bedrijven die de keten van olie naar industrie, logistiek en diensten opbouwen, en investeerders die naar beide landen kijken.</p>
+<h3>Caribbean Energy Week</h3>
+<p>De eerste editie begon op 30 maart 2026 in Paramaribo, met CARICOM-energieministers, nationale oliemaatschappijen, Afreximbank en internationale energiebedrijven. Thema's: olie en gas, hernieuwbare energie, kritieke mineralen, koolstofkredieten. Interessant voor wie in energie, mijnbouw of financiering zit en regionale contacten zoekt.</p>
+<h3>Agrarische Beurs</h3>
+<p><b>Organisator:</b> het ministerie van Landbouw, Veeteelt en Visserij (LVV). <b>Wanneer:</b> begin mei; in 2026 van 1 tot 3 mei op het KKF-beursterrein aan de Kernkampweg, geopend door de president, thema "De versnelde ontwikkeling in de agrarische sector"; in 2023 van 5 tot 7 mei. <b>Wie komt:</b> boeren, verwerkers, leveranciers van zaad, kunstmest en machines, kennisinstellingen, banken en een groot publiek. <b>Waarom gaan:</b> je kunt er direct verkopen, en het is de plek om LVV, kopers en financiers in één keer te spreken. Zie <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+<h3>ICT Summit Suriname en Suriname Silicon Valley Summit</h3>
+<p>De ICT Associatie Suriname organiseert de ICT Summit; de 7e editie was op 3 en 4 juli 2025 in Torarica, met als thema "Digital Development, Growth &amp; Inclusion". Op 10 februari 2026 hield Stichting Father Mother Figure de eerste Suriname Silicon Valley Summit, over talent, cybersecurity en governance. Goed voor ICT-bedrijven, werkgevers die ICT-personeel zoeken en wie digitaal wil gaan.</p>
+<h3>Green Awareness Expo</h3>
+<p>Een driedaagse expo over duurzaamheid van de Torarica Group in de ballroom van Torarica; de editie 2025 liep van 31 juli tot 2 augustus. Bedrijven met een duurzaam product of duurzame dienst kunnen zich aanmelden voor een stand. Zie <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+<h3>Congressen voor de financiële sector</h3>
+<p>Het <b>Nationaal Compliance Congres</b> van TABTO Group (sinds 2019, meestal in juli) richt zich op compliance-officers, banken, verzekeraars en andere meldingsplichtigen, met masterclasses over witwasregels en internationale eisen. Zie <a href="{{ U('aml') }}">{{ L('aml') }}</a>. Rond Global Money Week (maart) zijn er financiële-educatiebeurzen, zoals op 18 maart 2026 in Nickerie.</p>
+<h3>Beleidsbijeenkomsten</h3>
+<p>Het ministerie van Olie, Gas en Milieu startte op 3 augustus 2026 de <b>National Development Summit</b>, een traject naar een nationale visie voor 2050; de derde sessie, de <b>Suriname 3.0 Summit</b>, was op 22 oktober 2026. Hier praten sectororganisaties mee over welke sectoren voorrang krijgen. Het werkgeversbedrijfsleven hield in november 2025 een congres rond 50 jaar onafhankelijkheid. Zulke bijeenkomsten leveren geen orders op, maar wel inzicht in waar beleid en geld naartoe gaan.</p>
+<h3>Lokale beurzen, braderieën en markten</h3>
+<ul>
+ <li><b>FHR Business Fair</b>: elk jaar begin februari op de campus van de FHR School of Business; tweedejaarsstudenten presenteren hun bedrijven. Goed om jong talent en nieuwe producten te zien.</li>
+ <li><b>Ondernemerschap Beurs &amp; Braderie</b> van Stichting RUMAS, op 13 december 2025 in de Congreshal, voor jonge ondernemers.</li>
+ <li><b>SUMADE Expo</b> op 28 en 29 mei 2026 in Ballroom Prince, waar het SSB een workshop gaf over certificering en etiketten.</li>
+ <li><b>Braderieën en markten in de districten</b>, zoals in Para, worden met een vergunning van de districtscommissaris gehouden. Voor kleine producenten een goedkope manier om producten en prijzen te testen. Zie <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</li>
+ <li><b>De Jaarbeurs</b> van de KKF was jarenlang de grootste publieksbeurs (de 17e editie in november 2014). Een recente editie konden we niet vinden.</li>
+</ul>
+<h3>KKF: ondernemersavonden en informatieloket</h3>
+<p>De Kamer van Koophandel en Fabrieken houdt in Paramaribo regelmatig gratis avonden, in 2026 onder meer over belastingplicht en registratie, de jaarrekening, ISO-certificering, cybersecurity, AI in de landbouw en de rol van de Suriname National Training Authority. Elke maandag van 9 tot 13 uur is er een informatieloket over kansen in de olie- en gassector. Aanmelden is verplicht; de aankondigingen staan op de KKF-site. In december 2025 ontving de KKF een delegatie Britse investeerders.</p>
+{% else %}
+<h3>SEOGS: Suriname Energy, Oil &amp; Gas Summit &amp; Exhibition</h3>
+<p><b>What:</b> the country's largest energy conference and exhibition, with an executive summit, a technical conference and an exhibition. <b>Organiser:</b> Staatsolie is the host, with government support. <b>When:</b> every year in June; the 6th edition was on 23 to 26 June 2026 at Roeli's Event Center, themed "Unlocking Energy, Empowering Nations". Jamaica's prime minister spoke there on 24 June. <b>Who attends:</b> Staatsolie, the offshore operators, international contractors, ministries, banks, foreign delegations (in 2025 a US delegation through the U.S. Commercial Service, in 2025 and 2026 a pavilion of the Suriname-Guyana Chamber of Commerce) and local suppliers. <b>Why go:</b> if you want to supply the oil and gas chain, you see the buyers in four days, hear which contracts are coming and can register. Passes are expensive (in 2025 a three-day technical pass was valued at USD 1,390), but the exhibition floor is often more accessible for visitors. See <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<h3>International Business Conference (IBC) Suriname-Guyana</h3>
+<p><b>What:</b> an investment conference with panels and business matching. <b>Organiser:</b> the Suriname-Guyana Chamber of Commerce, supported by SITA and the Guyana Office for Investment; Caribbean Export was a Business Support Partner in 2026. <b>When:</b> the 4th edition was on 13 to 15 October 2026 at the Assuria Event Center, themed "From Energy to Industry: Investing in the Suriname-Guyana Value Chain". The host country alternates between Suriname and Guyana. <b>Why go:</b> you meet Guyanese and international firms building the chain from oil to industry, logistics and services, and investors looking at both countries.</p>
+<h3>Caribbean Energy Week</h3>
+<p>The first edition opened on 30 March 2026 in Paramaribo, with CARICOM energy ministers, national oil companies, Afreximbank and international energy firms. Topics: oil and gas, renewables, critical minerals, carbon credits. Of interest if you are in energy, mining or finance and want regional contacts.</p>
+<h3>Agricultural Fair (Agrarische Beurs)</h3>
+<p><b>Organiser:</b> the Ministry of Agriculture, Animal Husbandry and Fisheries (LVV). <b>When:</b> early May; in 2026 from 1 to 3 May at the KKF fairground on the Kernkampweg, opened by the president, themed "Accelerated development of the agricultural sector"; in 2023 from 5 to 7 May. <b>Who attends:</b> farmers, processors, suppliers of seed, fertiliser and machinery, research institutes, banks and a large public. <b>Why go:</b> you can sell directly, and it is the place to meet the ministry, buyers and financiers in one go. See <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+<h3>ICT Summit Suriname and Suriname Silicon Valley Summit</h3>
+<p>The ICT Association of Suriname runs the ICT Summit; the 7th edition was on 3 and 4 July 2025 at Torarica, themed "Digital Development, Growth &amp; Inclusion". On 10 February 2026 the Father Mother Figure foundation held the first Suriname Silicon Valley Summit, on talent, cybersecurity and governance. Good for ICT firms, employers looking for ICT staff and anyone going digital.</p>
+<h3>Green Awareness Expo</h3>
+<p>A three-day sustainability expo by the Torarica Group in the Torarica ballroom; the 2025 edition ran from 31 July to 2 August. Firms with a sustainable product or service can apply for a stand. See <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+<h3>Congresses for the financial sector</h3>
+<p>TABTO Group's <b>National Compliance Congress</b> (since 2019, usually in July) targets compliance officers, banks, insurers and other reporting entities, with masterclasses on anti-money laundering rules and international requirements. See <a href="{{ U('aml') }}">{{ L('aml') }}</a>. Around Global Money Week (March) there are financial education fairs, such as on 18 March 2026 in Nickerie.</p>
+<h3>Policy meetings</h3>
+<p>The Ministry of Oil, Gas and Environment launched the <b>National Development Summit</b> on 3 August 2026, a process towards a national vision for 2050; the third session, the <b>Suriname 3.0 Summit</b>, was on 22 October 2026. Sector bodies help decide which sectors get priority. Organised employers held a congress on 50 years of independence in November 2025. Such meetings bring no orders, but they show where policy and money are heading.</p>
+<h3>Local fairs, braderies and markets</h3>
+<ul>
+ <li><b>FHR Business Fair</b>: every year in early February on the FHR School of Business campus; second-year students present their companies. Good for spotting young talent and new products.</li>
+ <li><b>Entrepreneurship Fair &amp; Braderie</b> of the RUMAS foundation, on 13 December 2025 in the Congress Hall, for young entrepreneurs.</li>
+ <li><b>SUMADE Expo</b> on 28 and 29 May 2026 in Ballroom Prince, where the Standards Bureau gave a workshop on certification and labels.</li>
+ <li><b>Braderies and markets in the districts</b>, such as in Para, are held under a permit from the district commissioner. For small producers a cheap way to test products and prices. See <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</li>
+ <li><b>The Jaarbeurs</b> (annual trade fair) of the KKF was for years the largest public fair (the 17th edition in November 2014). We could not find a recent edition.</li>
+</ul>
+<h3>KKF: business evenings and information desk</h3>
+<p>The Chamber of Commerce and Industry regularly holds free evenings in Paramaribo, in 2026 on tax duties and registration, annual accounts, ISO certification, cybersecurity, AI in farming and the role of the Suriname National Training Authority. Every Monday from 9 am to 1 pm there is an information desk on opportunities in oil and gas. Registration is required; announcements are on the KKF site. In December 2025 the KKF hosted a delegation of British investors.</p>
+{% endif %}
+
+<h2>{{ 'In de regio en verder' if nl else 'In the region and beyond' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Caribbean Investment Forum (CIF)</b>: het investeringsforum van Caribbean Export, met projecten die investeerders zoeken. De editie 2026 was van 5 tot 7 oktober in het Hilton Barbados, thema "Invest. Innovate. Accelerate."; er werden projecten voor USD 39 miljoen gepresenteerd. Het gastland wisselt. Goed als je een investeringsklaar project hebt.</li>
+ <li><b>ACS Business Forum</b> van de Associatie van Caribische Staten: de 16e editie was op 6 mei 2024 in Torarica, de eerste keer in Suriname, met een zakelijke beurs van ruim 60 deelnemers. Het forum reist mee met de ACS-bijeenkomsten.</li>
+ <li><b>Guyana Energy Conference and Supply Chain Expo</b>: meestal in februari in Georgetown. Voor toeleveranciers die ook in Guyana willen werken.</li>
+ <li><b>SelectUSA Investment Summit</b>: het grootste evenement voor buitenlandse investeringen in de VS. De editie 2027 is van 2 tot 5 mei in National Harbor, Maryland. Voor bedrijven die in de VS willen uitbreiden of daar een vestiging zoeken.</li>
+ <li><b>SDG Investment Fair</b> (VN, New York): voor investeringsklare projecten vanaf USD 30 miljoen die bijdragen aan de duurzame-ontwikkelingsdoelen. De editie 2026 was van 20 tot 24 april; kandidaten dienen in via het ministerie van Buitenlandse Zaken, dat de oproep op gov.sr zet.</li>
+ <li><b>HUB Cámara Santo Domingo</b>: een B2B-exportbeurs in de Dominicaanse Republiek (de 6e editie was in september 2024), met een incentiveprogramma van ProDominicana voor buitenlandse inkopers. Interessant voor importeurs; sinds 2026 is er een directe vlucht Paramaribo-Santo Domingo.</li>
+ <li><b>Guyane Excellence</b>: een beurs van de Collectivité Territoriale de Guyane in Cayenne voor vakmanschap, landbouw, toerisme en innovatie; de eerste editie was in september 2025. Frans-Guyana is EU-gebied: zie <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+ <li><b>Jaarvergadering van de CDB</b>: de Caribische Ontwikkelingsbank houdt elk jaar een vergadering van gouverneurs in een lidstaat. Vooral voor overheden en banken; interessant als je projecten zoekt die de CDB financiert.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Caribbean Investment Forum (CIF)</b>: Caribbean Export's investment forum, with projects looking for investors. The 2026 edition was on 5 to 7 October at the Hilton Barbados, themed "Invest. Innovate. Accelerate."; USD 39 million in projects was presented. The host country rotates. Good if you have an investment-ready project.</li>
+ <li><b>ACS Business Forum</b> of the Association of Caribbean States: the 16th edition was on 6 May 2024 at Torarica, the first time in Suriname, with a business fair of more than 60 participants. The forum moves with the ACS meetings.</li>
+ <li><b>Guyana Energy Conference and Supply Chain Expo</b>: usually in February in Georgetown. For suppliers that also want to work in Guyana.</li>
+ <li><b>SelectUSA Investment Summit</b>: the largest event for foreign investment in the US. The 2027 edition is on 2 to 5 May in National Harbor, Maryland. For firms that want to expand into the US or set up there.</li>
+ <li><b>SDG Investment Fair</b> (UN, New York): for investment-ready projects of USD 30 million and up that contribute to the Sustainable Development Goals. The 2026 edition was on 20 to 24 April; candidates submit through the Ministry of Foreign Affairs, which posts the call on gov.sr.</li>
+ <li><b>HUB Cámara Santo Domingo</b>: a B2B export fair in the Dominican Republic (the 6th edition was in September 2024), with a ProDominicana incentive programme for foreign buyers. Of interest to importers; since 2026 there has been a direct flight Paramaribo-Santo Domingo.</li>
+ <li><b>Guyane Excellence</b>: a fair of the Collectivité Territoriale de Guyane in Cayenne for craftsmanship, farming, tourism and innovation; the first edition was in September 2025. French Guiana is EU territory: see <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+ <li><b>CDB annual meeting</b>: the Caribbean Development Bank's Board of Governors meets every year in a member country. Mainly for governments and banks; of interest if you are looking for projects the CDB finances.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Handelsmissies' if nl else 'Trade missions' }}</h2>
+{% if nl %}
+<p>Een handelsmissie is een georganiseerde reis van een groep bedrijven met een programma van afspraken. Ze komen in twee richtingen.</p>
+<h3>Missies naar Suriname</h3>
+<ul>
+ <li><b>Aruba</b>: in juni 2024 kwam een missie onder leiding van de Arubaanse minister van Economische Zaken, met de Kamer van Koophandel van Aruba en de Aruba Trade &amp; Industry Association.</li>
+ <li><b>Verenigde Staten</b>: in juni 2025 nam een Amerikaanse delegatie via de U.S. Commercial Service en de ambassade deel aan SEOGS, met B2B-gesprekken met vooraf geselecteerde kopers, agenten en partners.</li>
+ <li><b>Guyana</b>: de Suriname-Guyana Chamber of Commerce bracht in 2025 en 2026 een handelsmissie en paviljoen naar SEOGS.</li>
+ <li><b>Verenigd Koninkrijk</b>: op 1 december 2025 ontmoetten Surinaamse bedrijven bij de KKF een delegatie Britse bedrijven met investeringskapitaal voor middelgrote en grote ondernemingen.</li>
+ <li><b>Diaspora</b>: diaspora-organisaties in Nederland organiseren ook reizen naar Suriname; zie <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+<p>Voor Surinaamse bedrijven is een inkomende missie de goedkoopste kans: je hoeft niet te reizen, en de organisator plant de B2B-gesprekken. Laat je via de KKF, SITA of je brancheorganisatie op de lijst zetten.</p>
+<h3>Missies vanuit Suriname</h3>
+<ul>
+ <li><b>SITA</b> nam in 2024 met bedrijven deel aan missies naar Aruba, Curaçao en Barbados en coördineert zakendelegaties bij staatsbezoeken.</li>
+ <li><b>Dominicaanse Republiek</b>: bij het bezoek van president Simons eind mei 2026 tekenden beide landen zes samenwerkingsakkoorden, waaronder een memorandum tussen de handels- en investeringsagentschappen. In 2023 ging een zakendelegatie mee met een staatsbezoek; vlucht en hotel waren voor de deelnemers.</li>
+ <li><b>Caribbean Export</b> organiseert regionale missies, zoals in 2026 de GRIT-missie naar Canada voor inheemse vrouwelijke ondernemers.</li>
+</ul>
+<p>Welke landen interessant zijn en welke afspraken gelden: <a href="{{ U('countries') }}">{{ L('countries') }}</a> en <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>. Reizen voor zaken: <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</p>
+{% else %}
+<p>A trade mission is an organised trip by a group of companies with a programme of meetings. They come in two directions.</p>
+<h3>Missions to Suriname</h3>
+<ul>
+ <li><b>Aruba</b>: in June 2024 a mission led by Aruba's Minister of Economic Affairs came with the Aruba Chamber of Commerce and the Aruba Trade &amp; Industry Association.</li>
+ <li><b>United States</b>: in June 2025 a US delegation, through the U.S. Commercial Service and the embassy, took part in SEOGS with B2B meetings with pre-screened buyers, agents and partners.</li>
+ <li><b>Guyana</b>: the Suriname-Guyana Chamber of Commerce brought a trade mission and pavilion to SEOGS in 2025 and 2026.</li>
+ <li><b>United Kingdom</b>: on 1 December 2025 Surinamese firms met a delegation of British companies with investment capital for medium and large businesses at the KKF.</li>
+ <li><b>Diaspora</b>: diaspora organisations in the Netherlands also organise trips to Suriname; see <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a>.</li>
+</ul>
+<p>For Surinamese firms an incoming mission is the cheapest opportunity: you do not travel, and the organiser plans the B2B meetings. Get on the list through the KKF, SITA or your industry body.</p>
+<h3>Missions from Suriname</h3>
+<ul>
+ <li><b>SITA</b> took companies on missions to Aruba, Curaçao and Barbados in 2024 and coordinates business delegations on state visits.</li>
+ <li><b>Dominican Republic</b>: during President Simons' visit at the end of May 2026 the two countries signed six cooperation agreements, including a memorandum between the trade and investment agencies. In 2023 a business delegation joined a state visit; flights and hotels were at the participants' own cost.</li>
+ <li><b>Caribbean Export</b> organises regional missions, such as the 2026 GRIT mission to Canada for Indigenous women entrepreneurs.</li>
+</ul>
+<p>Which countries are interesting and which agreements apply: <a href="{{ U('countries') }}">{{ L('countries') }}</a> and <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>. Travelling for business: <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Diaspora-evenementen' if nl else 'Diaspora events' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Diaspora Business Summit</b>: de eerste editie was van 6 tot 8 februari 2025 in Paramaribo, georganiseerd door het Diaspora Instituut Suriname en het Directoraat International Business van Buitenlandse Zaken.</li>
+ <li><b>Diaspora Homecoming Summit Suriname</b>: op 18 oktober 2025, gesteund door het Diaspora Instituut Nederland en het Diaspora Instituut Suriname.</li>
+ <li><b>PSA-Diaspora en Investeerders Dialoog</b>: op 3 mei 2026 in Amsterdam, voorbereid door de Surinaamse ambassade, met de voorzitter van De Nationale Assemblée.</li>
+ <li><b>Wonen, Investeren en Ondernemen in Suriname</b>: bijeenkomsten van het Diaspora Instituut Nederland en Sur Estate Group op 30 mei en 19 september 2026 bij Schiphol; de volgende is verwacht rond februari 2027.</li>
+ <li><b>SUSU &amp; Partners Business Event</b>: 3 december 2026, 17.00 tot 21.00 uur, Amsterdam (bij Amstelstation), gratis met ticket. De <b>SUSU Summit</b> is gepland voor april 2027 in de Passenger Terminal Amsterdam.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Diaspora Business Summit</b>: the first edition was on 6 to 8 February 2025 in Paramaribo, organised by the Diaspora Institute Suriname and the Foreign Ministry's International Business Directorate.</li>
+ <li><b>Diaspora Homecoming Summit Suriname</b>: on 18 October 2025, supported by the Diaspora Institute Netherlands and the Diaspora Institute Suriname.</li>
+ <li><b>PSA Diaspora and Investors Dialogue</b>: on 3 May 2026 in Amsterdam, prepared by the Surinamese embassy, with the Speaker of the National Assembly.</li>
+ <li><b>Living, Investing and Doing Business in Suriname</b>: meetings of the Diaspora Institute Netherlands and Sur Estate Group on 30 May and 19 September 2026 near Schiphol; the next one is expected around February 2027.</li>
+ <li><b>SUSU &amp; Partners Business Event</b>: 3 December 2026, 5 pm to 9 pm, Amsterdam (near Amstel station), free with a ticket. The <b>SUSU Summit</b> is planned for April 2027 at the Passenger Terminal Amsterdam.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zo haal je het meeste uit een beurs' if nl else 'How to get the most from a trade fair' }}</h2>
+{% if nl %}
+<h3>Vooraf (zes tot acht weken)</h3>
+<ol class="steps">
+ <li><b>Kies je doel.</b> Verkopen, kopers vinden, een distributeur, een investeerder of marktinformatie? Eén hoofddoel, met een getal: "15 gesprekken met inkopers, 3 offerteaanvragen".</li>
+ <li><b>Kies bezoeker of standhouder.</b> Een stand kost geld en mensen, maar trekt kopers naar je toe. Als bezoeker ben je flexibeler en goedkoper. De eerste keer is bezoeken vaak slimmer.</li>
+ <li><b>Bekijk de lijst van standhouders en sprekers</b> en maak een top tien van mensen die je wilt spreken. Mail ze vooraf voor een afspraak; bij de grote energiebeurzen gaat de agenda snel vol.</li>
+ <li><b>Regel je materiaal.</b> Visitekaartjes, een productblad van één pagina in het Engels, prijslijst, monsters, een QR-code naar je website of WhatsApp. Handige tools: <a href="{{ U('businesscard') }}">{{ L('businesscard') }}</a>, <a href="{{ U('pricelist') }}">{{ L('pricelist') }}</a>, <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</li>
+ <li><b>Ken je cijfers.</b> Minimale bestelhoeveelheid, levertijd, prijs af fabriek en geleverd, certificaten. Een koper die geen antwoord krijgt, komt niet terug.</li>
+ <li><b>Vraag subsidie aan vóór je boekt.</b> Exporteurs kunnen tot 90% van beursdeelname terugkrijgen via SITA, maar alleen als het vooraf is goedgekeurd.</li>
+</ol>
+<h3>Tijdens de beurs</h3>
+<ul class="check">
+ <li>Sta voor je stand, niet erachter; spreek mensen aan met een vraag, niet met een folder</li>
+ <li>Noteer na elk gesprek direct wie, welk bedrijf, wat ze zoeken en de afgesproken vervolgstap</li>
+ <li>Maak een foto van visitekaartjes of scan ze in je telefoon</li>
+ <li>Ga naar de netwerksessies en panels: daar zitten de beslissers</li>
+ <li>Kijk bij concurrenten: prijzen, verpakking, wat kopers vragen</li>
+</ul>
+<h3>Erna (de eerste week telt)</h3>
+<ul class="check">
+ <li>Stuur binnen 48 uur een persoonlijke mail met wat je hebt afgesproken</li>
+ <li>Stuur offertes binnen een week; gebruik <a href="{{ U('quote') }}">{{ L('quote') }}</a> of <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+ <li>Zet alle contacten in één lijst met status en volgende actie</li>
+ <li>Reken af: kosten tegenover offertes en orders na drie en zes maanden</li>
+ <li>Lever bij een subsidie bonnen en bewijs op tijd in</li>
+</ul>
+{% else %}
+<h3>Before (six to eight weeks ahead)</h3>
+<ol class="steps">
+ <li><b>Pick your goal.</b> Sell, find buyers, a distributor, an investor or market information? One main goal, with a number: "15 meetings with buyers, 3 requests for quotation".</li>
+ <li><b>Choose visitor or exhibitor.</b> A stand costs money and people, but draws buyers to you. As a visitor you are more flexible and cheaper. The first time, visiting is often smarter.</li>
+ <li><b>Study the list of exhibitors and speakers</b> and make a top ten of people you want to meet. Email them for an appointment beforehand; at the big energy fairs diaries fill up fast.</li>
+ <li><b>Prepare your material.</b> Business cards, a one-page product sheet in English, a price list, samples, a QR code to your website or WhatsApp. Useful tools: <a href="{{ U('businesscard') }}">{{ L('businesscard') }}</a>, <a href="{{ U('pricelist') }}">{{ L('pricelist') }}</a>, <a href="{{ U('qrcode') }}">{{ L('qrcode') }}</a>.</li>
+ <li><b>Know your figures.</b> Minimum order quantity, lead time, ex-works and delivered price, certificates. A buyer who gets no answer does not come back.</li>
+ <li><b>Apply for a grant before you book.</b> Exporters can get up to 90% of trade fair costs back through SITA, but only if approved beforehand.</li>
+</ol>
+<h3>During the fair</h3>
+<ul class="check">
+ <li>Stand in front of your stand, not behind it; approach people with a question, not a brochure</li>
+ <li>Right after each conversation, note who, which company, what they need and the agreed next step</li>
+ <li>Photograph business cards or scan them into your phone</li>
+ <li>Go to the networking sessions and panels: that is where the decision makers are</li>
+ <li>Look at competitors: prices, packaging, what buyers ask</li>
+</ul>
+<h3>After (the first week counts)</h3>
+<ul class="check">
+ <li>Send a personal email within 48 hours with what you agreed</li>
+ <li>Send quotes within a week; use <a href="{{ U('quote') }}">{{ L('quote') }}</a> or <a href="{{ U('proforma') }}">{{ L('proforma') }}</a></li>
+ <li>Put all contacts in one list with status and next action</li>
+ <li>Take stock: costs against quotes and orders after three and six months</li>
+ <li>If you have a grant, hand in receipts and evidence on time</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zo haal je het meeste uit een handelsmissie' if nl else 'How to get the most from a trade mission' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Vraag wat er geregeld is.</b> Wie plant de B2B-gesprekken, met welke bedrijven, en wie betaalt vlucht, hotel en vervoer? Bij overheidsmissies betaal je vaak zelf reis en verblijf.</li>
+ <li><b>Lever een scherp profiel aan.</b> Wat verkoop of zoek je, in welke hoeveelheden, met welke certificaten. Hoe preciezer, hoe beter de matches.</li>
+ <li><b>Doe huiswerk over het land.</b> Invoerregels, tarieven, betaalgewoonten, taal. Zie <a href="{{ U('countries') }}">{{ L('countries') }}</a> en <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>.</li>
+ <li><b>Plan eigen afspraken erbij.</b> De officiële agenda is een begin; voeg een of twee dagen toe voor bezoeken aan kopers, winkels en havens.</li>
+ <li><b>Reken de reis door</b> met <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>, inclusief monsters, vertaling en een buffer voor de wisselkoers.</li>
+ <li><b>Spreek na afloop met de organisator</b> over vervolg: een tegenbezoek, een proefzending, een gezamenlijke stand op een beurs.</li>
+</ol>
+{% else %}
+<ol class="steps">
+ <li><b>Ask what is arranged.</b> Who plans the B2B meetings, with which companies, and who pays flights, hotel and transport? On government missions you often pay your own travel and accommodation.</li>
+ <li><b>Submit a sharp profile.</b> What you sell or look for, in which volumes, with which certificates. The more precise, the better the matches.</li>
+ <li><b>Do your homework on the country.</b> Import rules, tariffs, payment habits, language. See <a href="{{ U('countries') }}">{{ L('countries') }}</a> and <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>.</li>
+ <li><b>Add your own meetings.</b> The official agenda is a start; add a day or two for visits to buyers, shops and ports.</li>
+ <li><b>Cost the trip</b> with <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>, including samples, translation and an exchange rate buffer.</li>
+ <li><b>Talk to the organiser afterwards</b> about follow-up: a return visit, a trial shipment, a joint stand at a fair.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Wat kost het?' if nl else 'What does it cost?' }}</h2>
+{% if nl %}
+<p>Prijzen verschillen sterk. Een paar ijkpunten die we konden controleren: de Amerikaanse delegatie naar SEOGS 2025 kostte USD 2.000 of USD 2.500 per bedrijf, inclusief een SEOGS-pas met een waarde van USD 1.390 (drie dagen) of USD 1.995 (vier dagen). De KKF-avonden en het SUSU-businessevent zijn gratis. Lokale publieksbeurzen zijn gratis of goedkoop voor bezoekers; een stand kost meer. Vraag altijd de standhoudershandleiding met prijzen, en tel daarbij op: inrichting, personeel, monsters, drukwerk, vervoer en verblijf. Leg je budget naast de omzet die je realistisch verwacht met <a href="{{ U('roi') }}">{{ L('roi') }}</a>.</p>
+{% else %}
+<p>Prices vary widely. A few benchmarks we could verify: the US delegation to SEOGS 2025 cost USD 2,000 or USD 2,500 per company, including a SEOGS pass valued at USD 1,390 (three days) or USD 1,995 (four days). The KKF evenings and the SUSU business event are free. Local public fairs are free or cheap for visitors; a stand costs more. Always ask for the exhibitor manual with prices, and add: fit-out, staff, samples, printing, transport and accommodation. Set your budget against the sales you realistically expect with <a href="{{ U('roi') }}">{{ L('roi') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik geen geld heb voor een stand?</b> Ga als bezoeker, of deel een stand: bij het ACS Business Forum deelden twee bedrijven een stand van 3 bij 2 meter. Vraag ook of je brancheorganisatie, SITA of een ministerie een paviljoen heeft.</li>
+ <li><b>...ik niet weet of een evenement betrouwbaar is?</b> Zoek of een overheid, kamer of bekende organisator meedoet, en of er een vorige editie was. Betaal nooit voor "exclusieve investeerderslijsten" of een gegarandeerde ontmoeting.</li>
+ <li><b>...het evenement in het buitenland is en ik een visum nodig heb?</b> Begin vroeg; vraag de organisator om een uitnodigingsbrief. Zie <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li><b>...ik wil leveren aan de olie- en gassector maar SEOGS te duur vind?</b> Begin bij het gratis informatieloket van de KKF op maandag en bij de leveranciersregistratie van de operators. Zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> en <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>...ik zelf een evenement wil organiseren?</b> Reken op een vergunning van de districtscommissaris voor een openbare locatie, en op regels voor veiligheid en geluid. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a> en <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I have no money for a stand?</b> Go as a visitor, or share a stand: at the ACS Business Forum two companies shared a 3 by 2 metre stand. Also ask whether your industry body, SITA or a ministry has a pavilion.</li>
+ <li><b>...I do not know whether an event is reliable?</b> Check whether a government, chamber or known organiser is involved, and whether there was a previous edition. Never pay for "exclusive investor lists" or a guaranteed meeting.</li>
+ <li><b>...the event is abroad and I need a visa?</b> Start early; ask the organiser for an invitation letter. See <a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a>.</li>
+ <li><b>...I want to supply oil and gas but find SEOGS too expensive?</b> Start with the KKF's free information desk on Mondays and the operators' supplier registration. See <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> and <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+ <li><b>...I want to organise an event myself?</b> Expect to need a permit from the district commissioner for a public venue, and rules on safety and noise. See <a href="{{ U('licences') }}">{{ L('licences') }}</a> and <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.ssb.sr/media/1602/2e-editie-nieuwsbrief-2026.pdf" rel="noopener">{{ 'SSB: nieuwsbrief 2e editie 2026 (SEOGS 2026, Agrarische Beurs, SUMADE Expo)' if nl else 'Standards Bureau: newsletter 2nd edition 2026 (SEOGS 2026, Agricultural Fair, SUMADE Expo)' }}</a></li>
+ <li><a href="https://gov.sr/jamaicaanse-premier-andrew-holness-prijst-suriname-tijdens-seogs-2026/" rel="noopener">{{ "Overheid: 6e SEOGS in Roeli's Event Venue (24 juni 2026)" if nl else "Government: 6th SEOGS at Roeli's Event Venue (24 June 2026)" }}</a></li>
+ <li><a href="https://surguychamber.org/post/positioning-for-opportunity-sgcc-trade-mission-to-seogs-2026" rel="noopener">{{ 'Suriname-Guyana Chamber of Commerce: handelsmissie naar SEOGS 2026' if nl else 'Suriname-Guyana Chamber of Commerce: trade mission to SEOGS 2026' }}</a></li>
+ <li><a href="https://events.trade.gov/en/TradeGov/USDelegationatSurinameEnergyOilandGasSummit-SEOGS" rel="noopener">{{ 'U.S. Commercial Service: delegatie naar SEOGS 2025' if nl else 'U.S. Commercial Service: delegation to SEOGS 2025' }}</a></li>
+ <li><a href="https://www.surinamebusinessconference.com/" rel="noopener">International Business Conference Suriname 2026</a></li>
+ <li><a href="https://www.carib-export.com/en/events/caribbean-investment-forum-2026" rel="noopener">Caribbean Export: Caribbean Investment Forum 2026</a></li>
+ <li><a href="https://africa.com/caribbean-energy-week-2026-ignites-regional-oil-and-renewables-dialogue/" rel="noopener">{{ 'Caribbean Energy Week 2026, dag 1 (maart 2026)' if nl else 'Caribbean Energy Week 2026, day 1 (March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/versterking-van-landbouwsector-benadrukt-tijdens-opening-agrarische-beurs-2026/" rel="noopener">{{ 'Overheid: opening Agrarische Beurs 2026' if nl else 'Government: opening of the 2026 Agricultural Fair' }}</a></li>
+ <li><a href="https://gov.sr/unieke-agrarische-beurs-op-5-6-en-7-mei-2023/" rel="noopener">{{ 'LVV: Agrarische Beurs 2023' if nl else 'Ministry of Agriculture: 2023 Agricultural Fair' }}</a></li>
+ <li><a href="https://gov.sr/ict-summit-2025-moet-digitale-vooruitgang-in-suriname-stimuleren/" rel="noopener">{{ 'Overheid: ICT Summit 2025' if nl else 'Government: ICT Summit 2025' }}</a></li>
+ <li><a href="https://gov.sr/suriname-silicon-valley-summit-zet-in-op-inhalen-ict-achterstand/" rel="noopener">{{ 'Overheid: Suriname Silicon Valley Summit (februari 2026)' if nl else 'Government: Suriname Silicon Valley Summit (February 2026)' }}</a></li>
+ <li><a href="https://gov.sr/afdeling-lbb-natuurbeheer-neemt-deel-aan-de-green-awareness-expo-2025/" rel="noopener">{{ 'GBB: Green Awareness Expo 2025' if nl else 'Ministry of Land and Forest Management: Green Awareness Expo 2025' }}</a></li>
+ <li><a href="https://www.surinametimes.com/artikel/tabto-group-blikt-tevreden-terug-bij-lustrumviering-nationaal-compliance-congres" rel="noopener">{{ 'Suriname Times: vijfde Nationaal Compliance Congres' if nl else 'Suriname Times: fifth National Compliance Congress' }}</a></li>
+ <li><a href="https://gov.sr/national-development-summit-markeert-start-van-nationale-ontwikkelingsvisie-richting-2050/" rel="noopener">{{ 'OGM: National Development Summit (3 augustus 2026)' if nl else 'Ministry of Oil, Gas and Environment: National Development Summit (3 August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/suriname-3-0-summit-legt-fundament-voor-duurzame-ontwikkeling-richting-2050/" rel="noopener">{{ 'OGM: Suriname 3.0 Summit (22 oktober 2026)' if nl else 'Ministry of Oil, Gas and Environment: Suriname 3.0 Summit (22 October 2026)' }}</a></li>
+ <li><a href="https://gov.sr/jong-ondernemerschap-krijgt-stimulans-tijdens-ondernemerschap-beurs-braderie/" rel="noopener">{{ 'Overheid: Ondernemerschap Beurs &amp; Braderie (december 2025)' if nl else 'Government: Entrepreneurship Fair &amp; Braderie (December 2025)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2014/11/30/17de-jaarbeurs-in-suriname/" rel="noopener">{{ 'Waterkant: 17e Jaarbeurs (november 2014)' if nl else 'Waterkant: 17th Jaarbeurs (November 2014)' }}</a></li>
+ <li><a href="https://www.surinamechamber.com/" rel="noopener">{{ 'KKF: nieuws en evenementen' if nl else 'KKF: news and events' }}</a></li>
+ <li><a href="https://gov.sr/acs-business-forum-met-oog-op-collectieve-aanpak-regionale-obstakels/" rel="noopener">{{ 'BIBIS: 16e ACS Business Forum (mei 2024)' if nl else 'Foreign Ministry: 16th ACS Business Forum (May 2024)' }}</a></li>
+ <li><a href="https://www.selectusasummit.us/" rel="noopener">SelectUSA Investment Summit 2027</a></li>
+ <li><a href="https://gov.sr/bekendmaking/sdg-investment-fair-2026/" rel="noopener">{{ 'Overheid: SDG Investment Fair 2026' if nl else 'Government: SDG Investment Fair 2026' }}</a></li>
+ <li><a href="https://gov.sr/awj-informeert-handelsmissie-aruba-over-trends-arbeidsmarkt-en-regelgeving/" rel="noopener">{{ 'AWJ: handelsmissie Aruba (juni 2024)' if nl else 'Ministry of Labour: Aruba trade mission (June 2024)' }}</a></li>
+ <li><a href="https://gov.sr/sita-gaat-voor-partnerschappen-en-ondersteuning-van-surinaamse-bedrijven/" rel="noopener">{{ 'Overheid: SITA en handelsmissies (mei 2024)' if nl else 'Government: SITA and trade missions (May 2024)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/06/01/suriname-en-dominicaanse-republiek-tekenen-zes-nieuwe-samenwerkingsakkoorden/" rel="noopener">{{ 'Suriname Herald: zes akkoorden met de Dominicaanse Republiek (juni 2026)' if nl else 'Suriname Herald: six agreements with the Dominican Republic (June 2026)' }}</a></li>
+ <li><a href="https://www.carib-export.com/en/news" rel="noopener">{{ 'Caribbean Export: nieuws (GRIT-missie, CIF)' if nl else 'Caribbean Export: news (GRIT mission, CIF)' }}</a></li>
+ <li><a href="https://gov.sr/eerste-surinaamse-diaspora-business-summit-van-start/" rel="noopener">{{ 'Overheid: eerste Diaspora Business Summit (februari 2025)' if nl else 'Government: first Diaspora Business Summit (February 2025)' }}</a></li>
+ <li><a href="https://www.diasporainstituutnederland.nl/" rel="noopener">{{ 'Diaspora Instituut Nederland: bijeenkomsten 2026' if nl else 'Diaspora Institute Netherlands: 2026 meetings' }}</a></li>
+ <li><a href="https://www.susu.nu/events/business-event-2026" rel="noopener">SUSU &amp; Partners Business Event 2026</a></li>
+ <li><a href="https://www.dna.sr/media/ktxlchyn/toespraak-maa-3-mei-2026-psa-diaspora-en-investeerders-dialoog.pdf" rel="noopener">{{ 'DNA: spreektekst PSA-Diaspora en Investeerders Dialoog (3 mei 2026)' if nl else 'National Assembly: speech for the PSA Diaspora and Investors Dialogue (3 May 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Data veranderen en edities worden soms verplaatst of afgelast. Controleer altijd bij de organisator voordat je reist of betaalt.' if nl else 'Dates change and editions are sometimes moved or cancelled. Always check with the organiser before you travel or pay.' }}</p>
+</div>
+{% endblock %}

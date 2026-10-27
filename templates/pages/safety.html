@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Veiligheid op het werk' if nl else 'Workplace safety' }}</h1>
+{% if nl %}
+<p class="lead">De basis is nog altijd de Veiligheidswet uit 1947, met de boetes die in 2023 zijn verhoogd: per betrokken werknemer en per dag. Een moderne Arbowet met een verplichte risico-inventarisatie ligt sinds 2019 bij De Nationale Assemblée en is nog niet aangenomen. Tot die tijd moet je als werkgever zorgen voor een veilige werkplek, je personeel verzekeren tegen ongevallen en elk bedrijfsongeval binnen 3 x 24 uur melden bij de Arbeidsinspectie.</p>
+{% else %}
+<p class="lead">The foundation is still the Safety Act of 1947, with fines raised in 2023: per affected worker and per day. A modern Occupational Health and Safety Act with a mandatory risk assessment has been before the National Assembly since 2019 and has not been passed. Until then, as an employer you must provide a safe workplace, insure your staff against accidents and report every workplace accident to the Labour Inspectorate within 72 hours.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Ongeval melden' if nl else 'Report an accident' }}</div><div class="big">{{ '3 x 24 uur' if nl else '72 hours' }}</div><div class="sub">{{ 'bij de Arbeidsinspectie' if nl else 'to the Labour Inspectorate' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Ontwerp-Arbowet' if nl else 'Draft OSH Act' }}</div><div class="big">2019</div><div class="sub">{{ 'ingediend; eindverslag commissie 4 aug 2026' if nl else 'submitted; committee report 4 Aug 2026' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Jongeren' if nl else 'Young workers' }}</div><div class="big">{{ '13 / 16 / 18' if nl else '13 / 16 / 18' }}</div><div class="sub">{{ 'lichte arbeid / werk / gevaarlijk werk' if nl else 'light work / work / hazardous work' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Wet</b>: Veiligheidswet 1947 (G.B. 1947 no. 142), gewijzigd bij S.B. 2023 no. 121; Ongevallenregeling 1947; Boek 7 BW (zorgplicht, art. 7:658); Wet Arbeid Kinderen en Jeugdige Personen (S.B. 2018 no. 76).</li>
+ <li><b>Toezicht</b>: de Arbeidsinspectie, sinds juli 2025 onder het ministerie van Volksgezondheid, Welzijn en Arbeid (VWA). Inspecteurs mogen overal binnen en sinds juni 2025 zijn 21 van hen beëdigd als buitengewoon agent van politie: ze kunnen zelf proces-verbaal opmaken.</li>
+ <li><b>Altijd</b>: een schriftelijk aangewezen opzichthouder op de werkvloer, een ongevallenverzekering vanaf dag één, een ongevallenregister, melding van ongevallen binnen 3 x 24 uur.</li>
+ <li><b>Brandveiligheid</b>: winkels, opslag, horeca en hotels krijgen hun vergunning pas na brandweeradvies. De gewijzigde Wet Brandweer is op 19 mei 2026 aangenomen.</li>
+ <li><b>Jongeren</b>: 13 tot en met 15 jaar alleen lichte arbeid onder strikte voorwaarden; 16 en 17 jaar wel werken, maar geen gevaarlijke arbeid. Nieuwe besluiten met precieze lijsten zijn in april 2026 gevalideerd.</li>
+ <li><b>Verwacht</b>: met de Arbowet komen een risico-inventarisatie en -evaluatie (RI&amp;E), eens per drie jaar bijgewerkt, en registratie van bijna-ongevallen. Begin er nu al mee.</li>
+{% else %}
+ <li><b>Law</b>: Safety Act 1947 (G.B. 1947 no. 142), amended by S.B. 2023 no. 121; Accident Regulation 1947; Civil Code Book 7 (duty of care, art. 7:658); Child and Young Persons Labour Act (S.B. 2018 no. 76).</li>
+ <li><b>Supervision</b>: the Labour Inspectorate, since July 2025 under the Ministry of Health, Welfare and Labour (VWA). Inspectors may enter any workplace, and since June 2025, 21 of them have been sworn in as special police officers: they can issue official reports themselves.</li>
+ <li><b>Always</b>: a supervisor appointed in writing on the work floor, accident insurance from day one, an accident register, accident reports within 72 hours.</li>
+ <li><b>Fire safety</b>: shops, storage, hospitality and hotels only get their permit after fire service advice. The amended Fire Service Act was passed on 19 May 2026.</li>
+ <li><b>Young workers</b>: ages 13 to 15 only light work under strict conditions; ages 16 and 17 may work, but no hazardous work. New decrees with precise lists were validated in April 2026.</li>
+ <li><b>Coming</b>: the OSH Act brings a written risk assessment (RI&amp;E), updated every three years, and recording of near misses. Start now.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'De regels die nu gelden' if nl else 'The rules that apply now' }}</h2>
+{% if nl %}
+<p>De algemene arbeidsregels (contract, loon, werktijden, ontslag) staan in <a href="{{ U('labour') }}">{{ L('labour') }}</a>. Deze pagina gaat dieper in op veiligheid en gezondheid.</p>
+<table class="tbl stack tx"><thead><tr><th>Regel</th><th>Wat staat erin</th><th>Gevolg voor jou</th></tr></thead><tbody>
+ <tr><td data-l="Regel"><b>Veiligheidswet 1947</b> (G.B. 1947 no. 142)</td><td data-l="Wat staat erin">Raamwet over veiligheid en hygiëne in bedrijven, met uitvoeringsbesluiten per onderwerp</td><td data-l="Gevolg voor jou">Machines, gebouwen, gereedschap en werkwijzen moeten veilig zijn; de inspectie kan voorschriften geven</td></tr>
+ <tr><td data-l="Regel"><b>Wijziging 2023</b> (S.B. 2023 no. 121, sinds 8 september 2023)</td><td data-l="Wat staat erin">Nieuw art. 4 bis: schriftelijk aangewezen opzichthouder; hogere boetes</td><td data-l="Gevolg voor jou">Geen opzichthouder: tot 6 maanden hechtenis of een boete van de derde categorie. Andere overtredingen: boete van de eerste categorie, bij herhaling binnen 2 jaar de tweede, telkens per werknemer en per dag</td></tr>
+ <tr><td data-l="Regel"><b>Ongevallenregeling 1947</b></td><td data-l="Wat staat erin">Aansprakelijkheid van de werkgever voor bedrijfsongevallen en beroepsziekten</td><td data-l="Gevolg voor jou">Verplichte ongevallenverzekering, aangifte en register (zie hieronder)</td></tr>
+ <tr><td data-l="Regel"><b>Burgerlijk Wetboek, art. 7:658</b></td><td data-l="Wat staat erin">Zorgplicht voor werkplek, gereedschap en instructies</td><td data-l="Gevolg voor jou">Bij letsel ben je aansprakelijk, tenzij je bewijst dat je alles hebt gedaan</td></tr>
+ <tr><td data-l="Regel"><b>Wet Arbeid Kinderen en Jeugdige Personen</b> (S.B. 2018 no. 76) en Besluit Gevaarlijke Arbeid (S.B. 2010 no. 175)</td><td data-l="Wat staat erin">Minimumleeftijden, lichte arbeid, verboden gevaarlijke arbeid voor wie jonger is dan 18</td><td data-l="Gevolg voor jou">Leeftijd controleren en jongeren weghouden van gevaarlijk werk</td></tr>
+ <tr><td data-l="Regel"><b>Beschikking Brandveiligheid</b> (S.B. 2007 no. 118) en Wet Brandweer Suriname</td><td data-l="Wat staat erin">Brandveiligheidseisen en brandweeradvies bij vergunningen</td><td data-l="Gevolg voor jou">Blusmiddelen, nooduitgangen, opslag van brandbare stoffen volgens het advies</td></tr>
+</tbody></table>
+{% else %}
+<p>The general labour rules (contract, pay, working hours, dismissal) are in <a href="{{ U('labour') }}">{{ L('labour') }}</a>. This page goes deeper into safety and health.</p>
+<table class="tbl stack tx"><thead><tr><th>Rule</th><th>What it covers</th><th>What it means for you</th></tr></thead><tbody>
+ <tr><td data-l="Rule"><b>Safety Act 1947</b> (Veiligheidswet, G.B. 1947 no. 142)</td><td data-l="What it covers">Framework act on safety and hygiene in businesses, with implementing decrees per subject</td><td data-l="What it means for you">Machines, buildings, tools and working methods must be safe; the inspectorate can issue instructions</td></tr>
+ <tr><td data-l="Rule"><b>2023 amendment</b> (S.B. 2023 no. 121, since 8 September 2023)</td><td data-l="What it covers">New art. 4 bis: supervisor appointed in writing; higher fines</td><td data-l="What it means for you">No supervisor: up to 6 months' detention or a third-category fine. Other offences: first-category fine, second category for a repeat within 2 years, each per worker and per day</td></tr>
+ <tr><td data-l="Rule"><b>Accident Regulation 1947</b> (Ongevallenregeling)</td><td data-l="What it covers">Employer liability for workplace accidents and occupational diseases</td><td data-l="What it means for you">Mandatory accident insurance, reporting and a register (see below)</td></tr>
+ <tr><td data-l="Rule"><b>Civil Code, art. 7:658</b></td><td data-l="What it covers">Duty of care for workplace, tools and instructions</td><td data-l="What it means for you">If someone is injured you are liable, unless you prove you did everything required</td></tr>
+ <tr><td data-l="Rule"><b>Child and Young Persons Labour Act</b> (S.B. 2018 no. 76) and Hazardous Work Decree (S.B. 2010 no. 175)</td><td data-l="What it covers">Minimum ages, light work, hazardous work banned for under-18s</td><td data-l="What it means for you">Check ages and keep young people away from hazardous work</td></tr>
+ <tr><td data-l="Rule"><b>Fire Safety Order</b> (S.B. 2007 no. 118) and Fire Service Act</td><td data-l="What it covers">Fire safety requirements and fire service advice for permits</td><td data-l="What it means for you">Extinguishers, emergency exits, storage of flammable materials as advised</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Wat komt: de Arbowet en de nieuwe Ongevallenregeling' if nl else 'What is coming: the OSH Act and the new Accident Regulation' }}</h2>
+{% if nl %}
+<p>De ontwerp-Arbeidsomstandighedenwet 2019 werd op 25 april 2019 ingediend. De Commissie van Rapporteurs hoorde in mei tot juli 2026 werkgevers, vakbonden, arbo-artsen, verzekeraars, de NMA en de brandweer, en bracht op 4 augustus 2026 haar eindverslag uit. Op 26 oktober 2026 was de wet nog niet aangenomen. De commissie vroeg onder meer naar ontbrekende uitvoeringsbesluiten, twaalfuursdiensten in mijnbouw en olie en gas, psychische beroepsziekten en bestuurlijke boetes.</p>
+<p>Wat het ontwerp van werkgevers vraagt:</p>
+<ul>
+ <li><b>Risico-inventarisatie en -evaluatie (RI&amp;E)</b>: schriftelijk vastleggen welke risico's het werk heeft, met maatregelen en aandacht voor bijzondere groepen werknemers, plus een plan van aanpak. Minstens eens per drie jaar bijwerken en elke werknemer moet de relevante delen kennen. Ook uitzendbureaus krijgen de RI&amp;E vooraf.</li>
+ <li><b>Toegang tot een arbomedewerker</b> of arbodienst.</li>
+ <li><b>Melding van ernstige ongevallen</b> (dood, blijvend letsel of ziekenhuisopname) binnen 3 werkdagen, registratie van bijna-ongevallen en melding van vermoedelijke beroepsziekten.</li>
+ <li>Regels voor het voorkomen van zware ongevallen met gevaarlijke stoffen.</li>
+</ul>
+<p>Daarnaast ligt een nieuwe Ongevallenregeling bij DNA; werkgevers vroegen in augustus 2026 om een technische, juridische, medische en actuariële herziening. De stand van beide wetten volgen we in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+<p>Op 3 september 2026 installeerde de onderminister van VWA de Nationale Commissie Veiligheid, Gezondheid en Welzijn, onder leiding van het hoofd van het Medisch Bureau van de Arbeidsinspectie. Die tripartiete commissie adviseert over een samenhangend arbobeleid. Achtergrond: sinds 2022 zijn de ILO-verdragen 155 en 187 over veiligheid en gezondheid fundamentele verdragen, en Suriname heeft stappen gezet om ze te ratificeren.</p>
+{% else %}
+<p>The draft Occupational Health and Safety Act 2019 (Arbeidsomstandighedenwet) was submitted on 25 April 2019. The parliamentary committee heard employers, unions, occupational physicians, insurers, the NMA and the fire service from May to July 2026, and issued its final report on 4 August 2026. As of 26 October 2026 the act had not been passed. The committee asked, among other things, about missing implementing decrees, twelve-hour shifts in mining and oil and gas, psychological occupational diseases and administrative fines.</p>
+<p>What the draft asks of employers:</p>
+<ul>
+ <li><b>Risk inventory and evaluation (RI&amp;E)</b>: write down the risks of the work, with measures and attention to special groups of workers, plus an action plan. Update it at least every three years; every worker must know the relevant parts. Temporary work agencies also get the RI&amp;E in advance.</li>
+ <li><b>Access to an OSH officer</b> or occupational health service.</li>
+ <li><b>Reporting serious accidents</b> (death, permanent injury or hospital admission) within 3 working days, recording near misses and reporting suspected occupational diseases.</li>
+ <li>Rules for preventing major accidents with hazardous substances.</li>
+</ul>
+<p>A new Accident Regulation is also before the National Assembly; in August 2026 employers asked for a technical, legal, medical and actuarial review. We track both bills in <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+<p>On 3 September 2026 the VWA deputy minister installed the National Committee on Safety, Health and Welfare, chaired by the head of the Labour Inspectorate's Medical Bureau. This tripartite committee advises on a coherent OSH policy. Background: since 2022 ILO Conventions 155 and 187 on safety and health have been fundamental conventions, and Suriname has taken steps to ratify them.</p>
+{% endif %}
+
+<h2>{{ 'De Arbeidsinspectie' if nl else 'The Labour Inspectorate' }}</h2>
+{% if nl %}
+<p>Sinds juli 2025 valt de Arbeidsinspectie onder het ministerie van Volksgezondheid, Welzijn en Arbeid. Inspecteurs hebben toegang tot elke plek waar gewerkt wordt; wie weigert, kan te maken krijgen met de politie. Het Medisch Bureau van de inspectie behandelt de medische kant van ongevallen en beroepsziekten. Contactgegevens staan in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+<h3>Waar een inspecteur naar vraagt</h3>
+<ul class="check">
+ <li>De schriftelijke aanwijzing van de opzichthouder, en die persoon moet zich kunnen legitimeren</li>
+ <li>Bewijs van de ongevallenverzekering (polis bij een erkende verzekeraar)</li>
+ <li>Het ongevallenregister: plaats, tijd, oorzaak, naam werknemer, behandelend arts, getuigen</li>
+ <li>Arbeidsregister, werktijdenlijst en loonadministratie (zie <a href="{{ U('labour') }}">{{ L('labour') }}</a>)</li>
+ <li>Afscherming van machines, staat van elektrische installaties, steigers, ladders</li>
+ <li>Persoonlijke beschermingsmiddelen en of ze gebruikt worden</li>
+ <li>Leeftijd van jonge werknemers</li>
+ <li>Overwerkvergunning boven 8,5 uur per dag of 48 uur per week (zie <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>)</li>
+</ul>
+{% else %}
+<p>Since July 2025 the Labour Inspectorate has been part of the Ministry of Health, Welfare and Labour. Inspectors have access to every place where work is done; anyone who refuses may face the police. The inspectorate's Medical Bureau handles the medical side of accidents and occupational diseases. Contact details are in <a href="{{ U('resources') }}">{{ L('resources') }}</a>.</p>
+<h3>What an inspector asks for</h3>
+<ul class="check">
+ <li>The written appointment of the supervisor, who must be able to identify themselves</li>
+ <li>Proof of accident insurance (a policy with a recognised insurer)</li>
+ <li>The accident register: place, time, cause, worker's name, treating doctor, witnesses</li>
+ <li>Staff register, working hours list and payroll records (see <a href="{{ U('labour') }}">{{ L('labour') }}</a>)</li>
+ <li>Machine guarding, condition of electrical installations, scaffolding, ladders</li>
+ <li>Personal protective equipment and whether it is used</li>
+ <li>Ages of young workers</li>
+ <li>Overtime permit above 8.5 hours a day or 48 hours a week (see <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>)</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bij een ongeval' if nl else 'When an accident happens' }}</h2>
+{% if nl %}
+<p>De werknemer is niet automatisch verzekerd. De Ongevallenregeling verplicht je hem vanaf de eerste werkdag te verzekeren; vrijwilligers en leerlingen tellen daarbij ook als werknemer. Ben je niet verzekerd, dan betaal je de wettelijke schadeloosstelling zelf: medische kosten, doorbetaling naar het dagloon, een invaliditeitsuitkering en bij overlijden uitkeringen aan nabestaanden. De Arbeidsinspectie noemt Assuria, Fatum, Parsasco en Self Reliance als verzekeraars. De premie is volledig voor de werkgever; zie <a href="{{ U('employer') }}">{{ L('employer') }}</a> en <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+<ol class="steps">
+ <li><b>Eerste hulp en zorg.</b> Breng de werknemer in veiligheid en naar een arts. Bij brand of gevaarlijke stoffen eerst de brandweer.</li>
+ <li><b>Leg vast</b> wat er gebeurde: foto's, getuigen, tijd, machine of stof. Laat de plek zoveel mogelijk ongemoeid.</li>
+ <li><b>Meld het binnen 3 x 24 uur</b> bij het hoofd van de Arbeidsinspectie met het aangifteformulier, en meteen ook bij je verzekeraar.</li>
+ <li><b>Schrijf het in het ongevallenregister.</b></li>
+ <li><b>Onderzoek de oorzaak</b> en neem maatregelen zodat het niet opnieuw gebeurt. Leg die maatregelen vast.</li>
+ <li><b>Geschil over het invaliditeitspercentage?</b> Dan kan binnen een maand na de doktersverklaring beroep worden ingesteld bij de Ongevallencommissie.</li>
+</ol>
+<p>Opzettelijk een ongeval niet melden, het register vervalsen of een werknemer bewegen af te zien van zijn rechten is een misdrijf. Wie zijn personeel niet verzekert, kan zijn bedrijf op bevel van de minister gesloten zien.</p>
+{% else %}
+<p>Workers are not insured automatically. The Accident Regulation requires you to insure them from their first working day; volunteers and apprentices also count as workers. If you are not insured, you pay the statutory compensation yourself: medical costs, pay based on the daily wage, a disability benefit and, in case of death, benefits to surviving dependants. The Labour Inspectorate names Assuria, Fatum, Parsasco and Self Reliance as insurers. The employer pays the full premium; see <a href="{{ U('employer') }}">{{ L('employer') }}</a> and <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+<ol class="steps">
+ <li><b>First aid and care.</b> Get the worker to safety and to a doctor. In a fire or with hazardous substances, call the fire service first.</li>
+ <li><b>Record</b> what happened: photos, witnesses, time, machine or substance. Leave the scene undisturbed as far as possible.</li>
+ <li><b>Report within 72 hours</b> (3 x 24 hours) to the head of the Labour Inspectorate on the report form, and to your insurer straight away.</li>
+ <li><b>Enter it in the accident register.</b></li>
+ <li><b>Investigate the cause</b> and take measures so it does not happen again. Record those measures.</li>
+ <li><b>Dispute about the disability percentage?</b> An appeal to the Accident Committee is possible within one month of the medical certificate.</li>
+</ol>
+<p>Deliberately failing to report an accident, falsifying the register or pressing a worker to give up their rights is a criminal offence. If you do not insure your staff, the minister can order your business to close.</p>
+{% endif %}
+
+<h2>{{ 'Brandveiligheid' if nl else 'Fire safety' }}</h2>
+{% if nl %}
+<p>Voor winkels, magazijnen, hotels, pensions, scholen, kinderdagverblijven, zalen en opslag van brandbare stoffen vraagt de vergunningverlener advies aan de afdeling Preventie van het Korps Brandweer Suriname (KBS). De vergunning volgt pas als je de voorschriften hebt uitgevoerd (Beschikking Brandveiligheid, S.B. 2007 no. 118); details in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<p>Op 19 mei 2026 nam DNA met 39 stemmen de gewijzigde Wet Brandweer Suriname 1993 aan. Die geeft de brandweer een moderne basis voor preventie, bestrijding en hulpverlening, en regelt het toezicht op de opslag, bewaring en behandeling van licht ontvlambare en ontplofbare stoffen. Verwacht daarom meer controles bij brandstofopslag, gasflessen en chemicaliën.</p>
+<ul class="check">
+ <li>Blustoestellen van het juiste type, zichtbaar opgehangen en jaarlijks gekeurd</li>
+ <li>Vrije nooduitgangen die van binnen zonder sleutel open kunnen</li>
+ <li>Een ontruimingsplan, verzamelplaats en minstens één oefening per jaar</li>
+ <li>Gasflessen en brandstof buiten of in een geventileerde, afgesloten ruimte</li>
+ <li>Elektrische installatie zonder losse draden en overbelaste stekkerdozen</li>
+ <li>Personeel dat weet hoe het een blusser gebruikt</li>
+</ul>
+{% else %}
+<p>For shops, warehouses, hotels, guesthouses, schools, day care centres, halls and storage of flammable materials, the issuing authority asks the Prevention Department of the Suriname Fire Service (KBS) for advice. The permit follows only after you have carried out the requirements (Fire Safety Order, S.B. 2007 no. 118); details in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</p>
+<p>On 19 May 2026 the National Assembly passed the amended Suriname Fire Service Act 1993 with 39 votes. It gives the fire service a modern basis for prevention, firefighting and rescue, and regulates supervision of the storage, keeping and handling of highly flammable and explosive substances. So expect more checks on fuel storage, gas cylinders and chemicals.</p>
+<ul class="check">
+ <li>Extinguishers of the right type, visibly mounted and inspected yearly</li>
+ <li>Clear emergency exits that open from inside without a key</li>
+ <li>An evacuation plan, assembly point and at least one drill a year</li>
+ <li>Gas cylinders and fuel outside or in a ventilated, locked space</li>
+ <li>Electrical installation without loose wires and overloaded power strips</li>
+ <li>Staff who know how to use an extinguisher</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Jongeren aan het werk' if nl else 'Young workers' }}</h2>
+{% if nl %}
+<p>De Wet Arbeid Kinderen en Jeugdige Personen (S.B. 2018 no. 76) bepaalt dat kinderen van 13 tot en met 15 jaar alleen onder strikte voorwaarden bepaalde lichte arbeid mogen doen. Jongeren van 16 en 17 jaar mogen werken, maar geen gevaarlijke arbeid. Wie jonger is dan 13, mag niet werken.</p>
+<p>Het Besluit Gevaarlijke Arbeid Jeugdige Personen (S.B. 2010 no. 175) deelt gevaarlijke arbeid in naar de aard van het werk (kans op zwaar letsel, biologische, chemische, ergonomische, fysieke en psychosociale gevaren) en naar de omstandigheden (geen beschermingsmiddelen, ongezonde of afgesloten ruimten, werk langs de weg, slecht weer).</p>
+<p>Op 7 april 2026 valideerde het ministerie van VWA met vakbonden, werkgevers en maatschappelijke organisaties twee concept-staatsbesluiten:</p>
+<ul>
+ <li><b>Besluit Lichte Arbeid</b>: een limitatieve lijst van lichte arbeid die mag vanaf 13 jaar, met voorwaarden voor veiligheid, gezondheid en schoolgang, en een lijst van wat uitdrukkelijk géén lichte arbeid is, zoals werk met gevaarlijke machines of schadelijke stoffen.</li>
+ <li><b>Aanpassing Besluit Gevaarlijke Arbeid</b>: extra verboden, onder meer werk bij hoge geluidsniveaus zonder bescherming, werk op hoogte, zware fysieke belasting en bepaalde industriële machines, met per sector uitgewerkte beperkingen.</li>
+</ul>
+<p>De besluiten gaan daarna naar de minister en de president. Ze waren op 26 oktober 2026 nog niet in het Staatsblad verschenen. Tot dan geldt het besluit uit 2010.</p>
+<ul class="check">
+ <li>Vraag bij elke sollicitant onder 18 een identiteitsbewijs en bewaar een kopie</li>
+ <li>Geen jongeren onder 18 bij zaagmachines, persen, slachtwerk, bestrijdingsmiddelen, hoogspanning, hoogtes of 's nachts in bars en casino's</li>
+ <li>Kinderen van 13 tot en met 15 jaar alleen lichte arbeid die hun gezondheid, veiligheid en schoolgang niet schaadt</li>
+ <li>Stagiairs en vakantiekrachten tellen ook mee; zie <a href="{{ U('training') }}">{{ L('training') }}</a></li>
+</ul>
+{% else %}
+<p>The Child and Young Persons Labour Act (S.B. 2018 no. 76) provides that children aged 13 to 15 may only do certain light work under strict conditions. Young people aged 16 and 17 may work, but not hazardous work. Anyone under 13 may not work.</p>
+<p>The Hazardous Work (Young Persons) Decree (S.B. 2010 no. 175) classifies hazardous work by the nature of the work (risk of serious injury, biological, chemical, ergonomic, physical and psychosocial hazards) and by the conditions (no protective equipment, unhealthy or confined spaces, work along roads, bad weather).</p>
+<p>On 7 April 2026 the Ministry of Health, Welfare and Labour validated two draft state decrees with unions, employers and civil society:</p>
+<ul>
+ <li><b>Light Work Decree</b>: an exhaustive list of light work allowed from age 13, with conditions for safety, health and schooling, and a list of what is explicitly not light work, such as work with dangerous machines or harmful substances.</li>
+ <li><b>Amendment of the Hazardous Work Decree</b>: additional bans, including work at high noise levels without protection, work at height, heavy physical strain and certain industrial machines, with restrictions worked out per sector.</li>
+</ul>
+<p>The decrees then go to the minister and the President. As of 26 October 2026 they had not appeared in the Official Gazette. Until then the 2010 decree applies.</p>
+<ul class="check">
+ <li>Ask every applicant under 18 for ID and keep a copy</li>
+ <li>No under-18s at saws, presses, slaughtering, pesticides, high voltage, heights or at night in bars and casinos</li>
+ <li>Children aged 13 to 15 only light work that does not harm their health, safety or schooling</li>
+ <li>Interns and holiday workers count too; see <a href="{{ U('training') }}">{{ L('training') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zwangere werknemers' if nl else 'Pregnant workers' }}</h2>
+{% if nl %}
+<p>Zwangerschapsverlof, het ontslagverbod en de uitkering uit het fonds staan in <a href="{{ U('labour') }}">{{ L('labour') }}</a>. Voor de veiligheid geldt de algemene zorgplicht: je past het werk aan als het risico's geeft voor moeder of kind. Bekende risico's zijn tillen en lang staan (rug- en bekkenklachten), chemicaliën en bestrijdingsmiddelen, infectierisico's in de zorg, hitte, nachtdiensten en hoge werkdruk. Spreek bij een zwangerschapsmelding af wat er tijdelijk anders moet en leg het vast. Een bedrijfsarts kan helpen bij die afweging.</p>
+{% else %}
+<p>Maternity leave, the dismissal ban and the benefit from the fund are covered in <a href="{{ U('labour') }}">{{ L('labour') }}</a>. For safety the general duty of care applies: you adapt the work if it poses risks to mother or child. Known risks are lifting and long standing (back and pelvic complaints), chemicals and pesticides, infection risks in healthcare, heat, night shifts and high work pressure. When a worker reports a pregnancy, agree on what changes temporarily and put it in writing. An occupational physician can help with that assessment.</p>
+{% endif %}
+
+<h2>{{ 'Bedrijfsartsen en arbozorg' if nl else 'Occupational physicians and OSH services' }}</h2>
+{% if nl %}
+<p>Een bedrijfsarts is in Suriname nog niet verplicht. Er zijn er weinig. Sinds 2022 werken het ministerie, de Stichting Bedrijfsgezondheidszorg en partners uit de Cariben en Nederland aan een lokale, geaccrediteerde opleiding tot bedrijfsarts (arbo-arts). Die levert inmiddels de eerste lokaal opgeleide arbo-artsen af, maar hun aantal is nog klein. Grotere bedrijven en mijn- en olieleveranciers gebruiken een arbodienst voor aanstellingskeuringen, periodiek medisch onderzoek bij risicovol werk, verzuimbegeleiding en advies over aanpassingen. Voor een klein bedrijf is een afspraak met een arbodienst op afroep vaak genoeg.</p>
+{% else %}
+<p>An occupational physician is not yet mandatory in Suriname, and there are few of them. Since 2022 the ministry, the Occupational Health Foundation (Stichting Bedrijfsgezondheidszorg) and partners from the Caribbean and the Netherlands have worked on a local, accredited training programme for occupational physicians. It is now producing the first locally trained occupational physicians, but their number is still small. Larger businesses and suppliers to mining and oil companies use an occupational health service for pre-employment medicals, periodic medical checks for risky work, absence management and advice on adjustments. For a small business an on-call arrangement with such a service is often enough.</p>
+{% endif %}
+
+<h2>{{ 'Per sector' if nl else 'By sector' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Sector</th><th>Grootste risico's</th><th>Wat je minimaal regelt</th></tr></thead><tbody>
+ <tr><td data-l="Sector"><b>Bouw</b></td><td data-l="Grootste risico's">Vallen van hoogte, instortende sleuven, elektrocutie, hitte</td><td data-l="Wat je minimaal regelt">Stevige steigers met leuningen, valbeveiliging, helmen en veiligheidsschoenen, stutten bij graafwerk, water en schaduw. Zie <a href="{{ U('sectors') }}">{{ L('sectors') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Olie en gas</b></td><td data-l="Grootste risico's">Brand, explosie, werk op zee, lange diensten</td><td data-l="Wat je minimaal regelt">Operators eisen een HSE-beleid, trainingsbewijzen, incidentcijfers en vaak een prekwalificatie. Zie <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Mijnbouw en goud</b></td><td data-l="Grootste risico's">Instorting, machines, kwik en cyanide, malaria, afgelegen locaties</td><td data-l="Wat je minimaal regelt">Besluit Mijnbouwinstallaties (S.B. 1989 no. 38), EHBO en evacuatieplan, geen kwik. Zie <a href="{{ U('mining') }}">{{ L('mining') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Landbouw</b></td><td data-l="Grootste risico's">Bestrijdingsmiddelen, machines, slangen, hitte</td><td data-l="Wat je minimaal regelt">Alleen toegelaten middelen, maskers, handschoenen en overall, wachttijden na spuiten, niemand onder 18 bij spuitwerk. Zie <a href="{{ U('agri') }}">{{ L('agri') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Maritiem en haven</b></td><td data-l="Grootste risico's">Laden en lossen, vallen overboord, vermoeidheid</td><td data-l="Wat je minimaal regelt">Reddingsvesten, hijsmiddelen gekeurd, rusttijden. Zie <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Winkel, horeca, kantoor</b></td><td data-l="Grootste risico's">Brand, overvallen, snij- en brandwonden, uitglijden, beeldschermwerk</td><td data-l="Wat je minimaal regelt">Brandweeradvies, nooduitgangen, antislip, EHBO-doos, pauzes</td></tr>
+</tbody></table>
+<h3>Maritiem werk en het MLC</h3>
+<p>Het Maritiem Arbeidsverdrag van de ILO (MLC, 2006) stelt minimumnormen voor werk en leven aan boord: rusttijden, accommodatie, gezondheidszorg, loon en sociale zekerheid. Schepen onder de vlag van landen die het verdrag hebben geratificeerd, worden daar in havens op gecontroleerd. Bemanningsbureaus en scheepsleveranciers in Suriname krijgen die eisen via hun klanten. Of een schip of rederij aan het MLC moet voldoen, hangt af van de vlag; vraag het je klant of de Maritieme Autoriteit Suriname (MAS).</p>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Sector</th><th>Biggest risks</th><th>Minimum you arrange</th></tr></thead><tbody>
+ <tr><td data-l="Sector"><b>Construction</b></td><td data-l="Biggest risks">Falls from height, trench collapse, electrocution, heat</td><td data-l="Minimum you arrange">Sturdy scaffolding with guardrails, fall protection, helmets and safety shoes, shoring for excavations, water and shade. See <a href="{{ U('sectors') }}">{{ L('sectors') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Oil and gas</b></td><td data-l="Biggest risks">Fire, explosion, offshore work, long shifts</td><td data-l="Minimum you arrange">Operators require an HSE policy, training records, incident statistics and often pre-qualification. See <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Mining and gold</b></td><td data-l="Biggest risks">Collapse, machinery, mercury and cyanide, malaria, remote sites</td><td data-l="Minimum you arrange">Mining Installations Decree (S.B. 1989 no. 38), first aid and evacuation plan, no mercury. See <a href="{{ U('mining') }}">{{ L('mining') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Agriculture</b></td><td data-l="Biggest risks">Pesticides, machinery, snakes, heat</td><td data-l="Minimum you arrange">Only registered products, masks, gloves and overalls, re-entry times after spraying, nobody under 18 spraying. See <a href="{{ U('agri') }}">{{ L('agri') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Maritime and port</b></td><td data-l="Biggest risks">Loading and unloading, falling overboard, fatigue</td><td data-l="Minimum you arrange">Life jackets, certified lifting gear, rest periods. See <a href="{{ U('logistics') }}">{{ L('logistics') }}</a></td></tr>
+ <tr><td data-l="Sector"><b>Retail, hospitality, office</b></td><td data-l="Biggest risks">Fire, robberies, cuts and burns, slips, screen work</td><td data-l="Minimum you arrange">Fire service advice, emergency exits, non-slip floors, first aid kit, breaks</td></tr>
+</tbody></table>
+<h3>Maritime work and the MLC</h3>
+<p>The ILO Maritime Labour Convention (MLC, 2006) sets minimum standards for work and life on board: rest hours, accommodation, medical care, pay and social security. Ships flying the flag of a ratifying state are inspected on this in ports. Crewing agencies and ship suppliers in Suriname get these requirements through their customers. Whether a ship or shipping company must comply depends on its flag; ask your customer or the Maritime Authority Suriname (MAS).</p>
+{% endif %}
+
+<h2>{{ 'Training' if nl else 'Training' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>ILO EOSH</b> (Essentials in Occupational Safety and Health): een online cursus van het opleidingscentrum van de ILO (ITCILO) voor werkgevers en werkgeversorganisaties, in modules, met certificaat. Werkgeversorganisaties kunnen hem ook voor hun leden aanbieden; vraag ernaar bij je branchevereniging (zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>Brandpreventie en EHBO</b>: laat personeel jaarlijks oefenen met blussers en ontruiming, en zorg voor een paar gecertificeerde EHBO'ers per ploeg.</li>
+ <li><b>Sectortrainingen</b>: olie- en gasoperators en mijnen verwachten vaak erkende veiligheidscertificaten van leveranciers en hun personeel; zie <a href="{{ U('training') }}">{{ L('training') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>ILO EOSH</b> (Essentials in Occupational Safety and Health): an online course from the ILO's training centre (ITCILO) for employers and employers' organisations, in modules, with a certificate. Employers' organisations can also offer it to their members; ask your business association (see <a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>Fire prevention and first aid</b>: have staff practise with extinguishers and evacuation every year, and make sure each shift has a few certified first aiders.</li>
+ <li><b>Sector training</b>: oil and gas operators and mines often expect recognised safety certificates from suppliers and their staff; see <a href="{{ U('training') }}">{{ L('training') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zelf-check: is je bedrijf op orde?' if nl else 'Self-check: is your business in order?' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Opzichthouder schriftelijk aangewezen voor elke dienst waarin de leiding afwezig is</li>
+ <li>Ongevallenverzekering voor alle werknemers, ook nieuwe, tijdelijke en vrijwilligers</li>
+ <li>Ongevallenregister aanwezig en bijgewerkt; meldformulier Arbeidsinspectie bij de hand</li>
+ <li>Een eenvoudige risico-inventarisatie: per werkplek de gevaren en de maatregelen op papier</li>
+ <li>Persoonlijke beschermingsmiddelen gratis verstrekt, op maat en vervangen als ze kapot zijn</li>
+ <li>Machines afgeschermd, noodstop werkt, elektrische installatie gekeurd</li>
+ <li>Brandweeradvies uitgevoerd, blussers gekeurd, nooduitgangen vrij, ontruimingsoefening gehouden</li>
+ <li>EHBO-doos aangevuld en een EHBO'er per ploeg</li>
+ <li>Veiligheidsinformatiebladen bij elke chemische stof, opslag gelabeld (zie <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</li>
+ <li>Geen jongeren onder 18 in gevaarlijk werk; leeftijden gecontroleerd</li>
+ <li>Afspraken voor zwangere werknemers en werknemers met beperkingen</li>
+ <li>Werktijden en overwerk binnen de grenzen, voldoende rust (zie <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>)</li>
+ <li>Instructie bij indiensttreding, met handtekening van de werknemer</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Supervisor appointed in writing for every shift where management is absent</li>
+ <li>Accident insurance for all workers, including new, temporary staff and volunteers</li>
+ <li>Accident register present and up to date; Labour Inspectorate report form at hand</li>
+ <li>A simple risk assessment: hazards and measures per workstation on paper</li>
+ <li>Personal protective equipment provided free, in the right sizes and replaced when damaged</li>
+ <li>Machines guarded, emergency stop works, electrical installation inspected</li>
+ <li>Fire service advice carried out, extinguishers inspected, emergency exits clear, evacuation drill held</li>
+ <li>First aid kit stocked and a first aider per shift</li>
+ <li>Safety data sheets for every chemical, storage labelled (see <a href="{{ U('environment') }}">{{ L('environment') }}</a>)</li>
+ <li>No under-18s in hazardous work; ages checked</li>
+ <li>Arrangements for pregnant workers and workers with disabilities</li>
+ <li>Working hours and overtime within limits, enough rest (see <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>)</li>
+ <li>Induction instruction on joining, signed by the worker</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...een werknemer weigert onveilig werk te doen?</b> Bij ernstig gevaar voor leven of gezondheid mag hij dat, als hij het meteen meldt. Ontslag daarvoor is verboden. Los het gevaar op en leg vast wat je hebt gedaan.</li>
+ <li><b>...ik met zzp'ers of onderaannemers werk?</b> Je zorgplicht geldt ook voor zzp'ers en ingeleende krachten in jouw bedrijf. Spreek in het contract af wie de beschermingsmiddelen en verzekering regelt.</li>
+ <li><b>...de inspectie een proces-verbaal opmaakt?</b> Boetes tellen per werknemer en per dag. Herstel de overtreding direct, bewaar bewijs daarvan en vraag zo nodig juridisch advies.</li>
+ <li><b>...een klant een veiligheidsbeleid of incidentcijfers vraagt?</b> Gebruik je zelf-check en je ongevallenregister als basis. Voor EU-klanten zie ook <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+ <li><b>...een werknemer een beroepsziekte krijgt?</b> Ook beroepsziekten vallen onder de Ongevallenregeling. Meld het als ongeval en betrek je verzekeraar en een arts.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...a worker refuses unsafe work?</b> In serious danger to life or health they may do so, if they report it at once. Dismissal for this is prohibited. Remove the danger and record what you did.</li>
+ <li><b>...I work with freelancers or subcontractors?</b> Your duty of care also covers freelancers and hired-in workers in your business. Agree in the contract who arranges protective equipment and insurance.</li>
+ <li><b>...the inspectorate issues an official report?</b> Fines count per worker and per day. Fix the breach at once, keep evidence of that and get legal advice if needed.</li>
+ <li><b>...a customer asks for a safety policy or incident statistics?</b> Use your self-check and accident register as the basis. For EU customers, see also <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+ <li><b>...a worker develops an occupational disease?</b> Occupational diseases are also covered by the Accident Regulation. Report it as an accident and involve your insurer and a doctor.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.dna.sr/media/bmfcgyu4/sb_2023___121.pdf" rel="noopener">Wijziging Veiligheidswet 1947, S.B. 2023 no. 121</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/09/infoblad_bedrijfsongeval_arbeids_inspektie.pdf" rel="noopener">Arbeidsinspectie: informatieblad bedrijfsongeval en Ongevallenregeling</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-arbeidsomstandighedenwet-2019/" rel="noopener">DNA: ontwerp-Arbeidsomstandighedenwet 2019, met tekst en eindverslag (4 augustus 2026)</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-ongevallenregeling-2021/" rel="noopener">DNA: ontwerp-Ongevallenregeling 2021</a></li>
+ <li><a href="https://gov.sr/nationale-commissie-veiligheid-gezondheid-en-welzijn-geinstalleerd/" rel="noopener">VWA: Nationale Commissie Veiligheid, Gezondheid en Welzijn geïnstalleerd (september 2026)</a></li>
+ <li><a href="https://gov.sr/statement-van-de-minister-van-awj-in-verband-met-de-world-day-for-safety-and-health-at-work/" rel="noopener">Minister van Arbeid: ILO-verdragen 155 en 187 en de Arbowet (april 2025)</a></li>
+ <li><a href="https://gov.sr/arbeidsinspectie-versterkt-met-21-beedigde-buitengewone-agenten-van-politie/" rel="noopener">Arbeidsinspectie versterkt met 21 buitengewone agenten van politie (juni 2025)</a></li>
+ <li><a href="https://www.dna.sr/media/4lfjc0fn/sb_2018___76.pdf" rel="noopener">Wet Arbeid Kinderen en Jeugdige Personen, S.B. 2018 no. 76</a></li>
+ <li><a href="https://gov.sr/validatie-concept-staatsbesluiten-ter-versterking-bescherming-tegen-kinderarbeid/" rel="noopener">VWA: validatie concept-staatsbesluiten Lichte Arbeid en Gevaarlijke Arbeid (april 2026)</a></li>
+ <li><a href="https://gov.sr/suriname-geeft-kinderarbeid-de-rode-kaart-op-internationale-dag-tegen-kinderarbeid/" rel="noopener">VWA: Internationale Dag tegen Kinderarbeid (juni 2026)</a></li>
+ <li><a href="https://gov.sr/dna-keurt-gewijzigde-wet-brandweer-suriname-1993-goed/" rel="noopener">DNA keurt gewijzigde Wet Brandweer Suriname 1993 goed (mei 2026)</a></li>
+ <li><a href="https://gov.sr/public-private-partnership-voor-nieuwe-medische-specialisatie-in-suriname/" rel="noopener">Opleiding bedrijfsgeneeskunde als publiek-private samenwerking (november 2022)</a></li>
+ <li><a href="https://www.ilo.org/resource/news/new-training-package-essentials-occupational-safety-and-health-eosh" rel="noopener">ILO: Essentials in Occupational Safety and Health (EOSH)</a></li>
+ <li><a href="https://www.ilo.org/international-labour-standards/maritime-labour-convention-2006" rel="noopener">ILO: Maritime Labour Convention, 2006</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. De Arbowet, de nieuwe Ongevallenregeling en de besluiten over jeugdarbeid kunnen snel veranderen; controleer de stand voordat je beslist.' if nl else 'General information, not legal advice. The OSH Act, the new Accident Regulation and the youth labour decrees may change soon; check the status before you decide.' }}</p>
+</div>
+{% endblock %}

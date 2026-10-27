@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Een toerismebedrijf starten in Suriname: vergunningen, markt en veiligheid' if nl else 'Starting a tourism business in Suriname: licences, market and safety' }}</h1>
+{% if nl %}
+<p class="lead">Voor een hotel, guesthouse, reisbureau of touroperator heb je naast de KKF-inschrijving een EZOTI-vergunning nodig; voor een restaurant of bar een vergunning van de districtscommissaris; en wie boten inzet, heeft MAS-vaarbewijzen en keuringen nodig. De markt groeit: in 2024 kwamen 261.543 niet-ingezetenen het land binnen, bijna 6 op de 10 uit Europa. De Toerisme Raamwet (2023) verplicht je bezoekers schriftelijk te informeren over je aanbod, je voorwaarden en je verzekeringen.</p>
+{% else %}
+<p class="lead">A hotel, guesthouse, travel agency or tour operator needs an EZOTI licence on top of KKF registration; a restaurant or bar needs a licence from the district commissioner; and anyone running boats needs MAS skipper's licences and inspections. The market is growing: in 2024, 261,543 non-residents entered the country, almost 6 in 10 from Europe. The Tourism Framework Act (2023) requires you to inform visitors in writing about your offer, your terms and your insurance.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Bezoekers 2024' if nl else 'Visitors 2024' }}</div><div class="big">{{ '261.543' if nl else '261,543' }}</div><div class="sub">{{ 'aankomsten niet-ingezetenen, alle grensposten (ABS)' if nl else 'non-resident arrivals, all border posts (ABS)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Uit Europa' if nl else 'From Europe' }}</div><div class="big">{{ '58,7%' if nl else '58.7%' }}</div><div class="sub">{{ 'Zuid-Amerika 19,7%, Caribisch gebied 8,6%' if nl else 'South America 19.7%, Caribbean 8.6%' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Doel regering' if nl else 'Government target' }}</div><div class="big">500.000</div><div class="sub">{{ 'bezoekers per jaar binnen drie jaar (augustus 2025)' if nl else 'visitors a year within three years (August 2025)' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Vergunning</b>: hotel, motel, guesthouse, pension, appartementencomplex en reisbureau: EZOTI via de KKF, in ongeveer 35 dagen, SRD 550 via het loket. Eet- en drankgelegenheid: districtscommissaris. Details in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+ <li><b>Toezicht</b>: het ministerie van TCT maakt het beleid. De Suriname Toerisme Autoriteit (STA) bestaat sinds 2023 bij wet, maar was in oktober 2026 nog niet volledig operationeel. De Stichting Toerisme Suriname is sinds 2018 een particuliere stichting.</li>
+ <li><b>Standaarden</b>: de normen voor toeristische accommodatie en voor gidsen worden verplicht na een overgangstermijn tot rond eind 2027.</li>
+ <li><b>Water</b>: iedere schipper heeft een MAS-vaarbewijs nodig, iedere boot een certificaat van deugdelijkheid met jaarlijkse keuring, en aan boord reddingsvesten, boeien, peddels, een anker en een passagierslijst.</li>
+ <li><b>Binnenland</b>: grondrechten van inheemse en tribale gemeenschappen zijn niet wettelijk geregeld. Maak schriftelijke afspraken met het traditioneel gezag voordat je investeert.</li>
+ <li><b>Seizoen</b>: drukste maanden zijn augustus en december; januari, februari en juni zijn rustig.</li>
+{% else %}
+ <li><b>Licence</b>: hotel, motel, guesthouse, boarding house, apartment complex and travel agency: EZOTI through the KKF, in about 35 days, SRD 550 at the desk. Food and drink outlets: district commissioner. Details in <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+ <li><b>Oversight</b>: the Ministry of Transport, Communication and Tourism (TCT) makes policy. The Suriname Tourism Authority (STA) has existed in law since 2023 but was not yet fully operational in October 2026. The Suriname Tourism Foundation has been a private foundation since 2018.</li>
+ <li><b>Standards</b>: the standards for tourist accommodation and for guides become mandatory after a transition period running to around the end of 2027.</li>
+ <li><b>Water</b>: every skipper needs a MAS licence, every boat a certificate of seaworthiness with yearly inspection, and on board life jackets, buoys, paddles, an anchor and a passenger list.</li>
+ <li><b>Interior</b>: land rights of Indigenous and tribal communities are not settled in law. Make written agreements with the traditional authority before you invest.</li>
+ <li><b>Season</b>: the busiest months are August and December; January, February and June are quiet.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'De markt in cijfers' if nl else 'The market in figures' }}</h2>
+{% if nl %}
+<p>Het ABS telt sinds kort geen "toeristen" meer apart, maar wel alle niet-ingezetenen die het land binnenkomen. Dat is de beste maat voor je markt. Volgens de regering komt 80 tot 90% van de toeristen voor de natuur en het binnenland, en draagt toerisme ongeveer 6,8% bij aan het bbp (augustus 2025).</p>
+<table class="tbl stack tx"><thead><tr><th>Binnenkomst</th><th>Niet-ingezetenen 2024</th><th>Wat het zegt</th></tr></thead><tbody>
+ <tr><td data-l="Binnenkomst">J.A. Pengel luchthaven</td><td data-l="Niet-ingezetenen 2024">184.096 (70,4%)</td><td data-l="Wat het zegt">Vooral Nederland, verder de VS, Brazilië en het Caribisch gebied</td></tr>
+ <tr><td data-l="Binnenkomst">South Drain, Nickerie</td><td data-l="Niet-ingezetenen 2024">38.307 (14,6%)</td><td data-l="Wat het zegt">Guyana via de Canawaima-veerboot; sterk gegroeid sinds 2022</td></tr>
+ <tr><td data-l="Binnenkomst">Albina</td><td data-l="Niet-ingezetenen 2024">33.151 (12,7%)</td><td data-l="Wat het zegt">Frans-Guyana; groeit het hardst</td></tr>
+ <tr><td data-l="Binnenkomst">Zorg en Hoop</td><td data-l="Niet-ingezetenen 2024">5.036 (1,9%)</td><td data-l="Wat het zegt">Kleine regionale vluchten</td></tr>
+</tbody></table>
+<p>Naar herkomst: Europa 58,7%, Zuid-Amerika 19,7%, Caribisch gebied 8,6%, Noord- en Midden-Amerika 5,2%, rest van de wereld 7,8%. Op de luchthaven groeide het internationale passagiersverkeer in 2025 nog met 6% tot 519.171 reizigers.</p>
+<h3>Seizoenen</h3>
+<p>Juli, augustus en december zijn de drukste maanden, vooral door Nederlandse schoolvakanties en de feestdagen. Januari, februari en juni zijn rustig. De regentijden (mei tot augustus en december tot februari) maken sommige binnenlandroutes lastiger. Plan je personeel, onderhoud en prijsacties hierop.</p>
+<h3>Doelgroepen</h3>
+<ul>
+ <li><b>Nederland en België</b>: de grootste markt, met een sterke band via de diaspora. TCT en de private sector staan elk jaar op de Vakantiebeurs in Utrecht.</li>
+ <li><b>Frans-Guyana</b>: korte trips, weekenden, winkelen en natuur. De entry fee van EUR 50 per persoon telt voor gezinnen flink op, en bedrijfsleven en regering noemen de visumprocedure voor deze groep een knelpunt.</li>
+ <li><b>Guyana</b>: zakelijk en familiebezoek via Nickerie; groeit met de olie-economie aan beide kanten.</li>
+ <li><b>Noord-Amerika en Brazilië</b>: kleiner, maar met rechtstreekse vluchten via Belém, Panama en Miami (via Georgetown).</li>
+ <li><b>Zakelijke reizigers</b>: olie, gas en mijnbouw trekken consultants en aannemers die accommodatie, vervoer en catering nodig hebben. De regering spreekt van "Toerisme vóór Olie": die vraag benutten voor lokale bedrijven.</li>
+ <li><b>Cruise</b>: Havenbeheer werkt aan cruisetoerisme, maar dit is nog een opkomende markt. Reken er in je eerste jaren niet op.</li>
+</ul>
+<p>Meer over marktonderzoek doen: <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>. Kansen per sector: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% else %}
+<p>The statistics bureau ABS no longer counts "tourists" separately, but it does count all non-residents entering the country. That is the best measure of your market. According to the government, 80 to 90% of tourists come for nature and the interior, and tourism contributes about 6.8% of GDP (August 2025).</p>
+<table class="tbl stack tx"><thead><tr><th>Entry point</th><th>Non-residents 2024</th><th>What it tells you</th></tr></thead><tbody>
+ <tr><td data-l="Entry point">J.A. Pengel Airport</td><td data-l="Non-residents 2024">184,096 (70.4%)</td><td data-l="What it tells you">Mainly the Netherlands, also the US, Brazil and the Caribbean</td></tr>
+ <tr><td data-l="Entry point">South Drain, Nickerie</td><td data-l="Non-residents 2024">38,307 (14.6%)</td><td data-l="What it tells you">Guyana via the Canawaima ferry; strong growth since 2022</td></tr>
+ <tr><td data-l="Entry point">Albina</td><td data-l="Non-residents 2024">33,151 (12.7%)</td><td data-l="What it tells you">French Guiana; fastest growing</td></tr>
+ <tr><td data-l="Entry point">Zorg en Hoop</td><td data-l="Non-residents 2024">5,036 (1.9%)</td><td data-l="What it tells you">Small regional flights</td></tr>
+</tbody></table>
+<p>By origin: Europe 58.7%, South America 19.7%, the Caribbean 8.6%, North and Central America 5.2%, rest of the world 7.8%. At the airport, international passenger traffic grew another 6% in 2025 to 519,171 travellers.</p>
+<h3>Seasons</h3>
+<p>July, August and December are the busiest months, driven by Dutch school holidays and the festive season. January, February and June are quiet. The rainy seasons (May to August and December to February) make some interior routes harder. Plan staff, maintenance and promotions around this.</p>
+<h3>Target groups</h3>
+<ul>
+ <li><b>Netherlands and Belgium</b>: the largest market, with strong ties through the diaspora. TCT and the private sector attend the Vakantiebeurs travel fair in Utrecht every year.</li>
+ <li><b>French Guiana</b>: short trips, weekends, shopping and nature. The EUR 50 per person entry fee adds up for families, and business and government name the visa procedure for this group as a bottleneck.</li>
+ <li><b>Guyana</b>: business and family visits via Nickerie; growing with the oil economy on both sides.</li>
+ <li><b>North America and Brazil</b>: smaller, but with direct flights via Belém, Panama and Miami (via Georgetown).</li>
+ <li><b>Business travellers</b>: oil, gas and mining bring consultants and contractors who need accommodation, transport and catering. The government calls it "Tourism before Oil": using that demand for local businesses.</li>
+ <li><b>Cruise</b>: the port authority Havenbeheer is working on cruise tourism, but it is still an emerging market. Do not count on it in your first years.</li>
+</ul>
+<p>More on market research: <a href="{{ U('marketresearch') }}">{{ L('marketresearch') }}</a>. Opportunities by sector: <a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Welke vergunning voor welk bedrijf' if nl else 'Which licence for which business' }}</h2>
+{% if nl %}
+<p>Eerst schrijf je je bedrijf in bij de KKF (<a href="{{ U('start') }}">{{ L('start') }}</a>). Daarna hangt het af van wat je doet. De procedure, kosten en boetes staan in <a href="{{ U('licences') }}">{{ L('licences') }}</a>; hieronder het overzicht voor toerisme.</p>
+<table class="tbl stack tx"><thead><tr><th>Activiteit</th><th>Vergunning of eis</th><th>Wie</th></tr></thead><tbody>
+ <tr><td data-l="Activiteit">Hotel, motel, guesthouse</td><td data-l="Vergunning of eis">Bedrijfsvergunning, met eisen voor vermogen, bedrijfskennis en bekwaamheid (S.B. 1992 no. 30 en 33)</td><td data-l="Wie">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activiteit">Pension, appartementencomplex</td><td data-l="Vergunning of eis">Bedrijfsvergunning</td><td data-l="Wie">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activiteit">Reisbureau, touroperator</td><td data-l="Vergunning of eis">Bedrijfsvergunning; voor touroperators het Besluit S.B. 1992 no. 34</td><td data-l="Wie">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activiteit">Restaurant, bar, catering in je lodge</td><td data-l="Vergunning of eis">Drankwetvergunning, gezondheidsverklaringen voor personeel, brandweeradvies</td><td data-l="Wie">Districtscommissaris, BOG, brandweer</td></tr>
+ <tr><td data-l="Activiteit">Boottochten</td><td data-l="Vergunning of eis">Vaarbewijs per schipper, certificaat van deugdelijkheid per boot, jaarlijkse keuring</td><td data-l="Wie">Maritieme Autoriteit Suriname (MAS)</td></tr>
+ <tr><td data-l="Activiteit">Busvervoer van groepen</td><td data-l="Vergunning of eis">Vergunning voor een autobusdienst</td><td data-l="Wie">Ministerie van TCT</td></tr>
+ <tr><td data-l="Activiteit">Bouw van een lodge of hotel</td><td data-l="Vergunning of eis">Bouwvergunning, Hinderwet waar nodig, milieubeoordeling bij grotere projecten</td><td data-l="Wie">OWRO, districtscommissaris, Nationale Milieu Autoriteit</td></tr>
+ <tr><td data-l="Activiteit">Steiger of evenement op het water</td><td data-l="Vergunning of eis">Toestemming vooraf</td><td data-l="Wie">MAS</td></tr>
+</tbody></table>
+<p>Milieuregels voor bouw en exploitatie: <a href="{{ U('environment') }}">{{ L('environment') }}</a>. Personeel met een buitenlandse nationaliteit: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+{% else %}
+<p>First register your business with the KKF (<a href="{{ U('start') }}">{{ L('start') }}</a>). After that it depends on what you do. The procedure, costs and fines are in <a href="{{ U('licences') }}">{{ L('licences') }}</a>; below is the overview for tourism.</p>
+<table class="tbl stack tx"><thead><tr><th>Activity</th><th>Licence or requirement</th><th>Who</th></tr></thead><tbody>
+ <tr><td data-l="Activity">Hotel, motel, guesthouse</td><td data-l="Licence or requirement">Business licence, with requirements on capital, business knowledge and competence (S.B. 1992 nos. 30 and 33)</td><td data-l="Who">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activity">Boarding house, apartment complex</td><td data-l="Licence or requirement">Business licence</td><td data-l="Who">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activity">Travel agency, tour operator</td><td data-l="Licence or requirement">Business licence; for tour operators the decree S.B. 1992 no. 34</td><td data-l="Who">EZOTI via KKF</td></tr>
+ <tr><td data-l="Activity">Restaurant, bar, catering at your lodge</td><td data-l="Licence or requirement">Liquor licence, health certificates for staff, fire service advice</td><td data-l="Who">District commissioner, BOG, fire service</td></tr>
+ <tr><td data-l="Activity">Boat trips</td><td data-l="Licence or requirement">Skipper's licence for each skipper, certificate of seaworthiness for each boat, yearly inspection</td><td data-l="Who">Maritime Authority Suriname (MAS)</td></tr>
+ <tr><td data-l="Activity">Group bus transport</td><td data-l="Licence or requirement">Bus service licence</td><td data-l="Who">Ministry of TCT</td></tr>
+ <tr><td data-l="Activity">Building a lodge or hotel</td><td data-l="Licence or requirement">Building permit, nuisance permit where needed, environmental assessment for larger projects</td><td data-l="Who">Public Works (OWRO), district commissioner, National Environmental Authority</td></tr>
+ <tr><td data-l="Activity">Jetty or event on the water</td><td data-l="Licence or requirement">Prior permission</td><td data-l="Who">MAS</td></tr>
+</tbody></table>
+<p>Environmental rules for building and operating: <a href="{{ U('environment') }}">{{ L('environment') }}</a>. Staff with a foreign nationality: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wie doet wat in de toerismesector' if nl else 'Who does what in tourism' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Ministerie van Transport, Communicatie en Toerisme (TCT)</b>, directoraat Toerisme: beleid, promotie op beurzen en de officiële site suriname.travel. TCT lanceerde in oktober 2026 het platform Safe Guide.</li>
+ <li><b>Suriname Toerisme Autoriteit (STA)</b>: ingesteld bij wet in 2023 (S.B. 2023 no. 87) als regulator voor standaarden, classificatie, certificering, keurmerken, statistiek en promotie. De regering wilde haar in 2026 operationeel hebben; de presidentiële werkgroep pleitte in maart 2026 opnieuw voor operationalisering.</li>
+ <li><b>Stichting Toerisme Suriname (STS)</b>: opgericht in 1996 door TCT en de KKF. De overheid trok zich op 17 mei 2018 terug; sindsdien is het een particuliere stichting. De STA is een nieuwe organisatie, geen voortzetting van de STS.</li>
+ <li><b>SHATA</b> (Suriname Hospitality and Tourism Association): de private brancheorganisatie voor hotels, restaurants, touroperators en lodges. Belangenbehartiging, gezamenlijke marketing, marktinformatie en opleiding. Keizerstraat 16, Paramaribo, +597 710 0823; aanmelden via het formulier op shata.sr.</li>
+ <li><b>SHTTC</b> (Suriname Hospitality and Tourism Training Centre): beroepsopleidingen, ook in het binnenland.</li>
+ <li><b>Surinaams Standaarden Bureau (SSB)</b>: de normen voor accommodaties en gidsen.</li>
+ <li><b>MAS</b>: veiligheid op het water. <b>EZOTI</b>: bedrijfsvergunningen. <b>Districtscommissarissen</b>: horeca en lokale zaken.</li>
+</ul>
+<p>Overzicht van brancheorganisaties: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% else %}
+<ul>
+ <li><b>Ministry of Transport, Communication and Tourism (TCT)</b>, Tourism directorate: policy, promotion at trade fairs and the official site suriname.travel. TCT launched the Safe Guide platform in October 2026.</li>
+ <li><b>Suriname Tourism Authority (STA)</b>: set up by law in 2023 (S.B. 2023 no. 87) as regulator for standards, classification, certification, quality marks, statistics and promotion. The government wanted it operational in 2026; the presidential working group again called for it to be made operational in March 2026.</li>
+ <li><b>Suriname Tourism Foundation (STS)</b>: founded in 1996 by TCT and the KKF. The government withdrew on 17 May 2018; since then it has been a private foundation. The STA is a new body, not a continuation of the STS.</li>
+ <li><b>SHATA</b> (Suriname Hospitality and Tourism Association): the private trade association for hotels, restaurants, tour operators and lodges. Advocacy, joint marketing, market information and training. Keizerstraat 16, Paramaribo, +597 710 0823; join via the form on shata.sr.</li>
+ <li><b>SHTTC</b> (Suriname Hospitality and Tourism Training Centre): vocational training, also in the interior.</li>
+ <li><b>Suriname Standards Bureau (SSB)</b>: the standards for accommodation and guides.</li>
+ <li><b>MAS</b>: safety on the water. <b>EZOTI</b>: business licences. <b>District commissioners</b>: hospitality and local matters.</li>
+</ul>
+<p>Overview of business associations: <a href="{{ U('associations') }}">{{ L('associations') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat de Toerisme Raamwet van je vraagt' if nl else 'What the Tourism Framework Act requires' }}</h2>
+{% if nl %}
+<p>De Toerisme Raamwet (S.B. 2023 no. 88) geldt sinds 2023. Een deel werkt direct, een deel wacht op uitvoeringsbesluiten.</p>
+<ul>
+ <li><b>Informatieplicht (art. 5)</b>: je geeft bezoekers schriftelijk alle informatie over vervoer, verblijf en activiteiten die je aanbiedt, en je maakt je <b>algemene voorwaarden en verzekeringen</b> schriftelijk bekend, inclusief wat er gebeurt bij compensatie. Een duidelijke pagina op je website plus een bevestiging per mail is de praktische invulling.</li>
+ <li><b>Standaarden</b>: je houdt je aan de vastgestelde standaarden en richtlijnen. Wie dat niet doet, kan certificering of keurmerk verliezen.</li>
+ <li><b>Milieu en gemeenschappen (art. 6)</b>: rekening houden met het draagvermogen van een bestemming, biodiversiteit, natuurlijk erfgoed en de rechten van inheemse en tribale volken. Het ontwikkelingsplan moet het principe van vrije, voorafgaande en geïnformeerde toestemming (FPIC) respecteren.</li>
+ <li><b>Heffingen in voorbereiding</b>: de wetten noemen een Toerisme Ontwikkeling Fee van 2% en een "room fee" van 2% per overnachting in commerciële accommodaties. Die worden pas geheven als een staatsbesluit de regels vastlegt. We vonden in oktober 2026 nog geen gepubliceerd besluit; houd er wel rekening mee in je prijzen voor de komende jaren.</li>
+</ul>
+{% else %}
+<p>The Tourism Framework Act (S.B. 2023 no. 88) has applied since 2023. Part of it applies directly, part waits for implementing decrees.</p>
+<ul>
+ <li><b>Duty to inform (art. 5)</b>: you give visitors written information about the transport, accommodation and activities you offer, and you disclose your <b>terms and conditions and insurance</b> in writing, including what happens on compensation. A clear page on your website plus a confirmation email is the practical way to do it.</li>
+ <li><b>Standards</b>: you comply with the standards and guidelines that are set. If you do not, you can lose your certification or quality mark.</li>
+ <li><b>Environment and communities (art. 6)</b>: respect the carrying capacity of a destination, biodiversity, natural heritage and the rights of Indigenous and tribal peoples. The development plan must respect the principle of free, prior and informed consent (FPIC).</li>
+ <li><b>Levies in preparation</b>: the laws mention a 2% Tourism Development Fee and a 2% "room fee" per night in commercial accommodation. They are only charged once a state decree sets the rules. We found no published decree as of October 2026; still allow for them in your pricing for the coming years.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Standaarden, classificatie en Safe Guide' if nl else 'Standards, classification and Safe Guide' }}</h2>
+{% if nl %}
+<p>In december 2025 werden twee normen van het Surinaams Standaarden Bureau technische voorschriften: <b>SSB 020:2020</b> voor toeristische accommodatie (gepubliceerd als S.B. 2026 no. 4) en <b>SSB 011:2019</b> voor toeristengidsen. Ze worden verplicht na een overgangstermijn van twee jaar, dus rond eind 2027. Voor accommodaties staat daarin onder meer een minimale slaapkamergrootte van 20 m². Bouw je nu, ontwerp dan meteen volgens de norm. Meer over normen en certificering: <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+<p>Een officieel classificatiesysteem met sterren of keurmerken hoort volgens de wet bij de STA. Zolang die niet werkt, is er geen nationale sterrenindeling. Internationale boekingssites en reviews vullen dat gat.</p>
+<p><b>Safe Guide</b> (safe-guide.sr, sinds 14 oktober 2026) heeft een aparte omgeving voor toeristische ondernemers, met veiligheidsprotocollen voor accommodaties, vervoer en activiteiten. Je geeft aan in hoeverre je eraan voldoet; na beoordeling door TCT word je opgenomen en kun je een eigen QR-code maken die bezoekers naar je bedrijfspagina leidt. Gratis zichtbaarheid en een goede checklist voor je eigen veiligheidsbeleid.</p>
+{% else %}
+<p>In December 2025 two Suriname Standards Bureau standards became technical regulations: <b>SSB 020:2020</b> for tourist accommodation (published as S.B. 2026 no. 4) and <b>SSB 011:2019</b> for tourist guides. They become mandatory after a two-year transition, so around the end of 2027. For accommodation they include, among other things, a minimum bedroom size of 20 m². If you build now, design to the standard from the start. More on standards and certification: <a href="{{ U('standards') }}">{{ L('standards') }}</a>.</p>
+<p>By law, an official classification system with stars or quality marks belongs to the STA. As long as it is not working, there is no national star rating. International booking sites and reviews fill that gap.</p>
+<p><b>Safe Guide</b> (safe-guide.sr, since 14 October 2026) has a separate area for tourism businesses, with safety protocols for accommodation, transport and activities. You state how far you comply; after review by TCT you are listed and can create your own QR code that takes visitors to your business page. Free visibility and a good checklist for your own safety policy.</p>
+{% endif %}
+
+<h2>{{ 'Veiligheid op het water en in het bos' if nl else 'Safety on the water and in the forest' }}</h2>
+{% if nl %}
+<p>Riviertochten zijn het hart van het Surinaamse toerisme en het grootste risico. De MAS is havenmeester voor heel Suriname en heeft in 2025 de districtscommissarissen en bestuursambtenaren ingeschakeld om toezicht te houden, samen met politie en leger.</p>
+<ul class="check">
+ <li><b>Vaarbewijs</b> voor iedere schipper, ook van waterscooters, op verzoek te tonen. De MAS en de Stichting Logistiek Onderwijs geven trainingen.</li>
+ <li><b>Certificaat van deugdelijkheid (CVD)</b> per boot, ook voor kleine vaartuigen; jaarlijkse keuring.</li>
+ <li>Genoeg <b>reddingsvesten</b> en <b>reddingsboeien</b> aan boord, <b>peddels</b> voor als de motor uitvalt en een <b>anker</b>.</li>
+ <li>Een nauwkeurige <b>passagierslijst</b> per vaart, zodat bij een ongeluk bekend is wie aan boord was.</li>
+ <li>Toestemming van de MAS voor een steiger vanaf een bepaalde grootte en voor evenementen op het water.</li>
+</ul>
+<p>Op het land gelden de algemene veiligheidsvoorschriften, waaronder EHBO (Veiligheidsvoorschrift no. 3), en je bent verplicht je werknemers tegen ongevallen te verzekeren. Voor tochten in het binnenland: een EHBO-kit en opgeleide gids, een communicatiemiddel dat zonder gsm-bereik werkt, een evacuatieplan en vaste afspraken over weer en waterstand. Werkgeversplichten: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+<p class="note">Vlieg je gasten naar het binnenland? Alle Surinaamse luchtvaartmaatschappijen staan op de EU Air Safety List. Vertel Europese klanten en touroperators dat vooraf; sommige reisorganisaties hebben er beleid voor.</p>
+{% else %}
+<p>River trips are the heart of Surinamese tourism and its biggest risk. MAS is harbour master for all of Suriname and in 2025 enlisted district commissioners and local officials to supervise, together with the police and the army.</p>
+<ul class="check">
+ <li>A <b>skipper's licence</b> for every skipper, including jet ski riders, to be shown on request. MAS and the Logistics Education Foundation run training.</li>
+ <li>A <b>certificate of seaworthiness</b> for every boat, including small craft; yearly inspection.</li>
+ <li>Enough <b>life jackets</b> and <b>life buoys</b> on board, <b>paddles</b> in case the engine fails, and an <b>anchor</b>.</li>
+ <li>An accurate <b>passenger list</b> for every trip, so it is known who was on board after an accident.</li>
+ <li>MAS permission for a jetty above a certain size and for events on the water.</li>
+</ul>
+<p>On land the general safety regulations apply, including first aid (Safety Regulation no. 3), and you must insure your employees against accidents. For interior trips: a first-aid kit and trained guide, a means of communication that works without mobile coverage, an evacuation plan and fixed rules on weather and water levels. Employer duties: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</p>
+<p class="note">Flying guests to the interior? All Surinamese airlines are on the EU Air Safety List. Tell European clients and tour operators beforehand; some travel companies have a policy on it.</p>
+{% endif %}
+
+<h2>{{ 'Verzekeringen' if nl else 'Insurance' }}</h2>
+{% if nl %}
+<p>De wet verplicht je om je verzekeringen schriftelijk aan klanten bekend te maken. Welke je nodig hebt, hangt af van je bedrijf:</p>
+<ul>
+ <li><b>Ongevallenverzekering voor personeel</b>: wettelijk verplicht vanaf de eerste werkdag.</li>
+ <li><b>Aansprakelijkheid</b> voor schade aan gasten, ook tijdens tochten en op het water.</li>
+ <li><b>Opstal en inventaris</b>, met aandacht voor brand, storm en overstroming.</li>
+ <li><b>Boten en voertuigen</b>, inclusief passagiers.</li>
+ <li>Vraag gasten zelf een <b>reisverzekering met evacuatie</b> af te sluiten en zet dat in je voorwaarden.</li>
+</ul>
+<p>Hoe je een polis kiest en wat Surinaamse verzekeraars aanbieden: <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+{% else %}
+<p>The law requires you to disclose your insurance to customers in writing. Which policies you need depends on your business:</p>
+<ul>
+ <li><b>Employee accident insurance</b>: compulsory by law from the first working day.</li>
+ <li><b>Liability</b> for harm to guests, also during excursions and on the water.</li>
+ <li><b>Buildings and contents</b>, covering fire, storm and flooding.</li>
+ <li><b>Boats and vehicles</b>, including passengers.</li>
+ <li>Ask guests to take out their own <b>travel insurance with evacuation</b> and put that in your terms.</li>
+</ul>
+<p>How to choose a policy and what Surinamese insurers offer: <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Een lodge in het binnenland: grond en gemeenschappen' if nl else 'A lodge in the interior: land and communities' }}</h2>
+{% if nl %}
+<p>Het binnenland (vooral Sipaliwini, Brokopondo en delen van Para en Marowijne) trekt de meeste toeristen, maar de grondvraag is daar het lastigst.</p>
+<ul>
+ <li><b>Domeingrond</b>: grond is meestal van de Staat. Een individueel recht krijg je via grondhuur bij de overheid; zie <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>Collectieve rechten</b>: inheemse en tribale gemeenschappen hebben traditionele leefgebieden, maar hun collectieve grondrechten zijn niet wettelijk erkend. In 2026 lag er een Wet Bescherming Woon- en Leefgebieden die nieuwe concessies binnen 5 kilometer van dorpskernen verbiedt; de Vereniging van Inheemse Dorpshoofden vroeg in augustus 2026 om die niet af te kondigen omdat ze te beperkt is. Volg de stand op <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>Traditioneel gezag</b>: overleg met de kapitein of granman en het dorp voordat je investeert. Leg afspraken schriftelijk vast: locatie, duur, wat het dorp ontvangt (werk, inkoop, een vergoeding per gast), gebruik van rivieren en paden, en hoe geschillen worden opgelost. Dat sluit aan bij het FPIC-principe in de Toerisme Raamwet.</li>
+ <li><b>Natuurgebieden</b>: activiteiten in natuurreservaten en multiple use management areas (MUMA's) vallen onder de Natuurbeschermingswet; vraag de natuurbeheerdienst om toestemming.</li>
+ <li><b>Financiering</b>: lodgehouders in Boven-Suriname vertelden de presidentiële werkgroep in januari 2026 dat ze zonder wettelijke grondpapieren geen leningen krijgen. Reken op eigen middelen of investeerders.</li>
+</ul>
+{% else %}
+<p>The interior (mainly Sipaliwini, Brokopondo and parts of Para and Marowijne) draws most tourists, but land is hardest to arrange there.</p>
+<ul>
+ <li><b>State land</b>: land is usually owned by the State. You get an individual right through a land lease from the government; see <a href="{{ U('land') }}">{{ L('land') }}</a>.</li>
+ <li><b>Collective rights</b>: Indigenous and tribal communities have traditional living areas, but their collective land rights are not recognised in law. In 2026 there was a Living Areas Protection Act that bans new concessions within 5 kilometres of village centres; the Association of Indigenous Village Leaders asked in August 2026 for it not to be promulgated because it is too limited. Follow the status at <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>Traditional authority</b>: consult the captain or granman and the village before you invest. Put agreements in writing: location, duration, what the village receives (jobs, purchasing, a fee per guest), use of rivers and trails, and how disputes are settled. This fits the FPIC principle in the Tourism Framework Act.</li>
+ <li><b>Protected areas</b>: activities in nature reserves and multiple use management areas (MUMAs) fall under the Nature Conservation Act; ask the nature management service for permission.</li>
+ <li><b>Financing</b>: lodge owners in Upper Suriname told the presidential working group in January 2026 that without legal land documents they cannot get loans. Count on own funds or investors.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Prijzen, valuta en betalingen' if nl else 'Prices, currency and payments' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Valuta</b>: veel toeristische bedrijven prijzen voor buitenlandse gasten in USD of EUR, omdat hun kosten (brandstof, import) daarmee meebewegen. Voor de lokale markt gelden de regels voor prijsaanduiding in SRD: <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li><b>BTW</b>: het algemene tarief is 10%. Vermeld in je prijzen of BTW inbegrepen is: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Online betalen</b>: buitenlandse gasten willen vooraf met een kaart betalen. Hoe je dat regelt met een Surinaamse bank of een internationale betaaldienst: <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Aanbetaling en annulering</b>: leg in je voorwaarden vast hoeveel je vooraf vraagt, wat terugkomt bij annulering en wat er gebeurt bij hoog water of uitgevallen vluchten.</li>
+ <li><b>Kostprijs</b>: reken brandstof, boot, gids, eten, vergoeding voor het dorp en marge per persoon door met <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> en <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>. Brandstof per rit: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Currency</b>: many tourism businesses price in USD or EUR for foreign guests, because their costs (fuel, imports) move with it. For the local market the rules on SRD price display apply: <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+ <li><b>VAT</b>: the standard rate is 10%. State whether prices include VAT: <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Online payment</b>: foreign guests want to pay by card in advance. How to set that up with a Surinamese bank or an international payment service: <a href="{{ U('payments') }}">{{ L('payments') }}</a>.</li>
+ <li><b>Deposit and cancellation</b>: put in your terms how much you ask up front, what is refunded on cancellation and what happens with high water or cancelled flights.</li>
+ <li><b>Cost price</b>: work out fuel, boat, guide, food, village fee and margin per person with <a href="{{ U('pricing') }}">{{ L('pricing') }}</a> and <a href="{{ U('breakeven') }}">{{ L('breakeven') }}</a>. Fuel per trip: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Online boeken en marketing' if nl else 'Online booking and marketing' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Eigen website</b> met beschikbaarheid, prijzen, voorwaarden en verzekeringen (dat laatste verplicht de wet), plus een WhatsApp-knop: <a href="{{ U('walink') }}">{{ L('walink') }}</a>.</li>
+ <li><b>Boekingsplatforms</b> voor accommodatie en excursies brengen buitenlandse gasten, tegen commissie. Houd je prijzen gelijk over kanalen.</li>
+ <li><b>Google-bedrijfsprofiel en reviews</b>: voor veel bezoekers de eerste kennismaking. Reageer op elke review.</li>
+ <li><b>Touroperators in Nederland en België</b>: bereik je via de Vakantiebeurs in Utrecht, waar TCT samen met SHATA en bedrijven elk jaar staat. TCT bezoekt ook beurzen in Frans-Guyana, de VS en Berlijn.</li>
+ <li><b>Lokale en zakelijke markt</b>: bedrijven in olie, gas en mijnbouw zoeken accommodatie en vervoer; zet je bedrijf in <a href="{{ U('companies') }}">{{ L('companies') }}</a> (<a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a>).</li>
+ <li><b>Privacy</b>: werk je met gegevens van Europese gasten, dan geldt de Europese AVG ook voor jou: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Your own website</b> with availability, prices, terms and insurance (the law requires the last two), plus a WhatsApp button: <a href="{{ U('walink') }}">{{ L('walink') }}</a>.</li>
+ <li><b>Booking platforms</b> for accommodation and excursions bring foreign guests, at a commission. Keep prices consistent across channels.</li>
+ <li><b>Google Business Profile and reviews</b>: the first impression for many visitors. Reply to every review.</li>
+ <li><b>Tour operators in the Netherlands and Belgium</b>: reach them at the Vakantiebeurs fair in Utrecht, where TCT attends every year with SHATA and companies. TCT also goes to fairs in French Guiana, the US and Berlin.</li>
+ <li><b>Local and business market</b>: oil, gas and mining firms need accommodation and transport; list your business in <a href="{{ U('companies') }}">{{ L('companies') }}</a> (<a href="{{ U('addbiz') }}">{{ L('addbiz') }}</a>).</li>
+ <li><b>Privacy</b>: if you handle data of European guests, the EU GDPR applies to you too: <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Duurzaam en met de gemeenschap' if nl else 'Sustainable and community-based' }}</h2>
+{% if nl %}
+<p>De regering kiest in de jaarrede van 30 september 2026 voor "high-value, low-impact" toerisme: bezoekers die langer blijven, meer lokaal besteden en natuur en cultuur waarderen. Voor 2027 staan op de agenda: hotels, lodges en touroperators meer laten inkopen bij Surinaamse producenten, community-based tourism zodat gemeenschappen direct meeprofiteren, betere aansluiting van vakopleidingen, en afstemming van toerisme- en natuurbeschermingswetgeving.</p>
+<ul class="check">
+ <li>Koop voedsel, vervoer en ambacht lokaal in en houd bij hoeveel.</li>
+ <li>Neem mensen uit de omgeving aan en laat ze opleiden (zie hieronder).</li>
+ <li>Scheid afval en neem het mee terug uit het binnenland; vermijd wegwerpplastic met navulbare waterstations.</li>
+ <li>Beperk groepsgrootte op kwetsbare plekken.</li>
+ <li>Zonne-energie voor lodges zonder netaansluiting.</li>
+</ul>
+<p>Meer: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+{% else %}
+<p>In the annual address of 30 September 2026 the government chose "high-value, low-impact" tourism: visitors who stay longer, spend more locally and value nature and culture. On the agenda for 2027: getting hotels, lodges and tour operators to buy more from Surinamese producers, community-based tourism so communities benefit directly, better links with vocational training, and aligning tourism and nature conservation laws.</p>
+<ul class="check">
+ <li>Buy food, transport and crafts locally and keep track of how much.</li>
+ <li>Hire people from the area and have them trained (see below).</li>
+ <li>Separate waste and take it back out of the interior; avoid single-use plastic with refill water stations.</li>
+ <li>Limit group size at fragile sites.</li>
+ <li>Solar power for lodges without a grid connection.</li>
+</ul>
+<p>More: <a href="{{ U('sustainability') }}">{{ L('sustainability') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Beleid 2025 en 2026: werkgroep, STA en Canawaima' if nl else 'Policy 2025 and 2026: working group, STA and Canawaima' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Presidentiële Werkgroep Toerismeontwikkeling</b>: op 28 oktober 2025 voor zes maanden geïnstalleerd door president Simons, onder voorzitterschap van Rachel Pinas, met vooral vertegenwoordigers van het bedrijfsleven (onder meer SHATA en de VSB) en TCT. Genoemde knelpunten: hoge ticketprijzen, de visumprocedure vanuit Frans-Guyana, een niet-functionerende STA, en beheer van plekken als de Waterkant. In maart 2026 presenteerde de groep haar analyse: de STA moet operationeel worden, er moet gekeken worden naar belastingvoordelen. De president gaf de werkgroep ook de opdracht om te adviseren over een toerismeschool.</li>
+ <li><b>Doelen</b>: binnen drie jaar weer 500.000 bezoekers en het aandeel van toerisme in het bbp van 6,8% naar 10% (augustus 2025).</li>
+ <li><b>Canawaima-veerdienst</b> (Nickerie naar Guyana): de werkgroep besprak in mei 2026 modernisering en een online boekingssysteem. Op 22 augustus 2026 legde de MAS een acuut vaarverbod op vanwege tekortkomingen in brandveiligheid, evacuatie, radar en motoren; de dienst werd op 28 augustus hervat. Volgens een onafhankelijke inspecteur kan de veerboot technisch nog tot 2027 mee; de regering kijkt naar een nieuw schip. Bedrijven in het westen moeten rekening houden met onderbrekingen.</li>
+ <li><b>Tourism First</b>: het programma "Toerisme vóór Olie" moet de extra vraag naar accommodatie, vervoer en eten rond de olie-industrie bij Surinaamse bedrijven laten landen. Er komt ook een Tourism Satellite Account om de echte bijdrage van toerisme te meten.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Presidential Tourism Development Working Group</b>: installed for six months by President Simons on 28 October 2025, chaired by Rachel Pinas, made up mainly of business representatives (including SHATA and the VSB employers' association) and TCT. Bottlenecks named: high air fares, the visa procedure from French Guiana, a non-functioning STA, and management of places such as the Waterkant. In March 2026 the group presented its analysis: the STA must become operational, tax incentives should be examined. The president also asked the group to advise on a tourism school.</li>
+ <li><b>Targets</b>: back to 500,000 visitors within three years and tourism's share of GDP from 6.8% to 10% (August 2025).</li>
+ <li><b>Canawaima ferry</b> (Nickerie to Guyana): in May 2026 the working group discussed modernisation and an online booking system. On 22 August 2026 MAS imposed an immediate sailing ban over shortcomings in fire safety, evacuation, radar and engines; service resumed on 28 August. According to an independent inspector the ferry can technically operate until 2027; the government is looking at a new vessel. Businesses in the west should allow for disruptions.</li>
+ <li><b>Tourism First</b>: the "Tourism before Oil" programme aims to channel extra demand for accommodation, transport and food around the oil industry to Surinamese businesses. A Tourism Satellite Account is planned to measure tourism's real contribution.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Financiering en ondersteuning' if nl else 'Financing and support' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Bankkrediet</b> vraagt onderpand, en de rente lag in 2026 rond 14%. Voor binnenlandlodges is onderpand vaak het probleem. Opties en voorwaarden: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Programma's en subsidies</b>: het Wereldbankproject SCSD liet in 2024 met EZOTI en TCT een analyse van de toeristische waardeketen uitvoeren ter ondersteuning van kleine bedrijven. Lopende regelingen: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>Gratis opleiding</b>: via het IDB-project "Labour Alignment with New Industries" van het ministerie van VWA leidt SHTTC kosteloos keukenassistenten en ander personeel op, ook in Sipaliwini (september 2026). Meer: <a href="{{ U('training') }}">{{ L('training') }}</a>.</li>
+ <li><b>Investeringsvoordelen</b> voor grotere projecten: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>Ondernemingsplan</b>: banken en investeerders vragen er een. Gebruik <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> en <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Bank credit</b> needs collateral, and interest was around 14% in 2026. For interior lodges collateral is often the problem. Options and terms: <a href="{{ U('finance') }}">{{ L('finance') }}</a>.</li>
+ <li><b>Programmes and grants</b>: in 2024 the World Bank SCSD project had EZOTI and TCT carry out a tourism value chain analysis to support small businesses. Current schemes: <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</li>
+ <li><b>Free training</b>: through the IDB "Labour Alignment with New Industries" project of the Ministry of Health, Welfare and Labour, SHTTC trains kitchen assistants and other staff free of charge, including in Sipaliwini (September 2026). More: <a href="{{ U('training') }}">{{ L('training') }}</a>.</li>
+ <li><b>Investment incentives</b> for larger projects: <a href="{{ U('invest') }}">{{ L('invest') }}</a>.</li>
+ <li><b>Business plan</b>: banks and investors ask for one. Use <a href="{{ U('bizplantool') }}">{{ L('bizplantool') }}</a> and <a href="{{ U('bizplan') }}">{{ L('bizplan') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Risico\'s en wat je eraan doet' if nl else 'Risks and what to do about them' }}</h2>
+{% if nl %}
+<table class="tbl stack tx"><thead><tr><th>Risico</th><th>Wat je doet</th></tr></thead><tbody>
+ <tr><td data-l="Risico">Seizoensdal (januari, februari, juni)</td><td data-l="Wat je doet">Lokale en zakelijke markt bedienen, onderhoud plannen, reserves opbouwen in het hoogseizoen</td></tr>
+ <tr><td data-l="Risico">Dure en wisselende vluchten</td><td data-l="Wat je doet">Pakketten met flexibele data, samenwerken met touroperators die vliegstoelen inkopen</td></tr>
+ <tr><td data-l="Risico">Ongeluk op het water</td><td data-l="Wat je doet">MAS-vaarbewijs en CVD, reddingsvesten verplicht dragen, passagierslijst, evacuatieplan, aansprakelijkheidsverzekering</td></tr>
+ <tr><td data-l="Risico">Grondconflict in het binnenland</td><td data-l="Wat je doet">Schriftelijke afspraken met het traditioneel gezag, eerlijke verdeling van opbrengsten, lokaal personeel</td></tr>
+ <tr><td data-l="Risico">Stroom- en internetuitval</td><td data-l="Wat je doet">Aggregaat of zonne-energie, back-up internet; zie <a href="{{ U('utilities') }}">{{ L('utilities') }}</a></td></tr>
+ <tr><td data-l="Risico">Koersschommeling</td><td data-l="Wat je doet">Prijzen voor buitenlandse gasten in USD of EUR, kosten in dezelfde munt waar mogelijk</td></tr>
+ <tr><td data-l="Risico">Nieuwe heffingen en normen</td><td data-l="Wat je doet">Ruimte in je prijzen voor de 2%-heffingen; nu al bouwen volgens SSB 020:2020</td></tr>
+ <tr><td data-l="Risico">Uitval Canawaima (westen)</td><td data-l="Wat je doet">Alternatieve routes en annuleringsvoorwaarden voor gasten uit Guyana</td></tr>
+</tbody></table>
+{% else %}
+<table class="tbl stack tx"><thead><tr><th>Risk</th><th>What to do</th></tr></thead><tbody>
+ <tr><td data-l="Risk">Low season (January, February, June)</td><td data-l="What to do">Serve the local and business market, schedule maintenance, build reserves in high season</td></tr>
+ <tr><td data-l="Risk">Expensive, changing flights</td><td data-l="What to do">Packages with flexible dates, partner with tour operators that buy seat allocations</td></tr>
+ <tr><td data-l="Risk">Accident on the water</td><td data-l="What to do">MAS licence and certificate, life jackets worn, passenger list, evacuation plan, liability insurance</td></tr>
+ <tr><td data-l="Risk">Land conflict in the interior</td><td data-l="What to do">Written agreements with the traditional authority, fair sharing of revenue, local staff</td></tr>
+ <tr><td data-l="Risk">Power and internet failures</td><td data-l="What to do">Generator or solar, backup internet; see <a href="{{ U('utilities') }}">{{ L('utilities') }}</a></td></tr>
+ <tr><td data-l="Risk">Exchange rate swings</td><td data-l="What to do">Prices for foreign guests in USD or EUR, costs in the same currency where possible</td></tr>
+ <tr><td data-l="Risk">New levies and standards</td><td data-l="What to do">Room in your prices for the 2% levies; build to SSB 020:2020 now</td></tr>
+ <tr><td data-l="Risk">Canawaima outages (west)</td><td data-l="What to do">Alternative routes and cancellation terms for guests from Guyana</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Stappenplan' if nl else 'Step by step' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Kies je product en markt.</b> Welke gasten, welk seizoen, welke prijs? Bezoek concurrenten en praat met touroperators.</li>
+ <li><b>Regel de locatie.</b> Grondhuur, koop of huur; in het binnenland eerst overleg met het dorp en schriftelijke afspraken.</li>
+ <li><b>Maak een ondernemingsplan</b> met kostprijs per gast en een pessimistisch scenario.</li>
+ <li><b>Schrijf je in bij de KKF</b> en kies een rechtsvorm.</li>
+ <li><b>Vraag de vergunningen aan</b>: EZOTI voor accommodatie of reisbureau, districtscommissaris voor horeca, bouwvergunning, MAS voor boten.</li>
+ <li><b>Bouw of verbouw volgens SSB 020:2020</b> en laat de brandweer adviseren.</li>
+ <li><b>Sluit verzekeringen af</b> en zet ze, met je voorwaarden, op je website.</li>
+ <li><b>Neem personeel aan en laat het opleiden</b>: gidsen, schippers met vaarbewijs, EHBO, keuken.</li>
+ <li><b>Registreer je bij BTW en Belastingdienst</b> zodra je omzet het vereist.</li>
+ <li><b>Ga online</b>: website, boekingsplatforms, Google-profiel, Safe Guide, lidmaatschap van SHATA.</li>
+</ol>
+<h3>Checklist voor je opening</h3>
+<ul class="check">
+ <li>KKF-uittreksel en EZOTI- of DC-vergunning aan de muur</li>
+ <li>Schriftelijke informatie, algemene voorwaarden en verzekeringen voor gasten</li>
+ <li>Vaarbewijzen, CVD's en keuringsbewijzen aan boord</li>
+ <li>Reddingsvesten in alle maten, EHBO-kit, communicatiemiddel</li>
+ <li>Passagiers- en gastenlijsten</li>
+ <li>Ongevallenverzekering voor personeel, aansprakelijkheid en opstal</li>
+ <li>Gezondheidsverklaringen voor wie met voedsel werkt</li>
+ <li>Afvalplan en, in het binnenland, schriftelijke afspraak met het dorp</li>
+ <li>Factuur- en kassasysteem met BTW: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a></li>
+</ul>
+{% else %}
+<ol class="steps">
+ <li><b>Choose your product and market.</b> Which guests, which season, what price? Visit competitors and talk to tour operators.</li>
+ <li><b>Secure the site.</b> Land lease, purchase or rent; in the interior, consult the village first and agree in writing.</li>
+ <li><b>Write a business plan</b> with cost per guest and a pessimistic scenario.</li>
+ <li><b>Register with the KKF</b> and choose a legal form.</li>
+ <li><b>Apply for licences</b>: EZOTI for accommodation or travel agency, district commissioner for food and drink, building permit, MAS for boats.</li>
+ <li><b>Build or renovate to SSB 020:2020</b> and get fire service advice.</li>
+ <li><b>Take out insurance</b> and publish it, with your terms, on your website.</li>
+ <li><b>Hire and train staff</b>: guides, licensed skippers, first aid, kitchen.</li>
+ <li><b>Register for VAT and with the tax office</b> once your turnover requires it.</li>
+ <li><b>Go online</b>: website, booking platforms, Google profile, Safe Guide, SHATA membership.</li>
+</ol>
+<h3>Opening checklist</h3>
+<ul class="check">
+ <li>KKF extract and EZOTI or DC licence on display</li>
+ <li>Written information, terms and conditions and insurance details for guests</li>
+ <li>Skipper's licences, certificates and inspection records on board</li>
+ <li>Life jackets in all sizes, first-aid kit, means of communication</li>
+ <li>Passenger and guest lists</li>
+ <li>Employee accident insurance, liability and buildings cover</li>
+ <li>Health certificates for anyone handling food</li>
+ <li>Waste plan and, in the interior, a written agreement with the village</li>
+ <li>Invoicing and till system with VAT: <a href="{{ U('invoice') }}">{{ L('invoice') }}</a></li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...ik alleen excursies verkoop en geen eigen boot heb?</b> Dan ben je reisbureau of touroperator en heb je een EZOTI-vergunning nodig. Controleer dat je onderaannemers MAS-vaarbewijzen en CVD's hebben; jij informeert de gast en je verzekering moet het dekken.</li>
+ <li><b>...ik een paar kamers via een boekingssite verhuur?</b> Bedrijfsmatige verhuur van kamers of appartementen aan toeristen kan onder de vergunningplichtige categorieën vallen (pension of appartementencomplex). Vraag de KKF wat voor jouw situatie geldt.</li>
+ <li><b>...de MAS mijn boot afkeurt?</b> Stop met varen tot de gebreken zijn hersteld en de herkeuring is goedgekeurd. Varen zonder geldig certificaat zet je aansprakelijkheid en verzekering op het spel.</li>
+ <li><b>...het dorp de afspraken wil herzien?</b> Ga in overleg via het traditioneel gezag en de districtscommissaris. Een schriftelijke afspraak met een geschillenregeling voorkomt dat het escaleert. Zie <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...de STA alsnog start met registratie en keurmerken?</b> Dan volgen staatsbesluiten met procedures en termijnen; de Toerisme Raamwet gaf bestaande bedrijven eerder een jaar om zich aan te passen. Volg <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> en SHATA.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...I only sell excursions and have no boat of my own?</b> Then you are a travel agency or tour operator and need an EZOTI licence. Check that your subcontractors have MAS licences and certificates; you inform the guest and your insurance must cover it.</li>
+ <li><b>...I let a few rooms through a booking site?</b> Commercial letting of rooms or apartments to tourists can fall under the licensed categories (boarding house or apartment complex). Ask the KKF what applies to you.</li>
+ <li><b>...MAS rejects my boat?</b> Stop sailing until the faults are fixed and the re-inspection is passed. Sailing without a valid certificate puts your liability and insurance at risk.</li>
+ <li><b>...the village wants to revise the agreement?</b> Talk through the traditional authority and the district commissioner. A written agreement with a dispute clause stops it escalating. See <a href="{{ U('disputes') }}">{{ L('disputes') }}</a>.</li>
+ <li><b>...the STA starts registration and quality marks after all?</b> Then state decrees will set procedures and deadlines; the Tourism Framework Act earlier gave existing businesses a year to adapt. Follow <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a> and SHATA.</li>
+</ul>
+{% endif %}
+<p><a href="{{ U('businesstravel') }}">{{ L('businesstravel') }}</a> &middot; <a href="{{ U('districts') }}">{{ L('districts') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('events') }}">{{ L('events') }}</a> &middot; <a href="{{ U('resources') }}">{{ L('resources') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2024/05/SB-2023-88.pdf" rel="noopener">Toerisme Raamwet, S.B. 2023 no. 88</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2024/05/SB-2023-87.pdf" rel="noopener">Wet Suriname Toerisme Autoriteit, S.B. 2023 no. 87 ({{ 'met memorie van toelichting over de STS' if nl else 'with explanatory memorandum on the STS' }})</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-4-Beschikking-houdende-vaststelling-van-de-Standaard-Specificatie-voor-toeristische-accomodatie-Deel-1-Algemene-vereisten-tot-een-technisch-voorschrift-ten-behoeve-van-alle-toeristische-acco.pdf" rel="noopener">{{ 'Technisch voorschrift toeristische accommodatie, S.B. 2026 no. 4' if nl else 'Technical regulation on tourist accommodation, S.B. 2026 no. 4' }}</a></li>
+ <li><a href="https://statistics-suriname.org/wp-content/uploads/2026/02/Verkeers-en-Vervoersstatisstieken_Traffic-and-Transport-Statistics-2021-2024.pdf" rel="noopener">ABS: {{ 'Verkeers- en Vervoersstatistieken 2021 tot 2024 (februari 2026)' if nl else 'Traffic and Transport Statistics 2021 to 2024 (February 2026)' }}</a></li>
+ <li><a href="https://usercontent.one/wp/www.japi-airport.com/wp-content/uploads/2026/01/PBM-Stats-2020-2025.pdf" rel="noopener">{{ 'Luchthavenbeheer: passagiersstatistiek 2020 tot 2025' if nl else 'Airport Management: passenger statistics 2020 to 2025' }}</a></li>
+ <li><a href="https://gov.sr/werkgroep-toerismeontwikkeling-moet-sector-helpen-groeien-en-prioriteiten-vaststellen/" rel="noopener">GOV.SR: {{ 'installatie Werkgroep Toerismeontwikkeling (28 oktober 2025)' if nl else 'Tourism Development Working Group installed (28 October 2025)' }}</a></li>
+ <li><a href="https://gov.sr/belanghebbenden-toerismesector-zetten-koers-voor-duurzame-groei/" rel="noopener">GOV.SR: {{ 'doelen 500.000 bezoekers en 10% bbp (13 augustus 2025)' if nl else 'targets of 500,000 visitors and 10% of GDP (13 August 2025)' }}</a></li>
+ <li><a href="https://gov.sr/presidentiele-werkgroep-pleit-voor-operationalisering-suriname-toerisme-autoriteit/" rel="noopener">GOV.SR: {{ 'werkgroep pleit voor operationele STA (18 maart 2026)' if nl else 'working group calls for an operational STA (18 March 2026)' }}</a></li>
+ <li><a href="https://gov.sr/presidentiele-werkgroep-toerismeontwikkeling-en-lodgehouders-boven-suriname-pakken-barrieres-in-toerismesector-aan/" rel="noopener">GOV.SR: {{ 'werkgroep en lodgehouders Boven-Suriname (27 januari 2026)' if nl else 'working group and Upper Suriname lodge owners (27 January 2026)' }}</a></li>
+ <li><a href="https://gov.sr/presidentiele-werkgroep-toerismeontwikkeling-bespreekt-modernisering-canawaima-en-toeristische-corridor-westen/" rel="noopener">GOV.SR: {{ 'modernisering Canawaima (24 mei 2026)' if nl else 'Canawaima modernisation (24 May 2026)' }}</a></li>
+ <li><a href="https://gov.sr/regering-geeft-prioriteit-aan-veiligheid-passagiers-in-kwestie-canawaima/" rel="noopener">GOV.SR: {{ 'vaarverbod en toekomst Canawaima (2 september 2026)' if nl else 'Canawaima sailing ban and future (2 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/toerisme-moet-meer-inkomsten-opleveren-voor-suriname/" rel="noopener">GOV.SR: {{ 'jaarrede over toerisme (30 september 2026)' if nl else 'annual address on tourism (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/ministerie-van-transport-communicatie-en-toerisme-lanceert-safe-guide-nieuw-online-platform-voor-veilig-en-verantwoord-toerisme/" rel="noopener">GOV.SR: {{ 'TCT lanceert Safe Guide (14 oktober 2026)' if nl else 'TCT launches Safe Guide (14 October 2026)' }}</a></li>
+ <li><a href="https://gov.sr/mas-scherpt-dcs-aan-over-handhaving-scheepvaartwetgeving/" rel="noopener">GOV.SR: {{ 'MAS en handhaving scheepvaartwetgeving (11 november 2025)' if nl else 'MAS and enforcement of shipping law (11 November 2025)' }}</a></li>
+ <li><a href="https://gov.sr/ruim-70-personen-ontvangen-mas-certificaat-en-vaarbewijs/" rel="noopener">GOV.SR: {{ 'MAS over vaarbewijs, CVD en veiligheidsmiddelen (februari 2025)' if nl else 'MAS on skipper licences, certificates and safety equipment (February 2025)' }}</a></li>
+ <li><a href="https://gov.sr/vids-overhandigt-kabinet-resoluties-over-wet-bescherming-woon-en-leefgebieden-betreffende-inheemsen/" rel="noopener">GOV.SR: {{ 'VIDS over de Wet Bescherming Woon- en Leefgebieden (31 augustus 2026)' if nl else 'VIDS on the Living Areas Protection Act (31 August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/leri-fu-feni-wroko-levert-26-keukenassistenten-aan-toerismesector-in-sipaliwini/" rel="noopener">GOV.SR: {{ 'gratis SHTTC-training in Sipaliwini (september 2026)' if nl else 'free SHTTC training in Sipaliwini (September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/lancering-van-project-voor-versterking-van-de-toeristische-waardeketen-in-suriname/" rel="noopener">GOV.SR: {{ 'project toeristische waardeketen (oktober 2024)' if nl else 'tourism value chain project (October 2024)' }}</a></li>
+ <li><a href="https://gov.sr/vakantiebeurs-utrecht-2025/" rel="noopener">GOV.SR: {{ 'TCT en private sector op de Vakantiebeurs (januari 2025)' if nl else 'TCT and private sector at the Vakantiebeurs (January 2025)' }}</a></li>
+ <li><a href="http://www.shata.sr/en/members/become-a-member" rel="noopener">SHATA: {{ 'lidmaatschap en contact' if nl else 'membership and contact' }}</a></li>
+ <li><a href="https://www.nederlandwereldwijd.nl/reisadvies/suriname" rel="noopener">{{ 'Nederlandse overheid: reisadvies Suriname, EU Air Safety List (oktober 2026)' if nl else 'Dutch government: travel advice Suriname, EU Air Safety List (October 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch advies. De STA en de uitvoeringsbesluiten bij de toerismewetten kunnen snel veranderen; controleer de stand bij TCT, de KKF en SHATA.' if nl else 'General information, not legal advice. The STA and the decrees under the tourism laws can change quickly; check the current position with TCT, the KKF and SHATA.' }}</p>
+</div>
+{% endblock %}

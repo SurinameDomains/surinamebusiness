@@ -1,0 +1,348 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+<div class="prose">
+<h1>{{ 'Normen en certificering' if nl else 'Standards and certification' }}</h1>
+{% if nl %}
+<p class="lead">De meeste normen zijn vrijwillig, maar een paar zijn in Suriname wettelijk verplicht: het etiket op voorverpakte goederen, de eisen voor bakkerijen, pluimvee, eieren en pluimveevoer, en vanaf eind 2027 ook voor toeristische accommodaties, gidsen en reisbureaus. Het Surinaams Standaarden Bureau (SSB) stelt normen vast, controleert etiketten, geeft barcodes uit en begeleidt bedrijven naar ISO-certificering. Weegschalen en andere meetmiddelen worden geijkt door de Dienst Waarborg en IJkwezen van EZOTI.</p>
+{% else %}
+<p class="lead">Most standards are voluntary, but a few are legally binding in Suriname: the label on prepackaged goods, the requirements for bakeries, poultry, eggs and poultry feed, and from late 2027 also for tourist accommodation, guides and travel agencies. The Suriname Standards Bureau (SSB) sets standards, checks labels, issues barcodes and guides companies towards ISO certification. Scales and other measuring instruments are verified by EZOTI's Assay and Weights and Measures Service (Waarborg en IJkwezen).</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Etiketcheck SSB' if nl else 'SSB label check' }}</div><div class="big">SRD 500</div><div class="sub">{{ 'per etiket, rapport binnen 5 werkdagen' if nl else 'per label, report within 5 working days' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Technische voorschriften' if nl else 'Technical regulations' }}</div><div class="big">8</div><div class="sub">{{ 'verplichte normen, stand oktober 2026' if nl else 'mandatory standards, as of October 2026' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'ISO-certificaat' if nl else 'ISO certificate' }}</div><div class="big">{{ '3 jaar' if nl else '3 years' }}</div><div class="sub">{{ 'geldig, met jaarlijkse controleaudit' if nl else 'valid, with a yearly surveillance audit' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Standaard of voorschrift?</b> Een standaard (norm) is vrijwillig. De minister van EZOTI kan een norm op advies van het SSB verplicht maken als technisch voorschrift. Overtreding is dan een economisch delict.</li>
+ <li><b>Iedereen die voorverpakte goederen verkoopt</b> moet voldoen aan het etiketvoorschrift SSB 003:2013. De ECD haalt producten zonder correct etiket uit de schappen.</li>
+ <li><b>Pluimvee, eieren en pluimveevoer</b> vallen sinds 6 maart 2025 onder verplichte voorschriften; <b>toerisme</b> volgt eind 2027.</li>
+ <li><b>CARICOM-normen</b> worden regionaal opgesteld door CROSQ. Het SSB vraagt bedrijven daarover te stemmen; daarna worden ze meestal Surinaamse norm.</li>
+ <li><b>ISO-certificering</b> (9001, 14001, 22000, 27001, 45001) kan lokaal via het SSB en een geaccrediteerde partner. Gecertificeerde bedrijven kunnen in het Nationaal ISO Register.</li>
+ <li><b>Weegschalen en meetmiddelen</b> voor handel moeten jaarlijks worden geijkt; benzinepompen twee keer per jaar.</li>
+{% else %}
+ <li><b>Standard or regulation?</b> A standard is voluntary. On SSB's advice the EZOTI minister can make a standard mandatory as a technical regulation. A breach is then an economic offence.</li>
+ <li><b>Anyone selling prepackaged goods</b> must meet the labelling regulation SSB 003:2013. The ECD removes products without a correct label from the shelves.</li>
+ <li><b>Poultry, eggs and poultry feed</b> have been under mandatory regulations since 6 March 2025; <b>tourism</b> follows in late 2027.</li>
+ <li><b>CARICOM standards</b> are drafted regionally by CROSQ. SSB asks businesses to vote on them; afterwards they usually become Surinamese standards.</li>
+ <li><b>ISO certification</b> (9001, 14001, 22000, 27001, 45001) is available locally through SSB and an accredited partner. Certified companies can join the National ISO Register.</li>
+ <li><b>Scales and measuring instruments</b> used in trade must be verified every year; fuel pumps twice a year.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Het Surinaams Standaarden Bureau' if nl else 'The Suriname Standards Bureau' }}</h2>
+{% if nl %}
+<p>Het SSB is ingesteld bij de Wet Surinaams Bureau voor Standaarden (S.B. 2006 no. 30, gewijzigd bij S.B. 2012 no. 42) en werd op 15 oktober 2007 geopend. Het werkt onder de Standaardenwet (S.B. 2004 no. 121), die op 2 april 2012 in werking trad. Het bureau valt onder de begroting van EZOTI en is correspondentlid van de internationale normorganisatie ISO. Volgens de wet en zijn eigen omschrijving is het SSB:</p>
+<ul>
+ <li>het nationale instituut voor standaarden en technische voorschriften;</li>
+ <li>het nationale instituut voor certificering van goederen en werkwijzen;</li>
+ <li>het nationale instituut voor metrologie en voor accreditatie van laboratoria (als zogeheten National Accreditation Focal Point geeft het administratieve ondersteuning; de accreditatie zelf doet een buitenlandse partnerinstantie);</li>
+ <li>het nationale informatiepunt voor de WTO-regels over technische handelsbelemmeringen (TBT).</li>
+</ul>
+<p>Het SSB zit aan de Frederik Derbystraat 81 in Paramaribo, telefoon 499928 en 499929, e-mail info@ssb.sr. Het SSB onderzoekt ook klachten van consumenten over goederen (art. 4 Standaardenwet).</p>
+{% else %}
+<p>SSB was set up by the Suriname Standards Bureau Act (S.B. 2006 no. 30, amended by S.B. 2012 no. 42) and opened on 15 October 2007. It works under the Standards Act (S.B. 2004 no. 121), which took effect on 2 April 2012. The bureau is funded through EZOTI's budget and is a correspondent member of the international standards body ISO. Under the law and its own description, SSB is:</p>
+<ul>
+ <li>the national institute for standards and technical regulations;</li>
+ <li>the national institute for certifying goods and practices;</li>
+ <li>the national institute for metrology and for laboratory accreditation (as a National Accreditation Focal Point it provides administrative support; a foreign partner body does the accreditation itself);</li>
+ <li>the national enquiry point for the WTO rules on technical barriers to trade (TBT).</li>
+</ul>
+<p>SSB is at Frederik Derbystraat 81 in Paramaribo, phone 499928 and 499929, email info@ssb.sr. SSB also investigates consumer complaints about goods (art. 4 Standards Act).</p>
+{% endif %}
+
+<h2>{{ 'Vrijwillige normen en verplichte voorschriften' if nl else 'Voluntary standards and mandatory regulations' }}</h2>
+{% if nl %}
+<p>Een <b>nationale standaard</b> is een document met afspraken over een product, dienst of werkwijze. Het SSB stelt die vast na een openbare commentaarronde van zestig dagen, of neemt internationale (ISO, IEC) en regionale (CARICOM) normen over. Wie zo'n norm toepast, doet dat vrijwillig; vaak vraagt een klant, een overheid in een aanbesteding of een buitenlandse koper erom.</p>
+<p>Een norm wordt <b>verplicht</b> als de minister van EZOTI hem op voordracht van het SSB bij beschikking vaststelt als technisch voorschrift (art. 6 Standaardenwet). Dat kan voor gezondheid, voedselveiligheid, milieu, kwaliteit voor export, consumentinformatie of tegen misleidende etikettering. Het SSB moet dat dertig dagen vooraf bekendmaken. Daarna geldt (art. 10, 11 en 16):</p>
+<ul>
+ <li>goederen die niet aan het voorschrift voldoen, mogen niet worden ingevoerd, verkocht of uitgevoerd; ze kunnen in beslag worden genomen en op kosten van de producent of leverancier worden vernietigd;</li>
+ <li>ingevoerde goederen kunnen bij binnenkomst worden onderzocht; ze worden vrijgegeven na een goedgekeurde keuring of met een keuringscertificaat van een erkende instantie in het land van herkomst;</li>
+ <li>overtreding is een economisch delict onder de Wet Economische Delicten (art. 20).</li>
+</ul>
+{% else %}
+<p>A <b>national standard</b> is a document with agreed specifications for a product, service or method. SSB adopts it after a sixty-day public comment round, or takes over international (ISO, IEC) and regional (CARICOM) standards. Applying such a standard is voluntary; often a customer, a government tender or a foreign buyer asks for it.</p>
+<p>A standard becomes <b>mandatory</b> when the EZOTI minister, on SSB's proposal, adopts it by order as a technical regulation (art. 6 Standards Act). That can be done for health, food safety, the environment, export quality, consumer information or against misleading labelling. SSB must announce it thirty days in advance. After that (art. 10, 11 and 16):</p>
+<ul>
+ <li>goods that do not comply may not be imported, sold or exported; they can be seized and destroyed at the producer's or supplier's expense;</li>
+ <li>imported goods can be examined on arrival; they are released after a passed inspection or with an inspection certificate from a recognised body in the country of origin;</li>
+ <li>a breach is an economic offence under the Economic Offences Act (art. 20).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Verplichte technische voorschriften' if nl else 'Mandatory technical regulations' }}</h2>
+{% if nl %}
+<p>Op de wettenpagina van het SSB stonden in oktober 2026 deze acht voorschriften. Vraag bij het SSB of er nieuwe zijn bijgekomen voordat je een product of dienst op de markt brengt.</p>
+<table class="tbl stack tx"><thead><tr><th>Voorschrift</th><th>Code</th><th>Voor wie</th><th>Geldt sinds</th></tr></thead><tbody>
+ <tr><td data-l="Voorschrift">Algemene vereisten voor het etiketteren van voorverpakte goederen</td><td data-l="Code">SSB 003:2013</td><td data-l="Voor wie">Producenten, importeurs, distributeurs en winkels van alle voorverpakte goederen</td><td data-l="Geldt sinds">2014</td></tr>
+ <tr><td data-l="Voorschrift">Specificatie voor brood- en banketproducenten (basishygiëne en voedselveiligheid)</td><td data-l="Code">SSB 006:2014</td><td data-l="Voor wie">Bakkerijen</td><td data-l="Geldt sinds">Zie beschikking op de SSB-site</td></tr>
+ <tr><td data-l="Voorschrift">Specificatie voor pluimvee en pluimveedelen</td><td data-l="Code">SSB 002:2014</td><td data-l="Voor wie">Pluimveeslachterijen, verwerkers, importeurs, verkopers</td><td data-l="Geldt sinds">6 maart 2025</td></tr>
+ <tr><td data-l="Voorschrift">Classificatie en indeling van consumptie-eieren</td><td data-l="Code">SSB 004:2015</td><td data-l="Voor wie">Legbedrijven, pakstations, verkopers van eieren</td><td data-l="Geldt sinds">6 maart 2025</td></tr>
+ <tr><td data-l="Voorschrift">Specificatie voor pluimveevoer en voeringrediënten</td><td data-l="Code">SSB 009:2015</td><td data-l="Voor wie">Voerfabrikanten en importeurs</td><td data-l="Geldt sinds">6 maart 2025</td></tr>
+ <tr><td data-l="Voorschrift">Toeristengidsen in Suriname</td><td data-l="Code">SSB 011:2019</td><td data-l="Voor wie">Alle tourgidsen</td><td data-l="Geldt sinds">Na twee jaar overgang, vanaf eind december 2027</td></tr>
+ <tr><td data-l="Voorschrift">Toeristische accommodatie, deel 1: algemene vereisten</td><td data-l="Code">SSB 020:2020</td><td data-l="Voor wie">Alle toeristische accommodaties; onder meer slaapkamers minimaal 20 m²</td><td data-l="Geldt sinds">Na twee jaar overgang, vanaf eind december 2027</td></tr>
+ <tr><td data-l="Voorschrift">Boekingsagenten, touroperators en reisbureaus</td><td data-l="Code">SSB 005:2019</td><td data-l="Voor wie">Boekingsagenten, touroperators, reisbureaus</td><td data-l="Geldt sinds">Na twee jaar overgang, vanaf eind december 2027</td></tr>
+</tbody></table>
+<p>De drie pluimveevoorschriften werden in oktober 2024 vastgesteld met zes maanden overgangstermijn. Ze leggen eisen op aan productie en vooral aan het etiket: kip en kipdelen zonder etiket worden door de ECD uit de koeling gehaald. De drie toerismevoorschriften zijn vastgesteld bij beschikkingen van 23 december 2025 (gepubliceerd in mei 2026, onder meer S.B. 2026 no. 3 en no. 4), met een overgangstermijn van twee jaar. Gaat het om een lodge, hotel of tourbedrijf, lees dan ook <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>. Voor pluimvee en landbouw: <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+<h3>Wat er op een etiket moet staan</h3>
+<p>Het SSB toetst bij de etiketcheck onder meer: de productnaam; naam en contactgegevens van producent, importeur of distributeur; netto-inhoud in de juiste meeteenheid; ingrediënten; houdbaarheidsdatum; bewaarvoorschriften; en herkomst. EZOTI vraagt dat productinformatie bij voorkeur in het Nederlands of Engels staat. Een geïmporteerd product met alleen een Chinees, Portugees of Spaans etiket heeft een sticker nodig met de verplichte gegevens. Prijsregels voor de winkel staan apart in <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</p>
+{% else %}
+<p>In October 2026 SSB's legislation page listed these eight regulations. Ask SSB whether new ones have been added before you bring a product or service to market.</p>
+<table class="tbl stack tx"><thead><tr><th>Regulation</th><th>Code</th><th>Who it covers</th><th>Applies since</th></tr></thead><tbody>
+ <tr><td data-l="Regulation">General requirements for labelling prepackaged goods</td><td data-l="Code">SSB 003:2013</td><td data-l="Who it covers">Producers, importers, distributors and shops of all prepackaged goods</td><td data-l="Applies since">2014</td></tr>
+ <tr><td data-l="Regulation">Specification for bread and pastry producers (basic hygiene and food safety)</td><td data-l="Code">SSB 006:2014</td><td data-l="Who it covers">Bakeries</td><td data-l="Applies since">See the order on SSB's website</td></tr>
+ <tr><td data-l="Regulation">Specification for poultry and poultry parts</td><td data-l="Code">SSB 002:2014</td><td data-l="Who it covers">Poultry slaughterhouses, processors, importers, sellers</td><td data-l="Applies since">6 March 2025</td></tr>
+ <tr><td data-l="Regulation">Quality classification and grading of table eggs</td><td data-l="Code">SSB 004:2015</td><td data-l="Who it covers">Layer farms, packing stations, egg sellers</td><td data-l="Applies since">6 March 2025</td></tr>
+ <tr><td data-l="Regulation">Specification for poultry feed and feed ingredients</td><td data-l="Code">SSB 009:2015</td><td data-l="Who it covers">Feed manufacturers and importers</td><td data-l="Applies since">6 March 2025</td></tr>
+ <tr><td data-l="Regulation">Tour guides in Suriname</td><td data-l="Code">SSB 011:2019</td><td data-l="Who it covers">All tour guides</td><td data-l="Applies since">After a two-year transition, from late December 2027</td></tr>
+ <tr><td data-l="Regulation">Tourist accommodation, part 1: general requirements</td><td data-l="Code">SSB 020:2020</td><td data-l="Who it covers">All tourist accommodation; among other things bedrooms of at least 20 m²</td><td data-l="Applies since">After a two-year transition, from late December 2027</td></tr>
+ <tr><td data-l="Regulation">Booking agents, tour operators and travel agencies</td><td data-l="Code">SSB 005:2019</td><td data-l="Who it covers">Booking agents, tour operators, travel agencies</td><td data-l="Applies since">After a two-year transition, from late December 2027</td></tr>
+</tbody></table>
+<p>The three poultry regulations were adopted in October 2024 with a six-month transition. They set requirements for production and above all for the label: the ECD removes unlabelled chicken and chicken parts from the cooler. The three tourism regulations were adopted by orders of 23 December 2025 (published in May 2026, including S.B. 2026 no. 3 and no. 4), with a two-year transition. If you run a lodge, hotel or tour business, also read <a href="{{ U('tourismbiz') }}">{{ L('tourismbiz') }}</a>. For poultry and farming: <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</p>
+<h3>What a label must show</h3>
+<p>In its label check SSB looks at, among other things: product name; name and contact details of the producer, importer or distributor; net content in the correct unit; ingredients; best-before or expiry date; storage instructions; and origin. EZOTI asks that product information be preferably in Dutch or English. An imported product with only a Chinese, Portuguese or Spanish label needs a sticker with the required details. Price rules for shops are covered separately in <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Diensten en tarieven van het SSB' if nl else 'SSB services and fees' }}</h2>
+{% if nl %}
+<p>Tarieven zoals het SSB ze sinds 15 februari 2024 hanteert en in oktober 2026 op zijn site vermeldt. Je vraagt de meeste diensten aan via een online formulier op ssb.sr.</p>
+<table class="tbl stack tx"><thead><tr><th>Dienst</th><th>Tarief</th><th>Wat je krijgt</th></tr></thead><tbody>
+ <tr><td data-l="Dienst"><b>Etiketcheck</b></td><td data-l="Tarief">SRD 500 per etiket</td><td data-l="Wat je krijgt">Beoordelingsrapport binnen 5 werkdagen na betaling; bij goedkeuring een SSB-etiketnummer. Afgekeurd? Zes weken om gratis een aangepast etiket in te dienen.</td></tr>
+ <tr><td data-l="Dienst"><b>GS1-barcode</b></td><td data-l="Tarief">SRD 500 per barcode</td><td data-l="Wat je krijgt">Barcodenummer en barcode binnen 3 werkdagen na goedkeuring van het etiket en betaling; één per product en verpakkingseenheid</td></tr>
+ <tr><td data-l="Dienst"><b>Certificate of Free Sale</b></td><td data-l="Tarief">SRD 650 per lading</td><td data-l="Wat je krijgt">Verklaring dat een in Suriname gemaakt product hier vrij verkocht mag worden, vaak gevraagd door buitenlandse autoriteiten; binnen 10 werkdagen</td></tr>
+ <tr><td data-l="Dienst"><b>Nationaal ISO Register</b></td><td data-l="Tarief">SRD 800 per jaar</td><td data-l="Wat je krijgt">Openbare vermelding van je geldige ISO-certificaat</td></tr>
+ <tr><td data-l="Dienst"><b>Normkennistraining</b> (ISO 9001, ISO 22000, voedselveiligheid, risicoanalyse)</td><td data-l="Tarief">SRD 4.500 per persoon</td><td data-l="Wat je krijgt">Training, meestal online; de norm zelf koop je apart</td></tr>
+ <tr><td data-l="Dienst"><b>Kwaliteitsmanager in de praktijk</b> (food of non-food)</td><td data-l="Tarief">SRD 9.500 per persoon</td><td data-l="Wat je krijgt">Opleiding van ongeveer tien weken; de editie van 9 november 2026 tot 22 januari 2027 stond in oktober 2026 open</td></tr>
+ <tr><td data-l="Dienst"><b>Normen kopen</b></td><td data-l="Tarief">Per norm, zie de catalogus</td><td data-l="Wat je krijgt">Nationale en overgenomen normen, op papier of digitaal</td></tr>
+</tbody></table>
+<p>Een barcode maak je voor intern gebruik ook zelf met onze <a href="{{ U('barcode') }}">{{ L('barcode') }}</a>, maar voor verkoop via supermarkten en export heb je een officieel GS1-nummer nodig. Het Certificate of Free Sale is een van de exportdocumenten; de rest staat in <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% else %}
+<p>Fees as charged by SSB since 15 February 2024 and listed on its website in October 2026. Most services are requested through an online form on ssb.sr.</p>
+<table class="tbl stack tx"><thead><tr><th>Service</th><th>Fee</th><th>What you get</th></tr></thead><tbody>
+ <tr><td data-l="Service"><b>Label check</b></td><td data-l="Fee">SRD 500 per label</td><td data-l="What you get">Assessment report within 5 working days of payment; if approved, an SSB label number. Rejected? Six weeks to resubmit an amended label free of charge.</td></tr>
+ <tr><td data-l="Service"><b>GS1 barcode</b></td><td data-l="Fee">SRD 500 per barcode</td><td data-l="What you get">Barcode number and barcode within 3 working days of label approval and payment; one per product and pack size</td></tr>
+ <tr><td data-l="Service"><b>Certificate of Free Sale</b></td><td data-l="Fee">SRD 650 per shipment</td><td data-l="What you get">Statement that a product made in Suriname may be sold freely here, often requested by foreign authorities; within 10 working days</td></tr>
+ <tr><td data-l="Service"><b>National ISO Register</b></td><td data-l="Fee">SRD 800 a year</td><td data-l="What you get">Public listing of your valid ISO certificate</td></tr>
+ <tr><td data-l="Service"><b>Standards knowledge training</b> (ISO 9001, ISO 22000, food safety, risk analysis)</td><td data-l="Fee">SRD 4,500 per person</td><td data-l="What you get">Training, mostly online; you buy the standard itself separately</td></tr>
+ <tr><td data-l="Service"><b>Quality manager in practice</b> (food or non-food)</td><td data-l="Fee">SRD 9,500 per person</td><td data-l="What you get">Course of about ten weeks; the 9 November 2026 to 22 January 2027 edition was open in October 2026</td></tr>
+ <tr><td data-l="Service"><b>Buying standards</b></td><td data-l="Fee">Per standard, see the catalogue</td><td data-l="What you get">National and adopted standards, on paper or digital</td></tr>
+</tbody></table>
+<p>For internal use you can make a barcode yourself with our <a href="{{ U('barcode') }}">{{ L('barcode') }}</a>, but for sale through supermarkets and for export you need an official GS1 number. The Certificate of Free Sale is one of the export documents; the rest is in <a href="{{ U('export') }}">{{ L('export') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'CARICOM-normen: CROSQ en jouw stem' if nl else 'CARICOM standards: CROSQ and your vote' }}</h2>
+{% if nl %}
+<p>Regionale normen voor de CARICOM worden opgesteld door de CARICOM Regional Organisation for Standards and Quality (CROSQ). Het SSB stuurt concepten naar Surinaamse bedrijven en brancheorganisaties voor commentaar en later voor een stem. De gebundelde Surinaamse reactie gaat naar CROSQ. Na goedkeuring door de Raad voor Handel en Economische Ontwikkeling (COTED) wordt een norm regionaal vastgesteld, en daarna neemt het SSB hem meestal over als nationale norm. Wie nu niet reageert, krijgt later een norm die zonder zijn inbreng is gemaakt.</p>
+<table class="tbl stack tx"><thead><tr><th>Concept</th><th>Onderwerp</th><th>Ronde bij het SSB</th></tr></thead><tbody>
+ <tr><td data-l="Concept">FDCRS 80 en 81</td><td data-l="Onderwerp">Gevaarlijke stoffen: terminologie, en classificatie en etikettering</td><td data-l="Ronde bij het SSB">Stemming maart 2025</td></tr>
+ <tr><td data-l="Concept">FDCRS 82 en 83</td><td data-l="Onderwerp">Kwaliteit van cacaobonen: monstername en specificaties</td><td data-l="Ronde bij het SSB">Stemming mei en juni 2026</td></tr>
+ <tr><td data-l="Concept">FDCRS 87 en FDCRCP 12</td><td data-l="Onderwerp">Duurzaamheidsnorm cacaoproducten en chocolade; goede landbouwpraktijk cacao</td><td data-l="Ronde bij het SSB">Stemming tot 21 oktober 2026</td></tr>
+ <tr><td data-l="Concept">FDCRS 88 en FDCRCP 13</td><td data-l="Onderwerp">Duurzaamheidsnorm kokos en kokosproducten; goede landbouwpraktijk kokos</td><td data-l="Ronde bij het SSB">Stemming tot 21 oktober 2026</td></tr>
+ <tr><td data-l="Concept">CREEBC, eerste herziening</td><td data-l="Onderwerp">Energie-efficiënte gebouwen (bouwcode)</td><td data-l="Ronde bij het SSB">Commentaar maart 2026, stemming tot 21 oktober 2026</td></tr>
+ <tr><td data-l="Concept">PRP's, hygiëne en HACCP</td><td data-l="Onderwerp">Regionale voedselveiligheidsnormen in ontwikkeling</td><td data-l="Ronde bij het SSB">Nationale spiegelcommissie geïnstalleerd op 21 juli 2026</td></tr>
+</tbody></table>
+<p>Recent nam het SSB ook regionale normen over als nationale norm, bijvoorbeeld zeven normen voor duurzaam toerisme (per 20 december 2024: milieu, energie, voedselveiligheid, water, afval, rioolwater, plaagbeheer) en normen voor bananen en het etiketteren van pesticiden (per 22 mei 2025). Per 18 augustus 2026 verving het SSB onder meer ISO 9001 en ISO 14001 door de nieuwste versies; inzage voor belanghebbenden liep van 16 oktober tot en met 4 december 2026. Wil je meepraten, meld je dan bij het SSB (standards@ssb.sr) of via je brancheorganisatie, zie <a href="{{ U('associations') }}">{{ L('associations') }}</a>. Meer over CARICOM-handel: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% else %}
+<p>Regional standards for CARICOM are drafted by the CARICOM Regional Organisation for Standards and Quality (CROSQ). SSB sends drafts to Surinamese companies and trade associations for comment and later for a vote. The combined Surinamese response goes to CROSQ. After approval by the Council for Trade and Economic Development (COTED) a standard is adopted regionally, and SSB then usually adopts it as a national standard. If you do not respond now, you later get a standard drafted without your input.</p>
+<table class="tbl stack tx"><thead><tr><th>Draft</th><th>Subject</th><th>Round at SSB</th></tr></thead><tbody>
+ <tr><td data-l="Draft">FDCRS 80 and 81</td><td data-l="Subject">Hazardous substances: terminology, and classification and labelling</td><td data-l="Round at SSB">Vote March 2025</td></tr>
+ <tr><td data-l="Draft">FDCRS 82 and 83</td><td data-l="Subject">Cocoa bean quality: sampling and specifications</td><td data-l="Round at SSB">Vote May and June 2026</td></tr>
+ <tr><td data-l="Draft">FDCRS 87 and FDCRCP 12</td><td data-l="Subject">Sustainability standard for cocoa products and chocolate; good agricultural practice for cocoa</td><td data-l="Round at SSB">Vote until 21 October 2026</td></tr>
+ <tr><td data-l="Draft">FDCRS 88 and FDCRCP 13</td><td data-l="Subject">Sustainability standard for coconut and coconut products; good agricultural practice for coconut</td><td data-l="Round at SSB">Vote until 21 October 2026</td></tr>
+ <tr><td data-l="Draft">CREEBC, first revision</td><td data-l="Subject">Energy-efficient buildings (building code)</td><td data-l="Round at SSB">Comments March 2026, vote until 21 October 2026</td></tr>
+ <tr><td data-l="Draft">PRPs, hygiene and HACCP</td><td data-l="Subject">Regional food safety standards under development</td><td data-l="Round at SSB">National mirror committee installed on 21 July 2026</td></tr>
+</tbody></table>
+<p>SSB has also recently adopted regional standards as national standards, for example seven sustainable tourism standards (from 20 December 2024: environment, energy, food safety, water, waste, sewage, pest management) and standards for bananas and pesticide labelling (from 22 May 2025). From 18 August 2026 SSB replaced ISO 9001 and ISO 14001, among others, with the latest versions; stakeholders could review them from 16 October to 4 December 2026. To take part, contact SSB (standards@ssb.sr) or go through your trade association, see <a href="{{ U('associations') }}">{{ L('associations') }}</a>. More on CARICOM trade: <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'ISO-certificering' if nl else 'ISO certification' }}</h2>
+{% if nl %}
+<p>Een ISO-certificaat laat zien dat je managementsysteem door een onafhankelijke, geaccrediteerde instantie is getoetst. In Suriname vragen vooral Staatsolie en de olie- en gassector, mijnbouwbedrijven, grote buitenlandse kopers en sommige aanbestedingen erom. De meest gevraagde normen:</p>
+<table class="tbl stack tx"><thead><tr><th>Norm</th><th>Waarover</th><th>Voor wie vooral</th></tr></thead><tbody>
+ <tr><td data-l="Norm"><b>ISO 9001</b></td><td data-l="Waarover">Kwaliteitsmanagement</td><td data-l="Voor wie vooral">Iedere sector; vaak de eerste stap</td></tr>
+ <tr><td data-l="Norm"><b>ISO 14001</b></td><td data-l="Waarover">Milieumanagement</td><td data-l="Voor wie vooral">Industrie, mijnbouw, olie en gas, logistiek</td></tr>
+ <tr><td data-l="Norm"><b>ISO 45001</b></td><td data-l="Waarover">Gezondheid en veiligheid op het werk</td><td data-l="Voor wie vooral">Bouw, olie en gas, transport, onderhoud; zie <a href="{{ U('safety') }}">{{ L('safety') }}</a></td></tr>
+ <tr><td data-l="Norm"><b>ISO 22000</b> en FSSC 22000</td><td data-l="Waarover">Voedselveiligheid (bouwt voort op HACCP)</td><td data-l="Voor wie vooral">Voedselverwerkers, catering, exporteurs van voeding</td></tr>
+ <tr><td data-l="Norm"><b>ISO 27001</b></td><td data-l="Waarover">Informatiebeveiliging</td><td data-l="Voor wie vooral">IT-bedrijven, callcenters, financiële dienstverleners; zie <a href="{{ U('euexport') }}">{{ L('euexport') }}</a></td></tr>
+</tbody></table>
+<p>Het SSB certificeert niet zelf, maar werkt sinds november 2025 via een samenwerkingsovereenkomst met <b>Multi Certifications Suriname N.V.</b> (onderdeel van IFC Global), die audits doet onder accreditatie van IAF en IAS. Daarnaast biedt het SSB <b>begeleiding naar certificering</b> met consultants: intake, analyse, training, implementatie en toetsing. Je bent vrij om een andere geaccrediteerde certificeerder of adviseur te kiezen; controleer dan wel of de certificeerder geaccrediteerd is door een lid van de IAF, anders telt het certificaat bij grote klanten niet.</p>
+<h3>Het Nationaal ISO Register</h3>
+<p>Het SSB houdt een openbaar <b>Nationaal ISO Register</b> bij van Surinaamse organisaties met een geldig ISO-certificaat, opnieuw gelanceerd in november 2025. Opname kost SRD 800 per jaar. Inkopers kunnen er snel zien of een leverancier echt gecertificeerd is; leveranciers worden er beter vindbaar door, bijvoorbeeld voor <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> en <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p>
+{% else %}
+<p>An ISO certificate shows that an independent, accredited body has audited your management system. In Suriname it is mainly requested by Staatsolie and the oil and gas sector, mining companies, large foreign buyers and some tenders. The most requested standards:</p>
+<table class="tbl stack tx"><thead><tr><th>Standard</th><th>About</th><th>Mainly for</th></tr></thead><tbody>
+ <tr><td data-l="Standard"><b>ISO 9001</b></td><td data-l="About">Quality management</td><td data-l="Mainly for">Any sector; often the first step</td></tr>
+ <tr><td data-l="Standard"><b>ISO 14001</b></td><td data-l="About">Environmental management</td><td data-l="Mainly for">Manufacturing, mining, oil and gas, logistics</td></tr>
+ <tr><td data-l="Standard"><b>ISO 45001</b></td><td data-l="About">Occupational health and safety</td><td data-l="Mainly for">Construction, oil and gas, transport, maintenance; see <a href="{{ U('safety') }}">{{ L('safety') }}</a></td></tr>
+ <tr><td data-l="Standard"><b>ISO 22000</b> and FSSC 22000</td><td data-l="About">Food safety (builds on HACCP)</td><td data-l="Mainly for">Food processors, catering, food exporters</td></tr>
+ <tr><td data-l="Standard"><b>ISO 27001</b></td><td data-l="About">Information security</td><td data-l="Mainly for">IT firms, call centres, financial services; see <a href="{{ U('euexport') }}">{{ L('euexport') }}</a></td></tr>
+</tbody></table>
+<p>SSB does not certify itself, but since November 2025 it works through a cooperation agreement with <b>Multi Certifications Suriname N.V.</b> (part of IFC Global), which audits under IAF and IAS accreditation. SSB also offers <b>guidance towards certification</b> with consultants: intake, analysis, training, implementation and assessment. You are free to choose another accredited certification body or adviser; do check that the certification body is accredited by an IAF member, otherwise large customers will not accept the certificate.</p>
+<h3>The National ISO Register</h3>
+<p>SSB keeps a public <b>National ISO Register</b> of Surinamese organisations with a valid ISO certificate, relaunched in November 2025. Listing costs SRD 800 a year. Buyers can quickly check whether a supplier really is certified; suppliers become easier to find, for example for <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> and <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Stap voor stap naar een ISO-certificaat' if nl else 'Step by step to an ISO certificate' }}</h2>
+{% if nl %}
+<ol class="steps">
+ <li><b>Kies de norm en de reikwijdte.</b> Welke klant vraagt erom, voor welke activiteiten en locaties? Een kleinere reikwijdte is sneller en goedkoper.</li>
+ <li><b>Koop de norm en laat een sleutelpersoon trainen</b>, bijvoorbeeld via een SSB-training of de opleiding Kwaliteitsmanager in de praktijk.</li>
+ <li><b>Doe een nulmeting (gap-analyse)</b>: wat heb je al, wat ontbreekt? Doe het zelf of met een adviseur.</li>
+ <li><b>Bouw het systeem</b>: beleid, doelen, risico's, procedures, werkinstructies, registraties. Houd het klein en praktisch; schrijf op wat je echt doet.</li>
+ <li><b>Draai er minstens enkele maanden mee</b> en houd registraties bij. De auditor wil bewijs dat het werkt.</li>
+ <li><b>Doe een interne audit en een directiebeoordeling.</b> Los gevonden tekortkomingen op.</li>
+ <li><b>Vraag offertes bij geaccrediteerde certificeerders</b> en vergelijk audit-dagen, reiskosten en jaarlijkse kosten.</li>
+ <li><b>Certificatie-audit</b>, meestal in twee fasen (documenten, daarna de praktijk). Bij succes krijg je een certificaat voor drie jaar.</li>
+ <li><b>Jaarlijkse controleaudits</b> en na drie jaar hercertificering. Laat je inschrijven in het Nationaal ISO Register.</li>
+</ol>
+<p><b>Kosten.</b> Het SSB publiceert zijn trainingstarieven (zie hierboven), maar geen vaste prijs voor audits; die hangt af van de norm, het aantal medewerkers en locaties. Vraag altijd een offerte en reken op adviesuren, trainingen en tijd van je eigen mensen. Budgetteren: <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> en <a href="{{ U('roi') }}">{{ L('roi') }}</a>. Steunprogramma's die certificering betalen of begeleiden, zoals een door de Wereldbank gefinancierd traject van EZOTI voor exportgerichte MKB-bedrijven in 2026, staan in <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</p>
+{% else %}
+<ol class="steps">
+ <li><b>Choose the standard and scope.</b> Which customer asks for it, for which activities and sites? A smaller scope is faster and cheaper.</li>
+ <li><b>Buy the standard and train a key person</b>, for example through an SSB training or the Quality manager in practice course.</li>
+ <li><b>Do a gap analysis</b>: what do you already have, what is missing? Do it yourself or with an adviser.</li>
+ <li><b>Build the system</b>: policy, objectives, risks, procedures, work instructions, records. Keep it small and practical; write down what you actually do.</li>
+ <li><b>Run it for at least a few months</b> and keep records. The auditor wants proof that it works.</li>
+ <li><b>Do an internal audit and a management review.</b> Fix the gaps you find.</li>
+ <li><b>Ask accredited certification bodies for quotes</b> and compare audit days, travel costs and yearly costs.</li>
+ <li><b>Certification audit</b>, usually in two stages (documents, then practice). If successful you get a certificate for three years.</li>
+ <li><b>Yearly surveillance audits</b> and recertification after three years. Register in the National ISO Register.</li>
+</ol>
+<p><b>Costs.</b> SSB publishes its training fees (see above), but no fixed price for audits; that depends on the standard, the number of staff and sites. Always ask for a quote and budget for consultancy hours, training and your own people's time. Budgeting: <a href="{{ U('cashflow') }}">{{ L('cashflow') }}</a> and <a href="{{ U('roi') }}">{{ L('roi') }}</a>. Support programmes that pay for or guide certification, such as a World Bank-funded EZOTI track for export-oriented SMEs in 2026, are listed in <a href="{{ U('subsidies') }}">{{ L('subsidies') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Voedselveiligheid en HACCP' if nl else 'Food safety and HACCP' }}</h2>
+{% if nl %}
+<p>Voor voedsel lopen verschillende regels en diensten door elkaar:</p>
+<ul>
+ <li><b>BOG</b> (Bureau voor Openbare Gezondheidszorg): stelt voorwaarden bij vergunningen voor voedselbedrijven, keurt verwerkte voedingsmiddelen voor export en stempelt de gezondheidsverklaring van iedereen die met eten werkt. Zie <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+ <li><b>LVV</b>: Veterinaire Diensten voor vlees en dierlijke producten, Plantenbescherming voor plantaardige export; het Viskeuringsinstituut voor vis. Zie <a href="{{ U('export') }}">{{ L('export') }}</a> en <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>Wet NIVS</b> (S.B. 2021 no. 19): regels over voedselveiligheid en de oprichting van een Nationaal Instituut voor Voedselveiligheid Suriname onder LVV, gebaseerd op de Codex Alimentarius. Vraag bij LVV welke taken het instituut al uitvoert.</li>
+ <li><b>SSB</b>: de verplichte voorschriften voor etiketten, bakkerijen en pluimvee, en trainingen in voedselveiligheid, HACCP, ISO 22000 en FSSC 22000.</li>
+ <li><b>ECD</b>: haalt vervallen producten en vlees of vis zonder etiket uit de winkel, zie <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+</ul>
+<p><b>HACCP</b> (Hazard Analysis and Critical Control Points) is de basis van vrijwel elk voedselveiligheidssysteem: je bepaalt per stap waar het mis kan gaan (bacteriën, vreemde voorwerpen, allergenen), welke punten kritisch zijn, welke grenzen gelden (temperatuur, tijd) en hoe je dat bewaakt en vastlegt. Het SSB nam de Codex HACCP-tekst van 2023 over als nationale standaard. Een EU-koper of hotelketen vraagt meestal minstens HACCP, vaak ISO 22000 of FSSC 22000. Exporteer je voeding naar Europa, lees dan <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+{% else %}
+<p>For food, several rules and agencies overlap:</p>
+<ul>
+ <li><b>BOG</b> (Bureau of Public Health): sets conditions on licences for food businesses, inspects processed food for export and stamps the health certificate of everyone who handles food. See <a href="{{ U('licences') }}">{{ L('licences') }}</a>.</li>
+ <li><b>LVV</b> (Agriculture ministry): Veterinary Services for meat and animal products, Plant Protection for plant exports; the Fish Inspection Institute for fish. See <a href="{{ U('export') }}">{{ L('export') }}</a> and <a href="{{ U('agri') }}">{{ L('agri') }}</a>.</li>
+ <li><b>NIVS Act</b> (S.B. 2021 no. 19): rules on food safety and the creation of a National Food Safety Institute of Suriname under LVV, based on the Codex Alimentarius. Ask LVV which tasks the institute already carries out.</li>
+ <li><b>SSB</b>: the mandatory regulations for labels, bakeries and poultry, and training in food safety, HACCP, ISO 22000 and FSSC 22000.</li>
+ <li><b>ECD</b>: removes expired products and unlabelled meat or fish from shops, see <a href="{{ U('pricerules') }}">{{ L('pricerules') }}</a>.</li>
+</ul>
+<p><b>HACCP</b> (Hazard Analysis and Critical Control Points) is the basis of almost every food safety system: for each step you work out what can go wrong (bacteria, foreign objects, allergens), which points are critical, which limits apply (temperature, time) and how you monitor and record them. SSB adopted the 2023 Codex HACCP text as a national standard. An EU buyer or hotel chain usually asks for at least HACCP, often ISO 22000 or FSSC 22000. If you export food to Europe, read <a href="{{ U('euexport') }}">{{ L('euexport') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Weegschalen en meetmiddelen (ijkwezen)' if nl else 'Scales and measuring instruments (metrology)' }}</h2>
+{% if nl %}
+<p>Wie verkoopt op gewicht of volume, moet een geijkte weegschaal of maat gebruiken. Dat regelt het IJkdecreet (E-40), samen met het Decreet Prijszetting en Prijsbewaking. De uitvoering ligt bij de <b>Dienst van de Waarborg en voor het IJkwezen</b> van het ministerie van EZOTI (niet bij het SSB, dat de nationale metrologie-infrastructuur en standaarden ontwikkelt).</p>
+<ul>
+ <li>Alle meetmiddelen voor handel worden <b>jaarlijks</b> gekeurd: weegschalen, gewichten, maten, lengtematen, vloeistofmeters en meer. Medewerkers bezoeken in de loop van het jaar overheidskantoren in alle districten; daar breng je je weegschaal heen. Grote, vaste meetmiddelen zoals weegbruggen worden op locatie gekeurd.</li>
+ <li><b>Benzinepompen</b>, bulkstations, tankboten en opslagtanks worden twee keer per jaar gecontroleerd.</li>
+ <li>Goedgekeurd krijgt een <b>groene sticker</b>, afgekeurd een <b>rode</b>. Met een afgekeurd meetmiddel mag je geen zaken doen.</li>
+ <li>Bevoegde ambtenaren en BAVP'ers controleren op niet-geijkte meetmiddelen en op de regels voor voorverpakte waren, en mogen proces-verbaal opmaken.</li>
+ <li>De dienst toetst ook het goud- en zilvergehalte van edelmetalen en kan tegen betaling meet- en weegapparatuur repareren. Goudsector: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</li>
+</ul>
+{% else %}
+<p>If you sell by weight or volume, you must use a verified scale or measure. This is governed by the Weights and Measures Decree (E-40), together with the Price Setting and Price Monitoring Decree. It is carried out by the <b>Assay and Weights and Measures Service</b> (Dienst van de Waarborg en voor het IJkwezen) of the EZOTI ministry (not by SSB, which develops the national metrology infrastructure and standards).</p>
+<ul>
+ <li>All measuring instruments used in trade are inspected <b>every year</b>: scales, weights, measures, length measures, liquid meters and more. Inspectors visit government offices in every district over the year; you bring your scale there. Large fixed instruments such as weighbridges are inspected on site.</li>
+ <li><b>Fuel pumps</b>, bulk stations, tank boats and storage tanks are checked twice a year.</li>
+ <li>Approved instruments get a <b>green sticker</b>, rejected ones a <b>red</b> one. You may not trade with a rejected instrument.</li>
+ <li>Authorised officers and special police officers (BAVPs) check for unverified instruments and for the rules on prepackaged goods, and may write an official report.</li>
+ <li>The service also assays the gold and silver content of precious metals and can repair measuring and weighing equipment for a fee. Gold sector: <a href="{{ U('gold') }}">{{ L('gold') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ "Andere programma's" if nl else "Other programmes" }}</h2>
+{% if nl %}
+<ul>
+ <li><b>National Quality Awards 2026-2027</b>: op 15 oktober 2026 door het SSB gelanceerd. Organisaties laten hun kwaliteitsmanagement beoordelen en krijgen feedback op sterke punten en verbeterpunten.</li>
+ <li><b>Werkgroepen en technische commissies</b>: het SSB zoekt deskundigen uit bedrijven voor commissies die normen opstellen, zoals voor beveiligingsbedrijven (2025) en voedselveiligheid (2026). Deelname is vrijwillig en geeft je invloed op de regels voor je eigen sector.</li>
+ <li><b>EU Digital Product Passport</b>: in oktober 2026 nodigde het SSB bedrijven uit voor een regionale sessie van CROSQ over de digitale productpaspoorten die de EU invoert. Relevant voor exporteurs naar Europa.</li>
+ <li><b>Een nieuwe norm aanvragen</b>: iedereen kan het SSB vragen een norm te ontwikkelen met een New Work Item Proposal (NWIP).</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>National Quality Awards 2026-2027</b>: launched by SSB on 15 October 2026. Organisations have their quality management assessed and get feedback on strengths and areas to improve.</li>
+ <li><b>Working groups and technical committees</b>: SSB looks for experts from companies for committees that draft standards, such as for security companies (2025) and food safety (2026). Taking part is voluntary and gives you a say in the rules for your own sector.</li>
+ <li><b>EU Digital Product Passport</b>: in October 2026 SSB invited companies to a regional CROSQ session on the digital product passports the EU is introducing. Relevant for exporters to Europe.</li>
+ <li><b>Requesting a new standard</b>: anyone can ask SSB to develop a standard with a New Work Item Proposal (NWIP).</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Nagegaan of er een technisch voorschrift geldt voor jouw product of dienst</li>
+ <li>Etiket van elk voorverpakt product getoetst aan SSB 003:2013, eventueel met een SSB-etiketcheck</li>
+ <li>Importproducten met buitenlands etiket voorzien van een sticker met de verplichte gegevens</li>
+ <li>GS1-barcode per product en verpakkingseenheid als je via supermarkten of export verkoopt</li>
+ <li>Pluimvee, eieren of voer: voldoen aan SSB 002:2014, 004:2015 of 009:2015</li>
+ <li>Toerisme: voorbereid op de voorschriften voor accommodaties, gidsen en reisbureaus vóór eind 2027</li>
+ <li>Weegschalen en maten dit jaar geijkt, groene sticker zichtbaar</li>
+ <li>HACCP-plan als je voedsel bereidt of verwerkt; personeel met gezondheidsverklaring</li>
+ <li>ISO-certificering overwogen als klanten of aanbestedingen erom vragen; geaccrediteerde certificeerder gekozen</li>
+ <li>Certificaat ingeschreven in het Nationaal ISO Register</li>
+ <li>Aangemeld bij het SSB of je brancheorganisatie om over nieuwe normen mee te stemmen</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Checked whether a technical regulation applies to your product or service</li>
+ <li>Label of every prepackaged product checked against SSB 003:2013, possibly with an SSB label check</li>
+ <li>Imported products with a foreign label given a sticker with the required details</li>
+ <li>GS1 barcode per product and pack size if you sell through supermarkets or export</li>
+ <li>Poultry, eggs or feed: compliant with SSB 002:2014, 004:2015 or 009:2015</li>
+ <li>Tourism: prepared for the regulations on accommodation, guides and travel agencies before late 2027</li>
+ <li>Scales and measures verified this year, green sticker visible</li>
+ <li>HACCP plan if you prepare or process food; staff with a health certificate</li>
+ <li>ISO certification considered if customers or tenders ask for it; accredited certification body chosen</li>
+ <li>Certificate listed in the National ISO Register</li>
+ <li>Signed up with SSB or your trade association to vote on new standards</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...de ECD mijn producten weghaalt omdat het etiket niet klopt?</b> Laat het etiket controleren door het SSB, pas het aan of plak een sticker met de ontbrekende gegevens, en spreek met je leverancier af dat hij voortaan correct geëtiketteerd levert.</li>
+ <li><b>...een klant een ISO-certificaat eist dat ik niet heb?</b> Vraag of een plan van aanpak met een datum voorlopig volstaat. Een eerste certificering kost doorgaans maanden; begin met een nulmeting.</li>
+ <li><b>...mijn weegschaal een rode sticker krijgt?</b> Laat hem repareren of vervangen en opnieuw keuren voordat je er weer mee verkoopt.</li>
+ <li><b>...ik een product exporteer en de koper een Certificate of Free Sale vraagt?</b> Vraag het per lading aan bij het SSB (SRD 650, binnen 10 werkdagen), met een recent KKF-uittreksel en de gegevens van de ontvanger.</li>
+ <li><b>...ik vind dat een nieuwe CARICOM-norm slecht uitpakt voor mijn sector?</b> Stem tegen en geef commentaar via het SSB tijdens de ronde. Na vaststelling is het veel moeilijker om iets te veranderen.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...the ECD removes my products because the label is wrong?</b> Have the label checked by SSB, change it or add a sticker with the missing details, and agree with your supplier that it will deliver correctly labelled goods from now on.</li>
+ <li><b>...a customer demands an ISO certificate I do not have?</b> Ask whether a plan with a target date is enough for now. A first certification usually takes months; start with a gap analysis.</li>
+ <li><b>...my scale gets a red sticker?</b> Have it repaired or replaced and inspected again before you sell with it.</li>
+ <li><b>...I export a product and the buyer asks for a Certificate of Free Sale?</b> Apply per shipment at SSB (SRD 650, within 10 working days), with a recent KKF extract and the recipient's details.</li>
+ <li><b>...I think a new CARICOM standard will hurt my sector?</b> Vote against and comment through SSB during the round. After adoption it is much harder to change anything.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2018/01/standaardenwet.pdf" rel="noopener">Standaardenwet, S.B. 2004 no. 121</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2023/08/Resolutie-Standaardenwet-S.B.-2012-no.-66.pdf" rel="noopener">{{ 'Resolutie inwerkingtreding Standaardenwet, S.B. 2012 no. 66' if nl else 'Commencement resolution Standards Act, S.B. 2012 no. 66' }}</a></li>
+ <li><a href="https://www.ssb.sr/over-ssb/wet-en-regelgeving/" rel="noopener">{{ 'SSB: wet- en regelgeving en technische voorschriften' if nl else 'SSB: legislation and technical regulations' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-4-Beschikking-houdende-vaststelling-van-de-Standaard-Specificatie-voor-toeristische-accomodatie-Deel-1-Algemene-vereisten-tot-een-technisch-voorschrift-ten-behoeve-van-alle-toeristische-acco.pdf" rel="noopener">{{ 'Technisch voorschrift toeristische accommodatie, S.B. 2026 no. 4' if nl else 'Technical regulation tourist accommodation, S.B. 2026 no. 4' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2026/06/S.B.-2026-no.-3-Beschikking-houdende-vaststelling-van-de-Standaard-Toeristengidsen-in-Suriname-SSB-0112019-tot-een-technisch-voorschrift-tbv-alle-Tourgidsen-in-Suriname.pdf" rel="noopener">{{ 'Technisch voorschrift tourgidsen, S.B. 2026 no. 3' if nl else 'Technical regulation tour guides, S.B. 2026 no. 3' }}</a></li>
+ <li><a href="https://www.ssb.sr/nieuws/2024/technische-voorschriften-voor-de-pluimveesector-in-suriname-vastgesteld/" rel="noopener">{{ 'SSB: technische voorschriften pluimveesector (3 oktober 2024)' if nl else 'SSB: technical regulations for the poultry sector (3 October 2024)' }}</a></li>
+ <li><a href="https://www.ssb.sr/diensten/etiketcheck/" rel="noopener">{{ 'SSB: etiketcheck' if nl else 'SSB: label check' }}</a>, <a href="https://www.ssb.sr/diensten/barcode-dienst/" rel="noopener">barcode</a>, <a href="https://www.ssb.sr/diensten/certificate-of-free-sale/" rel="noopener">Certificate of Free Sale</a></li>
+ <li><a href="https://www.ssb.sr/nieuws/2024/bekendmaking-prijsaanpassing/" rel="noopener">{{ 'SSB: tarieven per 15 februari 2024' if nl else 'SSB: fees from 15 February 2024' }}</a></li>
+ <li><a href="https://www.ssb.sr/diensten/certificering/" rel="noopener">{{ 'SSB: certificering' if nl else 'SSB: certification' }}</a> {{ 'en' if nl else 'and' }} <a href="https://www.ssb.sr/diensten/begeleiding-naar-certificering/" rel="noopener">{{ 'begeleiding naar certificering' if nl else 'guidance towards certification' }}</a></li>
+ <li><a href="https://gov.sr/ssb-introduceert-drie-nieuwe-iso-diensten-ter-gelegenheid-van-world-quality-week/" rel="noopener">{{ 'SSB introduceert drie nieuwe ISO-diensten (14 november 2025)' if nl else 'SSB introduces three new ISO services (14 November 2025)' }}</a></li>
+ <li><a href="https://www.ssb.sr/nationale-iso-register/over-nationaal-iso-register/" rel="noopener">{{ 'SSB: Nationaal ISO Register' if nl else 'SSB: National ISO Register' }}</a></li>
+ <li><a href="https://www.ssb.sr/diensten/trainingen/" rel="noopener">{{ 'SSB: trainingen en trainingskalender' if nl else 'SSB: training and calendar' }}</a></li>
+ <li><a href="https://www.ssb.sr/nieuws/2026/" rel="noopener">{{ 'SSB: nieuws 2026 (CROSQ-stemmingen, spiegelcommissie voedselveiligheid, ISO-versies)' if nl else 'SSB: news 2026 (CROSQ votes, food safety mirror committee, ISO versions)' }}</a></li>
+ <li><a href="https://www.iso.org/member/548208.html" rel="noopener">{{ 'ISO: lidmaatschap Suriname (SSB)' if nl else 'ISO: Suriname membership (SSB)' }}</a></li>
+ <li><a href="https://gov.sr/ministeries/ministerie-van-economische-zaken-ondernemerschap-technologische-innovatie/de-dienst-van-de-waarborg-en-voor-het-ijkwezen/" rel="noopener">{{ 'EZOTI: Dienst van de Waarborg en voor het IJkwezen' if nl else 'EZOTI: Assay and Weights and Measures Service' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2021/08/Wet-NIVS.pdf" rel="noopener">Wet NIVS, S.B. 2021 no. 19</a></li>
+ <li><a href="https://gov.sr/minister-baasaron-brengt-werkbezoek-aan-het-surinaams-standaarden-bureau/" rel="noopener">{{ 'EZOTI: werkbezoek aan het SSB (18 november 2025)' if nl else 'EZOTI: working visit to SSB (18 November 2025)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Tarieven en voorschriften kunnen wijzigen; controleer de actuele stand bij het SSB.' if nl else 'Fees and regulations can change; check the current status with SSB.' }}</p>
+</div>
+{% endblock %}

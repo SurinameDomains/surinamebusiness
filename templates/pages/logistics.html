@@ -1,0 +1,398 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every six months and when there is news on the Port Community System, the US conditions of entry,
+    the Canawaima ferry, the Albina ferry or the General Customs Act. Bump the asof date when you do. -#}
+<div class="prose">
+<h1>{{ 'Vracht en logistiek: haven, luchtvracht en vervoer over land' if nl else 'Shipping and logistics in Suriname: port, air cargo and land transport' }}</h1>
+{% if nl %}
+<p class="lead">Bijna alle zeevracht komt binnen via de Dr. Jules Sedney Haven in Paramaribo, waar DP World de grootste containerterminal runt; luchtvracht gaat via de Johan Adolf Pengel-luchthaven in Zanderij, en over land rijd je met de veerboot naar Guyana of Frans-Guyana. In 2026 spelen vier dingen: de haven wordt uitgebreid en gedigitaliseerd, de VS stelt sinds september 2025 extra eisen aan schepen uit Suriname, de Canawaima lag eind augustus 2026 een week stil, en de handel met Guyana hapert door de Corantijnkwestie.</p>
+{% else %}
+<p class="lead">Almost all sea freight enters through the Dr. Jules Sedney Port in Paramaribo, where DP World runs the largest container terminal; air cargo goes through Johan Adolf Pengel airport at Zanderij, and over land you take the ferry to Guyana or French Guiana. Four things matter in 2026: the port is being expanded and digitised, the United States has imposed extra conditions on ships from Suriname since September 2025, the Canawaima ferry was out of service for a week in late August 2026, and trade with Guyana is hampered by the Corantijn dispute.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Containerterminal DP World' if nl else 'DP World container terminal' }}</div><div class="big">{{ '130.000 TEU' if nl else '130,000 TEU' }}</div><div class="sub">{{ 'capaciteit per jaar, 119 koelaansluitingen' if nl else 'annual capacity, 119 reefer plugs' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Nieuwe kade Jules Sedney Haven' if nl else 'New quay, Jules Sedney Port' }}</div><div class="big">140 m</div><div class="sub">{{ 'plus 7,1 ha opslag, klaar in september 2027' if nl else 'plus 7.1 ha of storage, due September 2027' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Extra eisen VS-kustwacht' if nl else 'US Coast Guard conditions' }}</div><div class="big">{{ '17 sep' if nl else '17 Sep' }}</div><div class="sub">{{ '2025, voor schepen die uit Suriname naar de VS varen' if nl else '2025, for ships sailing from Suriname to the US' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Haven</b>: N.V. Havenbeheer Suriname beheert de Dr. Jules Sedney Haven; DP World (containers, koelcontainers, stukgoed in La Vigilantia) en andere terminals werken er. De kade groeit en een Port Community System is in ontwikkeling.</li>
+ <li><b>VS-eisen</b>: sinds 17 september 2025 vindt de Amerikaanse kustwacht de antiterrorismemaatregelen in Surinaamse havens onvoldoende. Schepen naar de VS moeten extra beveiliging toepassen; dat kan kosten en vertraging geven.</li>
+ <li><b>Douane</b>: elke zakelijke zending loopt via een gecertificeerde douane-expediteur. Procedures staan op <a href="{{ U('import') }}">{{ L('import') }}</a> en <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Containerkosten</b>: vrije dagen, demurrage en opslag lopen snel op. Zorg dat documenten en vergunningen klaar zijn vóór aankomst.</li>
+ <li><b>Over land</b>: de Canawaima-veerboot naar Guyana en de veerboot Albina-Saint-Laurent zijn je enige wegverbindingen. Plan buffers.</li>
+ <li><b>Kosten</b>: reken alles mee, van vracht tot laatste kilometer, met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+{% else %}
+ <li><b>Port</b>: N.V. Havenbeheer Suriname manages the Dr. Jules Sedney Port; DP World (containers, reefers, breakbulk at La Vigilantia) and other terminals operate there. The quay is being extended and a Port Community System is being developed.</li>
+ <li><b>US conditions</b>: since 17 September 2025 the US Coast Guard has considered anti-terrorism measures in Surinamese ports ineffective. Ships bound for the US must apply extra security, which can add cost and delay.</li>
+ <li><b>Customs</b>: every commercial shipment goes through a certified customs broker. Procedures are on <a href="{{ U('import') }}">{{ L('import') }}</a> and <a href="{{ U('export') }}">{{ L('export') }}</a>.</li>
+ <li><b>Container costs</b>: free days, demurrage and storage add up quickly. Have documents and licences ready before arrival.</li>
+ <li><b>Over land</b>: the Canawaima ferry to Guyana and the Albina-Saint-Laurent ferry are your only road links. Build in buffers.</li>
+ <li><b>Costs</b>: include everything, from freight to the last mile, with the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a>.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Havens en terminals' if nl else 'Ports and terminals' }}</h2>
+{% set c1 = 'Locatie' if nl else 'Location' %}{% set c2 = 'Wie' if nl else 'Who' %}{% set c3 = 'Voor' if nl else 'For' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Dr. Jules Sedney Haven</b>, Paramaribo (vroeger Nieuwe Haven)</td><td data-l="{{ c2 }}">N.V. Havenbeheer Suriname (havenbeheerder, verhuurt aan terminaloperators)</td><td data-l="{{ c3 }}">Het grootste deel van de containers, stukgoed en ro-ro</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Containerterminal</b> in de Jules Sedney Haven</td><td data-l="{{ c2 }}">DP World Paramaribo</td><td data-l="{{ c3 }}">Containers (capaciteit 130.000 TEU per jaar), 119 koelaansluitingen, laden en lossen van containers (CFS, circa 20 opdrachten per dag), magazijn (30.000 ton per jaar), ro-ro</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>La Vigilantia</b>, Paramaribo</td><td data-l="{{ c2 }}">DP World</td><td data-l="{{ c3 }}">Projectlading en stukgoed voor mijnbouw, olie en gas, hout en cement: 73 m kade, 21.000 m² opslag, schepen tot 200 m</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Andere terminals en havenfaciliteiten</b> aan de Surinamerivier</td><td data-l="{{ c2 }}">Onder meer VSH United en particuliere steigers van bedrijven</td><td data-l="{{ c3 }}">Stukgoed, bulk, offshore-bevoorrading, eigen lading van bedrijven</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Nieuw-Nickerie</b></td><td data-l="{{ c2 }}">N.V. Havenbeheer Suriname</td><td data-l="{{ c3 }}">West-Suriname, onder meer rijst; douanepost</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Albina</b></td><td data-l="{{ c2 }}">Veersteiger, douanepost</td><td data-l="{{ c3 }}">Verkeer met Frans-Guyana</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Dr. Jules Sedney Port</b>, Paramaribo (formerly Nieuwe Haven)</td><td data-l="{{ c2 }}">N.V. Havenbeheer Suriname (port authority, leases to terminal operators)</td><td data-l="{{ c3 }}">Most containers, breakbulk and ro-ro</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Container terminal</b> in the Jules Sedney Port</td><td data-l="{{ c2 }}">DP World Paramaribo</td><td data-l="{{ c3 }}">Containers (capacity 130,000 TEU a year), 119 reefer plugs, stuffing and stripping (CFS, about 20 jobs a day), warehouse (30,000 tonnes a year), ro-ro</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>La Vigilantia</b>, Paramaribo</td><td data-l="{{ c2 }}">DP World</td><td data-l="{{ c3 }}">Project cargo and breakbulk for mining, oil and gas, timber and cement: 73 m quay, 21,000 m² storage, ships up to 200 m</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Other terminals and port facilities</b> on the Suriname River</td><td data-l="{{ c2 }}">Including VSH United and private company landings</td><td data-l="{{ c3 }}">Breakbulk, bulk, offshore supply, companies' own cargo</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Nieuw Nickerie</b></td><td data-l="{{ c2 }}">N.V. Havenbeheer Suriname</td><td data-l="{{ c3 }}">West Suriname, including rice; customs post</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Albina</b></td><td data-l="{{ c2 }}">Ferry landing, customs post</td><td data-l="{{ c3 }}">Traffic with French Guiana</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p><b>Uitbreiding.</b> Havenbeheer bouwt een nieuwe kade van 140 meter en 7,1 hectare extra opslag, beide klaar in september 2027, daarna nog 120 meter kade. Langs de kades wordt gebaggerd tot 7,5 meter bij laagwater; dieper kan pas als de vaargeul dieper wordt, waarover de Maritieme Autoriteit Suriname (MAS) een haalbaarheidsstudie doet. De grote rederijen verwachten volgens Havenbeheer al vóór de eerste olie (2028) tot 300% meer lading. Er komen ook een truckingcenter en een afsprakensysteem voor vrachtwagens. Voor bedrijven betekent dat: meer capaciteit op termijn, maar tot 2027 drukte op de terminal en de toegangswegen.</p>
+{% else %}
+<p><b>Expansion.</b> Havenbeheer is building a new 140-metre quay and 7.1 hectares of extra storage, both due in September 2027, followed by another 120 metres of quay. The quays are being dredged to 7.5 metres at low tide; deeper is only possible if the channel is deepened, for which the Maritime Authority Suriname (MAS) is doing a feasibility study. According to Havenbeheer, the large shipping lines expect up to 300% more cargo even before first oil (2028). A trucking centre and an appointment system for trucks are also planned. For businesses this means more capacity later, but congestion at the terminal and on the access roads until 2027.</p>
+{% endif %}
+
+<h2>{{ 'Het National Port Community System' if nl else 'The National Port Community System' }}</h2>
+{% if nl %}
+<p>Een Port Community System (PCS) is één digitaal platform waarop havenbeheer, douane, rederijen, terminals, expediteurs en vervoerders hun gegevens over schepen en lading delen. Daardoor hoeven documenten niet meerdere keren te worden ingediend en weet iedereen wanneer een container vrij is. Havenbeheer werkt er met de Inter-Amerikaanse Ontwikkelingsbank (IDB) en het ministerie van Openbare Werken aan; het begint bij de Jules Sedney Haven. Douane en Havenbeheer zitten samen in de stuurgroep.</p>
+<p>Wat je nu kunt doen: zorg dat je administratie digitaal is en dat je expediteur met ASYCUDA en de terminal elektronisch werkt. Zodra het PCS live is, zal het waarschijnlijk de manier worden om afspraken voor ophalen en leveren te maken. De nieuwe Algemene Douanewet erkent digitale administratie: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% else %}
+<p>A Port Community System (PCS) is a single digital platform where the port authority, customs, shipping lines, terminals, forwarders and hauliers share data on ships and cargo. Documents no longer have to be submitted several times and everyone can see when a container is released. Havenbeheer is developing it with the Inter-American Development Bank (IDB) and the Ministry of Public Works, starting at the Jules Sedney Port. Customs and Havenbeheer sit together on the steering committee.</p>
+<p>What you can do now: make sure your records are digital and that your broker works electronically with ASYCUDA and the terminal. Once the PCS is live it will probably become the way to book pick-up and delivery slots. The new General Customs Act recognises digital records: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Havenbeveiliging en de Amerikaanse eisen' if nl else 'Port security and the US conditions of entry' }}</h2>
+{% if nl %}
+<p>Havens die internationaal verkeer ontvangen, moeten voldoen aan de <b>ISPS-code</b> van de Internationale Maritieme Organisatie: een beveiligingsplan, een Port Facility Security Officer, toegangscontrole en oefeningen. De MAS is in Suriname de toezichthouder en publiceert instructies, onder meer over toegangscontrole, oefeningen, interne audits en de "Condition of entry".</p>
+<p>Op 3 september 2025 maakte de Amerikaanse kustwacht bekend dat Suriname <b>geen effectieve antiterrorismemaatregelen</b> in zijn havens heeft. Sinds <b>17 september 2025</b> gelden voorwaarden voor schepen die na een bezoek aan Suriname de VS aandoen: zij moeten in Surinaamse havens extra beveiligingsmaatregelen uit hun eigen beveiligingsplan toepassen, zoals bewaking van toegangen. Het is geen verbod, maar Suriname staat op dezelfde lijst als onder meer Cuba en Venezuela.</p>
+<ul>
+ <li><b>Gevolg voor jou:</b> rederijen kunnen extra kosten doorberekenen of hun schema aanpassen, vooral op routes naar de VS. Vraag je expediteur of jouw dienst geraakt wordt.</li>
+ <li><b>Wat er gebeurt:</b> de MAS en de Amerikaanse kustwacht trainen sinds januari 2025 havenpersoneel; in 2026 volgden meer trainingen en een audit werd later in het jaar verwacht. Of Suriname van de lijst af is, staat in de Port Security Advisory van de kustwacht.</li>
+ <li><b>Heb je een eigen steiger?</b> Dan ben je zelf verantwoordelijk voor ISPS-naleving als je internationale schepen ontvangt. Volg de instructies van de MAS.</li>
+</ul>
+{% else %}
+<p>Ports that receive international traffic must comply with the International Maritime Organization's <b>ISPS Code</b>: a security plan, a Port Facility Security Officer, access control and drills. In Suriname the MAS is the supervisor and publishes instructions, including on access control, drills, internal audits and the "Condition of entry".</p>
+<p>On 3 September 2025 the US Coast Guard announced that Suriname does <b>not maintain effective anti-terrorism measures</b> in its ports. Since <b>17 September 2025</b>, conditions apply to ships that call at the United States after visiting Suriname: while in Surinamese ports they must apply extra security measures from their own security plan, such as guarding access points. It is not a ban, but Suriname is on the same list as Cuba and Venezuela, among others.</p>
+<ul>
+ <li><b>Effect on you:</b> shipping lines may pass on extra costs or change schedules, especially on routes to the US. Ask your forwarder whether your service is affected.</li>
+ <li><b>What is happening:</b> the MAS and the US Coast Guard have trained port staff since January 2025; more training followed in 2026 and an audit was expected later in the year. Whether Suriname has been taken off the list is shown in the Coast Guard's Port Security Advisory.</li>
+ <li><b>Own landing?</b> Then you are responsible for ISPS compliance if you receive international ships. Follow the MAS instructions.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Zeevracht: lijnen, transittijden en wegen' if nl else 'Sea freight: lines, transit times and weighing' }}</h2>
+{% if nl %}
+<p>Paramaribo heeft weinig rechtstreekse diensten. Veel lading wordt overgeslagen in een Caribische of Europese hub, en schema's veranderen vaak. Daarom noemen we alleen wat we konden controleren:</p>
+<ul>
+ <li><b>Europa (Rotterdam, Antwerpen, Le Havre):</b> vraag twee of drie expediteurs om de actuele afvaarten, de transittijd van deur tot deur en of er overslag is. Een korte zeereis met overslag kan langer duren dan een rechtstreekse dienst.</li>
+ <li><b>Caraïben:</b> volgens het schema op Flexport Atlas vaart CMA CGM een shuttle die Paramaribo verbindt met onder meer Georgetown, Port of Spain, Barbados, Antigua, Sint Maarten en Kingston.</li>
+ <li><b>Florida:</b> Tropical Shipping startte in september 2024 een wekelijkse LCL-dienst (deelzendingen) van Port of Palm Beach naar Paramaribo, met een transittijd van 8 dagen.</li>
+</ul>
+<p><b>Gewicht van exportcontainers.</b> Onder het SOLAS-verdrag moet het brutogewicht van elke volle exportcontainer geverifieerd zijn voordat hij aan boord gaat. De MAS publiceert een lijst van gecertificeerde weegbruggen (bijgewerkt 11 september 2026), onder andere bij DP World, VSH United en bedrijven in Wanica, Para en Nickerie.</p>
+<p class="note">Rekeningen van rederijen komen meestal in USD of EUR. Hoe je aan deviezen komt en welke koers je betaalt: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% else %}
+<p>Paramaribo has few direct services. Much cargo is transhipped in a Caribbean or European hub, and schedules change often. So we only list what we could check:</p>
+<ul>
+ <li><b>Europe (Rotterdam, Antwerp, Le Havre):</b> ask two or three forwarders for current sailings, the door-to-door transit time and whether there is transhipment. A short ocean leg with transhipment can take longer than a direct service.</li>
+ <li><b>Caribbean:</b> according to the schedule on Flexport Atlas, CMA CGM runs a shuttle linking Paramaribo with Georgetown, Port of Spain, Barbados, Antigua, Sint Maarten and Kingston, among others.</li>
+ <li><b>Florida:</b> in September 2024 Tropical Shipping started a weekly LCL (part-load) service from the Port of Palm Beach to Paramaribo, with a transit time of 8 days.</li>
+</ul>
+<p><b>Weight of export containers.</b> Under the SOLAS Convention the gross mass of every full export container must be verified before loading. The MAS publishes a list of certified weighbridges (updated 11 September 2026), including at DP World, VSH United and companies in Wanica, Para and Nickerie.</p>
+<p class="note">Shipping lines usually invoice in USD or EUR. How to get foreign currency and which rate you pay: <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Luchtvracht' if nl else 'Air cargo' }}</h2>
+{% if nl %}
+<p>Luchtvracht loopt via de <b>Johan Adolf Pengel International Airport</b> in Zanderij. De luchthaven noemt als maatschappijen onder meer Surinam Airways (SLM), KLM, Caribbean Airlines, Copa, GOL en Trans Guyana. De meeste lijnvluchten zijn passagiersvluchten: vracht gaat in het ruim, dus capaciteit is beperkt en duur. Geschikt voor monsters, onderdelen, medicijnen, bederfelijke export (vis, groente, bloemen) en spoedzendingen.</p>
+<ul>
+ <li><b>Koelopslag:</b> de luchthaven heeft een koelfaciliteit die 24 uur per dag werkt: 5 koelcellen met samen tot 51.000 kg capaciteit en een weegbrug van 60 ton (contact via de afdeling commerciële zaken).</li>
+ <li><b>Boeken:</b> via een luchtvrachtagent of expediteur, of rechtstreeks bij de cargoafdeling van de maatschappij. Vraag naar tarief per kg, volumegewicht, afhandelingskosten en de cut-off tijd voor vertrek.</li>
+ <li><b>Douane:</b> ook luchtvracht wordt ingeklaard via een douane-expediteur. Kleine pakketten en koeriers: <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ul>
+{% else %}
+<p>Air cargo goes through <b>Johan Adolf Pengel International Airport</b> at Zanderij. The airport lists airlines including Surinam Airways (SLM), KLM, Caribbean Airlines, Copa, GOL and Trans Guyana. Most scheduled flights are passenger flights: cargo travels in the hold, so capacity is limited and expensive. It suits samples, spare parts, medicines, perishable exports (fish, vegetables, flowers) and urgent shipments.</p>
+<ul>
+ <li><b>Cold storage:</b> the airport has a cold store that operates 24 hours a day: 5 cold rooms with up to 51,000 kg capacity in total and a 60-tonne weighbridge (contact through the commercial affairs department).</li>
+ <li><b>Booking:</b> through an air cargo agent or forwarder, or directly with the airline's cargo department. Ask about the rate per kg, volumetric weight, handling charges and the cut-off time before departure.</li>
+ <li><b>Customs:</b> air cargo is also cleared through a customs broker. Small parcels and couriers: <a href="{{ U('import') }}">{{ L('import') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Expediteur en douane-expediteur kiezen' if nl else 'Choosing a forwarder and a customs broker' }}</h2>
+{% if nl %}
+<p>Een <b>expediteur</b> (freight forwarder) regelt het vervoer: boeken bij de rederij of luchtvaartmaatschappij, consolideren, verzekeren, vervoer van en naar de haven. Een <b>douane-expediteur</b> (inklaarder) doet de aangifte bij de Douane in ASYCUDA. Veel bedrijven doen beide. Douane-expediteurs worden opgeleid en gecertificeerd door het ministerie van Financiën en Planning samen met de Commissie Douane-Expediteurs; in augustus 2024 slaagden 61 nieuwe expediteurs. Vraag naar dat certificaat.</p>
+<p>Waar je op let:</p>
+<ul>
+ <li>Bewijs van certificering van de inklaarder en KKF-inschrijving van het bedrijf.</li>
+ <li>Een schriftelijke offerte met alle posten: vracht, toeslagen (brandstof, beveiliging, piekseizoen), havenkosten, inklaring, transport, en wat er gebeurt bij vertraging.</li>
+ <li>Ervaring met jouw product (koelcontainers, gevaarlijke stoffen, voedsel, voertuigen) en met de vergunningen die erbij horen.</li>
+ <li>Verzekering: dekt het bedrijf schade en verlies, en tot welk bedrag? Regel zelf ladingverzekering: <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</li>
+ <li>Bereikbaarheid en snelheid: krijg je updates over aankomst, controle (groen of rood) en vrijgave?</li>
+ <li>Referenties van andere importeurs of exporteurs.</li>
+</ul>
+<p>Machtig je inklaarder in ASYCUDA en geef hem alleen de rechten die nodig zijn. Het stappenplan voor inklaren staat op <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% else %}
+<p>A <b>freight forwarder</b> handles transport: booking with the shipping line or airline, consolidation, insurance, haulage to and from the port. A <b>customs broker</b> (inklaarder) files the declaration with Customs in ASYCUDA. Many companies do both. Customs brokers are trained and certified by the Ministry of Finance and Planning together with the Customs Brokers Committee; 61 new brokers qualified in August 2024. Ask to see that certificate.</p>
+<p>What to look for:</p>
+<ul>
+ <li>Proof of the broker's certification and the company's KKF registration.</li>
+ <li>A written quote with every item: freight, surcharges (fuel, security, peak season), port charges, clearance, haulage, and what happens in case of delay.</li>
+ <li>Experience with your product (reefers, dangerous goods, food, vehicles) and the licences that go with it.</li>
+ <li>Insurance: does the company cover damage and loss, and up to what amount? Arrange your own cargo insurance: <a href="{{ U('insurance') }}">{{ L('insurance') }}</a>.</li>
+ <li>Responsiveness: do you get updates on arrival, inspection (green or red lane) and release?</li>
+ <li>References from other importers or exporters.</li>
+</ul>
+<p>Authorise your broker in ASYCUDA and give only the rights that are needed. The step-by-step clearance process is on <a href="{{ U('import') }}">{{ L('import') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Containervrijgave, demurrage en opslag' if nl else 'Container release, demurrage and storage' }}</h2>
+{% if nl %}
+<p>Drie soorten kosten lopen per dag op zodra je container is gelost:</p>
+{% set c1 = 'Kostenpost' %}{% set c2 = 'Wie rekent' %}{% set c3 = 'Wanneer' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Opslag</b> (storage)</td><td data-l="{{ c2 }}">De terminal</td><td data-l="{{ c3 }}">Na de vrije dagen op de terminal, tot de container de poort uit gaat</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Demurrage</b></td><td data-l="{{ c2 }}">De rederij (eigenaar van de container)</td><td data-l="{{ c3 }}">Als de container na de vrije tijd nog op de terminal staat</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Detention</b></td><td data-l="{{ c2 }}">De rederij</td><td data-l="{{ c3 }}">Als je de lege container na de vrije tijd nog niet hebt teruggebracht</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Koelstroom</b> (reefer plug-in)</td><td data-l="{{ c2 }}">De terminal</td><td data-l="{{ c3 }}">Per dag dat een koelcontainer is aangesloten</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Onderhandel vrije tijd vooraf</b> in je vrachtcontract, vooral als je product vergunningen of keuringen nodig heeft.</li>
+ <li><b>Laat de expediteur de aangifte indienen vóór aankomst</b> van het schip, met alle documenten en vergunningen. De meeste vertraging komt door een ontbrekend certificaat of een vergunning die pas na verscheping is aangevraagd.</li>
+ <li><b>Let op 1 november 2026:</b> dan gaan nieuwe procedures voor de gewijzigde Negatieve Lijst in. Een ontbrekende vergunning betekent een container die vaststaat: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>Bij een fysieke controle</b> (rode lijn) gaan de dagen door. Zorg dat iemand bereikbaar is om bij de controle te zijn.</li>
+ <li><b>Douanewet in de maak:</b> het bedrijfsleven vroeg bij de behandeling van de Algemene Douanewet 2026 om duidelijke regels voor het in beslag nemen van containers en voor bederfelijke goederen. Volg het op <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+<p>Vraag de actuele vrije dagen en tarieven bij de terminal of je expediteur; ze worden niet centraal gepubliceerd.</p>
+{% else %}
+<p>Three kinds of charges start running per day once your container is discharged:</p>
+{% set c1 = 'Charge' %}{% set c2 = 'Charged by' %}{% set c3 = 'When' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>Storage</b></td><td data-l="{{ c2 }}">The terminal</td><td data-l="{{ c3 }}">After the terminal's free days, until the container leaves the gate</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Demurrage</b></td><td data-l="{{ c2 }}">The shipping line (container owner)</td><td data-l="{{ c3 }}">If the container is still at the terminal after the free time</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Detention</b></td><td data-l="{{ c2 }}">The shipping line</td><td data-l="{{ c3 }}">If you have not returned the empty container after the free time</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Reefer power</b> (plug-in)</td><td data-l="{{ c2 }}">The terminal</td><td data-l="{{ c3 }}">Per day a reefer is plugged in</td></tr>
+</tbody></table>
+<ul>
+ <li><b>Negotiate free time up front</b> in your freight contract, especially if your product needs licences or inspections.</li>
+ <li><b>Have the broker file the declaration before the ship arrives</b>, with all documents and licences. Most delays come from a missing certificate or a licence applied for only after shipment.</li>
+ <li><b>Watch 1 November 2026:</b> new procedures for the amended Negative List start then. A missing licence means a stuck container: <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+ <li><b>During a physical inspection</b> (red lane) the days keep running. Make sure someone is available to attend.</li>
+ <li><b>Customs law in the making:</b> during the debate on the General Customs Act 2026, business groups asked for clear rules on seizing containers and on perishable goods. Follow it on <a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>.</li>
+</ul>
+<p>Ask the terminal or your forwarder for current free days and rates; they are not published centrally.</p>
+{% endif %}
+
+<h2>{{ 'Over land naar Guyana' if nl else 'Over land to Guyana' }}</h2>
+{% if nl %}
+<p>De enige wegverbinding is de <b>Canawaima-veerdienst</b> over de Corantijnrivier, tussen South Drain bij Nieuw-Nickerie en Moleson Creek in Guyana, met voertuigen en vracht. De Canawaima Management Company is een staatsbedrijf. 2026 was een onrustig jaar:</p>
+<ul>
+ <li>In april 2026 werd de raad van commissarissen vervangen na onvrede bij het personeel.</li>
+ <li>Op 22 augustus 2026 legde de MAS een <b>vaarverbod</b> op omdat veiligheidsvoorzieningen en technische onderdelen niet voldeden. Reizigers strandden aan beide kanten. Na inspecties en diktemetingen van de bodemplaten voer de veerboot vanaf 28 augustus 2026 weer; de overige punten worden dagelijks opgevolgd.</li>
+ <li>Een brug over de Corantijn is al lang gepland, maar had in 2026 nog geen financiering.</li>
+</ul>
+<p><b>Handel met Guyana.</b> Sinds het voorjaar van 2026 is er een geschil over Surinaamse heffingen op vaartuigen op de Corantijn. In mei 2026 meldde het Surinaamse bedrijfsleven dat zendingen naar Guyana werden vastgehouden door Guyanese autoriteiten. Voor exporteurs betekent dat: werk met een ervaren Guyanese importeur of agent, zorg voor complete CARICOM-documenten (certificaat van oorsprong, zie <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>), leg leveringsvoorwaarden en risico-overgang duidelijk vast, en houd rekening met wachttijd aan de grens.</p>
+{% else %}
+<p>The only road link is the <b>Canawaima ferry</b> across the Corantijn (Courantyne) River, between South Drain near Nieuw Nickerie and Moleson Creek in Guyana, carrying vehicles and freight. The Canawaima Management Company is state-owned. 2026 was a turbulent year:</p>
+<ul>
+ <li>In April 2026 the supervisory board was replaced after staff unrest.</li>
+ <li>On 22 August 2026 the MAS imposed a <b>sailing ban</b> because safety equipment and technical parts did not comply. Travellers were stranded on both sides. After inspections and thickness measurements of the hull plates, the ferry resumed on 28 August 2026; the remaining findings are followed up daily.</li>
+ <li>A bridge over the Corantijn has long been planned, but had no financing yet in 2026.</li>
+</ul>
+<p><b>Trade with Guyana.</b> Since spring 2026 there has been a dispute over Surinamese levies on vessels on the Corantijn. In May 2026 Surinamese business groups reported that shipments to Guyana were being held by Guyanese authorities. For exporters this means: work with an experienced Guyanese importer or agent, have complete CARICOM documents (certificate of origin, see <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>), set clear delivery terms and transfer of risk, and allow for waiting time at the border.</p>
+{% endif %}
+
+<h2>{{ 'Over land naar Frans-Guyana' if nl else 'Over land to French Guiana' }}</h2>
+{% if nl %}
+<p>Tussen Albina en Saint-Laurent-du-Maroni vaart een veerboot voor voertuigen over de Marowijnerivier. Met EU-geld is in Albina een nieuwe veersteiger gebouwd (begonnen in juni 2023) voor een grotere veerboot. Controleer vooraf de actuele vaartijden en of vrachtwagens mee kunnen, want de dienst is in het verleden vaker onderbroken.</p>
+<ul>
+ <li>Frans-Guyana is <b>EU-grondgebied</b>: voor goederen gelden EU-invoerregels, etiketten en voedselveiligheidseisen. Zie <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> en <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li>Ook export over de rivier gaat via de Douane in Albina. Goederen per korjaal zonder aangifte oversteken is smokkel.</li>
+ <li>Albina is een belangrijke handelsplaats. Plan leveringen in het centrum op rustige tijden en vraag je klant waar je kunt laden en lossen.</li>
+</ul>
+{% else %}
+<p>A vehicle ferry crosses the Marowijne (Maroni) River between Albina and Saint-Laurent-du-Maroni. A new ferry landing was built in Albina with EU funds (started in June 2023) for a larger ferry. Check current sailing times beforehand and whether trucks can be carried, as the service has been interrupted several times in the past.</p>
+<ul>
+ <li>French Guiana is <b>EU territory</b>: EU import rules, labelling and food safety requirements apply to goods. See <a href="{{ U('euexport') }}">{{ L('euexport') }}</a> and <a href="{{ U('tradeagreements') }}">{{ L('tradeagreements') }}</a>.</li>
+ <li>Exports across the river also go through Customs in Albina. Taking goods across by canoe without a declaration is smuggling.</li>
+ <li>Albina is an important trading town. Schedule deliveries in the centre at quiet times and ask your customer where you can load and unload.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Vervoer binnen Suriname' if nl else 'Transport within Suriname' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Over de weg:</b> de Oost-Westverbinding loopt van Albina via Paramaribo naar Nieuw-Nickerie; naar het zuiden gaan wegen naar onder meer Brokopondo, Atjoni en Apoera. In de regentijd zijn zandwegen in het binnenland soms onbegaanbaar. Weeg zware ladingen op een gecertificeerde weegbrug en vraag je vervoerder naar verzekering en vergunningen.</li>
+ <li><b>Over het water:</b> rivieren zijn de hoofdweg naar veel dorpen en mijnen. Vaartuigen moeten volgens de MAS elk jaar worden gekeurd, en voor veerdiensten gelden vergunningsvoorwaarden. Vraag bij een riviervervoerder naar keuringsbewijs, reddingsvesten en passagiers- of ladinglijst. Zie ook <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>Door de lucht:</b> voor afgelegen plekken in het binnenland gaan binnenlandse vluchten naar kleine landingsbanen; laadvermogen is beperkt en weer bepaalt de planning.</li>
+ <li><b>Mijnbouw en olie:</b> leveren aan mijnen of offshore projecten vraagt extra eisen aan veiligheid en planning. Zie <a href="{{ U('mining') }}">{{ L('mining') }}</a> en <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</li>
+</ul>
+<p>Reiskosten van eigen voertuigen berekenen: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>. Districten en afstanden: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% else %}
+<ul>
+ <li><b>By road:</b> the East-West Link runs from Albina via Paramaribo to Nieuw Nickerie; roads south lead to Brokopondo, Atjoni and Apoera, among others. In the rainy season dirt roads in the interior can become impassable. Weigh heavy loads on a certified weighbridge and ask your haulier about insurance and permits.</li>
+ <li><b>By water:</b> rivers are the main route to many villages and mines. According to the MAS, vessels must be inspected every year, and licensing conditions apply to ferry services. Ask a river transporter for the inspection certificate, life jackets and a passenger or cargo list. See also <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+ <li><b>By air:</b> remote places in the interior are served by domestic flights to small airstrips; payload is limited and the weather sets the schedule.</li>
+ <li><b>Mining and oil:</b> supplying mines or offshore projects comes with extra safety and planning requirements. See <a href="{{ U('mining') }}">{{ L('mining') }}</a> and <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</li>
+</ul>
+<p>Calculate the running cost of your own vehicles: <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a>. Districts and distances: <a href="{{ U('districts') }}">{{ L('districts') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Koudeketen en opslag' if nl else 'Cold chain and warehousing' }}</h2>
+{% if nl %}
+<p>Voor vis, garnalen, vlees, groente, fruit en medicijnen is de koudeketen het zwakke punt. In de haven heeft DP World 119 koelaansluitingen (90% voor klantcontainers) en verwerkt jaarlijks ongeveer 8.000 TEU aan koelcontainers; op de luchthaven staat de koelfaciliteit van 51.000 kg. Daartussen ben je afhankelijk van je eigen koelcellen en koeltransport.</p>
+<ul>
+ <li><b>Stroom:</b> sinds eind augustus 2026 schakelt EBS in het EPAR-gebied beurtelings wijken af, telkens minimaal drie uur. Een koelcel zonder noodstroom is een risico. Zie <a href="{{ U('utilities') }}">{{ L('utilities') }}</a> en <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>Temperatuurlogging:</b> leg temperaturen vast van productie tot lading. EU- en Caribische kopers vragen dat steeds vaker.</li>
+ <li><b>Magazijn:</b> vraag bij huur naar beveiliging, brandverzekering, ongediertebestrijding en of het magazijn onder douanetoezicht staat (handig voor goederen die je nog niet hebt ingeklaard).</li>
+ <li><b>Voorraad bijhouden:</b> <a href="{{ U('stock') }}">{{ L('stock') }}</a>.</li>
+</ul>
+{% else %}
+<p>For fish, shrimp, meat, vegetables, fruit and medicines the cold chain is the weak link. In the port DP World has 119 reefer plugs (90% for customer containers) and handles about 8,000 TEU of reefer containers a year; at the airport there is the 51,000 kg cold store. In between, you depend on your own cold rooms and refrigerated transport.</p>
+<ul>
+ <li><b>Power:</b> since late August 2026 EBS has been switching off areas of the EPAR grid in rotation, for at least three hours each time. A cold room without backup power is a risk. See <a href="{{ U('utilities') }}">{{ L('utilities') }}</a> and <a href="{{ U('outages') }}">{{ L('outages') }}</a>.</li>
+ <li><b>Temperature logging:</b> record temperatures from production to loading. EU and Caribbean buyers increasingly ask for it.</li>
+ <li><b>Warehousing:</b> when renting, ask about security, fire insurance, pest control and whether the warehouse is under customs supervision (useful for goods not yet cleared).</li>
+ <li><b>Track stock:</b> <a href="{{ U('stock') }}">{{ L('stock') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Incoterms met Surinaamse voorbeelden' if nl else 'Incoterms with Surinamese examples' }}</h2>
+{% if nl %}
+<p>Incoterms (de versie van 2020 van de Internationale Kamer van Koophandel) bepalen wie het vervoer betaalt en wanneer het risico overgaat. Zet de term en de plaats altijd in je offerte en factuur, bijvoorbeeld "FOB Paramaribo".</p>
+{% set c1 = 'Term' %}{% set c2 = 'Verkoper regelt tot' %}{% set c3 = 'Voorbeeld' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>EXW</b> (af fabriek)</td><td data-l="{{ c2 }}">Goederen klaar in eigen pand; koper regelt alles, ook de Surinaamse exportaangifte</td><td data-l="{{ c3 }}">Lastig voor buitenlandse kopers, want zij kunnen in Suriname geen aangifte doen. Kies liever FCA.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FCA</b> (vrachtvrij tot vervoerder)</td><td data-l="{{ c2 }}">Geleverd aan de vervoerder van de koper, exportinklaring door verkoper</td><td data-l="{{ c3 }}">Je levert een container af bij de terminal van DP World voor de rederij van je klant.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FOB</b> (vrij aan boord)</td><td data-l="{{ c2 }}">Goederen aan boord van het schip in de haven van vertrek</td><td data-l="{{ c3 }}">Gebruikelijk voor bulk en stukgoed, zoals hout of rijst vanaf Paramaribo of Nieuw-Nickerie.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>CFR / CIF</b></td><td data-l="{{ c2 }}">Verkoper betaalt zeevracht (en bij CIF verzekering) tot de haven van bestemming; risico gaat over bij inladen</td><td data-l="{{ c3 }}">Je importeert CIF Paramaribo uit China. Let op: de Douane rekent rechten over de CIF-waarde.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>DAP</b> (franco bestemming)</td><td data-l="{{ c2 }}">Geleverd op het adres van de koper, zonder invoerrechten</td><td data-l="{{ c3 }}">Je levert met eigen vrachtwagen via Albina aan een klant in Saint-Laurent; de klant klaart in.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>DDP</b> (franco inclusief rechten)</td><td data-l="{{ c2 }}">Alles, ook invoerrechten en belastingen in het land van de koper</td><td data-l="{{ c3 }}">Alleen als je het invoerproces in het land van de koper kent. Een buitenlandse leverancier die DDP Paramaribo biedt, moet hier een importeur hebben.</td></tr>
+</tbody></table>
+{% else %}
+<p>Incoterms (the 2020 version of the International Chamber of Commerce) determine who pays for transport and when risk passes. Always state the term and the place in your quote and invoice, for example "FOB Paramaribo".</p>
+{% set c1 = 'Term' %}{% set c2 = 'Seller arranges up to' %}{% set c3 = 'Example' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}"><b>EXW</b> (ex works)</td><td data-l="{{ c2 }}">Goods ready at the seller's premises; buyer arranges everything, including the Surinamese export declaration</td><td data-l="{{ c3 }}">Awkward for foreign buyers, who cannot file a declaration in Suriname. Prefer FCA.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FCA</b> (free carrier)</td><td data-l="{{ c2 }}">Delivered to the buyer's carrier, export clearance by the seller</td><td data-l="{{ c3 }}">You deliver a container to the DP World terminal for your customer's shipping line.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>FOB</b> (free on board)</td><td data-l="{{ c2 }}">Goods on board the vessel at the port of departure</td><td data-l="{{ c3 }}">Common for bulk and breakbulk, such as timber or rice from Paramaribo or Nieuw Nickerie.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>CFR / CIF</b></td><td data-l="{{ c2 }}">Seller pays ocean freight (and with CIF insurance) to the destination port; risk passes on loading</td><td data-l="{{ c3 }}">You import CIF Paramaribo from China. Note: Customs charges duty on the CIF value.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>DAP</b> (delivered at place)</td><td data-l="{{ c2 }}">Delivered to the buyer's address, without import duties</td><td data-l="{{ c3 }}">You deliver by your own truck via Albina to a customer in Saint-Laurent; the customer clears import.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>DDP</b> (delivered duty paid)</td><td data-l="{{ c2 }}">Everything, including import duties and taxes in the buyer's country</td><td data-l="{{ c3 }}">Only if you know the import process in the buyer's country. A foreign supplier offering DDP Paramaribo must have an importer here.</td></tr>
+</tbody></table>
+{% endif %}
+
+<h2>{{ 'Wat een zending echt kost' if nl else 'What a shipment really costs' }}</h2>
+{% if nl %}
+<p>De vrachtprijs is maar een deel. Zet voor elke zending deze posten op een rij:</p>
+<ol class="steps">
+ <li><b>Inkoop</b> en de Incoterm: wat zit er al in de prijs van je leverancier?</li>
+ <li><b>Vervoer naar de haven van vertrek</b> en exportkosten daar (bij EXW of FCA).</li>
+ <li><b>Zee- of luchtvracht</b> plus toeslagen: brandstof, valuta, beveiliging, piekseizoen.</li>
+ <li><b>Verzekering</b>: meestal een klein percentage van de waarde, maar onmisbaar.</li>
+ <li><b>Terminal- en havenkosten</b> in Paramaribo: afhandeling, opslag na vrije dagen, koelstroom.</li>
+ <li><b>Douane</b>: invoerrecht, statistiek- en consentrecht, accijns en BTW over de CIF-waarde, plus het honorarium van de inklaarder (<a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>).</li>
+ <li><b>Vervoer naar je magazijn</b> en terugbrengen van de lege container.</li>
+ <li><b>Risico op vertraging</b>: demurrage, detention en extra opslag als een vergunning of controle uitloopt.</li>
+ <li><b>Valuta</b>: vracht en goederen in USD of EUR, verkoop in SRD. Reken met de koers die je echt betaalt (<a href="{{ U('rates') }}">{{ L('rates') }}</a>).</li>
+</ol>
+<p>Vul dit in met de <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> en bepaal daarna je verkoopprijs met <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</p>
+{% else %}
+<p>The freight rate is only part of it. List these items for every shipment:</p>
+<ol class="steps">
+ <li><b>Purchase price</b> and the Incoterm: what is already included in your supplier's price?</li>
+ <li><b>Transport to the port of departure</b> and export costs there (with EXW or FCA).</li>
+ <li><b>Ocean or air freight</b> plus surcharges: fuel, currency, security, peak season.</li>
+ <li><b>Insurance</b>: usually a small percentage of the value, but essential.</li>
+ <li><b>Terminal and port charges</b> in Paramaribo: handling, storage after free days, reefer power.</li>
+ <li><b>Customs</b>: import duty, statistical and consent fees, excise and VAT on the CIF value, plus the broker's fee (<a href="{{ U('import') }}">{{ L('import') }}</a>, <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>).</li>
+ <li><b>Haulage to your warehouse</b> and returning the empty container.</li>
+ <li><b>Risk of delay</b>: demurrage, detention and extra storage if a licence or inspection drags on.</li>
+ <li><b>Currency</b>: freight and goods in USD or EUR, sales in SRD. Use the rate you actually pay (<a href="{{ U('rates') }}">{{ L('rates') }}</a>).</li>
+</ol>
+<p>Fill this in with the <a href="{{ U('importcost') }}">{{ L('importcost') }}</a> and then set your selling price with <a href="{{ U('pricing') }}">{{ L('pricing') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat als...' if nl else 'What if...' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>...mijn container al dagen op de terminal staat?</b> Vraag je inklaarder waarom (documenten, vergunning, controle) en vraag de rederij schriftelijk om verlenging van de vrije tijd als de vertraging niet aan jou ligt. Houd alle kosten bij.</li>
+ <li><b>...mijn zending naar Guyana wordt vastgehouden?</b> Laat je Guyanese klant of agent navragen welk document ontbreekt, schakel de Surinaamse ambassade of het ministerie van Buitenlandse Zaken in en meld het bij je brancheorganisatie (<a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>...de Canawaima niet vaart?</b> Er is geen andere legale wegverbinding. Spreek met je klant af wie de kosten van wachten draagt en overweeg zeevracht naar Georgetown.</li>
+ <li><b>...ik lading beschadigd ontvang?</b> Teken het vrachtdocument met een aantekening ("onder voorbehoud"), maak foto's en meld het direct schriftelijk bij de vervoerder en je verzekeraar.</li>
+ <li><b>...ik naar de VS exporteer?</b> Vraag je rederij naar extra kosten door de Amerikaanse voorwaarden en reken een paar dagen marge.</li>
+ <li><b>...ik een eigen steiger wil gebruiken voor import?</b> Vraag eerst bij de MAS en de Douane of de steiger is aangewezen en of er douanetoezicht kan zijn.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>...my container has been at the terminal for days?</b> Ask your broker why (documents, licence, inspection) and ask the shipping line in writing for extra free time if the delay is not your fault. Keep track of all costs.</li>
+ <li><b>...my shipment to Guyana is held?</b> Have your Guyanese customer or agent find out which document is missing, involve the Surinamese embassy or the Ministry of Foreign Affairs, and report it to your business association (<a href="{{ U('associations') }}">{{ L('associations') }}</a>).</li>
+ <li><b>...the Canawaima is not sailing?</b> There is no other legal road link. Agree with your customer who bears the cost of waiting, and consider sea freight to Georgetown.</li>
+ <li><b>...my cargo arrives damaged?</b> Sign the transport document with a remark ("subject to inspection"), take photos and notify the carrier and your insurer in writing straight away.</li>
+ <li><b>...I export to the US?</b> Ask your shipping line about extra costs from the US conditions and allow a few days' margin.</li>
+ <li><b>...I want to use my own landing for imports?</b> Ask the MAS and Customs first whether the landing is designated and whether customs supervision is possible.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Incoterm en plaats in elk contract, offerte en factuur</li>
+ <li>Gecertificeerde inklaarder gekozen en gemachtigd in ASYCUDA</li>
+ <li>Vergunningen en certificaten aangevraagd vóór verscheping (let op 1 november 2026)</li>
+ <li>Vrije tijd voor container en terminal schriftelijk afgesproken</li>
+ <li>Ladingverzekering geregeld</li>
+ <li>Geverifieerd containergewicht (SOLAS) voor export</li>
+ <li>Koudeketen met noodstroom en temperatuurregistratie</li>
+ <li>Buffer in de planning voor de Canawaima, Albina en controles</li>
+ <li>CARICOM- of EU-documenten van oorsprong klaar</li>
+ <li>Alle kosten doorgerekend in de importcalculator en je prijs</li>
+</ul>
+{% else %}
+<ul class="check">
+ <li>Incoterm and place in every contract, quote and invoice</li>
+ <li>Certified customs broker chosen and authorised in ASYCUDA</li>
+ <li>Licences and certificates applied for before shipment (watch 1 November 2026)</li>
+ <li>Free time for container and terminal agreed in writing</li>
+ <li>Cargo insurance arranged</li>
+ <li>Verified container gross mass (SOLAS) for exports</li>
+ <li>Cold chain with backup power and temperature records</li>
+ <li>Buffer in the schedule for the Canawaima, Albina and inspections</li>
+ <li>CARICOM or EU origin documents ready</li>
+ <li>All costs included in the import cost calculator and your price</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.dpworld.com/nl-sr/ports-terminals/suriname/paramaribo" rel="noopener">{{ 'DP World: haven en terminal van Paramaribo' if nl else 'DP World: Paramaribo port and terminal' }}</a></li>
+ <li><a href="https://gov.sr/havenbeheer-maakt-jules-sedney-haven-terminal-gereed-voor-groei-olie-en-gassector/" rel="noopener">{{ 'Havenbeheer: uitbreiding Jules Sedney Haven en PCS (24 september 2026)' if nl else 'Havenbeheer: Jules Sedney Port expansion and PCS (24 September 2026)' }}</a></li>
+ <li><a href="https://www.govinfo.gov/content/pkg/FR-2025-09-03/html/2025-16845.htm" rel="noopener">{{ 'US Federal Register: conditions of entry voor schepen uit Suriname (3 september 2025)' if nl else 'US Federal Register: conditions of entry for vessels from Suriname (3 September 2025)' }}</a></li>
+ <li><a href="https://mas.sr/IfMS/" rel="noopener">{{ 'MAS: instructies maritieme beveiliging' if nl else 'MAS: maritime security instructions' }}</a></li>
+ <li><a href="https://gov.sr/mas-en-us-coast-guard-trainen-havenmedewerkers-in-isps-code/" rel="noopener">{{ 'MAS en US Coast Guard: ISPS-training (januari 2025)' if nl else 'MAS and US Coast Guard: ISPS training (January 2025)' }}</a></li>
+ <li><a href="https://mas.sr/registered-weighbridges/" rel="noopener">{{ 'MAS: gecertificeerde weegbruggen (september 2026)' if nl else 'MAS: certified weighbridges (September 2026)' }}</a></li>
+ <li><a href="https://mas.sr/certification-of-vessels/" rel="noopener">{{ 'MAS: keuring van vaartuigen' if nl else 'MAS: vessel certification' }}</a></li>
+ <li><a href="https://tropical.com/news/2024/new-weekly-lcl-service-to-paramaribo" rel="noopener">{{ 'Tropical Shipping: wekelijkse LCL-dienst naar Paramaribo (september 2024)' if nl else 'Tropical Shipping: weekly LCL service to Paramaribo (September 2024)' }}</a></li>
+ <li><a href="https://atlas.flexport.com/service/code:CMDU:ELDORADO" rel="noopener">{{ 'Flexport Atlas: CMA CGM Eldorado-shuttle' if nl else 'Flexport Atlas: CMA CGM Eldorado shuttle' }}</a></li>
+ <li><a href="https://www.japi-airport.com/?page_id=25" rel="noopener">{{ 'Johan Adolf Pengel International Airport: koelopslag' if nl else 'Johan Adolf Pengel International Airport: cold storage' }}</a></li>
+ <li><a href="https://gov.sr/suriname-is-61-douane-expediteurs-rijker/" rel="noopener">{{ 'Financiën en Planning: 61 nieuwe douane-expediteurs (augustus 2024)' if nl else 'Finance and Planning: 61 new customs brokers (August 2024)' }}</a></li>
+ <li><a href="https://gov.sr/vaarverbod-m-v-canawaima-opgeheven-veerdienst-hervat/" rel="noopener">{{ 'Canawaima: vaarverbod opgeheven (28 augustus 2026)' if nl else 'Canawaima: sailing ban lifted (28 August 2026)' }}</a></li>
+ <li><a href="https://gov.sr/regering-geeft-prioriteit-aan-veiligheid-passagiers-in-kwestie-canawaima/" rel="noopener">{{ 'Kabinet van de President: veiligheid Canawaima (september 2026)' if nl else 'Cabinet of the President: Canawaima safety (September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/nieuwe-rvc-canawaima-wil-orde-herstellen-en-vertrouwen-terugwinnen/" rel="noopener">{{ 'Nieuwe RvC Canawaima (april 2026)' if nl else 'New Canawaima supervisory board (April 2026)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/91845" rel="noopener">{{ 'Starnieuws: waarschuwing voor handelsbelemmeringen met Guyana (9 mei 2026)' if nl else 'Starnieuws: warning on trade barriers with Guyana (9 May 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/05/11/vsb-bezorgd-over-stremming-surinaamse-export-naar-guyana/" rel="noopener">{{ 'Suriname Herald: export naar Guyana gestremd (11 mei 2026)' if nl else 'Suriname Herald: exports to Guyana obstructed (11 May 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/04/09/guyana-voert-druk-op-rond-corantijnheffingen-ali-kondigt-intensivering-aan/" rel="noopener">{{ 'Suriname Herald: geschil over Corantijnheffingen (9 april 2026)' if nl else 'Suriname Herald: dispute over Corantijn levies (9 April 2026)' }}</a></li>
+ <li><a href="https://gov.sr/startsein-nieuwe-steiger-te-albina/" rel="noopener">{{ 'TCT: start bouw nieuwe veersteiger Albina (juni 2023)' if nl else 'TCT: construction of the new Albina ferry landing begins (June 2023)' }}</a></li>
+ <li><a href="https://www.guyane.gouv.fr/contenu/telechargement/26282/207917/file/2023-06-15_CP%20Suspension%20Bac%20La%20Gabrielle.pdf" rel="noopener">{{ 'Prefectuur Frans-Guyana: onderbreking veerboot La Gabrielle (juni 2023)' if nl else 'Prefecture of French Guiana: La Gabrielle ferry suspended (June 2023)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/ontwerpwet-algemene-douanewet-2026/" rel="noopener">{{ 'DNA: ontwerp Algemene Douanewet 2026' if nl else 'DNA: draft General Customs Act 2026' }}</a></li>
+ <li><a href="https://srherald.com/suriname/2026/09/15/ebs-klanten-kunnen-loadshedding-dagelijks-online-per-aansluiting-controleren/" rel="noopener">{{ 'Suriname Herald: loadshedding EBS (15 september 2026)' if nl else 'Suriname Herald: EBS load shedding (15 September 2026)' }}</a></li>
+ <li><a href="https://iccwbo.org/business-solutions/incoterms-rules/" rel="noopener">{{ 'ICC: Incoterms 2020' if nl else 'ICC: Incoterms 2020' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie. Vaarschema\'s, tarieven en grensregels veranderen; vraag je expediteur om de actuele stand.' if nl else 'General information. Schedules, rates and border rules change; ask your forwarder for the current position.' }}</p>
+</div>
+{% endblock %}
