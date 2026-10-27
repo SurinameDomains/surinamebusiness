@@ -50,7 +50,7 @@
 <ul>
 <li>{{ 'Een troy ounce is 31,1035 gram. Goudprijzen op de wereldmarkt gaan altijd per troy ounce, in dollars.' if nl else 'A troy ounce is 31.1035 grams. World gold prices are always per troy ounce, in dollars.' }}</li>
 <li>{{ '24 karaat is puur goud. 18 karaat is 75% goud, 14 karaat 58,3%.' if nl else '24 carat is pure gold. 18 carat is 75% gold, 14 carat 58.3%.' }}</li>
-<li>{{ 'Brent is de wereldwijde maatstaf voor olie. De olie uit het GranMorgu-project in Blok 58 wordt verkocht tegen prijzen die hiervan afhangen.' if nl else 'Brent is the global oil benchmark. Oil from the GranMorgu project in Block 58 will be sold at prices tied to it.' }} <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></li>
+<li>{{ 'Brent is de wereldwijde maatstaf voor olie. De olie uit het GranMorgu-project in Blok 58 wordt verkocht tegen prijzen die hiervan afhangen.' if nl else 'Brent is the global oil benchmark. Oil from the GranMorgu project in Block 58 will be sold at prices tied to it.' }} <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a> &middot; <a href="{{ U('fuel') }}">{{ L('fuel') }}</a></li>
 </ul>
 <p class="asof">{{ 'Bronnen' if nl else 'Sources' }}: gold-api.com ({{ 'goud en zilver' if nl else 'gold and silver' }}), Yahoo Finance (Brent, WTI futures){% if CB %}, <a href="https://www.cbvs.sr/" rel="noopener">{{ 'Centrale Bank van Suriname' }}</a> ({{ 'goudcertificaten' if nl else 'gold certificates' }}){% endif %}. {{ 'Elke 30 minuten bijgewerkt. Indicatief.' if nl else 'Updated every 30 minutes. Indicative.' }}</p>
 </div>

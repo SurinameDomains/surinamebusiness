@@ -1,0 +1,25 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Is je bedrijf klaar om te leveren aan Staatsolie, TotalEnergies, Petronas of hun aannemers? Beantwoord 34 vragen in acht onderdelen. Je ziet meteen je score per onderdeel en een actielijst met wat je eerst moet regelen.' if nl else 'Is your business ready to supply Staatsolie, TotalEnergies, Petronas or their contractors? Answer 34 questions in eight areas. You immediately see your score per area and an action list of what to fix first.' }}{% endblock %}
+{% block tool %}
+<div class="wide-cols">
+ <form class="card calc" id="sr" onsubmit="return false" autocomplete="off">
+  <p class="sub" style="margin-top:0">{{ 'Kies per vraag Ja, Deels, Nee of N.v.t. (niet van toepassing). Je antwoorden blijven op je eigen toestel bewaard.' if nl else 'For each question choose Yes, Partly, No or N/A (not applicable). Your answers are kept on your own device.' }}</p>
+  <div id="sr-q"></div>
+  <div class="btns" style="margin-top:14px"><button type="button" class="btn alt" id="sr-reset">{{ 'Opnieuw beginnen' if nl else 'Start again' }}</button></div>
+ </form>
+ <div class="sticky"><div class="paper print-area" id="sr-out" aria-live="polite"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button></div></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Waar deze check op gebaseerd is' if nl else 'What this check is based on' }}</h2>
+{% if nl %}
+<p>De onderdelen volgen wat operators en hoofdaannemers in Suriname bij prekwalificatie van leveranciers nagaan, en de onderwerpen van het Blue Wave-leveranciersprogramma van Staatsolie: HSSE, kwaliteit, financiën, bedrijfsbeleid, cyberveiligheid, technische capaciteit en ESG. Wij voegen registratie en local content toe, omdat die bepalen of je überhaupt gevonden wordt. De score is een hulpmiddel om prioriteiten te stellen, geen officiële beoordeling. Elke uitvraag (EOI) noemt zelf welke certificaten en documenten nodig zijn.</p>
+<p>Meer lezen: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> &middot; <a href="{{ U('eoiletter') }}">{{ L('eoiletter') }}</a> &middot; <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></p>
+{% else %}
+<p>The areas follow what operators and main contractors in Suriname check when prequalifying suppliers, and the topics of Staatsolie's Blue Wave supplier programme: HSSE, quality, finance, company policies, cybersecurity, technical capability and ESG. We add registration and local content, because they decide whether you are found at all. The score is a tool for setting priorities, not an official assessment. Each request (EOI) states which certificates and documents it requires.</p>
+<p>Read more: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> &middot; <a href="{{ U('eoiletter') }}">{{ L('eoiletter') }}</a> &middot; <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></p>
+{% endif %}
+</section>
+{% endblock %}
+{% block toolscripts %}<script>window.SBL={% set ks = ['start','biztax','vatguide','supplier','safety','oiljobs','standards','bookkeeping','finance','insurance','invoice','labour','employer','aml','training','environment','sustainability','eoiletter','businesscard','civilcode'] %}{ {% for k in ks %}"{{ k }}":{{ U(k)|tojson }}{% if not loop.last %},{% endif %}{% endfor %} };</script><script src="/assets/tools/oilgas.js?v={{ build_id }}" defer></script>{% endblock %}

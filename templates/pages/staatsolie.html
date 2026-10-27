@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: update when Staatsolie publishes its annual report (usually after the AGM in May; staatsolie.com > Investors),
+    when a new bond is announced (staatsolieobligatie.com, DSB), when the Block 52 investment decision falls, and when the
+    Managing Director or Supervisory Board changes. Figures below are from the 2025 annual report. Bump the asof date. -#}
+<div class="prose">
+<h1>{{ 'Staatsolie: wat het bedrijf doet en hoe je ermee zaken doet' if nl else 'Staatsolie: what the company does and how to do business with it' }}</h1>
+{% if nl %}
+<p class="lead">Staatsolie Maatschappij Suriname N.V. is het staatsoliebedrijf en met afstand de grootste bijdrager aan de schatkist: in 2025 kwam ongeveer 30% van alle overheidsinkomsten van Staatsolie. Het bedrijf pompt olie op land in Saramacca, raffineert die bij Tout Lui Faut, levert via dochter SPCS het grootste deel van de stroom in Paramaribo en omgeving, verkoopt brandstof via GOw2 en neemt namens de staat deel in de offshore olie- en gasprojecten. Daarnaast beheert het via het Staatsolie Hydrocarbon Institute de contracten met de buitenlandse oliemaatschappijen. Hieronder lees je hoe het bedrijf in elkaar zit, wat de cijfers zijn, hoe het zit met obligaties en aandelen, en hoe je leverancier of werknemer wordt.</p>
+{% else %}
+<p class="lead">Staatsolie Maatschappij Suriname N.V. is the state oil company and by far the largest contributor to the treasury: in 2025 about 30% of all government revenue came from Staatsolie. The company produces oil onshore in Saramacca, refines it at Tout Lui Faut, supplies most of the power for Paramaribo and the surrounding districts through its subsidiary SPCS, sells fuel through GOw2 and takes the state's share in the offshore oil and gas projects. Through the Staatsolie Hydrocarbon Institute it also manages the contracts with the international oil companies. Below: how the company is organised, its figures, bonds and shares, and how to become a supplier or employee.</p>
+{% endif %}
+<div class="grid g4">
+ <div class="card"><div class="eyebrow">{{ 'Omzet 2025' if nl else 'Revenue 2025' }}</div><div class="big">{{ 'USD 832 mln' if nl else 'USD 832 m' }}</div><div class="sub">{{ '2024: USD 735 mln' if nl else '2024: USD 735 m' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Afdracht aan de staat' if nl else 'Paid to the state' }}</div><div class="big">{{ 'USD 400 mln' if nl else 'USD 400 m' }}</div><div class="sub">{{ 'circa 30% van de overheidsinkomsten' if nl else 'about 30% of government revenue' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Olieproductie op land' if nl else 'Onshore oil output' }}</div><div class="big">{{ '17.400' if nl else '17,400' }}</div><div class="sub">{{ 'vaten per dag, gemiddeld 2025' if nl else 'barrels a day, 2025 average' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Belang in GranMorgu' if nl else 'Stake in GranMorgu' }}</div><div class="big">20%</div><div class="sub">{{ 'circa USD 2,4 mld investering' if nl else 'about USD 2.4 bn investment' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>Opgericht in <b>1980</b>, voor <b>100% eigendom van de staat</b>. Er zijn geen aandelen te koop; wel obligaties, die op de beurs worden verhandeld.</li>
+ <li>Vier bedrijfsonderdelen: <b>olie op land</b> (Saramacca), de <b>raffinaderij</b> Tout Lui Faut, <b>stroom</b> (SPCS: waterkracht Afobaka en een thermische centrale) en <b>brandstofverkoop</b> (GOw2, 53% marktaandeel).</li>
+ <li>Offshore neemt Staatsolie <b>tot 20%</b> deel in ontwikkelingen. Voor GranMorgu is dat circa USD 2,4 miljard, betaald met een obligatie van USD 516 miljoen, een bankenlening van USD 1,6 miljard en eigen geld. Blok 52 (gas) is de volgende.</li>
+ <li>In 2025: omzet USD 832 miljoen, winst na belasting USD 297 miljoen, afdracht aan de staat USD 400 miljoen.</li>
+ <li>Leveren aan Staatsolie gaat via <b>SAP Ariba</b> en uitnodigingen (EOI's) op de website; voor de offshore-operators registreer je in de <b>SSRP</b>.</li>
+ <li>Solliciteren kan <b>alleen</b> via de online vacaturedatabase.</li>
+{% else %}
+ <li>Founded in <b>1980</b>, <b>100% owned by the state</b>. No shares are for sale; bonds are, and they trade on the exchange.</li>
+ <li>Four businesses: <b>onshore oil</b> (Saramacca), the Tout Lui Faut <b>refinery</b>, <b>power</b> (SPCS: Afobaka hydropower and a thermal plant) and <b>fuel retail</b> (GOw2, 53% market share).</li>
+ <li>Offshore, Staatsolie takes <b>up to 20%</b> of developments. For GranMorgu that is about USD 2.4 billion, paid with a USD 516 million bond, a USD 1.6 billion bank loan and its own cash. Block 52 (gas) is next.</li>
+ <li>In 2025: revenue USD 832 million, profit after tax USD 297 million, paid to the state USD 400 million.</li>
+ <li>Supplying Staatsolie goes through <b>SAP Ariba</b> and invitations (EOIs) on its website; for the offshore operators you register in the <b>SSRP</b>.</li>
+ <li>Job applications <b>only</b> through the online job database.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie Staatsolie is' if nl else 'Who Staatsolie is' }}</h2>
+{% if nl %}
+<p>Staatsolie werd op 13 december 1980 opgericht, zodat Suriname zijn olie niet aan buitenlandse maatschappijen hoefde over te laten. In 1982 begon de commerciële productie in het Tambaredjo-veld in Saramacca, met 200 vaten per dag. Inmiddels is het een geïntegreerd energiebedrijf met ruim 1.100 medewerkers. De enige aandeelhouder is de Staat Suriname, vertegenwoordigd door de president. Er is een Raad van Commissarissen (voorzitter Rudolf Elias) en sinds 2025 een Executive Committee onder leiding van directeur Annand Jagesar.</p>
+<p>Staatsolie heeft twee petten op. Het is een <b>commercieel bedrijf</b> dat olie produceert, raffineert en verkoopt, en het vervult namens de staat een <b>institutionele rol</b>: het sluit en beheert de productiedelingscontracten (PSC's) met buitenlandse oliemaatschappijen. Die rol ligt bij de dochter Staatsolie Hydrocarbon Institute (SHI), die 18 PSC's beheert, nieuw offshoregebied aanbiedt via de Open-Door Offering (sinds november 2025) en het leveranciersportaal SSRP runt. Over die dubbele rol wordt gediscussieerd: critici willen bijvoorbeeld dat SHI los van Staatsolie komt te staan en dat de contracten openbaar worden. Meer over de regels: <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% else %}
+<p>Staatsolie was founded on 13 December 1980 so that Suriname would not have to leave its oil to foreign companies. Commercial production started in the Tambaredjo field in Saramacca in 1982, at 200 barrels a day. Today it is an integrated energy company with more than 1,100 employees. The sole shareholder is the State of Suriname, represented by the President. There is a Supervisory Board (chair Rudolf Elias) and since 2025 an Executive Committee led by Managing Director Annand Jagesar.</p>
+<p>Staatsolie wears two hats. It is a <b>commercial company</b> that produces, refines and sells oil, and it performs an <b>institutional role</b> for the state: it concludes and manages the production sharing contracts (PSCs) with international oil companies. That role sits with its subsidiary Staatsolie Hydrocarbon Institute (SHI), which manages 18 PSCs, offers new offshore acreage through the Open-Door Offering (since November 2025) and runs the SSRP supplier portal. The dual role is debated: critics want SHI separated from Staatsolie and the contracts published, for example. More on the rules: <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat Staatsolie doet' if nl else 'What Staatsolie does' }}</h2>
+{% set c1 = 'Onderdeel' if nl else 'Business' %}{% set c2 = 'Wat' if nl else 'What' %}{% set c3 = 'Cijfers 2025' if nl else '2025 figures' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Olie op land</b> (Saramacca)</td><td data-l="{{ c2 }}">Winning uit de velden Tambaredjo, Tambaredjo Noordwest en Calcutta; met polymeerinjectie om meer olie uit de oude velden te halen</td><td data-l="{{ c3 }}">6,35 miljoen vaten (circa 17.400 per dag); bewezen reserves 106,9 miljoen vaten; natuurlijke daling circa 10% per jaar</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Raffinaderij Tout Lui Faut</b> (Wanica)</td><td data-l="{{ c2 }}">Sinds de uitbreiding van 2015 15.000 vaten per dag capaciteit: zwavelarme diesel en benzine, stookolie, bitumen en sinds 2025 zwavelzuur</td><td data-l="{{ c3 }}">3,15 miljoen vaten diesel en benzine; meer dan 140.000 vaten diesel als bunkerbrandstof aan de offshore-operators</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Stroom</b>: Staatsolie Power Company Suriname (SPCS)</td><td data-l="{{ c2 }}">Waterkrachtcentrale Afobaka (189 MW) in Brokopondo en een thermische centrale (96 MW) in Wanica; de staat koopt de stroom voor het net</td><td data-l="{{ c3 }}">69% van de stroomvraag in Paramaribo en omgeving; geen black-outs door SPCS</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Brandstofverkoop</b>: GOw2 Energy Suriname</td><td data-l="{{ c2 }}">Tankstations, smeermiddelen en Jet A-1 voor luchtvaart; ontstaan uit de overname van Chevron/Texaco in 2011</td><td data-l="{{ c3 }}">53% marktaandeel</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Offshore</b>: Staatsolie Offshore 1 en Paradise Oil Company</td><td data-l="{{ c2 }}">20% in GranMorgu (Blok 58); Paradise Oil heeft 20% in Blok 52 en 66, 30% in Blok 9 en 10% in Blok 10</td><td data-l="{{ c3 }}">GranMorgu voor de helft gebouwd (productieschip), eerste olie 2028</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie Hydrocarbon Institute</b> (SHI)</td><td data-l="{{ c2 }}">Beheer van de PSC's, promotie van offshoregebied, geologische data, leveranciersportaal SSRP</td><td data-l="{{ c3 }}">Vier nieuwe PSC's getekend in 2025 (Blok 9, 10, 52 voor Paradise Oil, 66)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Goud</b></td><td data-l="{{ c2 }}">25% in de Merian-mijn met Newmont en 30% in Pikin Saramacca met Rosebel</td><td data-l="{{ c3 }}">Winst voor belasting: Merian USD 84 mln, Pikin Saramacca USD 108 mln (aandeel Staatsolie)</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Onshore oil</b> (Saramacca)</td><td data-l="{{ c2 }}">Production from the Tambaredjo, Tambaredjo Northwest and Calcutta fields; polymer injection to recover more oil from the mature fields</td><td data-l="{{ c3 }}">6.35 million barrels (about 17,400 a day); proven reserves 106.9 million barrels; natural decline about 10% a year</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Tout Lui Faut refinery</b> (Wanica)</td><td data-l="{{ c2 }}">15,000 barrels a day since the 2015 expansion: ultra-low-sulphur diesel and gasoline, fuel oil, bitumen and since 2025 sulphuric acid</td><td data-l="{{ c3 }}">3.15 million barrels of diesel and gasoline; more than 140,000 barrels of diesel sold as bunker fuel to the offshore operators</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Power</b>: Staatsolie Power Company Suriname (SPCS)</td><td data-l="{{ c2 }}">Afobaka hydropower plant (189 MW) in Brokopondo and a thermal plant (96 MW) in Wanica; the state buys the power for the grid</td><td data-l="{{ c3 }}">69% of power demand in Paramaribo and surroundings; no blackouts caused by SPCS</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Fuel retail</b>: GOw2 Energy Suriname</td><td data-l="{{ c2 }}">Service stations, lubricants and Jet A-1 for aviation; created from the acquisition of Chevron/Texaco in 2011</td><td data-l="{{ c3 }}">53% market share</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Offshore</b>: Staatsolie Offshore 1 and Paradise Oil Company</td><td data-l="{{ c2 }}">20% of GranMorgu (Block 58); Paradise Oil holds 20% of Blocks 52 and 66, 30% of Block 9 and 10% of Block 10</td><td data-l="{{ c3 }}">GranMorgu production vessel half built, first oil 2028</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie Hydrocarbon Institute</b> (SHI)</td><td data-l="{{ c2 }}">Managing the PSCs, promoting offshore acreage, geological data, the SSRP supplier portal</td><td data-l="{{ c3 }}">Four new PSCs signed in 2025 (Blocks 9, 10, 52 for Paradise Oil, 66)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Gold</b></td><td data-l="{{ c2 }}">25% of the Merian mine with Newmont and 30% of Pikin Saramacca with Rosebel</td><td data-l="{{ c3 }}">Profit before tax: Merian USD 84 m, Pikin Saramacca USD 108 m (Staatsolie's share)</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Staatsolie wil daarnaast een zonnepark van 25 tot 30 megawatt-piek bouwen in Saramacca. Het terrein is onderzocht; de bouw hangt af van een stroomafnamecontract met EBS. Brandstofprijzen aan de pomp, ook die van GOw2, volg je op <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</p>
+{% else %}
+<p>Staatsolie also wants to build a 25 to 30 megawatt-peak solar park in Saramacca. The site has been surveyed; construction depends on a power purchase agreement with EBS. Pump prices, including GOw2's, are on <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'De cijfers' if nl else 'The figures' }}</h2>
+{% set f1 = 'Bedrag (USD miljoen)' if nl else 'Amount (USD million)' %}{% set f2 = '2025' %}{% set f3 = '2024' %}
+<table class="tbl stack tx"><thead><tr><th>{{ f1 }}</th><th>{{ f2 }}</th><th>{{ f3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ f1 }}"><b>Omzet (geconsolideerd)</b></td><td data-l="{{ f2 }}">832</td><td data-l="{{ f3 }}">735</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>EBITDA</b></td><td data-l="{{ f2 }}">633</td><td data-l="{{ f3 }}">604</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Winst voor belasting</b></td><td data-l="{{ f2 }}">444</td><td data-l="{{ f3 }}">430</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Winst na belasting</b></td><td data-l="{{ f2 }}">297</td><td data-l="{{ f3 }}">291</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Afdracht aan de staat</b> (belasting, dividend, goudroyalty's)</td><td data-l="{{ f2 }}">400</td><td data-l="{{ f3 }}">384</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Dividend betaald</b></td><td data-l="{{ f2 }}">120</td><td data-l="{{ f3 }}">109</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Lokale inkopen Staatsolie</b></td><td data-l="{{ f2 }}">107</td><td data-l="{{ f3 }}">-</td></tr>
+{% else %}
+ <tr><td data-l="{{ f1 }}"><b>Revenue (consolidated)</b></td><td data-l="{{ f2 }}">832</td><td data-l="{{ f3 }}">735</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>EBITDA</b></td><td data-l="{{ f2 }}">633</td><td data-l="{{ f3 }}">604</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Profit before tax</b></td><td data-l="{{ f2 }}">444</td><td data-l="{{ f3 }}">430</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Profit after tax</b></td><td data-l="{{ f2 }}">297</td><td data-l="{{ f3 }}">291</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Paid to the state</b> (tax, dividend, gold royalties)</td><td data-l="{{ f2 }}">400</td><td data-l="{{ f3 }}">384</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Dividend paid</b></td><td data-l="{{ f2 }}">120</td><td data-l="{{ f3 }}">109</td></tr>
+ <tr><td data-l="{{ f1 }}"><b>Local purchasing by Staatsolie</b></td><td data-l="{{ f2 }}">107</td><td data-l="{{ f3 }}">-</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>De afdracht van USD 400 miljoen is ongeveer 8% van het bbp en 30% van alle overheidsinkomsten. Daarin zit ook USD 26 miljoen aan goudroyalty's die Newmont en Zijin namens Staatsolie aan de staat betalen. Hoe de staat in de toekomst met olie-inkomsten omgaat: <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>.</p>
+{% else %}
+<p>The USD 400 million contribution is about 8% of GDP and 30% of all government revenue. It includes USD 26 million in gold royalties that Newmont and Zijin pay to the state on Staatsolie's behalf. How the state plans to handle future oil revenue: <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'GranMorgu: de 20% en hoe die betaald wordt' if nl else 'GranMorgu: the 20% and how it is paid for' }}</h2>
+{% if nl %}
+<p>Bij elke offshore ontwikkeling mag Staatsolie tot 20% deelnemen. Voor GranMorgu in Blok 58 heeft het dat gedaan via de dochter Staatsolie Offshore 1, vanaf 30 september 2024. De partners zijn TotalEnergies (operator, 40%) en APA Corporation (40%). Op een totale investering van ongeveer USD 12 miljard (de raming in 2026; bij het investeringsbesluit in 2024 was het USD 10,5 miljard) is het aandeel van Staatsolie circa USD 2,4 miljard. Dat betaalt Staatsolie met:</p>
+<ul>
+ <li>de <b>obligatie 2025-2033</b>, die USD 515,8 miljoen opbracht, ruim USD 211 miljoen meer dan het doel van USD 304,1 miljoen;</li>
+ <li>een <b>gesyndiceerde lening van USD 1,6 miljard</b> van 18 banken en financiële instellingen;</li>
+ <li><b>eigen kasreserves</b> en de kasstroom uit de bestaande bedrijven.</li>
+</ul>
+{% else %}
+<p>Staatsolie may take up to 20% of every offshore development. For GranMorgu in Block 58 it did so through its subsidiary Staatsolie Offshore 1, effective 30 September 2024. The partners are TotalEnergies (operator, 40%) and APA Corporation (40%). Of a total investment of about USD 12 billion (the 2026 estimate; at the 2024 investment decision it was USD 10.5 billion), Staatsolie's share is about USD 2.4 billion. Staatsolie pays for it with:</p>
+<ul>
+ <li>the <b>2025-2033 bond</b>, which raised USD 515.8 million, more than USD 211 million above its USD 304.1 million target;</li>
+ <li>a <b>USD 1.6 billion syndicated loan</b> from 18 banks and financial institutions;</li>
+ <li><b>its own cash reserves</b> and cash flow from the existing businesses.</li>
+</ul>
+{% endif %}
+{% set p1 = 'Jaar' if nl else 'Year' %}{% set p2 = 'Bestaande bedrijven' if nl else 'Existing business' %}{% set p3 = 'GranMorgu' %}{% set p4 = 'Totaal' if nl else 'Total' %}
+<table class="tbl stack tx"><thead><tr><th>{{ p1 }}</th><th>{{ p2 }}</th><th>{{ p3 }}</th><th>{{ p4 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ p1 }}"><b>2025</b></td><td data-l="{{ p2 }}">99</td><td data-l="{{ p3 }}">499</td><td data-l="{{ p4 }}">598</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>2026</b></td><td data-l="{{ p2 }}">92</td><td data-l="{{ p3 }}">437</td><td data-l="{{ p4 }}">529</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>2027</b></td><td data-l="{{ p2 }}">138</td><td data-l="{{ p3 }}">591</td><td data-l="{{ p4 }}">729</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>2028</b></td><td data-l="{{ p2 }}">167</td><td data-l="{{ p3 }}">482</td><td data-l="{{ p4 }}">649</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>2029</b></td><td data-l="{{ p2 }}">137</td><td data-l="{{ p3 }}">200</td><td data-l="{{ p4 }}">337</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>2030-2034</b></td><td data-l="{{ p2 }}">499</td><td data-l="{{ p3 }}">20</td><td data-l="{{ p4 }}">519</td></tr>
+ <tr><td data-l="{{ p1 }}"><b>{{ 'Totaal' if nl else 'Total' }}</b></td><td data-l="{{ p2 }}">{{ '1.132' if nl else '1,132' }}</td><td data-l="{{ p3 }}">{{ '2.229' if nl else '2,229' }}</td><td data-l="{{ p4 }}">{{ '3.361' if nl else '3,361' }}</td></tr>
+</tbody></table>
+<p class="sub">{{ 'Investeringsprogramma Staatsolie, in USD miljoen (jaarverslag 2025).' if nl else 'Staatsolie investment programme, in USD million (2025 annual report).' }}</p>
+{% if nl %}
+<p>De volgende stap is de gasontwikkeling rond het Sloanea-veld in <b>Blok 52</b>, waar Petronas operator is. Staatsolie werkt een financieringsstrategie uit voor zijn aandeel en verwachtte een investeringsbesluit in 2026, met mogelijk eerste gas in 2030. Meer over het project en de blokken: <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a> en <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</p>
+{% else %}
+<p>The next step is the gas development around the Sloanea field in <b>Block 52</b>, operated by Petronas. Staatsolie is framing a financing strategy for its share and expected an investment decision in 2026, with possible first gas in 2030. More on the project and the blocks: <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a> and <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Aandelen en obligaties' if nl else 'Shares and bonds' }}</h2>
+{% if nl %}
+<h3>Aandelen: niet te koop</h3>
+<p>Alle aandelen van Staatsolie zijn in handen van de Staat Suriname. Er is geen beursnotering van aandelen en particulieren kunnen geen aandeel kopen. Berichten over "Staatsolie-aandelen" gaan meestal over de obligaties, of over plannen om burgers mee te laten delen in olie-inkomsten, wat iets anders is (zie <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>).</p>
+<h3>De obligatie 2025-2033</h3>
+<p>Een obligatie is een lening aan Staatsolie: je krijgt een vaste rente en aan het eind je inleg terug. Op 23 maart 2025 gaf Staatsolie zijn vierde obligatie uit. De inschrijving liep in februari 2025 via de DSB (arrangeur) en vrijwel alle Surinaamse banken, en in Curaçao via enkele banken en makelaars. Die inschrijving is gesloten, maar de obligaties worden verhandeld.</p>
+{% else %}
+<h3>Shares: not for sale</h3>
+<p>All Staatsolie shares are held by the State of Suriname. The shares are not listed and individuals cannot buy them. Reports about "Staatsolie shares" are usually about the bonds, or about plans to let citizens share in oil revenue, which is something else (see <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>).</p>
+<h3>The 2025-2033 bond</h3>
+<p>A bond is a loan to Staatsolie: you receive fixed interest and your money back at the end. On 23 March 2025 Staatsolie issued its fourth bond. Subscription ran in February 2025 through DSB (arranger) and almost all Surinamese banks, and in Curaçao through a few banks and brokers. Subscription has closed, but the bonds trade.</p>
+{% endif %}
+{% set b1 = 'Kenmerk' if nl else 'Feature' %}{% set b2 = 'Obligatie 2025-2033' if nl else '2025-2033 bond' %}
+<table class="tbl stack tx"><thead><tr><th>{{ b1 }}</th><th>{{ b2 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ b1 }}"><b>Opgehaald</b></td><td data-l="{{ b2 }}">USD 468,7 miljoen en EUR 43,5 miljoen, samen USD 515,8 miljoen</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Rente</b></td><td data-l="{{ b2 }}">7,75% per jaar (USD), 7,25% per jaar (EUR), vast</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Rentebetaling</b></td><td data-l="{{ b2 }}">Twee keer per jaar, in maart en september</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Looptijd</b></td><td data-l="{{ b2 }}">8 jaar, aflossing op 23 maart 2033</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Klassen</b></td><td data-l="{{ b2 }}">A1 vanaf USD 100 en A2 vanaf EUR 100 (ingezetenen van Suriname met een lokale rekening); B vanaf USD 30.000 (ingezetenen van Suriname, Curaçao of Sint Maarten)</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Notering</b></td><td data-l="{{ b2 }}">Suriname Stock Exchange en Dutch Caribbean Securities Exchange</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Kopen of verkopen</b></td><td data-l="{{ b2 }}">Via een effectenmakelaar: klasse A via de DSB of een makelaar van de Suriname Stock Exchange, alleen voor ingezetenen met een USD- of EUR-rekening; klasse B ook internationaal via DCSX-makelaars. DSB: effecten@dsb.sr, 471100</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Bewaarloon</b></td><td data-l="{{ b2 }}">DSB rekent 0,15% per jaar over de nominale waarde plus 10% btw, minimaal 1 en maximaal 300 (USD of EUR)</td></tr>
+{% else %}
+ <tr><td data-l="{{ b1 }}"><b>Raised</b></td><td data-l="{{ b2 }}">USD 468.7 million and EUR 43.5 million, together USD 515.8 million</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Interest</b></td><td data-l="{{ b2 }}">7.75% a year (USD), 7.25% a year (EUR), fixed</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Interest payments</b></td><td data-l="{{ b2 }}">Twice a year, in March and September</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Term</b></td><td data-l="{{ b2 }}">8 years, repaid on 23 March 2033</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Classes</b></td><td data-l="{{ b2 }}">A1 from USD 100 and A2 from EUR 100 (Suriname residents with a local account); B from USD 30,000 (residents of Suriname, Curaçao or Sint Maarten)</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Listing</b></td><td data-l="{{ b2 }}">Suriname Stock Exchange and Dutch Caribbean Securities Exchange</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Buying or selling</b></td><td data-l="{{ b2 }}">Through a securities broker: class A through DSB or a Suriname Stock Exchange broker, only for residents with a USD or EUR account; class B also internationally through DCSX brokers. DSB: effecten@dsb.sr, 471100</td></tr>
+ <tr><td data-l="{{ b1 }}"><b>Custody fee</b></td><td data-l="{{ b2 }}">DSB charges 0.15% a year of the nominal value plus 10% VAT, minimum 1 and maximum 300 (USD or EUR)</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p><b>Eerdere obligaties.</b> In 2020 gaf Staatsolie zijn eerste internationaal genoteerde obligatie uit. De obligaties 2020-2025 en 2020-2027 waren samen USD 195 miljoen; meer dan 70% van de houders ruilde in 2025 om naar de nieuwe obligatie. De serie 2020-2025 is in september 2025 afgelost; houders van circa USD 55 miljoen bleven in hun oude obligaties.</p>
+<p><b>Nieuwe uitgifte?</b> Op 26 oktober 2026 was er geen nieuwe obligatie aangekondigd. Staatsolie schrijft dat het voor zijn deelname in Blok 52 een financieringsstrategie uitwerkt en dezelfde aanpak wil blijven volgen; een nieuwe uitgifte is dus denkbaar, maar niet bevestigd. Een aankondiging gaat via Staatsolie en de banken.</p>
+<p><b>Risico.</b> Dit is geen beleggingsadvies. De koers van een genoteerde obligatie kan stijgen of dalen, je kunt niet altijd direct verkopen, en je loopt het risico dat de uitgever zijn verplichtingen niet nakomt. Spreid je geld en lees het prospectus.</p>
+{% else %}
+<p><b>Earlier bonds.</b> In 2020 Staatsolie issued its first internationally listed bond. The 2020-2025 and 2020-2027 bonds totalled USD 195 million; more than 70% of holders exchanged into the new bond in 2025. The 2020-2025 series was repaid in September 2025; holders of about USD 55 million kept their old bonds.</p>
+<p><b>A new issue?</b> On 26 October 2026 no new bond had been announced. Staatsolie writes that it is framing a financing strategy for its participation in Block 52 and intends to keep the same approach, so a new issue is conceivable but not confirmed. Any announcement comes through Staatsolie and the banks.</p>
+<p><b>Risk.</b> This is not investment advice. The price of a listed bond can rise or fall, you cannot always sell straight away, and you carry the risk that the issuer does not meet its obligations. Spread your money and read the prospectus.</p>
+{% endif %}
+
+<h2>{{ 'Zakendoen met Staatsolie' if nl else 'Doing business with Staatsolie' }}</h2>
+{% if nl %}
+<p>Staatsolie kocht in 2025 voor USD 107 miljoen lokaal in; de offshore-partners en hun onderaannemers nog eens circa USD 260 miljoen. Zo kom je ertussen:</p>
+<ol class="steps">
+ <li><b>Bedrijf op orde.</b> KKF-inschrijving, belastingnummer, btw waar nodig, vergunningen en een sluitende administratie.</li>
+ <li><b>Registreer in SAP Ariba</b> om aan Staatsolie zelf te leveren, en in de <b>SSRP</b> voor de offshore-operators en hun contractors.</li>
+ <li><b>Lees de regels</b>: de algemene inkoopvoorwaarden (juli 2024), de gedragscode en de factuurinstructies. Leveranciers horen bij de "extended enterprise" en moeten de gedragscode volgen.</li>
+ <li><b>Volg de uitnodigingen.</b> Staatsolie zet uitnodigingen tot belangstelling (EOI's) op zijn website, vaak met maar twee weken reactietijd. Wij verzamelen ze bij <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Reageer volledig</b>: met het jobnummer, bedrijfsprofiel, KKF-uittreksel, referenties en gevraagde certificaten. Daarna volgen een shortlist en een offerteaanvraag.</li>
+</ol>
+<p>Staatsolie startte in 2025 een project om de inkoop te vereenvoudigen en het aantal inkooporders te verminderen. Wil je je bedrijf klaarstomen voor de sector, dan is het <b>Blue Wave</b>-programma de route: in 2025 studeerden 57 Surinaamse bedrijven af, in totaal zijn er 115 getraind. Alles over registratie, EOI's en local content staat in <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>Staatsolie bought USD 107 million locally in 2025; the offshore partners and their subcontractors about another USD 260 million. How to get in:</p>
+<ol class="steps">
+ <li><b>Get your company in order.</b> KKF registration, tax number, VAT where needed, licences and sound books.</li>
+ <li><b>Register in SAP Ariba</b> to supply Staatsolie itself, and in the <b>SSRP</b> for the offshore operators and their contractors.</li>
+ <li><b>Read the rules</b>: the general procurement terms (July 2024), the code of conduct and the invoicing instructions. Suppliers are part of the "extended enterprise" and must follow the code.</li>
+ <li><b>Watch the invitations.</b> Staatsolie posts expressions of interest (EOIs) on its website, often with only two weeks to respond. We collect them under <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Respond completely</b>: with the job number, company profile, KKF extract, references and any certificates asked. A shortlist and a request for proposal follow.</li>
+</ol>
+<p>In 2025 Staatsolie started a project to simplify purchasing and cut the number of purchase orders. To prepare your company for the sector, the <b>Blue Wave</b> programme is the route: 57 Surinamese companies graduated in 2025, 115 have been trained in total. Everything on registration, EOIs and local content is in <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Werken bij Staatsolie' if nl else 'Working at Staatsolie' }}</h2>
+{% if nl %}
+<p>Staatsolie neemt sollicitaties alleen aan via de online vacaturedatabase op staatsolie.com; met een account krijg je meldingen van nieuwe vacatures. De werving bestaat uit een voorselectie, gesprekken, een assessment en een medische keuring. Het salaris wordt tijdens de werving besproken. Stages (drie tot zes maanden) vraag je aan via Stage@staatsolie.com; vakantiewerk loopt via scholen die Staatsolie uitkiest. In 2025 plaatste Staatsolie 134 vakantiewerkers en 87 NATIN-stagiairs. Alles over banen in de hele sector: <a href="{{ U('oiljobs') }}">{{ L('oiljobs') }}</a>.</p>
+{% else %}
+<p>Staatsolie only accepts applications through the online job database on staatsolie.com; with an account you get alerts for new vacancies. Recruitment consists of screening, interviews, an assessment and a medical. Salary is discussed during recruitment. Internships (three to six months) are requested at Stage@staatsolie.com; holiday jobs run through schools Staatsolie selects. In 2025 Staatsolie placed 134 holiday workers and 87 NATIN interns. Everything on jobs across the sector: <a href="{{ U('oiljobs') }}">{{ L('oiljobs') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Contact' if nl else 'Contact' }}</h2>
+{% set a1 = 'Locatie' if nl else 'Location' %}{% set a2 = 'Adres' if nl else 'Address' %}{% set a3 = 'Telefoon' if nl else 'Phone' %}
+<table class="tbl stack tx"><thead><tr><th>{{ a1 }}</th><th>{{ a2 }}</th><th>{{ a3 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ a1 }}"><b>{{ 'Hoofdkantoor' if nl else 'Head office' }}</b></td><td data-l="{{ a2 }}">Dr. Ir. H.S. Adhinstraat 21, Paramaribo (PO Box 4069)</td><td data-l="{{ a3 }}">+597 499649, info@staatsolie.com</td></tr>
+ <tr><td data-l="{{ a1 }}"><b>{{ 'Raffinaderij Tout Lui Faut' if nl else 'Tout Lui Faut refinery' }}</b></td><td data-l="{{ a2 }}">Sir Winston Churchillweg 309, Wanica</td><td data-l="{{ a3 }}">+597 480501</td></tr>
+ <tr><td data-l="{{ a1 }}"><b>{{ 'Productie Saramacca' if nl else 'Saramacca operations' }}</b></td><td data-l="{{ a2 }}">Gangaram Pandayweg km 5,5, Saramacca</td><td data-l="{{ a3 }}">+597 375222</td></tr>
+ <tr><td data-l="{{ a1 }}"><b>GOw2 Energy Suriname</b></td><td data-l="{{ a2 }}">Van 't Hogerhuysstraat 27A, Paramaribo</td><td data-l="{{ a3 }}">+597 403111, {{ 'klantenservice toestel 1 of' if nl else 'customer service ext. 1 or' }} 890 9234</td></tr>
+ <tr><td data-l="{{ a1 }}"><b>Staatsolie Power Company Suriname</b></td><td data-l="{{ a2 }}">Sir Winston Churchillweg 309D, Wanica</td><td data-l="{{ a3 }}">+597 485163</td></tr>
+</tbody></table>
+<p class="sub">{{ 'Het contactformulier van Staatsolie is niet voor sollicitaties; die worden daar niet behandeld.' if nl else "Staatsolie's contact form is not for job applications; they are not processed there." }}</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.staatsolie.com/media/jyijfnix/staatsolie-annual-report-2025-web.pdf" rel="noopener">{{ 'Staatsolie: jaarverslag 2025 (cijfers, dochters, investeringsprogramma, obligaties)' if nl else 'Staatsolie: Annual Report 2025 (figures, subsidiaries, investment programme, bonds)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-2025-financial-statements-approved-strong-results-and-us-400-million-contribution-to-the-state-treasury/" rel="noopener">{{ 'Staatsolie: jaarrekening 2025 goedgekeurd, USD 400 miljoen aan de staat (15 mei 2026)' if nl else 'Staatsolie: 2025 financial statements approved, USD 400 million to the state (15 May 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf" rel="noopener">{{ 'Staatsolie: duurzaamheidsverslag 2025' if nl else 'Staatsolie: Sustainability Report 2025' }}</a></li>
+ <li><a href="https://www.staatsolie.com/nl/nieuws/staatsolie-haalt-us-211-7-miljoen-meer-op-dan-gestreefd-met-uitgifte-nieuwe-obligatie/" rel="noopener">{{ 'Staatsolie: obligatie haalt USD 211,7 miljoen meer op dan beoogd (maart 2025)' if nl else 'Staatsolie: bond raises USD 211.7 million above target (March 2025)' }}</a></li>
+ <li><a href="http://staatsolieobligatie.com/" rel="noopener">{{ 'Staatsolie Obligatie 2025: klassen, rente, handel en bewaarloon' if nl else 'Staatsolie Bond 2025: classes, interest, trading and custody fee' }}</a></li>
+ <li><a href="https://www.ogj.com/refining-processing/article/17249792/suriname-commissions-newly-expanded-refinery" rel="noopener">{{ 'Oil &amp; Gas Journal: raffinaderij uitgebreid naar 15.000 vaten per dag (januari 2016)' if nl else 'Oil &amp; Gas Journal: refinery expanded to 15,000 barrels a day (January 2016)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/contact" rel="noopener">{{ 'Staatsolie: contact' if nl else 'Staatsolie: contact' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/faqs-career" rel="noopener">{{ 'Staatsolie: veelgestelde vragen over werken bij Staatsolie' if nl else 'Staatsolie: careers FAQ' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/procurement-opportunities/" rel="noopener">{{ "Staatsolie: inkoopkansen (EOI's)" if nl else 'Staatsolie: procurement opportunities (EOIs)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/local-content" rel="noopener">{{ 'Staatsolie: local content, SSRP en Ariba' if nl else 'Staatsolie: local content, SSRP and Ariba' }}</a></li>
+ <li><a href="https://www.gfcnieuws.com/staatsolie-als-agent-van-de-staat-macht-zonder-tegenmacht/" rel="noopener">{{ 'GFC Nieuws: opiniestuk over de dubbele rol van Staatsolie (26 oktober 2026)' if nl else "GFC Nieuws: opinion piece on Staatsolie's dual role (26 October 2026)" }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen beleggingsadvies. Cijfers komen uit het jaarverslag 2025 van Staatsolie.' if nl else 'General information, not investment advice. Figures are from the Staatsolie 2025 annual report.' }}</p>
+</div>
+{% endblock %}

@@ -1,44 +1,142 @@
 {% extends "base.html" %}
 {% set nl = lang == 'nl' %}
 {% set G = F.GRANMORGU %}
+{% set C = mkt.comm %}
+{% set FG = fuel.gow2 if fuel else none %}
+{% set EOI = tenders['items']|selectattr('source', 'equalto', 'Staatsolie')|list %}
 {% block content %}
-<h1>{{ 'Olie en gas in Suriname: GranMorgu' if nl else 'Oil and gas in Suriname: GranMorgu' }}</h1>
-<p class="lead">{{ 'GranMorgu is het eerste offshore olieproject van Suriname. De investering is circa USD 10,5 miljard; de eerste olie wordt verwacht in 2028.' if nl else 'GranMorgu is Suriname\'s first offshore oil development. The investment is about USD 10.5 billion; first oil is expected in 2028.' }}</p>
-<div class="grid g4" style="margin:18px 0">
- <div class="card"><div class="eyebrow">{{ 'Investering' if nl else 'Investment' }}</div><div class="big">USD {{ num(G.investment_bn_usd,1) }} {{ 'mld' if nl else 'bn' }}</div></div>
- <div class="card"><div class="eyebrow">{{ 'Productie' if nl else 'Capacity' }}</div><div class="big tnum">{{ num(G.capacity_bpd,0) }}</div><div class="sub">{{ 'vaten per dag' if nl else 'barrels per day' }}</div></div>
- <div class="card"><div class="eyebrow">{{ 'Eerste olie' if nl else 'First oil' }}</div><div class="big">{{ G.first_oil }}</div></div>
- <div class="card"><div class="eyebrow">{{ 'Lokale inhoud' if nl else 'Local content' }}</div><div class="big">USD {{ G.local_content_usd_bn }}+ {{ 'mld' if nl else 'bn' }}</div><div class="sub">{{ num(G.jobs,0) }}+ {{ 'banen' if nl else 'jobs' }}</div></div>
+{#- Maintainers: hub of the oil and gas cluster (site_config.OIL_KEYS). Figures come from facts.GRANMORGU,
+    facts.OIL_MILESTONES (review monthly), the live Brent price (commodities.json), the GOw2 pump price (fuel.json),
+    Staatsolie EOIs (tenders.json) and the oil headlines (news.json). Text checked 26 Oct 2026. -#}
+<div class="prose">
+<h1>{{ 'Olie en gas in Suriname: de sector voor ondernemers' if nl else 'Oil and gas in Suriname: the sector for business' }}</h1>
+{% if nl %}
+<p class="lead">Suriname wordt olieland. Staatsolie produceert al veertig jaar op land, maar met het GranMorgu-project in Blok 58 komt vanaf {{ G.first_oil_label[0] }} de eerste olie van zee, tot {{ num(G.capacity_bpd, 0) }} vaten per dag. Petronas bereidt gas in Blok 52 voor en een rij oliemaatschappijen zoekt verder. Voor Surinaamse bedrijven zit de kans niet in de olie zelf, maar in alles wat de sector nodig heeft: leveren, personeel, diensten en de economie die met het oliegeld verandert. Op deze pagina vind je de stand van zaken en de weg naar elke gids.</p>
+{% else %}
+<p class="lead">Suriname is becoming an oil producer. Staatsolie has produced onshore for forty years, but with the GranMorgu project in Block 58 the first offshore oil arrives from {{ G.first_oil_label[1] }}, up to {{ num(G.capacity_bpd, 0) }} barrels a day. Petronas is preparing gas in Block 52 and a row of oil companies is still exploring. For Surinamese businesses the opportunity is not the oil itself but everything the sector needs: supplies, people, services and an economy that changes with the oil money. This page gives the state of play and the way into every guide.</p>
+{% endif %}
 </div>
+<div class="grid g4" style="margin:18px 0">
+ <div class="card"><div class="eyebrow">GranMorgu</div><div class="big">{{ G.progress_pct }}%</div><div class="sub">{{ 'gereed, minister OGM' if nl else 'complete, OGM minister' }}, {{ date(G.progress_date, year=False) }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste olie' if nl else 'First oil' }}</div><div class="big">{{ G.first_oil }}</div><div class="sub">{{ G.first_oil_label[0] if nl else G.first_oil_label[1] }}, {{ num(G.capacity_bpd, 0) }} {{ 'vaten/dag' if nl else 'barrels/day' }}</div></div>
+ {% if C and C.brent %}<div class="card"><div class="eyebrow">Brent</div><div class="big tnum">USD {{ num(C.brent.price) }}</div><div class="sub">{{ 'per vat, live' if nl else 'per barrel, live' }} &middot; <a href="{{ U('gold') }}">{{ 'verloop' if nl else 'chart' }}</a></div></div>{% endif %}
+ {% if FG %}<div class="card"><div class="eyebrow">{{ 'Diesel aan de pomp' if nl else 'Diesel at the pump' }}</div><div class="big tnum">{{ srd(FG.diesel, 2) }}</div><div class="sub">{{ 'per liter, unleaded' if nl else 'per litre, unleaded' }} {{ srd(FG.unleaded, 2) }} &middot; <a href="{{ U('fuel') }}">{{ 'meer' if nl else 'more' }}</a></div></div>{% endif %}
+</div>
+
 <div class="cols">
 <div class="prose">
-<h2>{{ 'De feiten' if nl else 'Key facts' }}</h2>
-<table class="tbl"><tbody>
- <tr><td>{{ 'Gebied' if nl else 'Area' }}</td><td>{{ G.block }}, {{ 'circa' if nl else 'about' }} {{ G.distance_km }} km {{ 'uit de kust' if nl else 'offshore' }}</td></tr>
- <tr><td>{{ 'Velden' if nl else 'Fields' }}</td><td>{{ G.fields }}</td></tr>
- <tr><td>{{ 'Winbare reserves' if nl else 'Recoverable reserves' }}</td><td>{{ 'meer dan' if nl else 'more than' }} {{ G.reserves_mbbl }} {{ 'miljoen vaten' if nl else 'million barrels' }}</td></tr>
- <tr><td>{{ 'Investeringsbesluit (FID)' if nl else 'Final investment decision' }}</td><td>{{ date(G.fid) }}</td></tr>
- <tr><td>{{ 'Partners' if nl else 'Partners' }}</td><td>{% for n, s in G.shares %}{{ n }} {{ s }}%{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
- <tr><td>{{ 'Voortgang eind 2025' if nl else 'Progress end of 2025' }}</td><td>{{ 'circa' if nl else 'about' }} {{ G.progress_end_2025 }}%</td></tr>
- <tr><td>{{ 'Productie-installatie' if nl else 'Production unit' }}</td><td>{{ 'Volledig elektrisch FPSO, zonder routinematig affakkelen' if nl else 'All-electric FPSO, no routine flaring' }}</td></tr>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>GranMorgu</b> (Blok 58): TotalEnergies 40% (operator), APA 40%, Staatsolie 20%. Investering USD {{ num(G.investment_bn_usd, 1) }} miljard bij het besluit in 2024; in 2026 noemen bronnen USD 12 tot {{ num(G.cost_latest_bn_usd, 1) }} miljard. Productieboringen vanaf {{ G.drilling_start }}.</li>
+ <li><b>Blok 52</b>: Petronas heeft het Sloanea-gasveld commercieel verklaard en werkt aan een drijvende LNG-installatie; eerste gas op zijn vroegst in 2030.</li>
+ <li><b>Lokaal besteed</b> in 2025: USD {{ G.staatsolie_local_2025_musd + G.partners_local_2025_musd }} miljoen door de hele sector, {{ G.new_suppliers_2025 }} nieuwe leveranciers geregistreerd.</li>
+ <li><b>Regels</b>: nog geen Local Content-wet (gepland voor DNA in 2027). De Petroleumwet en de contracten met de oliemaatschappijen bepalen nu de lokale inkoop en het lokale personeel.</li>
+ <li><b>Oliegeld</b>: het Spaar- en Stabilisatiefonds moet vóór 2028 werken. Het IMF verwacht rond 2028 een groeisprong van ongeveer 30%.</li>
+{% else %}
+ <li><b>GranMorgu</b> (Block 58): TotalEnergies 40% (operator), APA 40%, Staatsolie 20%. Investment USD {{ num(G.investment_bn_usd, 1) }} billion at the 2024 decision; in 2026 sources cite USD 12 to {{ num(G.cost_latest_bn_usd, 1) }} billion. Production drilling from {{ G.drilling_start }}.</li>
+ <li><b>Block 52</b>: Petronas has declared the Sloanea gas field commercial and is working on a floating LNG plant; first gas in 2030 at the earliest.</li>
+ <li><b>Spent locally</b> in 2025: USD {{ G.staatsolie_local_2025_musd + G.partners_local_2025_musd }} million by the whole sector, with {{ G.new_suppliers_2025 }} new suppliers registered.</li>
+ <li><b>Rules</b>: no Local Content Act yet (planned for parliament in 2027). The Petroleum Act and the contracts with the oil companies govern local purchasing and local staff for now.</li>
+ <li><b>Oil money</b>: the Savings and Stabilisation Fund is to be working before 2028. The IMF expects a growth jump of about 30% around 2028.</li>
+{% endif %}
+</ul></div>
+</div>
+<aside class="card"><div class="eyebrow">{{ 'Open uitvragen Staatsolie' if nl else 'Open Staatsolie requests' }}</div><ul class="list">
+{% for t in EOI[:6] %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta">{% if t.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}</span>{% endif %}</div></li>
+{% else %}<li class="empty">{{ 'Op dit moment geen open uitvragen.' if nl else 'No open requests at the moment.' }}</li>{% endfor %}
+</ul><p style="margin:10px 0 0"><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></p></aside>
+</div>
+
+<section class="tool-group">
+<h2>{{ 'Alles over olie en gas op Suriname Business' if nl else 'Everything on oil and gas at Suriname Business' }}</h2>
+{% set cluster = [
+  ('granmorgu', 'Het project, de aannemers, de planning en wat er per fase wordt ingekocht', 'The project, contractors, timeline and what is bought in each phase'),
+  ('oilblocks', 'Alle blokken, operators, vondsten, Blok 52 gas en het Open-Door aanbod', 'Every block, operator and find, Block 52 gas and the Open-Door Offering'),
+  ('supplier', 'Registreren in SSRP en Ariba, local content en EOI\'s winnen', 'Registering in SSRP and Ariba, local content and winning EOIs'),
+  ('supplierready', 'Test in tien minuten of je bedrijf klaar is voor de sector', 'Check in ten minutes whether your business is ready for the sector'),
+  ('eoiletter', 'Maak een complete EOI-brief voor Staatsolie of een aannemer', 'Draft a complete EOI letter for Staatsolie or a contractor'),
+  ('oiljobs', 'Functies, certificaten, opleidingen en waar de vacatures staan', 'Roles, certificates, training and where the vacancies are'),
+  ('staatsolie', 'Wat het staatsbedrijf doet, cijfers, obligaties en zakendoen', 'What the state company does, figures, bonds and doing business'),
+  ('oillaw', 'Petroleumwet, contracten, belasting, milieu en local content', 'Petroleum Act, contracts, tax, environment and local content'),
+  ('oilmoney', 'Wat de olie-inkomsten veranderen voor koers, lonen en klanten', 'What oil revenue changes for the exchange rate, wages and customers'),
+  ('fuel', 'Benzine en diesel per liter, de price cap en een rekentool', 'Petrol and diesel per litre, the price cap and a calculator'),
+  ('oilglossary', 'Meer dan honderd begrippen van FPSO tot profit oil', 'Over a hundred terms from FPSO to profit oil'),
+  ('tenders', 'Open uitvragen van Staatsolie, de overheid en donoren', 'Open requests from Staatsolie, government and donors'),
+] %}
+<div class="tindex">{% for k, snl, sen in cluster if k in page_keys %}<a class="tool ti" href="{{ U(k) }}">{{ kicon(k) }}<b>{{ L(k) }}</b><span>{{ snl if nl else sen }}</span></a>{% endfor %}</div>
+</section>
+
+<div class="cols">
+<div class="prose">
+<h2>{{ 'Waar de sector staat' if nl else 'Where the sector stands' }}</h2>
+{% set c1 = 'Onderdeel' if nl else 'Part' %}{% set c2 = 'Stand oktober 2026' if nl else 'Status October 2026' %}{% set c3 = 'Voor ondernemers' if nl else 'For business' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Productie op land</b></td><td data-l="{{ c2 }}">Staatsolie, Saramacca: 6,35 miljoen vaten in 2025 (ongeveer 17.400 per dag), raffinaderij in Tout Lui Faut, eigen stroomcentrales</td><td data-l="{{ c3 }}">Doorlopende inkoop via Ariba en EOI's: onderhoud, transport, bouw, diensten</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>GranMorgu, Blok 58</b></td><td data-l="{{ c2 }}">In uitvoering, {{ G.progress_pct }}% gereed, boringen vanaf {{ G.drilling_start }}, eerste olie {{ G.first_oil_label[0] }}</td><td data-l="{{ c3 }}">Havens, opslag, maritieme diensten, catering, personeel; daarna twintig jaar onderhoud en bevoorrading</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Blok 52, gas</b></td><td data-l="{{ c2 }}">Sloanea commercieel verklaard (november 2025); ontwikkelplan en investeringsbesluit in voorbereiding</td><td data-l="{{ c3 }}">Tweede grote project, als het besluit valt: bouwfase rond 2027 tot 2030</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploratie</b></td><td data-l="{{ c2 }}">Chevron, Petronas, TotalEnergies, Shell, QatarEnergy en PetroChina in ondiep en diep water; nieuwe putten in Blok 58 in 2027 en 2028</td><td data-l="{{ c3 }}">Korte, intensieve campagnes: logistiek, supply, seismiek, catering</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Open-Door aanbod</b></td><td data-l="{{ c2 }}">Vijf voorstellen sinds juni 2026; venster Sector 1 sluit 21 december 2026</td><td data-l="{{ c3 }}">Meer operators betekent meer kopers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local content</b></td><td data-l="{{ c2 }}">Geen wet; Local Content Board werkt aan een ontwerp voor DNA in 2027</td><td data-l="{{ c3 }}">Leg nu vast dat je bedrijf Surinaams is: eigendom, personeel, waar de waarde ontstaat</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Oliegeld</b></td><td data-l="{{ c2 }}">Spaar- en Stabilisatiefonds bij wet opgericht, nog niet operationeel; wet wordt opnieuw aangepast</td><td data-l="{{ c3 }}">Reken met een sterkere economie, duurdere arbeid en huur, en koersrisico</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Onshore production</b></td><td data-l="{{ c2 }}">Staatsolie, Saramacca: 6.35 million barrels in 2025 (about 17,400 a day), refinery at Tout Lui Faut, own power plants</td><td data-l="{{ c3 }}">Ongoing purchasing through Ariba and EOIs: maintenance, transport, construction, services</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>GranMorgu, Block 58</b></td><td data-l="{{ c2 }}">In execution, {{ G.progress_pct }}% complete, drilling from {{ G.drilling_start }}, first oil {{ G.first_oil_label[1] }}</td><td data-l="{{ c3 }}">Ports, storage, marine services, catering, staff; then twenty years of maintenance and supply</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Block 52, gas</b></td><td data-l="{{ c2 }}">Sloanea declared commercial (November 2025); development plan and investment decision in preparation</td><td data-l="{{ c3 }}">A second large project if the decision is taken: construction around 2027 to 2030</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploration</b></td><td data-l="{{ c2 }}">Chevron, Petronas, TotalEnergies, Shell, QatarEnergy and PetroChina in shallow and deep water; new wells in Block 58 in 2027 and 2028</td><td data-l="{{ c3 }}">Short, intense campaigns: logistics, supply, seismic, catering</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Open-Door Offering</b></td><td data-l="{{ c2 }}">Five proposals since June 2026; Sector 1 window closes 21 December 2026</td><td data-l="{{ c3 }}">More operators means more buyers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local content</b></td><td data-l="{{ c2 }}">No law yet; the Local Content Board is drafting a bill for parliament in 2027</td><td data-l="{{ c3 }}">Document now that your business is Surinamese: ownership, staff, where the value is added</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Oil money</b></td><td data-l="{{ c2 }}">Savings and Stabilisation Fund set up by law, not yet operational; the law is being amended again</td><td data-l="{{ c3 }}">Plan for a stronger economy, dearer labour and rent, and exchange-rate risk</td></tr>
+{% endif %}
 </tbody></table>
-<h2>{{ 'Kansen voor lokale bedrijven' if nl else 'Opportunities for local companies' }}</h2>
-<p>{{ 'In 2025 besteedde Staatsolie USD' if nl else 'In 2025 Staatsolie spent USD' }} {{ G.staatsolie_local_2025_musd }} {{ 'miljoen bij lokale leveranciers en de offshore partners nog eens circa USD' if nl else 'million with local suppliers and the offshore partners about another USD' }} {{ G.partners_local_2025_musd }} {{ 'miljoen. Er registreerden zich' if nl else 'million. A total of' }} {{ G.new_suppliers_2025 }} {{ 'nieuwe leveranciers in het portaal.' if nl else 'new suppliers registered in the portal.' }}</p>
-<p><a href="{{ U('supplier') }}"><b>{{ 'Zo word je leverancier in olie en gas' if nl else 'How to become an oil and gas supplier' }} &rarr;</b></a></p>
-<h2>{{ 'Open Staatsolie tenders' if nl else 'Open Staatsolie tenders' }}</h2>
-<ul class="list">
-{% for t in tenders['items'] if t.source == 'Staatsolie' %}{% if loop.index <= 10 %}<li><a href="{{ t.url }}" rel="noopener nofollow" target="_blank">{{ t.title }}</a><div class="meta">{% if t.deadline %}<span class="pill gold">{{ 'Sluit' if nl else 'Closes' }} {{ date(t.deadline) }}</span>{% endif %}</div></li>{% endif %}
-{% else %}<li class="empty">{{ 'Geen open tenders gevonden.' if nl else 'No open tenders found.' }}</li>{% endfor %}
-</ul>
-<p><a href="{{ U('tenders') }}">{{ 'Alle aanbestedingen' if nl else 'All tenders' }} &rarr;</a></p>
-<p>{{ 'Meer achtergrond: ' if nl else 'More background: ' }}<a href="https://exploresuriname.com/suriname-oil-blocks.html" rel="noopener">{{ 'olieblokken' if nl else 'oil blocks' }}</a> &middot; <a href="https://exploresuriname.com/suriname-oil-timeline.html" rel="noopener">{{ 'tijdlijn' if nl else 'timeline' }}</a> {{ 'op Explore Suriname' if nl else 'on Explore Suriname' }}</p>
+
+<h2>{{ 'Kansen per type bedrijf' if nl else 'Opportunities by type of business' }}</h2>
+{% set c1 = 'Bedrijf' if nl else 'Business' %}{% set c2 = 'Wat de sector koopt' if nl else 'What the sector buys' %}{% set c3 = 'Drempel' if nl else 'Hurdle' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Logistiek, haven en douane</b></td><td data-l="{{ c2 }}">Opslag, laden en lossen, inklaring, transport van materiaal naar de kade</td><td data-l="{{ c3 }}">Veiligheidssysteem, verzekering, ervaring met projectlading</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Maritiem</b></td><td data-l="{{ c2 }}">Bevoorradingsschepen, bemanningsvervoer, sleepdiensten, scheepsonderhoud</td><td data-l="{{ c3 }}">Schepen en bemanning volgens internationale normen (STCW)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Catering en facilitair</b></td><td data-l="{{ c2 }}">Maaltijden voor bases en schepen, schoonmaak, wasserij, kampen</td><td data-l="{{ c3 }}">Voedselveiligheid (ISO 22000 of HACCP), audit door de operator</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Techniek en werkplaats</b></td><td data-l="{{ c2 }}">Lassen, constructie, onderhoud van pompen en motoren, elektra</td><td data-l="{{ c3 }}">Gecertificeerde lassers, gekalibreerd gereedschap, kwaliteitssysteem</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Inspectie en testen</b></td><td data-l="{{ c2 }}">NDT, keuring van hijsmiddelen, kalibratie, laboratorium</td><td data-l="{{ c3 }}">Internationale certificering van personeel (ISO 9712)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Afval en milieu</b></td><td data-l="{{ c2 }}">Olieachtig afval, chemisch afval, milieumetingen, studies</td><td data-l="{{ c3 }}">Vergunningen van de NMA, verwerking volgens de regels</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Beveiliging en vervoer</b></td><td data-l="{{ c2 }}">Bewaking van bases, personenvervoer, wagenpark</td><td data-l="{{ c3 }}">Gescreend personeel, verkeersveiligheid, rijtijden</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Zakelijke diensten</b></td><td data-l="{{ c2 }}">Juridisch, belasting, boekhouding, HR, vertaling, ICT, uitzendwerk</td><td data-l="{{ c3 }}">Kennis van de sector en van internationale klanten</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Wonen en verblijf</b></td><td data-l="{{ c2 }}">Hotels, appartementen voor buitenlandse specialisten, vergaderruimte</td><td data-l="{{ c3 }}">Kwaliteit, beveiliging, langlopende contracten</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Opleiding</b></td><td data-l="{{ c2 }}">Veiligheidstrainingen, vaktraining, Engels, rijopleiding</td><td data-l="{{ c3 }}">Erkenning (bijvoorbeeld OPITO) en ervaren trainers</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Logistics, port and customs</b></td><td data-l="{{ c2 }}">Storage, loading and unloading, clearance, moving material to the quay</td><td data-l="{{ c3 }}">Safety system, insurance, experience with project cargo</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Marine</b></td><td data-l="{{ c2 }}">Supply vessels, crew transfer, towage, ship maintenance</td><td data-l="{{ c3 }}">Vessels and crews to international standards (STCW)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Catering and facilities</b></td><td data-l="{{ c2 }}">Meals for bases and vessels, cleaning, laundry, camps</td><td data-l="{{ c3 }}">Food safety (ISO 22000 or HACCP), audit by the operator</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Engineering and workshops</b></td><td data-l="{{ c2 }}">Welding, fabrication, maintenance of pumps and engines, electrical work</td><td data-l="{{ c3 }}">Certified welders, calibrated tools, a quality system</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Inspection and testing</b></td><td data-l="{{ c2 }}">NDT, lifting equipment inspection, calibration, laboratory</td><td data-l="{{ c3 }}">International certification of staff (ISO 9712)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Waste and environment</b></td><td data-l="{{ c2 }}">Oily waste, chemical waste, environmental monitoring, studies</td><td data-l="{{ c3 }}">NMA permits, treatment by the rules</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Security and transport</b></td><td data-l="{{ c2 }}">Guarding bases, staff transport, fleets</td><td data-l="{{ c3 }}">Screened staff, road safety, driving hours</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Professional services</b></td><td data-l="{{ c2 }}">Legal, tax, accounting, HR, translation, IT, temporary staff</td><td data-l="{{ c3 }}">Knowledge of the sector and of international clients</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Housing and stays</b></td><td data-l="{{ c2 }}">Hotels, apartments for foreign specialists, meeting rooms</td><td data-l="{{ c3 }}">Quality, security, long-term contracts</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Training</b></td><td data-l="{{ c2 }}">Safety training, trade training, English, driving courses</td><td data-l="{{ c3 }}">Accreditation (for example OPITO) and experienced trainers</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Begin bij' if nl else 'Start with' }} <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>{% if 'supplierready' in page_keys %} {{ 'en doe de' if nl else 'and take the' }} <a href="{{ U('supplierready') }}">{{ L('supplierready') }}</a>{% endif %}.</p>
+
+<h2>{{ 'Data om in de gaten te houden' if nl else 'Dates to watch' }}</h2>
+{% set c1 = 'Wanneer' if nl else 'When' %}{% set c2 = 'Wat' if nl else 'What' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th></tr></thead><tbody>
+{% for wen_, wnl_, tnl, ten in F.OIL_MILESTONES %}<tr><td data-l="{{ c1 }}"><b>{{ wnl_ if nl else wen_ }}</b></td><td data-l="{{ c2 }}">{{ tnl if nl else ten }}</td></tr>{% endfor %}
+</tbody></table>
+
 <h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
-<ul>{% for name, url in G.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}</ul>
-<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date(F.CHECKED) }}.</p>
+<ul>{% for name, url in G.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-approves-commercial-field-for-sloanea-1-gas-discovery-in-block-52/" rel="noopener">{{ 'Staatsolie: Sloanea-1 commercieel veld, Blok 52' if nl else 'Staatsolie: Sloanea-1 commercial field, Block 52' }}</a></li>
+ <li><a href="https://ocean-energyresources.com/2026/09/23/staatsolie-receives-fifth-offshore-proposal/" rel="noopener">{{ 'Ocean Energy Resources: vijfde Open-Door voorstel (23 september 2026)' if nl else 'Ocean Energy Resources: fifth Open-Door proposal (23 September 2026)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2026/10/05/simons-wil-olie-inkomsten-inzetten-voor-wonen-en-zorg-expats-mogen-burgers-niet-verdringen/" rel="noopener">{{ 'Waterkant: president over het Spaar- en Stabilisatiefonds (5 oktober 2026)' if nl else 'Waterkant: President on the Savings and Stabilisation Fund (5 October 2026)' }}</a></li>
+ <li><a href="https://www.elibrary.imf.org/view/journals/002/2026/037/article-A001-en.xml" rel="noopener">{{ 'IMF: Suriname Article IV 2025 (februari 2026)' if nl else 'IMF: Suriname 2025 Article IV (February 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Brent, pompprijs, uitvragen en nieuws worden elke 30 minuten bijgewerkt.' if nl else 'Brent, the pump price, requests and news update every 30 minutes.' }}</p>
 </div>
 <aside class="card"><div class="eyebrow">{{ 'Energienieuws' if nl else 'Energy news' }}</div><ul class="list">
-{% for n in news.oil[:10] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
+{% for n in news.oil[:12] %}<li><a href="{{ n.url }}" rel="noopener nofollow" target="_blank">{{ n.title }}</a><div class="meta"><span>{{ n.source }}</span><span>{{ ago(n.published) }}</span></div></li>
 {% else %}<li class="empty">{{ 'Geen recente koppen.' if nl else 'No recent headlines.' }}</li>{% endfor %}
-</ul></aside>
+</ul><p style="margin:10px 0 0"><a href="{{ U('news') }}">{{ L('news') }} &rarr;</a></p></aside>
 </div>
 {% endblock %}

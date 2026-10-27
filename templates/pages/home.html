@@ -28,6 +28,7 @@
    {% else %}
    <a class="tp-row" href="{{ U('rates') }}"><span>{{ 'Wisselkoers' if nl else 'Exchange rate' }}</span><b>&rarr;</b></a>
    {% endif %}
+   {% if fuel and fuel.gow2 %}<a class="tp-row" href="{{ U('fuel') }}"><span>{{ 'Diesel / benzine per liter' if nl else 'Diesel / petrol per litre' }}</span><b>{{ num(fuel.gow2.diesel) }} / {{ num(fuel.gow2.unleaded) }}</b></a>{% endif %}
    <a class="tp-row" href="{{ U('jobs') }}"><span>{{ 'Open vacatures' if nl else 'Open jobs' }}</span><b>{{ jobs['items']|length }}</b></a>
    <a class="tp-row" href="{{ U('tenders') }}"><span>{{ 'Open aanbestedingen' if nl else 'Open tenders' }}</span><b>{{ tenders.count }}</b></a>
    {% if hol.next %}<a class="tp-row" href="{{ U('holidays') }}"><span>{{ 'Vrije dag' if nl else 'Next holiday' }}</span><b class="tp-txt">{{ hol.next.name }}, {{ date(hol.next.date, year=False) }}{% if hol.next.status == 'expected' %} <span class="sub">({{ 'verwacht' if nl else 'expected' }})</span>{% endif %}</b></a>{% endif %}
@@ -111,7 +112,8 @@
   <ul class="ilinks">
    <li><a href="{{ '/bedrijven/' if nl else '/en/companies/' }}">{{ 'Bedrijvengids' if nl else 'Business directory' }}<span class="cnt">{{ co.count }}</span></a></li>
    <li><a href="{{ U('addbiz') }}">{{ 'Je bedrijf aanmelden, gratis' if nl else 'Add your business, free' }}</a></li>
-   <li><a href="{{ U('oilgas') }}">{{ 'Olie en gas: GranMorgu' if nl else 'Oil and gas: GranMorgu' }}</a></li>
+   <li><a href="{{ U('oilgas') }}">{{ 'Olie en gas: GranMorgu, kansen en banen' if nl else 'Oil and gas: GranMorgu, opportunities and jobs' }}</a></li>
+   <li><a href="{{ U('fuel') }}">{{ L('fuel') }}</a></li>
    <li><a href="{{ U('maxprices') }}">{{ L('maxprices') }}</a></li>
    <li><a href="{{ U('douane') }}">{{ L('douane') }}</a></li>
   </ul>

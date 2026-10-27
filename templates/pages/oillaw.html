@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every January and whenever (1) the Local Content bill reaches DNA (dna.sr "Ingediende wetten"),
+    (2) the SSFS law is amended again (sris.sr, gov.sr), (3) Staatsolie publishes new bid-round or Open Door terms,
+    (4) a Petroleum Act amendment or a new Algemene Douanewet appears in the Staatsblad, (5) EITI Suriname publishes a new report.
+    Bump the asof date when you do. Block 58 PSC terms are confidential (art. 12 Petroleum Act): never present model terms as Block 58 terms. -#}
+<div class="prose">
+<h1>{{ 'Olie en gas in Suriname: wetten, contracten en toezicht' if nl else 'Oil and gas law in Suriname: contracts, tax and oversight' }}</h1>
+{% if nl %}
+<p class="lead">Alle olie en gas in Suriname is van de staat. De rechten om te zoeken en te winnen liggen bij staatsbedrijf Staatsolie, dat internationale oliemaatschappijen binnenhaalt met een productiedelingscontract (PSC). De spelregels staan in de Petroleumwet 1990, die in 2001 en 2022 is gewijzigd. Een aparte Local Content-wet is er nog niet: de regering wil die in 2027 bij De Nationale Assemblée indienen. Hieronder lees je wie wat regelt, hoe de olie wordt verdeeld, welke belasting- en douanefaciliteiten gelden en wat jij als toeleverancier moet regelen.</p>
+{% else %}
+<p class="lead">All oil and gas in Suriname belongs to the state. The rights to explore and produce are held by the state company Staatsolie, which brings in international oil companies through a production sharing contract (PSC). The rules are in the Petroleum Act 1990, amended in 2001 and 2022. There is no separate Local Content Act yet: the government plans to submit one to the National Assembly in 2027. Below: who does what, how the oil is shared, which tax and customs facilities apply and what you need to arrange as a supplier.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Royalty offshore' if nl else 'Offshore royalty' }}</div><div class="big">{{ '6,25%' if nl else '6.25%' }}</div><div class="sub">{{ 'van de bruto productie, standaardvoorwaarden Staatsolie' if nl else 'of gross production, Staatsolie standard terms' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Inkomstenbelasting contractor' if nl else 'Contractor income tax' }}</div><div class="big">36%</div><div class="sub">{{ 'vast voor de looptijd van het contract' if nl else 'fixed for the term of the contract' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Deelname Staatsolie' if nl else 'Staatsolie participation' }}</div><div class="big">{{ 'tot 20%' if nl else 'up to 20%' }}</div><div class="sub">{{ 'in ontwikkeling en productie' if nl else 'in development and production' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>De basis is de <b>Petroleumwet 1990</b> (S.B. 1991 no. 7), gewijzigd bij S.B. 2001 no. 58 en S.B. 2022 no. 152. Voor de rest geldt het <b>Decreet Mijnbouw</b> van 1986.</li>
+ <li>Alleen een <b>staatsonderneming</b> krijgt rechten op koolwaterstoffen. Staatsolie sluit met goedkeuring van de minister en de regering petroleumovereenkomsten met buitenlandse bedrijven, de "contractors".</li>
+ <li>In de standaardvoorwaarden van Staatsolie gaat eerst <b>6,25% royalty</b> af, dan maximaal <b>80%</b> van de rest als kostenterugwinning, en de winstolie wordt verdeeld volgens een glijdende schaal. De contractor betaalt <b>36% inkomstenbelasting</b>. De voorwaarden van Blok 58 (GranMorgu) zelf zijn vertrouwelijk.</li>
+ <li>Contractors en gespecialiseerde <b>subcontractors</b> krijgen vrijstelling van invoerrechten op materieel voor olie- en gaswerk. Bewaking, schoonmaak en vergelijkbare diensten vallen daar niet onder.</li>
+ <li>Een contractor moet <b>kantoor houden in Paramaribo</b>, buitenlands personeel beperken tot functies waarvoor geen gekwalificeerde Surinamers zijn en <b>lokale goederen en diensten voorrang geven</b> als die niet ongunstiger zijn.</li>
+ <li>Toezicht: het nieuwe <b>ministerie van Olie, Gas en Milieu (OGM)</b> maakt beleid en wetten, de <b>NMA</b> beoordeelt milieueffecten (offshore boren is altijd categorie A), Staatsolie bewaakt de contracten.</li>
+ <li>Olie-inkomsten moeten naar het <b>Spaar- en Stabilisatiefonds (SSFS)</b>. Die wet uit 2017 wordt opnieuw gewijzigd; het fonds moet werken vóór het eerste oliegeld binnenkomt.</li>
+{% else %}
+ <li>The basis is the <b>Petroleum Act 1990</b> (S.B. 1991 no. 7), amended by S.B. 2001 no. 58 and S.B. 2022 no. 152. Everything not covered there falls under the 1986 <b>Mining Decree</b>.</li>
+ <li>Only a <b>state company</b> can hold hydrocarbon rights. Staatsolie, with the approval of the minister and the government, signs petroleum agreements with foreign companies, the "contractors".</li>
+ <li>Under Staatsolie's standard terms, <b>6.25% royalty</b> comes off first, then at most <b>80%</b> of the rest goes to cost recovery, and the profit oil is split on a sliding scale. The contractor pays <b>36% income tax</b>. The terms of Block 58 (GranMorgu) itself are confidential.</li>
+ <li>Contractors and specialist <b>subcontractors</b> are exempt from import duty on equipment for oil and gas work. Security, cleaning and similar services are not covered.</li>
+ <li>A contractor must <b>keep an office in Paramaribo</b>, limit foreign staff to jobs for which no qualified Surinamese are available, and <b>give preference to local goods and services</b> when they are not on less favourable terms.</li>
+ <li>Oversight: the new <b>Ministry of Oil, Gas and Environment (OGM)</b> makes policy and laws, the <b>NMA</b> assesses environmental impact (offshore drilling is always category A), and Staatsolie polices the contracts.</li>
+ <li>Oil revenue is to go to the <b>Savings and Stabilisation Fund (SSFS)</b>. That 2017 law is being amended again; the fund has to work before the first oil money comes in.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wie regelt wat' if nl else 'Who does what' }}</h2>
+{% set c1 = 'Instantie' if nl else 'Body' %}{% set c2 = 'Rol' if nl else 'Role' %}{% set c3 = 'Je hebt ermee te maken als' if nl else 'You deal with it when' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Ministerie van Olie, Gas en Milieu (OGM)</b></td><td data-l="{{ c2 }}">Nationaal olie- en gasbeleid, wetgeving, de nationale petroleumdatabase, het Nationaal Oil Spill Response Plan, advies over PSC's, local content-beleid, ondersteuning van de NMA. Ingesteld in juli 2025, taken vastgelegd in S.B. 2025 no. 124.</td><td data-l="{{ c3 }}">je wilt weten welke regels eraan komen of je reageert op beleid</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie Maatschappij Suriname N.V.</b></td><td data-l="{{ c2 }}">Houder van alle rechten op koolwaterstoffen, sluit en bewaakt de PSC's, keurt ontwikkelingsplannen goed, mag tot 20% meedoen in een olieveld, beheert het leveranciersportaal</td><td data-l="{{ c3 }}">je levert aan een operator of aan Staatsolie zelf</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Nationale Milieu Autoriteit (NMA)</b></td><td data-l="{{ c2 }}">Beoordeelt milieueffectenanalyses (MEA) onder de Milieu Raamwet en adviseert de vergunningverlener</td><td data-l="{{ c3 }}">je werk een MEA of milieumanagementplan nodig heeft</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Maritieme Autoriteit Suriname (MAS)</b></td><td data-l="{{ c2 }}">Scheepvaartveiligheid, havenbeveiliging, toezicht op schepen in Surinaamse wateren, meldpunt bij olielekkage</td><td data-l="{{ c3 }}">je met schepen, havens of offshore logistiek werkt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ministerie van Financiën en Planning, Belastingdienst en Douane</b></td><td data-l="{{ c2 }}">Inkomstenbelasting, btw, loonbelasting, invoerrechten en de vrijstellingen uit de Petroleumwet; beheer van de olie-inkomsten in het SSFS</td><td data-l="{{ c3 }}">je goederen invoert, factureert of personeel hebt</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ministerie van Arbeid (VWA) en Vreemdelingenzaken</b></td><td data-l="{{ c2 }}">Tewerkstellingsvergunningen voor buitenlandse specialisten</td><td data-l="{{ c3 }}">je buitenlandse mensen laat werken</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local Content Board</b></td><td data-l="{{ c2 }}">Schrijft het voorontwerp van de Local Content-wet en adviseert over een Local Content Authority</td><td data-l="{{ c3 }}">je wilt meepraten over de definitie van "Surinaams bedrijf"</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EITI Suriname</b></td><td data-l="{{ c2 }}">Publiceert wat olie- en mijnbouwbedrijven aan de staat betalen</td><td data-l="{{ c3 }}">je de geldstromen in de sector wilt volgen</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Ministry of Oil, Gas and Environment (OGM)</b></td><td data-l="{{ c2 }}">National oil and gas policy, legislation, the national petroleum database, the National Oil Spill Response Plan, advice on PSCs, local content policy, support to the NMA. Created in July 2025, tasks set in S.B. 2025 no. 124.</td><td data-l="{{ c3 }}">you want to know which rules are coming or you respond to policy</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie Maatschappij Suriname N.V.</b></td><td data-l="{{ c2 }}">Holder of all hydrocarbon rights, signs and polices the PSCs, approves development plans, may take up to 20% in a field, runs the supplier portal</td><td data-l="{{ c3 }}">you supply an operator or Staatsolie itself</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>National Environmental Authority (NMA)</b></td><td data-l="{{ c2 }}">Reviews environmental and social impact assessments (ESIA) under the Environmental Framework Act and advises the permitting authority</td><td data-l="{{ c3 }}">your work needs an ESIA or environmental management plan</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Maritime Authority Suriname (MAS)</b></td><td data-l="{{ c2 }}">Shipping safety, port security, oversight of vessels in Surinamese waters, notification point for oil spills</td><td data-l="{{ c3 }}">you work with vessels, ports or offshore logistics</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ministry of Finance and Planning, Tax Administration and Customs</b></td><td data-l="{{ c2 }}">Income tax, VAT, wage tax, import duty and the Petroleum Act exemptions; management of oil revenue in the SSFS</td><td data-l="{{ c3 }}">you import goods, invoice or employ staff</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Ministry of Labour (VWA) and Immigration</b></td><td data-l="{{ c2 }}">Work permits for foreign specialists</td><td data-l="{{ c3 }}">you bring in foreign staff</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Local Content Board</b></td><td data-l="{{ c2 }}">Writes the preliminary draft of the Local Content Act and advises on a Local Content Authority</td><td data-l="{{ c3 }}">you want a say in how a "Surinamese company" is defined</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>EITI Suriname</b></td><td data-l="{{ c2 }}">Publishes what oil and mining companies pay the state</td><td data-l="{{ c3 }}">you want to follow the money in the sector</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'De wetten op een rij' if nl else 'The laws at a glance' }}</h2>
+{% set w1 = 'Regeling' if nl else 'Instrument' %}{% set w2 = 'Wat het regelt' if nl else 'What it covers' %}{% set w3 = 'Stand oktober 2026' if nl else 'Status October 2026' %}
+<table class="tbl stack tx"><thead><tr><th>{{ w1 }}</th><th>{{ w2 }}</th><th>{{ w3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ w1 }}"><b>Decreet Mijnbouw</b> (E-58, S.B. 1986 no. 28)</td><td data-l="{{ w2 }}">Delfstoffen zijn van de staat; algemene regels voor rechten, toezicht en oppervlakterecht</td><td data-l="{{ w3 }}">Van kracht; voor olie en gas gaat de Petroleumwet voor</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Petroleumwet 1990</b> (S.B. 1991 no. 7)</td><td data-l="{{ w2 }}">Petroleumovereenkomsten, belastingen en deviezen, local content (art. 17), kantoorplicht (art. 19)</td><td data-l="{{ w3 }}">Van kracht</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Wijziging Petroleumwet</b> (S.B. 2001 no. 58)</td><td data-l="{{ w2 }}">Subcontractors krijgen dezelfde rechten en plichten als de contractor (art. 27a), fiscale stabilisatie (art. 9 lid 8)</td><td data-l="{{ w3 }}">Van kracht</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Staatsbesluit garantie contractors</b> (S.B. 2018 no. 52)</td><td data-l="{{ w2 }}">Garantie van de staat aan contractors, onder meer stabilisatie van hun fiscale positie</td><td data-l="{{ w3 }}">Van kracht; in 2022 wettelijk verankerd</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Wijziging Petroleumwet</b> (S.B. 2022 no. 152)</td><td data-l="{{ w2 }}">Vrijstelling van omzetbelasting, dividendbelasting en zegelrecht voor contractors en contractorpartijen (art. 9 lid 9)</td><td data-l="{{ w3 }}">Van kracht sinds 31 december 2022</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Milieu Raamwet</b> (S.B. 2020 no. 97, gewijzigd bij S.B. 2024 no. 56)</td><td data-l="{{ w2 }}">Milieubeleid, NMA, milieueffectenanalyse</td><td data-l="{{ w3 }}">Van kracht; een volgende wijziging ligt bij DNA</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Besluit Milieu Effecten Analyse</b> (S.B. 2025 no. 23)</td><td data-l="{{ w2 }}">Welke projecten welke MEA nodig hebben (categorie A, B, C)</td><td data-l="{{ w3 }}">Van kracht sinds februari 2025</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Besluit Taakomschrijving Departementen 2025</b> (S.B. 2025 no. 124)</td><td data-l="{{ w2 }}">Taken van het ministerie van Olie, Gas en Milieu</td><td data-l="{{ w3 }}">Van kracht, terugwerkend tot 16 juli 2025</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Wet Spaar- en Stabilisatiefonds Suriname</b> (S.B. 2017 no. 59)</td><td data-l="{{ w2 }}">Fonds voor inkomsten uit natuurlijke hulpbronnen</td><td data-l="{{ w3 }}">Gewijzigd in 2024; nieuwe wijziging aangekondigd, fonds nog niet operationeel</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Ontwerpwet Local Content-HSEQ</b> (initiatiefvoorstel)</td><td data-l="{{ w2 }}">Toezicht op local content en op gezondheid, veiligheid, milieu en kwaliteit in de grondstoffensector</td><td data-l="{{ w3 }}">Ingediend bij DNA op 4 februari 2025, niet in behandeling genomen</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Local Content-wet</b> (regering)</td><td data-l="{{ w2 }}">Definitie van lokaal bedrijf, verplichtingen voor operators, een Local Content Authority</td><td data-l="{{ w3 }}">Voorontwerp klaar; indiening bij DNA gepland in 2027</td></tr>
+{% else %}
+ <tr><td data-l="{{ w1 }}"><b>Mining Decree</b> (E-58, S.B. 1986 no. 28)</td><td data-l="{{ w2 }}">Minerals belong to the state; general rules on rights, inspection and surface rent</td><td data-l="{{ w3 }}">In force; for oil and gas the Petroleum Act takes precedence</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Petroleum Act 1990</b> (S.B. 1991 no. 7)</td><td data-l="{{ w2 }}">Petroleum agreements, taxes and foreign exchange, local content (art. 17), office requirement (art. 19)</td><td data-l="{{ w3 }}">In force</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Petroleum Act amendment</b> (S.B. 2001 no. 58)</td><td data-l="{{ w2 }}">Subcontractors get the same rights and duties as the contractor (art. 27a), fiscal stabilisation (art. 9(8))</td><td data-l="{{ w3 }}">In force</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>State decree on contractor guarantees</b> (S.B. 2018 no. 52)</td><td data-l="{{ w2 }}">State guarantee to contractors, including stabilisation of their tax position</td><td data-l="{{ w3 }}">In force; given a statutory basis in 2022</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Petroleum Act amendment</b> (S.B. 2022 no. 152)</td><td data-l="{{ w2 }}">Exemption from turnover tax, dividend tax and stamp duty for contractors and contractor parties (art. 9(9))</td><td data-l="{{ w3 }}">In force since 31 December 2022</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Environmental Framework Act</b> (S.B. 2020 no. 97, amended by S.B. 2024 no. 56)</td><td data-l="{{ w2 }}">Environmental policy, the NMA, impact assessment</td><td data-l="{{ w3 }}">In force; a further amendment is before parliament</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Environmental Impact Assessment Decree</b> (S.B. 2025 no. 23)</td><td data-l="{{ w2 }}">Which projects need which assessment (category A, B, C)</td><td data-l="{{ w3 }}">In force since February 2025</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Ministries Tasks Decree 2025</b> (S.B. 2025 no. 124)</td><td data-l="{{ w2 }}">Tasks of the Ministry of Oil, Gas and Environment</td><td data-l="{{ w3 }}">In force, retroactive to 16 July 2025</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Savings and Stabilisation Fund Act</b> (S.B. 2017 no. 59)</td><td data-l="{{ w2 }}">Fund for natural resource revenue</td><td data-l="{{ w3 }}">Amended in 2024; a new amendment announced, fund not yet operational</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Local Content-HSEQ bill</b> (private member's bill)</td><td data-l="{{ w2 }}">Supervision of local content and of health, safety, environment and quality in the resource sector</td><td data-l="{{ w3 }}">Submitted to parliament on 4 February 2025, not taken up</td></tr>
+ <tr><td data-l="{{ w1 }}"><b>Local Content Act</b> (government)</td><td data-l="{{ w2 }}">Definition of a local company, obligations for operators, a Local Content Authority</td><td data-l="{{ w3 }}">Preliminary draft ready; submission to parliament planned for 2027</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Hoe de rechten werken' if nl else 'How the rights work' }}</h2>
+{% if nl %}
+<p>Het Decreet Mijnbouw maakt alle delfstoffen in de bodem en de exclusieve economische zone eigendom van de staat. Voor olie en gas bepaalt de Petroleumwet dat rechten alleen naar een <b>staatsonderneming</b> gaan: een bedrijf waarin de staat de zeggenschap heeft en dat zich vooral bezighoudt met olie en gas. Dat is Staatsolie, opgericht in 1980. Staatsolie mag zelf produceren (zoals op land in Saramacca) of met een buitenlands bedrijf een <b>petroleumovereenkomst</b> sluiten. Voor elke overeenkomst is goedkeuring van de minister nodig, en de minister keurt alleen goed met toestemming van de regering (art. 5).</p>
+<p>Wat elke overeenkomst volgens de wet moet regelen:</p>
+<ul>
+ <li><b>Blokken.</b> Contractgebieden worden zoveel mogelijk omschreven als genummerde blokken op een kaart van de staat (art. 20). Delen van het gebied moeten periodiek worden teruggegeven (art. 21).</li>
+ <li><b>Ontwikkelingsplan.</b> Voor elk veld komt een ontwikkelingsplan dat Staatsolie goedkeurt voordat het werk begint (art. 23). Loopt een veld over twee contractgebieden heen, dan wordt het als één geheel ontwikkeld (art. 24).</li>
+ <li><b>Gas.</b> Geassocieerd gas mag worden gebruikt voor de productie zelf. Wordt er winbaar gas gevonden, dan moeten Staatsolie en de contractor een aanvullende overeenkomst sluiten; lukt dat niet binnen de afgesproken tijd, dan verliest de contractor dat gas (art. 25).</li>
+ <li><b>Binnenlandse behoefte.</b> Elke overeenkomst regelt hoe de binnenlandse vraag naar petroleum wordt bediend (art. 26). Verder mag de contractor zijn olie exporteren (art. 27).</li>
+ <li><b>Toezicht en geheimhouding.</b> De accountants van Staatsolie mogen altijd de boeken en het werk van de contractor inspecteren (art. 14). Technische, financiële en economische gegevens zijn vertrouwelijk (art. 12). Daarom zijn de contracten zelf meestal niet openbaar.</li>
+ <li><b>Overdracht.</b> Een contractor mag zijn rechten alleen overdragen zoals de overeenkomst dat toestaat (art. 16). Transacties met gelieerde bedrijven moeten tegen marktprijzen (art. 18).</li>
+</ul>
+<p>Nieuwe blokken gaan via biedrondes of, sinds november 2025, via de doorlopende Open Door-procedure van Staatsolie, waarin een bedrijf zelf een gebied kan voorstellen. Welke blokken bij wie liggen, lees je op <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</p>
+{% else %}
+<p>The Mining Decree makes all minerals in the ground and in the exclusive economic zone the property of the state. For oil and gas the Petroleum Act provides that rights only go to a <b>state company</b>: a company controlled by the state whose main business is oil and gas. That is Staatsolie, founded in 1980. Staatsolie can produce itself (as it does onshore in Saramacca) or sign a <b>petroleum agreement</b> with a foreign company. Every agreement needs the minister's approval, and the minister only approves with the consent of the government (art. 5).</p>
+<p>What each agreement must cover by law:</p>
+<ul>
+ <li><b>Blocks.</b> Contract areas are defined as far as possible as numbered blocks on a state reference map (art. 20). Parts of the area must be relinquished periodically (art. 21).</li>
+ <li><b>Development plan.</b> Each field gets a development plan that Staatsolie approves before work starts (art. 23). If a field crosses two contract areas, it is developed as one unit (art. 24).</li>
+ <li><b>Gas.</b> Associated gas may be used for production itself. If recoverable gas is found, Staatsolie and the contractor must agree a supplementary contract; if they fail within the agreed time, the contractor loses that gas (art. 25).</li>
+ <li><b>Domestic needs.</b> Each agreement settles how domestic demand for petroleum is served (art. 26). Otherwise the contractor may export its oil (art. 27).</li>
+ <li><b>Audit and confidentiality.</b> Staatsolie's auditors may inspect the contractor's books and work at any time (art. 14). Technical, financial and economic data are confidential (art. 12). That is why the contracts themselves are usually not public.</li>
+ <li><b>Transfer.</b> A contractor may only transfer its rights as the agreement allows (art. 16). Deals with affiliated companies must be at market prices (art. 18).</li>
+</ul>
+<p>New blocks are awarded in bid rounds or, since November 2025, through Staatsolie's rolling Open Door process, in which a company can propose an area itself. Which blocks are held by whom: <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Het productiedelingscontract: hoe de olie wordt verdeeld' if nl else 'The production sharing contract: how the oil is shared' }}</h2>
+{% if nl %}
+<p>Suriname werkt niet met concessies waarbij een bedrijf alles bezit en belasting betaalt, maar met een <b>productiedelingscontract (PSC)</b>. De contractor draagt het risico en de kosten van het zoeken. Vindt hij niets, dan krijgt hij niets terug. Vindt hij olie, dan wordt de productie in stappen verdeeld. Staatsolie publiceerde de vaste voorwaarden voor de Demerara-biedronde 2022-2023; die volgen het model-PSC. Zo ziet de verdeling eruit:</p>
+<ol class="steps">
+ <li><b>Royalty: 6,25%</b> van de bruto productie offshore gaat eerst naar de staatskant, ongeacht kosten of winst.</li>
+ <li><b>Kostenolie: maximaal 80%</b> van wat er na de royalty overblijft mag de contractor per kalenderjaar gebruiken om zijn kosten voor exploratie, ontwikkeling en productie terug te verdienen. Wat niet past, schuift door naar het volgende jaar.</li>
+ <li><b>Winstolie:</b> de rest wordt verdeeld tussen Staatsolie en de contractor volgens de <b>R-factor</b>: de verhouding tussen wat de contractor tot dan toe heeft ontvangen en wat hij heeft uitgegeven. Hoe winstgevender het veld, hoe groter het deel van Staatsolie.</li>
+ <li><b>Inkomstenbelasting: 36%</b> over de winst van de contractor, vast voor de hele looptijd van het contract.</li>
+ <li><b>Deelname Staatsolie:</b> tijdens exploratie wordt Staatsolie "gedragen" (de partners betalen), daarna mag Staatsolie per commercieel veld voor maximaal 20% meedoen en betaalt dan ook 20% van de kosten.</li>
+</ol>
+{% else %}
+<p>Suriname does not use concessions in which a company owns everything and pays tax, but a <b>production sharing contract (PSC)</b>. The contractor bears the risk and cost of exploration. If it finds nothing, it gets nothing back. If it finds oil, production is shared in steps. Staatsolie published the fixed terms for its Demerara Bid Round 2022-2023, which follow the model PSC. This is how the split works:</p>
+<ol class="steps">
+ <li><b>Royalty: 6.25%</b> of gross offshore production goes to the state side first, regardless of cost or profit.</li>
+ <li><b>Cost oil: at most 80%</b> of what remains after royalty may be used by the contractor each calendar year to recover its exploration, development and production costs. Anything that does not fit is carried forward to the next year.</li>
+ <li><b>Profit oil:</b> the rest is split between Staatsolie and the contractor according to the <b>R-factor</b>: the ratio between what the contractor has received so far and what it has spent. The more profitable the field, the larger Staatsolie's share.</li>
+ <li><b>Income tax: 36%</b> on the contractor's profit, fixed for the whole term of the contract.</li>
+ <li><b>Staatsolie participation:</b> during exploration Staatsolie is "carried" (the partners pay); after that Staatsolie may take up to 20% in each commercial field and then also pays 20% of the costs.</li>
+</ol>
+{% endif %}
+{% set r1 = 'R-factor' %}{% set r2 = 'Deel Staatsolie' if nl else 'Staatsolie share' %}{% set r3 = 'Deel contractor' if nl else 'Contractor share' %}
+<table class="tbl stack tx"><thead><tr><th>{{ r1 }}</th><th>{{ r2 }}</th><th>{{ r3 }}</th></tr></thead><tbody>
+{% for a, b, c in [('0 - 1,25' if nl else '0 - 1.25', '20%', '80%'), ('1,25 - 1,50' if nl else '1.25 - 1.50', '25%', '75%'), ('1,50 - 1,75' if nl else '1.50 - 1.75', '30%', '70%'), ('1,75 - 2', '40%', '60%'), ('2 - 3', '50%', '50%'), ('> 3', '70%', '30%')] %}
+ <tr><td data-l="{{ r1 }}">{{ a }}</td><td data-l="{{ r2 }}">{{ b }}</td><td data-l="{{ r3 }}">{{ c }}</td></tr>
+{% endfor %}
+</tbody></table>
+{% if nl %}
+<p class="meta">Winstolieverdeling volgens artikel 14.7 van het model-PSC, Demerara-biedronde 2022-2023 (Staatsolie).</p>
+<p><b>Let op: dit zijn standaardvoorwaarden, niet die van GranMorgu.</b> Het PSC voor Blok 58 werd in juni 2015 getekend met Apache (nu APA, partner van operator TotalEnergies). De precieze voorwaarden zijn vertrouwelijk. Oudere contracten wijken af: het openbaar gemaakte PSC van Kosmos voor Blok 42 (2011) gaf Staatsolie een deelnamerecht van maximaal 10% en een andere verdeling. Voor 2014 noemde Staatsolie bovendien geen tekenbonus; in de Demerara-ronde kon een bieder er een bieden voor extra punten.</p>
+<p><b>Ringfencing.</b> In juli 2026 debatteerden twee belastingjuristen in de krant of kosten van het ene blok mogen worden afgetrokken van de winst van een ander blok. De een stelt dat alleen het contract dat begrenst en dat er geen wettelijke fiscale "ring fence" is; de ander wijst op artikel 19 van de Petroleumwet (een apart geregistreerd kantoor per overeenkomst) en artikel 19.2.1 van het model-PSC, waardoor kosten alleen tellen voor het blok waar ze bij horen. De Belastingdienst heeft hier geen openbaar standpunt over gepubliceerd.</p>
+{% else %}
+<p class="meta">Profit oil split under article 14.7 of the model PSC, Demerara Bid Round 2022-2023 (Staatsolie).</p>
+<p><b>Note: these are standard terms, not GranMorgu's.</b> The Block 58 PSC was signed in June 2015 with Apache (now APA, partner of operator TotalEnergies). Its exact terms are confidential. Older contracts differ: Kosmos's published PSC for Block 42 (2011) gave Staatsolie a participation right of at most 10% and a different split. For 2014 Staatsolie said no signature bonus was payable; in the Demerara round a bidder could offer one for extra points.</p>
+<p><b>Ring-fencing.</b> In July 2026 two tax lawyers argued in the press about whether costs from one block may be deducted from the profit of another. One holds that only the contract limits this and that there is no statutory fiscal ring fence; the other points to article 19 of the Petroleum Act (a separately registered office for each agreement) and article 19.2.1 of the model PSC, under which costs only count for the block they belong to. The Tax Administration has not published a position on this.</p>
+{% endif %}
+
+<h2>{{ 'Belasting, douane en deviezen voor contractors' if nl else 'Tax, customs and foreign exchange for contractors' }}</h2>
+{% if nl %}
+<p>Uitgangspunt van artikel 9: contractors betalen alle gewone belastingen en heffingen die niet discrimineren. Daarop gelden deze uitzonderingen:</p>
+<ul>
+ <li><b>Invoerrechten:</b> vrijstelling voor bedrijfsmiddelen, materialen en uitrusting voor petroleumwerkzaamheden. Voorwaarde: goederen die niet van Staatsolie zijn, worden na afloop eigendom van Staatsolie of gaan het land weer uit (lid 3). Gebruikte huisraad van buitenlands personeel mag binnen zes maanden na aankomst vrij van invoerrechten binnen (lid 4).</li>
+ <li><b>Statistiek- en consentrecht:</b> wel verschuldigd, maar per kalenderjaar gemaximeerd bij staatsbesluit (lid 6). Volgens de toelichting bij de wijziging van 2022 is dat maximum USD 300.000 per jaar.</li>
+ <li><b>Export:</b> op de uitvoer van olie geen exportheffing, zegelrecht of andere last naast statistiek- en consentrecht (lid 7).</li>
+ <li><b>Fiscale stabilisatie:</b> de contractor betaalt inkomstenbelasting tegen de tarieven op de dag dat zijn overeenkomst ingaat; latere tariefwijzigingen gelden niet voor hem (lid 8). Dit geldt niet voor subcontractors.</li>
+ <li><b>Omzetbelasting, dividend en zegel:</b> sinds de wijziging van december 2022 zijn contractors en contractorpartijen vrijgesteld van omzetbelasting op goederen en diensten voor olie- en gaswerk, van dividendbelasting op uitkeringen aan niet-Surinaamse aandeelhouders en van zegelrecht bij de verkoop van belangen (lid 9). De wet verwijst nog naar de Wet Omzetbelasting 1997; sinds 2023 heeft Suriname btw. Vraag de Belastingdienst hoe de vrijstelling in jouw geval onder de btw uitwerkt.</li>
+</ul>
+<p><b>Deviezen (art. 10).</b> Contractors mogen goederen en diensten in en buiten Suriname kopen en in het buitenland in vreemde valuta betalen, olie in buitenlandse valuta verkopen en de opbrengst op buitenlandse rekeningen houden, en winst en aflossingen naar het buitenland overmaken. Belastingen betalen ze in door de regering goedgekeurde vreemde valuta.</p>
+{% else %}
+<p>The starting point of article 9: contractors pay all ordinary taxes and charges that do not discriminate. These exceptions apply:</p>
+<ul>
+ <li><b>Import duty:</b> exemption for capital goods, materials and equipment used in petroleum operations. Condition: goods not owned by Staatsolie become Staatsolie's property at the end or leave the country again (para. 3). Used household goods of foreign staff can be imported duty free within six months of arrival (para. 4).</li>
+ <li><b>Statistical and consent fees:</b> payable, but capped per calendar year by state decree (para. 6). According to the explanatory memorandum to the 2022 amendment, the cap is USD 300,000 a year.</li>
+ <li><b>Export:</b> no export levy, stamp duty or other charge on oil exports beyond the statistical and consent fees (para. 7).</li>
+ <li><b>Fiscal stabilisation:</b> the contractor pays income tax at the rates in force on the day its agreement took effect; later rate changes do not apply to it (para. 8). This does not apply to subcontractors.</li>
+ <li><b>Turnover tax, dividends and stamp duty:</b> since the December 2022 amendment, contractors and contractor parties are exempt from turnover tax on goods and services for oil and gas work, from dividend tax on payments to non-Surinamese shareholders and from stamp duty on the sale of interests (para. 9). The Act still refers to the 1997 Turnover Tax Act; Suriname has had VAT since 2023. Ask the Tax Administration how the exemption works under VAT in your case.</li>
+</ul>
+<p><b>Foreign exchange (art. 10).</b> Contractors may buy goods and services in and outside Suriname and pay abroad in foreign currency, sell oil in foreign currency and keep the proceeds in foreign accounts, and remit profits and loan repayments abroad. They pay taxes in foreign currency approved by the government.</p>
+{% endif %}
+
+<h2>{{ 'Wat geldt er voor jou als subcontractor of toeleverancier' if nl else 'What applies to you as a subcontractor or supplier' }}</h2>
+{% if nl %}
+<p>De wet maakt een belangrijk onderscheid. Een <b>subcontractor</b> in de zin van de Petroleumwet levert diensten die "kenmerkend zijn voor petroleumwerkzaamheden" volgens internationaal gebruik (art. 1). Voor zo'n bedrijf gelden alle rechten, plichten en vrijstellingen van de contractor, behalve de fiscale stabilisatie (art. 27a). De toelichting bij de wijziging van 2022 maakt duidelijk wie daaronder valt: bedrijven die seismisch onderzoek doen, boorplatforms bouwen of pijpleidingen leggen wel; bewaking, schoonmaak en andere "niet-typische" diensten niet. Die betalen gewoon btw, invoerrechten en de overige belastingen.</p>
+<p>Ook voor subcontractors geldt volgens dezelfde toelichting de plicht om <b>kantoor te houden in Paramaribo</b> en dat kantoor te laten registreren, met alle fiscale plichten die daarbij horen. En de local content-plichten van artikel 17 werken door in de hele keten. In de praktijk stellen operators en hoofdaannemers bovendien hun eigen eisen aan veiligheid, kwaliteit en integriteit; zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>The law draws an important line. A <b>subcontractor</b> in the sense of the Petroleum Act provides services that are "characteristic of petroleum operations" under international practice (art. 1). Such a company gets all the rights, duties and exemptions of the contractor except fiscal stabilisation (art. 27a). The explanatory memorandum to the 2022 amendment spells out who qualifies: companies that shoot seismic, build drilling platforms or lay pipelines do; security, cleaning and other "non-typical" services do not. Those pay VAT, import duty and other taxes as normal.</p>
+<p>According to the same memorandum, subcontractors also have to <b>keep an office in Paramaribo</b> and register it, with all the tax obligations that come with it. The local content duties of article 17 run down the whole chain. In practice operators and main contractors also set their own safety, quality and integrity requirements; see <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+<ul class="check">
+{% if nl %}
+ <li>Bedrijf ingeschreven bij de KKF, met een Surinaams adres en vertegenwoordiger</li>
+ <li>Aangemeld bij de Belastingdienst (FIN-nummer, btw als je boven de drempel zit, loonbelasting voor personeel)</li>
+ <li>Schriftelijk vastgesteld of je werk "kenmerkend voor petroleumwerkzaamheden" is, voordat je op een vrijstelling rekent</li>
+ <li>Bij invoer: aanvraag vrijstelling via de contractor of Staatsolie en een plan voor wederuitvoer of overdracht</li>
+ <li>Tewerkstellingsvergunningen voor buitenlandse specialisten, met een onderbouwing waarom geen Surinamer de functie kan doen</li>
+ <li>HSE-beleid, verzekeringen en certificaten die in de uitvraag worden gevraagd</li>
+ <li>Integriteitsbeleid en klantonderzoek: de sector valt onder de antiwitwasregels en Suriname wordt in 2027 internationaal beoordeeld</li>
+ <li>Een milieuplan of MEA als je werk daaronder valt (zie hieronder)</li>
+ <li>Bewijs van lokale inhoud: eigenaren, Surinaams personeel, lokale inkoop en opleiding, bijgehouden per jaar</li>
+{% else %}
+ <li>Company registered with the KKF, with a Surinamese address and representative</li>
+ <li>Registered with the Tax Administration (FIN number, VAT if above the threshold, wage tax for staff)</li>
+ <li>Written confirmation of whether your work is "characteristic of petroleum operations" before you count on any exemption</li>
+ <li>For imports: exemption request through the contractor or Staatsolie and a plan for re-export or transfer</li>
+ <li>Work permits for foreign specialists, with a justification of why no Surinamese can fill the job</li>
+ <li>HSE policy, insurance and the certificates the tender asks for</li>
+ <li>Integrity policy and customer due diligence: the sector falls under anti-money laundering rules and Suriname faces an international assessment in 2027</li>
+ <li>An environmental plan or ESIA if your work requires one (see below)</li>
+ <li>Proof of local content: owners, Surinamese staff, local purchasing and training, recorded each year</li>
+{% endif %}
+</ul>
+<p>{{ 'Meer: ' if nl else 'More: ' }}<a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a> &middot; <a href="{{ U('biztax') }}">{{ L('biztax') }}</a> &middot; <a href="{{ U('import') }}">{{ L('import') }}</a> &middot; <a href="{{ U('aml') }}">{{ L('aml') }}</a></p>
+
+<h2>{{ 'Milieu en veiligheid' if nl else 'Environment and safety' }}</h2>
+{% if nl %}
+<p>De <b>Milieu Raamwet</b> van 2020 is de basis voor milieubeleid en milieueffectenanalyse (MEA). Het oude NIMOS heet sinds de wijziging van 2024 de <b>Nationale Milieu Autoriteit (NMA)</b>. Het Besluit Milieu Effecten Analyse van februari 2025 deelt projecten in:</p>
+{% else %}
+<p>The <b>Environmental Framework Act</b> of 2020 is the basis for environmental policy and environmental and social impact assessment (ESIA). The former NIMOS has been called the <b>National Environmental Authority (NMA)</b> since the 2024 amendment. The ESIA Decree of February 2025 sorts projects as follows:</p>
+{% endif %}
+{% set m1 = 'Activiteit' if nl else 'Activity' %}{% set m2 = 'Categorie' if nl else 'Category' %}
+<table class="tbl stack tx"><thead><tr><th>{{ m1 }}</th><th>{{ m2 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ m1 }}">Boringen op zee naar olie en gas</td><td data-l="{{ m2 }}">A: volledige MEA</td></tr>
+ <tr><td data-l="{{ m1 }}">Productie van olie en gas op land, op zee en in andere wateren</td><td data-l="{{ m2 }}">A: volledige MEA</td></tr>
+ <tr><td data-l="{{ m1 }}">Pijpleidingen voor olie en gas</td><td data-l="{{ m2 }}">A (overige pijpleidingen en onderhoud: B)</td></tr>
+ <tr><td data-l="{{ m1 }}">Olieraffinaderijen, nieuw of uitbreiding</td><td data-l="{{ m2 }}">A</td></tr>
+ <tr><td data-l="{{ m1 }}">Seismisch onderzoek (land, zee, andere wateren), boringen op land</td><td data-l="{{ m2 }}">B: de NMA bepaalt hoe zwaar</td></tr>
+ <tr><td data-l="{{ m1 }}">Opslag van ontvlambare stoffen</td><td data-l="{{ m2 }}">B</td></tr>
+{% else %}
+ <tr><td data-l="{{ m1 }}">Offshore oil and gas drilling</td><td data-l="{{ m2 }}">A: full ESIA</td></tr>
+ <tr><td data-l="{{ m1 }}">Oil and gas production on land, at sea and in other waters</td><td data-l="{{ m2 }}">A: full ESIA</td></tr>
+ <tr><td data-l="{{ m1 }}">Oil and gas pipelines</td><td data-l="{{ m2 }}">A (other pipelines and maintenance: B)</td></tr>
+ <tr><td data-l="{{ m1 }}">Oil refineries, new or extended</td><td data-l="{{ m2 }}">A</td></tr>
+ <tr><td data-l="{{ m1 }}">Seismic surveys (land, sea, other waters), onshore drilling</td><td data-l="{{ m2 }}">B: the NMA decides how detailed</td></tr>
+ <tr><td data-l="{{ m1 }}">Storage of flammable substances</td><td data-l="{{ m2 }}">B</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>In categorie B bepaalt de NMA of je alleen informatie aanlevert (traject 1), een beperkte MEA doet zoals een milieu- of afvalmanagementplan (traject 2) of een volledige MEA (traject 3). De NMA kan op kosten van de aanvrager onafhankelijke deskundigen inhuren. Het publiek krijgt 30 tot 90 dagen om te reageren, en bij gevolgen voor inheemse en tribale volken geldt het beginsel van vrije, voorafgaande en geïnformeerde instemming (FPIC).</p>
+<p><b>Olielekkage.</b> Het ministerie van OGM moet een Nationaal Oil Spill Response Plan ontwikkelen en beheren, samen met het Nationaal Coördinatie Centrum voor Rampenbeheersing (NCCR). De MAS is het meldpunt voor olielekkage op zee. Werk je in havens, op schepen of in afvalverwerking, vraag dan bij je opdrachtgever welke rol je in hun noodplan hebt.</p>
+<p>Lees ook <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% else %}
+<p>In category B the NMA decides whether you only supply information (track 1), do a limited assessment such as an environmental or waste management plan (track 2) or a full ESIA (track 3). The NMA can hire independent experts at the applicant's cost. The public gets 30 to 90 days to comment, and where indigenous and tribal peoples are affected, free, prior and informed consent (FPIC) applies.</p>
+<p><b>Oil spills.</b> The Ministry of OGM is tasked with developing and managing a National Oil Spill Response Plan, together with the National Coordination Centre for Disaster Management (NCCR). MAS is the notification point for oil spills at sea. If you work in ports, on vessels or in waste handling, ask your client what your role is in their emergency plan.</p>
+<p>See also <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Local content: wat er nu al in de wet staat' if nl else 'Local content: what the law already says' }}</h2>
+{% if nl %}
+<p>Er is geen Local Content-wet, maar er staat al meer in de regels dan vaak wordt gedacht:</p>
+<ul>
+ <li><b>Artikel 17 Petroleumwet.</b> Een contractor neemt alleen buitenlands personeel aan voor functies waarvoor geen ervaren en gekwalificeerde Surinamers beschikbaar zijn, en doet er alles aan dat Surinamers zich bekwamen en verantwoordelijke posities krijgen. Bij gelijke of betere voorwaarden krijgen goederen en diensten uit Suriname voorrang boven buitenlandse.</li>
+ <li><b>Artikel 6.</b> Staatsolie moet bij het sluiten van contracten de overdracht van technologie en de opleiding van Surinaamse deskundigen bevorderen.</li>
+ <li><b>De PSC's zelf.</b> Contracten bevatten voorkeur voor Surinaamse goederen en diensten en rapportageplichten. In het openbare PSC van Blok 42 (2011) moest de operator elk kwartaal over lokale inkoop rapporteren en jaarlijks USD 100.000 bijdragen aan opleiding tijdens exploratie, daarna USD 400.000.</li>
+ <li><b>Het ministerie van OGM</b> heeft sinds 2025 als wettelijke taak een duurzaam local content-beleid te ontwikkelen voor ondernemerschap, werkgelegenheid en capaciteitsopbouw.</li>
+</ul>
+<p><b>Wat eraan komt.</b> De Local Content Board heeft een voorontwerp van wet geschreven. Na een nationale validatiesessie moet het verder worden uitgewerkt, en de regering wil de wet in 2027 indienen, zodat het kader er staat voor de eerste olie in 2028. De wet moet aansluiten op de Investeringswet, de Aanbestedingswet en de Wet Economische Zones. President Simons noemde in haar jaarrede van september 2026 twee uitgangspunten: de positie van Surinaamse werknemers bij internationale bedrijven moet gewaarborgd zijn, en Surinaamse deskundigen mogen niet worden gepasseerd. De Board adviseert ook over een <b>Local Content Authority</b>. Daarnaast ligt sinds 4 februari 2025 het initiatiefvoorstel Local Content-HSEQ bij DNA. Hoe je je als bedrijf voorbereidt: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>There is no Local Content Act, but the rules already say more than is often assumed:</p>
+<ul>
+ <li><b>Article 17 of the Petroleum Act.</b> A contractor only hires foreign staff for jobs for which no experienced and qualified Surinamese are available, and does everything it can to help Surinamese build skills and take responsible positions. On equal or better terms, goods and services from Suriname take precedence over foreign ones.</li>
+ <li><b>Article 6.</b> When signing contracts Staatsolie must promote technology transfer and the training of Surinamese experts.</li>
+ <li><b>The PSCs themselves.</b> Contracts contain preference for Surinamese goods and services and reporting duties. In the published Block 42 PSC (2011) the operator had to report local purchasing every quarter and contribute USD 100,000 a year to training during exploration, USD 400,000 after that.</li>
+ <li><b>The Ministry of OGM</b> has, since 2025, a statutory task to develop a sustainable local content policy for entrepreneurship, employment and capacity building.</li>
+</ul>
+<p><b>What is coming.</b> The Local Content Board has written a preliminary draft law. After a national validation session it is to be developed further, and the government plans to submit it in 2027 so that the framework is in place before first oil in 2028. The law must fit the Investment Act, the Procurement Act and the Economic Zones Act. In her annual address of September 2026, President Simons set two principles: the position of Surinamese workers at international companies must be secured, and Surinamese experts must not be passed over. The Board also advises on a <b>Local Content Authority</b>. Separately, the Local Content-HSEQ private member's bill has been before parliament since 4 February 2025. How to prepare as a company: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Waar het geld naartoe gaat: SSFS en transparantie' if nl else 'Where the money goes: the SSFS and transparency' }}</h2>
+{% if nl %}
+<p>De <b>Wet Spaar- en Stabilisatiefonds Suriname</b> (S.B. 2017 no. 59) regelt een fonds voor inkomsten uit natuurlijke hulpbronnen, vooral olie en gas. In 2024 werd de wet aangepast voor het Value Recovery Instrument (VRI) uit de schuldherschikking van 2023: houders van de oude obligaties zouden 30% van de royalty's uit Blok 58 krijgen. In november 2025 kocht de regering het VRI af met nieuwe obligaties, zodat 100% van de toekomstige royalty's naar de staat en het SSFS gaat. Daarom moet de wet opnieuw worden gewijzigd. Volgens president Simons moet het fonds volledig werken vóór de eerste storting. Wat dat betekent voor ondernemers: <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>.</p>
+<p><b>EITI.</b> Suriname doet mee aan het Extractive Industries Transparency Initiative. Het rapport over 2023-2024 verscheen in januari 2026 en toont wat olie- en mijnbouwbedrijven aan de staat betaalden. De PSC's zelf blijven vertrouwelijk (art. 12 Petroleumwet).</p>
+{% else %}
+<p>The <b>Savings and Stabilisation Fund Act</b> (S.B. 2017 no. 59) sets up a fund for natural resource revenue, mainly oil and gas. In 2024 the law was amended for the Value Recovery Instrument (VRI) from the 2023 debt restructuring: holders of the old bonds were to receive 30% of Block 58 royalties. In November 2025 the government bought out the VRI with new bonds, so 100% of future royalties go to the state and the SSFS. That is why the law has to be amended again. According to President Simons the fund must be fully operational before the first deposit. What it means for business: <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a>.</p>
+<p><b>EITI.</b> Suriname takes part in the Extractive Industries Transparency Initiative. The 2023-2024 report came out in January 2026 and shows what oil and mining companies paid the state. The PSCs themselves remain confidential (art. 12 Petroleum Act).</p>
+{% endif %}
+
+<h2>{{ 'Wat je de komende tijd moet volgen' if nl else 'What to watch next' }}</h2>
+<ul>
+{% if nl %}
+ <li><b>Local Content-wet</b>: validatie van het voorontwerp en indiening bij DNA in 2027.</li>
+ <li><b>Wijziging SSFS-wet</b>: na het afkopen van het VRI, vóór de eerste olie-inkomsten.</li>
+ <li><b>Nieuwe investeringswetgeving</b>: de regering wil die in 2027 afronden.</li>
+ <li><b>Algemene Douanewet 2026</b>: de ontwerpwet ligt bij DNA en raakt invoer voor het hele bedrijfsleven.</li>
+ <li><b>Antiwitwasbeoordeling 2027</b>: strengere eisen aan klantonderzoek bij banken en bedrijven.</li>
+ <li><b>Open Door-voorstellen en nieuwe PSC's</b>: elk nieuw contract brengt een nieuwe operator met eigen inkoop.</li>
+{% else %}
+ <li><b>Local Content Act</b>: validation of the preliminary draft and submission to parliament in 2027.</li>
+ <li><b>SSFS Act amendment</b>: after the VRI buyout, before the first oil revenue.</li>
+ <li><b>New investment legislation</b>: the government aims to finish it in 2027.</li>
+ <li><b>General Customs Act 2026</b>: the bill is before parliament and affects imports for all businesses.</li>
+ <li><b>Anti-money laundering assessment 2027</b>: stricter due diligence demands on banks and businesses.</li>
+ <li><b>Open Door proposals and new PSCs</b>: every new contract brings a new operator with its own purchasing.</li>
+{% endif %}
+</ul>
+<p>{{ 'Alle wetten in voorbereiding: ' if nl else 'All laws in preparation: ' }}<a href="{{ U('newlaws') }}">{{ L('newlaws') }}</a>. {{ 'Begrippen als FPSO, R-factor en kostenolie: ' if nl else 'Terms such as FPSO, R-factor and cost oil: ' }}<a href="{{ U('oilglossary') }}">{{ L('oilglossary') }}</a>.</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.staatsolie.com/media/adkhoc2j/petroleumwet_1990.pdf" rel="noopener">{{ 'Petroleumwet 1990 (S.B. 1991 no. 7), geldende tekst na S.B. 2001 no. 58 (Staatsolie)' if nl else 'Petroleum Act 1990 (S.B. 1991 no. 7), text as amended by S.B. 2001 no. 58 (Staatsolie)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/surinaamse-wetten/wijzigingen-na-2005/wet-wijz-petroleumwet-1990-s-b-1991-no-7-zoals-gewijz-bij-2001-no-58/" rel="noopener">{{ 'S.B. 2022 no. 152: wijziging Petroleumwet, met memorie van toelichting (DNA)' if nl else 'S.B. 2022 no. 152: Petroleum Act amendment, with explanatory memorandum (DNA)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/hkzcn0fo/instruction-to-bidders-demerara-bid-round-2022-2023.pdf" rel="noopener">{{ 'Staatsolie: Instructions to Bidders, Demerara-biedronde 2022-2023 (royalty, belasting, kostenolie, winstolie)' if nl else 'Staatsolie: Instructions to Bidders, Demerara Bid Round 2022-2023 (royalty, tax, cost oil, profit oil)' }}</a></li>
+ <li><a href="https://www.resourcecontracts.org/contract/ocds-591adf-4815087699" rel="noopener">{{ 'ResourceContracts: PSC Kosmos Energy, Blok 42 (2011)' if nl else 'ResourceContracts: Kosmos Energy PSC, Block 42 (2011)' }}</a></li>
+ <li><a href="https://www.lexology.com/library/detail.aspx?g=0ac84b85-1585-4314-a3b2-703151bd63ae" rel="noopener">{{ 'Lexology: voorwaarden biedronde 2014' if nl else 'Lexology: 2014 bid round terms' }}</a></li>
+ <li><a href="https://srherald.com/suriname/2015/06/24/staatsolie-en-apache-corporation-sluiten-psc-voor-offshore-blok-58" rel="noopener">{{ 'Suriname Herald: Staatsolie en Apache sluiten PSC voor Blok 58 (24 juni 2015)' if nl else 'Suriname Herald: Staatsolie and Apache sign PSC for Block 58 (24 June 2015)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/93047" rel="noopener">{{ 'Starnieuws: debat over fiscale ringfencing (juli 2026)' if nl else 'Starnieuws: debate on fiscal ring-fencing (July 2026)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/10/S.B.-2025-no.-124_-STAATSBESLUIT-van-17-oktober-2025-houdende-instelling-en-taakomschrijving-van-Departementen-van-Algemeen-Bestuur.pdf" rel="noopener">{{ 'S.B. 2025 no. 124: Besluit Taakomschrijving Departementen 2025 (art. 22, OGM)' if nl else 'S.B. 2025 no. 124: Ministries Tasks Decree 2025 (art. 22, OGM)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/05/S.B.-2025-no.-23-STAATSBESLUIT-van-12-februari-2025-ter-uitvoering-van-artikelen-22-lid-1-en-2.pdf" rel="noopener">{{ 'S.B. 2025 no. 23: Besluit Milieu Effecten Analyse' if nl else 'S.B. 2025 no. 23: Environmental Impact Assessment Decree' }}</a></li>
+ <li><a href="https://www.dna.sr/media/fadicptr/s-b-_2024_no-_56__wet_van_21_mei_2024__houdende_wijziging_van_de_milieu_raamwet__s-b-_2020_no-_97_.pdf" rel="noopener">{{ 'S.B. 2024 no. 56: wijziging Milieu Raamwet (NIMOS wordt NMA)' if nl else 'S.B. 2024 no. 56: Environmental Framework Act amendment (NIMOS becomes NMA)' }}</a></li>
+ <li><a href="https://www.eia.nl/en/countries/suriname/legislation-at-project-level/" rel="noopener">{{ 'Commissie m.e.r. (NCEA): MEA-wetgeving Suriname' if nl else 'NCEA: Suriname ESIA legislation at project level' }}</a></li>
+ <li><a href="https://www.nmasuriname.org/" rel="noopener">Nationale Milieu Autoriteit (NMA)</a></li>
+ <li><a href="https://mas.sr/" rel="noopener">Maritieme Autoriteit Suriname (MAS)</a></li>
+ <li><a href="https://itopf.org/knowledge-resources/countries-territories-regions/suriname" rel="noopener">{{ 'ITOPF: landenprofiel Suriname (olielekkage)' if nl else 'ITOPF: Suriname country profile (oil spills)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94140" rel="noopener">{{ 'Starnieuws: Local Content-wet moet in 2027 naar parlement (30 september 2026)' if nl else 'Starnieuws: Local Content Act to go to parliament in 2027 (30 September 2026)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/ingediende-wetten/ontwerpwet-local-content-hseq/" rel="noopener">{{ 'DNA: initiatiefvoorstel Wet Local Content-HSEQ (4 februari 2025)' if nl else 'DNA: Local Content-HSEQ bill (4 February 2025)' }}</a></li>
+ <li><a href="https://www.dna.sr/wetgeving/ontwerpwetten-bij-dna/in-behandeling/" rel="noopener">{{ 'DNA: ontwerpwetten in behandeling (Milieu Raamwet, Algemene Douanewet 2026)' if nl else 'DNA: bills under consideration (Environmental Framework Act, General Customs Act 2026)' }}</a></li>
+ <li><a href="https://gov.sr/regering-streeft-naar-spoedige-operationalisering-spaar-en-stabilisatie-fonds/" rel="noopener">{{ 'gov.sr: regering streeft naar spoedige operationalisering SSFS (30 september 2026)' if nl else 'gov.sr: government aims to make the SSFS operational soon (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/verantwoorde-herfinanciering-en-nieuw-vertrouwen-in-het-economisch-beleid/" rel="noopener">{{ 'gov.sr: herfinanciering en afkoop VRI (november 2025)' if nl else 'gov.sr: refinancing and VRI buyout (November 2025)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/17/simons-wil-banken-meer-laten-investeren-in-surinaamse-economie/" rel="noopener">{{ 'Suriname Herald: antiwitwasbeoordeling en investeringswetgeving 2027 (17 oktober 2026)' if nl else 'Suriname Herald: AML assessment and investment legislation in 2027 (17 October 2026)' }}</a></li>
+ <li><a href="https://eitisuriname.gov.sr/wp-content/uploads/2026/01/Final-Vertaling-SR-EITI-Rapport-2023-2024-28.01.2026.pdf" rel="noopener">{{ 'EITI Suriname: rapport 2023-2024 (januari 2026)' if nl else 'EITI Suriname: report 2023-2024 (January 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen juridisch of fiscaal advies. Laat een belastingadviseur of advocaat je eigen situatie beoordelen voordat je op een vrijstelling rekent.' if nl else 'General information, not legal or tax advice. Have a tax adviser or lawyer review your own situation before you rely on an exemption.' }}</p>
+</div>
+{% endblock %}

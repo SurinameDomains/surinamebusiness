@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% set FU = F.FUEL %}
+{% set G = fuel.gow2 if fuel else none %}
+{% set C = mkt.comm %}
+{% set fx = rates.usd.sell if rates else none %}
+{% block content %}
+{#- Maintainers: the live price is GOw2's own daily price (markets.fetch_fuel, every 30 minutes). The cap date and the
+    uncapped prices in facts.FUEL come from the President's statement of 13 October 2026: update them when the government
+    publishes new figures or ends the cap, and bump FUEL["checked"]. -#}
+<h1>{{ 'Brandstofprijzen vandaag: benzine en diesel' if nl else 'Fuel prices in Suriname today: petrol and diesel' }}</h1>
+<p class="lead">{% if nl %}De pompprijs van unleaded benzine en diesel in SRD per liter, rechtstreeks van GOw2 en elke 30 minuten gecontroleerd. Sinds {{ date(FU.cap_since) }} houdt de regering de prijzen met een price cap onder het marktniveau. Hieronder zie je wat je nu betaalt, wat het zonder cap zou kosten en wat dat voor je bedrijf betekent.{% else %}The pump price of unleaded petrol and diesel in SRD per litre, taken directly from GOw2 and checked every 30 minutes. Since {{ date(FU.cap_since) }} the government has kept prices below market level with a price cap. Below you see what you pay now, what it would cost without the cap and what that means for your business.{% endif %}</p>
+{% if G %}
+<div class="today t3">
+ <div><span class="k">{{ 'Unleaded (benzine) per liter' if nl else 'Unleaded (petrol) per litre' }}</span><span class="v">{{ srd(G.unleaded, 2) }}</span></div>
+ <div><span class="k">{{ 'Diesel per liter' if nl else 'Diesel per litre' }}</span><span class="v">{{ srd(G.diesel, 2) }}</span></div>
+ {% if C and C.brent %}<div><span class="k">{{ 'Brent ruwe olie per vat' if nl else 'Brent crude per barrel' }}</span><span class="v">USD {{ num(C.brent.price) }}</span></div>{% endif %}
+</div>
+<p class="asof">{{ 'Pompprijs GOw2 per' if nl else 'GOw2 pump price as of' }} {{ date(G.date) }}, {{ 'gecontroleerd' if nl else 'checked' }} {{ ago(G.fetched_at) }}. {{ 'Prijzen inclusief 10% BTW. Andere maatschappijen kunnen iets afwijken.' if nl else 'Prices include 10% VAT. Other companies can differ slightly.' }}</p>
+{% else %}
+<p class="empty">{{ 'De actuele prijs is tijdelijk niet beschikbaar. Kijk op gow2.com.' if nl else 'The current price is temporarily unavailable. See gow2.com.' }}</p>
+{% endif %}
+
+<div class="cols" style="margin-top:20px">
+ <div>
+  <div class="card"><div class="eyebrow">{{ 'Zonder price cap zou je betalen' if nl else 'Without the price cap you would pay' }}</div>
+  {% set c1 = 'Maatschappij' if nl else 'Company' %}{% set c2 = 'Unleaded' %}{% set c3 = 'Diesel' %}
+  <table class="tbl stack"><thead><tr><th>{{ c1 }}</th><th class="r">{{ c2 }}</th><th class="r">{{ c3 }}</th></tr></thead><tbody>
+  {% for name, u, d in FU.uncapped %}<tr><td><b>{{ name }}</b></td><td class="r" data-l="{{ c2 }}">{{ srd(u, 2) }}{% if G %}<div class="sub">+ {{ srd(u - G.unleaded, 2) }}</div>{% endif %}</td><td class="r" data-l="{{ c3 }}">{{ srd(d, 2) }}{% if G %}<div class="sub">+ {{ srd(d - G.diesel, 2) }}</div>{% endif %}</td></tr>{% endfor %}
+  </tbody></table>
+  <p class="asof" style="margin-top:8px">{{ 'Marktprijs per liter zonder overheidsbijdrage, zoals genoemd door president Simons op' if nl else 'Market price per litre without the government contribution, as stated by President Simons on' }} {{ date(FU.uncapped_date) }}. {{ 'Het verschil met de huidige pompprijs staat eronder.' if nl else 'The difference with today\'s pump price is shown below each price.' }}</p></div>
+ </div>
+ <form class="card calc" id="fc" onsubmit="return false">
+  <div class="eyebrow">{{ 'Brandstofkosten van je bedrijf' if nl else 'Your business fuel costs' }}</div>
+  <div class="two"><div><label for="fc-u">{{ 'Liter unleaded per maand' if nl else 'Litres of unleaded per month' }}</label><input id="fc-u" inputmode="decimal" value="0"></div><div><label for="fc-d">{{ 'Liter diesel per maand' if nl else 'Litres of diesel per month' }}</label><input id="fc-d" inputmode="decimal" value="400"></div></div>
+  <label for="fc-s">{{ 'Prijs zonder cap volgens' if nl else 'Price without the cap according to' }}</label>
+  <select id="fc-s">{% for name, u, d in FU.uncapped %}<option value="{{ loop.index0 }}"{% if loop.first %} selected{% endif %}>{{ name }}</option>{% endfor %}</select>
+  <div class="result" style="margin-top:14px" aria-live="polite">
+   <div class="sub">{{ 'Nu per maand' if nl else 'Now per month' }}</div><div class="big tnum" id="fc-now"></div>
+   <div class="sub" style="margin-top:8px">{{ 'Zonder price cap per maand' if nl else 'Without the price cap per month' }}</div><div class="big tnum" id="fc-cap"></div>
+   <div class="sub" id="fc-diff"></div>
+   <div class="sub" id="fc-vat"></div>
+  </div>
+ </form>
+</div>
+
+{% set H = fuel.history if fuel else {} %}
+{% set hk = H|list|sort %}
+<h2>{{ 'Verloop van de pompprijs' if nl else 'Pump price over time' }}</h2>
+{% if hk|length >= 7 %}
+<div class="grid g2">
+{% for key, label in [('unleaded', 'Unleaded'), ('diesel', 'Diesel')] %}
+{% set series = [] %}{% for d_ in hk %}{% set _ = series.append([d_, H[d_][key]]) %}{% endfor %}{% set pts = spark(series, 300, 56) %}
+<div class="card"><div class="eyebrow">{{ label }}</div><div class="big tnum" style="font-size:1.6rem">{{ srd(series[-1][1], 2) }}</div><div class="sub">{{ 'per liter' if nl else 'per litre' }}</div>{% if pts %}<svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="{{ label }}"><polyline points="{{ pts }}" fill="none" stroke="#e4572e" stroke-width="2"/></svg><div class="foot"><span>{{ date(series[0][0], year=False) }}</span><span>{{ date(series[-1][0], year=False) }}</span></div>{% endif %}</div>
+{% endfor %}
+</div>
+{% else %}
+<p>{{ 'We houden sinds 26 oktober 2026 elke dag de pompprijs bij. De grafiek verschijnt zodra er een week aan gegevens is. Zolang de price cap geldt, blijft de prijs meestal gelijk.' if nl else 'We have recorded the pump price every day since 26 October 2026. The chart appears once there is a week of data. While the price cap applies, the price usually stays the same.' }}</p>
+{% endif %}
+
+<div class="prose">
+<h2>{{ 'Hoe de pompprijs tot stand komt' if nl else 'How the pump price is made up' }}</h2>
+{% if nl %}
+<p>Een deel van de brandstof komt uit de raffinaderij van Staatsolie in Tout Lui Faut, een deel wordt ingevoerd. In beide gevallen volgt de prijs aan de pomp de wereldmarkt en wordt er in dollars gerekend. Drie dingen bepalen wat je betaalt:</p>
+<ul>
+ <li><b>De wereldprijs van geraffineerde brandstof.</b> Die beweegt mee met ruwe olie zoals Brent, met een eigen marge voor raffinage. Diesel is in 2026 relatief duur geworden door verstoringen in het Midden-Oosten.</li>
+ <li><b>De dollarkoers.</b> Een duurdere dollar maakt elke liter duurder in SRD. Zie de <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Belasting en de overheidscomponent.</b> Op brandstof zit 10% BTW. Daarnaast zit er een overheidscomponent in de prijs; onder de price cap gebruikt de staat die om een deel van de stijging zelf te dragen.</li>
+</ul>
+<h2>De price cap: wat er nu geldt</h2>
+<p>Sinds {{ date(FU.cap_since) }} liggen de pompprijzen vast op een plafond. Het verschil met de marktprijs betaalt de staat. Op {{ date(FU.uncapped_date) }} was dat volgens president Simons SRD 11 tot 16 per liter unleaded en SRD 16 tot 21 per liter diesel, afhankelijk van de maatschappij. Met Brent boven de USD 110 per vat in oktober 2026 wordt dat verschil groter. De president en minister Brunings van Olie, Gas en Milieu zeiden in oktober 2026 allebei dat de regeling op lange termijn niet houdbaar is. Er is geen einddatum en geen afbouwplan bekendgemaakt.</p>
+<h2>Wat het voor je bedrijf betekent</h2>
+<ul class="check">
+ <li><b>Reken met twee scenario's.</b> Maak je budget voor 2027 met de huidige prijs en met de prijs zonder cap. Voor een bedrijf dat 400 liter diesel per maand tankt, scheelt dat SRD 6.000 tot 8.600 per maand, afhankelijk van de maatschappij.</li>
+ <li><b>Zet een brandstofclausule in langere contracten.</b> Vervoer, bouw, aanbestedingen en vaste dienstverlening: spreek af dat de prijs meebeweegt met de pompprijs boven een bepaalde grens.</li>
+ <li><b>Prijs je ritten en leveringen goed.</b> Gebruik de <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> en reken met de prijs zonder cap als je offertes langer dan een paar maanden geldig houdt.</li>
+ <li><b>Trek de BTW af.</b> Ben je BTW-geregistreerd, vraag dan bij elke tankbeurt een factuur op naam van het bedrijf. Zie <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Meet je verbruik.</b> Een tankpas met overzicht per voertuig laat zien waar het geld heen gaat. GOw2 heeft bijvoorbeeld een zakelijke tankpas.</li>
+</ul>
+<h2>Brandstof en de olie uit Blok 58</h2>
+<p>Vanaf 2028 produceert Suriname offshore olie in het GranMorgu-project. Die olie wordt geëxporteerd en niet in Suriname geraffineerd, dus de pompprijs blijft de wereldmarkt volgen. Wat wel verandert, zijn de inkomsten van de staat. Lees meer op <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a> en <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% else %}
+<p>Part of the fuel comes from Staatsolie's refinery at Tout Lui Faut and part is imported. Either way the pump price follows the world market and is reckoned in dollars. Three things decide what you pay:</p>
+<ul>
+ <li><b>The world price of refined fuel.</b> It moves with crude oil such as Brent, with its own refining margin. Diesel became relatively expensive in 2026 because of disruption in the Middle East.</li>
+ <li><b>The exchange rate.</b> A dearer dollar makes every litre dearer in SRD. See <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>Tax and the government component.</b> Fuel carries 10% VAT. The price also contains a government component; under the price cap the state uses it to carry part of the increase itself.</li>
+</ul>
+<h2>The price cap: where things stand</h2>
+<p>Since {{ date(FU.cap_since) }} pump prices have been held at a ceiling. The state pays the difference with the market price. On {{ date(FU.uncapped_date) }} that was SRD 11 to 16 per litre of unleaded and SRD 16 to 21 per litre of diesel, depending on the company, according to President Simons. With Brent above USD 110 a barrel in October 2026, the gap is widening. In October 2026 both the President and Oil, Gas and Environment Minister Brunings said the arrangement cannot last in the long run. No end date or phase-out plan has been announced.</p>
+<h2>What it means for your business</h2>
+<ul class="check">
+ <li><b>Budget for two scenarios.</b> Draw up your 2027 budget with today's price and with the price without the cap. For a business that buys 400 litres of diesel a month the difference is SRD 6,000 to 8,600 a month, depending on the company.</li>
+ <li><b>Put a fuel clause in longer contracts.</b> Transport, construction, tenders and fixed services: agree that the price moves with the pump price above a set threshold.</li>
+ <li><b>Price your trips and deliveries properly.</b> Use the <a href="{{ U('tripcost') }}">{{ L('tripcost') }}</a> and use the price without the cap when quotes stay valid for more than a few months.</li>
+ <li><b>Deduct the VAT.</b> If you are VAT-registered, ask for an invoice in the company's name at every fill-up. See <a href="{{ U('vatguide') }}">{{ L('vatguide') }}</a>.</li>
+ <li><b>Measure your use.</b> A fuel card with a statement per vehicle shows where the money goes. GOw2, for example, offers a business fuel card.</li>
+</ul>
+<h2>Fuel and the oil from Block 58</h2>
+<p>From 2028 Suriname will produce offshore oil in the GranMorgu project. That oil is exported, not refined in Suriname, so the pump price will keep following the world market. What does change is the state's income. Read more in <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a> and <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+{% endif %}
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>{% for name, url in FU.sources %}<li><a href="{{ url }}" rel="noopener">{{ name }}</a></li>{% endfor %}
+<li>{{ 'Brent: Yahoo Finance (futures), elke 30 minuten' if nl else 'Brent: Yahoo Finance (futures), every 30 minutes' }} &middot; <a href="{{ U('gold') }}">{{ L('gold') }}</a></li></ul>
+<p class="asof">{{ 'Achtergrond gecontroleerd op' if nl else 'Background checked on' }} {{ date(FU.checked) }}. {{ 'Indicatief; de pompprijs kan per station verschillen.' if nl else 'Indicative; the pump price can differ by station.' }}</p>
+</div>
+{% endblock %}
+{% block scripts %}{% if G %}<script>
+(function(){var NOW={u:{{ G.unleaded }},d:{{ G.diesel }}},UNC={{ FU.uncapped|tojson }},VAT={{ FU.vat }},nl={{ 'true' if nl else 'false' }};
+var u=document.getElementById('fc-u'),d=document.getElementById('fc-d'),s=document.getElementById('fc-s');
+function n(x){x=parseFloat(String(x).replace(/\s/g,'').replace(nl?/\./g:/,/g,'').replace(',','.'));return isFinite(x)&&x>0?x:0}
+function f(x){return 'SRD '+x.toLocaleString(nl?'nl-NL':'en-US',{maximumFractionDigits:0})}
+function go(){var lu=n(u.value),ld=n(d.value),r=UNC[+s.value]||UNC[0];
+ var now=lu*NOW.u+ld*NOW.d,cap=lu*r[1]+ld*r[2],diff=cap-now,vat=now*VAT/(1+VAT);
+ document.getElementById('fc-now').textContent=f(now);document.getElementById('fc-cap').textContent=f(cap);
+ document.getElementById('fc-diff').textContent=(nl?'Verschil: ':'Difference: ')+f(diff)+(nl?' per maand, ':' a month, ')+f(diff*12)+(nl?' per jaar.':' a year.');
+ document.getElementById('fc-vat').textContent=(nl?'Daarin zit nu ':'This includes ')+f(vat)+(nl?' BTW per maand (aftrekbaar als je BTW-geregistreerd bent).':' VAT a month (deductible if you are VAT-registered).');}
+[u,d,s].forEach(function(e){e.addEventListener('input',go);e.addEventListener('change',go)});go();})();
+</script>{% endif %}{% endblock %}

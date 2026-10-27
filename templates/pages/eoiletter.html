@@ -1,0 +1,71 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Een Expression of Interest (EOI) is je eerste kans bij Staatsolie, TotalEnergies of een hoofdaannemer. Vul je gegevens, referenties en certificaten in en je krijgt een complete, zakelijke brief in het Engels of Nederlands die je als PDF uploadt. Je bedrijfsgegevens uit de factuurtool worden overgenomen.' if nl else 'An Expression of Interest (EOI) is your first chance with Staatsolie, TotalEnergies or a main contractor. Fill in your details, references and certificates and you get a complete, businesslike letter in English or Dutch to upload as a PDF. Your business details from the invoice tool are reused.' }}{% endblock %}
+{% block tool %}
+<div class="wide-cols">
+ <form class="card calc" id="eo" onsubmit="return false" autocomplete="off">
+  <fieldset><legend>{{ 'Je bedrijf' if nl else 'Your business' }}</legend>
+   <label for="s_name">{{ 'Bedrijfsnaam' if nl else 'Business name' }}</label><input id="s_name" name="s_name">
+   <div class="two"><div><label for="s_addr">{{ 'Adres' if nl else 'Address' }}</label><input id="s_addr" name="s_addr"></div><div><label for="s_phone">{{ 'Telefoon' if nl else 'Phone' }}</label><input id="s_phone" name="s_phone"></div></div>
+   <div class="two"><div><label for="s_email">E-mail</label><input id="s_email" name="s_email"></div><div><label for="kkf">{{ 'KKF-nummer' if nl else 'KKF (chamber) number' }}</label><input id="kkf" name="kkf"></div></div>
+   <div class="two"><div><label for="ssrp">{{ 'SSRP / Ariba leveranciersnummer (optioneel)' if nl else 'SSRP / Ariba supplier ID (optional)' }}</label><input id="ssrp" name="ssrp"></div><div><label for="color">{{ 'Kleur' if nl else 'Colour' }}</label><input id="color" name="color" type="color" value="#1f2251"></div></div>
+   <div class="two"><div><label for="since">{{ 'Actief sinds (jaar)' if nl else 'In business since (year)' }}</label><input id="since" name="since" inputmode="numeric"></div><div><label for="staff">{{ 'Aantal medewerkers' if nl else 'Number of employees' }}</label><input id="staff" name="staff" inputmode="numeric"></div></div>
+   <label for="core">{{ 'Kernactiviteiten (één zin)' if nl else 'Core activities (one sentence)' }}</label><input id="core" name="core">
+  </fieldset>
+  <fieldset><legend>{{ 'De uitvraag' if nl else 'The request' }}</legend>
+   <label for="lang">{{ 'Taal van de brief' if nl else 'Language of the letter' }}</label>
+   <select id="lang" name="lang"><option value="en" selected>English</option><option value="nl">Nederlands</option></select>
+   <label for="to">{{ 'Aan (naam en adres)' if nl else 'To (name and address)' }}</label><textarea id="to" name="to" rows="4">Staatsolie Maatschappij Suriname N.V.
+Procurement Department
+Dr. Ir. H.S. Adhinstraat 21
+Paramaribo, Suriname</textarea>
+   <div class="two"><div><label for="job">{{ 'Jobnummer(s)' if nl else 'Job number(s)' }}</label><input id="job" name="job" placeholder="SCM-D 2026-001"></div><div><label for="date">{{ 'Datum' if nl else 'Date' }}</label><input id="date" name="date" type="date"></div></div>
+   <label for="title">{{ 'Titel van de uitvraag' if nl else 'Title of the request' }}</label><input id="title" name="title" placeholder="{{ 'bijv. Provision of Canteen Services' if nl else 'e.g. Provision of Canteen Services' }}">
+   <label for="scope">{{ 'Wat je aanbiedt binnen deze scope' if nl else 'What you offer within this scope' }}</label><textarea id="scope" name="scope" rows="3"></textarea>
+  </fieldset>
+  <fieldset><legend>{{ 'Vergelijkbare opdrachten (tot 3)' if nl else 'Comparable assignments (up to 3)' }}</legend>
+   {% for i in [1, 2, 3] %}
+   <div class="two"><div><label for="r{{ i }}c">{{ 'Klant' if nl else 'Client' }} {{ i }}</label><input id="r{{ i }}c" name="r{{ i }}c"></div><div><label for="r{{ i }}y">{{ 'Jaar en duur' if nl else 'Year and duration' }}</label><input id="r{{ i }}y" name="r{{ i }}y"></div></div>
+   <label for="r{{ i }}d">{{ 'Wat je deed, omvang, contactpersoon' if nl else 'What you did, size, contact person' }}</label><input id="r{{ i }}d" name="r{{ i }}d">
+   {% endfor %}
+  </fieldset>
+  <fieldset><legend>{{ 'Middelen, HSE en local content' if nl else 'Resources, HSE and local content' }}</legend>
+   <label for="res">{{ 'Mensen en materieel' if nl else 'People and equipment' }}</label><textarea id="res" name="res" rows="2" placeholder="{{ 'bijv. 12 vaste medewerkers, 2 gecertificeerde koks, koelwagen, eigen keuken van 80 m²' if nl else 'e.g. 12 permanent staff, 2 certified cooks, refrigerated truck, own 80 m² kitchen' }}"></textarea>
+   <label for="hse">{{ 'HSE: beleid, cijfers, trainingen' if nl else 'HSE: policy, record, training' }}</label><textarea id="hse" name="hse" rows="2" placeholder="{{ 'bijv. HSE-beleid sinds 2022, geen verzuimongevallen in 2025, alle medewerkers EHBO' if nl else 'e.g. HSE policy since 2022, no lost-time incidents in 2025, all staff first-aid trained' }}"></textarea>
+   <label for="cert">{{ 'Certificaten (zoals gevraagd in de EOI)' if nl else 'Certificates (as requested in the EOI)' }}</label><input id="cert" name="cert" placeholder="ISO 22000, HACCP, ...">
+   <div class="two"><div><label for="own">{{ 'Surinaams eigendom (%)' if nl else 'Surinamese ownership (%)' }}</label><input id="own" name="own" inputmode="numeric"></div><div><label for="loc">{{ 'Surinaams personeel (%)' if nl else 'Surinamese staff (%)' }}</label><input id="loc" name="loc" inputmode="numeric"></div></div>
+  </fieldset>
+  <fieldset><legend>{{ 'Ondertekening en bijlagen' if nl else 'Signature and attachments' }}</legend>
+   <div class="two"><div><label for="sig">{{ 'Naam ondertekenaar' if nl else 'Signatory name' }}</label><input id="sig" name="sig"></div><div><label for="fn">{{ 'Functie' if nl else 'Title' }}</label><input id="fn" name="fn"></div></div>
+   <label for="att">{{ 'Bijlagen (één per regel)' if nl else 'Attachments (one per line)' }}</label><textarea id="att" name="att" rows="4"></textarea>
+  </fieldset>
+ </form>
+ <div class="sticky"><div class="paper print-area" id="eo-out"></div><div class="btns"><button type="button" class="btn" data-print>{{ 'Download PDF / print' if nl else 'Download PDF / print' }}</button><button type="button" class="btn alt" id="eo-copy">{{ 'Kopieer tekst' if nl else 'Copy text' }}</button></div></div>
+</div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Tips voor een sterke EOI' if nl else 'Tips for a strong EOI' }}</h2>
+{% if nl %}
+<ul class="check">
+ <li>Zet het <b>jobnummer</b> in het onderwerp en in de brief. Reageer je op meer jobs, noem ze allemaal.</li>
+ <li>Beantwoord precies de gevraagde scope. Een algemeen verhaal over je bedrijf overtuigt niet.</li>
+ <li>Geef <b>vergelijkbare opdrachten</b> met klant, jaar, omvang en een contactpersoon.</li>
+ <li>Laat zien dat je de <b>mensen en het materieel</b> hebt, en voeg je <b>HSE-gegevens</b> toe.</li>
+ <li>Voeg de certificaten toe die de EOI noemt. Houd je bedrijfsprofiel op twee tot vier pagina's.</li>
+ <li>Lever <b>ruim voor de deadline</b> in, via het formulier van Staatsolie. Sluitingstijden zijn in Surinaamse tijd.</li>
+</ul>
+<p>Weet je niet zeker of je bedrijf klaar is? Doe eerst de <a href="{{ U('supplierready') }}">{{ L('supplierready') }}</a>. Open uitvragen staan op <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>. Alles over registratie: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<ul class="check">
+ <li>Put the <b>job number</b> in the subject and in the letter. If you respond to several jobs, list them all.</li>
+ <li>Answer exactly the requested scope. A general story about your company does not convince.</li>
+ <li>Give <b>comparable assignments</b> with client, year, size and a contact person.</li>
+ <li>Show that you have the <b>people and equipment</b>, and add your <b>HSE record</b>.</li>
+ <li>Attach the certificates the EOI names. Keep your company profile to two to four pages.</li>
+ <li>Submit <b>well before the deadline</b>, through Staatsolie's form. Closing times are in Suriname time.</li>
+</ul>
+<p>Not sure your business is ready? Take the <a href="{{ U('supplierready') }}">{{ L('supplierready') }}</a> first. Open requests are on <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>. All about registration: <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/oilgas.js?v={{ build_id }}" defer></script>{% endblock %}

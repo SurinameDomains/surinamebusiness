@@ -1,0 +1,363 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every quarter while GranMorgu is being built (TotalEnergies press page totalenergies.sr/press-publications,
+    EnergyJobs.sr, Kersten Training Academy course list, Staatsolie careers FAQ), and whenever OEUK changes its medical standard.
+    The example vacancies in "Functies" are a snapshot of EnergyJobs.sr on 26 Oct 2026: refresh them. Bump the asof date. -#}
+<div class="prose">
+<h1>{{ 'Werken in de olie- en gassector in Suriname' if nl else 'Working in oil and gas in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">De olie- en gassector is in Suriname de snelst groeiende werkgever voor technici, maar het is geen massabaan. De meeste plekken zitten niet op het productieschip zelf, maar aan wal: in logistiek, onderhoud, veiligheid, administratie en bij de vele toeleveranciers. Wie erin wil, heeft een paar internationale certificaten nodig, die je sinds 2024 ook in Suriname kunt halen, en solliciteert vooral via EnergyJobs.sr, de database van Staatsolie en de websites van de contractors. Hieronder lees je welke banen er echt zijn, wat je ervoor nodig hebt en hoe je oplichters herkent.</p>
+{% else %}
+<p class="lead">Oil and gas is the fastest-growing employer of technical people in Suriname, but it is not a mass employer. Most positions are not on the production vessel itself but onshore: in logistics, maintenance, safety, administration and at the many suppliers. To get in you need a few international certificates, which can be obtained in Suriname since 2024, and you apply mainly through EnergyJobs.sr, Staatsolie's job database and the contractors' websites. Below: which jobs really exist, what you need for them and how to spot scams.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Surinamers bij GranMorgu' if nl else 'Surinamese on GranMorgu' }}</div><div class="big">600+</div><div class="sub">{{ 'functies verwacht eind 2026 (TotalEnergies)' if nl else 'positions expected by end 2026 (TotalEnergies)' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Banen over de looptijd' if nl else 'Jobs over the project life' }}</div><div class="big">{{ 'circa 6.000' if nl else 'about 6,000' }}</div><div class="sub">{{ 'direct, indirect en afgeleid' if nl else 'direct, indirect and induced' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Offshore veiligheidstraining' if nl else 'Offshore safety training' }}</div><div class="big">{{ 'In Suriname' if nl else 'In Suriname' }}</div><div class="sub">{{ 'OPITO-gecertificeerd sinds juni 2024' if nl else 'OPITO certified since June 2024' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Realistisch</b>: GranMorgu verwacht eind 2026 ruim 600 Surinamers in dienst, met meer dan 100 lokale bedrijven als leverancier. De circa 6.000 banen die genoemd worden, tellen ook indirecte en afgeleide banen mee.</li>
+ <li><b>Waar het werk zit</b>: boorcampagne (vanaf eind 2026, begin 2027), drie logistieke basissen aan wal, het productieschip vanaf 2028, Staatsolie zelf (velden in Saramacca, raffinaderij, stroom, GOw2) en de toeleveranciers.</li>
+ <li><b>Certificaten</b>: voor offshore werk minimaal een (T-)BOSIET met CA-EBS en een offshore medische keuring. Haal je die in Suriname, dan bij de Kersten Training Academy aan de Sir Winston Churchillweg.</li>
+ <li><b>Opleiding</b>: het NATIN olie- en gasprogramma (18 maanden, na een technisch NATIN-diploma), PTC en AdeKUS voor techniek, en de SURICAP-programma's van TotalEnergies voor docenten en scholen.</li>
+ <li><b>Solliciteren</b>: EnergyJobs.sr, de vacaturedatabase van Staatsolie (alleen daar), de careers-pagina's van de contractors en <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+ <li><b>Oplichting</b>: echte werkgevers vragen nooit geld voor een sollicitatie, visum, training of ticket.</li>
+{% else %}
+ <li><b>Realistic picture</b>: GranMorgu expects more than 600 Surinamese employees by the end of 2026, with more than 100 local companies as suppliers. The figure of about 6,000 jobs also counts indirect and induced jobs.</li>
+ <li><b>Where the work is</b>: the drilling campaign (from late 2026 or early 2027), three onshore logistics bases, the production vessel from 2028, Staatsolie itself (Saramacca fields, refinery, power, GOw2) and the suppliers.</li>
+ <li><b>Certificates</b>: offshore work needs at least a (T-)BOSIET with CA-EBS and an offshore medical. In Suriname you get them at Kersten Training Academy on Sir Winston Churchillweg.</li>
+ <li><b>Training</b>: the NATIN oil and gas programme (18 months, after a NATIN technical diploma), PTC and AdeKUS for engineering, and TotalEnergies' SURICAP programmes for teachers and schools.</li>
+ <li><b>Applying</b>: EnergyJobs.sr, Staatsolie's job database (only there), the contractors' careers pages and <a href="{{ U('jobs') }}">{{ L('jobs') }}</a>.</li>
+ <li><b>Scams</b>: genuine employers never ask for money for an application, visa, training or ticket.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Hoeveel banen er zijn, en waar' if nl else 'How many jobs there are, and where' }}</h2>
+{% if nl %}
+<p>Een olieproject vraagt in de bouwfase veel mensen en in de productiefase relatief weinig. Het productieschip voor GranMorgu wordt in Azië gebouwd, de onderzeese installaties komen uit het buitenland. Wat in Suriname gebeurt, is de boorcampagne, de logistiek vanaf de wal, de installatie op zee en daarna twintig jaar of langer bediening en onderhoud. TotalEnergies zegt dat eind 2026 <b>meer dan 600 functies door Surinamers</b> worden vervuld en dat al ruim 100 lokale bedrijven bijdragen. Minister Brunings meldde in oktober 2026 dat bij boorcontractor Halliburton bijna 70% van het personeel Surinaams is.</p>
+<p>Het vaak genoemde getal van <b>circa 6.000 banen</b> gaat over de hele looptijd en telt ook indirecte banen (bij leveranciers) en afgeleide banen (doordat mensen hun loon uitgeven) mee. Reken dus niet op duizenden plekken op zee. De grootste kans voor de meeste mensen ligt bij de bedrijven eromheen.</p>
+{% else %}
+<p>An oil project needs many people during construction and relatively few during production. The GranMorgu production vessel is being built in Asia and the subsea equipment comes from abroad. What happens in Suriname is the drilling campaign, the logistics from shore, offshore installation and then twenty years or more of operations and maintenance. TotalEnergies says that by the end of 2026 <b>more than 600 positions will be held by Surinamese nationals</b> and that more than 100 local companies already contribute. In October 2026 Minister Brunings reported that almost 70% of the staff at drilling contractor Halliburton are Surinamese.</p>
+<p>The often-quoted figure of <b>about 6,000 jobs</b> covers the whole project life and includes indirect jobs (at suppliers) and induced jobs (from workers spending their pay). So do not count on thousands of places offshore. For most people the biggest opportunity is at the companies around the project.</p>
+{% endif %}
+{% set c1 = 'Werkgever of fase' if nl else 'Employer or phase' %}{% set c2 = 'Soort werk' if nl else 'Type of work' %}{% set c3 = 'Wanneer' if nl else 'When' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Boorcampagne GranMorgu</b> (Halliburton en het boorplatform)</td><td data-l="{{ c2 }}">Boorploeg, putafwerking, onderhoud, logistiek, catering op het platform</td><td data-l="{{ c3 }}">Eerste productieboringen gepland vanaf december 2026, offshore installatie begin 2027; boren tot rond 2030</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Logistieke basissen aan wal</b></td><td data-l="{{ c2 }}">Haven, opslag, douane, kranen, transport, inkoop, beveiliging</td><td data-l="{{ c3 }}">Nu; de Kuldipsingh Port Facility is een van de drie basissen en ontving in september 2026 de eerste onderzeese apparatuur</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Productieschip (FPSO)</b>, bediend door SBM Offshore</td><td data-l="{{ c2 }}">Procesoperators, onderhoudstechnici, elektro en instrumentatie, kraanmachinisten, veiligheid, catering</td><td data-l="{{ c3 }}">Voorbereiding nu, productie vanaf 2028; contract voor minimaal twee jaar na de eerste olie, met opties</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie</b> (velden in Saramacca, raffinaderij Tout Lui Faut, stroombedrijf SPCS, GOw2)</td><td data-l="{{ c2 }}">Operators, technici, ingenieurs, HSE, financiën, HR, IT, verkoop</td><td data-l="{{ c3 }}">Doorlopend; ruim 1.100 medewerkers</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploratie in andere blokken</b> (Petronas, Chevron, QatarEnergy, TotalEnergies, Shell)</td><td data-l="{{ c2 }}">Tijdelijk werk rond boringen en seismiek, vooral logistiek en diensten</td><td data-l="{{ c3 }}">Per campagne; TotalEnergies plant een nieuwe exploratiecampagne in Blok 58 in 2027 en 2028</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Toeleveranciers</b></td><td data-l="{{ c2 }}">Bouw, werkplaatsen, transport, schoonmaak, afvalverwerking, catering, uitzendwerk</td><td data-l="{{ c3 }}">Nu en tijdens de hele productie</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>GranMorgu drilling campaign</b> (Halliburton and the rig)</td><td data-l="{{ c2 }}">Drilling crew, well completion, maintenance, logistics, catering on the rig</td><td data-l="{{ c3 }}">First production wells planned from December 2026, offshore installation early 2027; drilling until around 2030</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Onshore logistics bases</b></td><td data-l="{{ c2 }}">Port, warehousing, customs, cranes, transport, procurement, security</td><td data-l="{{ c3 }}">Now; Kuldipsingh Port Facility is one of the three bases and received the first subsea equipment in September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Production vessel (FPSO)</b>, operated by SBM Offshore</td><td data-l="{{ c2 }}">Process operators, maintenance technicians, electrical and instrumentation, crane operators, safety, catering</td><td data-l="{{ c3 }}">Preparation now, production from 2028; contract for at least two years after first oil, with options</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie</b> (Saramacca fields, Tout Lui Faut refinery, SPCS power company, GOw2)</td><td data-l="{{ c2 }}">Operators, technicians, engineers, HSE, finance, HR, IT, sales</td><td data-l="{{ c3 }}">Ongoing; more than 1,100 employees</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Exploration in other blocks</b> (Petronas, Chevron, QatarEnergy, TotalEnergies, Shell)</td><td data-l="{{ c2 }}">Temporary work around wells and seismic surveys, mainly logistics and services</td><td data-l="{{ c3 }}">Per campaign; TotalEnergies plans a new exploration campaign in Block 58 in 2027 and 2028</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Suppliers</b></td><td data-l="{{ c2 }}">Construction, workshops, transport, cleaning, waste handling, catering, temporary staffing</td><td data-l="{{ c3 }}">Now and throughout production</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Meer over het project: ' if nl else 'More on the project: ' }}<a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a> &middot; <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></p>
+
+<h2>{{ 'Functies waar vraag naar is' if nl else 'Roles in demand' }}</h2>
+{% if nl %}
+<p>Op EnergyJobs.sr stonden op 26 oktober 2026 onder meer vacatures voor een Electrical &amp; Instrumentation Engineer, een Engineer Jr. Process, een Technician III, een HR Advisor en een Sr. Insurance Coördinator bij Staatsolie, een Environmental Technician en een Safety Officer bij Tiger Offshore Rentals, en een ingenieur projectbeheersing bij CCC Group. Dat beeld is typisch: naast technici zoekt de sector ook mensen voor veiligheid, milieu, administratie en projectbeheersing.</p>
+{% else %}
+<p>On 26 October 2026 EnergyJobs.sr listed, among others, an Electrical &amp; Instrumentation Engineer, a Junior Process Engineer, a Technician III, an HR Advisor and a Senior Insurance Coordinator at Staatsolie, an Environmental Technician and a Safety Officer at Tiger Offshore Rentals, and a project control engineer at CCC Group. That mix is typical: besides technicians, the sector needs people for safety, environment, administration and project control.</p>
+{% endif %}
+{% set r1 = 'Functie' if nl else 'Role' %}{% set r2 = 'Gebruikelijke achtergrond' if nl else 'Typical background' %}{% set r3 = 'Vaak gevraagd' if nl else 'Often required' %}
+<table class="tbl stack tx"><thead><tr><th>{{ r1 }}</th><th>{{ r2 }}</th><th>{{ r3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ r1 }}"><b>Procesoperator</b></td><td data-l="{{ r2 }}">NATIN procestechniek, liefst met het olie- en gasprogramma; ervaring in industrie of raffinaderij</td><td data-l="{{ r3 }}">Offshore veiligheidstraining, keuring, ploegendienst</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Elektro- en instrumentatietechnicus (E&amp;I)</b></td><td data-l="{{ r2 }}">NATIN of PTC elektrotechniek; werken met regelsystemen en metingen</td><td data-l="{{ r3 }}">Veiligheidstraining, soms werken in explosiegevaarlijke zones</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Werktuigbouwkundig monteur, onderhoud</b></td><td data-l="{{ r2 }}">NATIN of PTC werktuigbouwkunde; pompen, compressoren, motoren</td><td data-l="{{ r3 }}">Werkvergunningsysteem, lockout, keuring</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Kraanmachinist, rigger, banksman</b></td><td data-l="{{ r2 }}">Ervaring met hijswerk in haven of bouw</td><td data-l="{{ r3 }}">Rigger- en Banksman &amp; Slinger-certificaat (OPITO)</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Lasser, constructiewerker</b></td><td data-l="{{ r2 }}">SAO of NATIN; ervaring met staal en leidingwerk</td><td data-l="{{ r3 }}">Lasproef volgens een internationale code, bijvoorbeeld AWS D1.1 of ASME IX</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>NDT-inspecteur</b></td><td data-l="{{ r2 }}">Technische opleiding plus specialisatie in niet-destructief onderzoek</td><td data-l="{{ r3 }}">Niveau 1, 2 of 3 volgens ISO 9712 of ASNT</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Bemanning bevoorradingsschepen</b></td><td data-l="{{ r2 }}">Maritieme opleiding, vaartijd</td><td data-l="{{ r3 }}">STCW-certificaten (IMO-verdrag voor zeevarenden)</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>HSE-officer, safety officer</b></td><td data-l="{{ r2 }}">Technische of milieuopleiding plus veiligheidservaring</td><td data-l="{{ r3 }}">NEBOSH of IOSH, ervaring met incidentonderzoek</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Logistiek, magazijn, douane</b></td><td data-l="{{ r2 }}">Ervaring in haven, expeditie of inklaring</td><td data-l="{{ r3 }}">Kennis van invoerregels, rijbewijs, heftruckcertificaat</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Catering en housekeeping</b></td><td data-l="{{ r2 }}">Horeca-ervaring</td><td data-l="{{ r3 }}">Hygiënetraining; voor offshore ook veiligheidstraining en keuring</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Ingenieur</b> (proces, boren, onderzee, reservoir, projectbeheersing)</td><td data-l="{{ r2 }}">Bachelor of master, vaak in het buitenland behaald, plus ervaring</td><td data-l="{{ r3 }}">Engels op werkniveau, ervaring bij een operator of contractor</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Kantoorfuncties</b> (HR, financiën, inkoop, contracten, IT, verzekeringen)</td><td data-l="{{ r2 }}">Hbo of universiteit, ervaring in een groot bedrijf</td><td data-l="{{ r3 }}">Engels, kennis van compliance en internationale standaarden</td></tr>
+{% else %}
+ <tr><td data-l="{{ r1 }}"><b>Process operator</b></td><td data-l="{{ r2 }}">NATIN process technology, ideally with the oil and gas programme; experience in industry or refining</td><td data-l="{{ r3 }}">Offshore safety training, medical, shift work</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Electrical and instrumentation (E&amp;I) technician</b></td><td data-l="{{ r2 }}">NATIN or PTC electrical engineering; control systems and measurement</td><td data-l="{{ r3 }}">Safety training, sometimes work in hazardous areas</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Mechanical technician, maintenance</b></td><td data-l="{{ r2 }}">NATIN or PTC mechanical engineering; pumps, compressors, engines</td><td data-l="{{ r3 }}">Permit-to-work system, lockout, medical</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Crane operator, rigger, banksman</b></td><td data-l="{{ r2 }}">Lifting experience in a port or construction</td><td data-l="{{ r3 }}">Rigger and Banksman &amp; Slinger certificates (OPITO)</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Welder, fabricator</b></td><td data-l="{{ r2 }}">SAO or NATIN; steel and pipework experience</td><td data-l="{{ r3 }}">Welding test to an international code, for example AWS D1.1 or ASME IX</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>NDT inspector</b></td><td data-l="{{ r2 }}">Technical education plus specialisation in non-destructive testing</td><td data-l="{{ r3 }}">Level 1, 2 or 3 under ISO 9712 or ASNT</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Supply vessel crew</b></td><td data-l="{{ r2 }}">Maritime training, sea time</td><td data-l="{{ r3 }}">STCW certificates (the IMO convention for seafarers)</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>HSE officer, safety officer</b></td><td data-l="{{ r2 }}">Technical or environmental education plus safety experience</td><td data-l="{{ r3 }}">NEBOSH or IOSH, incident investigation experience</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Logistics, warehouse, customs</b></td><td data-l="{{ r2 }}">Experience in a port, freight forwarding or clearance</td><td data-l="{{ r3 }}">Knowledge of import rules, driving licence, forklift certificate</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Catering and housekeeping</b></td><td data-l="{{ r2 }}">Hospitality experience</td><td data-l="{{ r3 }}">Hygiene training; offshore also safety training and a medical</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Engineer</b> (process, drilling, subsea, reservoir, project control)</td><td data-l="{{ r2 }}">Bachelor's or master's, often obtained abroad, plus experience</td><td data-l="{{ r3 }}">Working English, experience with an operator or contractor</td></tr>
+ <tr><td data-l="{{ r1 }}"><b>Office roles</b> (HR, finance, procurement, contracts, IT, insurance)</td><td data-l="{{ r2 }}">Higher education, experience in a large company</td><td data-l="{{ r3 }}">English, knowledge of compliance and international standards</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Certificaten: wat je nodig hebt' if nl else 'Certificates: what you need' }}</h2>
+{% if nl %}
+<p>Wie naar een platform of productieschip gaat, moet een basisveiligheidstraining en een medische keuring kunnen laten zien. De standaard in de sector komt van <b>OPITO</b>, de internationale organisatie die trainingsnormen voor de olie- en gasindustrie vastlegt. De "T" voor een cursusnaam staat voor de tropische versie, die past bij warm water zoals voor de Surinaamse kust. Vraag altijd aan je (toekomstige) werkgever welke certificaten precies nodig zijn: de eisen verschillen per operator en per functie, en vaak betaalt de werkgever de training.</p>
+{% else %}
+<p>Anyone going to a rig or production vessel must show basic safety training and a medical certificate. The industry standard comes from <b>OPITO</b>, the international body that sets training standards for oil and gas. A "T" in front of a course name stands for the tropical version, suited to warm water such as off Suriname. Always ask your (future) employer exactly which certificates are needed: requirements differ by operator and role, and the employer often pays for the training.</p>
+{% endif %}
+{% set k1 = 'Certificaat' if nl else 'Certificate' %}{% set k2 = 'Wat het is' if nl else 'What it is' %}{% set k3 = 'Geldigheid' if nl else 'Validity' %}{% set k4 = 'In Suriname' if nl else 'In Suriname' %}
+<table class="tbl stack tx"><thead><tr><th>{{ k1 }}</th><th>{{ k2 }}</th><th>{{ k3 }}</th><th>{{ k4 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ k1 }}"><b>(T-)BOSIET met CA-EBS</b></td><td data-l="{{ k2 }}">Basistraining offshore veiligheid: helikopterontsnapping onder water, overleven op zee, brandbestrijding, eerste hulp. CA-EBS is een noodademhalingssysteem met perslucht</td><td data-l="{{ k3 }}">4 jaar; de BOSIET duurt drie dagen</td><td data-l="{{ k4 }}">Ja, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>(T-)FOET met CA-EBS</b></td><td data-l="{{ k2 }}">Herhalingstraining voor wie al een BOSIET heeft</td><td data-l="{{ k3 }}">4 jaar</td><td data-l="{{ k4 }}">Ja, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>(T-)HUET met CA-EBS</b></td><td data-l="{{ k2 }}">Alleen de helikopterontsnapping onder water, voor wie per helikopter reist maar de volledige BOSIET niet nodig heeft</td><td data-l="{{ k3 }}">{{ 'Volgens de OPITO-norm' }}</td><td data-l="{{ k4 }}">Ja, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Offshore medische keuring</b> (vaak de OEUK-keuring)</td><td data-l="{{ k2 }}">Keuring door een erkende arts: urine, gehoor, longfunctie, zicht en kleuren, bloeddruk, BMI</td><td data-l="{{ k3 }}">Meestal 2 jaar, korter bij bijvoorbeeld hoge bloeddruk. Vanaf 1 november 2026 geen OEUK-certificaat meer boven 124 kg (in kleding) of een BMI boven 40</td><td data-l="{{ k4 }}">Vraag je werkgever welke keuring en welke arts geaccepteerd wordt</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>OPITO IMIST</b></td><td data-l="{{ k2 }}">Minimale veiligheidskennis voor iedereen in de industrie: risico's, werkvergunningen, handmatig tillen, gevaarlijke stoffen</td><td data-l="{{ k3 }}">{{ 'Volgens de OPITO-norm' }}</td><td data-l="{{ k4 }}">Ja, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Rigger, Banksman &amp; Slinger</b></td><td data-l="{{ k2 }}">Veilig aanslaan van lasten en begeleiden van hijswerk</td><td data-l="{{ k3 }}">Met herbeoordeling na de geldigheidsperiode</td><td data-l="{{ k4 }}">Ja, Kersten Training Academy (opleiding en beoordeling)</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>STCW</b></td><td data-l="{{ k2 }}">Internationale certificaten voor zeevarenden, van basisveiligheid tot stuurman en machinist</td><td data-l="{{ k3 }}">Per certificaat; de basisveiligheid moet periodiek worden opgefrist</td><td data-l="{{ k4 }}">Vraag de Maritieme Autoriteit Suriname welke opleidingen erkend zijn</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>NEBOSH of IOSH</b></td><td data-l="{{ k2 }}">Britse diploma's in arbeidsveiligheid; gevraagd voor HSE-functies</td><td data-l="{{ k3 }}">Diploma, geen vervaldatum</td><td data-l="{{ k4 }}">Online of via een erkende aanbieder</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>NDT volgens ISO 9712 of ASNT</b></td><td data-l="{{ k2 }}">Bevoegdheid voor ultrasoon, radiografisch, magnetisch en penetrant onderzoek, in niveau 1 tot 3</td><td data-l="{{ k3 }}">Volgens de norm, met herhaalexamen</td><td data-l="{{ k4 }}">Vaak via de werkgever in het buitenland</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Lascertificaat</b> (bijvoorbeeld AWS D1.1, ASME IX)</td><td data-l="{{ k2 }}">Bewijs dat je volgens een bepaalde procedure goed last, na een proefstuk dat wordt getest</td><td data-l="{{ k3 }}">Blijft geldig zolang je het proces regelmatig uitvoert</td><td data-l="{{ k4 }}">Basis bij SAO of NATIN; de kwalificatie via een erkend inspecteur</td></tr>
+{% else %}
+ <tr><td data-l="{{ k1 }}"><b>(T-)BOSIET with CA-EBS</b></td><td data-l="{{ k2 }}">Basic offshore safety: underwater helicopter escape, sea survival, firefighting, first aid. CA-EBS is a compressed-air emergency breathing system</td><td data-l="{{ k3 }}">4 years; the BOSIET takes three days</td><td data-l="{{ k4 }}">Yes, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>(T-)FOET with CA-EBS</b></td><td data-l="{{ k2 }}">Refresher for holders of a BOSIET</td><td data-l="{{ k3 }}">4 years</td><td data-l="{{ k4 }}">Yes, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>(T-)HUET with CA-EBS</b></td><td data-l="{{ k2 }}">Only the underwater helicopter escape, for people who travel by helicopter but do not need the full BOSIET</td><td data-l="{{ k3 }}">Per the OPITO standard</td><td data-l="{{ k4 }}">Yes, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Offshore medical</b> (often the OEUK medical)</td><td data-l="{{ k2 }}">Examination by an approved doctor: urine, hearing, lung function, vision and colour, blood pressure, BMI</td><td data-l="{{ k3 }}">Usually 2 years, shorter with for example high blood pressure. From 1 November 2026 no OEUK certificate above 124 kg (clothed) or a BMI above 40</td><td data-l="{{ k4 }}">Ask your employer which medical and which doctor it accepts</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>OPITO IMIST</b></td><td data-l="{{ k2 }}">Minimum safety knowledge for everyone in the industry: hazards, permits to work, manual handling, hazardous substances</td><td data-l="{{ k3 }}">Per the OPITO standard</td><td data-l="{{ k4 }}">Yes, Kersten Training Academy</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Rigger, Banksman &amp; Slinger</b></td><td data-l="{{ k2 }}">Safe slinging of loads and guiding lifts</td><td data-l="{{ k3 }}">With reassessment after the validity period</td><td data-l="{{ k4 }}">Yes, Kersten Training Academy (training and assessment)</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>STCW</b></td><td data-l="{{ k2 }}">International certificates for seafarers, from basic safety to officer and engineer</td><td data-l="{{ k3 }}">Per certificate; basic safety must be refreshed periodically</td><td data-l="{{ k4 }}">Ask the Maritime Authority Suriname which courses are recognised</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>NEBOSH or IOSH</b></td><td data-l="{{ k2 }}">British qualifications in occupational safety; asked for HSE roles</td><td data-l="{{ k3 }}">Qualification, no expiry</td><td data-l="{{ k4 }}">Online or through an accredited provider</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>NDT under ISO 9712 or ASNT</b></td><td data-l="{{ k2 }}">Competence in ultrasonic, radiographic, magnetic and penetrant testing, levels 1 to 3</td><td data-l="{{ k3 }}">Per the standard, with re-examination</td><td data-l="{{ k4 }}">Often through the employer abroad</td></tr>
+ <tr><td data-l="{{ k1 }}"><b>Welding qualification</b> (for example AWS D1.1, ASME IX)</td><td data-l="{{ k2 }}">Proof that you weld correctly to a given procedure, after a test piece is examined</td><td data-l="{{ k3 }}">Stays valid as long as you use the process regularly</td><td data-l="{{ k4 }}">Basics at SAO or NATIN; the qualification through an accredited inspector</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Waar je in Suriname opleidt' if nl else 'Where to train in Suriname' }}</h2>
+{% if nl %}
+<h3>Kersten Training Academy (offshore veiligheid)</h3>
+<p>Sinds 13 juni 2024 is de Kersten Training Academy aan de Sir Winston Churchillweg, perceel 203, tegenover de raffinaderij van Staatsolie, door OPITO gecertificeerd. Staatsolie steunde de oprichting, zodat Surinamers niet meer naar het buitenland hoeven voor hun basisveiligheidstraining. Het aanbod omvat onder meer T-BOSIET, BOSIET, T-FOET, FOET en T-HUET met CA-EBS, IMIST, Rigger en Banksman &amp; Slinger, een introductie in olie en gas, eerste hulp en brandwacht. Prijzen en data staan niet op de website; je meldt je aan via het formulier op kta.kersten.sr of belt 587-400 (WhatsApp 873 2232), maandag tot en met vrijdag van 07.00 tot 16.00 uur.</p>
+<h3>NATIN olie- en gasprogramma</h3>
+<p>Het Natuurtechnisch Instituut (NATIN) geeft samen met Staatsolie een vervolgopleiding van 18 maanden in drie delen: een basisdeel, het olie- en gasdeel en een praktijkstage. Toegelaten worden afgestudeerden van NATIN in procestechniek, werktuigbouwkunde of elektrotechniek-energie, na selectie. De eerste groep van 30 begon in oktober 2022; in oktober 2024 slaagden er 10. Een tweede groep startte in februari 2024. Staatsolie investeerde er meer dan een miljoen dollar in en plaatste in 2025 ook 87 NATIN-stagiairs.</p>
+<h3>PTC, AdeKUS en SAO</h3>
+<p>Het Polytechnic College (PTC) biedt hbo-opleidingen in techniek en ICT en geeft met partners olie- en gascursussen. De technische faculteit van de AdeKUS leidt onder meer werktuigbouw- en elektrotechnisch ingenieurs op; Staatsolie renoveert sinds augustus 2026 twee hallen van die faculteit. Een aparte universitaire olie- en gasopleiding vonden we niet. Voor lassen, elektra en andere vakken is er de SAO. Meer over opleiders in Suriname: <a href="{{ U('training') }}">{{ L('training') }}</a>.</p>
+<h3>Programma's van de oliebedrijven</h3>
+<ul>
+ <li><b>Samenwerkingsovereenkomst vakonderwijs (juni 2026).</b> TotalEnergies, Staatsolie en de ministeries van Onderwijs, van Olie, Gas en Milieu en van Volksgezondheid, Welzijn en Arbeid tekenden een overeenkomst van vier jaar om het beroepsonderwijs aan te laten sluiten op de sector: opleidingen naar internationale normen, betere laboratoria en bijscholing van docenten.</li>
+ <li><b>SURICAP (TotalEnergies).</b> In 2026 rondden 75 docenten van technische scholen een veiligheidstraining af; in november 2026 begint een tweede groep van 100. Via consortia van bedrijven en scholen zegt TotalEnergies circa 4.000 leerlingen te bereiken, met meer dan 150 opgeleide docenten en meer dan 25 deelnemende bedrijven.</li>
+ <li><b>Staatsolie.</b> Stages van drie tot zes maanden (aanmelden via Stage@staatsolie.com), vakantiewerk via scholen die Staatsolie zelf uitkiest (16 tot 21 jaar), en beurzen: in het jubileumprogramma van 2025 gingen 45 beurzen naar jongeren en 7 volledig betaalde beurzen naar studenten uit Brokopondo.</li>
+</ul>
+{% else %}
+<h3>Kersten Training Academy (offshore safety)</h3>
+<p>Since 13 June 2024 Kersten Training Academy on Sir Winston Churchillweg, plot 203, opposite the Staatsolie refinery, has been OPITO certified. Staatsolie supported its creation so that Surinamese workers no longer have to go abroad for basic offshore safety training. Courses include T-BOSIET, BOSIET, T-FOET, FOET and T-HUET with CA-EBS, IMIST, Rigger and Banksman &amp; Slinger, an introduction to oil and gas, first aid and fire warden. Prices and dates are not on the website; register through the form on kta.kersten.sr or call 587-400 (WhatsApp 873 2232), Monday to Friday 07:00 to 16:00.</p>
+<h3>NATIN oil and gas programme</h3>
+<p>The Natural Technical Institute (NATIN), with Staatsolie, runs an 18-month follow-on programme in three parts: a foundation part, the oil and gas part and a work placement. It admits NATIN graduates in process technology, mechanical engineering or electrical-energy engineering, after selection. The first group of 30 started in October 2022; 10 graduated in October 2024. A second group started in February 2024. Staatsolie invested more than a million dollars and also placed 87 NATIN interns in 2025.</p>
+<h3>PTC, AdeKUS and SAO</h3>
+<p>Polytechnic College (PTC) offers higher professional programmes in engineering and ICT and runs oil and gas courses with partners. The Faculty of Technology at Anton de Kom University (AdeKUS) trains mechanical and electrical engineers, among others; since August 2026 Staatsolie has been renovating two of its halls. We found no separate university degree in oil and gas. For welding, electrical work and other trades there is SAO. More on training providers: <a href="{{ U('training') }}">{{ L('training') }}</a>.</p>
+<h3>Programmes run by the oil companies</h3>
+<ul>
+ <li><b>Vocational education agreement (June 2026).</b> TotalEnergies, Staatsolie and the ministries of Education, of Oil, Gas and Environment, and of Health, Welfare and Labour signed a four-year agreement to align vocational education with the sector: programmes to international standards, better laboratories and training for teachers.</li>
+ <li><b>SURICAP (TotalEnergies).</b> In 2026, 75 teachers from technical schools completed a safety training; a second group of 100 starts in November 2026. Through consortia of companies and schools TotalEnergies says it reaches about 4,000 students, with more than 150 teachers trained and more than 25 companies involved.</li>
+ <li><b>Staatsolie.</b> Internships of three to six months (apply at Stage@staatsolie.com), holiday jobs through schools Staatsolie selects (ages 16 to 21), and scholarships: its 2025 anniversary programme gave 45 scholarships to young people and 7 fully funded scholarships to students from Brokopondo.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Waar de vacatures staan' if nl else 'Where vacancies appear' }}</h2>
+{% set v1 = 'Kanaal' if nl else 'Channel' %}{% set v2 = 'Wat je er vindt' if nl else 'What you find' %}{% set v3 = 'Tip' if nl else 'Tip' %}
+<table class="tbl stack tx"><thead><tr><th>{{ v1 }}</th><th>{{ v2 }}</th><th>{{ v3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ v1 }}"><b>EnergyJobs.sr</b></td><td data-l="{{ v2 }}">Neutraal vacatureportaal voor de hele energiesector, op 27 november 2025 gelanceerd door TotalEnergies: vacatures van TotalEnergies, de hoofdcontractors, Staatsolie en andere bedrijven, offshore en aan wal</td><td data-l="{{ v3 }}">Maak een profiel en filter op locatie, bedrijf en contractvorm. Het portaal richt zich ook op studenten en de diaspora</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Vacaturedatabase Staatsolie</b></td><td data-l="{{ v2 }}">Alle vacatures van Staatsolie, GOw2 en SPCS</td><td data-l="{{ v3 }}">Staatsolie neemt alleen sollicitaties via deze database aan, niet per mail of op papier. Met een account krijg je meldingen van nieuwe vacatures</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Careers-pagina's van contractors</b></td><td data-l="{{ v2 }}">SBM Offshore (productieschip), Halliburton (boren), TechnipFMC (onderzeese installaties), Saipem (leidingen) en hun onderaannemers</td><td data-l="{{ v3 }}">Zoek op locatie "Suriname" en solliciteer alleen via het officiële domein van het bedrijf</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Uitzend- en detacheringsbureaus</b></td><td data-l="{{ v2 }}">Tijdelijk werk; Staatsolie vroeg in oktober 2026 nog bedrijven om zich te melden voor uitzendkrachten</td><td data-l="{{ v3 }}">Een goed bureau vraagt nooit geld van jou als kandidaat</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Onze vacaturebank</b></td><td data-l="{{ v2 }}">Vacatures van Surinaamse bedrijven, ook toeleveranciers van de sector</td><td data-l="{{ v3 }}"><a href="{{ U('jobs') }}">{{ L('jobs') }}</a>; werkgevers plaatsen gratis via <a href="{{ U('postjob') }}">{{ L('postjob') }}</a></td></tr>
+{% else %}
+ <tr><td data-l="{{ v1 }}"><b>EnergyJobs.sr</b></td><td data-l="{{ v2 }}">Neutral job portal for the whole energy sector, launched by TotalEnergies on 27 November 2025: vacancies at TotalEnergies, the main contractors, Staatsolie and other companies, offshore and onshore</td><td data-l="{{ v3 }}">Create a profile and filter by location, company and contract type. The portal also targets students and the diaspora</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Staatsolie job database</b></td><td data-l="{{ v2 }}">All vacancies at Staatsolie, GOw2 and SPCS</td><td data-l="{{ v3 }}">Staatsolie only accepts applications through this database, not by email or on paper. With an account you get alerts for new vacancies</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Contractors' careers pages</b></td><td data-l="{{ v2 }}">SBM Offshore (production vessel), Halliburton (drilling), TechnipFMC (subsea), Saipem (pipelines) and their subcontractors</td><td data-l="{{ v3 }}">Search for location "Suriname" and only apply through the company's official domain</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Staffing and secondment agencies</b></td><td data-l="{{ v2 }}">Temporary work; in October 2026 Staatsolie asked companies to register interest in supplying temporary staff</td><td data-l="{{ v3 }}">A proper agency never charges you as a candidate</td></tr>
+ <tr><td data-l="{{ v1 }}"><b>Our jobs board</b></td><td data-l="{{ v2 }}">Vacancies at Surinamese companies, including suppliers to the sector</td><td data-l="{{ v3 }}"><a href="{{ U('jobs') }}">{{ L('jobs') }}</a>; employers post free through <a href="{{ U('postjob') }}">{{ L('postjob') }}</a></td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Hoe de werving verloopt' if nl else 'How recruitment works' }}</h2>
+{% if nl %}
+<p>Veel mensen op een olieproject zijn niet in dienst van de oliemaatschappij zelf, maar van een contractor of een lokale onderaannemer. Je werkgever is dus vaak een ander bedrijf dan de naam op het project. De stappen lijken wel overal op elkaar:</p>
+<ol class="steps">
+ <li><b>Profiel en sollicitatie.</b> Via het portaal van de werkgever of EnergyJobs.sr. Solliciteer per vacature; een profiel alleen is geen sollicitatie.</li>
+ <li><b>Voorselectie.</b> Op opleiding, certificaten en ervaring. Bij Staatsolie hoor je alleen iets als je profiel past.</li>
+ <li><b>Een of meer gesprekken.</b> Vaak deels in het Engels, met vragen over veiligheid en hoe je in een team werkt.</li>
+ <li><b>Assessment.</b> Een test of praktijkopdracht, afhankelijk van de functie.</li>
+ <li><b>Medische keuring en drugstest.</b> Bij Staatsolie hoort een medisch onderzoek bij de werving; voor offshore werk ook de offshore keuring.</li>
+ <li><b>Certificaten.</b> Ontbreken BOSIET of andere trainingen, dan regelt de werkgever die vaak voor de start.</li>
+ <li><b>Contract en introductie.</b> Lees het contract goed (zie hieronder) en volg de veiligheidsintroductie van de locatie.</li>
+</ol>
+{% else %}
+<p>Many people on an oil project are not employed by the oil company itself but by a contractor or a local subcontractor. Your employer is often a different company from the name on the project. The steps are similar everywhere:</p>
+<ol class="steps">
+ <li><b>Profile and application.</b> Through the employer's portal or EnergyJobs.sr. Apply for each vacancy; a profile alone is not an application.</li>
+ <li><b>Screening.</b> On education, certificates and experience. At Staatsolie you only hear back if your profile fits.</li>
+ <li><b>One or more interviews.</b> Often partly in English, with questions about safety and teamwork.</li>
+ <li><b>Assessment.</b> A test or practical task, depending on the role.</li>
+ <li><b>Medical and drug test.</b> At Staatsolie a medical examination is part of recruitment; offshore work also needs the offshore medical.</li>
+ <li><b>Certificates.</b> If BOSIET or other training is missing, the employer often arranges it before you start.</li>
+ <li><b>Contract and induction.</b> Read the contract carefully (see below) and follow the site safety induction.</li>
+</ol>
+{% endif %}
+
+<h2>{{ 'Roosters, loon en belasting' if nl else 'Rotations, pay and tax' }}</h2>
+{% if nl %}
+<p><b>Roosters.</b> Offshore werk je in blokken: een aantal weken aan boord met lange diensten, daarna een even lange of langere periode thuis. Aan wal zijn ploegendiensten gewoon bij de raffinaderij en de productievelden. Het precieze rooster, de reisdagen en wie de reis betaalt, horen in je contract te staan.</p>
+<p><b>Loon.</b> Er zijn geen openbare loonschalen voor de sector in Suriname, en wij noemen geen bedragen die we niet kunnen onderbouwen. Staatsolie zegt dat het salaris tijdens de werving wordt besproken en afhangt van eisen, ervaring en verantwoordelijkheden. In het algemeen bepalen deze factoren wat je verdient:</p>
+<ul>
+ <li>de functie en je certificaten (een gecertificeerde NDT-inspecteur of kraanmachinist is schaarser dan een helper);</li>
+ <li>offshore of aan wal, het rooster en eventuele toeslagen voor offshore werk, ploegendienst en overwerk;</li>
+ <li>het type werkgever: operator, internationale contractor, lokaal bedrijf of uitzendbureau;</li>
+ <li>de valuta: sommige werkgevers betalen (deels) in US-dollar, andere in SRD;</li>
+ <li>secundaire voorwaarden: pensioen, ziektekosten, verzekering, vervoer en maaltijden.</li>
+</ul>
+<p><b>Belasting.</b> Over loon voor werk in Suriname betaal je Surinaamse loonbelasting en AOV-premie, ook als je werkgever een buitenlands bedrijf is. Reken je netto loon uit met <a href="{{ U('salary') }}">{{ L('salary') }}</a> en bekijk de tarieven op <a href="{{ U('tax') }}">{{ L('tax') }}</a>. Overwerk bereken je met <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>.</p>
+{% else %}
+<p><b>Rotations.</b> Offshore you work in blocks: a number of weeks on board with long shifts, then an equal or longer period at home. Onshore, shift work is normal at the refinery and the production fields. The exact rotation, travel days and who pays for travel belong in your contract.</p>
+<p><b>Pay.</b> There are no published pay scales for the sector in Suriname, and we do not quote figures we cannot back up. Staatsolie says salary is discussed during recruitment and depends on requirements, experience and responsibilities. In general, these factors decide what you earn:</p>
+<ul>
+ <li>the role and your certificates (a certified NDT inspector or crane operator is scarcer than a helper);</li>
+ <li>offshore or onshore, the rotation and any allowances for offshore work, shifts and overtime;</li>
+ <li>the type of employer: operator, international contractor, local company or staffing agency;</li>
+ <li>the currency: some employers pay (partly) in US dollars, others in SRD;</li>
+ <li>benefits: pension, health cover, insurance, transport and meals.</li>
+</ul>
+<p><b>Tax.</b> Pay for work in Suriname is subject to Surinamese wage tax and AOV contribution, even if your employer is a foreign company. Work out your net pay with <a href="{{ U('salary') }}">{{ L('salary') }}</a> and see the rates on <a href="{{ U('tax') }}">{{ L('tax') }}</a>. Calculate overtime with <a href="{{ U('overtime') }}">{{ L('overtime') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Je contract bij een buitenlandse contractor' if nl else 'Your contract with a foreign contractor' }}</h2>
+{% if nl %}
+<p>Buitenlandse oliebedrijven moeten volgens de Petroleumwet een vestiging in Suriname hebben, en veel contractors nemen lokaal personeel aan via een Surinaamse vennootschap of een uitzendbureau. Werk je in Suriname in dienst van een in Suriname gevestigde werkgever, dan gelden de Surinaamse arbeidsregels, zoals de proeftijd van maximaal twee maanden en de regels voor opvolgende tijdelijke contracten. Zie <a href="{{ U('labour') }}">{{ L('labour') }}</a> en <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. Controleer voor je tekent:</p>
+<ul>
+ <li>welk bedrijf precies je werkgever is (naam, KKF-nummer) en wie je loon betaalt;</li>
+ <li>vast of tijdelijk, de einddatum en wat er gebeurt als het project stopt of vertraging oploopt;</li>
+ <li>het rooster, de reisdagen, vervoer naar de basis of helikopterhaven en wie dat betaalt;</li>
+ <li>loon, valuta, toeslagen, overwerk en wanneer je betaald wordt;</li>
+ <li>verzekering bij ongeval en ziekte, ook offshore, en wat er met je loon gebeurt als je ziek bent;</li>
+ <li>wie je trainingen en keuringen betaalt, en of je dat moet terugbetalen als je vertrekt;</li>
+ <li>de veiligheidsregels: je mag werk stilleggen als het onveilig is ("stop work authority"). Meer over veiligheid: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% else %}
+<p>Under the Petroleum Act foreign oil companies must have an office in Suriname, and many contractors hire local staff through a Surinamese company or a staffing agency. If you work in Suriname for an employer established in Suriname, Surinamese labour rules apply, such as a probation period of at most two months and the rules on successive fixed-term contracts. See <a href="{{ U('labour') }}">{{ L('labour') }}</a> and <a href="{{ U('dismissal') }}">{{ L('dismissal') }}</a>. Check before you sign:</p>
+<ul>
+ <li>exactly which company is your employer (name, KKF number) and who pays your wages;</li>
+ <li>permanent or fixed-term, the end date and what happens if the project stops or is delayed;</li>
+ <li>the rotation, travel days, transport to the base or heliport and who pays for it;</li>
+ <li>pay, currency, allowances, overtime and pay dates;</li>
+ <li>accident and sickness insurance, including offshore, and what happens to your pay when you are ill;</li>
+ <li>who pays for training and medicals, and whether you must repay them if you leave;</li>
+ <li>the safety rules: you may stop work that is unsafe ("stop work authority"). More on safety: <a href="{{ U('safety') }}">{{ L('safety') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Buitenlanders en de diaspora' if nl else 'Foreigners and the diaspora' }}</h2>
+{% if nl %}
+<p>Een buitenlandse vakkracht heeft een werkvergunning nodig, die de werkgever aanvraagt bij het ministerie dat over Arbeid gaat. In de olie-, goud- en houtsector kost een aanvraag of verlenging USD 500. Houders van een PSA-document, remigranten van Surinaamse afkomst, wie met een Surinamer getrouwd is en CARICOM skilled nationals hebben geen werkvergunning nodig. Alles over de procedure: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p>Voor Surinamers in Nederland of elders met ervaring in de sector is dit een kans: EnergyJobs.sr richt zich uitdrukkelijk ook op de diaspora, en operators willen hun aandeel Surinaams personeel laten groeien. Met een PSA-document werk je zonder werkvergunning. Lees ook <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> en, als je verhuist, <a href="{{ U('expat') }}">{{ L('expat') }}</a>.</p>
+{% else %}
+<p>A foreign specialist needs a work permit, which the employer applies for at the ministry responsible for labour. In the oil, gold and timber sectors an application or extension costs USD 500. Holders of a PSA document, returning migrants of Surinamese origin, spouses of Surinamese citizens and CARICOM skilled nationals do not need a work permit. Full procedure: <a href="{{ U('workpermit') }}">{{ L('workpermit') }}</a>.</p>
+<p>For Surinamese people in the Netherlands or elsewhere with sector experience this is an opportunity: EnergyJobs.sr explicitly targets the diaspora too, and operators want to grow their share of Surinamese staff. With a PSA document you can work without a work permit. See also <a href="{{ U('diaspora') }}">{{ L('diaspora') }}</a> and, if you are moving, <a href="{{ U('expat') }}">{{ L('expat') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Pas op voor nepvacatures' if nl else 'Watch out for fake job offers' }}</h2>
+{% if nl %}
+<p>Overal waar een olieboom op gang komt, duiken oplichters op met "offshore banen" die tegen betaling geregeld worden. TotalEnergies waarschuwt dat het in geen enkele fase van de werving geld of financiële gegevens vraagt, en dat echte mails van het bedrijf eindigen op @totalenergies.com. Staatsolie neemt alleen sollicitaties via de eigen database aan. Herken de signalen:</p>
+<ul>
+ <li>je moet betalen voor een "aanmeldfee", visum, training, keuring, ticket of reisbureau;</li>
+ <li>je krijgt ongevraagd een baan aangeboden, zonder gesprek of met alleen een chat;</li>
+ <li>het mailadres eindigt op gmail, outlook of een domein dat net niet klopt;</li>
+ <li>men vraagt je bankgegevens, een kopie van je paspoort of je ID vóór een echt aanbod;</li>
+ <li>het salaris is onrealistisch hoog en er is haast ("vandaag nog betalen").</li>
+</ul>
+<p>Twijfel je, zoek de vacature dan op de officiële website van het bedrijf of op EnergyJobs.sr. Ben je opgelicht, doe dan aangifte bij de politie.</p>
+{% else %}
+<p>Wherever an oil boom starts, scammers appear offering "offshore jobs" for a fee. TotalEnergies warns that it never asks for money or financial details at any stage of recruitment, and that genuine emails from the company end in @totalenergies.com. Staatsolie only accepts applications through its own database. Recognise the signs:</p>
+<ul>
+ <li>you must pay a "registration fee", visa, training, medical, ticket or travel agency;</li>
+ <li>you are offered a job out of the blue, without an interview or only by chat;</li>
+ <li>the email address ends in gmail, outlook or a domain that is slightly off;</li>
+ <li>you are asked for bank details or a copy of your passport or ID before a real offer;</li>
+ <li>the salary is unrealistically high and there is pressure ("pay today").</li>
+</ul>
+<p>If in doubt, look the vacancy up on the company's official website or on EnergyJobs.sr. If you have been defrauded, report it to the police.</p>
+{% endif %}
+
+<h2>{{ 'Tips voor je sollicitatie' if nl else 'Application tips' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Zet je certificaten bovenaan</b>, met nummer en vervaldatum: BOSIET, keuring, vakcertificaten. Recruiters filteren daarop.</li>
+ <li><b>Laat veiligheid zien.</b> Noem trainingen, werkvergunningsystemen waarmee je werkte en hoe je een onveilige situatie hebt gemeld of opgelost.</li>
+ <li><b>Concreet over ervaring</b>: welke installaties, welke apparatuur, hoeveel jaar, in welke ploegendienst.</li>
+ <li><b>Engels.</b> Zorg voor een cv in het Engels; de werktaal op projecten is vaak Engels.</li>
+ <li><b>Referenties</b> van leidinggevenden die over je vakmanschap en betrouwbaarheid kunnen vertellen.</li>
+ <li><b>Begin bij een toeleverancier</b> als je nog geen sectorervaring hebt: logistiek, werkplaats, beveiliging of catering is vaak de eerste stap naar werk bij een contractor.</li>
+ <li><b>Houd je papieren bij</b>: een verlopen BOSIET of keuring kan een aanbod laten vervallen.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Put your certificates at the top</b>, with number and expiry date: BOSIET, medical, trade certificates. Recruiters filter on them.</li>
+ <li><b>Show safety.</b> Mention training, permit-to-work systems you used and how you reported or solved an unsafe situation.</li>
+ <li><b>Be specific about experience</b>: which installations, which equipment, how many years, which shift pattern.</li>
+ <li><b>English.</b> Have a CV in English; the working language on projects is often English.</li>
+ <li><b>References</b> from supervisors who can speak about your skills and reliability.</li>
+ <li><b>Start at a supplier</b> if you have no sector experience yet: logistics, a workshop, security or catering is often the first step to work at a contractor.</li>
+ <li><b>Keep your papers current</b>: an expired BOSIET or medical can cost you an offer.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Checklist' if nl else 'Checklist' }}</h2>
+<ul class="check">
+{% if nl %}
+ <li>Cv in het Nederlands en het Engels, met certificaten en vervaldata bovenaan</li>
+ <li>Profiel op EnergyJobs.sr en een account in de vacaturedatabase van Staatsolie, met vacaturemeldingen aan</li>
+ <li>Weten welke certificaten de functie vraagt, en of de werkgever ze betaalt</li>
+ <li>(T-)BOSIET met CA-EBS en offshore keuring, als je offshore wilt werken</li>
+ <li>Diploma's en referenties gescand en bij de hand</li>
+ <li>Contract gecontroleerd op werkgever, rooster, loon, valuta, verzekering en terugbetaling van trainingen</li>
+ <li>Nooit geld betaald voor een sollicitatie, visum of training</li>
+ <li>Netto loon nagerekend met de salariscalculator</li>
+{% else %}
+ <li>CV in Dutch and English, with certificates and expiry dates at the top</li>
+ <li>Profile on EnergyJobs.sr and an account in Staatsolie's job database, with job alerts on</li>
+ <li>Know which certificates the role needs, and whether the employer pays for them</li>
+ <li>(T-)BOSIET with CA-EBS and an offshore medical, if you want to work offshore</li>
+ <li>Diplomas and references scanned and to hand</li>
+ <li>Contract checked for employer, rotation, pay, currency, insurance and training repayment</li>
+ <li>Never paid money for an application, visa or training</li>
+ <li>Net pay checked with the salary calculator</li>
+{% endif %}
+</ul>
+<p>{{ 'Verder lezen: ' if nl else 'Read on: ' }}<a href="{{ U('staatsolie') }}">{{ L('staatsolie') }}</a> &middot; <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> &middot; <a href="{{ U('hiring') }}">{{ L('hiring') }}</a> &middot; <a href="{{ U('oilglossary') }}">{{ L('oilglossary') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://totalenergies.sr/press/suriname-granmorgu-project-takes-shape-major-production-equipment-arrives" rel="noopener">{{ 'TotalEnergies EP Suriname: productieapparatuur aangekomen, 600+ functies voor Surinamers (19 september 2026)' if nl else 'TotalEnergies EP Suriname: production equipment arrives, 600+ jobs for Surinamese (19 September 2026)' }}</a></li>
+ <li><a href="https://totalenergies.sr/local-content-workforce-development-0" rel="noopener">{{ 'TotalEnergies EP Suriname: workforce development, SURICAP en EnergyJobs.sr' if nl else 'TotalEnergies EP Suriname: workforce development, SURICAP and EnergyJobs.sr' }}</a></li>
+ <li><a href="https://totalenergies.sr/press-publications/totalenergies-completes-first-hse-awareness-training-cycle-vocational-educators" rel="noopener">{{ 'TotalEnergies EP Suriname: veiligheidstraining voor 75 docenten (oktober 2026)' if nl else 'TotalEnergies EP Suriname: safety training for 75 teachers (October 2026)' }}</a></li>
+ <li><a href="https://keynews.sr/en/totalenergies-the-government-and-staatsolie-sign-a-memorandum-of-understanding-to-strengthen-vocational-education/" rel="noopener">{{ 'Key News: overeenkomst TotalEnergies, regering en Staatsolie over beroepsonderwijs (25 juni 2026)' if nl else 'Key News: TotalEnergies, government and Staatsolie agreement on vocational education (25 June 2026)' }}</a></li>
+ <li><a href="https://www.gfcnieuws.com/gran-morgu-voor-43-procent-uitgevoerd-eerste-productieboringen-gepland-voor-december/" rel="noopener">{{ 'GFC Nieuws: GranMorgu 43%, boringen december, Halliburton bijna 70% Surinaams (23 oktober 2026)' if nl else 'GFC Nieuws: GranMorgu 43%, drilling in December, Halliburton almost 70% Surinamese (23 October 2026)' }}</a></li>
+ <li><a href="https://www.nasdaq.com/press-release/sbm-offshore-signs-operations-and-maintenance-contract-fpso-granmorgu-totalenergies" rel="noopener">{{ 'SBM Offshore: contract voor bediening en onderhoud FPSO GranMorgu (juni 2025)' if nl else 'SBM Offshore: operations and maintenance contract for FPSO GranMorgu (June 2025)' }}</a></li>
+ <li><a href="https://energyjobs.sr/jobs" rel="noopener">{{ 'EnergyJobs.sr: vacatures (geraadpleegd 26 oktober 2026)' if nl else 'EnergyJobs.sr: vacancies (accessed 26 October 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/faqs-career" rel="noopener">{{ 'Staatsolie: veelgestelde vragen over werken bij Staatsolie' if nl else 'Staatsolie: careers FAQ' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/careers/" rel="noopener">{{ 'Staatsolie: careers en vacaturedatabase' if nl else 'Staatsolie: careers and job database' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf" rel="noopener">{{ 'Staatsolie: duurzaamheidsverslag 2025 (medewerkers, stagiairs, beurzen)' if nl else 'Staatsolie: Sustainability Report 2025 (employees, interns, scholarships)' }}</a></li>
+ <li><a href="https://www.kersten.sr/news/press-release-kersten-group-of-companies-opens-opito-certified-training-center-in-suriname/" rel="noopener">{{ 'Kersten: OPITO-gecertificeerd trainingscentrum geopend (juni 2024)' if nl else 'Kersten: OPITO-certified training centre opens (June 2024)' }}</a></li>
+ <li><a href="https://kta.kersten.sr/course-registration/" rel="noopener">{{ 'Kersten Training Academy: cursussen en aanmelding' if nl else 'Kersten Training Academy: courses and registration' }}</a></li>
+ <li><a href="https://staatsolie.com/en/news/first-group-of-natin-oil-and-gas-training-graduates" rel="noopener">{{ 'Staatsolie: eerste afgestudeerden NATIN olie- en gasprogramma (november 2024)' if nl else 'Staatsolie: first NATIN oil and gas graduates (November 2024)' }}</a></li>
+ <li><a href="https://keynews.sr/potentiele-studenten-geinformeerd-over-olie-gasopleiding" rel="noopener">{{ 'Key News: toelating NATIN olie- en gasopleiding (september 2022)' if nl else 'Key News: admission to the NATIN oil and gas programme (September 2022)' }}</a></li>
+ <li><a href="https://keynews.sr/kopprogramma-olie-en-gasindustrie-moet-startbekwame-technici-afwerpen" rel="noopener">{{ 'Key News: start kopprogramma olie en gas (oktober 2022)' if nl else 'Key News: launch of the oil and gas follow-on programme (October 2022)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-funds-renovation-of-adekus-buildings/" rel="noopener">{{ 'Staatsolie: renovatie gebouwen technische faculteit AdeKUS (augustus 2026)' if nl else 'Staatsolie: renovation of AdeKUS Faculty of Technology buildings (August 2026)' }}</a></li>
+ <li><a href="https://fmtcsafety.com/courses/opito-bosiet-with-ebs-5700-with-ca-ebs-5750/" rel="noopener">{{ 'FMTC Safety: OPITO BOSIET, duur en geldigheid' if nl else 'FMTC Safety: OPITO BOSIET, duration and validity' }}</a></li>
+ <li><a href="https://vulcantc.com/en/medical/oguk-medical" rel="noopener">{{ 'Vulcan: OEUK offshore keuring, geldigheid en gewichtsregels' if nl else 'Vulcan: OEUK offshore medical, validity and weight rules' }}</a></li>
+ <li><a href="https://opito.org/" rel="noopener">OPITO</a></li>
+ <li><a href="https://www.staatsolie.com/en/procurement-opportunities/" rel="noopener">{{ 'Staatsolie: inkoopkansen, onder meer EOI uitzendkrachten (oktober 2026)' if nl else 'Staatsolie: procurement opportunities, including the EOI for temporary labour (October 2026)' }}</a></li>
+ <li><a href="https://totalenergies.co.uk/careers/fraudulent-recruitment-warning" rel="noopener">{{ 'TotalEnergies: waarschuwing tegen nepvacatures' if nl else 'TotalEnergies: fraudulent recruitment warning' }}</a></li>
+ <li><a href="https://gov.sr/wp-content/uploads/2022/12/Bekendmaking-WV-vastelling-aangepast-tarief-met-rek-nummers-291222.pdf" rel="noopener">{{ 'Bekendmaking tarief werkvergunning (USD 500 in olie, goud en hout)' if nl else 'Work permit fee notice (USD 500 in oil, gold and timber)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen loopbaan- of juridisch advies. Eisen, opleidingen en vacatures veranderen snel; controleer ze bij de werkgever of het opleidingsinstituut.' if nl else 'General information, not career or legal advice. Requirements, courses and vacancies change quickly; check them with the employer or training provider.' }}</p>
+</div>
+{% endblock %}

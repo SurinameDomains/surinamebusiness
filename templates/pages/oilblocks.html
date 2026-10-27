@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every quarter and after each Staatsolie announcement (staatsolie.com/en/news and
+    /en/open-door-offering/updates). Update the block table when a PSC is signed, transferred or relinquished, the
+    Open-Door windows (90 days each), Block 52 FID status and well results. Bump the asof date. -#}
+<div class="prose">
+<h1>{{ 'Olieblokken en concessies in Suriname' if nl else 'Oil blocks and concessions in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">De zee voor Suriname is verdeeld in genummerde blokken. Staatsolie sluit voor elk blok een productiedelingscontract (PSC) met een of meer oliemaatschappijen, die op eigen kosten en risico zoeken en, als ze iets vinden, ontwikkelen en produceren. In oktober 2026 produceert alleen Staatsolie zelf olie, op land in Saramacca. Offshore zijn er drie hoofdlijnen: <b>GranMorgu</b> in Blok 58 (eerste olie 2028), <b>gas van Petronas</b> in Blok 52 (investeringsbesluit gepland, eerste gas op zijn vroegst 2030) en een rij <b>exploratieblokken</b> van Chevron, Shell, TotalEnergies, Petronas, QatarEnergy en PetroChina. Sinds november 2025 kan elk gekwalificeerd bedrijf via het <b>Open-Door aanbod</b> voorstellen doen voor de rest van de zee.</p>
+{% else %}
+<p class="lead">The sea off Suriname is divided into numbered blocks. For each block Staatsolie signs a production sharing contract (PSC) with one or more oil companies, which explore at their own cost and risk and, if they find something, develop and produce it. In October 2026 only Staatsolie itself produces oil, onshore in Saramacca. Offshore there are three main lines: <b>GranMorgu</b> in Block 58 (first oil 2028), <b>Petronas gas</b> in Block 52 (investment decision planned, first gas 2030 at the earliest) and a row of <b>exploration blocks</b> held by Chevron, Shell, TotalEnergies, Petronas, QatarEnergy and PetroChina. Since November 2025 any qualified company can propose terms for the rest of the sea through the <b>Open-Door Offering</b>.</p>
+{% endif %}
+<div class="grid g4">
+ <div class="card"><div class="eyebrow">{{ 'Productie op land' if nl else 'Onshore production' }}</div><div class="big">{{ '6,35 mln' if nl else '6.35 m' }}</div><div class="sub">{{ 'vaten in 2025, circa 17.400 per dag' if nl else 'barrels in 2025, about 17,400 a day' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste offshore olie' if nl else 'First offshore oil' }}</div><div class="big">2028</div><div class="sub">{{ 'GranMorgu, Blok 58' if nl else 'GranMorgu, Block 58' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste gas' if nl else 'First gas' }}</div><div class="big">2030</div><div class="sub">{{ 'op zijn vroegst, Blok 52' if nl else 'at the earliest, Block 52' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Open zee' if nl else 'Open acreage' }}</div><div class="big">{{ '70.000+ km²' if nl else '70,000+ km²' }}</div><div class="sub">{{ 'in 5 sectoren, Open-Door tot nov. 2027' if nl else 'in 5 sectors, Open-Door to Nov 2027' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Ondiep water</b> (tot circa 150 m) ligt dicht bij de kust; <b>diep water</b> begint verder uit en loopt tot ruim 3.000 m. De grote olievondsten liggen in diep water aan de grens met Guyana.</li>
+ <li>Staatsolie, via dochter <b>Paradise Oil Company (POC)</b>, heeft in bijna elk blok een belang van 10 tot 40% en mag bij een commerciële vondst tot 20% instappen in de ontwikkeling.</li>
+ <li><b>Petronas</b> is de actiefste zoeker: Blok 52 bevat volgens het bedrijf meer dan 1 miljard vaten olie-equivalent, vooral gas. Het plan is een drijvende LNG-fabriek op zee.</li>
+ <li>Niet elke put is raak: Shell vond in Blok 65 (Araku Deep-1) geen commerciële hoeveelheden. Exploratie blijft een gok.</li>
+ <li>Via het Open-Door aanbod kwamen tussen juni en september 2026 vijf voorstellen binnen. Het lopende venster voor tegenbiedingen in Sector 1 (SHO West) sluit op <b>21 december 2026 om 10.00 uur</b> Surinaamse tijd.</li>
+ <li>Voor bedrijven aan land: elke boorcampagne, elk seismisch onderzoek en elk ontwikkelproject vraagt logistiek, havendiensten, catering, transport en personeel. Volg wie waar boort.</li>
+{% else %}
+ <li><b>Shallow water</b> (up to about 150 m) lies close to shore; <b>deep water</b> starts further out and runs to more than 3,000 m. The large oil finds are in deep water near the Guyana border.</li>
+ <li>Staatsolie, through its subsidiary <b>Paradise Oil Company (POC)</b>, holds 10 to 40% in almost every block and may take up to 20% in the development of a commercial find.</li>
+ <li><b>Petronas</b> is the most active explorer: according to the company Block 52 holds more than 1 billion barrels of oil equivalent, mainly gas. The plan is a floating LNG plant at sea.</li>
+ <li>Not every well hits: Shell found no commercial quantities in Block 65 (Araku Deep-1). Exploration remains a gamble.</li>
+ <li>Five proposals came in through the Open-Door Offering between June and September 2026. The current window for competing proposals in Sector 1 (SHO West) closes on <b>21 December 2026 at 10:00</b> Suriname time.</li>
+ <li>For businesses onshore: every drilling campaign, seismic survey and development project needs logistics, port services, catering, transport and staff. Follow who drills where.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Hoe het blokkensysteem werkt' if nl else 'How the block system works' }}</h2>
+{% if nl %}
+<p>Alle olie en gas in de Surinaamse bodem en zee is van de staat. Volgens de Petroleumwet 1990 (laatst gewijzigd bij S.B. 2022 no. 152) beheert Staatsolie die namens de staat: het bedrijf promoot gebieden, sluit contracten en houdt toezicht op de uitvoering. De zee is opgedeeld in drie zones:</p>
+<ul>
+ <li><b>Ondiep water (shallow offshore)</b>: van de kust tot circa 150 m diep, binnen ongeveer 100 km uit de kust. Hier werken Chevron, TotalEnergies, Petronas, QatarEnergy en PetroChina. Boren gaat met hefeilanden (jack-ups), goedkoper dan op diep water.</li>
+ <li><b>Diep water (deep offshore)</b>: van circa 150 tot 2.000 m, met GranMorgu en de gasvelden van Petronas.</li>
+ <li><b>Ultradiep water</b>: verder uit tot ruim 3.000 m, nauwelijks geboord.</li>
+</ul>
+<p>Een <b>productiedelingscontract</b> loopt doorgaans 30 jaar. De oliemaatschappij betaalt alle kosten van de exploratie. Bij een vondst verdient zij haar kosten terug uit een deel van de productie (kostenolie), de rest (winstolie) wordt gedeeld met de staat. Daarnaast gelden royalty en inkomstenbelasting. Voor nieuwe contracten onder het Open-Door aanbod zijn dat 6,25% royalty, 36% inkomstenbelasting en maximaal 80% van de productie na royalty voor kostenterugwinning. Staatsolie heeft tijdens de exploratie een "gedragen" belang (de partners betalen) en kan bij ontwikkeling tot 20% meebetalen en meedelen.</p>
+<p>Elk blok heeft een <b>operator</b>: het bedrijf dat het werk uitvoert, contracten gunt en dus ook lokaal inkoopt. Voor een leverancier is de operator de partij om te kennen; de andere partners betalen mee maar kopen zelf zelden in.</p>
+{% else %}
+<p>All oil and gas under Suriname's land and sea belongs to the state. Under the Petroleum Act 1990 (last amended by S.B. 2022 no. 152) Staatsolie manages it on the state's behalf: the company promotes acreage, signs contracts and supervises the work. The sea is divided into three zones:</p>
+<ul>
+ <li><b>Shallow offshore</b>: from the coast to about 150 m deep, within roughly 100 km of shore. Chevron, TotalEnergies, Petronas, QatarEnergy and PetroChina work here. Drilling uses jack-up rigs, cheaper than in deep water.</li>
+ <li><b>Deep offshore</b>: from about 150 to 2,000 m, with GranMorgu and Petronas' gas fields.</li>
+ <li><b>Ultra-deep water</b>: further out to more than 3,000 m, barely drilled.</li>
+</ul>
+<p>A <b>production sharing contract</b> usually runs for 30 years. The oil company pays all exploration costs. If it finds something, it recovers its costs from part of the production (cost oil), and the rest (profit oil) is shared with the state. Royalty and income tax come on top. For new contracts under the Open-Door Offering these are a 6.25% royalty, 36% income tax and at most 80% of production after royalty for cost recovery. During exploration Staatsolie holds a "carried" interest (the partners pay) and in development it may pay and share up to 20%.</p>
+<p>Each block has an <b>operator</b>: the company that runs the work, awards contracts and therefore buys locally. For a supplier the operator is the one to know; the other partners pay their share but rarely buy themselves.</p>
+{% endif %}
+
+<h2>{{ 'Alle offshore blokken onder contract' if nl else 'All offshore blocks under contract' }}</h2>
+{% if nl %}
+<p>Stand oktober 2026, op basis van aankondigingen van Staatsolie en de bedrijven. Blokken die eerder zijn teruggegeven, horen bij het open gebied van het Open-Door aanbod.</p>
+{% else %}
+<p>Position in October 2026, based on announcements by Staatsolie and the companies. Blocks returned earlier are part of the open acreage of the Open-Door Offering.</p>
+{% endif %}
+{% set c1 = 'Blok' if nl else 'Block' %}{% set c2 = 'Operator' %}{% set c3 = 'Partners' %}{% set c4 = 'Water' %}{% set c5 = 'Stand en vondsten' if nl else 'Status and finds' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th><th>{{ c5 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>5</b></td><td data-l="{{ c2 }}">Chevron 40%</td><td data-l="{{ c3 }}">POC 40%, QatarEnergy 20%</td><td data-l="{{ c4 }}">ondiep, 30 tot 60 m</td><td data-l="{{ c5 }}">Exploratie. Korikori-1 geboord eind 2025 met het hefeiland Noble Regina Allen; geen commerciële vondst gemeld.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>6 en 8</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">POC 40%, QatarEnergy 20%</td><td data-l="{{ c4 }}">ondiep, 40 tot 65 m</td><td data-l="{{ c5 }}">Exploratie (contracten 2023).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>7</b></td><td data-l="{{ c2 }}">Chevron 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">ondiep, west</td><td data-l="{{ c5 }}">Exploratie (contract april 2022, 1.867 km²).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>9</b></td><td data-l="{{ c2 }}">Petronas 30%</td><td data-l="{{ c3 }}">POC 30%, Chevron 20%, QatarEnergy 20%</td><td data-l="{{ c4 }}">ondiep, tot 50 m</td><td data-l="{{ c5 }}">Getekend 5 november 2025; eerste drie jaar 3D-seismiek. Circa 50 km voor Saramacca.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>10</b></td><td data-l="{{ c2 }}">Chevron 30%</td><td data-l="{{ c3 }}">Petronas 30%, QatarEnergy 30%, POC 10%</td><td data-l="{{ c4 }}">ondiep, tot 50 m</td><td data-l="{{ c5 }}">Getekend 5 november 2025; eerste drie jaar 3D-seismiek.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>14 en 15</b></td><td data-l="{{ c2 }}">PetroChina</td><td data-l="{{ c3 }}">POC 30%</td><td data-l="{{ c4 }}">ondiep, 50 tot 150 m</td><td data-l="{{ c5 }}">Exploratie (contracten september 2024).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>42</b></td><td data-l="{{ c2 }}">Shell 33,3%</td><td data-l="{{ c3 }}">Chevron 66,7% (inclusief het deel van Hess)</td><td data-l="{{ c4 }}">diep</td><td data-l="{{ c5 }}">Exploratie.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>48</b></td><td data-l="{{ c2 }}">Petronas</td><td data-l="{{ c3 }}">recente verdeling niet gepubliceerd</td><td data-l="{{ c4 }}">diep</td><td data-l="{{ c5 }}">Exploratie.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>52</b></td><td data-l="{{ c2 }}">Petronas 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">diep</td><td data-l="{{ c5 }}">Gasveld Sloanea commercieel verklaard (november 2025); ook Roystonea, Fusaea, Caiman-1 (olie) en SAC-1 (gas). Investeringsbesluit gepland, eerste gas op zijn vroegst 2030.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>53</b></td><td data-l="{{ c2 }}">APA 45%</td><td data-l="{{ c3 }}">Petronas 30%, TotalEnergies 25%</td><td data-l="{{ c4 }}">diep</td><td data-l="{{ c5 }}">Oliefond Baja-1 (2022), dicht bij GranMorgu. Het grootste deel van het blok is teruggegeven.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>58</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">APA 40%, Staatsolie 20% (GranMorgu)</td><td data-l="{{ c4 }}">diep, 100 tot 1.100 m</td><td data-l="{{ c5 }}">Ontwikkeling GranMorgu, eerste olie 2028. Zes vondsten sinds 2020. Vier nieuwe exploratieputten 2027 tot 2028.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>63</b></td><td data-l="{{ c2 }}">Petronas</td><td data-l="{{ c3 }}">Staatsolie mag bij een vondst tot 20% instappen</td><td data-l="{{ c4 }}">diep tot ultradiep</td><td data-l="{{ c5 }}">Exploratie (contract december 2023, Demerara-ronde).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>64</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">QatarEnergy 30%, Petronas 30%</td><td data-l="{{ c4 }}">diep tot ultradiep</td><td data-l="{{ c5 }}">Macaw-1 geboord in 2025 met de Stena DrillMAX; geen commerciële vondst gemeld.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>65</b></td><td data-l="{{ c2 }}">Shell 60%</td><td data-l="{{ c3 }}">QatarEnergy 40%</td><td data-l="{{ c4 }}">diep tot ultradiep</td><td data-l="{{ c5 }}">Araku Deep-1 (2025 tot 2026): geen commercieel winbare koolwaterstoffen.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>66</b></td><td data-l="{{ c2 }}">Petronas 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">diep, 1.000 tot 2.200 m</td><td data-l="{{ c5 }}">Getekend 17 juni 2025, 3.390 km², grenst aan Blok 52, 53 en 58. Twee exploratieputten in de eerste fase.</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>5</b></td><td data-l="{{ c2 }}">Chevron 40%</td><td data-l="{{ c3 }}">POC 40%, QatarEnergy 20%</td><td data-l="{{ c4 }}">shallow, 30 to 60 m</td><td data-l="{{ c5 }}">Exploration. Korikori-1 drilled in late 2025 with the jack-up Noble Regina Allen; no commercial discovery announced.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>6 and 8</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">POC 40%, QatarEnergy 20%</td><td data-l="{{ c4 }}">shallow, 40 to 65 m</td><td data-l="{{ c5 }}">Exploration (contracts 2023).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>7</b></td><td data-l="{{ c2 }}">Chevron 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">shallow, west</td><td data-l="{{ c5 }}">Exploration (contract April 2022, 1,867 km²).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>9</b></td><td data-l="{{ c2 }}">Petronas 30%</td><td data-l="{{ c3 }}">POC 30%, Chevron 20%, QatarEnergy 20%</td><td data-l="{{ c4 }}">shallow, up to 50 m</td><td data-l="{{ c5 }}">Signed 5 November 2025; first three years 3D seismic. About 50 km off Saramacca.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>10</b></td><td data-l="{{ c2 }}">Chevron 30%</td><td data-l="{{ c3 }}">Petronas 30%, QatarEnergy 30%, POC 10%</td><td data-l="{{ c4 }}">shallow, up to 50 m</td><td data-l="{{ c5 }}">Signed 5 November 2025; first three years 3D seismic.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>14 and 15</b></td><td data-l="{{ c2 }}">PetroChina</td><td data-l="{{ c3 }}">POC 30%</td><td data-l="{{ c4 }}">shallow, 50 to 150 m</td><td data-l="{{ c5 }}">Exploration (contracts September 2024).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>42</b></td><td data-l="{{ c2 }}">Shell 33.3%</td><td data-l="{{ c3 }}">Chevron 66.7% (including the former Hess share)</td><td data-l="{{ c4 }}">deep</td><td data-l="{{ c5 }}">Exploration.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>48</b></td><td data-l="{{ c2 }}">Petronas</td><td data-l="{{ c3 }}">current split not published</td><td data-l="{{ c4 }}">deep</td><td data-l="{{ c5 }}">Exploration.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>52</b></td><td data-l="{{ c2 }}">Petronas 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">deep</td><td data-l="{{ c5 }}">Sloanea gas field declared commercial (November 2025); also Roystonea, Fusaea, Caiman-1 (oil) and SAC-1 (gas). Investment decision planned, first gas 2030 at the earliest.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>53</b></td><td data-l="{{ c2 }}">APA 45%</td><td data-l="{{ c3 }}">Petronas 30%, TotalEnergies 25%</td><td data-l="{{ c4 }}">deep</td><td data-l="{{ c5 }}">Baja-1 oil find (2022), close to GranMorgu. Most of the block has been relinquished.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>58</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">APA 40%, Staatsolie 20% (GranMorgu)</td><td data-l="{{ c4 }}">deep, 100 to 1,100 m</td><td data-l="{{ c5 }}">GranMorgu development, first oil 2028. Six finds since 2020. Four new exploration wells in 2027 to 2028.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>63</b></td><td data-l="{{ c2 }}">Petronas</td><td data-l="{{ c3 }}">Staatsolie may take up to 20% after a find</td><td data-l="{{ c4 }}">deep to ultra-deep</td><td data-l="{{ c5 }}">Exploration (contract December 2023, Demerara round).</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>64</b></td><td data-l="{{ c2 }}">TotalEnergies 40%</td><td data-l="{{ c3 }}">QatarEnergy 30%, Petronas 30%</td><td data-l="{{ c4 }}">deep to ultra-deep</td><td data-l="{{ c5 }}">Macaw-1 drilled in 2025 with the Stena DrillMAX; no commercial discovery announced.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>65</b></td><td data-l="{{ c2 }}">Shell 60%</td><td data-l="{{ c3 }}">QatarEnergy 40%</td><td data-l="{{ c4 }}">deep to ultra-deep</td><td data-l="{{ c5 }}">Araku Deep-1 (2025 to 2026): no commercially viable hydrocarbons.</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>66</b></td><td data-l="{{ c2 }}">Petronas 80%</td><td data-l="{{ c3 }}">POC 20%</td><td data-l="{{ c4 }}">deep, 1,000 to 2,200 m</td><td data-l="{{ c5 }}">Signed 17 June 2025, 3,390 km², borders Blocks 52, 53 and 58. Two exploration wells in the first phase.</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p class="sub">POC = Paradise Oil Company, dochter van Staatsolie. Percentages zijn deelnemingsbelangen in het contract. Bij Blok 58 geldt de 40/40/20-verdeling voor de ontwikkeling van GranMorgu.</p>
+{% else %}
+<p class="sub">POC = Paradise Oil Company, a Staatsolie subsidiary. Percentages are participating interests in the contract. In Block 58 the 40/40/20 split applies to the GranMorgu development.</p>
+{% endif %}
+
+<h2>{{ 'Blok 58: GranMorgu en wat er nog ligt' if nl else 'Block 58: GranMorgu and what else is there' }}</h2>
+{% if nl %}
+<p>TotalEnergies en APA deden tussen 2020 en 2022 zes vondsten in Blok 58: Maka Central, Sapakara West, Kwaskwasi, Keskesi East, Sapakara South en Krabdagu. De laatste twee worden met GranMorgu ontwikkeld: één productieschip met tot 32 putten, eerste olie in 2028. De andere vondsten bevatten veel gas en worden nog beoordeeld. Het productieschip is zo ontworpen dat later extra velden kunnen worden aangesloten. In 2027 en 2028 boren TotalEnergies, APA en Staatsolie vier nieuwe exploratieputten rond GranMorgu; Staatsolie-directeur Jagesar sprak in september 2026 hardop over "een tweede FPSO in Blok 58". Alles over het project op <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
+{% else %}
+<p>TotalEnergies and APA made six finds in Block 58 between 2020 and 2022: Maka Central, Sapakara West, Kwaskwasi, Keskesi East, Sapakara South and Krabdagu. The last two are being developed through GranMorgu: one production vessel with up to 32 wells, first oil in 2028. The other finds contain a lot of gas and are still being evaluated. The production vessel is designed so that more fields can be tied in later. In 2027 and 2028 TotalEnergies, APA and Staatsolie will drill four new exploration wells around GranMorgu; in September 2026 Staatsolie's managing director Jagesar spoke openly of "a second FPSO in Block 58". Everything about the project on <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Blok 52: gas van Petronas en een drijvende LNG-fabriek' if nl else 'Block 52: Petronas gas and a floating LNG plant' }}</h2>
+{% if nl %}
+<p>Petronas tekende het contract voor Blok 52 in 2013. ExxonMobil, lange tijd partner voor 50%, trok zich in november 2024 terug; sindsdien heeft Petronas 80% en Staatsolie (via POC) 20%. De eerste vondst, Sloanea-1 (eind 2020), bevatte gas. Na een evaluatieput in 2024 keurde Staatsolie op 11 november 2025 het Sloanea-veld goed als <b>commercieel veld</b>. Daarna volgden meer vondsten: in juni en juli 2026 maakte Petronas bekend dat Caiman-1 (90 m water) meerdere oliehoudende lagen trof, dat SAC-1 gas vond en dat Roystonea-2 de olievondst Roystonea bevestigde. Volgens Petronas bevatten de vondsten in het blok samen <b>meer dan 1 miljard vaten olie-equivalent</b>, en heeft het bedrijf acht succesvolle exploratieputten in Suriname geboord.</p>
+<p>Het ontwikkelplan voor Sloanea gaat uit van gasputten, onderzeese installaties en een <b>drijvende LNG-fabriek (FLNG)</b> op zee, volgens eerdere berichten circa 120 km uit de kust in 450 m water. Het gas wordt daar vloeibaar gemaakt en per schip geëxporteerd. Petronas moet het plan ter goedkeuring bij Staatsolie indienen; het investeringsbesluit was gepland voor de tweede helft van 2026 en was op 26 oktober 2026 nog niet aangekondigd. Eerste gas: op zijn vroegst 2030. Of er ook gas naar land komt voor elektriciteit of industrie, is niet besloten.</p>
+<p>Voor leveranciers betekent een positief besluit een tweede groot bouw- en boorproject naast GranMorgu, met een eigen keten van aannemers en vergelijkbare vraag naar logistiek en diensten vanaf circa 2027.</p>
+{% else %}
+<p>Petronas signed the Block 52 contract in 2013. ExxonMobil, long a 50% partner, withdrew in November 2024; since then Petronas holds 80% and Staatsolie (through POC) 20%. The first find, Sloanea-1 (late 2020), contained gas. After an appraisal well in 2024, Staatsolie approved the Sloanea field as a <b>commercial field</b> on 11 November 2025. More finds followed: in June and July 2026 Petronas announced that Caiman-1 (90 m of water) hit several oil-bearing layers, that SAC-1 found gas and that Roystonea-2 confirmed the Roystonea oil find. According to Petronas the finds in the block together hold <b>more than 1 billion barrels of oil equivalent</b>, and the company has drilled eight successful exploration wells in Suriname.</p>
+<p>The development plan for Sloanea is based on gas wells, subsea installations and a <b>floating LNG plant (FLNG)</b> at sea, according to earlier reports about 120 km offshore in 450 m of water. The gas is liquefied there and exported by ship. Petronas must submit the plan to Staatsolie for approval; the investment decision was planned for the second half of 2026 and had not been announced on 26 October 2026. First gas: 2030 at the earliest. Whether any gas will come ashore for power or industry has not been decided.</p>
+<p>For suppliers a positive decision means a second large construction and drilling project next to GranMorgu, with its own chain of contractors and similar demand for logistics and services from about 2027.</p>
+{% endif %}
+
+<h2>{{ 'Blok 53 en de andere diepwaterblokken' if nl else 'Block 53 and the other deepwater blocks' }}</h2>
+{% if nl %}
+<ul>
+ <li><b>Blok 53</b> (APA 45%, Petronas 30%, TotalEnergies 25%): APA vond in 2022 olie met de put Baja-1, met 34 m netto oliehoudende laag, circa 11,5 km van Krabdagu. Het grootste deel van het blok is in 2024 teruggegeven; dat gebied werd later Blok 66. TotalEnergies kocht in juni 2025 een belang van 25% van Moeve. Baja zou later via de installaties van GranMorgu kunnen produceren.</li>
+ <li><b>Blok 63, 64 en 65</b> komen uit de Demerara-ronde (contracten december 2023, 160 tot 355 km uit de kust, 150 tot 3.000 m water). In Blok 64 boorde TotalEnergies in 2025 Macaw-1, in Blok 65 boorde Shell Araku Deep-1. Geen van beide leverde een gemelde commerciële vondst op.</li>
+ <li><b>Blok 66</b> (Petronas 80%, POC 20%): getekend in juni 2025, met de verplichting om in de eerste fase twee exploratieputten te boren.</li>
+ <li><b>Blok 42</b> (Shell operator, Chevron 66,7%) en <b>Blok 48</b> (Petronas) zijn oudere exploratieblokken zonder ontwikkeling.</li>
+</ul>
+{% else %}
+<ul>
+ <li><b>Block 53</b> (APA 45%, Petronas 30%, TotalEnergies 25%): APA found oil in 2022 with the Baja-1 well, with 34 m of net oil pay, about 11.5 km from Krabdagu. Most of the block was returned in 2024; that area later became Block 66. TotalEnergies bought a 25% interest from Moeve in June 2025. Baja could later produce through GranMorgu's facilities.</li>
+ <li><b>Blocks 63, 64 and 65</b> come from the Demerara round (contracts December 2023, 160 to 355 km offshore, 150 to 3,000 m of water). TotalEnergies drilled Macaw-1 in Block 64 in 2025, Shell drilled Araku Deep-1 in Block 65. Neither produced an announced commercial discovery.</li>
+ <li><b>Block 66</b> (Petronas 80%, POC 20%): signed in June 2025, with a commitment to drill two exploration wells in the first phase.</li>
+ <li><b>Block 42</b> (Shell operator, Chevron 66.7%) and <b>Block 48</b> (Petronas) are older exploration blocks without a development.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Ondiep water: dicht bij de kust' if nl else 'Shallow water: close to shore' }}</h2>
+{% if nl %}
+<p>Het ondiepe deel ligt dichter bij Paramaribo en Nickerie en is goedkoper om te onderzoeken. Uit de ronde van 2020-2021 kwamen <b>Blok 5 en 7</b> (Chevron) en <b>Blok 6 en 8</b> (TotalEnergies); uit de tweede ronde van 2023-2024 <b>Blok 14 en 15</b> (PetroChina, dat daarmee in Suriname instapte). In november 2025 volgden <b>Blok 9 en 10</b> voor Saramacca, met Petronas en Chevron als operators. Chevron boorde eind 2025 de eerste put, Korikori-1 in Blok 5, met een hefeiland in circa 40 m water; een commerciële vondst is niet gemeld. Staatsolie wil zelf aanvullend 2D- en 3D-seismisch onderzoek doen in het ondiepe gebied; het milieueffectrapport (ILACO) werd op 12 oktober 2026 aan belanghebbenden gepresenteerd.</p>
+<p>Ondiep water betekent voor lokale bedrijven: kortere afstanden, kleinere schepen en meer kans voor Surinaamse havens en scheepvaart. Seismische campagnes vragen vooral bevoorrading, wachtschepen en communicatie met vissers.</p>
+{% else %}
+<p>The shallow part lies closer to Paramaribo and Nickerie and is cheaper to explore. The 2020-2021 round produced <b>Blocks 5 and 7</b> (Chevron) and <b>Blocks 6 and 8</b> (TotalEnergies); the second round of 2023-2024 produced <b>Blocks 14 and 15</b> (PetroChina, which entered Suriname with them). In November 2025 <b>Blocks 9 and 10</b> off Saramacca followed, with Petronas and Chevron as operators. Chevron drilled the first well, Korikori-1 in Block 5, at the end of 2025 with a jack-up in about 40 m of water; no commercial discovery has been announced. Staatsolie itself plans additional 2D and 3D seismic surveys in the shallow area; the environmental impact study (ILACO) was presented to stakeholders on 12 October 2026.</p>
+<p>For local businesses shallow water means shorter distances, smaller vessels and more room for Surinamese ports and shipping. Seismic campaigns mainly need supply, guard vessels and communication with fishermen.</p>
+{% endif %}
+
+<h2>{{ 'Het Open-Door aanbod: de rest van de zee' if nl else 'The Open-Door Offering: the rest of the sea' }}</h2>
+{% if nl %}
+<p>Op 24 november 2025 opende Staatsolie het <b>Open-Door aanbod</b>: het open gebied (meer dan 70.000 km² in 5 sectoren, 5 tot 3.000 m water, circa 60% van de Surinaamse zee) is twee jaar lang doorlopend beschikbaar. Een gekwalificeerd bedrijf kiest zelf een gebied en stelt een werkprogramma voor, als productiedelingscontract of als studie-overeenkomst van maximaal 24 maanden. Zo werkt het:</p>
+<ol class="steps">
+ <li>Bedrijven kwalificeren zich eerst (techniek, financiën, documenten, veiligheid en milieu).</li>
+ <li>Een voorstel bevat het gebied, een technische evaluatie en een vast werkprogramma (seismiek, putten, tekenbonus). Maximaal 3.000 km² in Sector 1 en 2, 6.000 km² in Sector 3 en 4; Sector 5 (circa 2.400 km²) gaat als geheel.</li>
+ <li>Staatsolie publiceert het gebied binnen 20 dagen. Andere bedrijven hebben dan <b>90 dagen</b> voor een tegenbod. Wie het eerst indient, krijgt geen voorrang.</li>
+ <li>Binnen 20 dagen na die termijn kiest Staatsolie; een contract wordt binnen 90 dagen getekend.</li>
+</ol>
+{% else %}
+<p>On 24 November 2025 Staatsolie opened the <b>Open-Door Offering</b>: the open acreage (more than 70,000 km² in 5 sectors, 5 to 3,000 m of water, about 60% of Suriname's sea) is continuously available for two years. A qualified company chooses an area and proposes a work programme, either as a production sharing contract or as a study agreement of up to 24 months. This is how it works:</p>
+<ol class="steps">
+ <li>Companies first qualify (technical, financial, documents, health, safety and environment).</li>
+ <li>A proposal contains the area, a technical evaluation and a firm work programme (seismic, wells, signature bonus). At most 3,000 km² in Sectors 1 and 2, 6,000 km² in Sectors 3 and 4; Sector 5 (about 2,400 km²) is offered as a whole.</li>
+ <li>Staatsolie publishes the area within 20 days. Other companies then have <b>90 days</b> for a competing proposal. Submitting first gives no priority.</li>
+ <li>Within 20 days after that period Staatsolie selects; a contract is signed within 90 days.</li>
+</ol>
+{% endif %}
+{% set c1 = 'Datum' if nl else 'Date' %}{% set c2 = 'Sector' %}{% set c3 = 'Voorstellen' if nl else 'Proposals' %}{% set c4 = 'Venster voor tegenbiedingen' if nl else 'Window for competing proposals' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+ <tr><td data-l="{{ c1 }}">{{ date('2026-06-17') }}</td><td data-l="{{ c2 }}">4: DW West</td><td data-l="{{ c3 }}">1</td><td data-l="{{ c4 }}">{{ 'gesloten (90 dagen)' if nl else 'closed (90 days)' }}</td></tr>
+ <tr><td data-l="{{ c1 }}">{{ date('2026-07-06') }}</td><td data-l="{{ c2 }}">3: Demerara</td><td data-l="{{ c3 }}">2</td><td data-l="{{ c4 }}">{{ 'gesloten op' if nl else 'closed on' }} {{ date('2026-10-04') }}</td></tr>
+ <tr><td data-l="{{ c1 }}">{{ date('2026-07-07') }}</td><td data-l="{{ c2 }}">2: SHO East</td><td data-l="{{ c3 }}">1</td><td data-l="{{ c4 }}">{{ 'gesloten op' if nl else 'closed on' }} {{ date('2026-10-05') }}</td></tr>
+ <tr><td data-l="{{ c1 }}">{{ date('2026-09-22') }}</td><td data-l="{{ c2 }}">1: SHO West</td><td data-l="{{ c3 }}">1</td><td data-l="{{ c4 }}"><b>{{ 'open tot' if nl else 'open until' }} {{ date('2026-12-21') }}, 10:00</b></td></tr>
+</tbody></table>
+{% if nl %}
+<p>Staatsolie maakt de namen van de bieders niet bekend tot er een contract is. De fiscale voorwaarden voor nieuwe contracten: 6,25% royalty, 36% inkomstenbelasting, maximaal 80% kostenterugwinning per jaar, winstolie volgens een R-factorformule. Staatsolie heeft tijdens de exploratie een gedragen belang van 20% (10% in Sector 4) en kan in Sector 5 vanaf de productie het operatorschap overnemen. Nieuwe contracten betekenen nieuwe seismische en boorcampagnes, en dus nieuwe vraag naar diensten aan land.</p>
+{% else %}
+<p>Staatsolie does not name bidders until a contract is signed. The fiscal terms for new contracts: 6.25% royalty, 36% income tax, at most 80% cost recovery a year, profit oil under an R-factor formula. Staatsolie holds a carried interest of 20% during exploration (10% in Sector 4) and in Sector 5 may take over operatorship once production starts. New contracts mean new seismic and drilling campaigns, and so new demand for services onshore.</p>
+{% endif %}
+
+<h2>{{ 'Op land: Staatsolie in Saramacca en de raffinaderij' if nl else 'Onshore: Staatsolie in Saramacca and the refinery' }}</h2>
+{% if nl %}
+<p>De enige olie die Suriname nu produceert, komt van land. In 1965 werd in Saramacca zware olie gevonden; Staatsolie (opgericht in 1980) begon in 1982 met productie in het <b>Tambaredjo</b>-veld. Later kwamen <b>Calcutta</b> (in productie sinds 2006) en <b>Tambaredjo Noord-West</b> erbij. In 2025 produceerde Staatsolie <b>6,35 miljoen vaten</b> (2024: 6,41 miljoen), circa 17.400 vaten per dag; het bedrijf mikt op circa 6 miljoen vaten per jaar. De olie gaat via een pijpleiding van 55 km naar de <b>raffinaderij in Tout Lui Faut</b> (Wanica), die sinds de uitbreiding van 2015 15.000 vaten per dag kan verwerken tot diesel en benzine met een laag zwavelgehalte, stookolie en bitumen. In 2025 maakte de raffinaderij 3,15 miljoen vaten diesel en benzine. De brandstof wordt verkocht via dochter GOw2 en andere distributeurs; zie <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</p>
+<p>De onshore operaties van Staatsolie zijn al veertig jaar een vaste afnemer van Surinaamse bedrijven: in 2025 kocht Staatsolie voor USD 107 miljoen lokaal in. Wie daar levert, bouwt het trackrecord op dat de offshore aannemers vragen. Zie <a href="{{ U('staatsolie') }}">{{ L('staatsolie') }}</a> en <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% else %}
+<p>The only oil Suriname produces today comes from land. In 1965 heavy oil was found in Saramacca; Staatsolie (founded in 1980) started production in the <b>Tambaredjo</b> field in 1982. <b>Calcutta</b> (in production since 2006) and <b>Tambaredjo North-West</b> followed. In 2025 Staatsolie produced <b>6.35 million barrels</b> (2024: 6.41 million), about 17,400 barrels a day; the company aims for about 6 million barrels a year. The oil runs through a 55 km pipeline to the <b>refinery at Tout Lui Faut</b> (Wanica), which since its 2015 expansion can process 15,000 barrels a day into low-sulphur diesel and gasoline, fuel oil and bitumen. In 2025 the refinery made 3.15 million barrels of diesel and gasoline. The fuel is sold through subsidiary GOw2 and other distributors; see <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</p>
+<p>Staatsolie's onshore operations have been a steady customer of Surinamese businesses for forty years: in 2025 Staatsolie bought USD 107 million locally. Supplying them builds the track record the offshore contractors ask for. See <a href="{{ U('staatsolie') }}">{{ L('staatsolie') }}</a> and <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat elke operator betekent voor leveranciers' if nl else 'What each operator means for suppliers' }}</h2>
+{% set c1 = 'Operator' %}{% set c2 = 'Activiteit nu' if nl else 'Current activity' %}{% set c3 = 'Waar de vraag zit' if nl else 'Where the demand is' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>TotalEnergies</b></td><td data-l="{{ c2 }}">Bouw GranMorgu, boren vanaf eind 2026, exploratie Blok 58 in 2027 tot 2028, blokken 6, 8 en 64</td><td data-l="{{ c3 }}">Grootste en langste vraag: havens, opslag, crew, catering, onderhoud, personeel, twintig jaar productie</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Petronas</b></td><td data-l="{{ c2 }}">Gasontwikkeling Blok 52 in voorbereiding, exploratie in 52, 63, 66, operator Blok 9</td><td data-l="{{ c3 }}">Bij een investeringsbesluit: tweede grote bouw- en boorgolf; nu boorcampagnes en seismiek</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Chevron</b></td><td data-l="{{ c2 }}">Ondiep water: blokken 5, 7 en 10</td><td data-l="{{ c3 }}">Kortere campagnes met hefeilanden, bevoorrading vanuit Paramaribo en mogelijk Nickerie</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Shell</b></td><td data-l="{{ c2 }}">Blokken 42 en 65, na een droge put in 65</td><td data-l="{{ c3 }}">Afhankelijk van een nieuw boorbesluit</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>APA</b></td><td data-l="{{ c2 }}">Partner in GranMorgu, operator Blok 53</td><td data-l="{{ c3 }}">Vooral via TotalEnergies; zelf bij een ontwikkeling van Baja</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PetroChina</b></td><td data-l="{{ c2 }}">Blokken 14 en 15, ondiep</td><td data-l="{{ c3 }}">Seismiek en eventueel exploratieputten</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie</b></td><td data-l="{{ c2 }}">Productie op land, raffinaderij, stroom (SPCS), brandstof (GOw2), seismiek ondiep water</td><td data-l="{{ c3 }}">Doorlopend: onderhoud, bouw, transport, IT, diensten; aanvragen via de website en SAP Ariba</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>TotalEnergies</b></td><td data-l="{{ c2 }}">Building GranMorgu, drilling from late 2026, Block 58 exploration in 2027 to 2028, Blocks 6, 8 and 64</td><td data-l="{{ c3 }}">Largest and longest demand: ports, storage, crew, catering, maintenance, staff, twenty years of production</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Petronas</b></td><td data-l="{{ c2 }}">Block 52 gas development in preparation, exploration in 52, 63, 66, operator of Block 9</td><td data-l="{{ c3 }}">With an investment decision: a second large construction and drilling wave; for now drilling campaigns and seismic</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Chevron</b></td><td data-l="{{ c2 }}">Shallow water: Blocks 5, 7 and 10</td><td data-l="{{ c3 }}">Shorter campaigns with jack-ups, supply from Paramaribo and possibly Nickerie</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Shell</b></td><td data-l="{{ c2 }}">Blocks 42 and 65, after a dry well in 65</td><td data-l="{{ c3 }}">Depends on a new drilling decision</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>APA</b></td><td data-l="{{ c2 }}">Partner in GranMorgu, operator of Block 53</td><td data-l="{{ c3 }}">Mainly through TotalEnergies; directly if Baja is developed</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>PetroChina</b></td><td data-l="{{ c2 }}">Blocks 14 and 15, shallow</td><td data-l="{{ c3 }}">Seismic and possibly exploration wells</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Staatsolie</b></td><td data-l="{{ c2 }}">Onshore production, refinery, power (SPCS), fuel (GOw2), shallow-water seismic</td><td data-l="{{ c3 }}">Ongoing: maintenance, construction, transport, IT, services; requests on its website and through SAP Ariba</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Wat je tot 2030 in de gaten houdt' if nl else 'What to watch until 2030' }}</h2>
+<ul class="check">
+{% if nl %}
+ <li>Het investeringsbesluit van Petronas voor Sloanea en de keuze van de FLNG-bouwer</li>
+ <li>De uitkomst van de vijf Open-Door voorstellen en nieuwe contracten in 2027</li>
+ <li>De vier exploratieputten in Blok 58 (2027 tot 2028) en een mogelijk tweede productieschip</li>
+ <li>Boorresultaten in de ondiepe blokken (Chevron, TotalEnergies, PetroChina, Petronas)</li>
+ <li>Eerste olie van GranMorgu in 2028 en eerste gas uit Blok 52 rond 2030</li>
+ <li>De Local Content-wet (2027) en het spaarfonds voor olie-inkomsten. Zie <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</li>
+{% else %}
+ <li>Petronas' investment decision for Sloanea and the choice of the FLNG builder</li>
+ <li>The outcome of the five Open-Door proposals and new contracts in 2027</li>
+ <li>The four exploration wells in Block 58 (2027 to 2028) and a possible second production vessel</li>
+ <li>Drilling results in the shallow blocks (Chevron, TotalEnergies, PetroChina, Petronas)</li>
+ <li>GranMorgu first oil in 2028 and first gas from Block 52 around 2030</li>
+ <li>The Local Content Act (2027) and the savings fund for oil revenue. See <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</li>
+{% endif %}
+</ul>
+<p>{{ 'Begrippen als PSC, FPSO en FLNG uitgelegd:' if nl else 'Terms such as PSC, FPSO and FLNG explained:' }} <a href="{{ U('oilglossary') }}">{{ L('oilglossary') }}</a>. {{ 'Overzicht van de sector:' if nl else 'Sector overview:' }} <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.staatsolie.com/en/open-door-offering/" rel="noopener">{{ 'Staatsolie: Open-Door aanbod (5 sectoren, meer dan 70.000 km²)' if nl else 'Staatsolie: Open-Door Offering (5 sectors, more than 70,000 km²)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/img/Open-Door-Instructions-ODI.pdf" rel="noopener">{{ 'Staatsolie: Open-Door Instructions (24 november 2025)' if nl else 'Staatsolie: Open-Door Instructions (24 November 2025)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/open-door-offering/updates/" rel="noopener">{{ 'Staatsolie: Open-Door updates (voorstellen juni tot september 2026)' if nl else 'Staatsolie: Open-Door updates (proposals June to September 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/announcement-open-door-offering-proposal-received-in-sector-1-sho-west/" rel="noopener">{{ 'Staatsolie: voorstel Sector 1 SHO West, venster tot 21 december 2026' if nl else 'Staatsolie: proposal Sector 1 SHO West, window to 21 December 2026' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-approves-commercial-field-for-sloanea-1-gas-discovery-in-block-52/" rel="noopener">{{ 'Staatsolie: Sloanea commercieel veld (13 november 2025)' if nl else 'Staatsolie: Sloanea commercial field (13 November 2025)' }}</a></li>
+ <li><a href="https://energiesmedia.com/petronas-aiming-lng-2026-fid-gas-suriname/" rel="noopener">{{ 'Energies Media: Petronas mikt op investeringsbesluit FLNG in 2026' if nl else 'Energies Media: Petronas targets FLNG investment decision in 2026' }}</a></li>
+ <li><a href="https://theedgemalaysia.com/node/808025" rel="noopener">{{ 'The Edge Malaysia: Petronas, meer dan 1 miljard vaten olie-equivalent in Blok 52 (juni 2026)' if nl else 'The Edge Malaysia: Petronas, more than 1 billion boe in Block 52 (June 2026)' }}</a></li>
+ <li><a href="https://ocean-energyresources.com/2026/07/14/petronas-has-made-oil-discovery-offshore-suriname/" rel="noopener">{{ 'Ocean Energy Resources: olievondst Caiman-1 (juli 2026)' if nl else 'Ocean Energy Resources: Caiman-1 oil find (July 2026)' }}</a></li>
+ <li><a href="https://brazilenergyinsight.com/2026/01/04/surinames-oil-dreams-collide-with-geological-reality/" rel="noopener">{{ 'Brazil Energy Insight: Blok 52, 53 en 66, vertrek ExxonMobil (januari 2026)' if nl else 'Brazil Energy Insight: Blocks 52, 53 and 66, ExxonMobil exit (January 2026)' }}</a></li>
+ <li><a href="https://www.offshore-technology.com/news/totalenergies-acquires-25-interest-in-block-53-offshore-suriname/" rel="noopener">{{ 'Offshore Technology: TotalEnergies 25% in Blok 53, Baja-1 (juni 2025)' if nl else 'Offshore Technology: TotalEnergies 25% in Block 53, Baja-1 (June 2025)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-signs-three-more-offshore-production-sharing-contracts-with-international-oil-and-gas-companies/" rel="noopener">{{ 'Staatsolie: contracten Blok 63, 64 en 65 (15 december 2023)' if nl else 'Staatsolie: contracts for Blocks 63, 64 and 65 (15 December 2023)' }}</a></li>
+ <li><a href="https://www.euro-petrole.com/staatsolie-and-petronas-sign-production-sharing-contract-for-block-66-n-i-28624" rel="noopener">{{ 'Staatsolie en Petronas: contract Blok 66 (17 juni 2025)' if nl else 'Staatsolie and Petronas: Block 66 contract (17 June 2025)' }}</a></li>
+ <li><a href="https://www.energy-pedia.com/news/suriname/staatsolie-signs-contracts-for-offshore-blocks-9-and-10-with-petronas-and-chevron-201822" rel="noopener">{{ 'Staatsolie: contracten Blok 9 en 10 (5 november 2025)' if nl else 'Staatsolie: contracts for Blocks 9 and 10 (5 November 2025)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-signs-offshore-production-sharing-contracts-with-petrochina/" rel="noopener">{{ 'Staatsolie: contracten PetroChina Blok 14 en 15 (13 september 2024)' if nl else 'Staatsolie: PetroChina contracts for Blocks 14 and 15 (13 September 2024)' }}</a></li>
+ <li><a href="https://www.offshore-mag.com/field-development/article/14275589/staatsolie-and-chevron-sign-production-sharing-contract-for-offshore-block-7" rel="noopener">{{ 'Offshore Magazine: contract Blok 7 Chevron (april 2022)' if nl else 'Offshore Magazine: Block 7 contract with Chevron (April 2022)' }}</a></li>
+ <li><a href="https://brazilenergyinsight.com/2023/05/09/surinames-staatsolie-signs-deals-to-share-offshore-blocks-with-totalenergies-and-qatarenergy/" rel="noopener">{{ 'Brazil Energy Insight: Blok 6 en 8 met TotalEnergies en QatarEnergy (mei 2023)' if nl else 'Brazil Energy Insight: Blocks 6 and 8 with TotalEnergies and QatarEnergy (May 2023)' }}</a></li>
+ <li><a href="https://worldoil.com/news/2025/10/9/chevron-set-to-drill-korikori-1-exploration-well-in-suriname-s-block-5/" rel="noopener">{{ 'World Oil: Korikori-1 in Blok 5 (oktober 2025)' if nl else 'World Oil: Korikori-1 in Block 5 (October 2025)' }}</a></li>
+ <li><a href="https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/cvx-20251231.htm" rel="noopener">{{ 'Chevron jaarverslag 2025 (Form 10-K): belangen in Blok 5, 7 en 42' if nl else 'Chevron 2025 annual report (Form 10-K): interests in Blocks 5, 7 and 42' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/macaw-1-first-of-five-offshore-exploration-wells-in-2025/" rel="noopener">{{ 'Staatsolie: vijf exploratieputten in 2025 (5 mei 2025)' if nl else 'Staatsolie: five exploration wells in 2025 (5 May 2025)' }}</a></li>
+ <li><a href="https://www.caribbeanenergyweek.com/news/surinames-offshore-oil-momentum-builds-iocs-eye-2026-opportunities" rel="noopener">{{ 'Caribbean Energy Week: Araku Deep-1 niet commercieel (maart 2026)' if nl else 'Caribbean Energy Week: Araku Deep-1 not commercial (March 2026)' }}</a></li>
+ <li><a href="https://totalenergies.sr/press-publications/granmorgu-project-reaches-major-milestone-development-advances-toward-first-oil" rel="noopener">{{ 'TotalEnergies: vier exploratieputten Blok 58 (oktober 2026)' if nl else 'TotalEnergies: four exploration wells in Block 58 (October 2026)' }}</a></li>
+ <li><a href="https://pgjonline.com/news/2026/september/totalenergies-offshore-project-in-suriname-on-track-for-first-output-in-mid-2028" rel="noopener">{{ 'Reuters via Pipeline &amp; Gas Journal: Jagesar over een tweede FPSO (september 2026)' if nl else 'Reuters via Pipeline &amp; Gas Journal: Jagesar on a second FPSO (September 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/invitation-to-stakeholder-meeting-shallow-offshore-seismic-survey/" rel="noopener">{{ 'Staatsolie: seismisch onderzoek ondiep water, bijeenkomst 12 oktober 2026' if nl else 'Staatsolie: shallow offshore seismic survey, meeting 12 October 2026' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf" rel="noopener">{{ 'Staatsolie Sustainability Report 2025 (productie, raffinaderij, lokale inkoop)' if nl else 'Staatsolie Sustainability Report 2025 (production, refinery, local purchasing)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-2025-financial-statements-approved-strong-results-and-us-400-million-contribution-to-the-state-treasury/" rel="noopener">{{ 'Staatsolie: jaarcijfers 2025 (15 mei 2026)' if nl else 'Staatsolie: 2025 results (15 May 2026)' }}</a></li>
+ <li><a href="https://www.ogj.com/refining-processing/article/17249792/suriname-commissions-newly-expanded-refinery" rel="noopener">{{ 'Oil &amp; Gas Journal: uitgebreide raffinaderij, 15.000 vaten per dag (januari 2016)' if nl else 'Oil &amp; Gas Journal: expanded refinery, 15,000 barrels a day (January 2016)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen beleggingsadvies. Belangen in blokken veranderen door overdrachten en teruggaven; de actuele stand staat bij Staatsolie.' if nl else 'General information, not investment advice. Block interests change through transfers and relinquishments; Staatsolie has the current position.' }}</p>
+</div>
+{% endblock %}

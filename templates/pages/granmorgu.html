@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check monthly until first oil. Sources to watch: totalenergies.sr (press), staatsolie.com/en/news,
+    the Minister of Oil, Gas and Environment (OGM) on gov.sr, SBM Offshore, TechnipFMC, Saipem and Halliburton newsrooms.
+    Update the progress figure, the drilling start, the cost estimate and the jobs figures, and bump the asof date. -#}
+<div class="prose">
+<h1>{{ 'GranMorgu: het olieproject en wat het betekent voor bedrijven' if nl else 'GranMorgu: the oil project and what it means for business' }}</h1>
+{% if nl %}
+<p class="lead">GranMorgu is het eerste grote olieproject van Suriname op diep water: een drijvend productieschip (FPSO) in Blok 58, circa 150 km uit de kust, dat vanaf 2028 tot 220.000 vaten olie per dag kan produceren. TotalEnergies is operator, met APA Corporation en Staatsolie als partners. In oktober 2026 was het project volgens de minister van Olie, Gas en Milieu voor 43% uitgevoerd en begint het boren van de productieputten in december. Voor Surinaamse bedrijven zit de kans niet in de olie zelf, maar in alles wat het project aan land nodig heeft: havens, opslag, transport, onderhoud, catering, beveiliging, personeel en diensten, nu en de twintig jaar daarna.</p>
+{% else %}
+<p class="lead">GranMorgu is Suriname's first large deepwater oil project: a floating production vessel (FPSO) in Block 58, about 150 km offshore, able to produce up to 220,000 barrels of oil a day from 2028. TotalEnergies is the operator, with APA Corporation and Staatsolie as partners. In October 2026 the project was 43% complete according to the Minister of Oil, Gas and Environment, and drilling of the production wells starts in December. For Surinamese businesses the opportunity is not the oil itself but everything the project needs onshore: ports, storage, transport, maintenance, catering, security, staff and services, now and for the twenty years after.</p>
+{% endif %}
+<div class="grid g4">
+ <div class="card"><div class="eyebrow">{{ 'Capaciteit' if nl else 'Capacity' }}</div><div class="big">{{ '220.000' if nl else '220,000' }}</div><div class="sub">{{ 'vaten olie per dag' if nl else 'barrels of oil a day' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Investering' if nl else 'Investment' }}</div><div class="big">{{ 'USD 10,5 tot 12 mld' if nl else 'USD 10.5 to 12 bn' }}</div><div class="sub">{{ 'bij FID (2024) en latere schattingen' if nl else 'at FID (2024) and later estimates' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Voortgang' if nl else 'Progress' }}</div><div class="big">43%</div><div class="sub">{{ 'minister OGM, oktober 2026' if nl else 'OGM minister, October 2026' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Eerste olie' if nl else 'First oil' }}</div><div class="big">2028</div><div class="sub">{{ 'Staatsolie: medio 2028' if nl else 'Staatsolie: mid-2028' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li>GranMorgu ontwikkelt de velden <b>Sapakara South en Krabdagu</b> in Blok 58, met meer dan 750 miljoen winbare vaten. Eigenaren: <b>TotalEnergies 40% (operator), APA 40%, Staatsolie 20%</b>.</li>
+ <li>Er komt <b>geen pijpleiding naar de kust</b>: de olie gaat van de putten naar het productieschip en van daar met tankers naar de wereldmarkt. Gas en water gaan terug de bodem in.</li>
+ <li>De grote contracten zijn vergeven: <b>SBM Offshore en Technip Energies</b> (productieschip), <b>TechnipFMC</b> (onderzeese installaties), <b>Saipem</b> (leidingen), <b>Halliburton</b> (boren en afwerken van de putten).</li>
+ <li>De logistiek loopt via Paramaribo: <b>Kuldipsingh Port Facility</b> (tienjarig contract met TotalEnergies), de <b>Jules Sedney Haven</b> en de <b>DORDT-basis</b>.</li>
+ <li>TotalEnergies rekent op <b>6.000 directe, indirecte en afgeleide banen</b> en <b>USD 1 tot 1,5 miljard</b> aan uitgaven in Suriname over de looptijd. Eind 2026 moeten ruim 600 Surinamers op het project werken; ruim 100 lokale bedrijven leveren al.</li>
+ <li>Wie wil leveren, registreert zich in het leveranciersportaal (SSRP) en volgt de aanvragen van de hoofdaannemers. Zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+{% else %}
+ <li>GranMorgu develops the <b>Sapakara South and Krabdagu</b> fields in Block 58, with more than 750 million recoverable barrels. Owners: <b>TotalEnergies 40% (operator), APA 40%, Staatsolie 20%</b>.</li>
+ <li>There is <b>no pipeline to shore</b>: oil flows from the wells to the production vessel and leaves by tanker for the world market. Gas and water go back into the reservoir.</li>
+ <li>The main contracts have been awarded: <b>SBM Offshore and Technip Energies</b> (production vessel), <b>TechnipFMC</b> (subsea systems), <b>Saipem</b> (flowlines), <b>Halliburton</b> (drilling and completing the wells).</li>
+ <li>Logistics run through Paramaribo: <b>Kuldipsingh Port Facility</b> (ten-year contract with TotalEnergies), the <b>Jules Sedney Harbour</b> and the <b>DORDT base</b>.</li>
+ <li>TotalEnergies expects <b>6,000 direct, indirect and induced jobs</b> and <b>USD 1 to 1.5 billion</b> of spending in Suriname over the project's life. By the end of 2026 more than 600 Surinamese should work on the project; more than 100 local companies already supply it.</li>
+ <li>To supply, register in the supplier portal (SSRP) and follow the requests from the main contractors. See <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wat GranMorgu is' if nl else 'What GranMorgu is' }}</h2>
+{% if nl %}
+<p>GranMorgu is een ontwikkeling op diep water, zonder platform op palen en zonder installatie op het land. Het project bestaat uit vier delen:</p>
+<ul>
+ <li><b>De putten.</b> Tot 32 putten op de zeebodem, in waterdiepten van 100 tot ruim 1.000 meter: productieputten die olie omhoog halen, en injectieputten die water en gas terugpompen om de druk in het reservoir op peil te houden.</li>
+ <li><b>De onderzeese installatie (subsea).</b> Afsluiters op elke put (subsea trees), verdeelstukken (manifolds), regel- en stroomkabels (umbilicals) en leidingen die alles met het productieschip verbinden: circa 100 km productieleidingen en 90 km injectieleidingen.</li>
+ <li><b>Het productieschip (FPSO).</b> Een nieuw gebouwd schip dat permanent voor anker ligt. Het scheidt olie, gas en water, slaat circa 2 miljoen vaten olie op in de romp en lost die regelmatig over in tankers. Het schip is volledig elektrisch aangedreven, met circa 150 MW aan gasturbines aan boord, en kan tot 500 miljoen kubieke voet gas per dag verwerken. Dat gas wordt niet verkocht of standaard affakkeld, maar teruggepompt in het reservoir.</li>
+ <li><b>De keten aan land.</b> Havens en opslag in Paramaribo, bevoorradingsschepen, helikopters voor bemanning, en een organisatie die het schip twintig jaar of langer draaiende houdt.</li>
+</ul>
+<p>Er komt dus geen raffinaderij en geen pijpleiding naar Suriname. De olie wordt op zee verkocht. Wat in Suriname blijft, zijn de inkomsten van de staat en Staatsolie, en alles wat bedrijven en mensen aan het project verdienen. TotalEnergies mikt op een uitstoot van minder dan 16 kg CO2 per vat, onder meer door het elektrische schip, geen routinematig affakkelen en permanente methaandetectie.</p>
+{% else %}
+<p>GranMorgu is a deepwater development with no fixed platform and no installation onshore. It has four parts:</p>
+<ul>
+ <li><b>The wells.</b> Up to 32 wells on the seabed, in water depths from 100 to just over 1,000 metres: production wells that bring oil up, and injection wells that pump water and gas back to keep reservoir pressure up.</li>
+ <li><b>The subsea system.</b> Valves on each well (subsea trees), manifolds, control and power cables (umbilicals) and lines connecting everything to the production vessel: about 100 km of production flowlines and 90 km of injection lines.</li>
+ <li><b>The production vessel (FPSO).</b> A newly built vessel moored permanently on location. It separates oil, gas and water, stores about 2 million barrels of oil in the hull and offloads it to tankers at regular intervals. The vessel is all-electric, with about 150 MW of gas turbines on board, and can handle up to 500 million cubic feet of gas a day. That gas is not sold or routinely flared but injected back into the reservoir.</li>
+ <li><b>The chain onshore.</b> Ports and storage in Paramaribo, supply vessels, helicopters for crews, and an organisation that keeps the vessel running for twenty years or more.</li>
+</ul>
+<p>So there is no refinery and no pipeline to Suriname. The oil is sold at sea. What stays in Suriname is the income of the state and Staatsolie, and whatever businesses and people earn from the project. TotalEnergies targets emissions below 16 kg CO2 per barrel, using the electric vessel, no routine flaring and permanent methane detection.</p>
+{% endif %}
+
+<h2>{{ 'De cijfers' if nl else 'The numbers' }}</h2>
+{% set c1 = 'Onderwerp' if nl else 'Item' %}{% set c2 = 'Waarde' if nl else 'Value' %}{% set c3 = 'Bron en toelichting' if nl else 'Source and note' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}">Ligging</td><td data-l="{{ c2 }}">Blok 58, circa 150 km uit de kust, waterdiepte 100 tot 1.100 m</td><td data-l="{{ c3 }}">TotalEnergies; Saipem</td></tr>
+ <tr><td data-l="{{ c1 }}">Velden</td><td data-l="{{ c2 }}">Sapakara South (ontdekt 2021) en Krabdagu (2022)</td><td data-l="{{ c3 }}">TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Winbare reserves</td><td data-l="{{ c2 }}">meer dan 750 miljoen vaten</td><td data-l="{{ c3 }}">TotalEnergies; vakpers noemt 700 tot 760 miljoen</td></tr>
+ <tr><td data-l="{{ c1 }}">Productiecapaciteit</td><td data-l="{{ c2 }}">220.000 vaten olie per dag</td><td data-l="{{ c3 }}">TotalEnergies, Staatsolie</td></tr>
+ <tr><td data-l="{{ c1 }}">Investeringsbesluit (FID)</td><td data-l="{{ c2 }}">1 oktober 2024</td><td data-l="{{ c3 }}">TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Kosten</td><td data-l="{{ c2 }}">circa USD 10,5 miljard bij FID; in 2026 noemen Reuters en vakbladen USD 12 tot 12,2 miljard</td><td data-l="{{ c3 }}">De bronnen verschillen. Staatsolie zei in september 2026 dat het project binnen budget loopt.</td></tr>
+ <tr><td data-l="{{ c1 }}">Eigenaren</td><td data-l="{{ c2 }}">TotalEnergies 40% (operator), APA Corporation 40%, Staatsolie 20%</td><td data-l="{{ c3 }}">Staatsolie, TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Aantal putten</td><td data-l="{{ c2 }}">tot 32 (productie, water- en gasinjectie)</td><td data-l="{{ c3 }}">Milieueffectrapport TotalEnergies (2024)</td></tr>
+ <tr><td data-l="{{ c1 }}">Voortgang</td><td data-l="{{ c2 }}">43% (minister Brunings, 22 oktober 2026); circa 50% van de uitvoering en van de geplande investering besteed (TotalEnergies, september en oktober 2026)</td><td data-l="{{ c3 }}">Verschil zit in wat je meet: werk of geld</td></tr>
+ <tr><td data-l="{{ c1 }}">Start boren productieputten</td><td data-l="{{ c2 }}">december 2026 volgens de minister; "begin 2027" volgens TotalEnergies (september 2026)</td><td data-l="{{ c3 }}">Boren en offshore-installatie lopen tot ver in 2027</td></tr>
+ <tr><td data-l="{{ c1 }}">Eerste olie</td><td data-l="{{ c2 }}">2028; Staatsolie spreekt van medio 2028</td><td data-l="{{ c3 }}">TotalEnergies, Staatsolie</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}">Location</td><td data-l="{{ c2 }}">Block 58, about 150 km offshore, water depth 100 to 1,100 m</td><td data-l="{{ c3 }}">TotalEnergies; Saipem</td></tr>
+ <tr><td data-l="{{ c1 }}">Fields</td><td data-l="{{ c2 }}">Sapakara South (discovered 2021) and Krabdagu (2022)</td><td data-l="{{ c3 }}">TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Recoverable reserves</td><td data-l="{{ c2 }}">more than 750 million barrels</td><td data-l="{{ c3 }}">TotalEnergies; trade press cites 700 to 760 million</td></tr>
+ <tr><td data-l="{{ c1 }}">Production capacity</td><td data-l="{{ c2 }}">220,000 barrels of oil a day</td><td data-l="{{ c3 }}">TotalEnergies, Staatsolie</td></tr>
+ <tr><td data-l="{{ c1 }}">Final investment decision (FID)</td><td data-l="{{ c2 }}">1 October 2024</td><td data-l="{{ c3 }}">TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Cost</td><td data-l="{{ c2 }}">about USD 10.5 billion at FID; in 2026 Reuters and trade journals cite USD 12 to 12.2 billion</td><td data-l="{{ c3 }}">Sources differ. Staatsolie said in September 2026 that the project is within budget.</td></tr>
+ <tr><td data-l="{{ c1 }}">Owners</td><td data-l="{{ c2 }}">TotalEnergies 40% (operator), APA Corporation 40%, Staatsolie 20%</td><td data-l="{{ c3 }}">Staatsolie, TotalEnergies</td></tr>
+ <tr><td data-l="{{ c1 }}">Number of wells</td><td data-l="{{ c2 }}">up to 32 (production, water and gas injection)</td><td data-l="{{ c3 }}">TotalEnergies environmental impact statement (2024)</td></tr>
+ <tr><td data-l="{{ c1 }}">Progress</td><td data-l="{{ c2 }}">43% (Minister Brunings, 22 October 2026); about 50% of execution and of planned investment spent (TotalEnergies, September and October 2026)</td><td data-l="{{ c3 }}">The difference lies in what is measured: work or money</td></tr>
+ <tr><td data-l="{{ c1 }}">Production drilling starts</td><td data-l="{{ c2 }}">December 2026 according to the minister; "early 2027" according to TotalEnergies (September 2026)</td><td data-l="{{ c3 }}">Drilling and offshore installation run well into 2027</td></tr>
+ <tr><td data-l="{{ c1 }}">First oil</td><td data-l="{{ c2 }}">2028; Staatsolie says mid-2028</td><td data-l="{{ c3 }}">TotalEnergies, Staatsolie</td></tr>
+{% endif %}
+</tbody></table>
+
+<h3>{{ 'Hoe Staatsolie zijn 20% betaalt' if nl else 'How Staatsolie pays for its 20%' }}</h3>
+{% if nl %}
+<p>Als partner betaalt Staatsolie 20% van de kosten en krijgt het 20% van de olie. Staatsolie schatte de benodigde financiering op <b>USD 2,4 miljard</b>. Die is in 2025 rondgekomen met drie bronnen: een lening van <b>USD 1,6 miljard</b> van 18 banken en financiële instellingen (mei 2025, gecoördineerd door Afreximbank), een obligatie-uitgifte in Suriname in maart 2025 die <b>USD 516 miljoen</b> opbracht (USD 211,7 miljoen meer dan het doel) en eigen kasstroom. De obligaties zijn door Surinaamse particulieren en bedrijven gekocht; de rente wordt halfjaarlijks uitbetaald, de laatste keer op 23 september 2026.</p>
+{% else %}
+<p>As a partner, Staatsolie pays 20% of the costs and receives 20% of the oil. Staatsolie estimated the financing needed at <b>USD 2.4 billion</b>. It was secured in 2025 from three sources: a <b>USD 1.6 billion</b> loan from 18 banks and financial institutions (May 2025, coordinated by Afreximbank), a bond issue in Suriname in March 2025 that raised <b>USD 516 million</b> (USD 211.7 million more than targeted) and its own cash flow. The bonds were bought by Surinamese individuals and companies; interest is paid every six months, most recently on 23 September 2026.</p>
+{% endif %}
+
+<h2>{{ 'Wie bouwt wat: de hoofdaannemers' if nl else 'Who builds what: the main contractors' }}</h2>
+{% if nl %}
+<p>De grote pakketten zijn eind 2024 vergeven aan internationale bedrijven. Voor Surinaamse bedrijven zijn dit de klanten om te kennen: zij kopen lokaal in voor logistiek, onderhoud, personeel en diensten.</p>
+{% else %}
+<p>The big packages were awarded to international companies at the end of 2024. For Surinamese businesses these are the customers to know: they buy locally for logistics, maintenance, staff and services.</p>
+{% endif %}
+{% set c1 = 'Pakket' if nl else 'Package' %}{% set c2 = 'Aannemer' if nl else 'Contractor' %}{% set c3 = 'Wat ze doen' if nl else 'Scope' %}{% set c4 = 'Stand' if nl else 'Status' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}"><b>Productieschip (FPSO)</b></td><td data-l="{{ c2 }}">SBM Offshore met Technip Energies</td><td data-l="{{ c3 }}">SBM levert de romp (Fast4Ward-ontwerp) en de bouw en installatie; Technip Energies de installaties op het dek. SBM bedient het schip daarna minstens twee jaar na eerste olie, met verlengingsopties.</td><td data-l="{{ c4 }}">Eerste staal gesneden mei 2025 in China; schip circa half klaar (mei 2026)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Onderzeese productiesystemen</b></td><td data-l="{{ c2 }}">TechnipFMC</td><td data-l="{{ c3 }}">Subsea trees, manifolds, connectoren, umbilicals, flexibele risers en jumpers; contract van meer dan USD 1 miljard</td><td data-l="{{ c4 }}">Eerste grote onderdelen in september 2026 in Paramaribo aangekomen</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Leidingen en risers (SURF)</b></td><td data-l="{{ c2 }}">Saipem</td><td data-l="{{ c3 }}">Circa 100 km productieleidingen en 90 km water- en gasinjectieleidingen, installatie van risers en umbilicals; USD 1,9 miljard</td><td data-l="{{ c4 }}">Offshore werk gestart juni 2026 met het schip Normand Navigator</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Boren en afwerken van putten</b></td><td data-l="{{ c2 }}">Halliburton</td><td data-l="{{ c3 }}">Geïntegreerd boor- en completiecontract voor het ontwikkelprogramma</td><td data-l="{{ c4 }}">Gegund 13 juli 2026; volgens de minister bijna 70% Surinaams personeel</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Boorschepen</b></td><td data-l="{{ c2 }}">Onder meer Noble Corporation (Noble Valiant)</td><td data-l="{{ c3 }}">Boorschip voor het programma van TotalEnergies in Suriname, volgens de vlootlijst van Noble (augustus 2025). Welke schepen welke putten boren is niet gepubliceerd.</td><td data-l="{{ c4 }}">Boorschepen worden eind 2026 verwacht</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Geïntegreerde logistieke basis</b></td><td data-l="{{ c2 }}">Kuldipsingh Port Facility</td><td data-l="{{ c3 }}">Tienjarig contract met TotalEnergies EP Suriname voor een centrale haven- en logistieke basis voor offshore operaties</td><td data-l="{{ c4 }}">Aangekondigd november 2025, in gebruik sinds 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Logistiek Saipem</b></td><td data-l="{{ c2 }}">Jules Sedney Haven en DORDT-basis, Paramaribo</td><td data-l="{{ c3 }}">Terrein van 30.000 tot 40.000 m² voor ontvangst en opslag van leidingen en materieel; DORDT voor zware onderzeese constructies</td><td data-l="{{ c4 }}">In gebruik sinds juni 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Helikopters en bevoorradingsschepen</b></td><td data-l="{{ c2 }}">Niet in detail gepubliceerd</td><td data-l="{{ c3 }}">Vervoer van bemanning en bevoorrading van boorschepen en het productieschip</td><td data-l="{{ c4 }}">Volg de aanvragen van TotalEnergies en Staatsolie</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}"><b>Production vessel (FPSO)</b></td><td data-l="{{ c2 }}">SBM Offshore with Technip Energies</td><td data-l="{{ c3 }}">SBM supplies the hull (Fast4Ward design) plus construction and installation; Technip Energies the topsides. SBM then operates the vessel for at least two years after first oil, with extension options.</td><td data-l="{{ c4 }}">First steel cut May 2025 in China; vessel about half complete (May 2026)</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Subsea production systems</b></td><td data-l="{{ c2 }}">TechnipFMC</td><td data-l="{{ c3 }}">Subsea trees, manifolds, connectors, umbilicals, flexible risers and jumpers; a contract above USD 1 billion</td><td data-l="{{ c4 }}">First major components arrived in Paramaribo in September 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Flowlines and risers (SURF)</b></td><td data-l="{{ c2 }}">Saipem</td><td data-l="{{ c3 }}">About 100 km of production flowlines and 90 km of water and gas injection lines, installation of risers and umbilicals; USD 1.9 billion</td><td data-l="{{ c4 }}">Offshore work started June 2026 with the vessel Normand Navigator</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Drilling and completing wells</b></td><td data-l="{{ c2 }}">Halliburton</td><td data-l="{{ c3 }}">Integrated drilling and completions contract for the development programme</td><td data-l="{{ c4 }}">Awarded 13 July 2026; nearly 70% Surinamese staff according to the minister</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Drillships</b></td><td data-l="{{ c2 }}">Including Noble Corporation (Noble Valiant)</td><td data-l="{{ c3 }}">Drillship for TotalEnergies' programme in Suriname, according to Noble's fleet status (August 2025). Which vessel drills which well has not been published.</td><td data-l="{{ c4 }}">Drillships expected at the end of 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Integrated logistics base</b></td><td data-l="{{ c2 }}">Kuldipsingh Port Facility</td><td data-l="{{ c3 }}">Ten-year contract with TotalEnergies EP Suriname for a central port and logistics base for offshore operations</td><td data-l="{{ c4 }}">Announced November 2025, in use since 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Saipem logistics</b></td><td data-l="{{ c2 }}">Jules Sedney Harbour and DORDT base, Paramaribo</td><td data-l="{{ c3 }}">A 30,000 to 40,000 m² area for receiving and storing pipe and equipment; DORDT for heavy subsea structures</td><td data-l="{{ c4 }}">In use since June 2026</td></tr>
+ <tr><td data-l="{{ c1 }}"><b>Helicopters and supply vessels</b></td><td data-l="{{ c2 }}">Not published in detail</td><td data-l="{{ c3 }}">Crew transport and supply of the drillships and the production vessel</td><td data-l="{{ c4 }}">Follow the requests from TotalEnergies and Staatsolie</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>Halliburton meldt dat het samen met lokale leveranciers een mengfabriek voor boorvloeistof en cement heeft opgewaardeerd en heeft bijgedragen aan de eerste werkplaats voor boor- en completiegereedschap in Suriname. Dat is precies het soort werk waar lokale bedrijven instappen: bouw, onderhoud, elektra, transport en opslag rond de basis van een hoofdaannemer.</p>
+{% else %}
+<p>Halliburton reports that it upgraded a liquid mud and cement plant with local suppliers and helped build Suriname's first workshop for drilling and completion tools. That is exactly the kind of work local companies step into: construction, maintenance, electrical work, transport and storage around a main contractor's base.</p>
+{% endif %}
+
+<h2>{{ 'Tijdlijn: wat er per fase wordt ingekocht' if nl else 'Timeline: what is bought in each phase' }}</h2>
+{% if nl %}
+<p>Elke fase vraagt iets anders. Wie weet in welke fase het project zit, weet wat er gevraagd wordt en kan op tijd zijn certificaten, materieel en mensen klaar hebben.</p>
+{% else %}
+<p>Each phase needs something different. If you know which phase the project is in, you know what is being asked for and can have your certificates, equipment and people ready in time.</p>
+{% endif %}
+{% set c1 = 'Periode' if nl else 'Period' %}{% set c2 = 'Fase' if nl else 'Phase' %}{% set c3 = 'Wat lokale bedrijven kunnen leveren' if nl else 'What local businesses can supply' %}
+<table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ c1 }}">2020 tot 2023</td><td data-l="{{ c2 }}">Exploratie en evaluatie (zes ontdekkingen in Blok 58)</td><td data-l="{{ c3 }}">Afgerond. Toen vooral havendiensten, douane-afhandeling, hotels en vervoer.</td></tr>
+ <tr><td data-l="{{ c1 }}">okt. 2024</td><td data-l="{{ c2 }}">Investeringsbesluit (FID)</td><td data-l="{{ c3 }}">Start van de grote contracten in het buitenland.</td></tr>
+ <tr><td data-l="{{ c1 }}">2025 tot 2027</td><td data-l="{{ c2 }}">Bouw van schip en onderzeese installaties (buitenland), opbouw van de logistieke bases (Paramaribo)</td><td data-l="{{ c3 }}">Terreinen, loodsen, hekwerk, bouw en renovatie, elektra, kranen en heftrucks, opslag, douane-expeditie, transport over de weg, beveiliging, schoonmaak, kantoorruimte, IT, uitzendkrachten.</td></tr>
+ <tr><td data-l="{{ c1 }}">dec. 2026 tot 2028</td><td data-l="{{ c2 }}">Boren van de putten en offshore installatie</td><td data-l="{{ c3 }}">Bevoorrading van boorschepen: brandstof, water, voedsel, afval (ook boorafval), gevaarlijke stoffen, mudlogistiek, laboratoria, tank- en bulkopslag, crewwissels, hotels en vervoer, medische diensten, catering, onderhoud en reparatie van materieel, lassen en fabricage, inspectie en certificering.</td></tr>
+ <tr><td data-l="{{ c1 }}">2028</td><td data-l="{{ c2 }}">Aankomst van het schip, aansluiten en opstarten; eerste olie</td><td data-l="{{ c3 }}">Pieken in crewvervoer en accommodatie, maritieme diensten, communicatie, beveiliging en noodhulp (olierampbestrijding, medische evacuatie).</td></tr>
+ <tr><td data-l="{{ c1 }}">2028 tot 2048 en later</td><td data-l="{{ c2 }}">Productie: twintig jaar of langer</td><td data-l="{{ c3 }}">Doorlopende contracten: bevoorrading, onderhoud, reserveonderdelen, catering en huishouding aan boord, wasserij, afvalverwerking, opleiding en certificering, personeel op rotatie, financiële, juridische en HR-diensten. Dit is de grootste en stabielste markt.</td></tr>
+ <tr><td data-l="{{ c1 }}">2027 tot 2028</td><td data-l="{{ c2 }}">Nieuwe exploratie in Blok 58: vier putten</td><td data-l="{{ c3 }}">Zelfde soort diensten als bij het boren. Nieuwe vondsten kunnen later aan GranMorgu worden gekoppeld of een tweede productieschip opleveren; Staatsolie spreekt daar openlijk over.</td></tr>
+{% else %}
+ <tr><td data-l="{{ c1 }}">2020 to 2023</td><td data-l="{{ c2 }}">Exploration and appraisal (six discoveries in Block 58)</td><td data-l="{{ c3 }}">Finished. Mainly port services, customs clearance, hotels and transport at the time.</td></tr>
+ <tr><td data-l="{{ c1 }}">Oct 2024</td><td data-l="{{ c2 }}">Final investment decision (FID)</td><td data-l="{{ c3 }}">Start of the big contracts abroad.</td></tr>
+ <tr><td data-l="{{ c1 }}">2025 to 2027</td><td data-l="{{ c2 }}">Construction of the vessel and subsea systems (abroad), build-up of the logistics bases (Paramaribo)</td><td data-l="{{ c3 }}">Yards, warehouses, fencing, construction and renovation, electrical work, cranes and forklifts, storage, customs brokerage, road transport, security, cleaning, office space, IT, temporary staff.</td></tr>
+ <tr><td data-l="{{ c1 }}">Dec 2026 to 2028</td><td data-l="{{ c2 }}">Drilling the wells and offshore installation</td><td data-l="{{ c3 }}">Supplying the drillships: fuel, water, food, waste (including drilling waste), hazardous materials, mud logistics, laboratories, tank and bulk storage, crew changes, hotels and transport, medical services, catering, equipment maintenance and repair, welding and fabrication, inspection and certification.</td></tr>
+ <tr><td data-l="{{ c1 }}">2028</td><td data-l="{{ c2 }}">Vessel arrives, hook-up and start-up; first oil</td><td data-l="{{ c3 }}">Peaks in crew transport and accommodation, marine services, communications, security and emergency response (oil spill response, medical evacuation).</td></tr>
+ <tr><td data-l="{{ c1 }}">2028 to 2048 and beyond</td><td data-l="{{ c2 }}">Production: twenty years or more</td><td data-l="{{ c3 }}">Ongoing contracts: supply, maintenance, spare parts, catering and housekeeping on board, laundry, waste processing, training and certification, rotational staff, financial, legal and HR services. This is the largest and most stable market.</td></tr>
+ <tr><td data-l="{{ c1 }}">2027 to 2028</td><td data-l="{{ c2 }}">New exploration in Block 58: four wells</td><td data-l="{{ c3 }}">The same kind of services as during drilling. New finds could later be tied back to GranMorgu or lead to a second production vessel; Staatsolie says so openly.</td></tr>
+{% endif %}
+</tbody></table>
+
+<h2>{{ 'Lokale inhoud: wat er nu al in Suriname wordt uitgegeven' if nl else 'Local content: what is already spent in Suriname' }}</h2>
+{% if nl %}
+<p>De olie- en gassector gaf in 2025 een record van <b>USD 367 miljoen</b> uit in Suriname: USD 107 miljoen door Staatsolie zelf en circa USD 260 miljoen door de offshore partners en hun onderaannemers. In hetzelfde jaar registreerden zich <b>731 nieuwe lokale leveranciers</b> in het portaal. TotalEnergies verwacht over de hele looptijd van GranMorgu USD 1 tot 1,5 miljard aan uitgaven in Suriname en 6.000 directe, indirecte en afgeleide banen. In september 2026 leverden ruim honderd Surinaamse bedrijven aan het project en volgens TotalEnergies werken er "honderden" Surinaamse professionals aan mee. Eind 2026 moeten het er meer dan 600 zijn.</p>
+<p>Er is nog geen Local Content-wet. Wat geldt, staat in de Petroleumwet 1990 (laatst gewijzigd bij S.B. 2022 no. 152) en in het productiedelingscontract: Surinaams personeel waar mogelijk, opleiding waar de kennis ontbreekt, en rapportage daarover. Een wetsontwerp moet in 2027 naar De Nationale Assemblée. Lees de details op <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> en <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% else %}
+<p>The oil and gas sector spent a record <b>USD 367 million</b> in Suriname in 2025: USD 107 million by Staatsolie itself and about USD 260 million by the offshore partners and their subcontractors. In the same year <b>731 new local suppliers</b> registered in the portal. TotalEnergies expects USD 1 to 1.5 billion of spending in Suriname over GranMorgu's life and 6,000 direct, indirect and induced jobs. In September 2026 more than a hundred Surinamese companies were supplying the project and, according to TotalEnergies, "hundreds" of Surinamese professionals were working on it. By the end of 2026 there should be more than 600.</p>
+<p>There is no Local Content Act yet. What applies is in the Petroleum Act 1990 (last amended by S.B. 2022 no. 152) and in the production sharing contract: Surinamese staff where possible, training where expertise is missing, and reporting on both. A bill is to go to the National Assembly in 2027. Details on <a href="{{ U('supplier') }}">{{ L('supplier') }}</a> and <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Milieu en vergunningen' if nl else 'Environment and permits' }}</h2>
+{% if nl %}
+<p>TotalEnergies diende in 2024 een milieueffectrapport (Environmental Impact Statement) in bij het toenmalige NIMOS voor het boren van de 32 putten, de onderzeese installatie, het productieschip en de latere ontmanteling, met een plan voor overleg met belanghebbenden. NIMOS is sindsdien opgegaan in de Nationale Milieu Autoriteit (NMA), die onder de Milieuraamwet (S.B. 2020 no. 97) vergunningen verleent en toeziet. TotalEnergies werkt daarnaast met een Biodiversity Action Plan, met projecten als mangroveherstel langs Weg naar Zee. Voor leveranciers betekent dit: afvalverwerking, monitoring, laboratoria en olierampbestrijding worden gecontroleerde markten, waar je een vergunning en aantoonbare procedures nodig hebt. Zie <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% else %}
+<p>In 2024 TotalEnergies submitted an Environmental Impact Statement to the then NIMOS covering the drilling of the 32 wells, the subsea system, the production vessel and later decommissioning, with a stakeholder engagement plan. NIMOS has since been absorbed into the National Environmental Authority (NMA), which issues permits and supervises under the Environmental Framework Act (S.B. 2020 no. 97). TotalEnergies also runs a Biodiversity Action Plan, with projects such as mangrove restoration along Weg naar Zee. For suppliers this means that waste processing, monitoring, laboratories and oil spill response become regulated markets where you need a permit and documented procedures. See <a href="{{ U('environment') }}">{{ L('environment') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat verdient de staat?' if nl else 'What does the state earn?' }}</h2>
+{% if nl %}
+<p>Exacte bedragen zijn niet openbaar: de voorwaarden van het contract voor Blok 58 zijn niet gepubliceerd en de opbrengst hangt af van de olieprijs en de kosten. Wel bekend is hoe het systeem werkt:</p>
+<ul>
+ <li><b>Royalty.</b> Een vast percentage van de productie gaat naar de staat. Voor nieuwe contracten onder het Open-Door aanbod van Staatsolie is dat 6,25% van de bruto productie.</li>
+ <li><b>Kostenolie en winstolie.</b> De oliemaatschappijen verdienen eerst hun kosten terug uit een deel van de productie (in de nieuwe contracten maximaal 80% per jaar na royalty). De rest, de winstolie, wordt gedeeld volgens een formule die gunstiger wordt voor Suriname naarmate het project winstgevender is.</li>
+ <li><b>Inkomstenbelasting.</b> In nieuwe contracten 36%, vast voor de looptijd.</li>
+ <li><b>Staatsolie als partner.</b> Staatsolie krijgt 20% van de olie en betaalt 20% van de kosten. Staatsolie droeg in 2025 al USD 400 miljoen bij aan de staatskas (belastingen, dividend en goudroyalty's), circa 30% van alle overheidsinkomsten, en dat zonder offshore productie.</li>
+</ul>
+<p>Het IMF verwacht dat de economie tot 2028 met circa 4% per jaar groeit en in 2028, het jaar van de eerste olie, met circa 30%. Omdat de maatschappijen eerst hun investering terugverdienen, komen de grootste overheidsinkomsten pas na enkele jaren productie. Het IMF wijst op sterke instellingen en uitvoering van de wet op het spaarfonds als voorwaarde om het geld goed te beheren. Meer daarover op <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a> en <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% else %}
+<p>Exact amounts are not public: the terms of the Block 58 contract have not been published and the income depends on the oil price and costs. How the system works is known:</p>
+<ul>
+ <li><b>Royalty.</b> A fixed share of production goes to the state. For new contracts under Staatsolie's Open-Door Offering it is 6.25% of gross production.</li>
+ <li><b>Cost oil and profit oil.</b> The oil companies first recover their costs from part of the production (in the new contracts at most 80% a year after royalty). The rest, profit oil, is shared under a formula that becomes more favourable to Suriname as the project becomes more profitable.</li>
+ <li><b>Income tax.</b> 36% in new contracts, fixed for the life of the contract.</li>
+ <li><b>Staatsolie as partner.</b> Staatsolie receives 20% of the oil and pays 20% of the costs. In 2025 Staatsolie already contributed USD 400 million to the treasury (taxes, dividend and gold royalties), about 30% of all government revenue, without any offshore production.</li>
+</ul>
+<p>The IMF expects the economy to grow by about 4% a year until 2028 and by about 30% in 2028, the year of first oil. Because the companies recover their investment first, the largest government revenues only arrive after some years of production. The IMF points to strong institutions and implementing the sovereign wealth fund law as conditions for managing the money well. More on <a href="{{ U('oilmoney') }}">{{ L('oilmoney') }}</a> and <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Hoe je als bedrijf meedoet' if nl else 'How your business gets involved' }}</h2>
+<ol class="steps">
+{% if nl %}
+ <li><b>Kies wat je echt kunt leveren.</b> Kijk in de tijdlijn hierboven welke fase eraan komt en wat daar gevraagd wordt. Specialiseer: logistiek, onderhoud, catering, beveiliging, afval, IT of personeel.</li>
+ <li><b>Zet je bedrijf op orde.</b> KKF-inschrijving, belastingen betaald, boekhouding controleerbaar, verzekeringen en een veiligheidsbeleid op papier.</li>
+ <li><b>Registreer in het SSRP</b>, het leveranciersportaal dat TotalEnergies, Staatsolie en de hoofdaannemers gebruiken, en vul je profiel volledig in.</li>
+ <li><b>Volg de aanvragen.</b> Staatsolie publiceert Expressions of Interest; wij verzamelen ze op <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Benader de hoofdaannemers</b> (SBM, TechnipFMC, Saipem, Halliburton) via hun lokale kantoren en leveranciersdagen; zij kopen veel lokaal in.</li>
+ <li><b>Investeer in certificaten en mensen.</b> ISO 9001, 14001 en 45001, offshore veiligheidstrainingen voor je personeel. Zie <a href="{{ U('oiljobs') }}">{{ L('oiljobs') }}</a>.</li>
+{% else %}
+ <li><b>Choose what you can really deliver.</b> Check the timeline above for the coming phase and what it needs. Specialise: logistics, maintenance, catering, security, waste, IT or staffing.</li>
+ <li><b>Get your company in order.</b> KKF registration, taxes paid, auditable books, insurance and a written safety policy.</li>
+ <li><b>Register in the SSRP</b>, the supplier portal used by TotalEnergies, Staatsolie and the main contractors, and complete your profile.</li>
+ <li><b>Follow the requests.</b> Staatsolie publishes Expressions of Interest; we collect them on <a href="{{ U('tenders') }}">{{ L('tenders') }}</a>.</li>
+ <li><b>Approach the main contractors</b> (SBM, TechnipFMC, Saipem, Halliburton) through their local offices and supplier days; they buy a lot locally.</li>
+ <li><b>Invest in certificates and people.</b> ISO 9001, 14001 and 45001, offshore safety training for your staff. See <a href="{{ U('oiljobs') }}">{{ L('oiljobs') }}</a>.</li>
+{% endif %}
+</ol>
+
+<h2>{{ 'Wat je de komende jaren in de gaten houdt' if nl else 'What to watch in the coming years' }}</h2>
+<ul class="check">
+{% if nl %}
+ <li>Start van het boren van de productieputten (december 2026 of begin 2027) en aankomst van de boorschepen</li>
+ <li>Aankomst van het productieschip in Surinaamse wateren (verwacht 2028) en de opstartdatum</li>
+ <li>Resultaten van de vier nieuwe exploratieputten in Blok 58 (2027 tot 2028) en de vraag of er een tweede schip komt</li>
+ <li>Mogelijke koppeling van de Baja-ontdekking in het naastgelegen Blok 53</li>
+ <li>De Local Content-wet (naar DNA in 2027) en de inrichting van het spaarfonds voor olie-inkomsten</li>
+ <li>Het investeringsbesluit van Petronas voor gas in Blok 52, een tweede groot project. Zie <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</li>
+{% else %}
+ <li>Start of production drilling (December 2026 or early 2027) and arrival of the drillships</li>
+ <li>Arrival of the production vessel in Surinamese waters (expected 2028) and the start-up date</li>
+ <li>Results of the four new exploration wells in Block 58 (2027 to 2028) and whether a second vessel follows</li>
+ <li>A possible tie-back of the Baja discovery in neighbouring Block 53</li>
+ <li>The Local Content Act (to parliament in 2027) and the set-up of the savings fund for oil revenue</li>
+ <li>Petronas' investment decision for gas in Block 52, a second large project. See <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a>.</li>
+{% endif %}
+</ul>
+<p>{{ 'Overzicht van de hele sector:' if nl else 'Overview of the whole sector:' }} <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://totalenergies.com/news/press-releases/suriname-totalenergies-announces-final-investment-decision-granmorgu" rel="noopener">{{ 'TotalEnergies: investeringsbesluit GranMorgu (1 oktober 2024)' if nl else 'TotalEnergies: GranMorgu final investment decision (1 October 2024)' }}</a></li>
+ <li><a href="https://totalenergies.sr/granmorgu-project" rel="noopener">{{ 'TotalEnergies Suriname: het GranMorgu-project' if nl else 'TotalEnergies Suriname: the GranMorgu project' }}</a></li>
+ <li><a href="https://totalenergies.sr/totalenergies-suriname" rel="noopener">{{ 'TotalEnergies Suriname: 6.000 banen, USD 1 tot 1,5 miljard in Suriname' if nl else 'TotalEnergies Suriname: 6,000 jobs, USD 1 to 1.5 billion in Suriname' }}</a></li>
+ <li><a href="https://totalenergies.sr/press/suriname-granmorgu-project-takes-shape-major-production-equipment-arrives" rel="noopener">{{ 'TotalEnergies: eerste onderzeese apparatuur aangekomen, Kuldipsingh, 600 banen (19 september 2026)' if nl else 'TotalEnergies: first subsea equipment arrives, Kuldipsingh, 600 jobs (19 September 2026)' }}</a></li>
+ <li><a href="https://totalenergies.sr/press-publications/granmorgu-project-reaches-major-milestone-development-advances-toward-first-oil" rel="noopener">{{ 'TotalEnergies: 50% van de uitvoering, vier exploratieputten (oktober 2026)' if nl else 'TotalEnergies: 50% of execution, four exploration wells (October 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/totalenergies-ceo-visit-underscores-progress-on-granmorgu-project/" rel="noopener">{{ 'Staatsolie: bezoek CEO TotalEnergies, binnen budget (21 september 2026)' if nl else 'Staatsolie: TotalEnergies CEO visit, within budget (21 September 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/22/eerste-olieboringen-granmorgu-starten-in-december-project-al-voor-43-procent-gerealiseerd/" rel="noopener">{{ 'Suriname Herald: 43% gerealiseerd, boren in december (22 oktober 2026)' if nl else 'Suriname Herald: 43% complete, drilling in December (22 October 2026)' }}</a></li>
+ <li><a href="https://www.gfcnieuws.com/gran-morgu-voor-43-procent-uitgevoerd-eerste-productieboringen-gepland-voor-december/" rel="noopener">{{ 'GFC Nieuws: Halliburton bijna 70% Surinaams personeel (23 oktober 2026)' if nl else 'GFC Nieuws: Halliburton nearly 70% Surinamese staff (23 October 2026)' }}</a></li>
+ <li><a href="https://pgjonline.com/news/2026/september/totalenergies-offshore-project-in-suriname-on-track-for-first-output-in-mid-2028" rel="noopener">{{ 'Reuters via Pipeline &amp; Gas Journal: medio 2028, waarde USD 12 miljard (20 september 2026)' if nl else 'Reuters via Pipeline &amp; Gas Journal: mid-2028, valued at USD 12 billion (20 September 2026)' }}</a></li>
+ <li><a href="https://www.offshore-mag.com/regional-reports/latin-america/news/55380624/gran-morgu-project-advances-toward-2028-first-oil" rel="noopener">{{ 'Offshore Magazine: specificaties FPSO, eerste staal mei 2025' if nl else 'Offshore Magazine: FPSO specifications, first steel May 2025' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-and-the-granmorgu-project-backed-by-broad-inter-national-confidence/" rel="noopener">{{ 'Staatsolie: lening USD 1,6 miljard, financieringsbehoefte USD 2,4 miljard (14 mei 2025)' if nl else 'Staatsolie: USD 1.6 billion loan, financing need USD 2.4 billion (14 May 2025)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-raises-us-211-7-million-more-than-targeted-with-new-bond-issue/" rel="noopener">{{ 'Staatsolie: obligatie-uitgifte 2025' if nl else 'Staatsolie: 2025 bond issue' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-2025-financial-statements-approved-strong-results-and-us-400-million-contribution-to-the-state-treasury/" rel="noopener">{{ 'Staatsolie: jaarcijfers 2025, USD 400 miljoen aan de staat (15 mei 2026)' if nl else 'Staatsolie: 2025 results, USD 400 million to the state (15 May 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/ayshb3ga/staatsolie-sustainability-report-2025.pdf" rel="noopener">{{ 'Staatsolie Sustainability Report 2025 (lokale uitgaven USD 367 miljoen, 731 leveranciers)' if nl else 'Staatsolie Sustainability Report 2025 (local spend USD 367 million, 731 suppliers)' }}</a></li>
+ <li><a href="https://www.sbmoffshore.com/newsroom/sbm-offshore-signs-an-operations-and-maintenance-contract-for-fpso-granmorgu-with-totalenergies/" rel="noopener">{{ 'SBM Offshore: beheer en onderhoud FPSO GranMorgu (19 juni 2025)' if nl else 'SBM Offshore: operations and maintenance of FPSO GranMorgu (19 June 2025)' }}</a></li>
+ <li><a href="https://www.ten.com/en/media/press-releases/technip-energies-awarded-major-contract-totalenergies-topsides-granmorgu-fpso" rel="noopener">{{ 'Technip Energies: topsides GranMorgu FPSO (14 november 2024)' if nl else 'Technip Energies: GranMorgu FPSO topsides (14 November 2024)' }}</a></li>
+ <li><a href="https://www.technipfmc.com/en/investors/financial-news-releases/press-release/technipfmc-awarded-major-iepci-contract-for-totalenergies-granmorgu-development-offshore-suriname/" rel="noopener">{{ 'TechnipFMC: iEPCI-contract GranMorgu (14 november 2024)' if nl else 'TechnipFMC: GranMorgu iEPCI contract (14 November 2024)' }}</a></li>
+ <li><a href="https://www.saipem.com/en/media/press-releases/2024-11-14/saipem-new-offshore-contract-totalenergies-suriname-19-billion-usd" rel="noopener">{{ 'Saipem: contract USD 1,9 miljard (14 november 2024)' if nl else 'Saipem: USD 1.9 billion contract (14 November 2024)' }}</a></li>
+ <li><a href="https://www.offshore-technology.com/news/saipem-offshore-works-granmorgu-project-suriname/" rel="noopener">{{ 'Offshore Technology: Saipem start offshore werk, Jules Sedney Haven en DORDT (juni 2026)' if nl else 'Offshore Technology: Saipem starts offshore work, Jules Sedney Harbour and DORDT (June 2026)' }}</a></li>
+ <li><a href="https://ir.halliburton.com/news-releases/news-release-details/halliburton-wins-integrated-drilling-and-completions-contracts" rel="noopener">{{ 'Halliburton: boor- en completiecontract GranMorgu (13 juli 2026)' if nl else 'Halliburton: GranMorgu drilling and completions contract (13 July 2026)' }}</a></li>
+ <li><a href="https://brazilenergyinsight.com/2025/08/07/noble-valiant-secured-as-second-drillship-for-totalenergies-2026-suriname-campaign/" rel="noopener">{{ 'Brazil Energy Insight: Noble Valiant voor TotalEnergies in Suriname (augustus 2025)' if nl else 'Brazil Energy Insight: Noble Valiant for TotalEnergies in Suriname (August 2025)' }}</a></li>
+ <li><a href="https://kuldipsingh.net/en/kuldipsingh-port-facility-signs-ten-year-contract-with-totalenergies-ep-suriname-for-integrated-logistics-base/" rel="noopener">{{ 'Kuldipsingh: tienjarig contract logistieke basis (november 2025)' if nl else 'Kuldipsingh: ten-year logistics base contract (November 2025)' }}</a></li>
+ <li><a href="https://www.ogj.com/exploration-development/article/55134764/totalenergies-submits-plans-for-suriname-development" rel="noopener">{{ 'Oil &amp; Gas Journal: milieueffectrapport bij NIMOS (augustus 2024)' if nl else 'Oil &amp; Gas Journal: environmental impact statement to NIMOS (August 2024)' }}</a></li>
+ <li><a href="https://www.dna.sr/media/bkih12kt/sb_2020___97.pdf" rel="noopener">Milieuraamwet, S.B. 2020 no. 97</a></li>
+ <li><a href="https://www.staatsolie.com/img/Open-Door-Instructions-ODI.pdf" rel="noopener">{{ 'Staatsolie: Open-Door Instructions, fiscale voorwaarden nieuwe contracten (24 november 2025)' if nl else 'Staatsolie: Open-Door Instructions, fiscal terms for new contracts (24 November 2025)' }}</a></li>
+ <li><a href="https://www.imf.org/en/news/articles/2026/02/11/pr-26043-suriname-imf-executive-board-concludes-2025-article-iv-consult" rel="noopener">{{ 'IMF: Article IV 2025, groei circa 30% in 2028 (februari 2026)' if nl else 'IMF: 2025 Article IV, growth of about 30% in 2028 (February 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen beleggings- of juridisch advies. Planning en cijfers van het project veranderen; controleer de actuele stand bij TotalEnergies Suriname en Staatsolie.' if nl else 'General information, not investment or legal advice. Project schedules and figures change; check the current position with TotalEnergies Suriname and Staatsolie.' }}</p>
+</div>
+{% endblock %}

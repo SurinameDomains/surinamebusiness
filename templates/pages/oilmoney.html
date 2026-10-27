@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% set nl = lang == 'nl' %}
+{% block content %}
+{#- Maintainers: re-check every quarter and whenever (1) the IMF publishes a new Article IV (imf.org/en/countries/sur),
+    (2) the SSFS law amendment or the healthcare financing law moves (dna.sr, gov.sr), (3) the government decides on RVI,
+    (4) GranMorgu's first-oil date changes, (5) Moody's, S&P or Fitch act on Suriname. Keep facts and scenarios in separate
+    paragraphs: scenarios are labelled "our assessment". Bump the asof date when you do. -#}
+<div class="prose">
+<h1>{{ 'Oliegeld: wat verandert er voor ondernemers in Suriname' if nl else 'Oil money: what changes for businesses in Suriname' }}</h1>
+{% if nl %}
+<p class="lead">De eerste olie uit GranMorgu wordt verwacht in 2028, en het IMF rekent dan op bijna 30% economische groei in één jaar. Toch komt het oliegeld niet in één klap binnen: de staat krijgt eerst alleen de royalty, terwijl de oliebedrijven hun investering terugverdienen. Ondertussen voel je de olie al in lonen, huren, invoer en de wisselkoers. Deze gids zet op een rij wat vaststaat, wat de regering van plan is en welke risico's en kansen wij zien, zodat je nu al kunt plannen.</p>
+{% else %}
+<p class="lead">First oil from GranMorgu is expected in 2028, and the IMF then projects close to 30% economic growth in a single year. Yet the oil money does not arrive all at once: at first the state only receives the royalty, while the oil companies recover their investment. Meanwhile you already feel oil in wages, rents, imports and the exchange rate. This guide sets out what is certain, what the government plans and which risks and opportunities we see, so you can plan now.</p>
+{% endif %}
+<div class="grid g3">
+ <div class="card"><div class="eyebrow">{{ 'Groei 2028 (IMF)' if nl else 'Growth 2028 (IMF)' }}</div><div class="big">{{ 'ca. 30%' if nl else 'about 30%' }}</div><div class="sub">{{ 'door offshore olie; rond 4% tot die tijd' if nl else 'from offshore oil; around 4% until then' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Staatsolie aan de staat, 2025' if nl else 'Staatsolie to the state, 2025' }}</div><div class="big">{{ 'USD 400 mln' if nl else 'USD 400 m' }}</div><div class="sub">{{ 'circa 30% van de overheidsinkomsten' if nl else 'about 30% of government revenue' }}</div></div>
+ <div class="card"><div class="eyebrow">{{ 'Royalty Blok 58' if nl else 'Block 58 royalty' }}</div><div class="big">100%</div><div class="sub">{{ 'naar de staat sinds het afkopen van het VRI (2025)' if nl else 'to the state since the VRI buyout (2025)' }}</div></div>
+</div>
+<div class="tldr"><div class="eyebrow">{{ 'In het kort' if nl else 'In short' }}</div><ul>
+{% if nl %}
+ <li><b>Suriname is al een olieland.</b> Staatsolie produceerde in 2025 6,35 miljoen vaten op land en droeg USD 400 miljoen bij aan de staat. Offshore komt daar vanaf 2028 GranMorgu bij.</li>
+ <li><b>Het geld komt in lagen.</b> Eerst de royalty, dan het aandeel van Staatsolie (20% van GranMorgu, met een schuld van ruim USD 2 miljard om af te lossen), pas later winstolie en inkomstenbelasting van de oliebedrijven.</li>
+ <li><b>Het Spaar- en Stabilisatiefonds (SSFS)</b> moet het geld opvangen. De wet wordt opnieuw gewijzigd en het fonds moet werken vóór de eerste storting. President Simons wil drie potten: sparen en stabiliseren, investeren in ontwikkeling, en een klein deel voor wonen en zorg.</li>
+ <li><b>"Royalties Voor Iedereen" (RVI)</b> staat sinds september 2025 stil in afwachting van een evaluatie; een definitief besluit is niet gepubliceerd.</li>
+ <li><b>Risico's voor bedrijven:</b> concurrentie om vakmensen, hogere huren, druk op prijzen en de wisselkoers, en een overheid die meer uitgeeft. Dit heet ook wel de "Dutch disease".</li>
+ <li><b>Kansen:</b> toelevering, bouw, wonen, horeca, opleiding, financiële en zakelijke diensten. Bedrijven die nu investeren in mensen, certificering en een gezonde administratie staan er in 2028 het best voor.</li>
+{% else %}
+ <li><b>Suriname is already an oil country.</b> Staatsolie produced 6.35 million barrels onshore in 2025 and contributed USD 400 million to the state. GranMorgu adds offshore production from 2028.</li>
+ <li><b>The money comes in layers.</b> First the royalty, then Staatsolie's share (20% of GranMorgu, with more than USD 2 billion of debt to repay), and only later profit oil and income tax from the oil companies.</li>
+ <li><b>The Savings and Stabilisation Fund (SSFS)</b> is to receive the money. The law is being amended again and the fund must work before the first deposit. President Simons wants three pots: saving and stabilisation, development investment, and a small share for housing and healthcare.</li>
+ <li><b>"Royalties for Everyone" (RVI)</b> has been on hold since September 2025 pending an evaluation; no final decision has been published.</li>
+ <li><b>Risks for businesses:</b> competition for skilled staff, higher rents, pressure on prices and the exchange rate, and a government that spends more. This is often called "Dutch disease".</li>
+ <li><b>Opportunities:</b> supplying the sector, construction, housing, hospitality, training, financial and business services. Companies that invest now in people, certification and sound books will be best placed in 2028.</li>
+{% endif %}
+</ul></div>
+
+<h2>{{ 'Wanneer komt het geld binnen?' if nl else 'When does the money arrive?' }}</h2>
+{% if nl %}
+<p>Hieronder wat vaststaat over de geldstromen. Voor hoe een productiedelingscontract werkt, zie <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% else %}
+<p>Below is what is known about the money flows. For how a production sharing contract works, see <a href="{{ U('oillaw') }}">{{ L('oillaw') }}</a>.</p>
+{% endif %}
+{% set t1 = 'Geldstroom' if nl else 'Revenue stream' %}{% set t2 = 'Hoe het werkt' if nl else 'How it works' %}{% set t3 = 'Wanneer' if nl else 'When' %}
+<table class="tbl stack tx"><thead><tr><th>{{ t1 }}</th><th>{{ t2 }}</th><th>{{ t3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ t1 }}"><b>Staatsolie op land</b></td><td data-l="{{ t2 }}">Belasting, dividend en royalty's uit goudparticipaties. In 2025 samen USD 400 miljoen, circa 30% van de overheidsinkomsten.</td><td data-l="{{ t3 }}">Nu al, elk jaar</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Royalty GranMorgu</b></td><td data-l="{{ t2 }}">Een vast percentage van de bruto productie, los van kosten en winst. Sinds het VRI eind 2025 is afgekocht, gaat 100% naar de staat en het SSFS in plaats van 70%.</td><td data-l="{{ t3 }}">Vanaf de eerste olie, gepland medio 2028</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Aandeel Staatsolie (20%)</b></td><td data-l="{{ t2 }}">Staatsolie betaalt 20% van de kosten (circa USD 2,4 miljard van ongeveer USD 12 miljard volgens de raming van 2026) en krijgt 20% van de opbrengst. Het financierde dat met een obligatie van USD 516 miljoen en een lening van USD 1,6 miljard, die eerst moeten worden afgelost.</td><td data-l="{{ t3 }}">Vanaf 2028, met eerst aflossingen</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Winstolie</b></td><td data-l="{{ t2 }}">Wat na royalty en kostenterugwinning overblijft. In de standaardvoorwaarden mag tot 80% van de productie na royalty eerst naar kostenterugwinning; het deel van de staatskant groeit naarmate het veld meer winst maakt.</td><td data-l="{{ t3 }}">Groeit na de eerste productiejaren</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Inkomstenbelasting oliebedrijven</b></td><td data-l="{{ t2 }}">36% over de winst in de standaardvoorwaarden, pas als er winst is na kostenaftrek</td><td data-l="{{ t3 }}">Later, als de investering is terugverdiend</td></tr>
+{% else %}
+ <tr><td data-l="{{ t1 }}"><b>Staatsolie onshore</b></td><td data-l="{{ t2 }}">Taxes, dividends and royalties from gold participations. In 2025 together USD 400 million, about 30% of government revenue.</td><td data-l="{{ t3 }}">Already, every year</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>GranMorgu royalty</b></td><td data-l="{{ t2 }}">A fixed percentage of gross production, regardless of cost and profit. Since the VRI was bought out at the end of 2025, 100% goes to the state and the SSFS instead of 70%.</td><td data-l="{{ t3 }}">From first oil, planned for mid-2028</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Staatsolie's share (20%)</b></td><td data-l="{{ t2 }}">Staatsolie pays 20% of the cost (about USD 2.4 billion of roughly USD 12 billion on the 2026 estimate) and receives 20% of the output. It financed that with a USD 516 million bond and a USD 1.6 billion loan, which have to be repaid first.</td><td data-l="{{ t3 }}">From 2028, debt service first</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Profit oil</b></td><td data-l="{{ t2 }}">What remains after royalty and cost recovery. Under the standard terms up to 80% of production after royalty may go to cost recovery first; the state side's share grows as the field becomes more profitable.</td><td data-l="{{ t3 }}">Grows after the first production years</td></tr>
+ <tr><td data-l="{{ t1 }}"><b>Oil company income tax</b></td><td data-l="{{ t2 }}">36% on profit under the standard terms, only once there is profit after costs</td><td data-l="{{ t3 }}">Later, once the investment is recovered</td></tr>
+{% endif %}
+</tbody></table>
+{% if nl %}
+<p>De precieze voorwaarden van het contract voor Blok 58 zijn vertrouwelijk. Hoeveel de staat per jaar ontvangt, hangt daarnaast af van de olieprijs en de productie. Bedragen die je in de media ziet, zijn dus altijd schattingen. Waar GranMorgu nu staat: <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
+{% else %}
+<p>The exact terms of the Block 58 contract are confidential. How much the state receives each year also depends on the oil price and production. Amounts you see in the media are therefore always estimates. Where GranMorgu stands now: <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Wat zegt het IMF?' if nl else 'What does the IMF say?' }}</h2>
+{% if nl %}
+<p>Het IMF besprak de economie van Suriname in februari 2026 (Artikel IV-consultatie over 2025). De belangrijkste punten voor ondernemers:</p>
+<ul>
+ <li><b>Groei:</b> 1,5% in 2025 en 3,9% verwacht in 2026. De bouw van het olieveld en een redelijk stabiele goudproductie houden de groei rond 4% tot 2028. Offshore olie zou de groei in 2028 naar ongeveer 30% duwen (28,5% in het stafrapport).</li>
+ <li><b>Lopende rekening:</b> een tekort van circa 34% van het bbp in 2025 en ruim 48% verwacht in 2026, vooral door invoer voor het olieproject. Dat wordt grotendeels betaald met buitenlandse investeringen, maar het laat zien hoeveel van de bouw in het buitenland wordt ingekocht.</li>
+ <li><b>Inflatie:</b> volgens het IMF 13% eind 2025. Volgens het ABS zakte de inflatie in september 2026 naar 7,3%.</li>
+ <li><b>Overheid:</b> een tekort van 10% van het bbp in 2025; het IMF vraagt in 2026 forse bezuinigingen, minder subsidie op elektriciteit, een rem op de loonsom en een bredere belastingbasis.</li>
+ <li><b>Oliegeld:</b> sterke instellingen zijn volgens het IMF cruciaal; het vraagt volledige uitvoering van de wetten op financieel beheer en het staatsfonds, een betere antiwitwasaanpak, een werkende aanbestedingswet en beter toezicht op staatsbedrijven.</li>
+</ul>
+<p>Meer actuele cijfers over inflatie, koers en schuld: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% else %}
+<p>The IMF reviewed Suriname's economy in February 2026 (Article IV consultation for 2025). The main points for business:</p>
+<ul>
+ <li><b>Growth:</b> 1.5% in 2025 and 3.9% expected in 2026. Building the oil field and fairly stable gold output keep growth around 4% until 2028. Offshore oil would push growth to about 30% in 2028 (28.5% in the staff report).</li>
+ <li><b>Current account:</b> a deficit of about 34% of GDP in 2025 and more than 48% expected in 2026, mainly from imports for the oil project. It is largely paid for by foreign investment, but it shows how much of the construction is bought abroad.</li>
+ <li><b>Inflation:</b> 13% at the end of 2025 according to the IMF. According to ABS, inflation fell to 7.3% in September 2026.</li>
+ <li><b>Government:</b> a deficit of 10% of GDP in 2025; the IMF wants significant adjustment in 2026, lower electricity subsidies, a brake on the wage bill and a broader tax base.</li>
+ <li><b>Oil money:</b> strong institutions are crucial, the IMF says; it wants full implementation of the public financial management and sovereign fund laws, stronger anti-money laundering rules, an operational procurement law and better oversight of state companies.</li>
+</ul>
+<p>More up-to-date figures on inflation, the exchange rate and debt: <a href="{{ U('economy') }}">{{ L('economy') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Waar het geld naartoe moet: plannen van de regering' if nl else 'Where the money is meant to go: government plans' }}</h2>
+{% if nl %}
+<h3>Het Spaar- en Stabilisatiefonds (SSFS)</h3>
+<p>De wet uit 2017 (S.B. 2017 no. 59) richt een fonds in voor inkomsten uit natuurlijke hulpbronnen. Het fonds bestaat op papier, maar werkt nog niet. Op 30 september 2026 zei president Simons in haar jaarrede dat het fonds volledig operationeel moet zijn vóór de eerste olie-inkomsten. Op 4 oktober 2026 schetste ze drie functies:</p>
+<ol class="steps">
+ <li><b>Sparen en stabiliseren:</b> een deel blijft onaangeroerd voor de toekomst en om klappen in de olieprijs op te vangen.</li>
+ <li><b>Investeren in ontwikkeling:</b> een investeringsfonds waarvan de wet vastlegt waarin mag worden geïnvesteerd, zodat de regering niet zelf vrij kan kiezen. Ze noemde onderwijs, zorg, infrastructuur en sectoren als toerisme.</li>
+ <li><b>Een klein deel voor de samenleving</b> via wonen en gezondheidszorg.</li>
+</ol>
+<p>Er zijn nog geen bedragen of percentages per pot bekend. Omdat het VRI is afgekocht, moet de wet opnieuw worden gewijzigd.</p>
+<h3>Wonen en zorg</h3>
+<p>De staat bereidt grond voor en legt nutsvoorzieningen aan, zodat burgers in principe alleen het huis zelf betalen, en wil leningen tegen lage rente aanbieden. Investeerders worden aangemoedigd <b>aparte woningen voor expats</b> te bouwen, zodat nieuwkomers Surinamers niet van de woningmarkt verdringen. Voor de zorg wil de regering in 2027 een wet indienen die toegang tot zorg voor iedereen regelt; iedereen draagt bij en een deel komt uit oliegeld.</p>
+<h3>Royalties Voor Iedereen (RVI)</h3>
+<p>De vorige regering startte in mei 2025 het RVI-programma (Staatsbesluit S.B. 2025 no. 58): elke Surinamer kreeg een certificaat van USD 750, met 7% rente per jaar vanaf 2028. Tot 30 juni 2025 registreerden zich 61.920 mensen en verkochten 3.318 mensen van 80 jaar en ouder hun recht aan de Hakrinbank. Andere banken deden niet mee omdat een wettelijke basis ontbrak. In september 2025 zette het ministerie van Financiën en Planning het programma stil in afwachting van een evaluatie. Een definitief besluit van de regering hebben we niet gevonden. Heb je een certificaat, vraag dan het ministerie of je bank naar de stand van zaken. Reken er als bedrijf niet op dat RVI extra koopkracht oplevert.</p>
+<h3>Schulden</h3>
+<p>In november 2025 gaf de staat nieuwe obligaties uit van USD 1,575 miljard (looptijden 2030 en 2035) om de oude obligaties en het VRI af te lossen. Die nieuwe leningen zijn niet gekoppeld aan olie-inkomsten. De rente en aflossing moeten wel uit de begroting worden betaald, en dat legt een claim op toekomstig oliegeld.</p>
+{% else %}
+<h3>The Savings and Stabilisation Fund (SSFS)</h3>
+<p>The 2017 law (S.B. 2017 no. 59) sets up a fund for natural resource revenue. The fund exists on paper but is not working yet. On 30 September 2026 President Simons said in her annual address that the fund must be fully operational before the first oil revenue. On 4 October 2026 she outlined three functions:</p>
+<ol class="steps">
+ <li><b>Saving and stabilisation:</b> part stays untouched for the future and to absorb oil price shocks.</li>
+ <li><b>Development investment:</b> an investment fund whose permitted investments are set in law, so the government cannot choose freely. She mentioned education, healthcare, infrastructure and sectors such as tourism.</li>
+ <li><b>A small share for society</b> through housing and healthcare.</li>
+</ol>
+<p>No amounts or percentages per pot have been announced. Because the VRI was bought out, the law has to be amended again.</p>
+<h3>Housing and healthcare</h3>
+<p>The state is preparing land and installing utilities, so citizens in principle only pay for the house itself, and wants to offer low-interest loans. Investors are encouraged to build <b>separate homes for expats</b>, so that newcomers do not push Surinamese out of the housing market. For healthcare the government plans to submit a law in 2027 guaranteeing access for everyone; everyone contributes and part comes from oil revenue.</p>
+<h3>Royalties for Everyone (RVI)</h3>
+<p>The previous government launched the RVI programme in May 2025 (State Decree S.B. 2025 no. 58): every Surinamese received a certificate worth USD 750, with 7% annual interest from 2028. By 30 June 2025, 61,920 people had registered and 3,318 people aged 80 and over had sold their right to Hakrinbank. Other banks did not take part because there was no statutory basis. In September 2025 the Ministry of Finance and Planning put the programme on hold pending an evaluation. We found no final government decision. If you hold a certificate, ask the ministry or your bank about its status. As a business, do not count on RVI adding purchasing power.</p>
+<h3>Debt</h3>
+<p>In November 2025 the state issued new bonds worth USD 1.575 billion (maturing 2030 and 2035) to repay the old bonds and the VRI. The new loans are not tied to oil revenue. Interest and repayment do have to come out of the budget, which puts a claim on future oil money.</p>
+{% endif %}
+
+<h2>{{ 'Wat het voor je bedrijf kan betekenen' if nl else 'What it can mean for your business' }}</h2>
+{% if nl %}
+<p><b>Onze inschatting, geen voorspelling.</b> Hieronder de effecten die je in olielanden vaak ziet, toegepast op Suriname. Hoe sterk ze worden, hangt af van het beleid van de regering en de Centrale Bank.</p>
+<ul>
+ <li><b>"Dutch disease".</b> Als er veel dollars binnenkomen, kan de Surinaamse dollar sterker worden of kunnen prijzen en lonen sneller stijgen dan elders. Dan wordt invoer relatief goedkoper en hebben exporteurs, landbouw en toerisme het moeilijker om te concurreren. De naam komt van Nederland, waar de aardgasbaten in de jaren zestig en zeventig de industrie onder druk zetten.</li>
+ <li><b>Lonen en personeel.</b> Oliebedrijven en hun aannemers zoeken technici, monteurs, lassers, elektriciens, chauffeurs, HSE-functionarissen, boekhouders en IT'ers. Halliburton werkt volgens de minister met bijna 70% Surinaams personeel. Verwacht dat je beste mensen worden benaderd, en dat lonen in die beroepen sneller stijgen dan het gemiddelde.</li>
+ <li><b>Huren en vastgoed.</b> Buitenlandse specialisten en hun bedrijven zoeken woningen en kantoren in Paramaribo. Huren in de betere wijken en bij de haven kunnen stijgen. De regering stuurt daarom op aparte expatwoningen.</li>
+ <li><b>Prijzen en wisselkoers.</b> Meer geld in omloop kan de inflatie aanjagen. De IMF-cijfers laten zien hoe gevoelig Suriname daarvoor is: de inflatie schoot in 2025 terug naar dubbele cijfers. Prijs je in SRD, houd dan je marges scherp in de gaten. Volg de koers op <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>De overheid als klant.</b> Meer overheidsinvesteringen betekenen meer aanbestedingen in bouw, infrastructuur, onderwijs en zorg, maar ook het risico dat betalingen vertragen als de begroting krap is.</li>
+ <li><b>Brandstof.</b> Sinds maart 2026 houdt de regering de pompprijzen onder de marktprijs; dat kost de staat geld en de president noemt het niet houdbaar. Als het plafond verdwijnt, stijgen je transportkosten. Actuele prijzen: <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</li>
+</ul>
+{% else %}
+<p><b>Our assessment, not a forecast.</b> Below are the effects commonly seen in oil countries, applied to Suriname. How strong they become depends on the policies of the government and the Central Bank.</p>
+<ul>
+ <li><b>"Dutch disease".</b> When many dollars flow in, the Surinamese dollar can strengthen, or prices and wages can rise faster than elsewhere. Imports then become relatively cheaper, and exporters, agriculture and tourism find it harder to compete. The name comes from the Netherlands, where natural gas income put pressure on industry in the 1960s and 1970s.</li>
+ <li><b>Wages and staff.</b> Oil companies and their contractors look for technicians, mechanics, welders, electricians, drivers, HSE officers, bookkeepers and IT staff. According to the minister, Halliburton works with almost 70% Surinamese staff. Expect your best people to be approached, and wages in those trades to rise faster than average.</li>
+ <li><b>Rents and property.</b> Foreign specialists and their companies look for homes and offices in Paramaribo. Rents in the better neighbourhoods and near the port may rise. The government is therefore steering towards separate expat housing.</li>
+ <li><b>Prices and the exchange rate.</b> More money in circulation can fuel inflation. The IMF figures show how sensitive Suriname is: inflation returned to double digits in 2025. If you price in SRD, watch your margins closely. Follow the rate on <a href="{{ U('rates') }}">{{ L('rates') }}</a>.</li>
+ <li><b>The government as a customer.</b> More public investment means more tenders in construction, infrastructure, education and healthcare, but also the risk of late payment when the budget is tight.</li>
+ <li><b>Fuel.</b> Since March 2026 the government has kept pump prices below market; that costs the state money and the President calls it unsustainable. If the cap goes, your transport costs rise. Current prices: <a href="{{ U('fuel') }}">{{ L('fuel') }}</a>.</li>
+</ul>
+{% endif %}
+
+<h2>{{ 'Lessen uit Guyana' if nl else 'Lessons from Guyana' }}</h2>
+{% if nl %}
+<p>Guyana, aan de andere kant van dezelfde geologische formatie, produceert sinds december 2019 olie. Een paar feiten die voor Surinaamse ondernemers relevant zijn:</p>
+<ul>
+ <li><b>Enorme groei, ook buiten olie.</b> Volgens het IMF groeide Guyana sinds 2022 gemiddeld 47% per jaar; de economie buiten olie groeide in 2024 met ruim 13%. De bouw en de dienstensector profiteerden mee.</li>
+ <li><b>Een spaarfonds dat werkt.</b> Het Natural Resource Fund van Guyana stond eind 2024 op USD 3,1 miljard, ruim 12,5% van het bbp.</li>
+ <li><b>Local content met kinderziektes.</b> De Local Content Act van december 2021 eist dat een joint venture minimaal 51% Guyanees bezit heeft. Daarna kwamen klachten over "fronting": bedrijven die alleen op papier Guyanees zijn, met kapitaal als lening en materieel als lease, zodat de winst naar de buitenlandse partner gaat. In 2026 zegt de regering die constructies te hebben aangepakt en wil ze dat Guyanese olie-arbeiders hetzelfde verdienen als expats in dezelfde functie.</li>
+ <li><b>Financiering blijft lastig.</b> Kleine bedrijven zonder trackrecord klagen dat banken voorzichtig zijn en maar een deel van een factuur willen voorfinancieren.</li>
+ <li><b>Resultaat:</b> volgens de Guyanese regering werken circa 7.000 Guyanezen direct in olie en gas en doen meer dan 1.200 lokale bedrijven mee in de sector.</li>
+</ul>
+<p>De les: de grootste kansen gingen naar bedrijven die al gecertificeerd, verzekerd en gefinancierd waren toen de opdrachten kwamen. En wetgeving die snel wordt ingevoerd zonder uitvoeringsregels, leidt tot rechtszaken en schijnconstructies.</p>
+{% else %}
+<p>Guyana, on the other side of the same geological basin, has produced oil since December 2019. A few facts relevant to Surinamese businesses:</p>
+<ul>
+ <li><b>Huge growth, also outside oil.</b> According to the IMF, Guyana has grown by an average of 47% a year since 2022; the non-oil economy grew by more than 13% in 2024. Construction and services shared in the boom.</li>
+ <li><b>A savings fund that works.</b> Guyana's Natural Resource Fund stood at USD 3.1 billion at the end of 2024, more than 12.5% of GDP.</li>
+ <li><b>Local content with teething problems.</b> The December 2021 Local Content Act requires a joint venture to be at least 51% Guyanese owned. Complaints about "fronting" followed: companies that are Guyanese only on paper, with capital provided as loans and equipment as leases, so that profits go to the foreign partner. In 2026 the government says it has closed those loopholes and wants Guyanese oil workers to earn the same as expatriates in the same job.</li>
+ <li><b>Financing remains hard.</b> Small companies without a track record complain that banks are cautious and will only pre-finance part of an invoice.</li>
+ <li><b>Result:</b> according to the Guyanese government, about 7,000 Guyanese work directly in oil and gas and more than 1,200 local businesses take part in the sector.</li>
+</ul>
+<p>The lesson: the biggest opportunities went to companies that were already certified, insured and financed when the contracts came. And legislation introduced quickly without implementing rules leads to court cases and sham arrangements.</p>
+{% endif %}
+
+<h2>{{ 'Banken en financiering' if nl else 'Banks and financing' }}</h2>
+{% if nl %}
+<p>Op de eerste Suriname Banking &amp; Finance Summit (oktober 2026) zei de voorzitter van de Surinaamse Bankiersvereniging dat Suriname zijn financiële instellingen en het toezicht tijdig moet versterken om van het oliegeld te profiteren, met aandacht voor witwassen, cyberveiligheid en naleving. President Simons vroeg de banken meer te financieren in de productieve sector, een binnenlandse kapitaalmarkt op te bouwen en met het ministerie, de Centrale Bank en ontwikkelingsbanken een financieringsagenda met meetbare doelen op te stellen. In 2027 volgt een internationale beoordeling van de antiwitwasregels.</p>
+<p>Voor jou betekent dat: banken zullen strenger kijken naar wie je klanten zijn en waar geld vandaan komt, maar er komen ook meer mogelijkheden voor contractfinanciering als je een opdracht van een operator kunt laten zien. Zorg dat je administratie en je klantonderzoek op orde zijn. Zie <a href="{{ U('finance') }}">{{ L('finance') }}</a> en <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</p>
+{% else %}
+<p>At the first Suriname Banking &amp; Finance Summit (October 2026) the chair of the Surinamese Bankers Association said Suriname must strengthen its financial institutions and supervision in time to benefit from oil money, with attention to money laundering, cybersecurity and compliance. President Simons asked banks to finance more of the productive sector, build a domestic capital market and draw up a financing agenda with measurable targets together with the ministry, the Central Bank and development banks. An international assessment of the anti-money laundering rules follows in 2027.</p>
+<p>For you this means: banks will look harder at who your customers are and where money comes from, but there will also be more room for contract finance if you can show a contract from an operator. Make sure your books and your customer checks are in order. See <a href="{{ U('finance') }}">{{ L('finance') }}</a> and <a href="{{ U('aml') }}">{{ L('aml') }}</a>.</p>
+{% endif %}
+
+<h2>{{ 'Welke sectoren winnen, welke moeten opletten' if nl else 'Which sectors gain, which should watch out' }}</h2>
+<p class="meta">{{ 'Onze inschatting op basis van de feiten hierboven en de ervaring in Guyana.' if nl else 'Our assessment based on the facts above and the experience in Guyana.' }}</p>
+{% set s1 = 'Sector' %}{% set s2 = 'Waarom' if nl else 'Why' %}{% set s3 = 'Let op' if nl else 'Watch out for' %}
+<table class="tbl stack tx"><thead><tr><th>{{ s1 }}</th><th>{{ s2 }}</th><th>{{ s3 }}</th></tr></thead><tbody>
+{% if nl %}
+ <tr><td data-l="{{ s1 }}"><b>Logistiek, haven, douane-expeditie</b></td><td data-l="{{ s2 }}">Alles voor offshore gaat via de haven en loodsen in Paramaribo</td><td data-l="{{ s3 }}">Strenge veiligheidseisen, investeringen in materieel</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Bouw en onderhoud</b></td><td data-l="{{ s2 }}">Kantoren, woningen, loodsen en straks overheidsinvesteringen</td><td data-l="{{ s3 }}">Duurdere materialen en vakmensen, late betaling</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Wonen en verhuur</b></td><td data-l="{{ s2 }}">Vraag van expats en bedrijven</td><td data-l="{{ s3 }}">Beleid voor aparte expatwoningen; risico op leegstand na de bouwfase</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Horeca, catering, schoonmaak, beveiliging</b></td><td data-l="{{ s2 }}">Dagelijkse diensten voor bases, kantoren en crews</td><td data-l="{{ s3 }}">ISO- en HSE-eisen; geen fiscale vrijstellingen voor deze diensten</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Opleiding en uitzendwerk</b></td><td data-l="{{ s2 }}">Tekort aan gecertificeerd personeel</td><td data-l="{{ s3 }}">Internationale certificering kost tijd en geld</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Financiële en zakelijke diensten</b></td><td data-l="{{ s2 }}">Boekhouding, belasting, juridisch, HR, IT, vertaling</td><td data-l="{{ s3 }}">Kennis van internationale standaarden en integriteitsregels</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Export, landbouw en toerisme</b></td><td data-l="{{ s2 }}">Kunnen profiteren van betere infrastructuur en het ontwikkelingsfonds</td><td data-l="{{ s3 }}">Stijgende lonen en een mogelijk sterkere SRD maken je duurder in het buitenland</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Kleine bedrijven met veel vakmensen</b></td><td data-l="{{ s2 }}">Meer werk in de hele economie</td><td data-l="{{ s3 }}">Personeel wordt weggekocht; investeer in binding</td></tr>
+{% else %}
+ <tr><td data-l="{{ s1 }}"><b>Logistics, port, customs brokerage</b></td><td data-l="{{ s2 }}">Everything for offshore goes through the port and warehouses in Paramaribo</td><td data-l="{{ s3 }}">Strict safety demands, investment in equipment</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Construction and maintenance</b></td><td data-l="{{ s2 }}">Offices, homes, warehouses and later public investment</td><td data-l="{{ s3 }}">Dearer materials and tradespeople, late payment</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Housing and rentals</b></td><td data-l="{{ s2 }}">Demand from expatriates and companies</td><td data-l="{{ s3 }}">Policy for separate expat housing; risk of empty units after the construction phase</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Hospitality, catering, cleaning, security</b></td><td data-l="{{ s2 }}">Daily services for bases, offices and crews</td><td data-l="{{ s3 }}">ISO and HSE demands; no tax exemptions for these services</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Training and staffing</b></td><td data-l="{{ s2 }}">Shortage of certified staff</td><td data-l="{{ s3 }}">International certification takes time and money</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Financial and business services</b></td><td data-l="{{ s2 }}">Accounting, tax, legal, HR, IT, translation</td><td data-l="{{ s3 }}">Knowledge of international standards and integrity rules</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Export, agriculture and tourism</b></td><td data-l="{{ s2 }}">Can benefit from better infrastructure and the development fund</td><td data-l="{{ s3 }}">Rising wages and a possibly stronger SRD make you dearer abroad</td></tr>
+ <tr><td data-l="{{ s1 }}"><b>Small firms with many skilled staff</b></td><td data-l="{{ s2 }}">More work across the economy</td><td data-l="{{ s3 }}">Staff get poached; invest in retention</td></tr>
+{% endif %}
+</tbody></table>
+<p>{{ 'Kansen per sector: ' if nl else 'Opportunities by sector: ' }}<a href="{{ U('sectors') }}">{{ L('sectors') }}</a>.</p>
+
+<h2>{{ 'Wat je nu al kunt doen' if nl else 'What you can do now' }}</h2>
+<ol class="steps">
+{% if nl %}
+ <li><b>Bepaal je rol.</b> Lever je direct aan de olie (registratie in het leveranciersportaal, zie <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>), aan de mensen die erin werken (wonen, eten, vervoer), of ben je vooral afhankelijk van de rest van de economie?</li>
+ <li><b>Prijs slim.</b> Leg in contracten van meer dan een paar maanden vast in welke munt je prijst of hoe je prijzen aanpast aan koers en inflatie. Grote klanten betalen vaak in USD.</li>
+ <li><b>Bind je mensen.</b> Maak een plan voor loon, opleiding en doorgroei voor je sleutelfiguren voordat ze worden benaderd. Wil je een opleiding laten terugbetalen als iemand snel vertrekt, leg dat dan vooraf schriftelijk vast en laat de afspraak toetsen aan het arbeidsrecht.</li>
+ <li><b>Bouw capaciteit op.</b> Zorg voor de certificaten die in jouw markt gevraagd worden (ISO 9001, 45001, 14001, vakcertificaten) en een HSE-beleid op papier.</li>
+ <li><b>Regel financiering op tijd.</b> Praat nu met je bank over een kredietlijn of contractfinanciering, met een actuele jaarrekening en belastingverklaring.</li>
+ <li><b>Houd je administratie schoon.</b> Belastingen en premies betaald, klantonderzoek bij grote contante betalingen, en een duidelijke eigendomsstructuur. Dat vragen operators, banken en straks de Local Content-wet.</li>
+ <li><b>Kijk naar huisvesting.</b> Heb je kantoor of personeel in Paramaribo, leg huurcontracten tijdig vast; heb je vastgoed, onderzoek de vraag van bedrijven en expats.</li>
+ <li><b>Volg het beleid.</b> SSFS-wet, Local Content-wet, zorgwet, brandstofplafond en de wisselkoers bepalen je kosten en kansen de komende jaren.</li>
+{% else %}
+ <li><b>Decide your role.</b> Do you supply oil and gas directly (registration in the supplier portal, see <a href="{{ U('supplier') }}">{{ L('supplier') }}</a>), the people who work in it (housing, food, transport), or do you mainly depend on the rest of the economy?</li>
+ <li><b>Price smartly.</b> In contracts longer than a few months, fix the currency you price in or how prices adjust to the exchange rate and inflation. Large clients often pay in USD.</li>
+ <li><b>Keep your people.</b> Make a plan for pay, training and progression for your key staff before they are approached. If you want training costs repaid when someone leaves early, agree it in writing beforehand and have the clause checked against labour law.</li>
+ <li><b>Build capacity.</b> Get the certificates your market asks for (ISO 9001, 45001, 14001, trade certificates) and an HSE policy on paper.</li>
+ <li><b>Arrange finance in time.</b> Talk to your bank now about a credit line or contract finance, with up-to-date accounts and a tax clearance.</li>
+ <li><b>Keep your books clean.</b> Taxes and contributions paid, customer checks on large cash payments, and a clear ownership structure. Operators, banks and soon the Local Content Act will ask for it.</li>
+ <li><b>Look at premises.</b> If you have offices or staff in Paramaribo, secure leases in time; if you own property, look into demand from companies and expatriates.</li>
+ <li><b>Follow policy.</b> The SSFS law, the Local Content Act, the healthcare law, the fuel price cap and the exchange rate will shape your costs and opportunities in the coming years.</li>
+{% endif %}
+</ol>
+<p>{{ 'Werk zoeken of personeel vinden in de sector: ' if nl else 'Finding work or staff in the sector: ' }}<a href="{{ U('oiljobs') }}">{{ L('oiljobs') }}</a> &middot; <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a></p>
+
+<h2>{{ 'Bronnen' if nl else 'Sources' }}</h2>
+<ul>
+ <li><a href="https://www.imf.org/en/news/articles/2026/02/11/pr-26043-suriname-imf-executive-board-concludes-2025-article-iv-consult" rel="noopener">{{ 'IMF: Executive Board concludes 2025 Article IV Consultation with Suriname (11 februari 2026)' if nl else 'IMF: Executive Board concludes 2025 Article IV Consultation with Suriname (11 February 2026)' }}</a></li>
+ <li><a href="https://www.elibrary.imf.org/view/journals/002/2026/037/article-A001-en.xml" rel="noopener">IMF Country Report No. 26/37 (2026)</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-2025-financial-statements-approved-strong-results-and-us-400-million-contribution-to-the-state-treasury/" rel="noopener">{{ 'Staatsolie: jaarcijfers 2025 en USD 400 miljoen aan de staat (mei 2026)' if nl else 'Staatsolie: 2025 results and USD 400 million to the state (May 2026)' }}</a></li>
+ <li><a href="https://www.staatsolie.com/en/news/staatsolie-issues-new-bond/" rel="noopener">{{ 'Staatsolie: obligatie 2025-2033, kosten GranMorgu en aandeel Staatsolie' if nl else 'Staatsolie: 2025-2033 bond, GranMorgu cost and Staatsolie share' }}</a></li>
+ <li><a href="https://www.staatsolie.com/media/hkzcn0fo/instruction-to-bidders-demerara-bid-round-2022-2023.pdf" rel="noopener">{{ 'Staatsolie: standaardvoorwaarden PSC, Demerara-biedronde 2022-2023' if nl else 'Staatsolie: standard PSC terms, Demerara Bid Round 2022-2023' }}</a></li>
+ <li><a href="https://gov.sr/regering-streeft-naar-spoedige-operationalisering-spaar-en-stabilisatie-fonds/" rel="noopener">{{ 'gov.sr: jaarrede, SSFS operationeel vóór eerste olie-inkomsten (30 september 2026)' if nl else 'gov.sr: annual address, SSFS operational before first oil revenue (30 September 2026)' }}</a></li>
+ <li><a href="https://gov.sr/president-simons-deelt-inzichten-over-verdeling-middelen-spaar-en-stabilisatie-fonds/" rel="noopener">{{ 'gov.sr: president Simons over de verdeling van het SSFS (4 oktober 2026)' if nl else 'gov.sr: President Simons on the SSFS split (4 October 2026)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2026/10/05/simons-wil-olie-inkomsten-inzetten-voor-wonen-en-zorg-expats-mogen-burgers-niet-verdringen/" rel="noopener">{{ 'Waterkant: oliegeld voor wonen en zorg, expatwoningen (5 oktober 2026)' if nl else 'Waterkant: oil money for housing and healthcare, expat housing (5 October 2026)' }}</a></li>
+ <li><a href="https://gov.sr/verantwoorde-herfinanciering-en-nieuw-vertrouwen-in-het-economisch-beleid/" rel="noopener">{{ 'gov.sr: herfinanciering en afkoop VRI (november 2025)' if nl else 'gov.sr: refinancing and VRI buyout (November 2025)' }}</a></li>
+ <li><a href="https://www.dbsuriname.com/2025/12/19/vri-van-bondholders-afgekocht/" rel="noopener">{{ 'Dagblad Suriname: VRI van bondholders afgekocht (19 december 2025)' if nl else 'Dagblad Suriname: VRI bought back from bondholders (19 December 2025)' }}</a></li>
+ <li><a href="https://www.sris.sr/wp-content/uploads/2025/05/S.B.-2025-no.-58-STAATSBESLUIT-van-2-mei-2025-houdende-regels-betreffende-het-programma-Royalties-Voor-Iedereen-Besluit-Royalties-Voor-Iedereen.pdf" rel="noopener">{{ 'S.B. 2025 no. 58: Besluit Royalties Voor Iedereen' if nl else 'S.B. 2025 no. 58: Royalties for Everyone Decree' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/87368" rel="noopener">{{ 'Starnieuws: stand RVI, registraties en Hakrinbank (15 juli 2025)' if nl else 'Starnieuws: RVI status, registrations and Hakrinbank (15 July 2025)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2025/09/09/hakrinkbank-stopt-met-registratie-en-uitbetaling-rvi-programma/" rel="noopener">{{ 'Waterkant: RVI-programma stilgezet (9 september 2025)' if nl else 'Waterkant: RVI programme put on hold (9 September 2025)' }}</a></li>
+ <li><a href="https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/87391" rel="noopener">{{ 'Starnieuws: regering gaat RVI evalueren (17 juli 2025)' if nl else 'Starnieuws: government to evaluate RVI (17 July 2025)' }}</a></li>
+ <li><a href="https://www.gfcnieuws.com/gran-morgu-voor-43-procent-uitgevoerd-eerste-productieboringen-gepland-voor-december/" rel="noopener">{{ 'GFC Nieuws: GranMorgu 43% klaar, Halliburton bijna 70% Surinaams personeel (23 oktober 2026)' if nl else 'GFC Nieuws: GranMorgu 43% done, Halliburton almost 70% Surinamese staff (23 October 2026)' }}</a></li>
+ <li><a href="https://www.waterkant.net/suriname/2026/10/14/zonder-price-cap-zou-diesel-ruim-srd-74-en-unleaded-ruim-srd-64-per-liter-kosten/" rel="noopener">{{ 'Waterkant: brandstofplafond sinds 17 maart (14 oktober 2026)' if nl else 'Waterkant: fuel price cap since 17 March (14 October 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/24/bankiersvereniging-suriname-moet-financiele-sector-versterken-voor-komst-olie-inkomsten/" rel="noopener">{{ 'Suriname Herald: Bankiersvereniging over oliegeld (24 oktober 2026)' if nl else 'Suriname Herald: Bankers Association on oil money (24 October 2026)' }}</a></li>
+ <li><a href="https://www.srherald.com/suriname/2026/10/17/simons-wil-banken-meer-laten-investeren-in-surinaamse-economie/" rel="noopener">{{ 'Suriname Herald: Simons wil banken meer laten investeren (17 oktober 2026)' if nl else 'Suriname Herald: Simons wants banks to invest more (17 October 2026)' }}</a></li>
+ <li><a href="https://www.imf.org/en/news/articles/2025/05/07/pr-25132-guyana-imf-executive-board-concludes-2025-article-iv-consultation" rel="noopener">{{ 'IMF: Guyana 2025 Article IV (7 mei 2025)' if nl else 'IMF: Guyana 2025 Article IV (7 May 2025)' }}</a></li>
+ <li><a href="https://www.cijn.org/back-to-front/" rel="noopener">{{ 'CIJN: Guyana, joint ventures, financiering en de Local Content Act (2023)' if nl else 'CIJN: Guyana, joint ventures, financing and the Local Content Act (2023)' }}</a></li>
+ <li><a href="https://www.riotimesonline.com/guyana-local-content-oil-worker-pay-parity-rent-a-citizen-crackdown-2026/" rel="noopener">{{ 'The Rio Times: Guyana, loongelijkheid en fronting (19 juni 2026)' if nl else 'The Rio Times: Guyana, pay parity and fronting (19 June 2026)' }}</a></li>
+</ul>
+<p class="asof">{{ 'Gecontroleerd op' if nl else 'Checked on' }} {{ date('2026-10-26') }}. {{ 'Algemene informatie, geen financieel of juridisch advies. De effecten onder "onze inschatting" zijn scenario\'s, geen voorspellingen.' if nl else 'General information, not financial or legal advice. The effects marked "our assessment" are scenarios, not forecasts.' }}</p>
+</div>
+{% endblock %}

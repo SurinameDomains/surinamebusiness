@@ -3,7 +3,7 @@
 {% block content %}
 <h1>{{ 'Vacatures in Suriname' if nl else 'Jobs in Suriname' }}</h1>
 <p class="lead">{{ 'Vacatures van werkgevers die hier plaatsen, de overheid, Newmont, TotalEnergies, de VN, de ambassades, de IDB en de Wereldbank. Elke 30 minuten bijgewerkt.' if nl else 'Jobs from employers who post here, the government, Newmont, TotalEnergies, the UN, the embassies, the IDB and the World Bank. Updated every 30 minutes.' }}</p>
-<p><a class="btn inline" href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job for free' }}</a></p>
+<p><a class="btn inline" href="{{ U('postjob') }}">{{ 'Gratis vacature plaatsen' if nl else 'Post a job for free' }}</a> <span class="sub" style="margin-left:8px">{{ 'Werken in olie en gas?' if nl else 'Looking for oil and gas work?' }} <a href="{{ U('oiljobs') }}">{{ 'Functies, certificaten en waar de vacatures staan' if nl else 'Roles, certificates and where the vacancies are' }}</a></span></p>
 <div class="filters" data-filter-list="j-list" data-count="j-count">
  <input type="search" placeholder="{{ 'Zoek functie of werkgever' if nl else 'Search job title or employer' }}" aria-label="{{ 'Zoeken' if nl else 'Search' }}">
  <button class="chip" data-v="all" aria-pressed="true">{{ 'Alles' if nl else 'All' }} (<span id="j-count">{{ jobs['items']|length }}</span>)</button>

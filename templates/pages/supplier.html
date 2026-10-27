@@ -41,7 +41,7 @@
  <tr><td data-l="Koper"><b>Chevron</b></td><td data-l="Project of blok">Blokken 5, 7 en 42; operator van blok 10</td><td data-l="Stand van zaken">Exploratie</td></tr>
  <tr><td data-l="Koper"><b>Shell</b> en <b>QatarEnergy</b></td><td data-l="Project of blok">Shell operator van blok 65; QatarEnergy partner in onder meer blokken 5, 6, 8, 64 en 65</td><td data-l="Stand van zaken">Exploratie; de put Araku Deep-1 in blok 65 vond geen commerciële hoeveelheden</td></tr>
 </tbody></table>
-<p>Staatsolie biedt sinds november 2025 via een Open Door Offering ook nog vrij offshoregebied aan, dus er kunnen meer operators bijkomen. Achtergrond: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<p>Staatsolie biedt sinds november 2025 via een Open Door Offering ook nog vrij offshoregebied aan, dus er kunnen meer operators bijkomen. Achtergrond: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>, <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a> en <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
 {% else %}
 <p>Your customer is not always the oil company itself. Much of the work runs through main contractors (tier 1), who in turn look for local subcontractors.</p>
 <table class="tbl stack tx"><thead><tr><th>Buyer</th><th>Project or block</th><th>Status</th></tr></thead><tbody>
@@ -52,7 +52,7 @@
  <tr><td data-l="Buyer"><b>Chevron</b></td><td data-l="Project or block">Blocks 5, 7 and 42; operator of block 10</td><td data-l="Status">Exploration</td></tr>
  <tr><td data-l="Buyer"><b>Shell</b> and <b>QatarEnergy</b></td><td data-l="Project or block">Shell operates block 65; QatarEnergy partner in blocks 5, 6, 8, 64 and 65 among others</td><td data-l="Status">Exploration; the Araku Deep-1 well in block 65 found no commercial quantities</td></tr>
 </tbody></table>
-<p>Since November 2025 Staatsolie has also offered open offshore acreage through an Open Door Offering, so more operators may arrive. Background: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>.</p>
+<p>Since November 2025 Staatsolie has also offered open offshore acreage through an Open Door Offering, so more operators may arrive. Background: <a href="{{ U('oilgas') }}">{{ L('oilgas') }}</a>, <a href="{{ U('oilblocks') }}">{{ L('oilblocks') }}</a> and <a href="{{ U('granmorgu') }}">{{ L('granmorgu') }}</a>.</p>
 {% endif %}
 
 <h2>{{ 'GranMorgu: tijdlijn en waar de kansen zitten' if nl else 'GranMorgu: timeline and where the opportunities are' }}</h2>
@@ -108,6 +108,7 @@
 {% endif %}
 
 <h2>{{ 'Wat operators en Staatsolie van je verwachten' if nl else 'What operators and Staatsolie expect from you' }}</h2>
+<p class="callout">{{ 'Test waar je staat met de' if nl else 'See where you stand with the' }} <a href="{{ U('supplierready') }}"><b>{{ L('supplierready') }}</b></a>: {{ '34 vragen, een score per onderdeel en een actielijst.' if nl else '34 questions, a score per area and an action list.' }}</p>
 {% if nl %}
 <p>Staatsolie beoordeelt leveranciers op duurzaamheid, compliance, kwaliteit, tijdige levering en totale kosten. Het Blue Wave-programma, dat lokale leveranciers klaarstoomt voor de sector, laat goed zien waar operators op letten. Gebruik het als checklist:</p>
 <ul class="check">
@@ -212,6 +213,7 @@
  <li>Submit <b>well before the deadline</b>. Closing times are exact, in Suriname time, and the window is often only two weeks.</li>
 </ul>
 {% endif %}
+<p class="callout">{{ 'Maak je brief met de' if nl else 'Draft your letter with the' }} <a href="{{ U('eoiletter') }}"><b>{{ L('eoiletter') }}</b></a>: {{ 'jobnummer, scope, referenties, HSE en bijlagen in één PDF.' if nl else 'job number, scope, references, HSE and attachments in one PDF.' }}</p>
 
 <h2>{{ 'Samenwerken met een internationale aannemer' if nl else 'Partnering with an international contractor' }}</h2>
 {% if nl %}
