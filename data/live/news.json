@@ -421,7 +421,7 @@
    "url": "https://www.srherald.com/suriname/2026/10/21/uitbreiding-goudproject-moet-3600-banen-opleveren-maar-bedrijven-vrezen-tekort-aan-personeel/"
   }
  ],
- "fetched_at": "2026-10-28T17:24:34+00:00",
+ "fetched_at": "2026-10-28T21:54:15+00:00",
  "oil": [
   {
    "econ": false,
@@ -581,32 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-28T17:24:32+00:00",
+   "fetched_at": "2026-10-28T21:54:11+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-10-28T17:24:30+00:00",
+   "fetched_at": "2026-10-28T21:54:07+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-28T17:24:32+00:00",
+   "fetched_at": "2026-10-28T21:54:10+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T17:24:33+00:00",
+   "fetched_at": "2026-10-28T21:54:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-28T17:24:31+00:00",
+   "fetched_at": "2026-10-28T21:54:09+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T17:24:34+00:00",
+   "fetched_at": "2026-10-28T21:54:15+00:00",
    "ok": true
   }
  }
