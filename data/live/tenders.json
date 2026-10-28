@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-27T23:43:52+00:00",
+ "fetched_at": "2026-10-28T05:31:34+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -446,37 +446,27 @@
    "source": "gov.sr",
    "title": "Het leveren van kantoormeubilair ten behoeve van de Hoofd-en Districtskantoren van het Directoraat Openbaar Groen en Afvalbeheer",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-kantoormeubilair-ten-behoeve-van-de-hoofd-en-districtskantoren-van-het-directoraat-openbaar-groen-en-afvalbeheer/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-160797",
-   "lang": "nl",
-   "published": "2026-08-13",
-   "source": "gov.sr",
-   "title": "Het ophalen van huishoudelijk afval per wijk in het district Saramacca ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
-   "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-saramacca-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening-2/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-27T23:43:52+00:00",
+   "fetched_at": "2026-10-28T05:31:34+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-10-27T23:43:51+00:00",
+   "fetched_at": "2026-10-28T05:31:33+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-27T23:43:52+00:00",
+   "fetched_at": "2026-10-28T05:31:33+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-27T23:43:51+00:00",
+   "fetched_at": "2026-10-28T05:31:33+00:00",
    "ok": true
   }
  }

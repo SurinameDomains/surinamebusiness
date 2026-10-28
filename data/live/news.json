@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-28T01:53:00+00:00",
+   "source": "Starnieuws",
+   "title": "Voedselveiligheid vraagt om handelen en een juiste lezing van de wet",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94570"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-27T23:51:00+00:00",
+   "source": "Starnieuws",
+   "title": "CBvS: financiële sector weerbaar, maar inflatie en wisselkoers blijven risico's",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94565"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-27T19:09:00+00:00",
+   "source": "Starnieuws",
+   "title": "Kortgeding verwijderen mennonieten draait ook om rechten landbouwproject (update)",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94578"
+  },
+  {
+   "econ": false,
    "published": "2026-10-27T19:03:46+00:00",
    "source": "Suriname Herald",
    "title": "Duitse parlementaire delegatie onderzoekt investeringskansen in Suriname",
@@ -398,30 +419,9 @@
    "source": "Suriname Herald",
    "title": "Landveld: RvC en directie TAS moeten conform schrijven handelen",
    "url": "https://www.srherald.com/suriname/2026/10/21/landveld-rvc-en-directie-tas-moeten-conform-schrijven-handelen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T18:35:13+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Bewoners Witagron vragen steun voor landbouw met mennonieten",
-   "url": "https://www.dbsuriname.com/2026/10/21/bewoners-witagron-vragen-steun-voor-landbouw-met-mennonieten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T14:11:00+00:00",
-   "source": "Starnieuws",
-   "title": "Blokland steunt ontruiming, hoopt op aanpak illegale mijnbouw",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94454"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T04:06:00+00:00",
-   "source": "Starnieuws",
-   "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
   }
  ],
- "fetched_at": "2026-10-27T23:44:11+00:00",
+ "fetched_at": "2026-10-28T05:31:57+00:00",
  "oil": [
   {
    "econ": false,
@@ -574,32 +574,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-27T23:44:10+00:00",
+   "fetched_at": "2026-10-28T05:31:56+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-10-27T23:44:08+00:00",
+   "fetched_at": "2026-10-28T05:31:54+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-27T23:44:09+00:00",
+   "fetched_at": "2026-10-28T05:31:56+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T23:44:10+00:00",
+   "fetched_at": "2026-10-28T05:31:56+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-27T23:44:09+00:00",
+   "fetched_at": "2026-10-28T05:31:55+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-27T23:44:11+00:00",
+   "fetched_at": "2026-10-28T05:31:57+00:00",
    "ok": true
   }
  }
