@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-28T15:03:31+00:00",
+   "source": "Suriname Herald",
+   "title": "Baasaron wil illegaal ingevoerde rijst laten vernietigen vanwege mogelijk gezondheidsrisico",
+   "url": "https://www.srherald.com/suriname/2026/10/28/baasaron-wil-illegaal-ingevoerde-rijst-laten-vernietigen-vanwege-mogelijk-gezondheidsrisico/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-28T09:18:59+00:00",
    "source": "Suriname Herald",
    "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Uitbreiding goudproject moet 3600 banen opleveren, maar bedrijven vrezen tekort aan personeel",
    "url": "https://www.srherald.com/suriname/2026/10/21/uitbreiding-goudproject-moet-3600-banen-opleveren-maar-bedrijven-vrezen-tekort-aan-personeel/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T21:02:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "ECD en LVV nemen landbouwchemicaliën in beslag; vervallen partij vernietigd",
-   "url": "https://dwtonline.com/ecd-en-lvv-nemen-landbouwchemicalien-in-beslag-vervallen-partij-vernietigd/"
   }
  ],
- "fetched_at": "2026-10-28T11:37:20+00:00",
+ "fetched_at": "2026-10-28T17:24:34+00:00",
  "oil": [
   {
    "econ": false,
@@ -581,32 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-28T11:36:58+00:00",
+   "fetched_at": "2026-10-28T17:24:32+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-28T11:36:42+00:00",
+   "count": 18,
+   "fetched_at": "2026-10-28T17:24:30+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-28T11:36:58+00:00",
+   "fetched_at": "2026-10-28T17:24:32+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T11:36:59+00:00",
+   "fetched_at": "2026-10-28T17:24:33+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-28T11:36:54+00:00",
+   "fetched_at": "2026-10-28T17:24:31+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T11:37:20+00:00",
+   "fetched_at": "2026-10-28T17:24:34+00:00",
    "ok": true
   }
  }
