@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-28T09:18:59+00:00",
+   "source": "Suriname Herald",
+   "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
+   "url": "https://www.srherald.com/suriname/2026/10/28/plein-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-aanpak-corruptie/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-28T08:55:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Commissie Ordening Goudsector voor een maand gestationeerd te Peling Bergi",
+   "url": "https://dwtonline.com/commissie-ordening-goudsector-voor-een-maand-gestationeerd-te-peling-bergi/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-28T01:53:00+00:00",
    "source": "Starnieuws",
    "title": "Voedselveiligheid vraagt om handelen en een juiste lezing van de wet",
@@ -405,24 +419,17 @@
    "source": "de Ware Tijd",
    "title": "ECD en LVV nemen landbouwchemicaliën in beslag; vervallen partij vernietigd",
    "url": "https://dwtonline.com/ecd-en-lvv-nemen-landbouwchemicalien-in-beslag-vervallen-partij-vernietigd/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T21:00:46+00:00",
-   "source": "Suriname Herald",
-   "title": "Brandstofprijsplafond steeds moeilijker te handhaven",
-   "url": "https://www.srherald.com/suriname/2026/10/21/brandstofprijsplafond-steeds-moeilijker-te-handhaven/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T19:44:04+00:00",
-   "source": "Suriname Herald",
-   "title": "Landveld: RvC en directie TAS moeten conform schrijven handelen",
-   "url": "https://www.srherald.com/suriname/2026/10/21/landveld-rvc-en-directie-tas-moeten-conform-schrijven-handelen/"
   }
  ],
- "fetched_at": "2026-10-28T05:31:57+00:00",
+ "fetched_at": "2026-10-28T11:37:20+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-28T09:18:59+00:00",
+   "source": "Suriname Herald",
+   "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
+   "url": "https://www.srherald.com/suriname/2026/10/28/plein-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-aanpak-corruptie/"
+  },
   {
    "econ": false,
    "published": "2026-10-26T17:00:00+00:00",
@@ -574,32 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-28T05:31:56+00:00",
+   "fetched_at": "2026-10-28T11:36:58+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-10-28T05:31:54+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-28T11:36:42+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-28T05:31:56+00:00",
+   "fetched_at": "2026-10-28T11:36:58+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T05:31:56+00:00",
+   "fetched_at": "2026-10-28T11:36:59+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-28T05:31:55+00:00",
+   "fetched_at": "2026-10-28T11:36:54+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T05:31:57+00:00",
+   "fetched_at": "2026-10-28T11:37:20+00:00",
    "ok": true
   }
  }
