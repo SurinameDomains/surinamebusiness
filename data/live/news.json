@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-29T00:54:12+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Gouden horloges combineren luxe en sportieve techniek",
+   "url": "https://www.dbsuriname.com/2026/10/28/gouden-horloges-combineren-luxe-en-sportieve-techniek/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T00:52:53+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Burna Boy eerste Afrikaan met prijs op Ballon d’Or",
+   "url": "https://www.dbsuriname.com/2026/10/28/burna-boy-eerste-afrikaan-met-prijs-op-ballon-dor/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-28T23:33:29+00:00",
+   "source": "Suriname Herald",
+   "title": "Goudzoekers overspoelen Moeroekreek: aantal stijgt van 250 naar circa 8.000",
+   "url": "https://www.srherald.com/suriname/2026/10/28/goudzoekers-overspoelen-moeroekreek-aantal-stijgt-van-250-naar-circa-8-000/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-28T15:03:31+00:00",
    "source": "Suriname Herald",
    "title": "Baasaron wil illegaal ingevoerde rijst laten vernietigen vanwege mogelijk gezondheidsrisico",
@@ -398,30 +419,9 @@
    "source": "Starnieuws",
    "title": "Ballon d’Or 2026: Messi’s historische erfenis en de jacht op de gouden bal",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94478"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T03:02:22+00:00",
-   "source": "Suriname Herald",
-   "title": "Eerste olieboringen GranMorgu starten in december, project al voor 43 procent gerealiseerd",
-   "url": "https://www.srherald.com/suriname/2026/10/22/eerste-olieboringen-granmorgu-starten-in-december-project-al-voor-43-procent-gerealiseerd/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T03:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "BESCHOUWING — De prijs van een lakse overheid: hoe Suriname zijn groente-export verspeelt",
-   "url": "https://dwtonline.com/beschouwing-de-prijs-van-een-lakse-overheid-hoe-suriname-zijn-groente-export-verspeelt/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T00:21:56+00:00",
-   "source": "Suriname Herald",
-   "title": "Uitbreiding goudproject moet 3600 banen opleveren, maar bedrijven vrezen tekort aan personeel",
-   "url": "https://www.srherald.com/suriname/2026/10/21/uitbreiding-goudproject-moet-3600-banen-opleveren-maar-bedrijven-vrezen-tekort-aan-personeel/"
   }
  ],
- "fetched_at": "2026-10-28T21:54:15+00:00",
+ "fetched_at": "2026-10-29T01:47:17+00:00",
  "oil": [
   {
    "econ": false,
@@ -581,32 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-28T21:54:11+00:00",
+   "fetched_at": "2026-10-29T01:47:15+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-10-28T21:54:07+00:00",
+   "count": 19,
+   "fetched_at": "2026-10-29T01:47:12+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-28T21:54:10+00:00",
+   "fetched_at": "2026-10-29T01:47:15+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T21:54:13+00:00",
+   "fetched_at": "2026-10-29T01:47:16+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-28T21:54:09+00:00",
+   "fetched_at": "2026-10-29T01:47:14+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-28T21:54:15+00:00",
+   "fetched_at": "2026-10-29T01:47:17+00:00",
    "ok": true
   }
  }
