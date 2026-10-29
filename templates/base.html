@@ -44,6 +44,7 @@
     <kbd class="hs-key" aria-hidden="true">/</kbd>
    </form>{% endif %}
    {% if rates and not rates.stale %}<a class="rate-chip" href="{{ R_URL }}" title="{{ 'Verkoopkoers CME in SRD' if lang=='nl' else 'CME selling rate in SRD' }}"><span>USD</span> {{ num(rates.usd.sell) }}<i>&middot;</i><span>EUR</span> {{ num(rates.eur.sell) }}</a>{% endif %}
+   <button type="button" class="app-btn" data-app hidden aria-label="{{ 'App installeren' if lang=='nl' else 'Install the app' }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7.5v7M9 11.5l3 3 3-3M10.5 18.5h3"/></svg><span>App</span></button>
    <a class="hd-search" href="{{ S_URL }}" aria-label="{{ 'Zoeken' if lang=='nl' else 'Search' }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
    <button class="menu-btn" aria-expanded="false" aria-controls="nav" id="menu-btn" aria-label="Menu" data-close="{{ 'Menu sluiten' if lang=='nl' else 'Close menu' }}"><span class="hb" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
@@ -68,6 +69,7 @@
    <a class="nav-link" href="{{ U('tenders') }}"{% if key == 'tenders' %} aria-current="page"{% endif %}>{{ 'Aanbestedingen' if lang=='nl' else 'Tenders' }}</a>
    <div class="drawer-foot">
     <div class="acct" id="acct"></div>
+    <button type="button" class="app-row" data-app hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7.5v7M9 11.5l3 3 3-3M10.5 18.5h3"/></svg>{{ 'App installeren' if lang=='nl' else 'Install the app' }}</button>
     {% if lang_switch %}<a class="lang" href="{{ lang_switch }}" hreflang="{{ 'en' if lang=='nl' else 'nl' }}" lang="{{ 'en' if lang=='nl' else 'nl' }}">{{ 'English' if lang=='nl' else 'Nederlands' }}</a>{% endif %}
    </div>
   </div>
@@ -123,6 +125,44 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();if(
 window.addEventListener('resize',function(){if(window.innerWidth>1000&&nav.classList.contains('open'))setDrawer(false);});
 /* the current section opens by itself in the drawer, so one tap shows where you are */
 var cur=nav.querySelector('.dd.cur');if(cur&&window.innerWidth<=1000){cur.classList.add('open');cur.querySelector('.dd-btn').setAttribute('aria-expanded','true');}})();
+</script>
+<script>
+/* "App" button on phones and tablets: puts the site on the home screen as an app (manifest.json, standalone window).
+   Android (Chrome, Edge, Samsung Internet): the browser's own install dialog via beforeinstallprompt; until the browser
+   offers it, or in a browser without it, a short guide via the browser menu. iOS has no install API: a guide via Share.
+   In-app browsers (TikTok, Facebook, Instagram...) cannot install: the guide says to open the page in the browser first.
+   Hidden when the site already runs as an app, and after an install on this device (localStorage "sb_app"). */
+(function(){var NL={{ 'true' if lang=='nl' else 'false' }},ua=navigator.userAgent||'',btns=[].slice.call(document.querySelectorAll('[data-app]'));if(!btns.length)return;
+function mq(q){return window.matchMedia&&window.matchMedia(q).matches}
+if(navigator.standalone===true||mq('(display-mode: standalone)')||mq('(display-mode: fullscreen)')||mq('(display-mode: minimal-ui)'))return;
+var ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),android=/Android/.test(ua),
+inapp=/FBAN|FBAV|FB_IAB|Instagram|musical_ly|BytedanceWebview|TikTok|Snapchat|LinkedInApp|Line\//.test(ua),done=false,ev=null,dlg=null;
+try{done=localStorage.getItem('sb_app')==='1'}catch(e){}
+function show(o){btns.forEach(function(b){b.hidden=!o})}
+function ga(n,p){try{if(window.gtag)gtag('event',n,p||{})}catch(e){}}
+if(!done&&(ios||android))show(true);
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();ev=e;if(!done)show(true)});
+window.addEventListener('appinstalled',function(){try{localStorage.setItem('sb_app','1')}catch(e){}done=true;ev=null;show(false);if(dlg&&dlg.open)dlg.close();ga('app_installed')});
+var SH='<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg>';
+function steps(){
+ if(inapp)return {h:NL?'Open eerst je browser':'Open your browser first',p:NL?'Vanuit deze app kun je niets op je beginscherm zetten. Zo doe je het:':'You cannot add to your home screen from inside this app. Here is how:',s:NL?
+  ['Tik op <b>&middot;&middot;&middot;</b> of <b>&#8942;</b> (rechtsboven of onderaan).','Kies <b>Openen in browser</b>, <b>Open in Safari</b> of <b>Open in Chrome</b>.','Tik daar bovenaan op de knop <b>App</b>.']:
+  ['Tap <b>&middot;&middot;&middot;</b> or <b>&#8942;</b> (top right or at the bottom).','Choose <b>Open in browser</b>, <b>Open in Safari</b> or <b>Open in Chrome</b>.','Tap the <b>App</b> button at the top there.']};
+ if(ios)return {h:NL?'Zet Suriname Business op je beginscherm':'Add Suriname Business to your home screen',p:NL?'Dan open je de tools, de koers en vacatures met één tik, schermvullend. Gratis, zonder App Store.':'Open the tools, the rates and jobs in one tap, full screen. Free, no App Store.',s:NL?
+  ['Tik op <b>Deel</b> '+SH+'. In Safari staat het onderaan, of achter <b>&middot;&middot;&middot;</b>. In Chrome rechtsboven.','Scroll omlaag en kies <b>Zet op beginscherm</b>.','Tik op <b>Voeg toe</b>.']:
+  ['Tap <b>Share</b> '+SH+'. In Safari it is at the bottom, or behind <b>&middot;&middot;&middot;</b>. In Chrome at the top right.','Scroll down and choose <b>Add to Home Screen</b>.','Tap <b>Add</b>.']};
+ return {h:NL?'Zet Suriname Business op je startscherm':'Add Suriname Business to your home screen',p:NL?'Dan open je de tools, de koers en vacatures met één tik, schermvullend. Gratis, zonder Play Store.':'Open the tools, the rates and jobs in one tap, full screen. Free, no Play Store.',s:NL?
+  ['Tik op <b>&#8942;</b> rechtsboven in Chrome (Samsung Internet: <b>&#8801;</b> onderaan).','Kies <b>App installeren</b> of <b>Toevoegen aan startscherm</b>.','Tik op <b>Installeren</b>.']:
+  ['Tap <b>&#8942;</b> at the top right in Chrome (Samsung Internet: <b>&#8801;</b> at the bottom).','Choose <b>Install app</b> or <b>Add to Home screen</b>.','Tap <b>Install</b>.']};}
+function guide(){var g=steps();if(!dlg){dlg=document.createElement('dialog');dlg.className='sba-dlg app-dlg';dlg.setAttribute('aria-labelledby','app-dlg-h');document.body.appendChild(dlg);
+ dlg.addEventListener('click',function(e){if(e.target===dlg||(e.target.closest&&e.target.closest('[data-x]')))dlg.close()});}
+ dlg.innerHTML='<button type="button" class="x" data-x aria-label="'+(NL?'Sluiten':'Close')+'">&times;</button><img class="app-ic" src="/assets/apple-touch-icon.png?v=2" width="56" height="56" alt=""><h2 id="app-dlg-h">'+g.h+'</h2><p>'+g.p+'</p><ol class="app-steps">'+g.s.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol><button type="button" class="btn" data-x>'+(NL?'Begrepen':'Got it')+'</button>';
+ if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');}
+btns.forEach(function(b){b.addEventListener('click',function(){
+ ga('app_install_click',{method:ev&&!inapp?'prompt':inapp?'inapp':ios?'ios':'guide'});
+ if(ev&&!inapp){var e=ev;e.prompt();e.userChoice.then(function(r){if(r&&r.outcome==='accepted'){ev=null;show(false)}}).catch(function(){});ev=null;return}
+ guide();});});
+})();
 </script>
 <script>window.SBA_CFG={api:{{ account_api|tojson }},clientId:{{ google_client_id|tojson }},accountUrl:{{ U('account')|tojson }},adminUrl:{{ U('admin')|tojson }},devLogin:{{ 'true' if dev_login else 'false' }}};</script>
 <script>
