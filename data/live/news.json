@@ -2,10 +2,38 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-29T19:05:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Van verwachte 250 naar circa 8.000: enorme influx goudzoekers heeft Matawai in greep",
+   "url": "https://dwtonline.com/van-verwachte-250-naar-circa-8-000-enorme-influx-goudzoekers-heeft-matawai-in-greep/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T18:27:00+00:00",
+   "source": "Starnieuws",
+   "title": "Zaak mennonieten: Economisch belang bedrijf weegt niet op tegen handhaving vreemdelingenwet",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94610"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T18:05:42+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Syndicaat voor Onderwijsgevenden wil blijvende salarisverbetering leerkrachten",
+   "url": "https://www.dbsuriname.com/2026/10/29/syndicaat-voor-onderwijsgevenden-wil-blijvende-salarisverbetering-leerkrachten/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-29T15:22:25+00:00",
    "source": "Dagblad Suriname",
    "title": "Rondetafel over toekomst zonne-energie in Suriname",
    "url": "https://www.dbsuriname.com/2026/10/29/rondetafel-over-toekomst-zonne-energie-in-suriname/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T15:07:20+00:00",
+   "source": "Suriname Herald",
+   "title": "Brunswijk lokt Wendy Jap-A-Joe met salaris van US$ 12.000 per maand",
+   "url": "https://www.srherald.com/suriname/2026/10/29/brunswijk-lokt-wendy-jap-a-joe-met-salaris-van-us-12-000-per-maand/"
   },
   {
    "econ": false,
@@ -391,37 +419,9 @@
    "source": "Suriname Herald",
    "title": "Simons wil binnen enkele maanden einde maken aan slepende knelpunten voor ondernemers",
    "url": "https://www.srherald.com/suriname/2026/10/22/simons-wil-binnen-enkele-maanden-einde-maken-aan-slepende-knelpunten-voor-ondernemers/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T21:11:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "SPWE leidt micro- en kleine ondernemers op",
-   "url": "https://dwtonline.com/spwe-leidt-micro-en-kleine-ondernemers-op/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T18:17:04+00:00",
-   "source": "Dagblad Suriname",
-   "title": "ABS: Jaarlijkse inflatie daalt naar 7,3 procent",
-   "url": "https://www.dbsuriname.com/2026/10/22/abs-jaarlijkse-inflatie-daalt-naar-73-procent/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T16:12:43+00:00",
-   "source": "Suriname Herald",
-   "title": "Simons: brandstof kan fors duurder worden als overheid prijsplafond niet langer kan handhaven",
-   "url": "https://www.srherald.com/suriname/2026/10/22/simons-brandstof-kan-fors-duurder-worden-als-overheid-prijsplafond-niet-langer-kan-handhaven/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T15:41:09+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Simons wil concrete aanpak voor ondernemerschap",
-   "url": "https://www.dbsuriname.com/2026/10/22/simons-wil-concrete-aanpak-voor-ondernemerschap/"
   }
  ],
- "fetched_at": "2026-10-29T15:32:44+00:00",
+ "fetched_at": "2026-10-29T20:34:08+00:00",
  "oil": [
   {
    "econ": false,
@@ -581,34 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-29T15:32:43+00:00",
+   "fetched_at": "2026-10-29T20:34:07+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 19,
-   "fetched_at": "2026-10-29T15:32:16+00:00",
+   "count": 17,
+   "fetched_at": "2026-10-29T20:34:05+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "error": "The read operation timed out",
-   "failed_at": "2026-10-29T15:32:42+00:00",
-   "fetched_at": "2026-10-29T13:50:47+00:00",
-   "ok": false
+   "fetched_at": "2026-10-29T20:34:06+00:00",
+   "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T15:32:43+00:00",
+   "fetched_at": "2026-10-29T20:34:07+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-29T15:32:17+00:00",
+   "fetched_at": "2026-10-29T20:34:06+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T15:32:44+00:00",
+   "fetched_at": "2026-10-29T20:34:08+00:00",
    "ok": true
   }
  }

@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-29T15:32:54+00:00",
+ "fetched_at": "2026-10-29T20:34:15+00:00",
  "notices": [
   {
    "date": "2026-10-27",
@@ -51,6 +51,40 @@
    "text": "",
    "title": "Gepland onderhoud zaterdag 31 oktober 2026",
    "url": "https://nvebs.com/nieuws/1639/gepland-onderhoud-zaterdag-31-oktober-2026"
+  },
+  {
+   "date": "2026-11-01",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=839d2506dec64c3b8f6f3aff5cb5e3b5",
+   "slots": [
+    {
+     "areas": "GEDEELTE WELGEDACHT C WEG TUSSEN BOMAWEG EN MAGENTA KANAALWEG, GEDEELTE MAGENTA KANAALWEG TUSSEN WELGEDACHT C WEG EN MAGENTAWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-01",
+     "district": "Wanica",
+     "from": "08:00",
+     "to": "17:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zondag 1 november 2026",
+   "url": "https://nvebs.com/nieuws/1641/gepland-onderhoud-zondag-1-november-2026"
+  },
+  {
+   "date": "2026-11-01",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=65b3833f601f437cb031e523f6adff55",
+   "slots": [
+    {
+     "areas": "GEDEELTE KAIKOESISTRAAT TUSSEN ABONESTRAAT EN ABOENAWROKOSTRAAT, GEDEELTE BONISTRAAT TUSSEN MATHOERASTRAAT EN ANTON DRAGTENWEG, GEDEELTE BARRONSTRAAT TUSSEN COMMISSARIS E.A. ROBLESWEG EN BONISTRAAT, GEDEELTE COMMISSARIS E.A. ROBLESWEG TUSSEN LOUIS GOVEIASTRAAT, GEDEELTE ABOENAWROKOSTRAAT TUSSEN KAIKOESISTRAAT EN KROMANTI KODJOSTRAAT, JOSEPHINE SAMSON GREENSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-01",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "14:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zondag 1 november 2026",
+   "url": "https://nvebs.com/nieuws/1640/gepland-onderhoud-zondag-1-november-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
