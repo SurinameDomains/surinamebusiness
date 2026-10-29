@@ -1,6 +1,26 @@
 {
- "fetched_at": "2026-10-29T08:24:00+00:00",
+ "fetched_at": "2026-10-29T13:46:01+00:00",
  "items": [
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-164081",
+   "lang": "nl",
+   "published": "2026-10-29",
+   "source": "gov.sr",
+   "title": "Het leveren van beveiligingsdiensten ten behoeve van het nieuwe kantoorcomplex aan de Titaniumstraat 2-4 van het directoraat Ruimtelijke ordening van het ministerie van Openbare Werken en Ruimtelijke Ordening",
+   "url": "https://gov.sr/aanbestedingen/het-leveren-van-beveiligingsdiensten-ten-behoeve-van-het-nieuwe-kantoorcomplex-aan-de-titaniumstraat-2-4-van-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke/"
+  },
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-164074",
+   "lang": "nl",
+   "published": "2026-10-29",
+   "source": "gov.sr",
+   "title": "het leveren van laptops en desktop met toebehoren tbv het directoraat Ruimtelijke Ordening van het ministerie van Openbare werken en Ruimtelijke Ordening",
+   "url": "https://gov.sr/aanbestedingen/het-leveren-van-laptops-en-desktop-met-toebehoren-tbv-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
+  },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
@@ -441,22 +461,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-29T08:24:00+00:00",
+   "fetched_at": "2026-10-29T13:46:01+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-10-29T08:23:58+00:00",
+   "fetched_at": "2026-10-29T13:45:59+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-29T08:23:59+00:00",
+   "fetched_at": "2026-10-29T13:46:00+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-29T08:23:58+00:00",
+   "fetched_at": "2026-10-29T13:45:59+00:00",
    "ok": true
   }
  }
