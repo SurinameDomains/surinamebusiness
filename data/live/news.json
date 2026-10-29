@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/krin-kondre-handhavingsteam-treedt-op-tegen-slordige-ondernemingen/"
   }
  ],
- "fetched_at": "2026-10-29T13:46:19+00:00",
+ "fetched_at": "2026-10-29T13:50:52+00:00",
  "oil": [
   {
    "econ": false,
@@ -581,32 +581,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-29T13:46:17+00:00",
+   "fetched_at": "2026-10-29T13:50:49+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 19,
-   "fetched_at": "2026-10-29T13:46:15+00:00",
+   "fetched_at": "2026-10-29T13:50:45+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-29T13:46:17+00:00",
+   "fetched_at": "2026-10-29T13:50:47+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T13:46:17+00:00",
+   "fetched_at": "2026-10-29T13:50:49+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-29T13:46:16+00:00",
+   "fetched_at": "2026-10-29T13:50:47+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T13:46:19+00:00",
+   "fetched_at": "2026-10-29T13:50:52+00:00",
    "ok": true
   }
  }
