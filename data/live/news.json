@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-30T22:07:38+00:00",
+   "source": "Suriname Herald",
+   "title": "Ravaksur wil belastingvrije voet naar SRD 15.000 en nieuwe loonafspraken tot 2028",
+   "url": "https://www.srherald.com/suriname/2026/10/30/ravaksur-wil-belastingvrije-voet-naar-srd-15-000-en-nieuwe-loonafspraken-tot-2028/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-30T19:39:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Bob Mangal: ‘Plan ordening kleinschalige goudsector niet perfect maar alvast vertrekpunt’",
+   "url": "https://dwtonline.com/bob-mangal-plan-ordening-kleinschalige-goudsector-niet-perfect-maar-alvast-vertrekpunt/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-30T17:42:54+00:00",
    "source": "Suriname Herald",
    "title": "GranMorgu-project op schema, eerste olie in 2028 blijft haalbaar",
@@ -405,24 +419,17 @@
    "source": "Starnieuws",
    "title": "Volksgezondheid waarschuwt voor herintroductie malaria door stijging importgevallen",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94508"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-23T17:28:00+00:00",
-   "source": "Starnieuws",
-   "title": "De echte crisis zit niet in de kouseband, maar in het landbouwmodel",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94491"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-23T15:34:51+00:00",
-   "source": "Suriname Herald",
-   "title": "Inflatie daalt, maar boodschappen blijven peperduur: groenten en fruit 35,7 procent duurder",
-   "url": "https://www.srherald.com/suriname/2026/10/23/inflatie-daalt-maar-boodschappen-blijven-peperduur-groenten-en-fruit-357-procent-duurder/"
   }
  ],
- "fetched_at": "2026-10-30T18:50:09+00:00",
+ "fetched_at": "2026-10-30T22:57:04+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-30T19:52:00+00:00",
+   "source": "Starnieuws",
+   "title": "Guyana overschrijdt mijlpalen in olieproductie, vier projecten leveren ruim één miljard vaten",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94628"
+  },
   {
    "econ": false,
    "published": "2026-10-30T17:42:54+00:00",
@@ -609,32 +616,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-30T18:50:07+00:00",
+   "fetched_at": "2026-10-30T22:57:02+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-10-30T18:50:01+00:00",
+   "count": 15,
+   "fetched_at": "2026-10-30T22:57:00+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-30T18:50:04+00:00",
+   "fetched_at": "2026-10-30T22:57:02+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-30T18:50:08+00:00",
+   "fetched_at": "2026-10-30T22:57:03+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-30T18:50:03+00:00",
+   "fetched_at": "2026-10-30T22:57:01+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-30T18:50:09+00:00",
+   "fetched_at": "2026-10-30T22:57:04+00:00",
    "ok": true
   }
  }
