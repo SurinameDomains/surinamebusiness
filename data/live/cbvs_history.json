@@ -131,6 +131,17 @@
     37.803
    ],
    "gold": 4042.0
+  },
+  "2026-10-30": {
+   "EUR": [
+    41.691,
+    42.382
+   ],
+   "USD": [
+    37.379,
+    37.86
+   ],
+   "gold": 4026.3
   }
  },
  "note": "CBvS weighted average rates, giraal buy/sell"

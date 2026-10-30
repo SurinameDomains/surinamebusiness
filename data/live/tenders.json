@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-30T06:24:53+00:00",
+ "fetched_at": "2026-10-30T13:30:28+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -20,6 +20,17 @@
    "source": "gov.sr",
    "title": "het leveren van laptops en desktop met toebehoren tbv het directoraat Ruimtelijke Ordening van het ministerie van Openbare werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-laptops-en-desktop-met-toebehoren-tbv-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
+  },
+  {
+   "buyer": "Fiscal Support Program to Regain Growth",
+   "deadline": "2026-12-10",
+   "id": "idb-39456",
+   "kind": "Goods",
+   "lang": "en",
+   "published": "2026-10-29",
+   "source": "IDB",
+   "title": "Purchase of new vehicles for DoTC",
+   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1202"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -450,22 +461,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-30T06:24:53+00:00",
+   "fetched_at": "2026-10-30T13:30:28+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-10-30T06:24:53+00:00",
+   "fetched_at": "2026-10-30T13:30:27+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-30T06:24:53+00:00",
+   "fetched_at": "2026-10-30T13:30:28+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-30T06:24:52+00:00",
+   "fetched_at": "2026-10-30T13:30:27+00:00",
    "ok": true
   }
  }
