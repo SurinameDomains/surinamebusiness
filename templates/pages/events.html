@@ -36,9 +36,9 @@
 
 <h2>{{ 'Kalender per maand' if nl else 'Calendar by month' }}</h2>
 {% if nl %}
-<p>Een datum staat er alleen als de organisator of de overheid die heeft gepubliceerd. Anders staat er de maand waarin het evenement meestal plaatsvindt. Controleer altijd de actuele datum bij de organisator voordat je boekt.</p>
+<p>Een datum staat er alleen als de organisator of de overheid die heeft gepubliceerd. Anders staat er de maand waarin het evenement meestal plaatsvindt. Controleer altijd de actuele datum bij de organisator voordat je boekt. Voor feesten, concerten, festivals en andere niet-zakelijke evenementen: zie de agenda met alle <a href="https://exploresuriname.com/nl/events" rel="noopener">evenementen in Suriname</a> op Explore Suriname.</p>
 {% else %}
-<p>A date is only given if the organiser or the government has published it. Otherwise you see the month in which the event usually takes place. Always check the current date with the organiser before you book.</p>
+<p>A date is only given if the organiser or the government has published it. Otherwise you see the month in which the event usually takes place. Always check the current date with the organiser before you book. For parties, concerts, festivals and other events outside business, see the calendar of all <a href="https://exploresuriname.com/events" rel="noopener">events in Suriname</a> on Explore Suriname.</p>
 {% endif %}
 {% set c1 = 'Maand' if nl else 'Month' %}{% set c2 = 'Evenement' if nl else 'Event' %}{% set c3 = 'Waar' if nl else 'Where' %}{% set c4 = 'Voor wie' if nl else 'For whom' %}
 <table class="tbl stack tx"><thead><tr><th>{{ c1 }}</th><th>{{ c2 }}</th><th>{{ c3 }}</th><th>{{ c4 }}</th></tr></thead><tbody>
