@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-29T23:46:00+00:00",
+   "source": "Starnieuws",
+   "title": "Wat blijft over als de olie op is?",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94603"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T23:01:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Zonne-energie centraal tijdens ‘strategische rondetafel’",
+   "url": "https://dwtonline.com/zonne-energie-centraal-tijdens-strategische-rondetafel/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T22:49:44+00:00",
+   "source": "Suriname Herald",
+   "title": "Nieuwe technologie voor goudwinning zonder kwik getest in Brokopondo",
+   "url": "https://www.srherald.com/suriname/2026/10/29/nieuwe-technologie-voor-goudwinning-zonder-kwik-getest-in-brokopondo/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-29T22:05:19+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Wereldreis cruiseschip onderbroken door hoge brandstofprijzen",
+   "url": "https://www.dbsuriname.com/2026/10/29/wereldreis-cruiseschip-onderbroken-door-hoge-brandstofprijzen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-29T19:05:00+00:00",
    "source": "de Ware Tijd",
    "title": "Van verwachte 250 naar circa 8.000: enorme influx goudzoekers heeft Matawai in greep",
@@ -391,38 +419,17 @@
    "source": "Suriname Herald",
    "title": "Venezuela zoekt miljardensteun bij Qatar om toegang tot internationale leningen te herstellen",
    "url": "https://www.srherald.com/buitenland/2026/10/23/venezuela-zoekt-miljardensteun-bij-qatar-om-toegang-tot-internationale-leningen-te-herstellen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-23T04:34:00+00:00",
-   "source": "Starnieuws",
-   "title": "Inflatie daalt naar 7,3 procent; groenten en fruit blijven fors duurder",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94499"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T23:50:00+00:00",
-   "source": "Starnieuws",
-   "title": "President Simons wil actieplan voor beter ondernemingsklimaat",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94497"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T23:50:00+00:00",
-   "source": "Starnieuws",
-   "title": "President Simons wil binnen enkele maanden actieplan voor beter ondernemingsklimaat",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94497"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T22:21:18+00:00",
-   "source": "Suriname Herald",
-   "title": "Simons wil binnen enkele maanden einde maken aan slepende knelpunten voor ondernemers",
-   "url": "https://www.srherald.com/suriname/2026/10/22/simons-wil-binnen-enkele-maanden-einde-maken-aan-slepende-knelpunten-voor-ondernemers/"
   }
  ],
- "fetched_at": "2026-10-29T20:34:08+00:00",
+ "fetched_at": "2026-10-30T00:21:19+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-29T23:46:00+00:00",
+   "source": "Starnieuws",
+   "title": "Wat blijft over als de olie op is?",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94603"
+  },
   {
    "econ": false,
    "published": "2026-10-28T09:18:59+00:00",
@@ -581,32 +588,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-29T20:34:07+00:00",
+   "fetched_at": "2026-10-30T00:21:18+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-10-29T20:34:05+00:00",
+   "count": 19,
+   "fetched_at": "2026-10-30T00:21:16+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-29T20:34:06+00:00",
+   "fetched_at": "2026-10-30T00:21:17+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T20:34:07+00:00",
+   "fetched_at": "2026-10-30T00:21:18+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-29T20:34:06+00:00",
+   "fetched_at": "2026-10-30T00:21:17+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-29T20:34:08+00:00",
+   "fetched_at": "2026-10-30T00:21:19+00:00",
    "ok": true
   }
  }
