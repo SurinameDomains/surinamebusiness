@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-30T00:21:02+00:00",
+ "fetched_at": "2026-10-30T06:24:53+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -60,17 +60,6 @@
    "source": "gov.sr",
    "title": "Het bouwen van een betonnen verkeersbrug in de Siriusstraat over de Boomskreek in het district Paramaribo",
    "url": "https://gov.sr/aanbestedingen/het-bouwen-van-een-betonnen-verkeersbrug-in-de-siriusstraat-over-de-boomskreek-in-het-district-paramaribo-2/"
-  },
-  {
-   "buyer": "Support to Safety Nets for Vulnerable Populations in Suriname",
-   "deadline": "2026-10-29",
-   "id": "idb-39372",
-   "kind": "Consulting Firms",
-   "lang": "en",
-   "published": "2026-10-20",
-   "source": "IDB",
-   "title": "AMENDMENT - Hiring of a consulting firm for training of 500 persons in the use of computers and IT equipment",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1598869369-1003"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -461,22 +450,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-30T00:21:02+00:00",
+   "fetched_at": "2026-10-30T06:24:53+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-10-30T00:21:01+00:00",
+   "fetched_at": "2026-10-30T06:24:53+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-30T00:21:02+00:00",
+   "fetched_at": "2026-10-30T06:24:53+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-30T00:21:01+00:00",
+   "fetched_at": "2026-10-30T06:24:52+00:00",
    "ok": true
   }
  }
