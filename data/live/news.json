@@ -2,6 +2,55 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-10-31T15:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Zoveelste poging ordening goudsector",
+   "url": "https://dwtonline.com/zoveelste-poging-ordening-goudsector/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T14:26:12+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Simons wil snellere ontwikkeling zonne-energiecentrales",
+   "url": "https://www.dbsuriname.com/2026/10/31/simons-wil-snellere-ontwikkeling-zonne-energiecentrales/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T14:22:03+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Ondernemers gewaarschuwd voor mislopen oliekansen",
+   "url": "https://www.dbsuriname.com/2026/10/31/ondernemers-gewaarschuwd-voor-mislopen-oliekansen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T14:16:47+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Ravaksur vraagt belastingvrije voet van SRD 15.000",
+   "url": "https://www.dbsuriname.com/2026/10/31/ravaksur-vraagt-belastingvrije-voet-van-srd-15-000/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T11:03:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Zestienjarige verdachte opgepakt voor seksuele handelingen met dertienjarig meisje",
+   "url": "https://dwtonline.com/zestienjarige-verdachte-opgepakt-voor-seksuele-handelingen-met-dertienjarig-meisje/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T09:06:02+00:00",
+   "source": "Suriname Herald",
+   "title": "Surinaamse ondernemers dreigen kansen in olie- en gassector mis te lopen",
+   "url": "https://www.srherald.com/suriname/2026/10/31/surinaamse-ondernemers-dreigen-kansen-in-olie-en-gassector-mis-te-lopen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T08:54:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Geerlings-Simons: ‘Zonne-energie vorm van zekerheid’",
+   "url": "https://dwtonline.com/geerlings-simons-zonne-energie-vorm-van-zekerheid/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-31T06:01:54+00:00",
    "source": "Suriname Herald",
    "title": "Guyana trekt circa US$ 1 miljard aan haveninvesteringen dankzij groei oliesector",
@@ -370,59 +419,24 @@
    "source": "de Ware Tijd",
    "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
    "url": "https://dwtonline.com/sbf-wil-dat-ondernemers-profiteren-van-kansen-olie-en-gassector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T00:46:54+00:00",
-   "source": "Suriname Herald",
-   "title": "Bankiersvereniging: Suriname moet financiële sector versterken vóór komst olie-inkomsten",
-   "url": "https://www.srherald.com/suriname/2026/10/24/bankiersvereniging-suriname-moet-financiele-sector-versterken-voor-komst-olie-inkomsten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T14:41:05+00:00",
-   "source": "Suriname Herald",
-   "title": "Ruzie tussen goudzoekers in Sarakreek eindigt in dodelijke schietpartij",
-   "url": "https://www.srherald.com/suriname/2026/10/24/ruzie-tussen-goudzoekers-in-sarakreek-eindigt-in-dodelijke-schietpartij/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T11:43:00+00:00",
-   "source": "Starnieuws",
-   "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94509"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T08:54:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Focus buitenlandbeleid in 2027 op versterking economische diplomatie",
-   "url": "https://dwtonline.com/focus-buitenlandbeleid-in-2027-op-versterking-economische-diplomatie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T05:02:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Seedorf eindelijk op bank Corinthians",
-   "url": "https://dwtonline.com/seedorf-eindelijk-op-bank-corinthians/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T03:03:01+00:00",
-   "source": "Suriname Herald",
-   "title": "Wel voor de klas, geen salaris: gepensioneerde leerkrachten wachten al een jaar op hun geld",
-   "url": "https://www.srherald.com/suriname/2026/10/24/wel-voor-de-klas-geen-salaris-gepensioneerde-leerkrachten-wachten-al-een-jaar-op-hun-geld/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-23T22:04:33+00:00",
-   "source": "Suriname Herald",
-   "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
-   "url": "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"
   }
  ],
- "fetched_at": "2026-10-31T08:51:08+00:00",
+ "fetched_at": "2026-10-31T15:17:47+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-31T14:22:03+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Ondernemers gewaarschuwd voor mislopen oliekansen",
+   "url": "https://www.dbsuriname.com/2026/10/31/ondernemers-gewaarschuwd-voor-mislopen-oliekansen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-10-31T09:06:02+00:00",
+   "source": "Suriname Herald",
+   "title": "Surinaamse ondernemers dreigen kansen in olie- en gassector mis te lopen",
+   "url": "https://www.srherald.com/suriname/2026/10/31/surinaamse-ondernemers-dreigen-kansen-in-olie-en-gassector-mis-te-lopen/"
+  },
   {
    "econ": false,
    "published": "2026-10-31T06:01:54+00:00",
@@ -630,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-31T08:51:07+00:00",
+   "fetched_at": "2026-10-31T15:17:45+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-10-31T08:51:05+00:00",
+   "count": 14,
+   "fetched_at": "2026-10-31T15:17:43+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-31T08:51:06+00:00",
+   "fetched_at": "2026-10-31T15:17:45+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T08:51:07+00:00",
+   "fetched_at": "2026-10-31T15:17:46+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-31T08:51:06+00:00",
+   "fetched_at": "2026-10-31T15:17:45+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T08:51:08+00:00",
+   "fetched_at": "2026-10-31T15:17:47+00:00",
    "ok": true
   }
  }
