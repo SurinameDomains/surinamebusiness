@@ -421,8 +421,15 @@
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94508"
   }
  ],
- "fetched_at": "2026-10-30T22:57:04+00:00",
+ "fetched_at": "2026-10-31T02:18:17+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-10-30T23:33:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Krakers Sunny Point blok 2 doen beklag over ‘ernstige intimidatie’",
+   "url": "https://dwtonline.com/krakers-sunny-point-blok-2-doen-beklag-over-ernstige-intimidatie/"
+  },
   {
    "econ": false,
    "published": "2026-10-30T19:52:00+00:00",
@@ -616,32 +623,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-30T22:57:02+00:00",
+   "fetched_at": "2026-10-31T02:18:15+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-30T22:57:00+00:00",
+   "fetched_at": "2026-10-31T02:18:12+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-30T22:57:02+00:00",
+   "fetched_at": "2026-10-31T02:18:14+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-30T22:57:03+00:00",
+   "fetched_at": "2026-10-31T02:18:15+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-30T22:57:01+00:00",
+   "fetched_at": "2026-10-31T02:18:14+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-30T22:57:04+00:00",
+   "fetched_at": "2026-10-31T02:18:17+00:00",
    "ok": true
   }
  }
