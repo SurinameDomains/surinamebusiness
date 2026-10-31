@@ -57,7 +57,7 @@
    "url": "https://dwtonline.com/geerlings-simons-zonne-energie-vorm-van-zekerheid/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-10-31T06:01:54+00:00",
    "source": "Suriname Herald",
    "title": "Guyana trekt circa US$ 1 miljard aan haveninvesteringen dankzij groei oliesector",
@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/liliana-arias-combineert-radio-televisie-en-ondernemerschap/"
   }
  ],
- "fetched_at": "2026-10-31T21:11:09+00:00",
+ "fetched_at": "2026-10-31T22:49:47+00:00",
  "oil": [
   {
    "econ": false,
@@ -438,7 +438,7 @@
    "url": "https://www.srherald.com/suriname/2026/10/31/surinaamse-ondernemers-dreigen-kansen-in-olie-en-gassector-mis-te-lopen/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-10-31T06:01:54+00:00",
    "source": "Suriname Herald",
    "title": "Guyana trekt circa US$ 1 miljard aan haveninvesteringen dankzij groei oliesector",
@@ -644,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-31T21:11:08+00:00",
+   "fetched_at": "2026-10-31T22:49:45+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-31T21:11:07+00:00",
+   "fetched_at": "2026-10-31T22:49:42+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-31T21:11:08+00:00",
+   "fetched_at": "2026-10-31T22:49:45+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T21:11:08+00:00",
+   "fetched_at": "2026-10-31T22:49:46+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-31T21:11:08+00:00",
+   "fetched_at": "2026-10-31T22:49:44+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T21:11:09+00:00",
+   "fetched_at": "2026-10-31T22:49:47+00:00",
    "ok": true
   }
  }
