@@ -45,11 +45,18 @@ _T = [
      ("Payment reminder: ready-made text for WhatsApp and e-mail",
       "Make a polite or firm payment reminder or final notice in Dutch or English, ready to send by WhatsApp or e-mail."),
      ("Vriendelijk, dringend of aanmaning", "Friendly, firm or final notice"), "bell"),
+    ("kasboek", "kasboek-bankboek", "en/cash-and-bank-book", "admin",
+     ("Kasboek en bankboek", "Cash and bank book"),
+     ("Gratis kasboek en bankboek, per project en per maand | Suriname Business",
+      "Houd inkomsten en uitgaven bij in kas en bank, met categorieën en projecten. Zie per project per maand wat je verdient en uitgeeft. Op de cent, gratis, voor zzp'ers en kleine bedrijven."),
+     ("Free cash book and bank book, by project and by month",
+      "Track income and expenses in cash and at the bank, with categories and projects. See per project per month what you earn and spend. Exact to the cent, free, for freelancers and small businesses."),
+     ("Uitgaven per project per maand", "Expenses per project per month"), "ledger"),
     ("btwregister", "btw-register-kasboek", "en/vat-register-cashbook", "admin",
-     ("BTW-register en kasboek", "VAT register and cashbook"),
-     ("BTW-register en kasboek: zie wat je per maand aan BTW betaalt",
+     ("BTW-register", "VAT register"),
+     ("BTW-register: zie wat je per maand aan BTW betaalt",
       "Houd verkopen en inkopen bij en zie per maand de af te dragen BTW, per tarief. Gratis, export naar CSV, je gegevens blijven op je eigen toestel."),
-     ("VAT register and cashbook: see your monthly VAT",
+     ("VAT register: see your monthly VAT",
       "Track sales and purchases and see the VAT you owe each month, per rate. Free, CSV export, your data stays on your own device."),
      ("Af te dragen BTW per maand, CSV-export", "Monthly VAT to pay, CSV export"), "book"),
     ("amountwords", "bedrag-in-woorden", "en/amount-in-words", "admin",
@@ -424,12 +431,13 @@ ICONS.update({
     "file-chart": '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 18v-2M12 18v-5M16 18v-3"/>',
     "route": '<circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H17a3.5 3.5 0 0 0 0-7H7a3.5 3.5 0 0 1 0-7h8.5"/>',
 })
+ICONS["ledger"] = ('<path d="M5 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5z"/><path d="M9 3v18M12 8h4M12 12h4M12 16h3"/>')
 ICON_OF = {
     # invoices and documents
     "invoice": "doc", "quote": "file-pen", "receipt": "receipt", "reminder": "bell", "proforma": "file-check",
     "deliverynote": "truck", "creditnote": "file-minus", "purchaseorder": "clipboard", "letter": "mail",
     # bookkeeping and cash
-    "btwregister": "book", "amountwords": "text", "cashcount": "cash", "deadlines": "cal-clock", "receivables": "inbox",
+    "kasboek": "ledger", "btwregister": "book", "amountwords": "text", "cashcount": "cash", "deadlines": "cal-clock", "receivables": "inbox",
     "stock": "box", "cashflow": "flow", "vatcalc": "calc",
     # staff and payroll
     "payslip": "wallet", "vacation": "palm", "timesheet": "list-check", "hourly": "timer", "salary": "coins-user",
@@ -528,9 +536,10 @@ def icon(name, size=18):
 RELATED = {
     "invoice": ["quote", "receipt", "reminder", "btwregister"],
     "quote": ["invoice", "pricing", "reminder", "amountwords"],
-    "receipt": ["invoice", "amountwords", "cashcount", "btwregister"],
+    "receipt": ["invoice", "amountwords", "kasboek", "btwregister"],
     "reminder": ["invoice", "walink", "receipt", "deadlines"],
-    "btwregister": ["invoice", "vatcalc", "deadlines", "cashcount"],
+    "btwregister": ["kasboek", "invoice", "vatcalc", "deadlines"],
+    "kasboek": ["btwregister", "invoice", "receivables", "cashflow"],
     "amountwords": ["receipt", "invoice", "quote", "percentage"],
     "payslip": ["salary", "overtime", "timesheet", "vacation"],
     "vacation": ["payslip", "workdays", "hourly", "timesheet"],
@@ -545,7 +554,7 @@ RELATED = {
     "percentage": ["vatcalc", "pricing", "unitprice", "savings"],
     "savings": ["loan", "percentage", "rates", "depreciation"],
     "depreciation": ["loan", "breakeven", "savings", "btwregister"],
-    "cashcount": ["receipt", "btwregister", "rates", "amountwords"],
+    "cashcount": ["kasboek", "receipt", "btwregister", "rates"],
     "deadlines": ["btwregister", "payslip", "workdays", "holidays"],
     "pdftools": ["imagetools", "invoice", "qrcode", "signature"],
     "imagetools": ["pdftools", "businesscard", "qrcode", "signature"],
@@ -563,7 +572,7 @@ RELATED = {
     "supplierready": ["eoiletter", "letter", "bizplantool", "pdftools"],
     "receivables": ["reminder", "invoice", "cashflow", "btwregister"],
     "stock": ["purchaseorder", "pricing", "barcode", "unitprice"],
-    "cashflow": ["receivables", "loan", "breakeven", "bizplantool"],
+    "cashflow": ["kasboek", "receivables", "loan", "bizplantool"],
     "roi": ["loan", "breakeven", "depreciation", "savings"],
     "tripcost": ["pricing", "breakeven", "deliverynote", "hourly"],
     "pricelist": ["qrcode", "pricing", "voucher", "walink"],
@@ -572,6 +581,24 @@ RELATED = {
 }
 
 FAQ = {
+    "kasboek": [
+        (("Wat is het verschil tussen een kasboek en een bankboek?",
+          "In het kasboek staat al het contante geld dat binnenkomt en uitgaat, in het bankboek alles wat over je bankrekening gaat. Deze tool houdt beide bij, met een eigen saldo per rekening. Geld van de kas naar de bank brengen boek je als overboeking: dat is geen inkomen en geen uitgave."),
+         ("What is the difference between a cash book and a bank book?",
+          "The cash book records all cash coming in and going out, the bank book everything that passes through your bank account. This tool keeps both, with its own balance per account. Taking cash to the bank is a transfer: it is neither income nor an expense.")),
+        (("Hoe zie ik per project wat ik verdien?",
+          "Vul bij elke uitgave en ontvangst het project of de klus in. Onder Per project zie je per jaar alle projecten met ontvangsten, uitgaven en resultaat, en per project de cijfers per maand en de uitgaven per categorie. Je kunt het overzicht printen, als PDF bewaren of naar Excel halen."),
+         ("How do I see what I earn per project?",
+          "Fill in the project or job with each expense and income. Under By project you see all projects for the year with income, expenses and result, and per project the figures per month and the expenses by category. You can print the report, save it as PDF or export it to Excel.")),
+        (("Telt een privé-opname als uitgave?",
+          "Nee. Privé-opname, privé-inleg, een ontvangen lening en de aflossing daarvan veranderen wel je saldo, maar tellen niet mee in het resultaat. Rente op een lening is wel een kost."),
+         ("Does a private withdrawal count as an expense?",
+          "No. Private withdrawals, private deposits, a loan received and its repayment change your balance but are left out of the result. Interest on a loan is a cost.")),
+        (("Worden mijn boekingen opgeslagen?",
+          "Op je eigen toestel, in je browser. Log je in met Google, dan worden ze ook in je account bewaard en zie je ze op je andere toestellen. Je kunt altijd een back-up downloaden en terugzetten."),
+         ("Are my entries saved?",
+          "On your own device, in your browser. If you sign in with Google they are also kept in your account and show up on your other devices. You can always download and restore a backup.")),
+    ],
     "invoice": [
         (("Wat moet er op een factuur in Suriname staan?",
           "Je naam of bedrijfsnaam en adres, je FIN of BTW-nummer als je BTW-plichtig bent, een uniek factuurnummer, de factuurdatum, de naam van de klant, een omschrijving van wat je levert, het bedrag zonder BTW, het BTW-tarief en BTW-bedrag, en het totaal."),

@@ -5,6 +5,7 @@ Reads facts.py (hand-checked values) and data/live/*.json (written by fetch.py),
 renders templates/pages/<key>.html in Dutch (root) and English (/en/).
 Self-contained: no data or files from any other site are used.
 """
+from decimal import Decimal, ROUND_HALF_UP
 from markupsafe import Markup
 import datetime as dt
 import hashlib
@@ -279,7 +280,11 @@ def hours_old(s):
 def fmt_num(x, lang, dec=2):
     if x is None:
         return "-"
-    s = f"{x:,.{dec}f}"
+    # half away from zero on the decimal value (2.675 -> 2.68), the same rule as the calculators in the browser
+    if x != x or x in (float("inf"), float("-inf")):
+        return f"{x:,.{dec}f}"
+    q = Decimal(repr(float(x))).quantize(Decimal(1).scaleb(-dec), rounding=ROUND_HALF_UP)
+    s = f"{q:,.{dec}f}"
     if lang == "nl":
         s = s.replace(",", "X").replace(".", ",").replace("X", ".")
     return s
@@ -544,27 +549,36 @@ def holidays_view(lang):
     return {"all": out, "next": upcoming[0] if upcoming else None, "upcoming": upcoming}
 
 
+def c2(x):
+    """Round to whole cents, half away from zero (matches r2() in assets/calc.js and tools/common.js)."""
+    return float(Decimal(repr(float(x))).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+
+
 def py_bands(amount, brackets):
-    tax, lower = 0.0, 0.0
+    # tax per band in cents; the total is the sum of the bands (same as the browser calculator)
+    tax, lower = Decimal(0), 0.0
     for upper, rate in brackets:
         top = float("inf") if upper is None else upper
-        part = max(0.0, min(amount, top) - lower)
-        tax += part * rate
+        part = c2(max(0.0, min(amount, top) - lower))
+        if part > 0:
+            tax += Decimal(repr(c2(part * rate)))
         lower = top
         if amount <= top:
             break
-    return tax
+    return float(tax)
 
 
 def py_salary(gross, pension_pct=0.0, aov=True):
     T = facts.TAX
-    forfait = min(gross * T["forfait_pct"], T["forfait_max_month"])
-    pension = gross * pension_pct / 100
-    zuiver = max(0.0, gross - forfait - pension)
-    taxable = max(0.0, zuiver - T["free_month"])
+    gross = c2(gross)
+    forfait = c2(min(gross * T["forfait_pct"], T["forfait_max_month"]))
+    pension = c2(gross * pension_pct / 100)
+    zuiver = max(0.0, c2(gross - forfait - pension))
+    taxable = max(0.0, c2(zuiver - T["free_month"]))
     tax = py_bands(taxable, T["brackets_month"])
-    aov_amt = zuiver * T["aov_pct"] if aov else 0.0
-    return {"gross": gross, "tax": tax, "aov": aov_amt, "net": gross - pension - tax - aov_amt}
+    aov_amt = c2(zuiver * T["aov_pct"]) if aov else 0.0
+    net = float(sum(Decimal(repr(v)) for v in (gross, -pension, -tax, -aov_amt)))
+    return {"gross": gross, "tax": tax, "aov": aov_amt, "net": net}
 
 
 # ---------------------------------------------------------------- "Op deze pagina" for long guides
