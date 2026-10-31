@@ -50,7 +50,7 @@
 {% if own_links %}<div class="panel own-links home-sec"><div class="panel-h"><h2>{{ 'Uitgelicht' if nl else 'Featured' }}</h2></div><ul class="list">{% for c in own_links %}<li><a href="{{ c.url or '#' }}">{{ ctext(c) }}</a>{% if ctext(c, 'body') %}<div class="meta"><span>{{ ctext(c, 'body') }}</span></div>{% endif %}</li>{% endfor %}</ul></div>{% endif %}
 
 {# 1. Every tool group, with its most used tools. #}
-{% set PICK = {'paper': ['invoice','quote','receipt','proforma'], 'admin': ['btwregister','vatcalc','deadlines','cashcount'], 'staff': ['salary','payslip','overtime','minwage'], 'money': ['pricing','importcost','loan','breakeven'], 'office': ['pdftools','qrcode','businesscard','walink']} %}
+{% set PICK = {'paper': ['invoice','quote','receipt','proforma'], 'admin': ['kasboek','btwregister','vatcalc','deadlines'], 'staff': ['salary','payslip','overtime','minwage'], 'money': ['pricing','importcost','loan','breakeven'], 'office': ['pdftools','qrcode','businesscard','walink']} %}
 <section class="panel home-sec" aria-labelledby="h-tools">
  <div class="panel-h"><h2 id="h-tools">{{ 'Gratis tools' if nl else 'Free tools' }}</h2><a href="{{ U('tools') }}">{{ 'Alle' if nl else 'All' }} {{ TM.TOTAL }} tools &rarr;</a></div>
  <div class="cats">

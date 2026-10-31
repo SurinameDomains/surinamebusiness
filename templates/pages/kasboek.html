@@ -1,0 +1,117 @@
+{% extends "tool_base.html" %}
+{% block lead %}{{ 'Houd bij wat er binnenkomt en uitgaat, in de kas en op de bank. Hang elke uitgave aan een project en zie per project per maand wat het oplevert en kost. Alles op de cent, zonder account.' if nl else 'Track what comes in and goes out, in cash and at the bank. Link each expense to a project and see per project per month what it earns and costs. Exact to the cent, no account needed.' }}{% endblock %}
+{% block badge %}<p class="local-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> {{ 'Je boekingen blijven op dit toestel. Log je in met Google, dan staan ze ook in je account en op je andere toestellen.' if nl else 'Your entries stay on this device. Sign in with Google and they are also kept in your account and on your other devices.' }}</p>{% endblock %}
+{% block tool %}
+<div class="tabs" role="tablist" aria-label="{{ 'Onderdelen' if nl else 'Sections' }}" id="kb-tabs">
+ <button type="button" role="tab" id="kb-t-book" aria-controls="kb-p-book" aria-selected="true">{{ 'Boeken' if nl else 'Entries' }}</button>
+ <button type="button" role="tab" id="kb-t-proj" aria-controls="kb-p-proj" aria-selected="false" tabindex="-1">{{ 'Per project' if nl else 'By project' }}</button>
+ <button type="button" role="tab" id="kb-t-acc" aria-controls="kb-p-acc" aria-selected="false" tabindex="-1">{{ 'Kas en bank' if nl else 'Cash and bank' }}</button>
+</div>
+
+<section id="kb-p-book" role="tabpanel" aria-labelledby="kb-t-book">
+<div class="cols">
+ <div>
+  <form class="card calc" id="kb" onsubmit="return false" autocomplete="off">
+   <div class="eyebrow" id="kb-ftitle">{{ 'Boeking toevoegen' if nl else 'Add an entry' }}</div>
+   <div class="seg" role="group" aria-label="{{ 'Soort boeking' if nl else 'Type of entry' }}" id="kb-dir">
+    <button type="button" data-dir="out" aria-pressed="true">{{ 'Uitgave' if nl else 'Expense' }}</button>
+    <button type="button" data-dir="in" aria-pressed="false">{{ 'Ontvangst' if nl else 'Income' }}</button>
+    <button type="button" data-dir="tr" aria-pressed="false">{{ 'Overboeken' if nl else 'Transfer' }}</button>
+   </div>
+   <div class="two">
+    <div><label for="kb-date">{{ 'Datum' if nl else 'Date' }}</label><input id="kb-date" name="date" type="date" required></div>
+    <div><label for="kb-amt">{{ 'Bedrag' if nl else 'Amount' }}</label><input id="kb-amt" name="amt" inputmode="decimal" placeholder="0,00" required></div>
+   </div>
+   <div class="two">
+    <div><label for="kb-acc" id="kb-acc-l">{{ 'Betaald uit' if nl else 'Paid from' }}</label><select id="kb-acc" name="acc"></select></div>
+    <div id="kb-to-w" hidden><label for="kb-to">{{ 'Naar' if nl else 'To' }}</label><select id="kb-to" name="to"></select></div>
+    <div id="kb-cat-w"><label for="kb-cat">{{ 'Categorie' if nl else 'Category' }}</label><input id="kb-cat" name="cat" list="kb-cats" placeholder="{{ 'Kies of typ' if nl else 'Pick or type' }}"><datalist id="kb-cats"></datalist></div>
+   </div>
+   <div id="kb-amt2-w" hidden><label for="kb-amt2" id="kb-amt2-l">{{ 'Ontvangen op de andere rekening' if nl else 'Received in the other account' }}</label><input id="kb-amt2" name="amt2" inputmode="decimal"><div class="hint">{{ 'Andere valuta: vul in wat er werkelijk binnenkwam (na wisselen).' if nl else 'Different currency: enter what actually arrived (after exchange).' }}</div></div>
+   <div id="kb-proj-w"><label for="kb-proj">{{ 'Project (optioneel)' if nl else 'Project (optional)' }}</label><input id="kb-proj" name="proj" list="kb-projs" placeholder="{{ 'Bijv. Verbouwing Tamanredjo of klant Bakker' if nl else 'E.g. Renovation Lelydorp or client Baker' }}"><datalist id="kb-projs"></datalist></div>
+   <label for="kb-desc">{{ 'Omschrijving' if nl else 'Description' }}</label><input id="kb-desc" name="desc" placeholder="{{ 'Bijv. cement en blokken bij de bouwmarkt' if nl else 'E.g. cement and blocks at the hardware store' }}">
+   <label for="kb-ref">{{ 'Bon- of factuurnummer (optioneel)' if nl else 'Receipt or invoice number (optional)' }}</label><input id="kb-ref" name="ref">
+   <div class="btns" style="margin-top:14px">
+    <button class="btn" type="submit" id="kb-save" style="flex:1 1 auto">{{ 'Toevoegen' if nl else 'Add' }}</button>
+    <button class="btn alt" type="button" id="kb-cancel" hidden>{{ 'Annuleren' if nl else 'Cancel' }}</button>
+   </div>
+   <p class="hint" id="kb-msg" role="status" style="margin:8px 0 0"></p>
+  </form>
+
+  <div class="card" style="margin-top:16px">
+   <div class="calc" style="margin-top:-14px"><div class="three">
+    <div><label for="kb-month">{{ 'Maand' if nl else 'Month' }}</label><input id="kb-month" type="month"></div>
+    <div><label for="kb-facc">{{ 'Rekening' if nl else 'Account' }}</label><select id="kb-facc"></select></div>
+    <div><label for="kb-fproj">{{ 'Project' }}</label><select id="kb-fproj"></select></div>
+   </div></div>
+   <label style="display:flex;gap:8px;align-items:center;font-weight:500;margin:12px 0 4px"><input type="checkbox" id="kb-year" style="width:auto;min-height:0"> {{ 'Hele jaar tonen' if nl else 'Show the whole year' }}</label>
+   <table class="tbl stack" style="margin-top:6px"><thead><tr><th>{{ 'Datum' if nl else 'Date' }}</th><th>{{ 'Omschrijving' if nl else 'Description' }}</th><th class="r">{{ 'In' }}</th><th class="r">{{ 'Uit' if nl else 'Out' }}</th><th class="r" id="kb-balh">{{ 'Saldo' if nl else 'Balance' }}</th><th><span class="sr-only">{{ 'Acties' if nl else 'Actions' }}</span></th></tr></thead><tbody id="kb-rows"></tbody></table>
+   <div class="btns">
+    <button type="button" class="btn alt sm" id="kb-print">{{ 'Overzicht printen of PDF' if nl else 'Print or PDF report' }}</button>
+    <button type="button" class="btn alt sm" id="kb-csv">{{ 'Naar CSV (Excel)' if nl else 'To CSV (Excel)' }}</button>
+    <button type="button" class="btn alt sm" id="kb-backup">{{ 'Back-up downloaden' if nl else 'Download backup' }}</button>
+    <label class="btn alt sm" style="display:inline-block;cursor:pointer">{{ 'Back-up terugzetten' if nl else 'Restore backup' }}<input type="file" id="kb-restore" accept=".json,application/json" hidden></label>
+   </div>
+  </div>
+ </div>
+ <aside class="result sticky" id="kb-sum" aria-live="polite"></aside>
+</div>
+</section>
+
+<section id="kb-p-proj" role="tabpanel" aria-labelledby="kb-t-proj" hidden>
+<div class="cols">
+ <div>
+  <div class="card">
+   <div class="calc" style="margin-top:-14px"><div class="two">
+    <div><label for="kb-pyear">{{ 'Jaar' if nl else 'Year' }}</label><select id="kb-pyear"></select></div>
+    <div><label for="kb-psel">{{ 'Project' }}</label><select id="kb-psel"></select></div>
+   </div></div>
+   <div id="kb-pbody" style="margin-top:14px"></div>
+   <div class="btns">
+    <button type="button" class="btn alt sm" id="kb-pprint">{{ 'Projectoverzicht printen of PDF' if nl else 'Print or PDF project report' }}</button>
+    <button type="button" class="btn alt sm" id="kb-pcsv">{{ 'Naar CSV (Excel)' if nl else 'To CSV (Excel)' }}</button>
+   </div>
+  </div>
+ </div>
+ <aside class="result sticky" id="kb-psum" aria-live="polite"></aside>
+</div>
+</section>
+
+<section id="kb-p-acc" role="tabpanel" aria-labelledby="kb-t-acc" hidden>
+<div class="cols">
+ <div>
+  <div class="card"><ul class="list" id="kb-accs"></ul></div>
+  <form class="card calc" id="kb-af" onsubmit="return false" autocomplete="off" style="margin-top:16px">
+   <div class="eyebrow" id="kb-af-t">{{ 'Rekening toevoegen' if nl else 'Add an account' }}</div>
+   <div class="two">
+    <div><label for="kb-an">{{ 'Naam' if nl else 'Name' }}</label><input id="kb-an" name="name" required placeholder="{{ 'Bijv. Bank zakelijk of Kas winkel' if nl else 'E.g. Business bank or Shop cash' }}"></div>
+    <div><label for="kb-at">{{ 'Soort' if nl else 'Type' }}</label><select id="kb-at" name="type"><option value="bank">{{ 'Bankrekening' if nl else 'Bank account' }}</option><option value="cash">{{ 'Kas (contant)' if nl else 'Cash' }}</option><option value="mobile">{{ 'Mobiel geld of wallet' if nl else 'Mobile money or wallet' }}</option></select></div>
+   </div>
+   <div class="two">
+    <div><label for="kb-ac">{{ 'Valuta' if nl else 'Currency' }}</label><select id="kb-ac" name="cur"><option>SRD</option><option>USD</option><option>EUR</option></select></div>
+    <div><label for="kb-ao">{{ 'Beginsaldo' if nl else 'Opening balance' }}</label><input id="kb-ao" name="open" inputmode="decimal" value="0"></div>
+   </div>
+   <div class="hint">{{ 'Het saldo op het moment dat je met dit kasboek begint. Daarna rekent de tool zelf.' if nl else 'The balance at the moment you start this book. From then on the tool keeps count.' }}</div>
+   <div class="btns" style="margin-top:14px"><button class="btn" type="submit" id="kb-asave">{{ 'Opslaan' if nl else 'Save' }}</button><button class="btn alt" type="button" id="kb-acancel" hidden>{{ 'Annuleren' if nl else 'Cancel' }}</button></div>
+  </form>
+ </div>
+ <aside class="result sticky" id="kb-asum" aria-live="polite"></aside>
+</div>
+</section>
+
+<div class="paper print-area" id="kb-doc" hidden></div>
+{% endblock %}
+{% block info %}
+<section class="prose" style="margin-top:28px">
+<h2>{{ 'Zo houd je als zzp\'er of klein bedrijf je geld bij' if nl else 'How a freelancer or small business keeps track of money' }}</h2>
+<ul>
+ <li>{{ 'Boek elke dag of elke week, met het bonnetje erbij. Wie maandelijks alles uit het hoofd probeert te reconstrueren, mist altijd iets.' if nl else 'Book every day or every week, with the receipt in hand. Trying to rebuild a month from memory always misses something.' }}</li>
+ <li>{{ 'Hang uitgaven aan een project of klus. Dan zie je per opdracht of je er echt aan verdient, en kun je bij de volgende offerte scherper rekenen.' if nl else 'Link expenses to a project or job. Then you see per assignment whether it really pays, and you can price the next quote more sharply.' }} <a href="{{ U('quote') }}">{{ L('quote') }}</a></li>
+ <li>{{ 'Houd privé en zaak apart. Neem je geld op voor jezelf, boek het als privé-opname: het telt dan niet als kosten.' if nl else 'Keep private and business apart. When you take money for yourself, book it as a private withdrawal: it does not count as a cost.' }}</li>
+ <li>{{ 'Overboeken van kas naar bank (of omgekeerd) is geen inkomen of uitgave. Gebruik daarvoor Overboeken, dan kloppen beide saldi.' if nl else 'Moving money from cash to bank (or back) is not income or an expense. Use Transfer, so both balances stay right.' }}</li>
+ <li>{{ 'Controleer aan het eind van de maand of het saldo hier gelijk is aan je bankafschrift en aan de kas.' if nl else 'At the end of each month, check that the balance here matches your bank statement and the cash drawer.' }} <a href="{{ U('cashcount') }}">{{ L('cashcount') }}</a></li>
+</ul>
+<p>{{ 'Het resultaat in deze tool is een kasresultaat: wat er werkelijk binnenkwam min wat er werkelijk uitging. Voor de BTW-aangifte gebruik je het' if nl else 'The result in this tool is a cash result: what actually came in minus what actually went out. For the VAT return use the' }} <a href="{{ U('btwregister') }}">{{ L('btwregister') }}</a>{{ ', voor de inkomstenbelasting overleg je met je boekhouder. Lees ook' if nl else '; for income tax, talk to your accountant. Also read' }} <a href="{{ U('bookkeeping') }}">{{ L('bookkeeping') }}</a>.</p>
+</section>
+{% endblock %}
+{% block toolscripts %}<script src="/assets/tools/kasboek.js?v={{ build_id }}" defer></script>{% endblock %}
