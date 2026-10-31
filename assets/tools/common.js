@@ -18,11 +18,29 @@
     var n = parseFloat(v);
     return isFinite(n) ? (neg ? -n : n) : 0;
   }
+  // exact rounding: half away from zero on the decimal value people type (1,005 -> 1,01), no binary drift
+  function rnd(x, dec) {
+    x = +x || 0; if (dec === undefined) dec = 2;
+    var f = Math.pow(10, dec), a = Math.abs(x) * f;
+    var r = Math.round(Number(a.toPrecision(15))) / f;
+    return x < 0 && r ? -r : r;
+  }
+  function r2(x) { return rnd(x, 2); }
+  // sum a list of amounts in whole cents, so totals equal the sum of the amounts shown
+  function sum(list) { var c = 0; for (var i = 0; i < list.length; i++) c += Math.round(r2(list[i]) * 100); return c / 100; }
+  // VAT split that always adds up: excl + VAT = incl to the cent
+  function vatSplit(amount, ratePct, incl) {
+    var r = (+ratePct || 0) / 100, a = r2(amount), vat;
+    if (incl) { vat = r2(a * r / (1 + r)); return { ex: r2(a - vat), vat: vat, inc: a }; }
+    vat = r2(a * r); return { ex: a, vat: vat, inc: r2(a + vat) };
+  }
+  var nfs = {};
   function fmt(x, dec) {
     if (dec === undefined) dec = 2;
-    return new Intl.NumberFormat(loc, { minimumFractionDigits: dec, maximumFractionDigits: dec }).format(Math.round((x || 0) * Math.pow(10, dec)) / Math.pow(10, dec));
+    var f = nfs[dec] || (nfs[dec] = new Intl.NumberFormat(loc, { minimumFractionDigits: dec, maximumFractionDigits: dec }));
+    return f.format(rnd(x, dec) || 0);
   }
-  function money(x, cur) { return (cur || 'SRD') + ' ' + nf2.format(Math.round((x || 0) * 100) / 100); }
+  function money(x, cur) { return (cur || 'SRD') + ' ' + nf2.format(r2(x) || 0); }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -167,7 +185,7 @@
   };
   function words(amount, cur, lng) {
     lng = lng || (nl ? 'nl' : 'en');
-    amount = Math.round(Math.abs(num(amount)) * 100);
+    amount = Math.round(Math.abs(r2(num(amount))) * 100);
     var whole = Math.floor(amount / 100), cents = amount % 100;
     var c = (CUR[cur || 'SRD'] || CUR.SRD)[lng];
     var f = lng === 'nl' ? nlWords : enWords;
@@ -209,25 +227,28 @@
     });
   }
 
+  // tax per band, each band rounded to the cent; the total is the sum of the bands shown
   function bands(amount, brackets) {
-    var tax = 0, lower = 0;
+    var parts = [], lower = 0;
     for (var i = 0; i < brackets.length; i++) {
       var top = brackets[i][0] === null ? Infinity : brackets[i][0];
-      tax += Math.max(0, Math.min(amount, top) - lower) * brackets[i][1];
+      var part = Math.max(0, Math.min(amount, top) - lower);
+      if (part > 0) parts.push(r2(part * brackets[i][1]));
       lower = top;
       if (amount <= top) break;
     }
-    return tax;
+    return sum(parts);
   }
   function salary(gross, pensionPct, aov) {
     var t = SB.tax;
-    var forfait = Math.min(gross * t.forfait_pct, t.forfait_max_month);
-    var pension = gross * (pensionPct || 0) / 100;
-    var zuiver = Math.max(0, gross - forfait - pension);
-    var taxable = Math.max(0, zuiver - t.free_month);
+    gross = r2(gross);
+    var forfait = r2(Math.min(gross * t.forfait_pct, t.forfait_max_month));
+    var pension = r2(gross * (pensionPct || 0) / 100);
+    var zuiver = Math.max(0, r2(gross - forfait - pension));
+    var taxable = Math.max(0, r2(zuiver - t.free_month));
     var tax = bands(taxable, t.brackets_month);
-    var a = aov === false ? 0 : zuiver * t.aov_pct;
-    return { gross: gross, forfait: forfait, pension: pension, zuiver: zuiver, taxable: taxable, tax: tax, aov: a, net: gross - pension - tax - a };
+    var a = aov === false ? 0 : r2(zuiver * t.aov_pct);
+    return { gross: gross, forfait: forfait, pension: pension, zuiver: zuiver, taxable: taxable, tax: tax, aov: a, net: sum([gross, -pension, -tax, -a]) };
   }
 
   // print only the document: copy every .print-area into a bare container under <body>
@@ -252,7 +273,7 @@
   }
 
   window.SBT = {
-    nl: nl, T: T, num: num, fmt: fmt, money: money, esc: esc, $: $, $$: $$, store: store, copy: copy, flash: flash,
+    nl: nl, T: T, num: num, fmt: fmt, money: money, rnd: rnd, r2: r2, sum: sum, vatSplit: vatSplit, esc: esc, $: $, $$: $$, store: store, copy: copy, flash: flash,
     waUrl: waUrl, phone597: phone597, download: download, csv: csv, iso: iso, today: today, addDays: addDays,
     dateLong: dateLong, isWorkday: isWorkday, words: words, imageToDataUrl: imageToDataUrl, persistForm: persistForm,
     bands: bands, salary: salary, printDoc: printDoc, SB: SB

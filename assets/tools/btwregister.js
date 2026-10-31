@@ -9,9 +9,8 @@
   function save() { if (!S.store.set(KEY, data)) alertFail(); }
   function alertFail() { sum.insertAdjacentHTML('afterbegin', '<p class="note" style="color:#5b4310">' + T('Opslaan op dit toestel lukt niet (privévenster?). Download een back-up.', 'Saving on this device failed (private window?). Download a backup.') + '</p>'); }
   function split(e) {
-    var r = e.rate === 'x' ? 0 : S.num(e.rate) / 100, a = S.num(e.amount);
-    var ex = e.incl ? a / (1 + r) : a;
-    return { ex: ex, vat: ex * r };
+    var s = S.vatSplit(S.num(e.amount), e.rate === 'x' ? 0 : S.num(e.rate), e.incl);
+    return { ex: s.ex, vat: s.vat, inc: s.inc };
   }
   function inMonth() { return data.filter(function (e) { return e.date.slice(0, 7) === month.value; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; }); }
   function render() {
@@ -24,10 +23,10 @@
     var per = {}, sv = 0, pv = 0, sx = 0, px = 0;
     list.forEach(function (e) {
       var s = split(e);
-      if (e.type === 's') { sv += s.vat; sx += s.ex; per[e.rate] = per[e.rate] || { ex: 0, v: 0 }; per[e.rate].ex += s.ex; per[e.rate].v += s.vat; }
-      else { pv += s.vat; px += s.ex; }
+      if (e.type === 's') { sv = S.sum([sv, s.vat]); sx = S.sum([sx, s.ex]); per[e.rate] = per[e.rate] || { ex: 0, v: 0 }; per[e.rate].ex = S.sum([per[e.rate].ex, s.ex]); per[e.rate].v = S.sum([per[e.rate].v, s.vat]); }
+      else { pv = S.sum([pv, s.vat]); px = S.sum([px, s.ex]); }
     });
-    var due = sv - pv;
+    var due = S.sum([sv, -pv]);
     var h = '<div class="sub">' + (due >= 0 ? T('Af te dragen BTW', 'VAT to pay') : T('Terug te vragen BTW', 'VAT to reclaim')) + ' &middot; ' + monthName() + '</div><div class="big tnum">' + S.money(Math.abs(due)) + '</div><table>';
     Object.keys(per).forEach(function (k) {
       h += '<tr><td>' + (k === 'x' ? T('Vrijgestelde omzet', 'Exempt sales') : T('Omzet', 'Sales') + ' ' + k + '%') + '</td><td class="r">' + S.money(per[k].ex) + '</td></tr>';
@@ -65,7 +64,7 @@
     var out = [[T('Datum', 'Date'), T('Soort', 'Type'), T('Omschrijving', 'Description'), T('Tarief', 'Rate'), 'Excl.', T('BTW', 'VAT'), 'Incl.']];
     inMonth().forEach(function (e) {
       var s = split(e), d = function (x) { return S.fmt(x); };
-      out.push([e.date, e.type === 's' ? T('verkoop', 'sale') : T('inkoop', 'purchase'), e.desc, e.rate === 'x' ? T('vrijgesteld', 'exempt') : e.rate + '%', d(s.ex), d(s.vat), d(s.ex + s.vat)]);
+      out.push([e.date, e.type === 's' ? T('verkoop', 'sale') : T('inkoop', 'purchase'), e.desc, e.rate === 'x' ? T('vrijgesteld', 'exempt') : e.rate + '%', d(s.ex), d(s.vat), d(s.inc)]);
     });
     S.download(S.csv(out), 'btw-' + month.value + '.csv', 'text/csv;charset=utf-8');
   };

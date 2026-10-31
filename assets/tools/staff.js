@@ -13,23 +13,23 @@
       document.getElementById('leave-wrap').hidden = !leaving;
       var days = years === 0 ? Math.min(12, Math.max(0, Math.floor(S.num(vc.elements.months.value)))) * Lb.per_month_first_year
         : Math.min(Lb.max_days, Lb.first_year_days + Lb.extra_per_year * (years - 1));
-      var daily = wage * 12 / 52 / dpw;
-      var allowance = daily * Lb.allowance_pct * days;
+      var daily = S.r2(wage * 12 / 52 / dpw);
+      var allowance = S.r2(daily * Lb.allowance_pct * days);
       var h = '<div class="sub">' + T('Vakantiedagen per jaar', 'Leave days per year') + '</div><div class="big tnum">' + days + ' ' + T('dagen', 'days') + '</div>' +
         '<table><tr><td>' + T('Dagloon', 'Daily wage') + ' (' + T('maandloon', 'monthly wage') + ' &times; 12 / 52 / ' + dpw + ')</td><td class="r">' + S.money(daily) + '</td></tr>' +
-        '<tr><td>' + T('Loon tijdens vakantie', 'Wage during leave') + '</td><td class="r">' + S.money(daily * days) + '</td></tr>' +
+        '<tr><td>' + T('Loon tijdens vakantie', 'Wage during leave') + '</td><td class="r">' + S.money(S.r2(daily * days)) + '</td></tr>' +
         '<tr class="tot"><td>' + T('Vakantietoelage (50%)', 'Leave allowance (50%)') + '</td><td class="r">' + S.money(allowance) + '</td></tr></table>';
       if (leaving) {
         var m = Math.min(12, Math.max(0, Math.floor(S.num(vc.elements.mthis.value))));
         var full = years === 0 ? days : Math.min(Lb.max_days, Lb.first_year_days + Lb.extra_per_year * years);
         var earned = years === 0 ? days : full * m / 12;
         var open = Math.max(0, earned - S.num(vc.elements.taken.value)) + S.num(vc.elements.old.value);
-        var pay = open * daily * (1 + Lb.allowance_pct);
+        var payW = S.r2(open * daily), payA = S.r2(open * daily * Lb.allowance_pct), pay = S.sum([payW, payA]);
         h += '<div class="sub" style="margin-top:18px">' + T('Uit te betalen bij uit dienst gaan', 'To pay out on leaving') + '</div><div class="big tnum">' + S.money(pay) + '</div>' +
           '<table><tr><td>' + T('Opgebouwd dit jaar', 'Earned this year') + ' (' + S.fmt(full, 0) + ' &times; ' + m + '/12)</td><td class="r">' + S.fmt(earned, 1) + ' ' + T('dagen', 'days') + '</td></tr>' +
           '<tr><td>' + T('Nog open (incl. vorig jaar)', 'Still open (incl. last year)') + '</td><td class="r">' + S.fmt(open, 1) + ' ' + T('dagen', 'days') + '</td></tr>' +
-          '<tr><td>' + T('Loon', 'Wage') + '</td><td class="r">' + S.money(open * daily) + '</td></tr>' +
-          '<tr><td>' + T('Vakantietoelage', 'Leave allowance') + '</td><td class="r">' + S.money(open * daily * Lb.allowance_pct) + '</td></tr></table>' +
+          '<tr><td>' + T('Loon', 'Wage') + '</td><td class="r">' + S.money(payW) + '</td></tr>' +
+          '<tr><td>' + T('Vakantietoelage', 'Leave allowance') + '</td><td class="r">' + S.money(payA) + '</td></tr></table>' +
           '<p class="sub" style="margin-top:10px">' + T('Uitgaande van het dagenrecht van het lopende jaar op basis van de jaren in dienst.', 'Based on this year\'s entitlement given the years of service.') + '</p>';
       }
       vout.innerHTML = h;
@@ -68,7 +68,7 @@
         else { h100 += Math.min(h, norm); h150 += Math.max(0, h - norm); }
       });
       S.store.set('ts', store);
-      var pay = rate * (h100 + 1.5 * h150 + 2 * h200);
+      var pay = S.sum([rate * h100, rate * 1.5 * h150, rate * 2 * h200]);
       var hh = function (x) { return S.fmt(x, 2) + ' ' + T('uur', 'h'); };
       var h = '<div class="sub">' + T('Gewerkt deze week', 'Worked this week') + '</div><div class="big tnum">' + hh(tot) + '</div>' +
         '<table><tr><td>' + T('Normale uren', 'Normal hours') + '</td><td class="r">' + hh(h100) + '</td></tr>' +
@@ -91,8 +91,10 @@
     var mode = 'h';
     var hr = function () {
       var a = S.num(hw.elements.amount.value), hpw = S.num(hw.elements.hpw.value) || 40, dpw = +hw.elements.dpw.value;
-      var hour = mode === 'h' ? a : a * 12 / 52 / hpw;
-      var week = hour * hpw, month = week * 52 / 12;
+      // start from the amount typed, so it is shown back exactly; the rest is derived and rounded to the cent
+      var hour, week, month;
+      if (mode === 'h') { hour = S.r2(a); week = S.r2(hour * hpw); month = S.r2(hour * hpw * 52 / 12); }
+      else { month = S.r2(a); week = S.r2(month * 12 / 52); hour = S.r2(month * 12 / 52 / hpw); }
       var h = '<div class="sub">' + (mode === 'h' ? T('Maandloon', 'Monthly wage') : T('Uurloon', 'Hourly wage')) + '</div><div class="big tnum">' + S.money(mode === 'h' ? month : hour) + '</div><table>' +
         '<tr><td>' + T('Per uur', 'Per hour') + '</td><td class="r">' + S.money(hour) + '</td></tr>' +
         '<tr><td>' + T('Per dag', 'Per day') + ' (' + S.fmt(hpw / dpw, 1) + ' ' + T('uur', 'h') + ')</td><td class="r">' + S.money(week / dpw) + '</td></tr>' +

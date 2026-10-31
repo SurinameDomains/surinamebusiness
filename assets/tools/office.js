@@ -13,11 +13,12 @@
       var srd = 0;
       rows.forEach(function (r) {
         var v = +r.getAttribute('data-v'), n = Math.max(0, Math.round(S.num(r.querySelector('input').value)));
-        r.querySelector('.r').textContent = n ? S.fmt(v * n) : '-';
-        srd += v * n;
+        var line = S.r2(v * n);
+        r.querySelector('.r').textContent = n ? S.fmt(line) : '-';
+        srd = S.sum([srd, line]);
       });
-      var usd = S.num(cc.elements.usd.value) * S.num(cc.elements.usdr.value), eur = S.num(cc.elements.eur.value) * S.num(cc.elements.eurr.value);
-      return { srd: srd, usd: usd, eur: eur, total: srd + usd + eur, exp: S.num(cc.elements.exp.value), flt: S.num(cc.elements.float.value) };
+      var usd = S.r2(S.num(cc.elements.usd.value) * S.num(cc.elements.usdr.value)), eur = S.r2(S.num(cc.elements.eur.value) * S.num(cc.elements.eurr.value));
+      return { srd: srd, usd: usd, eur: eur, total: S.sum([srd, usd, eur]), exp: S.r2(S.num(cc.elements.exp.value)), flt: S.r2(S.num(cc.elements.float.value)) };
     };
     var render = function () {
       var c = calc(), h = '<div class="sub">' + T('Geteld totaal', 'Total counted') + '</div><div class="big tnum">' + S.money(c.total) + '</div><table>' +
@@ -25,11 +26,11 @@
         (c.usd ? '<tr><td>USD ' + T('omgerekend', 'converted') + '</td><td class="r">' + S.money(c.usd) + '</td></tr>' : '') +
         (c.eur ? '<tr><td>EUR ' + T('omgerekend', 'converted') + '</td><td class="r">' + S.money(c.eur) + '</td></tr>' : '');
       if (c.exp) {
-        var d = c.total - c.exp;
+        var d = S.sum([c.total, -c.exp]);
         h += '<tr><td>' + T('Verwacht', 'Expected') + '</td><td class="r">' + S.money(c.exp) + '</td></tr><tr class="tot"><td>' +
           (Math.abs(d) < 0.005 ? T('Kas klopt', 'Drawer matches') : d > 0 ? T('Kasoverschot', 'Over') : T('Kastekort', 'Short')) + '</td><td class="r">' + S.money(Math.abs(d)) + '</td></tr>';
       }
-      if (c.flt) h += '<tr><td>' + T('Af te storten (na wisselgeld)', 'To deposit (after float)') + '</td><td class="r">' + S.money(Math.max(0, c.srd - c.flt)) + '</td></tr>';
+      if (c.flt) h += '<tr><td>' + T('Af te storten (na wisselgeld)', 'To deposit (after float)') + '</td><td class="r">' + S.money(Math.max(0, S.sum([c.srd, -c.flt]))) + '</td></tr>';
       document.getElementById('cc-out').innerHTML = h + '</table>';
       var o = {}; keep.forEach(function (k) { o[k] = cc.elements[k].value; }); S.store.set('cc:set', o);
     };

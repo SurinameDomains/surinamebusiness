@@ -53,7 +53,7 @@
   function filled(kind) {
     return rows(kind).map(function (r) { return { d: r.d.trim(), v: S.num(r.a) }; }).filter(function (r) { return r.v !== 0; });
   }
-  function total(list) { return list.reduce(function (s, r) { return s + r.v; }, 0); }
+  function total(list) { return S.sum(list.map(function (r) { return r.v; })); }
 
   // ---------------------------------------------------------------- state
   function state() {
@@ -86,14 +86,14 @@
     var own = S.num(f.own.value), loan = Math.max(0, S.num(f.loan.value)), ratePct = S.num(f.rate.value);
     var n = Math.max(0, Math.round(S.num(f.term.value))), r = ratePct / 100 / 12;
     var pay = 0;
-    if (loan > 0 && n > 0) pay = r > 0 ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
-    var invT = total(inv), finO = total(fin), finT = own + loan + finO;
-    var revT = total(rev), varPct = S.num(f.varpct.value), varC = revT * varPct / 100, gross = revT - varC;
-    var fixT = total(cost), result = gross - fixT - pay;
+    if (loan > 0 && n > 0) pay = S.r2(r > 0 ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n);
+    var invT = total(inv), finO = total(fin), finT = S.sum([own, loan, finO]);
+    var revT = total(rev), varPct = S.num(f.varpct.value), varC = S.r2(revT * varPct / 100), gross = S.sum([revT, -varC]);
+    var fixT = total(cost), result = S.sum([gross, -fixT, -pay]);
     var be = varPct < 100 ? (fixT + pay) / (1 - varPct / 100) : null;
     return {
       cur: cur, inv: inv, fin: fin, rev: rev, cost: cost, own: own, loan: loan, rate: ratePct, n: n, pay: pay,
-      interest: pay * n - loan, invT: invT, finO: finO, finT: finT, gap: finT - invT, ownPct: invT > 0 ? own / invT * 100 : null,
+      interest: S.sum([pay * n, -loan]), invT: invT, finO: finO, finT: finT, gap: S.sum([finT, -invT]), ownPct: invT > 0 ? own / invT * 100 : null,
       revT: revT, varPct: varPct, varC: varC, gross: gross, fixT: fixT, result: result, be: be
     };
   }

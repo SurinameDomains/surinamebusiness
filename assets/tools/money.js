@@ -32,22 +32,24 @@
     fxField(pr);
     on(pr, function () {
       var e = pr.elements, fx = S.num(e.fx.value) * (1 + S.num(e.buf.value) / 100);
-      var cost = S.num(e.cost.value) * (e.cur.value === 'SRD' ? 1 : fx) + S.num(e.extra.value);
-      var pct = S.num(e.pct.value) / 100, vat = S.num(e.vat.value) / 100, rnd = S.num(e.round.value);
-      var ex = e.mode.value === 'markup' ? cost * (1 + pct) : (pct < 1 ? cost / (1 - pct) : 0);
-      var inc = ex * (1 + vat);
-      if (rnd) { inc = Math.ceil(inc / rnd - 1e-9) * rnd; ex = inc / (1 + vat); }
-      var profit = ex - cost;
+      var cost = S.r2(S.num(e.cost.value) * (e.cur.value === 'SRD' ? 1 : fx) + S.num(e.extra.value));
+      var pct = S.num(e.pct.value) / 100, vatP = S.num(e.vat.value), rnd = S.num(e.round.value);
+      var ex = S.r2(e.mode.value === 'markup' ? cost * (1 + pct) : (pct < 1 ? cost / (1 - pct) : 0));
+      var sp = S.vatSplit(ex, vatP, false);
+      // round the shelf price up to the chosen step, then split it back so excl + VAT = shelf price
+      if (rnd) sp = S.vatSplit(S.r2(Math.ceil(Number((sp.inc / rnd).toPrecision(12))) * rnd), vatP, true);
+      ex = sp.ex;
+      var inc = sp.inc, profit = S.sum([ex, -cost]);
       var h = '<div class="sub">' + T('Verkoopprijs incl. BTW', 'Selling price incl. VAT') + '</div><div class="big tnum">' + S.money(inc) + '</div><table>' +
         '<tr><td>' + T('Kostprijs in SRD', 'Cost in SRD') + '</td><td class="r">' + S.money(cost) + '</td></tr>' +
         '<tr><td>' + T('Verkoopprijs excl. BTW', 'Price excl. VAT') + '</td><td class="r">' + S.money(ex) + '</td></tr>' +
-        '<tr><td>' + T('BTW', 'VAT') + ' ' + e.vat.value + '%</td><td class="r">' + S.money(inc - ex) + '</td></tr>' +
+        '<tr><td>' + T('BTW', 'VAT') + ' ' + e.vat.value + '%</td><td class="r">' + S.money(sp.vat) + '</td></tr>' +
         '<tr class="tot"><td>' + T('Winst per stuk', 'Profit per item') + '</td><td class="r">' + S.money(profit) + '</td></tr></table>' +
         '<p class="sub" style="margin-top:10px">' + T('Opslag', 'Markup') + ' ' + S.fmt(cost ? profit / cost * 100 : 0, 1) + '% &middot; ' + T('marge', 'margin') + ' ' + S.fmt(ex ? profit / ex * 100 : 0, 1) + '%</p>';
       h += '<table style="margin-top:6px"><tr><td colspan="2" class="sub">' + T('Als de koers stijgt', 'If the rate rises') + '</td></tr>';
       if (e.cur.value !== 'SRD') [2, 5, 10].forEach(function (p) {
-        var c2 = S.num(e.cost.value) * fx * (1 + p / 100) + S.num(e.extra.value);
-        h += '<tr><td>+' + p + '%: ' + T('winst', 'profit') + '</td><td class="r">' + S.money(ex - c2) + '</td></tr>';
+        var c2 = S.r2(S.num(e.cost.value) * fx * (1 + p / 100) + S.num(e.extra.value));
+        h += '<tr><td>+' + p + '%: ' + T('winst', 'profit') + '</td><td class="r">' + S.money(S.sum([ex, -c2])) + '</td></tr>';
       });
       h += '</table>';
       document.getElementById('pr-out').innerHTML = h;
@@ -60,11 +62,11 @@
     fxField(ic);
     on(ic, function () {
       var e = ic.elements, fx = e.cur.value === 'SRD' ? 1 : S.num(e.fx.value);
-      var cif = (S.num(e.val.value) + S.num(e.frt.value) + S.num(e.ins.value)) * fx;
-      var duty = cif * S.num(e.duty.value) / 100, lev = cif * S.num(e.lev.value) / 100, exc = S.num(e.exc.value);
-      var vat = (cif + duty + lev + exc) * S.num(e.vat.value) / 100, local = S.num(e.local.value);
-      var total = cif + duty + lev + exc + vat + local, units = Math.max(1, S.num(e.units.value));
-      var cost = e.reg.checked ? total - vat : total;
+      var cif = S.r2((S.num(e.val.value) + S.num(e.frt.value) + S.num(e.ins.value)) * fx);
+      var duty = S.r2(cif * S.num(e.duty.value) / 100), lev = S.r2(cif * S.num(e.lev.value) / 100), exc = S.r2(S.num(e.exc.value));
+      var vat = S.r2(S.sum([cif, duty, lev, exc]) * S.num(e.vat.value) / 100), local = S.r2(S.num(e.local.value));
+      var total = S.sum([cif, duty, lev, exc, vat, local]), units = Math.max(1, S.num(e.units.value));
+      var cost = e.reg.checked ? S.sum([total, -vat]) : total;
       var h = '<div class="sub">' + T('Kostprijs per stuk', 'Landed cost per item') + (e.reg.checked ? T(' (excl. BTW)', ' (excl. VAT)') : '') + '</div><div class="big tnum">' + S.money(cost / units) + '</div><table>' +
         '<tr><td>' + T('Douanewaarde (CIF)', 'Customs value (CIF)') + '</td><td class="r">' + S.money(cif) + '</td></tr>' +
         '<tr><td>' + T('Invoerrecht', 'Import duty') + ' ' + S.fmt(S.num(e.duty.value), 1) + '%</td><td class="r">' + S.money(duty) + '</td></tr>' +
@@ -75,7 +77,7 @@
         '<tr class="tot"><td>' + T('Totaal te betalen', 'Total to pay') + '</td><td class="r">' + S.money(total) + '</td></tr></table>' +
         '<p class="sub" style="margin-top:10px">' + T('Opslag op de factuurwaarde', 'On top of invoice value') + ': ' + S.fmt(cif ? (cost / (S.num(e.val.value) * fx) - 1) * 100 : 0, 1) + '%' +
         (e.reg.checked ? '. ' + T('De BTW bij invoer trek je af in je BTW-aangifte.', 'You deduct the import VAT in your VAT return.') : '') + '</p>' +
-        '<div class="btns"><a class="btn ghost sm" href="' + (S.nl ? '/verkoopprijs-berekenen' : '/en/price-markup-calculator') + '?cost=' + (cost / units).toFixed(2) + '&cur=SRD">' + T('Bereken de verkoopprijs', 'Work out the selling price') + ' &rarr;</a></div>';
+        '<div class="btns"><a class="btn ghost sm" href="' + (S.nl ? '/verkoopprijs-berekenen' : '/en/price-markup-calculator') + '?cost=' + S.r2(cost / units).toFixed(2) + '&cur=SRD">' + T('Bereken de verkoopprijs', 'Work out the selling price') + ' &rarr;</a></div>';
       document.getElementById('ic-out').innerHTML = h;
     });
   }
@@ -87,13 +89,15 @@
     on(ln, function () {
       var e = ln.elements, P = S.num(e.amt.value), n = Math.max(1, Math.round(S.num(e.months.value))), r = S.num(e.rate.value) / 100 / 12, cur = e.cur.value;
       document.getElementById('yrs').textContent = S.fmt(n / 12, 1) + ' ' + T('jaar', 'years');
-      var bal = P, totI = 0, first = 0, last = 0, ann = r ? P * r / (1 - Math.pow(1 + r, -n)) : P / n;
+      P = S.r2(P);
+      var bal = P, totI = 0, first = 0, last = 0, ann = S.r2(r ? P * r / (1 - Math.pow(1 + r, -n)) : P / n), linP = S.r2(P / n);
       var y = +e.start.value.slice(0, 4) || new Date().getFullYear(), m = (+e.start.value.slice(5, 7) || 1) - 1;
       lnRows = [];
       for (var i = 0; i < n; i++) {
-        var int = bal * r, pay = e.type.value === 'ann' ? ann : P / n + int, prin = pay - int;
-        if (i === n - 1) { prin = bal; pay = prin + int; }
-        bal = Math.max(0, bal - prin); totI += int;
+        // bank practice: interest per month in cents, the last payment clears the exact balance
+        var int = S.r2(bal * r), pay = e.type.value === 'ann' ? ann : S.sum([linP, int]), prin = S.sum([pay, -int]);
+        if (prin > bal || i === n - 1) { prin = bal; pay = S.sum([prin, int]); }
+        bal = S.sum([bal, -prin]); totI = S.sum([totI, int]);
         if (!i) first = pay; last = pay;
         var mm = (m + i) % 12, yy = y + Math.floor((m + i) / 12);
         lnRows.push([yy + '-' + ('0' + (mm + 1)).slice(-2), pay, int, prin, bal]);
@@ -103,11 +107,11 @@
         (e.type.value === 'lin' ? '<tr><td>' + T('Laatste maandlast', 'Last monthly payment') + '</td><td class="r">' + mo(last) + '</td></tr>' : '') +
         '<tr><td>' + T('Totale rente', 'Total interest') + '</td><td class="r">' + mo(totI) + '</td></tr>' +
         (fee ? '<tr><td>' + T('Afsluitkosten', 'Arrangement fee') + '</td><td class="r">' + mo(fee) + '</td></tr>' : '') +
-        '<tr class="tot"><td>' + T('Totaal terug te betalen', 'Total to repay') + '</td><td class="r">' + mo(P + totI + fee) + '</td></tr></table>';
+        '<tr class="tot"><td>' + T('Totaal terug te betalen', 'Total to repay') + '</td><td class="r">' + mo(S.sum([P, totI, fee])) + '</td></tr></table>';
       document.getElementById('ln-out').innerHTML = h;
       // schedule: yearly summary, monthly detail on demand
       var years = {};
-      lnRows.forEach(function (rw) { var k = rw[0].slice(0, 4); years[k] = years[k] || [0, 0, 0, 0]; years[k][0] += rw[1]; years[k][1] += rw[2]; years[k][2] += rw[3]; years[k][3] = rw[4]; });
+      lnRows.forEach(function (rw) { var k = rw[0].slice(0, 4); years[k] = years[k] || [0, 0, 0, 0]; years[k][0] = S.sum([years[k][0], rw[1]]); years[k][1] = S.sum([years[k][1], rw[2]]); years[k][2] = S.sum([years[k][2], rw[3]]); years[k][3] = rw[4]; });
       var head = [T('Jaar', 'Year'), T('Betaald', 'Paid'), T('Rente', 'Interest'), T('Aflossing', 'Principal'), T('Restschuld', 'Balance')];
       var f2 = function (x) { return S.fmt(x); };
       document.getElementById('ln-sched').innerHTML = tbl(head, Object.keys(years).map(function (k) { var v = years[k]; return [k, f2(v[0]), f2(v[1]), f2(v[2]), f2(v[3])]; }), true) +
@@ -188,11 +192,12 @@
   var sv = document.getElementById('sv');
   if (sv) on(sv, function () {
     var e = sv.elements, bal = S.num(e.start.value), dep = S.num(e.dep.value), yrs = Math.min(60, Math.max(1, Math.round(S.num(e.years.value)))), comp = +e.comp.value, cur = e.cur.value;
+    bal = S.r2(bal); dep = S.r2(dep);
     var r = S.num(e.rate.value) / 100, paid = bal, rows = [], intAcc = 0, pend = 0;
     for (var m = 1; m <= yrs * 12; m++) {
       pend += bal * r / 12;            // interest accrues monthly, is added per period
-      if (m % (12 / comp) === 0) { bal += pend; intAcc += pend; pend = 0; }
-      bal += dep; paid += dep;
+      if (m % (12 / comp) === 0) { pend = S.r2(pend); bal = S.sum([bal, pend]); intAcc = S.sum([intAcc, pend]); pend = 0; }
+      bal = S.sum([bal, dep]); paid = S.sum([paid, dep]);
       if (m % 12 === 0) rows.push([String(m / 12), S.fmt(paid), S.fmt(intAcc), S.fmt(bal)]);
     }
     document.getElementById('sv-out').innerHTML = '<div class="sub">' + T('Na ', 'After ') + yrs + T(' jaar', ' years') + '</div><div class="big tnum">' + S.money(bal, cur) + '</div><table>' +
@@ -203,9 +208,9 @@
   // ---------------------------------------------------------------- depreciation
   var dp = document.getElementById('dp');
   if (dp) on(dp, function () {
-    var e = dp.elements, cost = S.num(e.cost.value), res = Math.min(S.num(e.res.value), cost), life = Math.max(1, Math.round(S.num(e.life.value)));
+    var e = dp.elements, cost = S.r2(S.num(e.cost.value)), res = Math.min(S.r2(S.num(e.res.value)), cost), life = Math.max(1, Math.round(S.num(e.life.value)));
     var y0 = Math.round(S.num(e.y0.value)) || new Date().getFullYear(), m1 = Math.min(12, Math.max(1, Math.round(S.num(e.m1.value)) || 12));
-    var base = cost - res, book = cost, rows = [], lin = base / life, rate = 2 / life, y = 0, guard = 0;
+    var base = S.sum([cost, -res]), book = cost, rows = [], lin = S.r2(base / life), rate = 2 / life, y = 0, guard = 0;
     while (book - res > 0.005 && guard++ < 60) {
       var frac = y === 0 ? m1 / 12 : 1, d;
       if (e.method.value === 'lin') d = lin * frac;
@@ -214,8 +219,8 @@
         var sl = remYears > 0 ? (book - res) / remYears : book - res;
         d = Math.max(book * rate, sl) * frac;
       }
-      d = Math.min(d, book - res);
-      book -= d;
+      d = Math.min(S.r2(d), S.sum([book, -res]));
+      book = S.sum([book, -d]);
       rows.push([String(y0 + y), S.fmt(d), S.fmt(book)]);
       y++;
     }
@@ -249,8 +254,8 @@
     on(tc, function () {
       var e = tc.elements, km = S.num(e.km.value) * +e.ret.value, use = Math.max(0.1, S.num(e.use.value)), fuelP = S.num(e.fuel.value);
       S.store.set('tc:fuel', e.fuel.value);
-      var fuel = km / use * fuelP, wear = km * S.num(e.wear.value), labour = S.num(e.time.value) / 60 * S.num(e.wage.value);
-      var tot = fuel + wear + labour, trips = S.num(e.trips.value);
+      var fuel = S.r2(km / use * fuelP), wear = S.r2(km * S.num(e.wear.value)), labour = S.r2(S.num(e.time.value) / 60 * S.num(e.wage.value));
+      var tot = S.sum([fuel, wear, labour]), trips = S.num(e.trips.value);
       document.getElementById('tc-out').innerHTML = '<div class="sub">' + T('Kosten per rit', 'Cost per trip') + '</div><div class="big tnum">' + S.money(tot) + '</div><table>' +
         '<tr><td>' + T('Brandstof', 'Fuel') + ' (' + S.fmt(km / use, 1) + ' l)</td><td class="r">' + S.money(fuel) + '</td></tr>' +
         '<tr><td>' + T('Slijtage en onderhoud', 'Wear and maintenance') + '</td><td class="r">' + S.money(wear) + '</td></tr>' +

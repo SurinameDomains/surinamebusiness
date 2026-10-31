@@ -106,7 +106,7 @@
           '<button class="btn alt sm" data-a="in" data-id="' + x.id + '">+ ' + T('In', 'In') + '</button><button class="btn alt sm" data-a="out" data-id="' + x.id + '">- ' + T('Uit', 'Out') + '</button><button class="btn alt sm" data-a="set" data-id="' + x.id + '">' + T('Telling', 'Count') + '</button><button class="btn alt sm" data-a="del" data-id="' + x.id + '" aria-label="' + T('Verwijderen', 'Delete') + '">&times;</button></div></li>';
       }).join('') : '<li class="empty">' + T('Nog geen artikelen.', 'No items yet.') + '</li>';
       var val = 0, sval = 0, nLow = 0;
-      items.forEach(function (x) { val += x.qty * (x.cost || 0); sval += x.qty * (x.price || 0); if (isLow(x)) nLow++; });
+      items.forEach(function (x) { val = S.sum([val, x.qty * (x.cost || 0)]); sval = S.sum([sval, x.qty * (x.price || 0)]); if (isLow(x)) nLow++; });
       document.getElementById('sk-sum').innerHTML = '<div class="sub">' + T('Voorraadwaarde (inkoop)', 'Stock value (cost)') + '</div><div class="big tnum">' + S.money(val) + '</div><table>' +
         '<tr><td>' + T('Artikelen', 'Items') + '</td><td class="r">' + items.length + '</td></tr><tr><td>' + T('Verkoopwaarde', 'Sales value') + '</td><td class="r">' + S.money(sval) + '</td></tr>' +
         '<tr class="tot"><td>' + T('Bijbestellen', 'To reorder') + '</td><td class="r">' + nLow + '</td></tr></table><p class="sub" style="margin-top:10px">* ' + T('marge uitgaande van 10% BTW in de verkoopprijs', 'margin assuming 10% VAT in the selling price') + '</p>';
@@ -178,17 +178,17 @@
     var res = [];
     var calc = function () {
       var rows = S.$$('.cf-row', rowsBox).map(function (d) { return [d.querySelector('[name=n]').value, d.querySelector('[name=t]').value, S.num(d.querySelector('[name=a]').value), d.querySelector('[name=f]').value, +d.querySelector('[name=s]').value]; });
-      var bal = S.num(cf.querySelector('[name=start]').value), M = months(), low = null, lowI = -1;
+      var bal = S.r2(S.num(cf.querySelector('[name=start]').value)), M = months(), low = null, lowI = -1;
       res = M.map(function (lab, i) {
         var inn = 0, out = 0;
         rows.forEach(function (r) {
           var k = i + 1 - r[4];
           var hit = k >= 0 && (r[3] === 'm' || (r[3] === 'q' && k % 3 === 0) || (r[3] === 'y' && k % 12 === 0) || (r[3] === 'o' && k === 0));
-          if (hit) { if (r[1] === 'in') inn += r[2]; else out += r[2]; }
+          if (hit) { if (r[1] === 'in') inn = S.sum([inn, r[2]]); else out = S.sum([out, r[2]]); }
         });
-        bal += inn - out;
+        bal = S.sum([bal, inn, -out]);
         if (low === null || bal < low) { low = bal; lowI = i; }
-        return [lab, inn, out, inn - out, bal];
+        return [lab, inn, out, S.sum([inn, -out]), bal];
       });
       document.getElementById('cf-table').innerHTML = '<table class="tbl stack"><thead><tr><th>' + T('Maand', 'Month') + '</th><th class="r">' + T('In', 'In') + '</th><th class="r">' + T('Uit', 'Out') + '</th><th class="r">' + T('Saldo', 'Balance') + '</th></tr></thead><tbody>' +
         res.map(function (r) { return '<tr><td data-l="">' + r[0] + '</td><td class="r" data-l="' + T('In', 'In') + '">' + S.fmt(r[1], 0) + '</td><td class="r" data-l="' + T('Uit', 'Out') + '">' + S.fmt(r[2], 0) + '</td><td class="r" data-l="' + T('Saldo', 'Balance') + '"' + (r[4] < 0 ? ' style="color:var(--down);font-weight:700"' : '') + '>' + S.fmt(r[4], 0) + '</td></tr>'; }).join('') + '</tbody></table>';

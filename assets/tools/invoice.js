@@ -62,17 +62,25 @@
   }
   if (!tbody.children.length) addLine();
 
+  // every line in whole cents; VAT once per rate over the lines of that rate, so
+  // subtotal + VAT = total to the cent, and with prices incl. VAT the total is exactly the sum of the lines
+  // unit prices keep up to 4 decimals (0,3333), so quantity x price visibly gives the line amount
+  function pdec(p) { var d = (String(S.rnd(p, 4)).split('.')[1] || '').length; return Math.max(2, Math.min(4, d)); }
   function calc() {
-    var incl = val('pricemode') === 'incl', per = {}, sub = 0, vat = 0;
+    var incl = val('pricemode') === 'incl', per = {};
     var rows = lines().map(function (l) {
-      var q = S.num(l.q), p = S.num(l.p), rate = l.v === 'x' ? 0 : S.num(l.v) / 100;
-      var gross = q * p, ex = incl ? gross / (1 + rate) : gross, v = ex * rate;
-      sub += ex; vat += v;
-      per[l.v] = per[l.v] || { ex: 0, v: 0 };
-      per[l.v].ex += ex; per[l.v].v += v;
-      return { l: l, q: q, p: p, ex: ex, v: v, line: incl ? gross : ex };
+      var q = S.num(l.q), p = S.num(l.p), line = S.r2(q * p);
+      per[l.v] = per[l.v] || { amt: [], ex: 0, v: 0 };
+      per[l.v].amt.push(line);
+      return { l: l, q: q, p: p, line: line };
     });
-    return { rows: rows, per: per, sub: sub, vat: vat, total: sub + vat, incl: incl };
+    var subs = [], vats = [];
+    Object.keys(per).forEach(function (k) {
+      var g = per[k], s = S.vatSplit(S.sum(g.amt), k === 'x' ? 0 : S.num(k), incl);
+      g.ex = s.ex; g.v = s.vat; subs.push(s.ex); vats.push(s.vat);
+    });
+    var sub = S.sum(subs), vat = S.sum(vats);
+    return { rows: rows, per: per, sub: sub, vat: vat, total: S.sum([sub, vat]), incl: incl };
   }
   function saveBiz() {
     var o = { logo: logo };
@@ -110,7 +118,7 @@
         '</th><th class="r">' + T('BTW', 'VAT') + '</th><th class="r">' + (c.incl ? T('Bedrag incl.', 'Amount incl.') : T('Bedrag', 'Amount')) + '</th></tr></thead><tbody>';
       c.rows.forEach(function (r) {
         if (!r.l.d.trim() && !r.p) return;
-        h += '<tr><td>' + Es(r.l.d) + '</td><td class="r">' + S.fmt(r.q, r.q % 1 ? 2 : 0) + '</td><td class="r">' + S.fmt(r.p) + '</td><td class="r">' +
+        h += '<tr><td>' + Es(r.l.d) + '</td><td class="r">' + S.fmt(r.q, r.q % 1 ? 2 : 0) + '</td><td class="r">' + S.fmt(r.p, pdec(r.p)) + '</td><td class="r">' +
           (r.l.v === 'x' ? T('vrij', 'exempt') : r.l.v + '%') + '</td><td class="r">' + S.fmt(sign * r.line) + '</td></tr>';
       });
       h += '</tbody></table><table class="tots"><tbody><tr><td>' + T('Subtotaal excl. BTW', 'Subtotal excl. VAT') + '</td><td class="r">' + m(c.sub) + '</td></tr>';
@@ -160,7 +168,7 @@
   document.getElementById('wa').onclick = function () {
     var c = calc(), cur = val('cur') || 'SRD';
     var t = CFG.t + ' ' + E.no.value + (E.s_name.value ? ' ' + T('van', 'from') + ' ' + E.s_name.value : '') + '\n';
-    c.rows.forEach(function (r) { if (r.l.d.trim() || r.p) t += '- ' + r.l.d + ' (' + S.fmt(r.q, r.q % 1 ? 2 : 0) + (CFG.noprice ? ' ' + r.l.u : ' x ' + S.fmt(r.p)) + ')\n'; });
+    c.rows.forEach(function (r) { if (r.l.d.trim() || r.p) t += '- ' + r.l.d + ' (' + S.fmt(r.q, r.q % 1 ? 2 : 0) + (CFG.noprice ? ' ' + r.l.u : ' x ' + S.fmt(r.p, pdec(r.p))) + ')\n'; });
     if (!CFG.noprice) t += (CFG.credit ? T('Te crediteren', 'Total credit') : T('Totaal', 'Total')) + ': ' + S.money(c.total, cur) + (c.vat ? ' (' + T('incl.', 'incl.') + ' ' + S.money(c.vat, cur) + ' ' + T('BTW', 'VAT') + ')' : '') + '\n';
     if (E.due && val('due')) t += CFG.due + ': ' + S.dateLong(val('due')) + '\n';
     if (CFG.bank && E.s_bank.value) t += T('Betalen aan', 'Pay to') + ': ' + E.s_bank.value + '\n';
