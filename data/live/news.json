@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/sbf-wil-dat-ondernemers-profiteren-van-kansen-olie-en-gassector/"
   }
  ],
- "fetched_at": "2026-10-31T15:17:47+00:00",
+ "fetched_at": "2026-10-31T19:32:10+00:00",
  "oil": [
   {
    "econ": false,
@@ -644,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-31T15:17:45+00:00",
+   "fetched_at": "2026-10-31T19:32:08+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-10-31T15:17:43+00:00",
+   "fetched_at": "2026-10-31T19:32:06+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-31T15:17:45+00:00",
+   "fetched_at": "2026-10-31T19:32:08+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T15:17:46+00:00",
+   "fetched_at": "2026-10-31T19:32:09+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-31T15:17:45+00:00",
+   "fetched_at": "2026-10-31T19:32:08+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T15:17:47+00:00",
+   "fetched_at": "2026-10-31T19:32:10+00:00",
    "ok": true
   }
  }
