@@ -3,51 +3,63 @@
   var SB = window.SB || {};
   var lang = document.documentElement.lang.slice(0, 2);
   var nf = new Intl.NumberFormat(lang === 'nl' ? 'nl-NL' : 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  function money(x) { return 'SRD ' + nf.format(Math.round(x * 100) / 100); }
+  // exact rounding: half away from zero on the decimal value (1,005 -> 1,01), every shown amount in whole cents
+  function r2(x) {
+    x = +x || 0;
+    var r = Math.round(Number((Math.abs(x) * 100).toPrecision(15))) / 100;
+    return x < 0 && r ? -r : r;
+  }
+  function sum(list) { var c = 0; for (var i = 0; i < list.length; i++) c += Math.round(r2(list[i]) * 100); return c / 100; }
+  function money(x) { return 'SRD ' + nf.format(r2(x) || 0); }
   function num(v) {
-    if (typeof v === 'number') return v;
-    v = String(v || '').trim().replace(/\s/g, '');
+    if (typeof v === 'number') return isFinite(v) ? v : 0;
+    v = String(v == null ? '' : v).trim().replace(/[\s\u00a0]/g, '').replace(/^(SRD|USD|EUR|\$|\u20ac)/i, '');
     if (!v) return 0;
-    // accept 15.000,50 (nl) and 15,000.50 (en) and plain 15000.5
-    if (/,\d{1,2}$/.test(v)) v = v.replace(/\./g, '').replace(',', '.');
+    var neg = /^-/.test(v); v = v.replace(/^-/, '');
+    // 15.000,50 | 15,000.50 | 15000.5 | 15000,5 | 15.000 (Dutch thousands)
+    if (/,\d{1,2}$/.test(v) || (/,/.test(v) && !/\./.test(v) && !/,\d{3}$/.test(v))) v = v.replace(/\./g, '').replace(',', '.');
+    else if (/^\d{1,3}(\.\d{3})+$/.test(v)) v = v.replace(/\./g, '');
     else v = v.replace(/,/g, '');
     var n = parseFloat(v);
-    return isFinite(n) ? n : 0;
+    return isFinite(n) ? (neg ? -n : n) : 0;
   }
   function bands(amount, brackets) {
-    // brackets: [[upper|null, rate], ...] with uppers as band widths cumulative
-    var tax = 0, lower = 0, rows = [];
+    // brackets: [[upper|null, rate], ...] with cumulative uppers; tax per band rounded to the cent
+    var lower = 0, rows = [];
     for (var i = 0; i < brackets.length; i++) {
       var upper = brackets[i][0], rate = brackets[i][1];
       var top = upper === null ? Infinity : upper;
-      var part = Math.max(0, Math.min(amount, top) - lower);
-      if (part > 0) { tax += part * rate; rows.push([rate, part, part * rate]); }
+      var part = r2(Math.max(0, Math.min(amount, top) - lower));
+      if (part > 0) rows.push([rate, part, r2(part * rate)]);
       lower = top;
       if (amount <= top) break;
     }
-    return { tax: tax, rows: rows };
+    return { tax: sum(rows.map(function (r) { return r[2]; })), rows: rows };
   }
   function salary(gross, pensionPct, aov, allowances) {
     var T = SB.tax;
-    var forfait = Math.min(gross * T.forfait_pct, T.forfait_max_month);
-    var pension = gross * (pensionPct / 100);
-    var zuiver = Math.max(0, gross - forfait - pension);
-    var taxable = Math.max(0, zuiver - T.free_month);
+    gross = r2(gross); allowances = r2(allowances || 0);
+    var forfait = r2(Math.min(gross * T.forfait_pct, T.forfait_max_month));
+    var pension = r2(gross * (pensionPct / 100));
+    var zuiver = Math.max(0, r2(gross - forfait - pension));
+    var taxable = Math.max(0, r2(zuiver - T.free_month));
     var b = bands(taxable, T.brackets_month);
-    var aovAmt = aov ? zuiver * T.aov_pct : 0;
-    var net = gross - pension - b.tax - aovAmt + (allowances || 0);
+    var aovAmt = aov ? r2(zuiver * T.aov_pct) : 0;
+    var net = sum([gross, -pension, -b.tax, -aovAmt, allowances]);
     return { gross: gross, forfait: forfait, pension: pension, zuiver: zuiver, taxable: taxable,
-             tax: b.tax, rows: b.rows, aov: aovAmt, allowances: allowances || 0, net: net };
+             tax: b.tax, rows: b.rows, aov: aovAmt, allowances: allowances, net: net };
   }
+  // lowest gross, in whole cents, that pays at least the wanted net
   function grossFromNet(target, pensionPct, aov, allowances) {
-    var lo = 0, hi = Math.max(1000, target * 3);
-    for (var i = 0; i < 80; i++) {
-      var mid = (lo + hi) / 2;
-      if (salary(mid, pensionPct, aov, allowances).net < target) lo = mid; else hi = mid;
+    target = r2(target);
+    var lo = 0, hi = Math.max(100000, Math.round(target * 300));
+    while (lo < hi) {
+      var mid = Math.floor((lo + hi) / 2);
+      if (salary(mid / 100, pensionPct, aov, allowances).net < target) lo = mid + 1; else hi = mid;
     }
-    return hi;
+    return lo / 100;
   }
-  window.SBcalc = { money: money, num: num, bands: bands, salary: salary, grossFromNet: grossFromNet, nf: nf };
+  window.SBcalc = { money: money, num: num, r2: r2, sum: sum, bands: bands, salary: salary, grossFromNet: grossFromNet, nf: nf };
 
   // ---- salary page
   var sf = document.getElementById('salary-form');
@@ -100,11 +112,11 @@
     var ot = SB.t || {};
     function renderOT() {
       var hourly = num(of.hourly.value), h150 = num(of.h150.value), h200 = num(of.h200.value), h300 = num(of.h300.value);
-      var pay150 = hourly * 1.5 * h150, pay200 = hourly * 2 * h200, pay300 = hourly * 3 * h300;
-      var total = pay150 + pay200 + pay300;
+      var pay150 = r2(hourly * 1.5 * h150), pay200 = r2(hourly * 2 * h200), pay300 = r2(hourly * 3 * h300);
+      var total = sum([pay150, pay200, pay300]);
       var b = bands(total, SB.tax.overtime_brackets_month);
-      var aov = of.aov.checked ? total * SB.tax.aov_pct : 0;
-      var net = total - b.tax - aov;
+      var aov = of.aov.checked ? r2(total * SB.tax.aov_pct) : 0;
+      var net = sum([total, -b.tax, -aov]);
       var rows = '';
       if (h150) rows += '<tr><td>' + h150 + ' ' + ot.hours + ' &times; 150%</td><td class="r">' + money(pay150) + '</td></tr>';
       if (h200) rows += '<tr><td>' + h200 + ' ' + ot.hours + ' &times; 200%</td><td class="r">' + money(pay200) + '</td></tr>';
@@ -125,7 +137,8 @@
     var vt = SB.t || {};
     function renderVAT() {
       var a = num(vf.amount.value), rate = num(vf.rate.value) / 100, incl = vf.dir.value === 'incl';
-      var ex = incl ? a / (1 + rate) : a, vat = ex * rate, inc = ex + vat;
+      a = r2(a);
+      var vat = incl ? r2(a * rate / (1 + rate)) : r2(a * rate), ex = incl ? sum([a, -vat]) : a, inc = incl ? a : sum([a, vat]);
       document.getElementById('vat-out').innerHTML = '<div class="sub">' + (incl ? vt.exLabel : vt.incLabel) + '</div><div class="big tnum">' + money(incl ? ex : inc) + '</div>' +
         '<table><tr><td>' + vt.ex + '</td><td class="r">' + money(ex) + '</td></tr><tr><td>' + vt.vat + ' ' + Math.round(rate * 100) + '%</td><td class="r">' + money(vat) + '</td></tr><tr class="tot"><td>' + vt.inc + '</td><td class="r">' + money(inc) + '</td></tr></table>';
     }

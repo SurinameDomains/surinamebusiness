@@ -183,6 +183,8 @@
       'wl:phone': T('WhatsApp-nummer', 'WhatsApp number') };
     function keyName(k) {
       if (k.indexOf('doc:') === 0) { var d = st.get(k, {}); return (names[d.doc] || T('Document', 'Document')) + ' ' + (d.no || ''); }
+      if (k === 'kb:set') return T('Kasboek: rekeningen', 'Cash book: accounts');
+      if (/^kb:\d{4}$/.test(k)) return T('Kasboek ', 'Cash book ') + k.slice(3);
       if (k.indexOf('no:') === 0) return T('Volgend nummer', 'Next number') + ' (' + (names[k.slice(3)] || k.slice(3)) + ')';
       return KEYNAMES[k] || k;
     }

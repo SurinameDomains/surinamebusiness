@@ -1078,3 +1078,15 @@ body.cc-on .sb-sticky{display:none}
 .cat-facts ul{margin:0 0 12px;padding-left:1.1em;max-width:75ch}
 .cat-facts li{margin:3px 0}
 .cat-facts .bylist{margin:6px 0}
+
+/* ---------------------------------------------------------------- cash and bank book (kasboek) */
+.kb-d .pill{white-space:normal;overflow-wrap:anywhere}
+.kb-d .sub{overflow-wrap:anywhere}
+.kb-act{white-space:nowrap}
+.kb-act .btn{display:inline-block;padding:5px 9px;min-width:36px}
+@media (max-width:600px){
+  .tbl.stack td.kb-d{display:block;text-align:left;padding:2px 0 4px}
+  .tbl.stack td.kb-d::before{display:none}
+  .tbl.stack td.kb-act{justify-content:flex-end;gap:6px;padding-top:6px}
+  .tbl.stack td.kb-act::before{display:none}
+}
