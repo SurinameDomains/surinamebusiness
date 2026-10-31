@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-31T02:17:58+00:00",
+ "fetched_at": "2026-10-31T08:50:53+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -347,17 +347,6 @@
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-voertuigen-tbv-het-directoraat-bouw-en-stedebouwkundige-werken-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
   },
   {
-   "buyer": "Bio-economy Empowerment in Suriname's Indigenous Communities through Access to Water, Energy and Telecommunications (Bio-SWEET)",
-   "deadline": "2026-10-30",
-   "id": "idb-38835",
-   "kind": "Works",
-   "lang": "en",
-   "published": "2026-09-01",
-   "source": "IDB",
-   "title": "Design, Supply and Installation of Plant for Solar PV-BESS Mini-Grids and Water Infrastructure",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0001566-1303894469-160"
-  },
-  {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
    "id": "gov-161545",
@@ -461,22 +450,22 @@
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-10-31T02:17:58+00:00",
+   "fetched_at": "2026-10-31T08:50:53+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-10-31T02:17:57+00:00",
+   "fetched_at": "2026-10-31T08:50:52+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-10-31T02:17:57+00:00",
+   "fetched_at": "2026-10-31T08:50:53+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-10-31T02:17:56+00:00",
+   "fetched_at": "2026-10-31T08:50:52+00:00",
    "ok": true
   }
  }
