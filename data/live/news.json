@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-01T01:18:32+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Suriname steunt regionaal netwerk voor investeringen",
+   "url": "https://www.dbsuriname.com/2026/10/31/suriname-steunt-regionaal-netwerk-voor-investeringen/"
+  },
+  {
+   "econ": false,
    "published": "2026-10-31T19:58:42+00:00",
    "source": "Suriname Herald",
    "title": "Regering-Simons neemt grondconversies onder de loep: overdracht aan bedrijven en stichtingen wordt onderzocht",
@@ -412,16 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "22-jarige vrouw giet hete olie over vriend na ruzie om telefoonberichten",
    "url": "https://www.dbsuriname.com/2026/10/25/22-jarige-vrouw-giet-hete-olie-over-vriend-na-ruzie-om-telefoonberichten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T11:03:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Liliana Arias combineert radio, televisie en ondernemerschap",
-   "url": "https://dwtonline.com/liliana-arias-combineert-radio-televisie-en-ondernemerschap/"
   }
  ],
- "fetched_at": "2026-10-31T22:49:47+00:00",
+ "fetched_at": "2026-11-01T02:09:09+00:00",
  "oil": [
   {
    "econ": false,
@@ -644,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-10-31T22:49:45+00:00",
+   "fetched_at": "2026-11-01T02:09:07+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-10-31T22:49:42+00:00",
+   "fetched_at": "2026-11-01T02:09:01+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-10-31T22:49:45+00:00",
+   "fetched_at": "2026-11-01T02:09:03+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T22:49:46+00:00",
+   "fetched_at": "2026-11-01T02:09:08+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-10-31T22:49:44+00:00",
+   "fetched_at": "2026-11-01T02:09:02+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-10-31T22:49:47+00:00",
+   "fetched_at": "2026-11-01T02:09:09+00:00",
    "ok": true
   }
  }
