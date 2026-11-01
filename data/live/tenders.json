@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-01T02:08:47+00:00",
+ "fetched_at": "2026-11-01T09:42:22+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -425,47 +425,27 @@
    "source": "gov.sr",
    "title": "Het leveren van brandblussers en rookmelders tbv nieuwe kantoorcomplex van het Directoraat Ruimtelijke Ordening van het ministerie",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-brandblussers-en-rookmelders-tbv-nieuwe-kantoorcomplex-van-het-directoraat-ruimtelijke-ordening-van-het-ministerie/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161096",
-   "lang": "nl",
-   "published": "2026-08-17",
-   "source": "gov.sr",
-   "title": "Het verrichten van diverse werkzaamheden tbv Sluizen en Pompgemalen in Paramaribo Noorde.",
-   "url": "https://gov.sr/aanbestedingen/het-verrichten-van-diverse-werkzaamheden-tbv-sluizen-en-pompgemalen-in-paramaribo-noorde/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161045",
-   "lang": "nl",
-   "published": "2026-08-17",
-   "source": "gov.sr",
-   "title": "Het leveren van kantoormeubilair ten behoeve van de Hoofd-en Districtskantoren van het Directoraat Openbaar Groen en Afvalbeheer",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-kantoormeubilair-ten-behoeve-van-de-hoofd-en-districtskantoren-van-het-directoraat-openbaar-groen-en-afvalbeheer-2/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 34,
-   "fetched_at": "2026-11-01T02:08:47+00:00",
+   "fetched_at": "2026-11-01T09:42:22+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-11-01T02:08:46+00:00",
+   "fetched_at": "2026-11-01T09:42:22+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-01T02:08:46+00:00",
+   "fetched_at": "2026-11-01T09:42:22+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-01T02:08:46+00:00",
+   "fetched_at": "2026-11-01T09:42:21+00:00",
    "ok": true
   }
  }
