@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-01T13:54:27+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname aast op meer buitenlandse investeringen met steun van IDB",
+   "url": "https://www.srherald.com/suriname/2026/11/01/suriname-aast-op-meer-buitenlandse-investeringen-met-steun-van-idb/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-01T05:04:00+00:00",
    "source": "de Ware Tijd",
    "title": "Duo opgepakt voor diefstal EBS-transformator",
@@ -412,16 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Banken vragen betere voorbereiding op oliegeld",
    "url": "https://www.dbsuriname.com/2026/10/25/banken-vragen-betere-voorbereiding-op-oliegeld/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T16:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Vriendin slaat door: pepperspray en hete olie op vriend",
-   "url": "https://dwtonline.com/vriendin-slaat-door-pepperspray-en-hete-olie-op-vriend/"
   }
  ],
- "fetched_at": "2026-11-01T09:42:37+00:00",
+ "fetched_at": "2026-11-01T16:47:39+00:00",
  "oil": [
   {
    "econ": false,
@@ -644,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-01T09:42:35+00:00",
+   "fetched_at": "2026-11-01T16:47:37+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-01T09:42:34+00:00",
+   "fetched_at": "2026-11-01T16:47:35+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-01T09:42:35+00:00",
+   "fetched_at": "2026-11-01T16:47:36+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-01T09:42:36+00:00",
+   "fetched_at": "2026-11-01T16:47:38+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-01T09:42:35+00:00",
+   "fetched_at": "2026-11-01T16:47:36+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-01T09:42:37+00:00",
+   "fetched_at": "2026-11-01T16:47:39+00:00",
    "ok": true
   }
  }
