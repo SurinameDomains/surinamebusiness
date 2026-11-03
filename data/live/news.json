@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-02T19:08:00+00:00",
+   "source": "Starnieuws",
+   "title": "President Simons gelast onmiddellijke stopzetting import Jin Chan",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94678"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-02T19:03:32+00:00",
+   "source": "Suriname Herald",
+   "title": "Chinese goudzoekers moeten vertrekken na Jin Chan-incident in Godo Olo",
+   "url": "https://www.srherald.com/suriname/2026/11/02/chinese-goudzoekers-moeten-vertrekken-na-jin-chan-incident-in-godo-olo/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-02T18:37:00+00:00",
+   "source": "Starnieuws",
+   "title": "DNA buigt zich over betere rechtsbescherming bij belastinggeschillen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94666"
+  },
+  {
+   "econ": false,
    "published": "2026-11-02T09:20:10+00:00",
    "source": "Suriname Herald",
    "title": "Ondernemer Babel wil 100.000 kippen produceren in Suriname en banen creëren voor jongeren",
@@ -398,30 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "DNA-lid Pawiroredjo legt mogelijk causaal verband landbouwchemicaliën en darmkanker",
    "url": "https://www.dbsuriname.com/2026/10/26/dna-lid-pawiroredjo-legt-mogelijk-causaal-verband-landbouwchemicalien-en-darmkanker/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T13:10:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Surinaamse groente-export naar EU in diepe crisis",
-   "url": "https://www.dbsuriname.com/?p=605428"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T11:51:00+00:00",
-   "source": "Starnieuws",
-   "title": "Krin Kondre-team intensiveert handhaving op bermen en bij bedrijven",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94544"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T23:37:00+00:00",
-   "source": "Starnieuws",
-   "title": "Cubaanse man overleden na botsing Hiace tegen EBS-mast; inzittende vermist",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94545"
   }
  ],
- "fetched_at": "2026-11-02T17:27:00+00:00",
+ "fetched_at": "2026-11-03T00:02:24+00:00",
  "oil": [
   {
    "econ": false,
@@ -644,32 +644,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-02T17:26:58+00:00",
+   "fetched_at": "2026-11-03T00:02:22+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-02T17:26:55+00:00",
+   "fetched_at": "2026-11-03T00:02:20+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-02T17:26:57+00:00",
+   "fetched_at": "2026-11-03T00:02:21+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-02T17:26:59+00:00",
+   "fetched_at": "2026-11-03T00:02:22+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-02T17:26:56+00:00",
+   "fetched_at": "2026-11-03T00:02:21+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-02T17:27:00+00:00",
+   "fetched_at": "2026-11-03T00:02:24+00:00",
    "ok": true
   }
  }

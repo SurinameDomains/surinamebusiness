@@ -1,6 +1,36 @@
 {
- "fetched_at": "2026-11-02T17:26:38+00:00",
+ "fetched_at": "2026-11-03T00:02:07+00:00",
  "items": [
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-164246",
+   "lang": "nl",
+   "published": "2026-11-02",
+   "source": "gov.sr",
+   "title": "Het ophalen van huishoudelijk afval per wijk in het district Para ten behoeve van de afdeling Vuiophaal van het Ministerie van Openbare Werken en Ruimtelijke Ordening",
+   "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-para-ten-behoeve-van-de-afdeling-vuiophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
+  },
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-164243",
+   "lang": "nl",
+   "published": "2026-11-02",
+   "source": "gov.sr",
+   "title": "Het reguleren van de afwatering van de Brantimakkaweg te weg naar Zee en het verrichten van bijbehorende werken",
+   "url": "https://gov.sr/aanbestedingen/het-reguleren-van-de-afwatering-van-de-brantimakkaweg-te-weg-naar-zee-en-het-verrichten-van-bijbehorende-werken/"
+  },
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-164240",
+   "lang": "nl",
+   "published": "2026-11-02",
+   "source": "gov.sr",
+   "title": "Het versterken van de waterkerende dam en het aanbrengen van een houten beschoeiing te Kronenburg en Goede Vriendschap, aan de rechetroever van de Commewijnerivier in het district Commewijne",
+   "url": "https://gov.sr/aanbestedingen/het-versterken-van-de-waterkerende-dam-en-het-aanbrengen-van-een-houten-beschoeiing-te-kronenburg-en-goede-vriendschap-aan-de-rechetroever-van-de-commewijnerivier-in-het-district-commewijne/"
+  },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
@@ -430,22 +460,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-02T17:26:38+00:00",
+   "fetched_at": "2026-11-03T00:02:07+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 47,
-   "fetched_at": "2026-11-02T17:26:37+00:00",
+   "fetched_at": "2026-11-03T00:02:06+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-02T17:26:37+00:00",
+   "fetched_at": "2026-11-03T00:02:06+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-02T17:26:37+00:00",
+   "fetched_at": "2026-11-03T00:02:05+00:00",
    "ok": true
   }
  }
