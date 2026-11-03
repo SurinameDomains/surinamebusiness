@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-03T06:40:02+00:00",
+ "fetched_at": "2026-11-03T13:57:09+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -30,6 +30,16 @@
    "source": "gov.sr",
    "title": "Het versterken van de waterkerende dam en het aanbrengen van een houten beschoeiing te Kronenburg en Goede Vriendschap, aan de rechetroever van de Commewijnerivier in het district Commewijne",
    "url": "https://gov.sr/aanbestedingen/het-versterken-van-de-waterkerende-dam-en-het-aanbrengen-van-een-houten-beschoeiing-te-kronenburg-en-goede-vriendschap-aan-de-rechetroever-van-de-commewijnerivier-in-het-district-commewijne/"
+  },
+  {
+   "buyer": "Staatsolie Maatschappij Suriname N.V.",
+   "deadline": "2026-11-16",
+   "id": "so-urement-opportunities-renovation-and-paintwork-spi-buildings",
+   "lang": "en",
+   "published": "2026-11-02",
+   "source": "Staatsolie",
+   "title": "Request for Expression of Interest for Renovation and Paintwork of the SPI buildings",
+   "url": "https://www.staatsolie.com/en/procurement-opportunities/renovation-and-paintwork-spi-buildings/"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -449,22 +459,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-03T06:40:02+00:00",
+   "fetched_at": "2026-11-03T13:57:09+00:00",
    "ok": true
   },
   "Staatsolie": {
-   "count": 47,
-   "fetched_at": "2026-11-03T06:40:01+00:00",
+   "count": 48,
+   "fetched_at": "2026-11-03T13:57:08+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-03T06:40:01+00:00",
+   "fetched_at": "2026-11-03T13:57:09+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-03T06:40:00+00:00",
+   "fetched_at": "2026-11-03T13:57:08+00:00",
    "ok": true
   }
  }

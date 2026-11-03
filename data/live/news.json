@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-03T11:21:00+00:00",
+   "source": "Starnieuws",
+   "title": "FAO en CDB onderzoeken investeringskansen in Surinaamse landbouw",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94679"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-03T09:11:14+00:00",
+   "source": "Suriname Herald",
+   "title": "Plein zet vraagtekens bij plannen regering-Simons: “Begroting bevat te veel onrealistische ramingen”",
+   "url": "https://www.srherald.com/suriname/2026/11/03/plein-zet-vraagtekens-bij-plannen-regering-simons-begroting-bevat-te-veel-onrealistische-ramingen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-03T08:55:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "‘De mensen willen niets meer met cyanide te maken hebben’; Chinese goudzoekers moeten weg",
+   "url": "https://dwtonline.com/de-mensen-willen-niets-meer-met-cyanide-te-maken-hebben-chinese-goudzoekers-moeten-weg/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-03T00:18:10+00:00",
    "source": "Suriname Herald",
    "title": "Jadnanansing verwacht 7000 banen in olie- en gassector: 24 personen opgeleid in Nickerie",
@@ -398,30 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Vicky López wint prijs voor jong talent",
    "url": "https://www.dbsuriname.com/2026/10/26/vicky-lopez-wint-prijs-voor-jong-talent/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T23:33:24+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Bedrijfsleven wil duidelijker douaneregels",
-   "url": "https://www.dbsuriname.com/2026/10/26/bedrijfsleven-wil-duidelijker-douaneregels/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T17:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Olie en de honden",
-   "url": "https://dwtonline.com/olie-en-de-honden/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T13:20:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Prijslijst groenten maandag 26 oktober 2026",
-   "url": "https://www.dbsuriname.com/2026/10/26/prijslijst-groenten-maandag-26-oktober-2026/"
   }
  ],
- "fetched_at": "2026-11-03T06:40:23+00:00",
+ "fetched_at": "2026-11-03T13:57:29+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-03T06:40:22+00:00",
+   "fetched_at": "2026-11-03T13:57:27+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-03T06:40:19+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-03T13:57:24+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-03T06:40:21+00:00",
+   "fetched_at": "2026-11-03T13:57:27+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T06:40:22+00:00",
+   "fetched_at": "2026-11-03T13:57:28+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-03T06:40:21+00:00",
+   "fetched_at": "2026-11-03T13:57:26+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T06:40:23+00:00",
+   "fetched_at": "2026-11-03T13:57:29+00:00",
    "ok": true
   }
  }

@@ -1,8 +1,13 @@
 {
- "checked_at": "2026-11-03T06:40:26+00:00",
- "effective": "2026-10-20",
- "fetched_at": "2026-10-20T12:11:38+00:00",
+ "checked_at": "2026-11-03T13:57:33+00:00",
+ "effective": "2026-11-03",
+ "fetched_at": "2026-11-03T13:57:33+00:00",
  "history": [
+  {
+   "effective": "2026-10-20",
+   "eur": 42.77,
+   "usd": 37.85
+  },
   {
    "effective": "2026-10-06",
    "eur": 42.8,
@@ -14,97 +19,97 @@
    "usd": 37.8
   }
  ],
- "next_expected": "2026-11-03",
- "pdf": "https://www.cbvs.sr/images/content/publicaties/Douanekoersen/2026/UWKOVZ-20102026.pdf",
- "period_end": "2026-11-01",
- "period_start": "2026-10-19",
+ "next_expected": "2026-11-17",
+ "pdf": "https://www.cbvs.sr/images/content/publicaties/Douanekoersen/2026/UWKOVZ-03112026.pdf",
+ "period_end": "2026-11-15",
+ "period_start": "2026-11-02",
  "rates": {
   "AUD": {
-   "sell": 26.63,
+   "sell": 26.68,
    "unit": 1
   },
   "AWG": {
-   "sell": 21.18,
+   "sell": 21.15,
    "unit": 1
   },
   "BBD": {
-   "sell": 18.79,
+   "sell": 18.76,
    "unit": 1
   },
   "BRL": {
-   "sell": 7.56,
+   "sell": 7.0,
    "unit": 1
   },
   "BSD": {
-   "sell": 38.12,
+   "sell": 38.06,
    "unit": 1
   },
   "BZD": {
-   "sell": 19.06,
+   "sell": 19.03,
    "unit": 1
   },
   "CAD": {
-   "sell": 27.08,
+   "sell": 27.24,
    "unit": 1
   },
   "CHF": {
-   "sell": 46.2,
+   "sell": 46.44,
    "unit": 1
   },
   "CNY": {
-   "sell": 5.71,
+   "sell": 5.73,
    "unit": 1
   },
   "DKK": {
-   "sell": 5.72,
+   "sell": 5.71,
    "unit": 1
   },
   "EUR": {
-   "sell": 42.77,
+   "sell": 42.46,
    "unit": 1
   },
   "GBP": {
-   "sell": 50.81,
+   "sell": 51.08,
    "unit": 1
   },
   "GYD": {
-   "sell": 18.11,
+   "sell": 18.09,
    "unit": 100
   },
   "HKD": {
-   "sell": 4.86,
+   "sell": 4.85,
    "unit": 1
   },
   "INR": {
-   "sell": 40.15,
+   "sell": 40.1,
    "unit": 100
   },
   "JPY": {
-   "sell": 2408.76,
+   "sell": 2410.58,
    "unit": 10000
   },
   "NOK": {
-   "sell": 4.05,
+   "sell": 4.11,
    "unit": 1
   },
   "SEK": {
-   "sell": 3.85,
+   "sell": 3.9,
    "unit": 1
   },
   "TTD": {
-   "sell": 5.64,
+   "sell": 5.63,
    "unit": 1
   },
   "USD": {
-   "sell": 37.85,
+   "sell": 37.73,
    "unit": 1
   },
   "XCD": {
-   "sell": 14.12,
+   "sell": 14.1,
    "unit": 1
   },
   "XCG": {
-   "sell": 20.94,
+   "sell": 20.91,
    "unit": 1
   }
  }
