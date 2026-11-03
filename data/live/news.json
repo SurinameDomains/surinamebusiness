@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-03T14:02:15+00:00",
+   "source": "Suriname Herald",
+   "title": "Belastingbezwaren liggen al 35 jaar: nieuwe wet moet burgers meer bescherming geven",
+   "url": "https://www.srherald.com/suriname/2026/11/03/belastingbezwaren-liggen-al-35-jaar-nieuwe-wet-moet-burgers-meer-bescherming-geven/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-03T11:21:00+00:00",
    "source": "Starnieuws",
    "title": "FAO en CDB onderzoeken investeringskansen in Surinaamse landbouw",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Verscherpte EU-controles dreigen: wat Verordening 2019/1793 betekent voor groente-export",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94559"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T23:33:37+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Vicky López wint prijs voor jong talent",
-   "url": "https://www.dbsuriname.com/2026/10/26/vicky-lopez-wint-prijs-voor-jong-talent/"
   }
  ],
- "fetched_at": "2026-11-03T13:58:59+00:00",
+ "fetched_at": "2026-11-03T15:02:58+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-03T13:58:58+00:00",
+   "fetched_at": "2026-11-03T15:02:56+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 17,
-   "fetched_at": "2026-11-03T13:58:55+00:00",
+   "fetched_at": "2026-11-03T15:02:54+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-03T13:58:57+00:00",
+   "fetched_at": "2026-11-03T15:02:56+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T13:58:58+00:00",
+   "fetched_at": "2026-11-03T15:02:57+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-03T13:58:57+00:00",
+   "fetched_at": "2026-11-03T15:02:55+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T13:58:59+00:00",
+   "fetched_at": "2026-11-03T15:02:58+00:00",
    "ok": true
   }
  }
