@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-03T00:18:10+00:00",
+   "source": "Suriname Herald",
+   "title": "Jadnanansing verwacht 7000 banen in olie- en gassector: 24 personen opgeleid in Nickerie",
+   "url": "https://www.srherald.com/suriname/2026/11/02/jadnanansing-verwacht-7000-banen-in-olie-en-gassector-24-personen-opgeleid-in-nickerie/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-02T19:08:00+00:00",
    "source": "Starnieuws",
    "title": "President Simons gelast onmiddellijke stopzetting import Jin Chan",
@@ -412,17 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "Prijslijst groenten maandag 26 oktober 2026",
    "url": "https://www.dbsuriname.com/2026/10/26/prijslijst-groenten-maandag-26-oktober-2026/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T13:15:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "DNA-lid Pawiroredjo legt mogelijk causaal verband landbouwchemicaliën en darmkanker",
-   "url": "https://www.dbsuriname.com/2026/10/26/dna-lid-pawiroredjo-legt-mogelijk-causaal-verband-landbouwchemicalien-en-darmkanker/"
   }
  ],
- "fetched_at": "2026-11-03T00:02:24+00:00",
+ "fetched_at": "2026-11-03T06:40:23+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-03T00:18:10+00:00",
+   "source": "Suriname Herald",
+   "title": "Jadnanansing verwacht 7000 banen in olie- en gassector: 24 personen opgeleid in Nickerie",
+   "url": "https://www.srherald.com/suriname/2026/11/02/jadnanansing-verwacht-7000-banen-in-olie-en-gassector-24-personen-opgeleid-in-nickerie/"
+  },
   {
    "econ": false,
    "published": "2026-10-31T14:22:03+00:00",
@@ -644,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-03T00:02:22+00:00",
+   "fetched_at": "2026-11-03T06:40:22+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-03T00:02:20+00:00",
+   "fetched_at": "2026-11-03T06:40:19+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-03T00:02:21+00:00",
+   "fetched_at": "2026-11-03T06:40:21+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T00:02:22+00:00",
+   "fetched_at": "2026-11-03T06:40:22+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-03T00:02:21+00:00",
+   "fetched_at": "2026-11-03T06:40:21+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T00:02:24+00:00",
+   "fetched_at": "2026-11-03T06:40:23+00:00",
    "ok": true
   }
  }
