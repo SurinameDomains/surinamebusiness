@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-03T23:22:57+00:00",
+   "source": "Suriname Herald",
+   "title": "FAO onderzoekt investeringskansen in Surinaamse landbouw en visserij",
+   "url": "https://www.srherald.com/suriname/2026/11/03/fao-onderzoekt-investeringskansen-in-surinaamse-landbouw-en-visserij/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-03T14:02:15+00:00",
    "source": "Suriname Herald",
    "title": "Belastingbezwaren liggen al 35 jaar: nieuwe wet moet burgers meer bescherming geven",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "VSB vreest extra kosten en vertragingen door nieuwe douanewet",
    "url": "https://www.srherald.com/suriname/2026/10/26/__trashed/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-27T01:11:00+00:00",
-   "source": "Starnieuws",
-   "title": "Verscherpte EU-controles dreigen: wat Verordening 2019/1793 betekent voor groente-export",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94559"
   }
  ],
- "fetched_at": "2026-11-03T20:57:24+00:00",
+ "fetched_at": "2026-11-04T01:17:39+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-03T20:57:22+00:00",
+   "fetched_at": "2026-11-04T01:17:38+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-11-03T20:57:20+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-04T01:17:36+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-03T20:57:22+00:00",
+   "fetched_at": "2026-11-04T01:17:37+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T20:57:23+00:00",
+   "fetched_at": "2026-11-04T01:17:38+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-03T20:57:21+00:00",
+   "fetched_at": "2026-11-04T01:17:37+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-03T20:57:24+00:00",
+   "fetched_at": "2026-11-04T01:17:39+00:00",
    "ok": true
   }
  }
