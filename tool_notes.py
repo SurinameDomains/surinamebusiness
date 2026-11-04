@@ -287,16 +287,22 @@ NOTES = {
          "rest met wat je kassa of bonnenboek aan contante verkoop laat zien. Het verschil is je kasverschil.</p>"
          "<ul><li>De biljetten in omloop zijn SRD 5, 10, 20, 50, 100, 200 en 500; de munten 1, 5, 10, 25, 100 en 250 "
          "cent.</li><li>Tel vreemde valuta apart en reken om tegen de koers die je de klant gaf, niet tegen de koers "
-         "van vandaag.</li><li>Pin, Uni5Pay en andere digitale betalingen horen niet in de kasopmaak. Die zie je op je "
-         "bankafschrift.</li><li>Schrijf elk verschil op, ook kleine. Een patroon van tekorten valt alleen op als je het "
+         "van vandaag.</li><li>Het eindsaldo van vandaag is het beginsaldo van morgen. De tool neemt het na het afsluiten "
+         "over en zet het vast, zodat niemand het ongemerkt aanpast. Dat werkt op dit toestel; de getekende print is je "
+         "echte bewijs.</li><li>Pin, Uni5Pay en andere digitale betalingen zitten niet in de la. Noteer ze apart onderaan, "
+         "zodat je de dagomzet ziet, en controleer ze met de dagafsluiting van de pinautomaat en je bankafschrift.</li>"
+         "<li>Laat iemand anders tellen dan wie de kas opmaakte en laat allebei tekenen met naam voluit en ID-kaartnummer.</li><li>Schrijf elk verschil op, ook kleine. Een patroon van tekorten valt alleen op als je het "
          "bijhoudt.</li></ul>"),
         ("A cash count that adds up",
          "<p>At the end of the day count everything in the drawer, take out tomorrow's float and compare the rest with "
          "the cash sales on your till or receipt book. The difference is your cash variance.</p>"
          "<ul><li>Notes in circulation are SRD 5, 10, 20, 50, 100, 200 and 500; coins are 1, 5, 10, 25, 100 and 250 "
          "cents.</li><li>Count foreign currency separately and convert at the rate you gave the customer, not today's "
-         "rate.</li><li>Card, Uni5Pay and other digital payments do not belong in the cash count. You see them on your "
-         "bank statement.</li><li>Write down every difference, also small ones. A pattern of shortfalls only shows when "
+         "rate.</li><li>Today's closing balance is tomorrow's opening balance. The tool carries it over after you close "
+         "and locks it, so nobody changes it unnoticed. That works on this device; the signed printout is your real "
+         "proof.</li><li>Card, Uni5Pay and other digital payments are not in the drawer. Note them separately at the bottom "
+         "to see the day turnover, and check them against the terminal's end-of-day slip and your bank statement.</li>"
+         "<li>Have someone other than the preparer do the count and have both sign with full name and ID card number.</li><li>Write down every difference, also small ones. A pattern of shortfalls only shows when "
          "you keep track.</li></ul>"),
         [(("Wat is een normaal kasverschil?",
            "Elke dag een paar SRD verschil door wisselgeld is normaal. Komt het tekort vaker voor of wordt het groter, "
