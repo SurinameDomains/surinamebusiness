@@ -3,51 +3,173 @@
   var S = window.SBT, T = S.T;
 
   // ---------------------------------------------------------------- cash counter
+  // The opening balance is taken over from the last saved closing balance and locked, so it cannot
+  // change unnoticed. Changing it by hand is possible, but the sheet then shows the carried value.
+  // Names and ID numbers are never stored: they only go on the printed sheet.
   var cc = document.getElementById('cc');
   if (cc) {
-    var rows = S.$$('.cash-row', cc);
-    var keep = ['usdr', 'eurr', 'float'];
-    var sv = S.store.get('cc:set', {});
-    keep.forEach(function (k) { if (sv[k]) cc.elements[k].value = sv[k]; });
+    var E = cc.elements, rows = S.$$('.cash-row', cc), byId = function (id) { return document.getElementById(id); };
+    var keep = ['usdr', 'eurr', 'float', 'loc'];
+    var daily = ['usd', 'eur', 'sales', 'out', 'pin', 'pinn', 'dig', 'pb', 'pbid', 'cb', 'cbid'];
+    var sv = S.store.get('cc:set', {}) || {};
+    keep.forEach(function (k) { if (sv[k]) E[k].value = sv[k]; });
+    var openH = byId('cc-open-h'), carried = null, edited = null, closed = false;
+    var when = function (d) { return /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? S.dateLong(d) : (d || ''); };
+    var dates = function () { var t = S.today(); ['date', 'pbd', 'cbd'].forEach(function (k) { E[k].value = t; }); };
+    var lockHint = function () {
+      openH.innerHTML = T('Vastgezet: eindsaldo van de vorige afsluiting', 'Locked: closing balance of the previous close') +
+        (carried.d ? ' (' + S.esc(when(carried.d)) + ')' : '') + '. <a href="#" id="cc-unlock">' + T('Toch wijzigen', 'Change anyway') + '</a>';
+    };
+    var lockOpen = function () {
+      var o = S.store.get('cc:open', null);
+      carried = o && typeof o.v === 'number' ? o : null; edited = null;
+      if (carried) { E.open.value = S.fmt(carried.v); E.open.readOnly = true; lockHint(); }
+      else {
+        E.open.readOnly = false;
+        openH.textContent = T('Eerste telling: vul in wat er bij de start in de kas zat. Na het afsluiten wordt het eindsaldo vanzelf het beginsaldo van de volgende telling en zit het vast.',
+          'First count: enter what was in the till at the start. After closing, the closing balance becomes the opening balance of the next count and is locked.');
+      }
+    };
+    openH.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('#cc-unlock');
+      if (!a || !carried) return;
+      ev.preventDefault();
+      if (!a.getAttribute('data-armed')) {
+        a.setAttribute('data-armed', '1');
+        a.textContent = T('Klik nogmaals om te wijzigen. Dit komt op de kasopmaakstaat.', 'Click again to change. This will show on the sheet.');
+        setTimeout(function () { if (a.isConnected && E.open.readOnly) lockHint(); }, 6000);
+        return;
+      }
+      edited = carried.v; E.open.readOnly = false; E.open.focus(); E.open.select();
+      openH.textContent = T('Handmatig gewijzigd. Overgenomen eindsaldo was ', 'Changed by hand. The carried closing balance was ') + S.money(carried.v) + '.';
+      render();
+    });
+
     var calc = function () {
-      var srd = 0;
+      var srd = 0, lines = [];
       rows.forEach(function (r) {
         var v = +r.getAttribute('data-v'), n = Math.max(0, Math.round(S.num(r.querySelector('input').value)));
         var line = S.r2(v * n);
         r.querySelector('.r').textContent = n ? S.fmt(line) : '-';
+        lines.push({ l: r.firstElementChild.textContent, n: n, v: line });
         srd = S.sum([srd, line]);
       });
-      var usd = S.r2(S.num(cc.elements.usd.value) * S.num(cc.elements.usdr.value)), eur = S.r2(S.num(cc.elements.eur.value) * S.num(cc.elements.eurr.value));
-      return { srd: srd, usd: usd, eur: eur, total: S.sum([srd, usd, eur]), exp: S.r2(S.num(cc.elements.exp.value)), flt: S.r2(S.num(cc.elements.float.value)) };
+      var g = function (k) { return S.r2(S.num(E[k].value)); };
+      var c = { lines: lines, srd: srd, usdA: g('usd'), eurA: g('eur'), usdR: S.num(E.usdr.value), eurR: S.num(E.eurr.value),
+        open: g('open'), sales: g('sales'), out: g('out'), pin: g('pin'), pinn: Math.max(0, Math.round(S.num(E.pinn.value))), dig: g('dig') };
+      c.usd = S.r2(c.usdA * c.usdR); c.eur = S.r2(c.eurA * c.eurR);
+      c.total = S.sum([srd, c.usd, c.eur]);
+      c.hasExp = !!(c.open || c.sales || c.out);
+      c.exp = S.sum([c.open, c.sales, -c.out]);
+      c.diff = S.sum([c.total, -c.exp]);
+      c.close = E.float.value.trim() === '' ? c.total : g('float');
+      c.dep = S.sum([c.total, -c.close]);
+      c.turn = S.sum([c.sales, c.pin, c.dig]);
+      return c;
     };
+    var verdict = function (d) { return Math.abs(d) < 0.005 ? T('Kas klopt', 'Drawer matches') : d > 0 ? T('Kasoverschot', 'Over') : T('Kastekort', 'Short'); };
+    var row = function (l, v, cls) { return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><td>' + l + '</td><td class="r">' + v + '</td></tr>'; };
     var render = function () {
       var c = calc(), h = '<div class="sub">' + T('Geteld totaal', 'Total counted') + '</div><div class="big tnum">' + S.money(c.total) + '</div><table>' +
-        '<tr><td>' + T('Contant SRD', 'Cash SRD') + '</td><td class="r">' + S.money(c.srd) + '</td></tr>' +
-        (c.usd ? '<tr><td>USD ' + T('omgerekend', 'converted') + '</td><td class="r">' + S.money(c.usd) + '</td></tr>' : '') +
-        (c.eur ? '<tr><td>EUR ' + T('omgerekend', 'converted') + '</td><td class="r">' + S.money(c.eur) + '</td></tr>' : '');
-      if (c.exp) {
-        var d = S.sum([c.total, -c.exp]);
-        h += '<tr><td>' + T('Verwacht', 'Expected') + '</td><td class="r">' + S.money(c.exp) + '</td></tr><tr class="tot"><td>' +
-          (Math.abs(d) < 0.005 ? T('Kas klopt', 'Drawer matches') : d > 0 ? T('Kasoverschot', 'Over') : T('Kastekort', 'Short')) + '</td><td class="r">' + S.money(Math.abs(d)) + '</td></tr>';
+        row(T('Contant SRD', 'Cash SRD'), S.money(c.srd)) +
+        (c.usd ? row('USD ' + T('omgerekend', 'converted'), S.money(c.usd)) : '') +
+        (c.eur ? row('EUR ' + T('omgerekend', 'converted'), S.money(c.eur)) : '');
+      if (c.hasExp) {
+        h += row(T('Beginsaldo', 'Opening balance'), S.money(c.open)) +
+          (c.sales ? row('+ ' + T('Contante ontvangsten', 'Cash received'), S.money(c.sales)) : '') +
+          (c.out ? row('- ' + T('Contante uitgaven', 'Cash paid out'), S.money(c.out)) : '') +
+          row(T('Verwacht in de kas', 'Expected in the till'), S.money(c.exp)) +
+          (c.total ? row(verdict(c.diff), S.money(Math.abs(c.diff)), 'tot') : '');
       }
-      if (c.flt) h += '<tr><td>' + T('Af te storten (na wisselgeld)', 'To deposit (after float)') + '</td><td class="r">' + S.money(Math.max(0, S.sum([c.srd, -c.flt]))) + '</td></tr>';
-      document.getElementById('cc-out').innerHTML = h + '</table>';
-      var o = {}; keep.forEach(function (k) { o[k] = cc.elements[k].value; }); S.store.set('cc:set', o);
+      if (c.total) {
+        if (c.dep > 0.004) h += row(T('Af te storten / af te dragen', 'To deposit / hand over'), S.money(c.dep));
+        h += row(T('Eindsaldo (beginsaldo volgende telling)', 'Closing balance (next opening)'), S.money(c.close));
+        if (c.dep < -0.004) h += '<tr><td colspan="2" style="color:var(--down)">' + T('Het eindsaldo is hoger dan wat je telde.', 'The closing balance is higher than what you counted.') + '</td></tr>';
+      }
+      if (c.pin || c.dig || c.pinn) {
+        h += row(T('Pin', 'Card') + (c.pinn ? ' (' + c.pinn + ' ' + T('transacties', 'payments') + ')' : ''), S.money(c.pin)) +
+          (c.dig ? row('Uni5Pay, Mope, QR', S.money(c.dig)) : '') +
+          (c.sales ? row(T('Dagomzet (contant, pin en digitaal)', 'Day turnover (cash, card and digital)'), S.money(c.turn), 'tot') : '');
+      }
+      byId('cc-res').innerHTML = h + '</table>';
+      var o = {}; keep.forEach(function (k) { o[k] = E[k].value; }); S.store.set('cc:set', o);
     };
     var hist = function () {
-      var list = S.store.get('cc:hist', []), box = document.getElementById('cc-hist');
-      box.innerHTML = '<div class="eyebrow">' + T('Bewaarde tellingen (op dit toestel)', 'Saved counts (on this device)') + '</div>' + (list.length ? '<ul class="list">' + list.map(function (x) {
-        return '<li><b>' + S.money(x.t) + '</b><div class="meta"><span>' + S.esc(x.d) + '</span>' + (x.diff !== null ? '<span>' + (x.diff >= 0 ? '+' : '') + S.fmt(x.diff) + '</span>' : '') + '</div></li>';
-      }).join('') + '</ul>' : '<p class="sub">' + T('Nog niets bewaard.', 'Nothing saved yet.') + '</p>');
+      var list = S.store.get('cc:hist', []) || [], box = byId('cc-hist');
+      box.innerHTML = '<div class="eyebrow">' + T('Afgesloten tellingen (op dit toestel)', 'Closed counts (on this device)') + '</div>' + (list.length ? '<ul class="list">' + list.map(function (x) {
+        return '<li><b>' + S.money(x.t) + '</b><div class="meta"><span>' + S.esc(when(x.d)) + (x.loc ? ' · ' + S.esc(x.loc) : '') + '</span>' +
+          (x.diff !== null && x.diff !== undefined ? '<span>' + (Math.abs(x.diff) < 0.005 ? T('klopt', 'matches') : (x.diff > 0 ? '+' : '') + S.fmt(x.diff)) + '</span>' : '') +
+          (typeof x.close === 'number' ? '<span>' + T('eindsaldo ', 'closing ') + S.fmt(x.close) + '</span>' : '') +
+          (x.pin ? '<span>' + T('pin ', 'card ') + S.fmt(x.pin) + '</span>' : '') +
+          (x.oe !== null && x.oe !== undefined ? '<span>' + T('beginsaldo gewijzigd', 'opening changed') + '</span>' : '') + '</div></li>';
+      }).join('') + '</ul>' : '<p class="sub">' + T('Nog niets afgesloten.', 'Nothing closed yet.') + '</p>');
     };
-    cc.addEventListener('input', render);
-    document.getElementById('cc-save').onclick = function (ev) {
-      var c = calc(), list = S.store.get('cc:hist', []);
-      list.unshift({ d: new Date().toLocaleString(S.nl ? 'nl-NL' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short' }), t: c.total, diff: c.exp ? c.total - c.exp : null });
-      S.store.set('cc:hist', list.slice(0, 20)); hist(); S.flash(ev.target, T('Bewaard', 'Saved'));
+    cc.addEventListener('input', function () { render(); });
+
+    byId('cc-save').onclick = function (ev) {
+      var c = calc();
+      if (!c.total && !c.open) { S.flash(ev.target, T('Nog niets geteld', 'Nothing counted yet')); return; }
+      if (c.dep < -0.004) { S.flash(ev.target, T('Eindsaldo te hoog', 'Closing balance too high')); E.float.focus(); return; }
+      var d = E.date.value || S.today(), list = S.store.get('cc:hist', []) || [];
+      var rec = { d: d, loc: E.loc.value.trim(), t: c.total, diff: c.hasExp ? c.diff : null, open: c.open, oe: edited, sales: c.sales, out: c.out,
+        close: c.close, dep: c.dep, pin: c.pin, pinn: c.pinn, dig: c.dig };
+      // saving again before "New count" corrects this close instead of adding a second one
+      if (closed && list.length) list[0] = rec; else list.unshift(rec);
+      S.store.set('cc:hist', list.slice(0, 60));
+      S.store.set('cc:open', { v: c.close, d: d });
+      closed = true; hist();
+      openH.textContent = T('Afgesloten. De volgende telling begint met beginsaldo ', 'Closed. The next count starts with an opening balance of ') + S.money(c.close) +
+        T('. Klik op Nieuwe telling om te beginnen.', '. Click New count to start.');
+      S.flash(ev.target, T('Afgesloten en bewaard', 'Closed and saved'));
     };
-    document.getElementById('cc-clear').onclick = function () { rows.forEach(function (r) { r.querySelector('input').value = ''; }); ['usd', 'eur', 'exp'].forEach(function (k) { cc.elements[k].value = ''; }); render(); };
-    render(); hist();
+    byId('cc-clear').onclick = function () {
+      rows.forEach(function (r) { r.querySelector('input').value = ''; });
+      daily.forEach(function (k) { E[k].value = ''; });
+      closed = false; dates(); lockOpen(); render();
+    };
+
+    byId('cc-print').onclick = function () {
+      var c = calc(), b = S.store.get('biz', {}) || {}, X = S.esc, loc = E.loc.value.trim();
+      var R3 = function (a, n, v, cls) { return '<tr' + (cls ? ' class="' + cls + '"' : '') + '><td>' + a + '</td><td class="r">' + n + '</td><td class="r">' + v + '</td></tr>'; };
+      var h = '<div class="ph"><div>' + (b.logo ? '<img src="' + b.logo + '" alt=""><br>' : '') + '<b>' + X(b.s_name || '') + '</b></div><div style="text-align:right"><div class="dh">' +
+        T('Kasopmaakstaat', 'Cash count sheet') + '</div><div class="pm">' + X(when(E.date.value)) + (loc ? ' · ' + X(loc) : '') + '</div></div></div>';
+      // notes left, coins and foreign cash right, so the whole sheet fits on one A4
+      var th = '<table><thead><tr><th>' + T('Biljet / munt', 'Note / coin') + '</th><th class="r">' + T('Aantal', 'How many') + '</th><th class="r">' + T('Waarde', 'Value') + '</th></tr></thead><tbody>';
+      var part = function (coins) { var t = th; c.lines.forEach(function (l, i) { if ((+rows[i].getAttribute('data-v') < 5) === coins) t += R3(X(l.l), l.n || '', l.n ? S.fmt(l.v) : ''); }); return t; };
+      h += '<div class="pp cc-two"><div>' + part(false) + '</tbody></table></div><div>' + part(true) +
+        (c.usdA ? R3('USD ' + S.fmt(c.usdA) + ' × ' + S.fmt(c.usdR, 2), '', S.fmt(c.usd)) : '') +
+        (c.eurA ? R3('EUR ' + S.fmt(c.eurA) + ' × ' + S.fmt(c.eurR, 2), '', S.fmt(c.eur)) : '') + '</tbody></table></div></div>';
+      h += '<table class="tots"><tr class="g"><td>' + T('Geteld totaal', 'Total counted') + '</td><td class="r">' + S.money(c.total) + '</td></tr></table>';
+
+      h += '<div class="cc-h">' + T('Kasoverzicht', 'Till summary') + '</div><table><tbody>' +
+        row(T('Beginsaldo', 'Opening balance') + (edited !== null ? ' <span class="pm">(' + T('handmatig gewijzigd, overgenomen was ', 'changed by hand, carried over was ') + S.money(edited) + ')</span>' : ''), S.money(c.open)) +
+        row('+ ' + T('Contante ontvangsten', 'Cash received'), S.money(c.sales)) +
+        row('- ' + T('Contante uitgaven', 'Cash paid out'), S.money(c.out)) +
+        row(T('Verwacht in de kas', 'Expected in the till'), S.money(c.exp)) +
+        row(T('Geteld totaal', 'Total counted'), S.money(c.total)) +
+        row('<b>' + verdict(c.diff) + '</b>', '<b>' + S.money(Math.abs(c.diff)) + '</b>') +
+        row(T('Af te storten / af te dragen', 'To deposit / hand over'), S.money(Math.max(0, c.dep))) +
+        row('<b>' + T('Eindsaldo (beginsaldo volgende telling)', 'Closing balance (next opening)') + '</b>', '<b>' + S.money(c.close) + '</b>') +
+        '</tbody></table>';
+
+      h += '<div class="cc-h">' + T('Pin en digitaal (niet in de kas)', 'Card and digital (not in the till)') + '</div><table><tbody>' +
+        row(T('Pin totaal', 'Card total') + ' (' + (c.pinn || 0) + ' ' + T('transacties', 'payments') + ')', S.money(c.pin)) +
+        row('Uni5Pay, Mope, QR', S.money(c.dig)) +
+        row('<b>' + T('Dagomzet (contant, pin en digitaal)', 'Day turnover (cash, card and digital)') + '</b>', '<b>' + S.money(c.turn) + '</b>') +
+        '</tbody></table>';
+
+      var ln = function (l, v, sg) { return '<div class="ln' + (sg ? ' sg' : '') + '"><span>' + l + '</span><b>' + X(v || '') + '</b></div>'; };
+      var who = function (t, n, id, d) {
+        return '<div class="cc-p"><div class="lbl">' + t + '</div>' + ln(T('Naam voluit', 'Full name'), E[n].value.trim()) + ln(T('ID-kaartnr.', 'ID card no.'), E[id].value.trim()) +
+          ln(T('Datum', 'Date'), when(E[d].value)) + ln(T('Handtekening', 'Signature'), '', 1) + '</div>';
+      };
+      h += '<div class="pp cc-pp">' + who(T('Opgemaakt door', 'Prepared by'), 'pb', 'pbid', 'pbd') + who(T('Geteld door', 'Counted by'), 'cb', 'cbid', 'cbd') + '</div>';
+      h += '<div class="pf">' + T('Gemaakt met de gratis kasopmaak van surinamebusiness.com op ', 'Made with the free cash counter on surinamebusiness.com on ') + X(S.dateLong(S.today())) + '</div>';
+      byId('cc-doc').innerHTML = h;
+      S.printDoc();
+    };
+
+    dates(); lockOpen(); render(); hist();
   }
 
   // ---------------------------------------------------------------- tax deadlines
