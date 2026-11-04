@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-04T13:20:00+00:00",
+   "source": "Starnieuws",
+   "title": "Iran ziet afwijzing oorlog, Europa hoopt op koerswijziging",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94705"
+  },
+  {
+   "econ": false,
    "published": "2026-11-04T11:02:16+00:00",
    "source": "Suriname Herald",
    "title": "Jones eist duidelijkheid over mogelijke kwiklekkage bij Nieuwe Haven",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Kortgeding verwijderen mennonieten draait ook om rechten landbouwproject (update)",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94578"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-27T19:03:46+00:00",
-   "source": "Suriname Herald",
-   "title": "Duitse parlementaire delegatie onderzoekt investeringskansen in Suriname",
-   "url": "https://www.srherald.com/suriname/2026/10/27/duitse-parlementaire-delegatie-onderzoekt-investeringskansen-in-suriname/"
   }
  ],
- "fetched_at": "2026-11-04T12:42:09+00:00",
+ "fetched_at": "2026-11-04T16:14:02+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-04T12:42:08+00:00",
+   "fetched_at": "2026-11-04T16:13:59+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-04T12:42:06+00:00",
+   "count": 18,
+   "fetched_at": "2026-11-04T16:13:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-04T12:42:08+00:00",
+   "fetched_at": "2026-11-04T16:13:59+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T12:42:08+00:00",
+   "fetched_at": "2026-11-04T16:14:00+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-04T12:42:07+00:00",
+   "fetched_at": "2026-11-04T16:13:58+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T12:42:09+00:00",
+   "fetched_at": "2026-11-04T16:14:02+00:00",
    "ok": true
   }
  }
