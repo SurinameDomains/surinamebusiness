@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-04T19:08:37+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Kledingarbeiders Bangladesh staken voor hoger loon",
+   "url": "https://www.dbsuriname.com/2026/11/04/kledingarbeiders-bangladesh-staken-voor-hoger-loon/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-04T17:49:08+00:00",
+   "source": "Suriname Herald",
+   "title": "Misiekaba: Diakonessenhuis-chirurgen eisen salaris van SRD 300.000 per maand",
+   "url": "https://www.srherald.com/suriname/2026/11/04/misiekaba-diakonessenhuis-chirurgen-eisen-salaris-van-srd-300-000-per-maand/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-04T13:20:00+00:00",
    "source": "Starnieuws",
    "title": "Iran ziet afwijzing oorlog, Europa hoopt op koerswijziging",
@@ -405,23 +419,9 @@
    "source": "Starnieuws",
    "title": "Voedselveiligheid vraagt om handelen en een juiste lezing van de wet",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94570"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-27T23:51:00+00:00",
-   "source": "Starnieuws",
-   "title": "CBvS: financiële sector weerbaar, maar inflatie en wisselkoers blijven risico's",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94565"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-27T19:09:00+00:00",
-   "source": "Starnieuws",
-   "title": "Kortgeding verwijderen mennonieten draait ook om rechten landbouwproject (update)",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94578"
   }
  ],
- "fetched_at": "2026-11-04T16:14:02+00:00",
+ "fetched_at": "2026-11-04T22:11:18+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-04T16:13:59+00:00",
+   "fetched_at": "2026-11-04T22:11:16+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-11-04T16:13:57+00:00",
+   "fetched_at": "2026-11-04T22:11:13+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-04T16:13:59+00:00",
+   "fetched_at": "2026-11-04T22:11:15+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T16:14:00+00:00",
+   "fetched_at": "2026-11-04T22:11:17+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-04T16:13:58+00:00",
+   "fetched_at": "2026-11-04T22:11:15+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T16:14:02+00:00",
+   "fetched_at": "2026-11-04T22:11:18+00:00",
    "ok": true
   }
  }
