@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-04T01:17:24+00:00",
+ "fetched_at": "2026-11-04T07:58:45+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -424,57 +424,27 @@
    "source": "gov.sr",
    "title": "Het leveren van verf, verfmaterialen ten behoeve van de afdeling Bruggen en Steigers",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-verf-verfmaterialen-ten-behoeve-van-de-afdeling-bruggen-en-steigers/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161200",
-   "lang": "nl",
-   "published": "2026-08-20",
-   "source": "gov.sr",
-   "title": "Het leveren van 2 (twee) tal voertuigen in A1 conditie tbv het Directoraat Ruimtelijke Ordening van het ministerie van Openbare werken en Ruimtelijke Ordening",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-2-twee-tal-voertuigen-in-a1-conditie-tbv-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161197",
-   "lang": "nl",
-   "published": "2026-08-20",
-   "source": "gov.sr",
-   "title": "Het leveren van kantoormeubilair tbv het Directoraat Ruimtelijke Ordening van het ministerie van Openbare werken en Ruimtelijke Ordening",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-kantoormeubilair-tbv-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161194",
-   "lang": "nl",
-   "published": "2026-08-20",
-   "source": "gov.sr",
-   "title": "Het leveren van brandblussers en rookmelders tbv nieuwe kantoorcomplex van het Directoraat Ruimtelijke Ordening van het ministerie",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-brandblussers-en-rookmelders-tbv-nieuwe-kantoorcomplex-van-het-directoraat-ruimtelijke-ordening-van-het-ministerie/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-04T01:17:24+00:00",
+   "fetched_at": "2026-11-04T07:58:45+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-04T01:17:23+00:00",
+   "fetched_at": "2026-11-04T07:58:44+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-04T01:17:23+00:00",
+   "fetched_at": "2026-11-04T07:58:44+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-04T01:17:23+00:00",
+   "fetched_at": "2026-11-04T07:58:44+00:00",
    "ok": true
   }
  }

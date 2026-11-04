@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-04T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Parmessar: Garanties nodig voor onafhankelijke en deskundige belastingrechtspraak",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94698"
+  },
+  {
+   "econ": false,
    "published": "2026-11-03T23:22:57+00:00",
    "source": "Suriname Herald",
    "title": "FAO onderzoekt investeringskansen in Surinaamse landbouw en visserij",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Paniek op Braziliaanse beurs na zege Lula: handel stilgelegd, munt keldert",
    "url": "https://www.srherald.com/buitenland/2026/10/27/paniek-op-braziliaanse-beurs-na-zege-lula-handel-stilgelegd-munt-keldert/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-27T01:56:06+00:00",
-   "source": "Suriname Herald",
-   "title": "VSB vreest extra kosten en vertragingen door nieuwe douanewet",
-   "url": "https://www.srherald.com/suriname/2026/10/26/__trashed/"
   }
  ],
- "fetched_at": "2026-11-04T01:17:39+00:00",
+ "fetched_at": "2026-11-04T07:59:01+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-04T01:17:38+00:00",
+   "fetched_at": "2026-11-04T07:59:00+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-04T01:17:36+00:00",
+   "fetched_at": "2026-11-04T07:58:58+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-04T01:17:37+00:00",
+   "fetched_at": "2026-11-04T07:59:00+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T01:17:38+00:00",
+   "fetched_at": "2026-11-04T07:59:01+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-04T01:17:37+00:00",
+   "fetched_at": "2026-11-04T07:58:59+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-04T01:17:39+00:00",
+   "fetched_at": "2026-11-04T07:59:01+00:00",
    "ok": true
   }
  }
