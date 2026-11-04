@@ -1090,3 +1090,22 @@ body.cc-on .sb-sticky{display:none}
   .tbl.stack td.kb-act{justify-content:flex-end;gap:6px;padding-top:6px}
   .tbl.stack td.kb-act::before{display:none}
 }
+
+/* cash counter: locked opening balance, section heads and signature block on the printed sheet */
+.calc input[readonly]{background:var(--paper-2);color:var(--ink-2);cursor:not-allowed}
+.calc input[readonly]:hover{border-color:var(--field)}
+.paper .cc-h{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--pc,#1f2251);margin:22px 0 4px}
+.paper .cc-pp{margin-top:26px;gap:28px}
+.paper .cc-p .ln{display:flex;gap:10px;align-items:flex-end;border-bottom:1px solid #9a9db0;padding:12px 0 3px;min-height:34px}
+.paper .cc-p .ln span{color:#5b6078;font-size:.8rem;min-width:96px;flex:none}
+.paper .cc-p .ln.sg{min-height:62px}
+.paper.cc-sheet{font-size:.86rem}
+.paper.cc-sheet td{padding:2px 8px;line-height:1.35}
+.paper.cc-sheet th{padding:5px 8px}
+.paper.cc-sheet .ph{margin-bottom:10px}
+.paper.cc-sheet .tots{margin-top:6px}
+.paper.cc-sheet .cc-two{margin-bottom:0;align-items:start}
+.paper.cc-sheet .cc-h{margin-top:14px}
+.paper.cc-sheet .cc-pp{margin-top:18px;break-inside:avoid}
+.paper.cc-sheet .pf{margin-top:14px}
+#cc-res td.r{white-space:nowrap;padding-left:12px}

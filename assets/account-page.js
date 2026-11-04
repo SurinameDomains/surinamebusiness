@@ -177,7 +177,7 @@
     // data and devices
     var KEYNAMES = { biz: T('Bedrijfsgegevens', 'Business details'), clients: T('Klanten', 'Customers'), savedjobs: T('Bewaarde vacatures', 'Saved jobs'),
       bk: T('BTW-register', 'VAT register'), ts: T('Urenregistratie', 'Timesheet'), pl: T('Prijslijst', 'Price list'), letter: T('Brief', 'Letter'),
-      'cc:hist': T('Kas tellen (historie)', 'Cash count (history)'), 'cc:set': T('Kas tellen', 'Cash count'), sg: T('Spaardoel', 'Savings goal'),
+      'cc:hist': T('Kas tellen (historie)', 'Cash count (history)'), 'cc:set': T('Kas tellen', 'Cash count'), 'cc:open': T('Kas tellen: beginsaldo', 'Cash count: opening balance'), sg: T('Spaardoel', 'Savings goal'),
       'rm:me': T('Herinnering: je gegevens', 'Reminder: your details'), 'rm:pay': T('Herinnering: betaalgegevens', 'Reminder: payment details'),
       'rc:by': T('Kwitantie: ontvanger', 'Receipt: received by'), 'ps:er': T('Loonstrook: werkgever', 'Payslip: employer'), 'tc:fuel': T('Ritkosten', 'Trip cost'),
       'wl:phone': T('WhatsApp-nummer', 'WhatsApp number') };
