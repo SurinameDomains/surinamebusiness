@@ -2,6 +2,41 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-05T09:53:00+00:00",
+   "source": "Starnieuws",
+   "title": "Commissieleden vrezen dat nieuwe belastingrechtspraak burgers onvoldoende beschermt",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94711"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-05T09:30:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "‘Infrastructurele projecten districten moeizaam op gang door lange aanbestedingsprocedures’",
+   "url": "https://www.dbsuriname.com/2026/11/05/infrastructurele-projecten-districten-moeizaam-op-gang-door-lange-aanbestedingsprocedures/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-05T08:56:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "President Geerlings-Simons: ‘Wij willen werken naar een beter gereguleerde goudsector’",
+   "url": "https://dwtonline.com/president-geerlings-simons-wij-willen-werken-naar-een-beter-gereguleerde-goudsector/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-05T07:17:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "China wil importen vergroten en handelsbelemmeringen verminderen",
+   "url": "https://dwtonline.com/china-wil-importen-vergroten-en-handelsbelemmeringen-verminderen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-05T04:11:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "China zet deuren wagenwijd open voor buitenlandse bedrijven op recordeditie importbeurs",
+   "url": "https://dwtonline.com/china-zet-deuren-wagenwijd-open-voor-buitenlandse-bedrijven-op-recordeditie-importbeurs/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-04T19:08:37+00:00",
    "source": "Dagblad Suriname",
    "title": "Kledingarbeiders Bangladesh staken voor hoger loon",
@@ -384,44 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Burna Boy eerste Afrikaan met prijs op Ballon d’Or",
    "url": "https://www.dbsuriname.com/2026/10/28/burna-boy-eerste-afrikaan-met-prijs-op-ballon-dor/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T23:33:29+00:00",
-   "source": "Suriname Herald",
-   "title": "Goudzoekers overspoelen Moeroekreek: aantal stijgt van 250 naar circa 8.000",
-   "url": "https://www.srherald.com/suriname/2026/10/28/goudzoekers-overspoelen-moeroekreek-aantal-stijgt-van-250-naar-circa-8-000/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T15:03:31+00:00",
-   "source": "Suriname Herald",
-   "title": "Baasaron wil illegaal ingevoerde rijst laten vernietigen vanwege mogelijk gezondheidsrisico",
-   "url": "https://www.srherald.com/suriname/2026/10/28/baasaron-wil-illegaal-ingevoerde-rijst-laten-vernietigen-vanwege-mogelijk-gezondheidsrisico/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T09:18:59+00:00",
-   "source": "Suriname Herald",
-   "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
-   "url": "https://www.srherald.com/suriname/2026/10/28/plein-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-aanpak-corruptie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T08:55:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Commissie Ordening Goudsector voor een maand gestationeerd te Peling Bergi",
-   "url": "https://dwtonline.com/commissie-ordening-goudsector-voor-een-maand-gestationeerd-te-peling-bergi/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T01:53:00+00:00",
-   "source": "Starnieuws",
-   "title": "Voedselveiligheid vraagt om handelen en een juiste lezing van de wet",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94570"
   }
  ],
- "fetched_at": "2026-11-05T02:45:39+00:00",
+ "fetched_at": "2026-11-05T10:46:19+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-05T02:45:38+00:00",
+   "fetched_at": "2026-11-05T10:46:17+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-11-05T02:45:36+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-05T10:46:15+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-05T02:45:37+00:00",
+   "fetched_at": "2026-11-05T10:46:17+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T02:45:38+00:00",
+   "fetched_at": "2026-11-05T10:46:18+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-05T02:45:37+00:00",
+   "fetched_at": "2026-11-05T10:46:17+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T02:45:39+00:00",
+   "fetched_at": "2026-11-05T10:46:19+00:00",
    "ok": true
   }
  }

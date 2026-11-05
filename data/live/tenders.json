@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-05T02:45:21+00:00",
+ "fetched_at": "2026-11-05T10:46:02+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -265,17 +265,6 @@
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-een-tweetal-nieuwe-directievoertuigen-en-een-personenbus-in-a1-conditie-ten-behoeve-van-het-ministerie-van-olie-gas-en-milieu/"
   },
   {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-11-04",
-   "id": "idb-39085",
-   "kind": "Goods",
-   "lang": "en",
-   "published": "2026-09-22",
-   "source": "IDB",
-   "title": "Ribcraft for DoTC",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1146"
-  },
-  {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
    "id": "gov-162231",
@@ -404,47 +393,27 @@
    "source": "gov.sr",
    "title": "Het ontwerp voor het verbeteren van de afwikkeling van het verkeer van de Ringweg en de kruisende wegen",
    "url": "https://gov.sr/aanbestedingen/het-ontwerp-voor-het-verbeteren-van-de-afwikkeling-van-het-verkeer-van-de-ringweg-en-de-kruisende-wegen/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161270",
-   "lang": "nl",
-   "published": "2026-08-21",
-   "source": "gov.sr",
-   "title": "Het afscheren van bermen en afvoeren van vrijgekomen materiaal en puin in de districten Paramribo, Wanica, Commewijne en Saramacca",
-   "url": "https://gov.sr/aanbestedingen/het-afscheren-van-bermen-en-afvoeren-van-vrijgekomen-materiaal-en-puin-in-de-districten-paramribo-wanica-commewijne-en-saramacca/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161267",
-   "lang": "nl",
-   "published": "2026-08-21",
-   "source": "gov.sr",
-   "title": "Het leveren van verf, verfmaterialen ten behoeve van de afdeling Bruggen en Steigers",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-verf-verfmaterialen-ten-behoeve-van-de-afdeling-bruggen-en-steigers/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-05T02:45:21+00:00",
+   "fetched_at": "2026-11-05T10:46:02+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-05T02:45:20+00:00",
+   "fetched_at": "2026-11-05T10:46:01+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-05T02:45:21+00:00",
+   "fetched_at": "2026-11-05T10:46:01+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-05T02:45:20+00:00",
+   "fetched_at": "2026-11-05T10:46:01+00:00",
    "ok": true
   }
  }
