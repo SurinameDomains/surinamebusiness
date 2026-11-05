@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-05T16:04:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Importstop Jin Chan zorgt voor opschudding binnen Chinese gemeenschap: ‘We weten niet wat er zal gebeuren’",
+   "url": "https://dwtonline.com/importstop-jin-chan-zorgt-voor-opschudding-binnen-chinese-gemeenschap-we-weten-niet-wat-er-zal-gebeuren/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-05T09:53:00+00:00",
    "source": "Starnieuws",
    "title": "Commissieleden vrezen dat nieuwe belastingrechtspraak burgers onvoldoende beschermt",
@@ -412,16 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Gouden horloges combineren luxe en sportieve techniek",
    "url": "https://www.dbsuriname.com/2026/10/28/gouden-horloges-combineren-luxe-en-sportieve-techniek/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T00:52:53+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Burna Boy eerste Afrikaan met prijs op Ballon d’Or",
-   "url": "https://www.dbsuriname.com/2026/10/28/burna-boy-eerste-afrikaan-met-prijs-op-ballon-dor/"
   }
  ],
- "fetched_at": "2026-11-05T10:46:19+00:00",
+ "fetched_at": "2026-11-05T18:42:08+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-05T10:46:17+00:00",
+   "fetched_at": "2026-11-05T18:42:06+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-11-05T10:46:15+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-05T18:42:04+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-05T10:46:17+00:00",
+   "fetched_at": "2026-11-05T18:42:05+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T10:46:18+00:00",
+   "fetched_at": "2026-11-05T18:42:06+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-05T10:46:17+00:00",
+   "fetched_at": "2026-11-05T18:42:05+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T10:46:19+00:00",
+   "fetched_at": "2026-11-05T18:42:08+00:00",
    "ok": true
   }
  }
