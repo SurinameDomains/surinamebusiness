@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-05T20:36:00+00:00",
+   "source": "Starnieuws",
+   "title": "Exporteurs slaan alarm over pesticiden in groenten en verwijten LVV ernstig falen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94722"
+  },
+  {
+   "econ": false,
    "published": "2026-11-05T16:04:00+00:00",
    "source": "de Ware Tijd",
    "title": "Importstop Jin Chan zorgt voor opschudding binnen Chinese gemeenschap: ‘We weten niet wat er zal gebeuren’",
@@ -29,7 +36,7 @@
    "url": "https://dwtonline.com/president-geerlings-simons-wij-willen-werken-naar-een-beter-gereguleerde-goudsector/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-05T07:17:00+00:00",
    "source": "de Ware Tijd",
    "title": "China wil importen vergroten en handelsbelemmeringen verminderen",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Nieuwe AZP-salarissen eind november verwacht: verpleegkundigen tussen US$ 700 en US$ 1000",
    "url": "https://www.srherald.com/suriname/2026/10/29/nieuwe-azp-salarissen-eind-november-verwacht-verpleegkundigen-tussen-us-700-en-us-1000/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T00:54:12+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Gouden horloges combineren luxe en sportieve techniek",
-   "url": "https://www.dbsuriname.com/2026/10/28/gouden-horloges-combineren-luxe-en-sportieve-techniek/"
   }
  ],
- "fetched_at": "2026-11-05T18:42:08+00:00",
+ "fetched_at": "2026-11-06T00:10:39+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-05T18:42:06+00:00",
+   "fetched_at": "2026-11-06T00:10:30+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-05T18:42:04+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-06T00:10:11+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-05T18:42:05+00:00",
+   "fetched_at": "2026-11-06T00:10:30+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T18:42:06+00:00",
+   "fetched_at": "2026-11-06T00:10:38+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-05T18:42:05+00:00",
+   "fetched_at": "2026-11-06T00:10:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-05T18:42:08+00:00",
+   "fetched_at": "2026-11-06T00:10:39+00:00",
    "ok": true
   }
  }
