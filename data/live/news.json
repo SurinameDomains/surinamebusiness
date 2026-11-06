@@ -2,6 +2,41 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-06T03:01:07+00:00",
+   "source": "Suriname Herald",
+   "title": "Gajadien wil opheldering over miljoenenuitgaven overheid zonder duidelijkheid over aanbestedingen",
+   "url": "https://www.srherald.com/suriname/2026/11/06/gajadien-wil-opheldering-over-miljoenenuitgaven-overheid-zonder-duidelijkheid-over-aanbestedingen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-06T03:00:44+00:00",
+   "source": "Dagblad Suriname",
+   "title": "President Paraguay kondigt vertrek aan na bankencrisis",
+   "url": "https://www.dbsuriname.com/2026/11/06/president-paraguay-kondigt-vertrek-aan-na-bankencrisis/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-06T01:07:41+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Brazilië: Politie onderzoekt dieven die inkt van bankbiljetten verwijderen",
+   "url": "https://www.dbsuriname.com/2026/11/05/brazilie-politie-onderzoekt-dieven-die-inkt-van-bankbiljetten-verwijderen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-06T00:40:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Suriname Yard Sale & Food Market: nieuw platform voor startende en gevestigde ondernemers",
+   "url": "https://dwtonline.com/suriname-yard-sale-food-market-nieuw-platform-voor-startende-en-gevestigde-ondernemers/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-06T00:28:00+00:00",
+   "source": "Starnieuws",
+   "title": "Kwiklekkage Nieuwe Haven bevestigd: ruimte gesloten, nog geen veilige opslag",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94732"
+  },
+  {
+   "econ": false,
    "published": "2026-11-05T20:36:00+00:00",
    "source": "Starnieuws",
    "title": "Exporteurs slaan alarm over pesticiden in groenten en verwijten LVV ernstig falen",
@@ -384,44 +419,9 @@
    "source": "Suriname Herald",
    "title": "Brunswijk lokt Wendy Jap-A-Joe met salaris van US$ 12.000 per maand",
    "url": "https://www.srherald.com/suriname/2026/10/29/brunswijk-lokt-wendy-jap-a-joe-met-salaris-van-us-12-000-per-maand/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T14:35:46+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Familie vermiste Rodney Leysner looft beloning van 10.000 US dollar uit voor gouden tip",
-   "url": "https://www.dbsuriname.com/2026/10/29/familie-vermiste-rodney-leysner-looft-beloning-van-10-000-us-dollar-uit-voor-gouden-tip/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T11:18:30+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Extra toezicht op goudwinning Pelin Bergi",
-   "url": "https://www.dbsuriname.com/2026/10/29/extra-toezicht-op-goudwinning-pelin-bergi/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T11:15:08+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Minister Baasaron adviseert vernietiging omstreden rijst",
-   "url": "https://www.dbsuriname.com/2026/10/29/minister-baasaron-adviseert-vernietiging-omstreden-rijst/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T11:03:53+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Nieuwe loonreeks moet verpleegkundigen behouden",
-   "url": "https://www.dbsuriname.com/2026/10/29/nieuwe-loonreeks-moet-verpleegkundigen-behouden/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T09:08:52+00:00",
-   "source": "Suriname Herald",
-   "title": "Nieuwe AZP-salarissen eind november verwacht: verpleegkundigen tussen US$ 700 en US$ 1000",
-   "url": "https://www.srherald.com/suriname/2026/10/29/nieuwe-azp-salarissen-eind-november-verwacht-verpleegkundigen-tussen-us-700-en-us-1000/"
   }
  ],
- "fetched_at": "2026-11-06T00:10:39+00:00",
+ "fetched_at": "2026-11-06T07:22:48+00:00",
  "oil": [
   {
    "econ": false,
@@ -651,32 +651,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-06T00:10:30+00:00",
+   "fetched_at": "2026-11-06T07:22:47+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-06T00:10:11+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-06T07:22:44+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-06T00:10:30+00:00",
+   "fetched_at": "2026-11-06T07:22:46+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T00:10:38+00:00",
+   "fetched_at": "2026-11-06T07:22:47+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-06T00:10:12+00:00",
+   "fetched_at": "2026-11-06T07:22:45+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T00:10:39+00:00",
+   "fetched_at": "2026-11-06T07:22:48+00:00",
    "ok": true
   }
  }
