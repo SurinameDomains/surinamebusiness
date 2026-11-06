@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-06T13:53:33+00:00",
+   "source": "Dagblad Suriname",
+   "title": "President van Paraguay treedt af na omvallen Ueno Bank",
+   "url": "https://www.dbsuriname.com/2026/11/06/president-van-paraguay-treedt-af-na-omvallen-ueno-bank/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-06T03:01:07+00:00",
    "source": "Suriname Herald",
    "title": "Gajadien wil opheldering over miljoenenuitgaven overheid zonder duidelijkheid over aanbestedingen",
@@ -412,17 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "Rondetafel over toekomst zonne-energie in Suriname",
    "url": "https://www.dbsuriname.com/2026/10/29/rondetafel-over-toekomst-zonne-energie-in-suriname/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T15:07:20+00:00",
-   "source": "Suriname Herald",
-   "title": "Brunswijk lokt Wendy Jap-A-Joe met salaris van US$ 12.000 per maand",
-   "url": "https://www.srherald.com/suriname/2026/10/29/brunswijk-lokt-wendy-jap-a-joe-met-salaris-van-us-12-000-per-maand/"
   }
  ],
- "fetched_at": "2026-11-06T07:22:48+00:00",
+ "fetched_at": "2026-11-06T15:22:36+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-06T10:48:42+00:00",
+   "source": "Suriname Herald",
+   "title": "VS treffen netwerk dat Guyanese vlag misbruikte om Iraanse olietankers te beschermen",
+   "url": "https://www.srherald.com/buitenland/2026/11/06/vs-treffen-netwerk-dat-guyanese-vlag-misbruikte-om-iraanse-olietankers-te-beschermen/"
+  },
   {
    "econ": false,
    "published": "2026-11-03T00:18:10+00:00",
@@ -651,32 +658,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-06T07:22:47+00:00",
+   "fetched_at": "2026-11-06T15:22:35+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-06T07:22:44+00:00",
+   "fetched_at": "2026-11-06T15:22:33+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-06T07:22:46+00:00",
+   "fetched_at": "2026-11-06T15:22:34+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T07:22:47+00:00",
+   "fetched_at": "2026-11-06T15:22:35+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-06T07:22:45+00:00",
+   "fetched_at": "2026-11-06T15:22:34+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T07:22:48+00:00",
+   "fetched_at": "2026-11-06T15:22:36+00:00",
    "ok": true
   }
  }
