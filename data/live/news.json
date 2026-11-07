@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-07T00:17:00+00:00",
+   "source": "Starnieuws",
+   "title": "Maritieme sector biedt jongeren nieuwe kansen door groei olie- en gasindustrie",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94744"
+  },
+  {
+   "econ": false,
    "published": "2026-11-06T15:41:00+00:00",
    "source": "Starnieuws",
    "title": "Paraguay zet afzettingsprocedure tegen president Peña voort na bankcrisis",
@@ -412,17 +419,17 @@
    "source": "Starnieuws",
    "title": "Zaak mennonieten: Economisch belang bedrijf weegt niet op tegen handhaving vreemdelingenwet",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94610"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T18:05:42+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Syndicaat voor Onderwijsgevenden wil blijvende salarisverbetering leerkrachten",
-   "url": "https://www.dbsuriname.com/2026/10/29/syndicaat-voor-onderwijsgevenden-wil-blijvende-salarisverbetering-leerkrachten/"
   }
  ],
- "fetched_at": "2026-11-06T21:02:43+00:00",
+ "fetched_at": "2026-11-07T00:52:47+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-07T00:17:00+00:00",
+   "source": "Starnieuws",
+   "title": "Maritieme sector biedt jongeren nieuwe kansen door groei olie- en gasindustrie",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94744"
+  },
   {
    "econ": false,
    "published": "2026-11-06T10:48:42+00:00",
@@ -658,32 +665,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-06T21:02:41+00:00",
+   "fetched_at": "2026-11-07T00:52:45+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-06T21:02:39+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-07T00:52:43+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-06T21:02:41+00:00",
+   "fetched_at": "2026-11-07T00:52:45+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T21:02:42+00:00",
+   "fetched_at": "2026-11-07T00:52:46+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-06T21:02:40+00:00",
+   "fetched_at": "2026-11-07T00:52:45+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-06T21:02:43+00:00",
+   "fetched_at": "2026-11-07T00:52:47+00:00",
    "ok": true
   }
  }
