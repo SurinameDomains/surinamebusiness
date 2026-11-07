@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-07T03:03:53+00:00",
+   "source": "Suriname Herald",
+   "title": "Staatsschuld Suriname volgens Ramautarsing gestegen naar US$ 4,7 miljard: “Economie is nog niet gezond”",
+   "url": "https://www.srherald.com/suriname/2026/11/07/staatsschuld-suriname-volgens-ramautarsing-gestegen-naar-us-47-miljard-economie-is-nog-niet-gezond/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Bee: Achterstand belastingbezwaren teruggebracht van 42.000 naar ruim 2.300",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94748"
+  },
+  {
+   "econ": false,
    "published": "2026-11-07T00:17:00+00:00",
    "source": "Starnieuws",
    "title": "Maritieme sector biedt jongeren nieuwe kansen door groei olie- en gasindustrie",
@@ -405,23 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Wereldreis cruiseschip onderbroken door hoge brandstofprijzen",
    "url": "https://www.dbsuriname.com/2026/10/29/wereldreis-cruiseschip-onderbroken-door-hoge-brandstofprijzen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T19:05:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Van verwachte 250 naar circa 8.000: enorme influx goudzoekers heeft Matawai in greep",
-   "url": "https://dwtonline.com/van-verwachte-250-naar-circa-8-000-enorme-influx-goudzoekers-heeft-matawai-in-greep/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T18:27:00+00:00",
-   "source": "Starnieuws",
-   "title": "Zaak mennonieten: Economisch belang bedrijf weegt niet op tegen handhaving vreemdelingenwet",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94610"
   }
  ],
- "fetched_at": "2026-11-07T00:52:47+00:00",
+ "fetched_at": "2026-11-07T07:04:10+00:00",
  "oil": [
   {
    "econ": false,
@@ -665,32 +665,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-07T00:52:45+00:00",
+   "fetched_at": "2026-11-07T07:04:08+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-07T00:52:43+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-07T07:04:06+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-07T00:52:45+00:00",
+   "fetched_at": "2026-11-07T07:04:08+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T00:52:46+00:00",
+   "fetched_at": "2026-11-07T07:04:09+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-07T00:52:45+00:00",
+   "fetched_at": "2026-11-07T07:04:07+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T00:52:47+00:00",
+   "fetched_at": "2026-11-07T07:04:10+00:00",
    "ok": true
   }
  }

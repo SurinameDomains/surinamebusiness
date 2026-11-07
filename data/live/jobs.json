@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-07T00:52:43+00:00",
+ "fetched_at": "2026-11-07T07:04:06+00:00",
  "items": [
   {
    "deadline": null,
@@ -50,16 +50,6 @@
    "source": "Newmont",
    "title": "Supervisor, Near Mine Exploration Geologist - Suriname",
    "url": "https://jobs.newmont.com/us/en/job/45166"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
-   "id": "nm-45141",
-   "location": "Paramaribo",
-   "published": "2026-10-27",
-   "source": "Newmont",
-   "title": "Team Lead, Networks",
-   "url": "https://jobs.newmont.com/us/en/job/45141"
   },
   {
    "deadline": null,
@@ -153,38 +143,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 4,
-   "fetched_at": "2026-11-07T00:52:31+00:00",
+   "count": 3,
+   "fetched_at": "2026-11-07T07:03:53+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-07T00:52:29+00:00",
+   "fetched_at": "2026-11-07T07:03:52+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-07T00:52:37+00:00",
+   "fetched_at": "2026-11-07T07:03:58+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-07T00:52:43+00:00",
+   "fetched_at": "2026-11-07T07:04:06+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 1,
-   "fetched_at": "2026-11-07T00:52:39+00:00",
+   "fetched_at": "2026-11-07T07:04:00+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 4,
-   "fetched_at": "2026-11-07T00:52:40+00:00",
+   "fetched_at": "2026-11-07T07:04:01+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-07T00:52:41+00:00",
+   "fetched_at": "2026-11-07T07:04:04+00:00",
    "ok": true
   }
  }
