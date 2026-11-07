@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-07T21:07:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Minister Noersalim: ‘Caribisch gebied moet samen economisch ijzersterk staan’",
+   "url": "https://dwtonline.com/minister-noersalim-caribisch-gebied-moet-samen-economisch-ijzersterk-staan/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T19:35:00+00:00",
+   "source": "Starnieuws",
+   "title": "Paraguay zet president Peña af en houdt hem aan na bankenschandaal",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94753"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T19:30:29+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname exporteert nauwelijks naar Colombia, nieuwe handelskamer moet daar verandering in brengen",
+   "url": "https://www.srherald.com/suriname/2026/11/07/suriname-exporteert-nauwelijks-naar-colombia-nieuwe-handelskamer-moet-daar-verandering-in-brengen/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-07T17:33:00+00:00",
    "source": "Starnieuws",
    "title": "Cotino: Belastinguitspraken publiceren om nieuwe geschillen te voorkomen",
@@ -55,6 +76,13 @@
    "source": "Starnieuws",
    "title": "Maritieme sector biedt jongeren nieuwe kansen door groei olie- en gasindustrie",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94744"
+  },
+  {
+   "econ": true,
+   "published": "2026-11-06T21:15:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Suriname kan via Brazilië Chinese afzetmarkt bereiken",
+   "url": "https://dwtonline.com/suriname-kan-via-brazilie-chinese-afzetmarkt-bereiken/"
   },
   {
    "econ": false,
@@ -391,37 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Bob Mangal: ‘Plan ordening kleinschalige goudsector niet perfect maar alvast vertrekpunt’",
    "url": "https://dwtonline.com/bob-mangal-plan-ordening-kleinschalige-goudsector-niet-perfect-maar-alvast-vertrekpunt/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T17:42:54+00:00",
-   "source": "Suriname Herald",
-   "title": "GranMorgu-project op schema, eerste olie in 2028 blijft haalbaar",
-   "url": "https://www.srherald.com/suriname/2026/10/30/granmorgu-project-op-schema-eerste-olie-in-2028-blijft-haalbaar/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T17:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Investeren in ons huis",
-   "url": "https://dwtonline.com/investeren-in-ons-huis/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T13:30:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Halloweenversieringen zorgen voor griezelige en spannende sfeer bij bedrijven.",
-   "url": "https://www.dbsuriname.com/?p=606046"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T13:10:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Vier banken getroffen door cyberdreigingen: is het geld van klanten veilig?",
-   "url": "https://www.dbsuriname.com/?p=606016"
   }
  ],
- "fetched_at": "2026-11-07T18:43:40+00:00",
+ "fetched_at": "2026-11-07T22:41:46+00:00",
  "oil": [
   {
    "econ": false,
@@ -672,32 +672,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-07T18:43:38+00:00",
+   "fetched_at": "2026-11-07T22:41:42+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-07T18:43:36+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-07T22:41:39+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-07T18:43:38+00:00",
+   "fetched_at": "2026-11-07T22:41:42+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T18:43:39+00:00",
+   "fetched_at": "2026-11-07T22:41:44+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-07T18:43:38+00:00",
+   "fetched_at": "2026-11-07T22:41:40+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T18:43:40+00:00",
+   "fetched_at": "2026-11-07T22:41:46+00:00",
    "ok": true
   }
  }
