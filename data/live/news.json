@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-07T17:33:00+00:00",
+   "source": "Starnieuws",
+   "title": "Cotino: Belastinguitspraken publiceren om nieuwe geschillen te voorkomen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94750"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T17:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Blauw, Goud en Jin Chan",
+   "url": "https://dwtonline.com/blauw-goud-en-jin-chan/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T15:31:00+00:00",
+   "source": "Starnieuws",
+   "title": "Gajadien wil belastingbezwaren binnen zes maanden afgehandeld zien",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94749"
+  },
+  {
+   "econ": false,
    "published": "2026-11-07T12:10:26+00:00",
    "source": "Suriname Herald",
    "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
@@ -398,30 +419,9 @@
    "source": "Dagblad Suriname",
    "title": "Vier banken getroffen door cyberdreigingen: is het geld van klanten veilig?",
    "url": "https://www.dbsuriname.com/?p=606016"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T11:17:06+00:00",
-   "source": "Suriname Herald",
-   "title": "Notaris Autar: Surinaamse juristen moeten klaar zijn voor miljardeninvesteringen in olie- en gassector",
-   "url": "https://www.srherald.com/suriname/2026/10/30/notaris-autar-surinaamse-juristen-moeten-klaar-zijn-voor-miljardeninvesteringen-in-olie-en-gassector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T23:46:00+00:00",
-   "source": "Starnieuws",
-   "title": "Wat blijft over als de olie op is?",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94603"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T23:01:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Zonne-energie centraal tijdens ‘strategische rondetafel’",
-   "url": "https://dwtonline.com/zonne-energie-centraal-tijdens-strategische-rondetafel/"
   }
  ],
- "fetched_at": "2026-11-07T13:57:28+00:00",
+ "fetched_at": "2026-11-07T18:43:40+00:00",
  "oil": [
   {
    "econ": false,
@@ -672,32 +672,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-07T13:57:27+00:00",
+   "fetched_at": "2026-11-07T18:43:38+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-07T13:57:25+00:00",
+   "fetched_at": "2026-11-07T18:43:36+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-07T13:57:26+00:00",
+   "fetched_at": "2026-11-07T18:43:38+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T13:57:27+00:00",
+   "fetched_at": "2026-11-07T18:43:39+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-07T13:57:26+00:00",
+   "fetched_at": "2026-11-07T18:43:38+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T13:57:28+00:00",
+   "fetched_at": "2026-11-07T18:43:40+00:00",
    "ok": true
   }
  }
