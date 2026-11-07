@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-07T12:10:26+00:00",
+   "source": "Suriname Herald",
+   "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
+   "url": "https://www.srherald.com/economie/2026/11/07/guyana-op-weg-naar-meer-dan-1-miljoen-vaten-olie-per-dag-exxonmobil-bereidt-nieuwe-productiestart-voor/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T11:08:25+00:00",
+   "source": "Suriname Herald",
+   "title": "VSB wil weten waar pensioenmiljoenen zijn gebleven en eist openheid over APF",
+   "url": "https://www.srherald.com/suriname/2026/11/07/vsb-wil-weten-waar-pensioenmiljoenen-zijn-gebleven-en-eist-openheid-over-apf/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-07T03:03:53+00:00",
    "source": "Suriname Herald",
    "title": "Staatsschuld Suriname volgens Ramautarsing gestegen naar US$ 4,7 miljard: “Economie is nog niet gezond”",
@@ -405,24 +419,17 @@
    "source": "de Ware Tijd",
    "title": "Zonne-energie centraal tijdens ‘strategische rondetafel’",
    "url": "https://dwtonline.com/zonne-energie-centraal-tijdens-strategische-rondetafel/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T22:49:44+00:00",
-   "source": "Suriname Herald",
-   "title": "Nieuwe technologie voor goudwinning zonder kwik getest in Brokopondo",
-   "url": "https://www.srherald.com/suriname/2026/10/29/nieuwe-technologie-voor-goudwinning-zonder-kwik-getest-in-brokopondo/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T22:05:19+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Wereldreis cruiseschip onderbroken door hoge brandstofprijzen",
-   "url": "https://www.dbsuriname.com/2026/10/29/wereldreis-cruiseschip-onderbroken-door-hoge-brandstofprijzen/"
   }
  ],
- "fetched_at": "2026-11-07T07:04:10+00:00",
+ "fetched_at": "2026-11-07T13:57:28+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-07T12:10:26+00:00",
+   "source": "Suriname Herald",
+   "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
+   "url": "https://www.srherald.com/economie/2026/11/07/guyana-op-weg-naar-meer-dan-1-miljoen-vaten-olie-per-dag-exxonmobil-bereidt-nieuwe-productiestart-voor/"
+  },
   {
    "econ": false,
    "published": "2026-11-07T00:17:00+00:00",
@@ -665,32 +672,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-07T07:04:08+00:00",
+   "fetched_at": "2026-11-07T13:57:27+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-07T07:04:06+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-07T13:57:25+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-07T07:04:08+00:00",
+   "fetched_at": "2026-11-07T13:57:26+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T07:04:09+00:00",
+   "fetched_at": "2026-11-07T13:57:27+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-07T07:04:07+00:00",
+   "fetched_at": "2026-11-07T13:57:26+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T07:04:10+00:00",
+   "fetched_at": "2026-11-07T13:57:28+00:00",
    "ok": true
   }
  }
