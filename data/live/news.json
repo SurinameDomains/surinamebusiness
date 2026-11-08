@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-08T02:03:33+00:00",
+   "source": "Suriname Herald",
+   "title": "Man met twee schotwonden dood aangetroffen op terrein Republic Bank",
+   "url": "https://www.srherald.com/suriname/2026/11/07/man-met-twee-schotwonden-dood-aangetroffen-op-terrein-republic-bank/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T00:21:00+00:00",
+   "source": "Starnieuws",
+   "title": "Levenloze man met schotverwondingen aangetroffen op terrein Republic Bank",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94763"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T23:59:13+00:00",
+   "source": "Suriname Herald",
+   "title": "Noersalim wil meer jongeren en vrouwen in bijenteelt om Caribische economie te versterken",
+   "url": "https://www.srherald.com/suriname/2026/11/07/noersalim-wil-meer-jongeren-en-vrouwen-in-bijenteelt-om-caribische-economie-te-versterken/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-07T23:04:12+00:00",
+   "source": "Suriname Herald",
+   "title": "Vier gewapende rovers slaan verkoopster in gezicht en rukken gouden halsketting van haar hals",
+   "url": "https://www.srherald.com/suriname/2026/11/07/vier-gewapende-rovers-slaan-verkoopster-in-gezicht-en-rukken-gouden-halsketting-van-haar-hals/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-07T21:07:00+00:00",
    "source": "de Ware Tijd",
    "title": "Minister Noersalim: ‘Caribisch gebied moet samen economisch ijzersterk staan’",
@@ -43,7 +71,7 @@
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94749"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-07T12:10:26+00:00",
    "source": "Suriname Herald",
    "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
@@ -391,40 +419,12 @@
    "source": "Suriname Herald",
    "title": "Surinaamse ondernemers dreigen kansen in olie- en gassector mis te lopen",
    "url": "https://www.srherald.com/suriname/2026/10/31/surinaamse-ondernemers-dreigen-kansen-in-olie-en-gassector-mis-te-lopen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T08:54:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Geerlings-Simons: ‘Zonne-energie vorm van zekerheid’",
-   "url": "https://dwtonline.com/geerlings-simons-zonne-energie-vorm-van-zekerheid/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-31T06:01:54+00:00",
-   "source": "Suriname Herald",
-   "title": "Guyana trekt circa US$ 1 miljard aan haveninvesteringen dankzij groei oliesector",
-   "url": "https://www.srherald.com/economie/2026/10/31/guyana-trekt-circa-us-1-miljard-aan-haveninvesteringen-dankzij-groei-oliesector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T22:07:38+00:00",
-   "source": "Suriname Herald",
-   "title": "Ravaksur wil belastingvrije voet naar SRD 15.000 en nieuwe loonafspraken tot 2028",
-   "url": "https://www.srherald.com/suriname/2026/10/30/ravaksur-wil-belastingvrije-voet-naar-srd-15-000-en-nieuwe-loonafspraken-tot-2028/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T19:39:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Bob Mangal: ‘Plan ordening kleinschalige goudsector niet perfect maar alvast vertrekpunt’",
-   "url": "https://dwtonline.com/bob-mangal-plan-ordening-kleinschalige-goudsector-niet-perfect-maar-alvast-vertrekpunt/"
   }
  ],
- "fetched_at": "2026-11-07T22:41:46+00:00",
+ "fetched_at": "2026-11-08T02:23:29+00:00",
  "oil": [
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-07T12:10:26+00:00",
    "source": "Suriname Herald",
    "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
@@ -672,32 +672,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-07T22:41:42+00:00",
+   "fetched_at": "2026-11-08T02:23:28+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-07T22:41:39+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-08T02:23:25+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-07T22:41:42+00:00",
+   "fetched_at": "2026-11-08T02:23:27+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T22:41:44+00:00",
+   "fetched_at": "2026-11-08T02:23:28+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-07T22:41:40+00:00",
+   "fetched_at": "2026-11-08T02:23:27+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-07T22:41:46+00:00",
+   "fetched_at": "2026-11-08T02:23:29+00:00",
    "ok": true
   }
  }
