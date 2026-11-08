@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-08T02:23:12+00:00",
+ "fetched_at": "2026-11-08T09:26:55+00:00",
  "items": [
   {
    "buyer": "Strengthening Spatial Planning and Environmental Management in Suriname",
@@ -384,47 +384,27 @@
    "source": "gov.sr",
    "title": "Het opschonen van de hoofdlozing, het vernieuwen van de gesloten riolering en het bestraten van de wegen van het maretraiteproject in het district Wanica",
    "url": "https://gov.sr/aanbestedingen/het-opschonen-van-de-hoofdlozing-het-vernieuwen-van-de-gesloten-riolering-en-het-bestraten-van-de-wegen-van-het-maretraiteproject-in-het-district-wanica/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161389",
-   "lang": "nl",
-   "published": "2026-08-24",
-   "source": "gov.sr",
-   "title": "Het ledigen van vuilcontainers met afvalstoffen op verschillende lokaties in Paramaribo en Wanica middels kraakperswagens ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
-   "url": "https://gov.sr/aanbestedingen/het-ledigen-van-vuilcontainers-met-afvalstoffen-op-verschillende-lokaties-in-paramaribo-en-wanica-middels-kraakperswagens-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werke-2/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161371",
-   "lang": "nl",
-   "published": "2026-08-24",
-   "source": "gov.sr",
-   "title": "Het ontwerp voor het verbeteren van de afwikkeling van het verkeer van de Ringweg en de kruisende wegen",
-   "url": "https://gov.sr/aanbestedingen/het-ontwerp-voor-het-verbeteren-van-de-afwikkeling-van-het-verkeer-van-de-ringweg-en-de-kruisende-wegen/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-08T02:23:12+00:00",
+   "fetched_at": "2026-11-08T09:26:55+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-08T02:23:11+00:00",
+   "fetched_at": "2026-11-08T09:26:54+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-08T02:23:11+00:00",
+   "fetched_at": "2026-11-08T09:26:54+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-08T02:23:11+00:00",
+   "fetched_at": "2026-11-08T09:26:54+00:00",
    "ok": true
   }
  }
