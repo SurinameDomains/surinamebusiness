@@ -2,6 +2,48 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-08T15:07:46+00:00",
+   "source": "de Ware Tijd",
+   "title": "Simons wil landbouwsector uit het slop halen: jongeren, investeerders en productie centraal",
+   "url": "https://dwtonline.com/simons-wil-landbouwsector-uit-het-slop-halen-jongeren-investeerders-en-productie-centraal/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T14:51:19+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Messi wint voor tweede jaar op rij de Gouden Schoen",
+   "url": "https://www.dbsuriname.com/2026/11/08/messi-wint-voor-tweede-jaar-op-rij-de-gouden-schoen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T12:58:02+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Ondernemer overlijdt bij ongeval met minigraafmachine",
+   "url": "https://www.dbsuriname.com/2026/11/08/ondernemer-overlijdt-bij-ongeval-met-minigraafmachine/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T12:17:00+00:00",
+   "source": "Starnieuws",
+   "title": "Verdachte aangehouden na dodelijke beroving op terrein Republic Bank",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94767"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T12:09:31+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons houdt brandstofsubsidie in stand uit vrees voor hogere winkelprijzen",
+   "url": "https://www.srherald.com/suriname/2026/11/08/simons-houdt-brandstofsubsidie-in-stand-uit-vrees-voor-hogere-winkelprijzen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T11:05:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "VSB wil APF onder prudentieel toezicht van CBvS plaatsen",
+   "url": "https://dwtonline.com/vsb-wil-apf-onder-prudentieel-toezicht-van-cbvs-plaatsen/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-08T08:53:00+00:00",
    "source": "de Ware Tijd",
    "title": "Guyanees bedrijf G-Boats troeft Surinaamse bedrijven af",
@@ -377,51 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Duo opgepakt voor diefstal EBS-transformator",
    "url": "https://dwtonline.com/duo-opgepakt-voor-diefstal-ebs-transformator/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-01T01:18:32+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Suriname steunt regionaal netwerk voor investeringen",
-   "url": "https://www.dbsuriname.com/2026/10/31/suriname-steunt-regionaal-netwerk-voor-investeringen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T19:58:42+00:00",
-   "source": "Suriname Herald",
-   "title": "Regering-Simons neemt grondconversies onder de loep: overdracht aan bedrijven en stichtingen wordt onderzocht",
-   "url": "https://www.srherald.com/suriname/2026/10/31/regering-simons-neemt-grondconversies-onder-de-loep-overdracht-aan-bedrijven-en-stichtingen-wordt-onderzocht/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T15:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Zoveelste poging ordening goudsector",
-   "url": "https://dwtonline.com/zoveelste-poging-ordening-goudsector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T14:26:12+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Simons wil snellere ontwikkeling zonne-energiecentrales",
-   "url": "https://www.dbsuriname.com/2026/10/31/simons-wil-snellere-ontwikkeling-zonne-energiecentrales/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T14:22:03+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Ondernemers gewaarschuwd voor mislopen oliekansen",
-   "url": "https://www.dbsuriname.com/2026/10/31/ondernemers-gewaarschuwd-voor-mislopen-oliekansen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-31T14:16:47+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Ravaksur vraagt belastingvrije voet van SRD 15.000",
-   "url": "https://www.dbsuriname.com/2026/10/31/ravaksur-vraagt-belastingvrije-voet-van-srd-15-000/"
   }
  ],
- "fetched_at": "2026-11-08T09:27:14+00:00",
+ "fetched_at": "2026-11-08T16:18:10+00:00",
  "oil": [
   {
    "econ": true,
@@ -672,32 +672,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-08T09:27:13+00:00",
+   "fetched_at": "2026-11-08T16:18:08+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 19,
-   "fetched_at": "2026-11-08T09:27:11+00:00",
+   "fetched_at": "2026-11-08T16:18:06+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-08T09:27:12+00:00",
+   "fetched_at": "2026-11-08T16:18:07+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-08T09:27:13+00:00",
+   "fetched_at": "2026-11-08T16:18:09+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-08T09:27:12+00:00",
+   "fetched_at": "2026-11-08T16:18:07+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-08T09:27:14+00:00",
+   "fetched_at": "2026-11-08T16:18:10+00:00",
    "ok": true
   }
  }
