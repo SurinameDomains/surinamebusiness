@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-09T17:06:42+00:00",
+   "source": "Dagblad Suriname",
+   "title": "President Simons wil goudzoekers registreren en bronrivieren beschermen",
+   "url": "https://www.dbsuriname.com/2026/11/09/president-simons-wil-goudzoekers-registreren-en-bronrivieren-beschermen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-09T14:49:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatshoofd kondigt extra maatregelen aan voor ordening goudsector",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94787"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-09T10:23:00+00:00",
+   "source": "Starnieuws",
+   "title": "VSB wil weten waar pensioenpremies sinds 2015 zijn gebleven",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94743"
+  },
+  {
+   "econ": false,
    "published": "2026-11-09T03:00:00+00:00",
    "source": "Starnieuws",
    "title": "Subisco trekt kort geding over kipimport in; Staat houdt vast aan importverbod",
@@ -398,31 +419,17 @@
    "source": "de Ware Tijd",
    "title": "‘De mensen willen niets meer met cyanide te maken hebben’; Chinese goudzoekers moeten weg",
    "url": "https://dwtonline.com/de-mensen-willen-niets-meer-met-cyanide-te-maken-hebben-chinese-goudzoekers-moeten-weg/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-03T00:18:10+00:00",
-   "source": "Suriname Herald",
-   "title": "Jadnanansing verwacht 7000 banen in olie- en gassector: 24 personen opgeleid in Nickerie",
-   "url": "https://www.srherald.com/suriname/2026/11/02/jadnanansing-verwacht-7000-banen-in-olie-en-gassector-24-personen-opgeleid-in-nickerie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-02T19:08:00+00:00",
-   "source": "Starnieuws",
-   "title": "President Simons gelast onmiddellijke stopzetting import Jin Chan",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94678"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-02T19:03:32+00:00",
-   "source": "Suriname Herald",
-   "title": "Chinese goudzoekers moeten vertrekken na Jin Chan-incident in Godo Olo",
-   "url": "https://www.srherald.com/suriname/2026/11/02/chinese-goudzoekers-moeten-vertrekken-na-jin-chan-incident-in-godo-olo/"
   }
  ],
- "fetched_at": "2026-11-09T07:54:12+00:00",
+ "fetched_at": "2026-11-09T18:42:57+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-09T09:02:34+00:00",
+   "source": "Suriname Herald",
+   "title": "President Simons wil voorkomen dat oliegeld prijzen opdrijft en burgers achterblijven",
+   "url": "https://www.srherald.com/suriname/2026/11/09/president-simons-wil-voorkomen-dat-oliegeld-prijzen-opdrijft-en-burgers-achterblijven/"
+  },
   {
    "econ": false,
    "published": "2026-11-08T21:02:40+00:00",
@@ -679,32 +686,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-09T07:54:10+00:00",
+   "fetched_at": "2026-11-09T18:42:55+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-11-09T07:54:07+00:00",
+   "fetched_at": "2026-11-09T18:42:51+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-09T07:54:10+00:00",
+   "fetched_at": "2026-11-09T18:42:54+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-09T07:54:11+00:00",
+   "fetched_at": "2026-11-09T18:42:56+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-09T07:54:09+00:00",
+   "fetched_at": "2026-11-09T18:42:52+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-09T07:54:12+00:00",
+   "fetched_at": "2026-11-09T18:42:57+00:00",
    "ok": true
   }
  }
