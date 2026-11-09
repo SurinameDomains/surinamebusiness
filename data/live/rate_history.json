@@ -369,6 +369,16 @@
     37.4,
     37.7
    ]
+  },
+  "2026-11-09": {
+   "eur": [
+    40.8,
+    41.85
+   ],
+   "usd": [
+    37.4,
+    37.7
+   ]
   }
  },
  "note": "CME cash rates, one entry per business day"
