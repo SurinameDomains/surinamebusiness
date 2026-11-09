@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-08T21:09:27+00:00",
+   "source": "de Ware Tijd",
+   "title": "VSB wil worden betrokken bij hervorming Belastingdienst",
+   "url": "https://dwtonline.com/vsb-wil-worden-betrokken-bij-hervorming-belastingdienst/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-08T21:02:40+00:00",
+   "source": "Suriname Herald",
+   "title": "Azerbeidzjan deelt ervaringen met oliefonds: Suriname verkent economische samenwerking",
+   "url": "https://www.srherald.com/suriname/2026/11/08/azerbeidzjan-deelt-ervaringen-met-oliefonds-suriname-verkent-economische-samenwerking/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-08T19:35:12+00:00",
    "source": "Suriname Herald",
    "title": "Wang: “Overheid int belastingen, maar kan zij burgers nog veiligheid garanderen?”",
@@ -405,24 +419,17 @@
    "source": "Suriname Herald",
    "title": "Ondernemer Babel wil 100.000 kippen produceren in Suriname en banen creëren voor jongeren",
    "url": "https://www.srherald.com/suriname/2026/11/02/ondernemer-babel-wil-100-000-kippen-produceren-in-suriname-en-banen-creeren-voor-jongeren/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-01T19:56:19+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Zes leden van netwerk illegale goudwinning veroordeeld",
-   "url": "https://www.dbsuriname.com/2026/11/01/zes-leden-van-netwerk-illegale-goudwinning-veroordeeld/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-01T19:44:46+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Singapore zoekt alternatieven voor energieverslindende airconditioning",
-   "url": "https://www.dbsuriname.com/2026/11/01/singapore-zoekt-alternatieven-voor-energieverslindende-airconditioning/"
   }
  ],
- "fetched_at": "2026-11-08T20:45:13+00:00",
+ "fetched_at": "2026-11-09T00:48:50+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-08T21:02:40+00:00",
+   "source": "Suriname Herald",
+   "title": "Azerbeidzjan deelt ervaringen met oliefonds: Suriname verkent economische samenwerking",
+   "url": "https://www.srherald.com/suriname/2026/11/08/azerbeidzjan-deelt-ervaringen-met-oliefonds-suriname-verkent-economische-samenwerking/"
+  },
   {
    "econ": true,
    "published": "2026-11-07T12:10:26+00:00",
@@ -672,32 +679,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-08T20:45:11+00:00",
+   "fetched_at": "2026-11-09T00:48:48+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 21,
-   "fetched_at": "2026-11-08T20:45:09+00:00",
+   "count": 19,
+   "fetched_at": "2026-11-09T00:48:45+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-08T20:45:11+00:00",
+   "fetched_at": "2026-11-09T00:48:47+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-08T20:45:12+00:00",
+   "fetched_at": "2026-11-09T00:48:49+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-08T20:45:10+00:00",
+   "fetched_at": "2026-11-09T00:48:47+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-08T20:45:13+00:00",
+   "fetched_at": "2026-11-09T00:48:50+00:00",
    "ok": true
   }
  }
