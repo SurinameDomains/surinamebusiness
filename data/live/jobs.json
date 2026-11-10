@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-11-09T18:42:50+00:00",
+ "fetched_at": "2026-11-10T02:01:46+00:00",
  "items": [
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45560",
+   "location": "Paramaribo",
+   "published": "2026-11-09",
+   "source": "Newmont",
+   "title": "Supervisor, Haul Trucks",
+   "url": "https://jobs.newmont.com/us/en/job/45560"
+  },
   {
    "deadline": null,
    "employer": "Newmont Suriname",
@@ -112,22 +122,22 @@
   {
    "deadline": "2026-11-11",
    "employer": "UNICEF",
-   "id": "unicef-66138562",
-   "location": "Suriname",
-   "published": null,
-   "source": "UNICEF",
-   "title": "Health Specialist (Primary Health Care & Mental Health), NOC, FT, #138562, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
-   "url": "https://jobs.unicef.org/en-us/job/596066/health-specialist-primary-health-care-mental-health-noc-ft-138562-paramaribo-suriname-multicountry-office-for-the-caribbean"
-  },
-  {
-   "deadline": "2026-11-11",
-   "employer": "UNICEF",
    "id": "unicef-60138603",
    "location": "Suriname",
    "published": null,
    "source": "UNICEF",
    "title": "Education Specialist (ECD), NOC, FT, #138603, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
    "url": "https://jobs.unicef.org/en-us/job/596060/education-specialist-ecd-noc-ft-138603-paramaribo-suriname-multicountry-office-for-the-caribbean"
+  },
+  {
+   "deadline": "2026-11-11",
+   "employer": "UNICEF",
+   "id": "unicef-66138562",
+   "location": "Suriname",
+   "published": null,
+   "source": "UNICEF",
+   "title": "Health Specialist (Primary Health Care & Mental Health), NOC, FT, #138562, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
+   "url": "https://jobs.unicef.org/en-us/job/596066/health-specialist-primary-health-care-mental-health-noc-ft-138562-paramaribo-suriname-multicountry-office-for-the-caribbean"
   },
   {
    "deadline": "2026-11-11",
@@ -143,38 +153,38 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 3,
-   "fetched_at": "2026-11-09T18:42:37+00:00",
+   "count": 4,
+   "fetched_at": "2026-11-10T02:01:32+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-09T18:42:36+00:00",
+   "fetched_at": "2026-11-10T02:01:30+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-09T18:42:43+00:00",
+   "fetched_at": "2026-11-10T02:01:37+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-09T18:42:50+00:00",
+   "fetched_at": "2026-11-10T02:01:46+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 1,
-   "fetched_at": "2026-11-09T18:42:45+00:00",
+   "fetched_at": "2026-11-10T02:01:39+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 4,
-   "fetched_at": "2026-11-09T18:42:46+00:00",
+   "fetched_at": "2026-11-10T02:01:40+00:00",
    "ok": true
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-09T18:42:48+00:00",
+   "fetched_at": "2026-11-10T02:01:42+00:00",
    "ok": true
   }
  }
