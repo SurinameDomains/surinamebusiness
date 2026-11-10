@@ -1,6 +1,34 @@
 {
- "fetched_at": "2026-11-10T09:42:43+00:00",
- "items": [],
+ "fetched_at": "2026-11-10T17:45:13+00:00",
+ "items": [
+  {
+   "body": "Een software bedrijf dat sinds 2006 actief is en zich richt op het leveren van digitale diensten aan bedrijven, ondernemers en organisaties in Suriname. Het bedrijf biedt onder andere professionele websites, webapplicaties, SEO, logo- en grafisch ontwerp, AI-oplossingen, bedrijfsautomatisering en dronevideografie aan. DuLamari helpt klanten om hun online zichtbaarheid te vergroten, een professionele uitstraling te creëren en hun bedrijfsprocessen efficiënter te maken met behulp van moderne technologie.",
+   "body_en": null,
+   "created_at": "2026-11-10T11:31:25Z",
+   "data": {
+    "email": "info@dulamari.com",
+    "group": "services",
+    "hours": "",
+    "kind": "",
+    "phone": "",
+    "place": "Paramaribo",
+    "replaces": "",
+    "street": "",
+    "whatsapp": ""
+   },
+   "ends": null,
+   "id": "wsj9dgssswwn",
+   "kind": "company",
+   "lang": "all",
+   "sort": 0,
+   "source": null,
+   "starts": null,
+   "title": "dulamari",
+   "title_en": null,
+   "updated_at": "2026-11-10T12:03:09Z",
+   "url": "https://dulamari.com"
+  }
+ ],
  "settings": {
   "featured_tools": "invoice,quote,payslip,pricing,importcost,loan,btwregister,qrcode,pdftools",
   "home_message_en": "",

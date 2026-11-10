@@ -1,6 +1,49 @@
 {
- "fetched_at": "2026-11-10T09:42:42+00:00",
+ "fetched_at": "2026-11-10T17:45:12+00:00",
  "notices": [
+  {
+   "date": "2026-11-11",
+   "kind": "planned",
+   "map": "",
+   "slots": [
+    {
+     "areas": "GEDEELTE GUMMELSWEG NABIJ EAG AIRPORT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-11",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "14:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud woensdag 11 november 2026",
+   "url": "https://nvebs.com/nieuws/1646/gepland-onderhoud-woensdag-11-november-2026"
+  },
+  {
+   "date": "2026-11-12",
+   "kind": "planned",
+   "map": "",
+   "slots": [
+    {
+     "areas": "GEDEELTE MAWAKABOWEG TUSSEN MOHAMED RASHID PIERKHANWEG EN WELGEDACHT C WEG, GEDEELTE MAGENTAWEG TUSSEN MAWAKABOWEG EN MAGENTA KANAALWEG, INVEJAWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-12",
+     "district": "Wanica",
+     "from": "09:00",
+     "to": "14:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud donderdag 12 november 2026",
+   "url": "https://nvebs.com/nieuws/1647/gepland-onderhoud-donderdag-12-november-2026"
+  },
+  {
+   "date": "",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "PARAMARIBO 10 NOVEMBER- De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd bij de Afobaka krachtcentrale. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de elektriciteitsvoorziening van maximaal drie aaneengesloten uren, gedurende de middag óf de avond. Deze 3-urige uitschakkelingen",
+   "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
+   "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
+  },
   {
    "date": "",
    "kind": "notice",

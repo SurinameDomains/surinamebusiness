@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-10T15:16:25+00:00",
+   "source": "Dagblad Suriname",
+   "title": "EZOTI raadpleegt stakeholders over hervorming Wet Bedrijven en Beroepen",
+   "url": "https://www.dbsuriname.com/2026/11/10/ezoti-raadpleegt-stakeholders-over-hervorming-wet-bedrijven-en-beroepen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T11:54:38+00:00",
+   "source": "Suriname Herald",
+   "title": "China boekt handelsoverschot van US$ 1,04 biljoen: export van AI-chips schiet omhoog",
+   "url": "https://www.srherald.com/economie/2026/11/10/china-boekt-handelsoverschot-van-us-104-biljoen-export-van-ai-chips-schiet-omhoog/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T11:23:36+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Ratingbureau Standard & Poor’s verhoogt kredietwaardigheid Suriname",
+   "url": "https://www.dbsuriname.com/2026/11/10/ratingbureau-standard-poors-verhoogt-kredietwaardigheid-suriname/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T10:50:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Standard & Poor’s verhoogt kredietwaardigheid Suriname van CCC+ naar B-",
+   "url": "https://dwtonline.com/standard-poors-verhoogt-kredietwaardigheid-suriname-van-ccc-naar-b/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-10T08:55:18+00:00",
    "source": "Suriname Herald",
    "title": "S&P verhoogt kredietwaardigheid Suriname: groeiverwachting naar 36 procent in oliejaren",
@@ -391,37 +419,9 @@
    "source": "de Ware Tijd",
    "title": "China zet deuren wagenwijd open voor buitenlandse bedrijven op recordeditie importbeurs",
    "url": "https://dwtonline.com/china-zet-deuren-wagenwijd-open-voor-buitenlandse-bedrijven-op-recordeditie-importbeurs/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T19:08:37+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Kledingarbeiders Bangladesh staken voor hoger loon",
-   "url": "https://www.dbsuriname.com/2026/11/04/kledingarbeiders-bangladesh-staken-voor-hoger-loon/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T17:49:08+00:00",
-   "source": "Suriname Herald",
-   "title": "Misiekaba: Diakonessenhuis-chirurgen eisen salaris van SRD 300.000 per maand",
-   "url": "https://www.srherald.com/suriname/2026/11/04/misiekaba-diakonessenhuis-chirurgen-eisen-salaris-van-srd-300-000-per-maand/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T13:20:00+00:00",
-   "source": "Starnieuws",
-   "title": "Iran ziet afwijzing oorlog, Europa hoopt op koerswijziging",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94705"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T11:02:16+00:00",
-   "source": "Suriname Herald",
-   "title": "Jones eist duidelijkheid over mogelijke kwiklekkage bij Nieuwe Haven",
-   "url": "https://www.srherald.com/suriname/2026/11/04/jones-eist-duidelijkheid-over-mogelijke-kwiklekkage-bij-nieuwe-haven/"
   }
  ],
- "fetched_at": "2026-11-10T09:42:36+00:00",
+ "fetched_at": "2026-11-10T17:45:00+00:00",
  "oil": [
   {
    "econ": false,
@@ -688,44 +688,37 @@
    "source": "Suriname Herald",
    "title": "Amerikaans bedrijf sluit grote energiedeals in Venezuela voor gas, olie en mogelijke LNG-export",
    "url": "https://www.srherald.com/economie/2026/10/05/amerikaans-bedrijf-sluit-grote-energiedeals-in-venezuela-voor-gas-olie-en-mogelijke-lng-export/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-02T10:02:26+00:00",
-   "source": "Suriname Herald",
-   "title": "TotalEnergies trekt US$ 10 miljard uit voor olie en gas in Argentinië",
-   "url": "https://www.srherald.com/economie/2026/10/02/totalenergies-trekt-us-10-miljard-uit-voor-olie-en-gas-in-argentinie/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-10T09:42:35+00:00",
+   "fetched_at": "2026-11-10T17:44:58+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 19,
-   "fetched_at": "2026-11-10T09:42:33+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-10T17:44:56+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-10T09:42:35+00:00",
+   "fetched_at": "2026-11-10T17:44:58+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T09:42:35+00:00",
+   "fetched_at": "2026-11-10T17:44:59+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-10T09:42:34+00:00",
+   "fetched_at": "2026-11-10T17:44:57+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T09:42:36+00:00",
+   "fetched_at": "2026-11-10T17:45:00+00:00",
    "ok": true
   }
  }
