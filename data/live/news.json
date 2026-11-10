@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-10T08:55:18+00:00",
+   "source": "Suriname Herald",
+   "title": "S&P verhoogt kredietwaardigheid Suriname: groeiverwachting naar 36 procent in oliejaren",
+   "url": "https://www.srherald.com/suriname/2026/11/10/sp-verhoogt-kredietwaardigheid-suriname-groeiverwachting-naar-36-procent-in-oliejaren/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T08:50:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Caribisch Nederland speelt juridisch in op olie-activiteiten Suriname",
+   "url": "https://dwtonline.com/caribisch-nederland-speelt-juridisch-in-op-olie-activiteiten-suriname/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T04:43:37+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons: goudsector levert staat te weinig op, samenleving betaalt voor milieuschade",
+   "url": "https://www.srherald.com/suriname/2026/11/10/simons-goudsector-levert-staat-te-weinig-op-samenleving-betaalt-voor-milieuschade/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T03:00:38+00:00",
+   "source": "de Ware Tijd",
+   "title": "Koers regulering goudsector: ‘Geen clean sweep, maar een lange adem’",
+   "url": "https://dwtonline.com/simons-wil-kleinschalige-goudwinning-reguleren-en-politie-en-leger-versterken-om-veiligheid-in-het-land-te-verbeteren/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-10T01:01:00+00:00",
    "source": "Starnieuws",
    "title": "S&P verhoogt kredietwaardigheid Suriname, maar waarschuwt voor zwakke instituties",
@@ -391,38 +419,24 @@
    "source": "Suriname Herald",
    "title": "Jones eist duidelijkheid over mogelijke kwiklekkage bij Nieuwe Haven",
    "url": "https://www.srherald.com/suriname/2026/11/04/jones-eist-duidelijkheid-over-mogelijke-kwiklekkage-bij-nieuwe-haven/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T09:58:00+00:00",
-   "source": "Starnieuws",
-   "title": "Asabina eist duidelijkheid over Jin Chan na besluit importstop",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94696"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T08:55:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Tsang: ‘Economische groei mag niet ten koste gaan van onze natuur’",
-   "url": "https://dwtonline.com/tsang-economische-groei-mag-niet-ten-koste-gaan-van-onze-natuur/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-04T03:00:00+00:00",
-   "source": "Starnieuws",
-   "title": "Parmessar: Garanties nodig voor onafhankelijke en deskundige belastingrechtspraak",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94698"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-03T23:22:57+00:00",
-   "source": "Suriname Herald",
-   "title": "FAO onderzoekt investeringskansen in Surinaamse landbouw en visserij",
-   "url": "https://www.srherald.com/suriname/2026/11/03/fao-onderzoekt-investeringskansen-in-surinaamse-landbouw-en-visserij/"
   }
  ],
- "fetched_at": "2026-11-10T02:01:50+00:00",
+ "fetched_at": "2026-11-10T09:42:36+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-10T08:55:18+00:00",
+   "source": "Suriname Herald",
+   "title": "S&P verhoogt kredietwaardigheid Suriname: groeiverwachting naar 36 procent in oliejaren",
+   "url": "https://www.srherald.com/suriname/2026/11/10/sp-verhoogt-kredietwaardigheid-suriname-groeiverwachting-naar-36-procent-in-oliejaren/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-10T08:50:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Caribisch Nederland speelt juridisch in op olie-activiteiten Suriname",
+   "url": "https://dwtonline.com/caribisch-nederland-speelt-juridisch-in-op-olie-activiteiten-suriname/"
+  },
   {
    "econ": false,
    "published": "2026-11-09T09:02:34+00:00",
@@ -686,32 +700,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-10T02:01:49+00:00",
+   "fetched_at": "2026-11-10T09:42:35+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-11-10T02:01:46+00:00",
+   "count": 19,
+   "fetched_at": "2026-11-10T09:42:33+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-10T02:01:48+00:00",
+   "fetched_at": "2026-11-10T09:42:35+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T02:01:49+00:00",
+   "fetched_at": "2026-11-10T09:42:35+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-10T02:01:47+00:00",
+   "fetched_at": "2026-11-10T09:42:34+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T02:01:50+00:00",
+   "fetched_at": "2026-11-10T09:42:36+00:00",
    "ok": true
   }
  }
