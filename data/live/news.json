@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-11T00:02:43+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Graafschade aan glasvezelverbinding treft klanten van Telesur",
+   "url": "https://www.dbsuriname.com/2026/11/10/graafschade-aan-glasvezelverbinding-treft-klanten-van-telesur/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-10T22:37:00+00:00",
    "source": "Starnieuws",
    "title": "Graafschade legt Telesur-diensten voor 20.000 klanten plat",
@@ -15,7 +22,7 @@
    "url": "https://www.dbsuriname.com/2026/11/10/ezoti-raadpleegt-stakeholders-over-hervorming-wet-bedrijven-en-beroepen/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-10T11:54:38+00:00",
    "source": "Suriname Herald",
    "title": "China boekt handelsoverschot van US$ 1,04 biljoen: export van AI-chips schiet omhoog",
@@ -412,17 +419,17 @@
    "source": "de Ware Tijd",
    "title": "President Geerlings-Simons: ‘Wij willen werken naar een beter gereguleerde goudsector’",
    "url": "https://dwtonline.com/president-geerlings-simons-wij-willen-werken-naar-een-beter-gereguleerde-goudsector/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-05T07:17:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "China wil importen vergroten en handelsbelemmeringen verminderen",
-   "url": "https://dwtonline.com/china-wil-importen-vergroten-en-handelsbelemmeringen-verminderen/"
   }
  ],
- "fetched_at": "2026-11-10T23:14:22+00:00",
+ "fetched_at": "2026-11-11T02:59:34+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-11T00:20:34+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Van huwelijksband tot olieband: De deskundige die niemand benoemde",
+   "url": "https://www.dbsuriname.com/2026/11/10/van-huwelijksband-tot-olieband-de-deskundige-die-niemand-benoemde/"
+  },
   {
    "econ": false,
    "published": "2026-11-10T08:55:18+00:00",
@@ -693,32 +700,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-10T23:14:21+00:00",
+   "fetched_at": "2026-11-11T02:59:32+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-11-10T23:14:19+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-11T02:59:30+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-10T23:14:20+00:00",
+   "fetched_at": "2026-11-11T02:59:31+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T23:14:21+00:00",
+   "fetched_at": "2026-11-11T02:59:33+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-10T23:14:20+00:00",
+   "fetched_at": "2026-11-11T02:59:31+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-10T23:14:22+00:00",
+   "fetched_at": "2026-11-11T02:59:34+00:00",
    "ok": true
   }
  }
