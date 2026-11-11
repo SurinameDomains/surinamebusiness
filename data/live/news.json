@@ -421,7 +421,7 @@
    "url": "https://dwtonline.com/president-geerlings-simons-wij-willen-werken-naar-een-beter-gereguleerde-goudsector/"
   }
  ],
- "fetched_at": "2026-11-11T02:59:34+00:00",
+ "fetched_at": "2026-11-11T10:48:00+00:00",
  "oil": [
   {
    "econ": false,
@@ -700,32 +700,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-11T02:59:32+00:00",
+   "fetched_at": "2026-11-11T10:47:59+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 17,
-   "fetched_at": "2026-11-11T02:59:30+00:00",
+   "fetched_at": "2026-11-11T10:47:55+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-11T02:59:31+00:00",
+   "fetched_at": "2026-11-11T10:47:56+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T02:59:33+00:00",
+   "fetched_at": "2026-11-11T10:47:59+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-11T02:59:31+00:00",
+   "fetched_at": "2026-11-11T10:47:56+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T02:59:34+00:00",
+   "fetched_at": "2026-11-11T10:48:00+00:00",
    "ok": true
   }
  }
