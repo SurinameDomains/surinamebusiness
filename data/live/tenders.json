@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-11-11T10:47:42+00:00",
+ "fetched_at": "2026-11-11T18:38:36+00:00",
  "items": [
+  {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-165013",
+   "lang": "nl",
+   "published": "2026-11-11",
+   "source": "gov.sr",
+   "title": "Het ophalen van huishoudelijk afval per wijk in het district Brokopondo en Sipaliwini ten behoeve van de afdeling Vuilophaal van het ministerie van Openbare Werken en Ruimtelijke Ordening",
+   "url": "https://gov.sr/aanbestedingen/het-ophalen-van-huishoudelijk-afval-per-wijk-in-het-district-brokopondo-en-sipaliwini-ten-behoeve-van-de-afdeling-vuilophaal-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening-2/"
+  },
   {
    "buyer": "Strengthening Spatial Planning and Environmental Management in Suriname",
    "deadline": null,
@@ -379,22 +389,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-11T10:47:42+00:00",
+   "fetched_at": "2026-11-11T18:38:36+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-11T10:47:41+00:00",
+   "fetched_at": "2026-11-11T18:38:35+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-11T10:47:41+00:00",
+   "fetched_at": "2026-11-11T18:38:35+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-11T10:47:40+00:00",
+   "fetched_at": "2026-11-11T18:38:34+00:00",
    "ok": true
   }
  }

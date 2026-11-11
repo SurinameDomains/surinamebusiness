@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-11T10:47:54+00:00",
+ "fetched_at": "2026-11-11T18:38:52+00:00",
  "items": [
   {
    "deadline": null,
@@ -144,38 +144,38 @@
  "sources": {
   "Newmont": {
    "count": 4,
-   "fetched_at": "2026-11-11T10:47:44+00:00",
+   "fetched_at": "2026-11-11T18:38:40+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-11T10:47:43+00:00",
+   "fetched_at": "2026-11-11T18:38:38+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-11T10:47:50+00:00",
+   "fetched_at": "2026-11-11T18:38:47+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-11T10:47:54+00:00",
+   "fetched_at": "2026-11-11T18:38:52+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-11T10:47:50+00:00",
+   "fetched_at": "2026-11-11T18:38:47+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 4,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-11T10:47:51+00:00",
+   "failed_at": "2026-11-11T18:38:48+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-11T10:47:53+00:00",
+   "fetched_at": "2026-11-11T18:38:50+00:00",
    "ok": true
   }
  }

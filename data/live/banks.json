@@ -1,19 +1,19 @@
 {
  "banks": [
   {
-   "date": "10-11-2026",
+   "date": "11-11-2026",
    "eur": [
-    41.75,
-    42.432
+    41.65,
+    42.416
    ],
-   "fetched_at": "2026-11-11T10:48:02+00:00",
+   "fetched_at": "2026-11-11T18:38:59+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
    "url": "https://www.finabanknv.com/service-desk/koersen-rates/",
    "usd": [
     37.35,
-    37.802
+    37.79
    ]
   },
   {
@@ -22,7 +22,7 @@
     41.7,
     42.41
    ],
-   "fetched_at": "2026-11-11T10:48:04+00:00",
+   "fetched_at": "2026-11-11T18:39:01+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
@@ -35,10 +35,10 @@
   {
    "date": "2026-11-11",
    "eur": [
-    41.26,
-    42.11
+    41.08,
+    41.93
    ],
-   "fetched_at": "2026-11-11T10:48:05+00:00",
+   "fetched_at": "2026-11-11T18:39:02+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
@@ -70,7 +70,7 @@
     41.762,
     42.416
    ],
-   "fetched_at": "2026-11-11T10:48:06+00:00",
+   "fetched_at": "2026-11-11T18:39:04+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
@@ -81,5 +81,5 @@
    ]
   }
  ],
- "fetched_at": "2026-11-11T10:48:06+00:00"
+ "fetched_at": "2026-11-11T18:39:04+00:00"
 }

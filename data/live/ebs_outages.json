@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-11T10:48:08+00:00",
+ "fetched_at": "2026-11-11T18:39:07+00:00",
  "notices": [
   {
    "date": "2026-11-11",
@@ -52,6 +52,15 @@
    "text": "Registreer uw mobielnummer en ontvang een SMS zodra uw stroomrekening of factuur beschikbaar is. Registreren kan:",
    "title": "Blijf op de hoogte van uw stroomrekening!",
    "url": "https://nvebs.com/nieuws/1561/blijf-op-de-hoogte-van-uw-stroomrekening"
+  },
+  {
+   "date": "",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "Uni5Pay+ is een applicatie, waarmee verschillende betalingen mobiel kunnen worden verricht, zo ook uw elektriciteitsrekening. De N.V. Energiebedrijven Suriname (EBS) doet deze stap om invulling te geven aan haar beleid ter stimulering van digitaal betaalverkeer. Digitaal betalen brengt vele voordelen en efficiëntie met zich mee, niet alleen voor het bedrijf maar ook voor de klant. Voordelen voor het digitaal betalen; De Uni5pay app kan gedownload worden. Voor hen die reeds beschikken over de app kunnen deze updaten om gebruik te kunnen maken van deze nieuwe feature binnen Uni5pay. Klik op de onderstaande link, en leer hoe de elektriciteitsrekening te betalen via Uni5pay. Klik om instructievi",
+   "title": "Betalen via uni5pay",
+   "url": "https://nvebs.com/nieuws/1557/betalen-via-uni5pay"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

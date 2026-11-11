@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-11T18:06:00+00:00",
+   "source": "Starnieuws",
+   "title": "EBS kondigt stroomonderbrekingen aan wegens tekort aan opwekcapaciteit",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94817"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-11T15:15:43+00:00",
+   "source": "Suriname Herald",
+   "title": "Salarisstroken Jap-A-Joe onthullen extra toelage bij TAS: vragen over goedkeuring betalingen",
+   "url": "https://www.srherald.com/suriname/2026/11/11/salarisstroken-jap-a-joe-onthullen-extra-toelage-bij-tas-vragen-over-goedkeuring-betalingen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-11T14:11:43+00:00",
+   "source": "Dagblad Suriname",
+   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka",
+   "url": "https://www.dbsuriname.com/2026/11/11/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-11T11:16:32+00:00",
+   "source": "Suriname Herald",
+   "title": "Hogere salarisschalen voor leerkrachten eind november, maar vakbonden willen meer",
+   "url": "https://www.srherald.com/suriname/2026/11/11/hogere-salarisschalen-voor-leerkrachten-eind-november-maar-vakbonden-willen-meer/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-11T00:02:43+00:00",
    "source": "Dagblad Suriname",
    "title": "Graafschade aan glasvezelverbinding treft klanten van Telesur",
@@ -391,37 +419,9 @@
    "source": "Starnieuws",
    "title": "Exporteurs slaan alarm over pesticiden in groenten en verwijten LVV ernstig falen",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94722"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-05T16:04:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Importstop Jin Chan zorgt voor opschudding binnen Chinese gemeenschap: ‘We weten niet wat er zal gebeuren’",
-   "url": "https://dwtonline.com/importstop-jin-chan-zorgt-voor-opschudding-binnen-chinese-gemeenschap-we-weten-niet-wat-er-zal-gebeuren/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-05T09:53:00+00:00",
-   "source": "Starnieuws",
-   "title": "Commissieleden vrezen dat nieuwe belastingrechtspraak burgers onvoldoende beschermt",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94711"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-05T09:30:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "‘Infrastructurele projecten districten moeizaam op gang door lange aanbestedingsprocedures’",
-   "url": "https://www.dbsuriname.com/2026/11/05/infrastructurele-projecten-districten-moeizaam-op-gang-door-lange-aanbestedingsprocedures/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-05T08:56:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "President Geerlings-Simons: ‘Wij willen werken naar een beter gereguleerde goudsector’",
-   "url": "https://dwtonline.com/president-geerlings-simons-wij-willen-werken-naar-een-beter-gereguleerde-goudsector/"
   }
  ],
- "fetched_at": "2026-11-11T10:48:00+00:00",
+ "fetched_at": "2026-11-11T18:38:57+00:00",
  "oil": [
   {
    "econ": false,
@@ -700,32 +700,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-11T10:47:59+00:00",
+   "fetched_at": "2026-11-11T18:38:55+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 17,
-   "fetched_at": "2026-11-11T10:47:55+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-11T18:38:53+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-11T10:47:56+00:00",
+   "fetched_at": "2026-11-11T18:38:55+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T10:47:59+00:00",
+   "fetched_at": "2026-11-11T18:38:56+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-11T10:47:56+00:00",
+   "fetched_at": "2026-11-11T18:38:54+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T10:48:00+00:00",
+   "fetched_at": "2026-11-11T18:38:57+00:00",
    "ok": true
   }
  }
