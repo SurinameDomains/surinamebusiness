@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-12T01:29:29+00:00",
+ "fetched_at": "2026-11-12T08:49:15+00:00",
  "items": [
   {
    "deadline": null,
@@ -98,84 +98,44 @@
    "source": "TotalEnergies",
    "title": "GIS Data Analyst",
    "url": "https://jobs.totalenergies.com/careers/JobDetail/GIS-Data-Analyst/83484"
-  },
-  {
-   "deadline": "2026-11-11",
-   "employer": "UNICEF",
-   "id": "unicef-78138589",
-   "location": "Guyana, Suriname, Barbados",
-   "published": null,
-   "source": "UNICEF",
-   "title": "Batch Recruitment (3 positions): Driver, GS2, FT, Suriname #138568, Guyana #138578, Barbados #138589, Multi-Country Office for the Caribbean",
-   "url": "https://jobs.unicef.org/en-us/job/595969/batch-recruitment-3-positions-driver-gs2-ft-suriname-138568-guyana-138578-barbados-138589-multicountry-office-for-the-caribbean"
-  },
-  {
-   "deadline": "2026-11-11",
-   "employer": "UNICEF",
-   "id": "unicef-50138564",
-   "location": "Suriname",
-   "published": null,
-   "source": "UNICEF",
-   "title": "Child Protection Specialist (Social Workforce Strengthening), NOC, FT, #138564 Suriname, Multi-Country Office for the Caribbean",
-   "url": "https://jobs.unicef.org/en-us/job/596050/child-protection-specialist-social-workforce-strengthening-noc-ft-138564-suriname-multicountry-office-for-the-caribbean"
-  },
-  {
-   "deadline": "2026-11-11",
-   "employer": "UNICEF",
-   "id": "unicef-66138562",
-   "location": "Suriname",
-   "published": null,
-   "source": "UNICEF",
-   "title": "Health Specialist (Primary Health Care & Mental Health), NOC, FT, #138562, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
-   "url": "https://jobs.unicef.org/en-us/job/596066/health-specialist-primary-health-care-mental-health-noc-ft-138562-paramaribo-suriname-multicountry-office-for-the-caribbean"
-  },
-  {
-   "deadline": "2026-11-11",
-   "employer": "UNICEF",
-   "id": "unicef-60138603",
-   "location": "Suriname",
-   "published": null,
-   "source": "UNICEF",
-   "title": "Education Specialist (ECD), NOC, FT, #138603, Paramaribo, Suriname, Multi-Country Office for the Caribbean",
-   "url": "https://jobs.unicef.org/en-us/job/596060/education-specialist-ecd-noc-ft-138603-paramaribo-suriname-multicountry-office-for-the-caribbean"
   }
  ],
  "ok": true,
  "sources": {
   "Newmont": {
    "count": 4,
-   "fetched_at": "2026-11-12T01:29:21+00:00",
+   "fetched_at": "2026-11-12T08:49:05+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-12T01:29:19+00:00",
+   "fetched_at": "2026-11-12T08:49:04+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-12T01:29:26+00:00",
+   "fetched_at": "2026-11-12T08:49:10+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-12T01:29:29+00:00",
+   "fetched_at": "2026-11-12T08:49:15+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-12T01:29:26+00:00",
+   "fetched_at": "2026-11-12T08:49:11+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 4,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-12T01:29:26+00:00",
+   "failed_at": "2026-11-12T08:49:11+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-12T01:29:28+00:00",
+   "fetched_at": "2026-11-12T08:49:13+00:00",
    "ok": true
   }
  }

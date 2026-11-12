@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-12T01:29:16+00:00",
+ "fetched_at": "2026-11-12T08:49:02+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -152,17 +152,6 @@
    "source": "gov.sr",
    "title": "Het verrichten van advies- en supervisiewerkzaamheden op het project: “Het maken van een Houten beschoeiing tbv waterkerende dam te Johanna Margretha aan de rechteroever van de Commewijne rivier in het district Commewijne”",
    "url": "https://gov.sr/aanbestedingen/het-verrichten-van-advies-en-supervisiewerkzaamheden-op-het-project-het-maken-van-een-houten-beschoeiing-tbv-waterkerende-dam-te-johanna-margretha-aan-de-rechteroever-van-de-commewijne-rivier-in-h/"
-  },
-  {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-11-11",
-   "id": "idb-39327",
-   "kind": "Consulting Firms",
-   "lang": "en",
-   "published": "2026-10-15",
-   "source": "IDB",
-   "title": "Consulting Services for the Establishment and Operationalization of Risk Management and Corporate Compliance Functions within SARA",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1181"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -389,22 +378,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-12T01:29:16+00:00",
+   "fetched_at": "2026-11-12T08:49:02+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-12T01:29:16+00:00",
+   "fetched_at": "2026-11-12T08:49:02+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-12T01:29:16+00:00",
+   "fetched_at": "2026-11-12T08:49:02+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-12T01:29:15+00:00",
+   "fetched_at": "2026-11-12T08:49:02+00:00",
    "ok": true
   }
  }
