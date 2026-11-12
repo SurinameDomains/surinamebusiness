@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-12T01:11:08+00:00",
+   "source": "Suriname Herald",
+   "title": "Matawai eist meer ruimte van Zijin voor goudwinning: “Laat ons ons gebied zelf ontwikkelen”",
+   "url": "https://www.srherald.com/suriname/2026/11/11/matawai-eist-meer-ruimte-van-zijin-voor-goudwinning-laat-ons-ons-gebied-zelf-ontwikkelen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-11T23:11:21+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname wil af van ingewikkelde vergunningprocedures: één loket voor ondernemers",
+   "url": "https://www.srherald.com/suriname/2026/11/11/suriname-wil-af-van-ingewikkelde-vergunningprocedures-een-loket-voor-ondernemers/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-11T18:06:00+00:00",
    "source": "Starnieuws",
    "title": "EBS kondigt stroomonderbrekingen aan wegens tekort aan opwekcapaciteit",
@@ -405,23 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Suriname Yard Sale & Food Market: nieuw platform voor startende en gevestigde ondernemers",
    "url": "https://dwtonline.com/suriname-yard-sale-food-market-nieuw-platform-voor-startende-en-gevestigde-ondernemers/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-06T00:28:00+00:00",
-   "source": "Starnieuws",
-   "title": "Kwiklekkage Nieuwe Haven bevestigd: ruimte gesloten, nog geen veilige opslag",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94732"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-05T20:36:00+00:00",
-   "source": "Starnieuws",
-   "title": "Exporteurs slaan alarm over pesticiden in groenten en verwijten LVV ernstig falen",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94722"
   }
  ],
- "fetched_at": "2026-11-11T18:38:57+00:00",
+ "fetched_at": "2026-11-12T01:29:32+00:00",
  "oil": [
   {
    "econ": false,
@@ -700,32 +700,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-11T18:38:55+00:00",
+   "fetched_at": "2026-11-12T01:29:31+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-11T18:38:53+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-12T01:29:29+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-11T18:38:55+00:00",
+   "fetched_at": "2026-11-12T01:29:31+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T18:38:56+00:00",
+   "fetched_at": "2026-11-12T01:29:31+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-11T18:38:54+00:00",
+   "fetched_at": "2026-11-12T01:29:31+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-11T18:38:57+00:00",
+   "fetched_at": "2026-11-12T01:29:32+00:00",
    "ok": true
   }
  }

@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-11T18:38:36+00:00",
+ "fetched_at": "2026-11-12T01:29:16+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -63,17 +63,6 @@
    "url": "https://www.staatsolie.com/en/procurement-opportunities/renovation-and-paintwork-spi-buildings/"
   },
   {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-12-10",
-   "id": "idb-39456",
-   "kind": "Goods",
-   "lang": "en",
-   "published": "2026-10-29",
-   "source": "IDB",
-   "title": "Purchase of new vehicles for DoTC",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1202"
-  },
-  {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
    "id": "gov-164081",
@@ -92,6 +81,17 @@
    "source": "gov.sr",
    "title": "het leveren van laptops en desktop met toebehoren tbv het directoraat Ruimtelijke Ordening van het ministerie van Openbare werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-laptops-en-desktop-met-toebehoren-tbv-het-directoraat-ruimtelijke-ordening-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
+  },
+  {
+   "buyer": "Fiscal Support Program to Regain Growth",
+   "deadline": "2026-12-10",
+   "id": "idb-39456",
+   "kind": "Goods",
+   "lang": "en",
+   "published": "2026-10-29",
+   "source": "IDB",
+   "title": "Purchase of new vehicles for DoTC",
+   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1202"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -144,6 +144,16 @@
    "url": "https://gov.sr/aanbestedingen/het-verrichten-van-advies-en-supervisiewerkzaamheden-op-het-project-het-maken-van-eeb-houten-beschoeiing-tbv-waterkerende-dam-te-johanna-margetha-aan-de-recheteroever-van-de-commewijne-rivier-in-h/"
   },
   {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163413",
+   "lang": "nl",
+   "published": "2026-10-15",
+   "source": "gov.sr",
+   "title": "Het verrichten van advies- en supervisiewerkzaamheden op het project: “Het maken van een Houten beschoeiing tbv waterkerende dam te Johanna Margretha aan de rechteroever van de Commewijne rivier in het district Commewijne”",
+   "url": "https://gov.sr/aanbestedingen/het-verrichten-van-advies-en-supervisiewerkzaamheden-op-het-project-het-maken-van-een-houten-beschoeiing-tbv-waterkerende-dam-te-johanna-margretha-aan-de-rechteroever-van-de-commewijne-rivier-in-h/"
+  },
+  {
    "buyer": "Fiscal Support Program to Regain Growth",
    "deadline": "2026-11-11",
    "id": "idb-39327",
@@ -153,16 +163,6 @@
    "source": "IDB",
    "title": "Consulting Services for the Establishment and Operationalization of Risk Management and Corporate Compliance Functions within SARA",
    "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1181"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-163413",
-   "lang": "nl",
-   "published": "2026-10-15",
-   "source": "gov.sr",
-   "title": "Het verrichten van advies- en supervisiewerkzaamheden op het project: “Het maken van een Houten beschoeiing tbv waterkerende dam te Johanna Margretha aan de rechteroever van de Commewijne rivier in het district Commewijne”",
-   "url": "https://gov.sr/aanbestedingen/het-verrichten-van-advies-en-supervisiewerkzaamheden-op-het-project-het-maken-van-een-houten-beschoeiing-tbv-waterkerende-dam-te-johanna-margretha-aan-de-rechteroever-van-de-commewijne-rivier-in-h/"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -245,6 +245,16 @@
    "url": "https://gov.sr/aanbestedingen/het-maken-van-een-houten-beschoeiing-bij-het-nannieverdeelwerk-in-het-district-nickerie/"
   },
   {
+   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
+   "deadline": null,
+   "id": "gov-163051",
+   "lang": "nl",
+   "published": "2026-10-05",
+   "source": "gov.sr",
+   "title": "Het vervangen, verfraaien en bedrijfsklaar opleveren van een tweetal VRI’s voor de afdeling Verkeersmonitoring en Digitale Techniek van het Directoraat Veiligheid en Mobiliteit",
+   "url": "https://gov.sr/aanbestedingen/het-vervangen-verfraaien-en-bedrijfsklaar-opleveren-van-een-tweetal-vris-voor-de-afdeling-verkeersmonitoring-en-digitale-techniek-van-het-directoraat-veiligheid-en-mobiliteit/"
+  },
+  {
    "buyer": "Fiscal Support Program to Regain Growth",
    "deadline": "2026-11-19",
    "id": "idb-39220",
@@ -254,16 +264,6 @@
    "source": "IDB",
    "title": "Purchase of High-Performance Server Hardware for DoTC",
    "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1154"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-163051",
-   "lang": "nl",
-   "published": "2026-10-05",
-   "source": "gov.sr",
-   "title": "Het vervangen, verfraaien en bedrijfsklaar opleveren van een tweetal VRI’s voor de afdeling Verkeersmonitoring en Digitale Techniek van het Directoraat Veiligheid en Mobiliteit",
-   "url": "https://gov.sr/aanbestedingen/het-vervangen-verfraaien-en-bedrijfsklaar-opleveren-van-een-tweetal-vris-voor-de-afdeling-verkeersmonitoring-en-digitale-techniek-van-het-directoraat-veiligheid-en-mobiliteit/"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -389,22 +389,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-11T18:38:36+00:00",
+   "fetched_at": "2026-11-12T01:29:16+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-11T18:38:35+00:00",
+   "fetched_at": "2026-11-12T01:29:16+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-11T18:38:35+00:00",
+   "fetched_at": "2026-11-12T01:29:16+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-11T18:38:34+00:00",
+   "fetched_at": "2026-11-12T01:29:15+00:00",
    "ok": true
   }
  }
