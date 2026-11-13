@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-13T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Regering stelt nieuwe salarisschalen en graden voor leerkrachten vast",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94844"
+  },
+  {
+   "econ": false,
    "published": "2026-11-12T21:46:00+00:00",
    "source": "Starnieuws",
    "title": "LVV investeert ruim SRD 82 miljoen in laboratorium voor plantgezondheid",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "VSB wil weten waar pensioenmiljoenen zijn gebleven en eist openheid over APF",
    "url": "https://www.srherald.com/suriname/2026/11/07/vsb-wil-weten-waar-pensioenmiljoenen-zijn-gebleven-en-eist-openheid-over-apf/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T03:03:53+00:00",
-   "source": "Suriname Herald",
-   "title": "Staatsschuld Suriname volgens Ramautarsing gestegen naar US$ 4,7 miljard: “Economie is nog niet gezond”",
-   "url": "https://www.srherald.com/suriname/2026/11/07/staatsschuld-suriname-volgens-ramautarsing-gestegen-naar-us-47-miljard-economie-is-nog-niet-gezond/"
   }
  ],
- "fetched_at": "2026-11-12T22:51:50+00:00",
+ "fetched_at": "2026-11-13T03:23:49+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-12T22:51:48+00:00",
+   "fetched_at": "2026-11-13T03:23:43+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-12T22:51:44+00:00",
+   "count": 18,
+   "fetched_at": "2026-11-13T03:23:38+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-12T22:51:48+00:00",
+   "fetched_at": "2026-11-13T03:23:41+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-12T22:51:49+00:00",
+   "fetched_at": "2026-11-13T03:23:48+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-12T22:51:47+00:00",
+   "fetched_at": "2026-11-13T03:23:39+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-12T22:51:50+00:00",
+   "fetched_at": "2026-11-13T03:23:49+00:00",
    "ok": true
   }
  }
