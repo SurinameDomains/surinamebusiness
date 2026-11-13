@@ -421,8 +421,15 @@
    "url": "https://www.srherald.com/suriname/2026/11/07/vsb-wil-weten-waar-pensioenmiljoenen-zijn-gebleven-en-eist-openheid-over-apf/"
   }
  ],
- "fetched_at": "2026-11-13T03:23:49+00:00",
+ "fetched_at": "2026-11-13T11:30:15+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-13T06:17:22+00:00",
+   "source": "Suriname Herald",
+   "title": "VS geven Venezuela ruim US$ 12 miljard terug, maar houden controle over oliegeld",
+   "url": "https://www.srherald.com/buitenland/2026/11/13/vs-geven-venezuela-ruim-us-12-miljard-terug-maar-houden-controle-over-oliegeld/"
+  },
   {
    "econ": false,
    "published": "2026-11-12T06:22:00+00:00",
@@ -695,44 +702,37 @@
    "source": "de Ware Tijd",
    "title": "Offshore-industrie kent voor- en nadelen: ‘Makkelijkste manier om te verdienen is met huizen en percelen’",
    "url": "https://dwtonline.com/offshore-industrie-kent-voor-en-nadelen-makkelijkste-manier-om-te-verdienen-is-met-huizen-en-percelen/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-05T17:30:26+00:00",
-   "source": "Suriname Herald",
-   "title": "Amerikaans bedrijf sluit grote energiedeals in Venezuela voor gas, olie en mogelijke LNG-export",
-   "url": "https://www.srherald.com/economie/2026/10/05/amerikaans-bedrijf-sluit-grote-energiedeals-in-venezuela-voor-gas-olie-en-mogelijke-lng-export/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-13T03:23:43+00:00",
+   "fetched_at": "2026-11-13T11:30:13+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-11-13T03:23:38+00:00",
+   "fetched_at": "2026-11-13T11:30:10+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-13T03:23:41+00:00",
+   "fetched_at": "2026-11-13T11:30:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-13T03:23:48+00:00",
+   "fetched_at": "2026-11-13T11:30:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-13T03:23:39+00:00",
+   "fetched_at": "2026-11-13T11:30:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-13T03:23:49+00:00",
+   "fetched_at": "2026-11-13T11:30:15+00:00",
    "ok": true
   }
  }
