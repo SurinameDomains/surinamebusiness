@@ -6,7 +6,7 @@
     41.3,
     42.143
    ],
-   "fetched_at": "2026-11-13T11:30:17+00:00",
+   "fetched_at": "2026-11-13T18:44:21+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
@@ -22,7 +22,7 @@
     41.4,
     42.14
    ],
-   "fetched_at": "2026-11-13T11:30:18+00:00",
+   "fetched_at": "2026-11-13T18:44:22+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
@@ -35,10 +35,10 @@
   {
    "date": "2026-11-13",
    "eur": [
-    40.89,
-    41.72
+    40.81,
+    41.64
    ],
-   "fetched_at": "2026-11-13T11:30:19+00:00",
+   "fetched_at": "2026-11-13T18:44:23+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
@@ -65,21 +65,21 @@
    ]
   },
   {
-   "date": "Donderdag 12 november 2026",
+   "date": "Vrijdag 13 november 2026",
    "eur": [
-    41.456,
-    42.364
+    41.34,
+    42.143
    ],
-   "fetched_at": "2026-11-13T11:30:20+00:00",
+   "fetched_at": "2026-11-13T18:44:24+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
    "url": "https://www.godo.sr/",
    "usd": [
-    37.328,
-    37.756
+    37.315,
+    37.74
    ]
   }
  ],
- "fetched_at": "2026-11-13T11:30:20+00:00"
+ "fetched_at": "2026-11-13T18:44:24+00:00"
 }

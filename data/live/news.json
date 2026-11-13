@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-13T15:28:00+00:00",
+   "source": "Starnieuws",
+   "title": "Wereldwijde Microsoft-storing ontregelt bedrijven en overheden",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94851"
+  },
+  {
+   "econ": false,
    "published": "2026-11-13T03:00:00+00:00",
    "source": "Starnieuws",
    "title": "Regering stelt nieuwe salarisschalen en graden voor leerkrachten vast",
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
    "url": "https://www.srherald.com/economie/2026/11/07/guyana-op-weg-naar-meer-dan-1-miljoen-vaten-olie-per-dag-exxonmobil-bereidt-nieuwe-productiestart-voor/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T11:08:25+00:00",
-   "source": "Suriname Herald",
-   "title": "VSB wil weten waar pensioenmiljoenen zijn gebleven en eist openheid over APF",
-   "url": "https://www.srherald.com/suriname/2026/11/07/vsb-wil-weten-waar-pensioenmiljoenen-zijn-gebleven-en-eist-openheid-over-apf/"
   }
  ],
- "fetched_at": "2026-11-13T11:30:15+00:00",
+ "fetched_at": "2026-11-13T18:44:20+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-13T11:30:13+00:00",
+   "fetched_at": "2026-11-13T18:44:18+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-11-13T11:30:10+00:00",
+   "count": 17,
+   "fetched_at": "2026-11-13T18:44:16+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-13T11:30:12+00:00",
+   "fetched_at": "2026-11-13T18:44:17+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-13T11:30:13+00:00",
+   "fetched_at": "2026-11-13T18:44:19+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-13T11:30:12+00:00",
+   "fetched_at": "2026-11-13T18:44:17+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-13T11:30:15+00:00",
+   "fetched_at": "2026-11-13T18:44:20+00:00",
    "ok": true
   }
  }

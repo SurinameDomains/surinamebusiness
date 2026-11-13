@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-13T11:30:25+00:00",
+ "fetched_at": "2026-11-13T18:44:25+00:00",
  "notices": [
   {
    "date": "2026-11-11",
@@ -38,6 +38,23 @@
   {
    "date": "2026-11-15",
    "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=65b3833f601f437cb031e523f6adff55",
+   "slots": [
+    {
+     "areas": "GEDEELTE KAIKOESISTRAAT TUSSEN ABONESTRAAT EN ABOENAWROKOSTRAAT, GEDEELTE BONISTRAAT TUSSEN MATHOERASTRAAT EN ANTON DRAGTENWEG, GEDEELTE BARRONSTRAAT TUSSEN COMMISSARIS E.A. ROBLESWEG EN BONISTRAAT, GEDEELTE COMMISSARIS E.A. ROBLESWEG TUSSEN LOUIS GOVEIASTRAAT, GEDEELTE ABOENAWROKOSTRAAT TUSSEN KAIKOESISTRAAT EN KROMANTI KODJOSTRAAT, JOSEPHINE SAMSON GREENSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-15",
+     "district": "Paramaribo",
+     "from": "09:00",
+     "to": "15:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zondag 15 november 2026",
+   "url": "https://nvebs.com/nieuws/1650/gepland-onderhoud-zondag-15-november-2026"
+  },
+  {
+   "date": "2026-11-15",
+   "kind": "planned",
    "map": "",
    "slots": [
     {
@@ -60,15 +77,6 @@
    "text": "PARAMARIBO 10 NOVEMBER- De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd bij de Afobaka krachtcentrale. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de elektriciteitsvoorziening van maximaal drie aaneengesloten uren, gedurende de middag óf de avond. Deze 3-urige uitschakkelingen",
    "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
    "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
-  },
-  {
-   "date": "",
-   "kind": "notice",
-   "map": "",
-   "slots": [],
-   "text": "Registreer uw mobielnummer en ontvang een SMS zodra uw stroomrekening of factuur beschikbaar is. Registreren kan:",
-   "title": "Blijf op de hoogte van uw stroomrekening!",
-   "url": "https://nvebs.com/nieuws/1561/blijf-op-de-hoogte-van-uw-stroomrekening"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
