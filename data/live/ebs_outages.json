@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-11-14T06:59:56+00:00",
+ "fetched_at": "2026-11-14T14:06:24+00:00",
  "notices": [
-  {
-   "date": "2026-11-11",
-   "kind": "planned",
-   "map": "",
-   "slots": [
-    {
-     "areas": "GEDEELTE GUMMELSWEG NABIJ EAG AIRPORT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-11-11",
-     "district": "Paramaribo",
-     "from": "09:00",
-     "to": "14:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud woensdag 11 november 2026",
-   "url": "https://nvebs.com/nieuws/1646/gepland-onderhoud-woensdag-11-november-2026"
-  },
   {
    "date": "2026-11-12",
    "kind": "planned",
@@ -68,6 +51,23 @@
    "text": "",
    "title": "Gepland onderhoud zondag 15 november 2026",
    "url": "https://nvebs.com/nieuws/1648/gepland-onderhoud-zondag-15-november-2026"
+  },
+  {
+   "date": "2026-11-16",
+   "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=ccea037f369841af9e83dc028c55d338",
+   "slots": [
+    {
+     "areas": "ETMEDORAWEG Z(ZIJSTR. WANICAWEG) EN GENOROBINWEGEN (ZIJSTR. WANICAWEG).",
+     "date": "2026-11-16",
+     "district": "Wanica",
+     "from": "08:00",
+     "to": "17:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud maandag 16 november 2026",
+   "url": "https://nvebs.com/nieuws/1651/gepland-onderhoud-maandag-16-november-2026"
   },
   {
    "date": "",

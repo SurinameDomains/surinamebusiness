@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-14T14:00:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
+   "url": "https://www.dbsuriname.com/?p=607800"
+  },
+  {
+   "econ": false,
    "published": "2026-11-13T15:28:00+00:00",
    "source": "Starnieuws",
    "title": "Wereldwijde Microsoft-storing ontregelt bedrijven en overheden",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Gajadien wil belastingbezwaren binnen zes maanden afgehandeld zien",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94749"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-07T12:10:26+00:00",
-   "source": "Suriname Herald",
-   "title": "Guyana op weg naar meer dan 1 miljoen vaten olie per dag: ExxonMobil bereidt nieuwe productiestart voor",
-   "url": "https://www.srherald.com/economie/2026/11/07/guyana-op-weg-naar-meer-dan-1-miljoen-vaten-olie-per-dag-exxonmobil-bereidt-nieuwe-productiestart-voor/"
   }
  ],
- "fetched_at": "2026-11-14T06:59:50+00:00",
+ "fetched_at": "2026-11-14T14:06:14+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-14T06:59:48+00:00",
+   "fetched_at": "2026-11-14T14:06:13+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-14T06:59:46+00:00",
+   "fetched_at": "2026-11-14T14:06:11+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-14T06:59:48+00:00",
+   "fetched_at": "2026-11-14T14:06:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T06:59:49+00:00",
+   "fetched_at": "2026-11-14T14:06:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-14T06:59:47+00:00",
+   "fetched_at": "2026-11-14T14:06:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T06:59:50+00:00",
+   "fetched_at": "2026-11-14T14:06:14+00:00",
    "ok": true
   }
  }
