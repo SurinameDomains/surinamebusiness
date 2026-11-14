@@ -421,7 +421,7 @@
    "url": "https://www.srherald.com/economie/2026/11/07/guyana-op-weg-naar-meer-dan-1-miljoen-vaten-olie-per-dag-exxonmobil-bereidt-nieuwe-productiestart-voor/"
   }
  ],
- "fetched_at": "2026-11-14T00:19:30+00:00",
+ "fetched_at": "2026-11-14T06:59:50+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-14T00:19:27+00:00",
+   "fetched_at": "2026-11-14T06:59:48+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-14T00:19:25+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-14T06:59:46+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-14T00:19:27+00:00",
+   "fetched_at": "2026-11-14T06:59:48+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T00:19:28+00:00",
+   "fetched_at": "2026-11-14T06:59:49+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-14T00:19:26+00:00",
+   "fetched_at": "2026-11-14T06:59:47+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T00:19:30+00:00",
+   "fetched_at": "2026-11-14T06:59:50+00:00",
    "ok": true
   }
  }
