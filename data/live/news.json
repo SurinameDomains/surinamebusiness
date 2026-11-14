@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-14T21:50:53+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Verdachte oplichting Chinese goudondernemer in Paramaribo opgepakt in Nickerie",
+   "url": "https://www.dbsuriname.com/2026/11/14/verdachte-oplichting-chinese-goudondernemer-in-paramaribo-opgepakt-in-nickerie/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-14T14:00:00+00:00",
    "source": "Dagblad Suriname",
    "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
@@ -412,16 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Blauw, Goud en Jin Chan",
    "url": "https://dwtonline.com/blauw-goud-en-jin-chan/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T15:31:00+00:00",
-   "source": "Starnieuws",
-   "title": "Gajadien wil belastingbezwaren binnen zes maanden afgehandeld zien",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94749"
   }
  ],
- "fetched_at": "2026-11-14T19:09:41+00:00",
+ "fetched_at": "2026-11-14T23:22:47+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-14T19:09:40+00:00",
+   "fetched_at": "2026-11-14T23:22:46+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-14T19:09:38+00:00",
+   "count": 13,
+   "fetched_at": "2026-11-14T23:22:44+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-14T19:09:39+00:00",
+   "fetched_at": "2026-11-14T23:22:45+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T19:09:40+00:00",
+   "fetched_at": "2026-11-14T23:22:46+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-14T19:09:39+00:00",
+   "fetched_at": "2026-11-14T23:22:45+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T19:09:41+00:00",
+   "fetched_at": "2026-11-14T23:22:47+00:00",
    "ok": true
   }
  }
