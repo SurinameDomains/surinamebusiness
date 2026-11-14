@@ -5,7 +5,7 @@
    "published": "2026-11-14T14:00:00+00:00",
    "source": "Dagblad Suriname",
    "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
-   "url": "https://www.dbsuriname.com/?p=607800"
+   "url": "https://www.dbsuriname.com/2026/11/14/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding-2/"
   },
   {
    "econ": false,
@@ -421,7 +421,7 @@
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94749"
   }
  ],
- "fetched_at": "2026-11-14T14:06:14+00:00",
+ "fetched_at": "2026-11-14T19:09:41+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-14T14:06:13+00:00",
+   "fetched_at": "2026-11-14T19:09:40+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-14T14:06:11+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-14T19:09:38+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-14T14:06:12+00:00",
+   "fetched_at": "2026-11-14T19:09:39+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T14:06:13+00:00",
+   "fetched_at": "2026-11-14T19:09:40+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-14T14:06:12+00:00",
+   "fetched_at": "2026-11-14T19:09:39+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T14:06:14+00:00",
+   "fetched_at": "2026-11-14T19:09:41+00:00",
    "ok": true
   }
  }
