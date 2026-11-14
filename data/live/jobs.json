@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-13T18:44:16+00:00",
+ "fetched_at": "2026-11-14T00:19:25+00:00",
  "items": [
   {
    "deadline": null,
@@ -40,6 +40,16 @@
    "source": "Newmont",
    "title": "Maintenance Technician I",
    "url": "https://jobs.newmont.com/us/en/job/45290"
+  },
+  {
+   "deadline": null,
+   "employer": "TotalEnergies EP Suriname",
+   "id": "te-86105",
+   "location": "Suriname",
+   "published": "2026-11-10",
+   "source": "TotalEnergies",
+   "title": "Physical Stock Controller",
+   "url": "https://jobs.totalenergies.com/careers/JobDetail/Physical-Stock-Controller/86105"
   },
   {
    "deadline": null,
@@ -114,38 +124,38 @@
  "sources": {
   "Newmont": {
    "count": 5,
-   "fetched_at": "2026-11-13T18:44:06+00:00",
+   "fetched_at": "2026-11-14T00:19:12+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-13T18:44:05+00:00",
+   "fetched_at": "2026-11-14T00:19:11+00:00",
    "ok": true
   },
   "TotalEnergies": {
-   "count": 6,
-   "fetched_at": "2026-11-13T18:44:12+00:00",
+   "count": 7,
+   "fetched_at": "2026-11-14T00:19:20+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-13T18:44:16+00:00",
+   "fetched_at": "2026-11-14T00:19:25+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-13T18:44:12+00:00",
+   "fetched_at": "2026-11-14T00:19:21+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 0,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-13T18:44:13+00:00",
+   "failed_at": "2026-11-14T00:19:21+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-13T18:44:14+00:00",
+   "fetched_at": "2026-11-14T00:19:23+00:00",
    "ok": true
   }
  }
