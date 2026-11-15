@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-15T01:28:00+00:00",
+   "source": "Starnieuws",
+   "title": "Lebidoti vraagt aandacht voor onderwijs, energievoorziening en renovatie dorpsgebouwen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94869"
+  },
+  {
+   "econ": false,
    "published": "2026-11-14T21:50:53+00:00",
    "source": "Dagblad Suriname",
    "title": "Verdachte oplichting Chinese goudondernemer in Paramaribo opgepakt in Nickerie",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Cotino: Belastinguitspraken publiceren om nieuwe geschillen te voorkomen",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94750"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T17:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Blauw, Goud en Jin Chan",
-   "url": "https://dwtonline.com/blauw-goud-en-jin-chan/"
   }
  ],
- "fetched_at": "2026-11-14T23:22:47+00:00",
+ "fetched_at": "2026-11-15T03:03:43+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-14T23:22:46+00:00",
+   "fetched_at": "2026-11-15T03:03:41+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 13,
-   "fetched_at": "2026-11-14T23:22:44+00:00",
+   "count": 12,
+   "fetched_at": "2026-11-15T03:03:39+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-14T23:22:45+00:00",
+   "fetched_at": "2026-11-15T03:03:41+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T23:22:46+00:00",
+   "fetched_at": "2026-11-15T03:03:42+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-14T23:22:45+00:00",
+   "fetched_at": "2026-11-15T03:03:40+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-14T23:22:47+00:00",
+   "fetched_at": "2026-11-15T03:03:43+00:00",
    "ok": true
   }
  }
