@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-15T14:00:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
+   "url": "https://www.dbsuriname.com/2026/11/15/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding-3/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-15T12:51:29+00:00",
+   "source": "Suriname Herald",
+   "title": "Telesur wil dorpen in binnenland voorzien van sneller internet",
+   "url": "https://www.srherald.com/suriname/2026/11/15/telesur-wil-dorpen-in-binnenland-voorzien-van-sneller-internet/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-15T09:09:51+00:00",
    "source": "Suriname Herald",
    "title": "Baasaron eist opheldering over import van acht containers Jin Chan",
@@ -34,13 +48,6 @@
    "source": "Dagblad Suriname",
    "title": "Verdachte oplichting Chinese goudondernemer in Paramaribo opgepakt in Nickerie",
    "url": "https://www.dbsuriname.com/2026/11/14/verdachte-oplichting-chinese-goudondernemer-in-paramaribo-opgepakt-in-nickerie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-14T14:00:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
-   "url": "https://www.dbsuriname.com/2026/11/14/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding-2/"
   },
   {
    "econ": false,
@@ -412,16 +419,9 @@
    "source": "Suriname Herald",
    "title": "Vier gewapende rovers slaan verkoopster in gezicht en rukken gouden halsketting van haar hals",
    "url": "https://www.srherald.com/suriname/2026/11/07/vier-gewapende-rovers-slaan-verkoopster-in-gezicht-en-rukken-gouden-halsketting-van-haar-hals/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T21:07:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Minister Noersalim: ‘Caribisch gebied moet samen economisch ijzersterk staan’",
-   "url": "https://dwtonline.com/minister-noersalim-caribisch-gebied-moet-samen-economisch-ijzersterk-staan/"
   }
  ],
- "fetched_at": "2026-11-15T10:44:59+00:00",
+ "fetched_at": "2026-11-15T17:41:07+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-15T10:44:58+00:00",
+   "fetched_at": "2026-11-15T17:41:06+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-15T10:44:56+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-15T17:41:04+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-15T10:44:57+00:00",
+   "fetched_at": "2026-11-15T17:41:05+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-15T10:44:58+00:00",
+   "fetched_at": "2026-11-15T17:41:06+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-15T10:44:57+00:00",
+   "fetched_at": "2026-11-15T17:41:05+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-15T10:44:59+00:00",
+   "fetched_at": "2026-11-15T17:41:07+00:00",
    "ok": true
   }
  }
