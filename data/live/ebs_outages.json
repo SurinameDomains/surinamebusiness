@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-16T11:02:46+00:00",
+ "fetched_at": "2026-11-16T20:58:55+00:00",
  "notices": [
   {
    "date": "2026-11-15",
@@ -19,23 +19,6 @@
    "url": "https://nvebs.com/nieuws/1650/gepland-onderhoud-zondag-15-november-2026"
   },
   {
-   "date": "2026-11-15",
-   "kind": "planned",
-   "map": "",
-   "slots": [
-    {
-     "areas": "GEDEELTE EPHRAIMSZEGENWEG TUSSEN DJINKOEWEG EN EVENAARSTRAAT, GEDEELTE RUST EN WERKWEG TUSSEN COESEWIJNESTRAAT EN INDIRA GANDHIWEG, GEDEELTE COESEWIJNESTRAAT TUSSEN NIEUW WEERGEVONDENWEG EN HENNAWEG, GOEDEZORGWEG, KATWIJKWEG, BAKKIEWEG, AGENORIAWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-11-15",
-     "district": "Paramaribo",
-     "from": "09:00",
-     "to": "17:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud zondag 15 november 2026",
-   "url": "https://nvebs.com/nieuws/1648/gepland-onderhoud-zondag-15-november-2026"
-  },
-  {
    "date": "2026-11-16",
    "kind": "planned",
    "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=ccea037f369841af9e83dc028c55d338",
@@ -53,13 +36,31 @@
    "url": "https://nvebs.com/nieuws/1651/gepland-onderhoud-maandag-16-november-2026"
   },
   {
-   "date": "",
-   "kind": "notice",
+   "date": "2026-11-17",
+   "kind": "planned",
    "map": "",
    "slots": [],
-   "text": "PARAMARIBO 10 NOVEMBER- De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd bij de Afobaka krachtcentrale. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de elektriciteitsvoorziening van maximaal drie aaneengesloten uren, gedurende de middag óf de avond. Deze 3-urige uitschakkelingen",
-   "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
-   "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
+   "text": "GEDEELTE PLUTOSTRAAT TUSSEN WILFRED GRIMMERSTRAAT EN JACQUES D. GOMPERTSSTRAAT, GEDEELTE VERDISTRAAT TUSSEN PLUTOSTRAAT EN RAVELSTRAAT, GEDEELTE NOLA HATTERMANSTRAAT TUSSEN MOZARTSTRAAT EN PLUTOSTRAAT, GEDEELTE NIEUWE CHARLESBURGWEG TUSSEN RINGWEG – ZUID EN SOHAWANWEG, JULES CHIN A FOENGSTRAAT, CHOPINSTRAAT, PEPERBOOMSTRAAT, SNIJBONENSTRAAT, AMSOISTRAAT, SELDERIESTRAAT, KRAROENSTRAAT, SOHAWANWEG, WALAPASTRAAT, KROBIASTRAAT, LEWENSTEINSTRAAT, HOENDERPARKWEG, MANGOLAAN EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud dinsdag 17 november 2026",
+   "url": "https://nvebs.com/nieuws/1652/gepland-onderhoud-dinsdag-17-november-2026"
+  },
+  {
+   "date": "2026-11-18",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE SIDODADISTRAAT VANAF CONDORSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud woensdag 18 november 2026",
+   "url": "https://nvebs.com/nieuws/1653/gepland-onderhoud-woensdag-18-november-2026"
+  },
+  {
+   "date": "2026-11-19",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE COMMISSARIS THURKOWWEG TUSSEN JOZEF KARAMAT-ALIWEG EN PRONKWEG, GEDEELTE COMMISSARIS THURKOWWEG TUSSEN KASIMBEGWEG EN WILHELMINASTRAAT, GEDEELTE COMMISARIS ROBLESWEG TUSSEN WILHELMINASTRAAT EN HOOFDWEG MARIENBURG,TIMORWEG, PRONKWEG, BAKASROISIWEG, NIEUW-AMSTERDAM, VOORBURG, MARIENBURG, DEVISIEWEG, BRIGADE GENERAALWEG, KETANWEG, SUIKERRIETWEG, HOOFWEG MARIENBURG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud donderdag 19 november 2026",
+   "url": "https://nvebs.com/nieuws/1654/gepland-onderhoud-donderdag-19-november-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
