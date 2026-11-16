@@ -6,7 +6,7 @@
     41.3,
     42.143
    ],
-   "fetched_at": "2026-11-16T02:42:31+00:00",
+   "fetched_at": "2026-11-16T11:02:40+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
@@ -22,30 +22,30 @@
     41.4,
     42.14
    ],
-   "fetched_at": "2026-11-16T02:42:32+00:00",
+   "fetched_at": "2026-11-16T11:02:42+00:00",
    "key": "hakrinbank",
    "live": true,
    "name": "Hakrinbank",
    "url": "https://www.hakrinbank.com/en/private/foreign-exchange/",
    "usd": [
-    37.5,
-    37.74
+    37.4,
+    37.67
    ]
   },
   {
-   "date": "2026-11-13",
+   "date": "2026-11-16",
    "eur": [
-    40.81,
-    41.64
+    40.65,
+    41.47
    ],
-   "fetched_at": "2026-11-16T02:42:33+00:00",
+   "fetched_at": "2026-11-16T11:02:43+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
    "url": "https://www.dsb.sr/",
    "usd": [
-    36.99,
-    37.74
+    36.91,
+    37.66
    ]
   },
   {
@@ -65,21 +65,21 @@
    ]
   },
   {
-   "date": "Vrijdag 13 november 2026",
+   "date": "Maandag 16 november 2026",
    "eur": [
-    41.34,
-    42.143
+    41.073,
+    42.139
    ],
-   "fetched_at": "2026-11-16T02:42:33+00:00",
+   "fetched_at": "2026-11-16T11:02:43+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
    "url": "https://www.godo.sr/",
    "usd": [
-    37.315,
-    37.74
+    37.377,
+    37.667
    ]
   }
  ],
- "fetched_at": "2026-11-16T02:42:33+00:00"
+ "fetched_at": "2026-11-16T11:02:43+00:00"
 }

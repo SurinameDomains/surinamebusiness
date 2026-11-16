@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-11-16T02:42:35+00:00",
+ "fetched_at": "2026-11-16T11:02:46+00:00",
  "notices": [
-  {
-   "date": "2026-11-12",
-   "kind": "planned",
-   "map": "",
-   "slots": [
-    {
-     "areas": "GEDEELTE MAWAKABOWEG TUSSEN MOHAMED RASHID PIERKHANWEG EN WELGEDACHT C WEG, GEDEELTE MAGENTAWEG TUSSEN MAWAKABOWEG EN MAGENTA KANAALWEG, INVEJAWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-11-12",
-     "district": "Wanica",
-     "from": "09:00",
-     "to": "14:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud donderdag 12 november 2026",
-   "url": "https://nvebs.com/nieuws/1647/gepland-onderhoud-donderdag-12-november-2026"
-  },
   {
    "date": "2026-11-15",
    "kind": "planned",
