@@ -2,10 +2,31 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-16T00:24:58+00:00",
+   "source": "Suriname Herald",
+   "title": "Bromfietser overleden op Bouterse Highway; goudzoeker vermist in Tomatu",
+   "url": "https://www.srherald.com/suriname/2026/11/15/bromfietser-overleden-op-bouterse-highway-goudzoeker-vermist-in-tomatu/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-16T00:03:02+00:00",
+   "source": "Suriname Herald",
+   "title": "SAB wil productie uitbreiden met nieuwe installatie na 60 jaar ondernemerschap",
+   "url": "https://www.srherald.com/suriname/2026/11/15/sab-wil-productie-uitbreiden-met-nieuwe-installatie-na-60-jaar-ondernemerschap/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-15T14:00:00+00:00",
    "source": "Dagblad Suriname",
    "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
    "url": "https://www.dbsuriname.com/2026/11/15/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding-3/"
+  },
+  {
+   "econ": true,
+   "published": "2026-11-15T13:08:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Standard & Poor’s hoeft ons de les niet voor te komen lezen",
+   "url": "https://dwtonline.com/standard-poors-hoeft-ons-de-les-niet-voor-te-komen-lezen/"
   },
   {
    "econ": false,
@@ -398,30 +419,9 @@
    "source": "Suriname Herald",
    "title": "Man met twee schotwonden dood aangetroffen op terrein Republic Bank",
    "url": "https://www.srherald.com/suriname/2026/11/07/man-met-twee-schotwonden-dood-aangetroffen-op-terrein-republic-bank/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T00:21:00+00:00",
-   "source": "Starnieuws",
-   "title": "Levenloze man met schotverwondingen aangetroffen op terrein Republic Bank",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94763"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T23:59:13+00:00",
-   "source": "Suriname Herald",
-   "title": "Noersalim wil meer jongeren en vrouwen in bijenteelt om Caribische economie te versterken",
-   "url": "https://www.srherald.com/suriname/2026/11/07/noersalim-wil-meer-jongeren-en-vrouwen-in-bijenteelt-om-caribische-economie-te-versterken/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-07T23:04:12+00:00",
-   "source": "Suriname Herald",
-   "title": "Vier gewapende rovers slaan verkoopster in gezicht en rukken gouden halsketting van haar hals",
-   "url": "https://www.srherald.com/suriname/2026/11/07/vier-gewapende-rovers-slaan-verkoopster-in-gezicht-en-rukken-gouden-halsketting-van-haar-hals/"
   }
  ],
- "fetched_at": "2026-11-15T22:45:40+00:00",
+ "fetched_at": "2026-11-16T02:42:29+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-15T22:45:38+00:00",
+   "fetched_at": "2026-11-16T02:42:28+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-15T22:45:37+00:00",
+   "fetched_at": "2026-11-16T02:42:26+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-15T22:45:38+00:00",
+   "fetched_at": "2026-11-16T02:42:27+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-15T22:45:39+00:00",
+   "fetched_at": "2026-11-16T02:42:28+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-15T22:45:38+00:00",
+   "fetched_at": "2026-11-16T02:42:27+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-15T22:45:40+00:00",
+   "fetched_at": "2026-11-16T02:42:29+00:00",
    "ok": true
   }
  }
