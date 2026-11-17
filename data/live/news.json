@@ -2,6 +2,55 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-17T21:37:00+00:00",
+   "source": "Starnieuws",
+   "title": "VS scherpt toezicht op AI-chips aan, ook Brazilië onder nieuwe exportregels",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94909"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T20:10:37+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname en Barbados willen toerisme en culturele uitwisseling versterken",
+   "url": "https://www.srherald.com/suriname/2026/11/17/suriname-en-barbados-willen-toerisme-en-culturele-uitwisseling-versterken/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T19:31:21+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Amntenaren Brokopondo riskeren salarisblokkade",
+   "url": "https://www.dbsuriname.com/2026/11/17/amntenaren-brokopondo-riskeren-salarisblokkade/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T17:00:15+00:00",
+   "source": "de Ware Tijd",
+   "title": "Goud maakt meer kapot dan je lief is",
+   "url": "https://dwtonline.com/goud-maakt-meer-kapot-dan-je-lief-is/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T16:18:55+00:00",
+   "source": "Suriname Herald",
+   "title": "Ambtenaren Brokopondo riskeren salarisblokkade bij aanhoudend verzuim",
+   "url": "https://www.srherald.com/suriname/2026/11/17/ambtenaren-brokopondo-riskeren-salarisblokkade-bij-aanhoudend-verzuim/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T15:41:00+00:00",
+   "source": "Starnieuws",
+   "title": "Canada wil economische samenwerking met Suriname uitbreiden",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94903"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T15:00:12+00:00",
+   "source": "Suriname Herald",
+   "title": "Debipersad: betere kredietwaardigheid betekent niet dat Suriname financieel uit de problemen is",
+   "url": "https://www.srherald.com/suriname/2026/11/17/debipersad-betere-kredietwaardigheid-betekent-niet-dat-suriname-financieel-uit-de-problemen-is/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-17T11:25:16+00:00",
    "source": "Suriname Herald",
    "title": "Lokalentekort hield leerlingen thuis: Staatsolie breidt VOJ Koewarasan uit",
@@ -370,58 +419,9 @@
    "source": "Starnieuws",
    "title": "VSB wil weten waar pensioenpremies sinds 2015 zijn gebleven",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94743"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T03:00:00+00:00",
-   "source": "Starnieuws",
-   "title": "Subisco trekt kort geding over kipimport in; Staat houdt vast aan importverbod",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94775"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T03:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "‘El Dorado is een Chinees’: Niet alleen goud, maar ook toeleveringsketen belangrijk verdienmodel sector",
-   "url": "https://dwtonline.com/el-dorado-is-een-chinees-niet-alleen-goud-maar-ook-toeleveringsketen-belangrijk-verdienmodel-sector/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-08T21:09:27+00:00",
-   "source": "de Ware Tijd",
-   "title": "VSB wil worden betrokken bij hervorming Belastingdienst",
-   "url": "https://dwtonline.com/vsb-wil-worden-betrokken-bij-hervorming-belastingdienst/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T21:02:40+00:00",
-   "source": "Suriname Herald",
-   "title": "Azerbeidzjan deelt ervaringen met oliefonds: Suriname verkent economische samenwerking",
-   "url": "https://www.srherald.com/suriname/2026/11/08/azerbeidzjan-deelt-ervaringen-met-oliefonds-suriname-verkent-economische-samenwerking/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T19:35:12+00:00",
-   "source": "Suriname Herald",
-   "title": "Wang: “Overheid int belastingen, maar kan zij burgers nog veiligheid garanderen?”",
-   "url": "https://www.srherald.com/suriname/2026/11/08/wang-overheid-int-belastingen-maar-kan-zij-burgers-nog-veiligheid-garanderen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T18:34:00+00:00",
-   "source": "Starnieuws",
-   "title": "Vier gouden halskettingen buit bij beroving in Latour; twee slachtoffers neergestoken",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94777"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T17:20:57+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Verdachte opgepakt na dodelijke schietpartij bij Republic Bank",
-   "url": "https://www.dbsuriname.com/2026/11/08/verdachte-opgepakt-na-dodelijke-schietpartij-bij-republic-bank/"
   }
  ],
- "fetched_at": "2026-11-17T13:14:33+00:00",
+ "fetched_at": "2026-11-17T21:54:15+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-17T13:14:32+00:00",
+   "fetched_at": "2026-11-17T21:54:13+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-17T13:14:30+00:00",
+   "count": 13,
+   "fetched_at": "2026-11-17T21:54:10+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-17T13:14:31+00:00",
+   "fetched_at": "2026-11-17T21:54:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T13:14:32+00:00",
+   "fetched_at": "2026-11-17T21:54:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-17T13:14:31+00:00",
+   "fetched_at": "2026-11-17T21:54:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T13:14:33+00:00",
+   "fetched_at": "2026-11-17T21:54:15+00:00",
    "ok": true
   }
  }
