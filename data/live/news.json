@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-17T11:25:16+00:00",
+   "source": "Suriname Herald",
+   "title": "Lokalentekort hield leerlingen thuis: Staatsolie breidt VOJ Koewarasan uit",
+   "url": "https://www.srherald.com/suriname/2026/11/17/lokalentekort-hield-leerlingen-thuis-staatsolie-breidt-voj-koewarasan-uit/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T09:53:00+00:00",
+   "source": "Starnieuws",
+   "title": "Olie en mijnbouw leveren miljarden op, maar transparantie blijft aandachtspunt",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94904"
+  },
+  {
+   "econ": false,
    "published": "2026-11-17T03:01:00+00:00",
    "source": "Starnieuws",
    "title": "Surinames kredietwaardigheid: van vertrouwen naar crisis en herstel",
@@ -405,24 +419,31 @@
    "source": "Dagblad Suriname",
    "title": "Verdachte opgepakt na dodelijke schietpartij bij Republic Bank",
    "url": "https://www.dbsuriname.com/2026/11/08/verdachte-opgepakt-na-dodelijke-schietpartij-bij-republic-bank/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T15:07:46+00:00",
-   "source": "de Ware Tijd",
-   "title": "Simons wil landbouwsector uit het slop halen: jongeren, investeerders en productie centraal",
-   "url": "https://dwtonline.com/simons-wil-landbouwsector-uit-het-slop-halen-jongeren-investeerders-en-productie-centraal/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T14:51:19+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Messi wint voor tweede jaar op rij de Gouden Schoen",
-   "url": "https://www.dbsuriname.com/2026/11/08/messi-wint-voor-tweede-jaar-op-rij-de-gouden-schoen/"
   }
  ],
- "fetched_at": "2026-11-17T03:46:01+00:00",
+ "fetched_at": "2026-11-17T13:14:33+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-17T11:25:16+00:00",
+   "source": "Suriname Herald",
+   "title": "Lokalentekort hield leerlingen thuis: Staatsolie breidt VOJ Koewarasan uit",
+   "url": "https://www.srherald.com/suriname/2026/11/17/lokalentekort-hield-leerlingen-thuis-staatsolie-breidt-voj-koewarasan-uit/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T09:53:00+00:00",
+   "source": "Starnieuws",
+   "title": "Olie en mijnbouw leveren miljarden op, maar transparantie blijft aandachtspunt",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94904"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T06:05:02+00:00",
+   "source": "Suriname Herald",
+   "title": "Guyana start olieproductie met vijfde FPSO: opbrengst naar 1,15 miljoen vaten per dag",
+   "url": "https://www.srherald.com/buitenland/2026/11/17/guyana-start-olieproductie-met-vijfde-fpso-opbrengst-naar-115-miljoen-vaten-per-dag/"
+  },
   {
    "econ": false,
    "published": "2026-11-16T23:40:00+00:00",
@@ -681,58 +702,37 @@
    "source": "Suriname Herald",
    "title": "Ali wil Guyanese gezinnen laten meeprofiteren van olierijkdom via investeringsfonds",
    "url": "https://www.srherald.com/buitenland/2026/10/22/ali-wil-guyanese-gezinnen-laten-meeprofiteren-van-olierijkdom-via-investeringsfonds/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T06:06:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Digicel wil meeliften in olie-boom Suriname",
-   "url": "https://dwtonline.com/digicel-wil-meeliften-in-olie-boom-suriname/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T03:02:22+00:00",
-   "source": "Suriname Herald",
-   "title": "Eerste olieboringen GranMorgu starten in december, project al voor 43 procent gerealiseerd",
-   "url": "https://www.srherald.com/suriname/2026/10/22/eerste-olieboringen-granmorgu-starten-in-december-project-al-voor-43-procent-gerealiseerd/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-21T04:06:00+00:00",
-   "source": "Starnieuws",
-   "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-17T03:45:59+00:00",
+   "fetched_at": "2026-11-17T13:14:32+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-11-17T03:45:57+00:00",
+   "fetched_at": "2026-11-17T13:14:30+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-17T03:45:59+00:00",
+   "fetched_at": "2026-11-17T13:14:31+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T03:46:00+00:00",
+   "fetched_at": "2026-11-17T13:14:32+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-17T03:45:59+00:00",
+   "fetched_at": "2026-11-17T13:14:31+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T03:46:01+00:00",
+   "fetched_at": "2026-11-17T13:14:33+00:00",
    "ok": true
   }
  }
