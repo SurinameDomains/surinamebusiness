@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-17T03:01:00+00:00",
+   "source": "Starnieuws",
+   "title": "Surinames kredietwaardigheid: van vertrouwen naar crisis en herstel",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94906"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-17T02:05:12+00:00",
+   "source": "Suriname Herald",
+   "title": "Canada ziet zakelijke kansen in Suriname en wil economische samenwerking uitbreiden",
+   "url": "https://www.srherald.com/suriname/2026/11/16/canada-ziet-zakelijke-kansen-in-suriname-en-wil-economische-samenwerking-uitbreiden/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-16T23:40:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie breidt VOJ Koewarasan uit en verbetert wooncomfort ouderen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94901"
+  },
+  {
+   "econ": false,
    "published": "2026-11-16T18:31:32+00:00",
    "source": "Suriname Herald",
    "title": "Fitch kent Suriname ‘B-’ toe met positieve vooruitzichten: olie stuwt verwachte groei naar 28 procent",
@@ -13,6 +34,13 @@
    "source": "Suriname Herald",
    "title": "Onderzoek Poeketie: zonder goed onderhoud dreigen zonne-energieprojecten in binnenland te mislukken",
    "url": "https://www.srherald.com/suriname/2026/11/16/onderzoek-poeketie-zonder-goed-onderhoud-dreigen-zonne-energieprojecten-in-binnenland-te-mislukken/"
+  },
+  {
+   "econ": true,
+   "published": "2026-11-16T08:54:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Shenzhen maakt zich klaar voor Apec-top",
+   "url": "https://dwtonline.com/shenzhen-maakt-zich-klaar-voor-apec-top/"
   },
   {
    "econ": false,
@@ -391,38 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "Messi wint voor tweede jaar op rij de Gouden Schoen",
    "url": "https://www.dbsuriname.com/2026/11/08/messi-wint-voor-tweede-jaar-op-rij-de-gouden-schoen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T12:58:02+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Ondernemer overlijdt bij ongeval met minigraafmachine",
-   "url": "https://www.dbsuriname.com/2026/11/08/ondernemer-overlijdt-bij-ongeval-met-minigraafmachine/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T12:17:00+00:00",
-   "source": "Starnieuws",
-   "title": "Verdachte aangehouden na dodelijke beroving op terrein Republic Bank",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94767"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T12:09:31+00:00",
-   "source": "Suriname Herald",
-   "title": "Simons houdt brandstofsubsidie in stand uit vrees voor hogere winkelprijzen",
-   "url": "https://www.srherald.com/suriname/2026/11/08/simons-houdt-brandstofsubsidie-in-stand-uit-vrees-voor-hogere-winkelprijzen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-08T11:05:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "VSB wil APF onder prudentieel toezicht van CBvS plaatsen",
-   "url": "https://dwtonline.com/vsb-wil-apf-onder-prudentieel-toezicht-van-cbvs-plaatsen/"
   }
  ],
- "fetched_at": "2026-11-16T20:58:38+00:00",
+ "fetched_at": "2026-11-17T03:46:01+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-16T23:40:00+00:00",
+   "source": "Starnieuws",
+   "title": "Staatsolie breidt VOJ Koewarasan uit en verbetert wooncomfort ouderen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94901"
+  },
   {
    "econ": false,
    "published": "2026-11-16T18:31:32+00:00",
@@ -695,44 +702,37 @@
    "source": "Starnieuws",
    "title": "Staatsolie en Zijin zoeken 3.600 arbeidskrachten voor uitbreiding goudproject",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94469"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-20T03:05:03+00:00",
-   "source": "Suriname Herald",
-   "title": "Jones: Nickerie dreigt kansen in olie- en gassector mis te lopen",
-   "url": "https://www.srherald.com/suriname/2026/10/20/jones-nickerie-dreigt-kansen-in-olie-en-gassector-mis-te-lopen/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-16T20:58:36+00:00",
+   "fetched_at": "2026-11-17T03:45:59+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-16T20:58:33+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-17T03:45:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-16T20:58:35+00:00",
+   "fetched_at": "2026-11-17T03:45:59+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-16T20:58:37+00:00",
+   "fetched_at": "2026-11-17T03:46:00+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-16T20:58:35+00:00",
+   "fetched_at": "2026-11-17T03:45:59+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-16T20:58:38+00:00",
+   "fetched_at": "2026-11-17T03:46:01+00:00",
    "ok": true
   }
  }
