@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-17T21:54:41+00:00",
+ "fetched_at": "2026-11-18T03:42:12+00:00",
  "notices": [
   {
    "date": "2026-11-15",
@@ -36,15 +36,6 @@
    "url": "https://nvebs.com/nieuws/1651/gepland-onderhoud-maandag-16-november-2026"
   },
   {
-   "date": "2026-11-17",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE PLUTOSTRAAT TUSSEN WILFRED GRIMMERSTRAAT EN JACQUES D. GOMPERTSSTRAAT, GEDEELTE VERDISTRAAT TUSSEN PLUTOSTRAAT EN RAVELSTRAAT, GEDEELTE NOLA HATTERMANSTRAAT TUSSEN MOZARTSTRAAT EN PLUTOSTRAAT, GEDEELTE NIEUWE CHARLESBURGWEG TUSSEN RINGWEG – ZUID EN SOHAWANWEG, JULES CHIN A FOENGSTRAAT, CHOPINSTRAAT, PEPERBOOMSTRAAT, SNIJBONENSTRAAT, AMSOISTRAAT, SELDERIESTRAAT, KRAROENSTRAAT, SOHAWANWEG, WALAPASTRAAT, KROBIASTRAAT, LEWENSTEINSTRAAT, HOENDERPARKWEG, MANGOLAAN EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud dinsdag 17 november 2026",
-   "url": "https://nvebs.com/nieuws/1652/gepland-onderhoud-dinsdag-17-november-2026"
-  },
-  {
    "date": "2026-11-18",
    "kind": "planned",
    "map": "",
@@ -61,6 +52,15 @@
    "text": "GEDEELTE COMMISSARIS THURKOWWEG TUSSEN JOZEF KARAMAT-ALIWEG EN PRONKWEG, GEDEELTE COMMISSARIS THURKOWWEG TUSSEN KASIMBEGWEG EN WILHELMINASTRAAT, GEDEELTE COMMISARIS ROBLESWEG TUSSEN WILHELMINASTRAAT EN HOOFDWEG MARIENBURG,TIMORWEG, PRONKWEG, BAKASROISIWEG, NIEUW-AMSTERDAM, VOORBURG, MARIENBURG, DEVISIEWEG, BRIGADE GENERAALWEG, KETANWEG, SUIKERRIETWEG, HOOFWEG MARIENBURG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
    "title": "Gepland onderhoud donderdag 19 november 2026",
    "url": "https://nvebs.com/nieuws/1654/gepland-onderhoud-donderdag-19-november-2026"
+  },
+  {
+   "date": "",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd te Afobaka. De gezamelijke opwekcapaciteit van de Opwek Centrales zal, gedurende de aangegeven periode, niet voldoende zijn om te allen tijde aan de totale vermogensvraag te voldoen. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de",
+   "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
+   "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-17T21:53:57+00:00",
+ "fetched_at": "2026-11-18T03:41:16+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -323,47 +323,27 @@
    "source": "gov.sr",
    "title": "Het vervangen, installeren en bedrijfsklaar opleveren van een viertal verkeersregelinginstallaties (VRI’s) op de wegstrekking Henck arronstraat voor de afdeling Verkeersmonitoring en Digitale Techniek",
    "url": "https://gov.sr/aanbestedingen/het-vervangen-installeren-en-bedrijfsklaar-opleveren-van-een-viertal-verkeersregelinginstallaties-vris-op-de-wegstrekking-henck-arronstraat-voor-de-afdeling-verkeersmonitoring-en-digitale-technie/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161817",
-   "lang": "nl",
-   "published": "2026-09-03",
-   "source": "gov.sr",
-   "title": "Het verrichten van diverse rehabilitatie werkzaamheden tbv diverse pompgemalen in het district Paramaribo",
-   "url": "https://gov.sr/aanbestedingen/het-verrichten-van-diverse-rehabilitatie-werkzaamheden-tbv-diverse-pompgemalen-in-het-district-paramaribo/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161814",
-   "lang": "nl",
-   "published": "2026-09-03",
-   "source": "gov.sr",
-   "title": "Het leveren van Kunstofkleppen, takels, meubilair, apparatuur en materialen tbv de afdeling Sluizen, Gemalen en kanalen",
-   "url": "https://gov.sr/aanbestedingen/het-leveren-van-kunstofkleppen-takels-meubilair-apparatuur-en-materialen-tbv-de-afdeling-sluizen-gemalen-en-kanalen/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-17T21:53:57+00:00",
+   "fetched_at": "2026-11-18T03:41:16+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-17T21:53:56+00:00",
+   "fetched_at": "2026-11-18T03:41:15+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-17T21:53:57+00:00",
+   "fetched_at": "2026-11-18T03:41:15+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-17T21:53:56+00:00",
+   "fetched_at": "2026-11-18T03:41:14+00:00",
    "ok": true
   }
  }

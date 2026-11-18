@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-18T01:54:51+00:00",
+   "source": "Suriname Herald",
+   "title": "Zes nieuwe ambassadeurs bij president Simons: olie, energie en handel bieden kansen voor samenwerking",
+   "url": "https://www.srherald.com/suriname/2026/11/17/zes-nieuwe-ambassadeurs-bij-president-simons-olie-energie-en-handel-bieden-kansen-voor-samenwerking/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-17T21:37:00+00:00",
    "source": "Starnieuws",
    "title": "VS scherpt toezicht op AI-chips aan, ook Brazilië onder nieuwe exportregels",
@@ -412,17 +419,17 @@
    "source": "Starnieuws",
    "title": "Staatshoofd kondigt extra maatregelen aan voor ordening goudsector",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94787"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T10:23:00+00:00",
-   "source": "Starnieuws",
-   "title": "VSB wil weten waar pensioenpremies sinds 2015 zijn gebleven",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94743"
   }
  ],
- "fetched_at": "2026-11-17T21:54:15+00:00",
+ "fetched_at": "2026-11-18T03:41:36+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-18T01:54:51+00:00",
+   "source": "Suriname Herald",
+   "title": "Zes nieuwe ambassadeurs bij president Simons: olie, energie en handel bieden kansen voor samenwerking",
+   "url": "https://www.srherald.com/suriname/2026/11/17/zes-nieuwe-ambassadeurs-bij-president-simons-olie-energie-en-handel-bieden-kansen-voor-samenwerking/"
+  },
   {
    "econ": false,
    "published": "2026-11-17T11:25:16+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
    "url": "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-22T10:57:09+00:00",
-   "source": "Suriname Herald",
-   "title": "Ali wil Guyanese gezinnen laten meeprofiteren van olierijkdom via investeringsfonds",
-   "url": "https://www.srherald.com/buitenland/2026/10/22/ali-wil-guyanese-gezinnen-laten-meeprofiteren-van-olierijkdom-via-investeringsfonds/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-17T21:54:13+00:00",
+   "fetched_at": "2026-11-18T03:41:34+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-11-17T21:54:10+00:00",
+   "fetched_at": "2026-11-18T03:41:32+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-17T21:54:12+00:00",
+   "fetched_at": "2026-11-18T03:41:34+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T21:54:13+00:00",
+   "fetched_at": "2026-11-18T03:41:35+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-17T21:54:12+00:00",
+   "fetched_at": "2026-11-18T03:41:33+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-17T21:54:15+00:00",
+   "fetched_at": "2026-11-18T03:41:36+00:00",
    "ok": true
   }
  }

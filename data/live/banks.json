@@ -6,7 +6,7 @@
     41.3,
     41.869
    ],
-   "fetched_at": "2026-11-17T21:54:17+00:00",
+   "fetched_at": "2026-11-18T03:41:38+00:00",
    "key": "finabank",
    "live": true,
    "name": "Finabank",
@@ -24,7 +24,7 @@
    ],
    "fetched_at": "2026-11-17T21:54:18+00:00",
    "key": "hakrinbank",
-   "live": true,
+   "live": false,
    "name": "Hakrinbank",
    "url": "https://www.hakrinbank.com/en/private/foreign-exchange/",
    "usd": [
@@ -38,7 +38,7 @@
     40.62,
     41.45
    ],
-   "fetched_at": "2026-11-17T21:54:19+00:00",
+   "fetched_at": "2026-11-18T03:42:05+00:00",
    "key": "dsb",
    "live": true,
    "name": "De Surinaamsche Bank (DSB)",
@@ -70,7 +70,7 @@
     40.97,
     41.869
    ],
-   "fetched_at": "2026-11-17T21:54:35+00:00",
+   "fetched_at": "2026-11-18T03:42:09+00:00",
    "key": "godo",
    "live": true,
    "name": "Godo",
@@ -81,5 +81,5 @@
    ]
   }
  ],
- "fetched_at": "2026-11-17T21:54:35+00:00"
+ "fetched_at": "2026-11-18T03:42:09+00:00"
 }
