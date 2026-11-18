@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-18T11:55:00+00:00",
+   "source": "Starnieuws",
+   "title": "Aantal agrarische bedrijven in Suriname met 41 procent gegroeid",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94918"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-18T06:06:00+00:00",
+   "source": "Starnieuws",
+   "title": "COP31: verdeeldheid over fossiele brandstoffen en klimaatfinanciering",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94916"
+  },
+  {
+   "econ": false,
    "published": "2026-11-18T01:54:51+00:00",
    "source": "Suriname Herald",
    "title": "Zes nieuwe ambassadeurs bij president Simons: olie, energie en handel bieden kansen voor samenwerking",
@@ -405,23 +419,9 @@
    "source": "Suriname Herald",
    "title": "23-jarige verdachte opgepakt na dodelijke schietpartij bij Republic Bank",
    "url": "https://www.srherald.com/suriname/2026/11/09/23-jarige-verdachte-opgepakt-na-dodelijke-schietpartij-bij-republic-bank/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T17:06:42+00:00",
-   "source": "Dagblad Suriname",
-   "title": "President Simons wil goudzoekers registreren en bronrivieren beschermen",
-   "url": "https://www.dbsuriname.com/2026/11/09/president-simons-wil-goudzoekers-registreren-en-bronrivieren-beschermen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T14:49:00+00:00",
-   "source": "Starnieuws",
-   "title": "Staatshoofd kondigt extra maatregelen aan voor ordening goudsector",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94787"
   }
  ],
- "fetched_at": "2026-11-18T03:41:36+00:00",
+ "fetched_at": "2026-11-18T12:58:14+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-18T03:41:34+00:00",
+   "fetched_at": "2026-11-18T12:58:13+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 13,
-   "fetched_at": "2026-11-18T03:41:32+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-18T12:58:11+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-18T03:41:34+00:00",
+   "fetched_at": "2026-11-18T12:58:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-18T03:41:35+00:00",
+   "fetched_at": "2026-11-18T12:58:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-18T03:41:33+00:00",
+   "fetched_at": "2026-11-18T12:58:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-18T03:41:36+00:00",
+   "fetched_at": "2026-11-18T12:58:14+00:00",
    "ok": true
   }
  }
