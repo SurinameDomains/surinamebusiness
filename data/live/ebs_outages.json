@@ -1,23 +1,6 @@
 {
- "fetched_at": "2026-11-18T12:58:25+00:00",
+ "fetched_at": "2026-11-18T21:23:02+00:00",
  "notices": [
-  {
-   "date": "2026-11-15",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=65b3833f601f437cb031e523f6adff55",
-   "slots": [
-    {
-     "areas": "GEDEELTE KAIKOESISTRAAT TUSSEN ABONESTRAAT EN ABOENAWROKOSTRAAT, GEDEELTE BONISTRAAT TUSSEN MATHOERASTRAAT EN ANTON DRAGTENWEG, GEDEELTE BARRONSTRAAT TUSSEN COMMISSARIS E.A. ROBLESWEG EN BONISTRAAT, GEDEELTE COMMISSARIS E.A. ROBLESWEG TUSSEN LOUIS GOVEIASTRAAT, GEDEELTE ABOENAWROKOSTRAAT TUSSEN KAIKOESISTRAAT EN KROMANTI KODJOSTRAAT, JOSEPHINE SAMSON GREENSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-     "date": "2026-11-15",
-     "district": "Paramaribo",
-     "from": "09:00",
-     "to": "15:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud zondag 15 november 2026",
-   "url": "https://nvebs.com/nieuws/1650/gepland-onderhoud-zondag-15-november-2026"
-  },
   {
    "date": "2026-11-16",
    "kind": "planned",
@@ -54,13 +37,22 @@
    "url": "https://nvebs.com/nieuws/1654/gepland-onderhoud-donderdag-19-november-2026"
   },
   {
-   "date": "",
-   "kind": "notice",
+   "date": "2026-11-20",
+   "kind": "planned",
    "map": "",
    "slots": [],
-   "text": "De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd te Afobaka. De gezamelijke opwekcapaciteit van de Opwek Centrales zal, gedurende de aangegeven periode, niet voldoende zijn om te allen tijde aan de totale vermogensvraag te voldoen. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de",
-   "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
-   "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
+   "text": "GEDEELTE DS. MARTIN LUTHER KINGWEG TUSSEN PELTHOPORUMLAAN EN TOUT LUI FAUT KANAAL LINKS, GEDEELTE TOUT LUI FAUT MIDDENWEG TUSSEN DS. MARTIN LUTHER KINGWEG EN BONENKRUIDSTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED. GEHEEL TAWAJARIPOLDERWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud vrijdag 20 november 2026",
+   "url": "https://nvebs.com/nieuws/1656/gepland-onderhoud-vrijdag-20-november-2026"
+  },
+  {
+   "date": "2026-11-24",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE BAKKIEWEG TUSSEN AGENORIAWEG EN HABIBWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud dinsdag 24 november 2026",
+   "url": "https://nvebs.com/nieuws/1655/gepland-onderhoud-dinsdag-24-november-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

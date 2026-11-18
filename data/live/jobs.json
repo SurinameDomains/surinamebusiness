@@ -1,6 +1,32 @@
 {
- "fetched_at": "2026-11-18T12:58:11+00:00",
+ "fetched_at": "2026-11-18T21:22:49+00:00",
  "items": [
+  {
+   "employer": "Ministerie van Landbouw, Veeteelt en Visserij",
+   "id": "gov-165336",
+   "published": "2026-11-18",
+   "source": "gov.sr",
+   "title": "Senior Analist Residu Laboratorium",
+   "url": "https://gov.sr/vacature/senior-analist-residu-laboratorium/"
+  },
+  {
+   "employer": "Ministerie van Landbouw, Veeteelt en Visserij",
+   "id": "gov-165334",
+   "published": "2026-11-18",
+   "source": "gov.sr",
+   "title": "Senior Analist Veterinair Laboratorium",
+   "url": "https://gov.sr/vacature/senior-analist-veterinair-laboratorium/"
+  },
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45601",
+   "location": "Paramaribo",
+   "published": "2026-11-18",
+   "source": "Newmont",
+   "title": "Driller I",
+   "url": "https://jobs.newmont.com/us/en/job/45601"
+  },
   {
    "employer": "Ministerie van Olie, Gas en Milieu",
    "id": "gov-165201",
@@ -121,39 +147,39 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 5,
-   "fetched_at": "2026-11-18T12:58:02+00:00",
+   "count": 6,
+   "fetched_at": "2026-11-18T21:22:39+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-18T12:58:01+00:00",
+   "fetched_at": "2026-11-18T21:22:37+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-18T12:58:08+00:00",
+   "fetched_at": "2026-11-18T21:22:44+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-18T12:58:11+00:00",
+   "fetched_at": "2026-11-18T21:22:49+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-18T12:58:08+00:00",
+   "fetched_at": "2026-11-18T21:22:45+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 0,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-18T12:58:09+00:00",
+   "failed_at": "2026-11-18T21:22:45+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-18T12:58:10+00:00",
+   "fetched_at": "2026-11-18T21:22:46+00:00",
    "ok": true
   }
  }

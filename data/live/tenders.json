@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-18T12:57:59+00:00",
+ "fetched_at": "2026-11-18T21:22:35+00:00",
  "items": [
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -10,6 +10,17 @@
    "source": "gov.sr",
    "title": "Het leveren van voertuigen t.b.v. het Directoraat Bouw-en Stedebouwkundige werken van het Ministerie van Openbare werken en Ruimtelijke Ordening",
    "url": "https://gov.sr/aanbestedingen/het-leveren-van-voertuigen-t-b-v-het-directoraat-bouw-en-stedebouwkundige-werken-van-het-ministerie-van-openbare-werken-en-ruimtelijke-ordening/"
+  },
+  {
+   "buyer": "Support to Safety Nets for Vulnerable Populations in Suriname",
+   "deadline": "2026-11-30",
+   "id": "idb-39667",
+   "kind": "",
+   "lang": "en",
+   "published": "2026-11-13",
+   "source": "IDB",
+   "title": "RFI - Potential Implementation Partner for the Early Childhood Development (ECD) Intervention for FBZwHH Households",
+   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000783-1555610092-81"
   },
   {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
@@ -328,22 +339,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-18T12:57:59+00:00",
+   "fetched_at": "2026-11-18T21:22:35+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 49,
-   "fetched_at": "2026-11-18T12:57:59+00:00",
+   "fetched_at": "2026-11-18T21:22:35+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-18T12:57:59+00:00",
+   "fetched_at": "2026-11-18T21:22:35+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-18T12:57:58+00:00",
+   "fetched_at": "2026-11-18T21:22:35+00:00",
    "ok": true
   }
  }

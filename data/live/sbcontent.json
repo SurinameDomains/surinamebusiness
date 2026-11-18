@@ -1,6 +1,33 @@
 {
- "fetched_at": "2026-11-18T12:58:25+00:00",
+ "fetched_at": "2026-11-18T21:23:02+00:00",
  "items": [
+  {
+   "body": "Stolio Web Solutions is een AI software- en website development bedrijf uit Paramaribo. Software en websites, op maat gemaakt met moderne AI-tools: snel, helder en klaar voor resultaat.",
+   "body_en": null,
+   "created_at": "2026-11-18T18:55:22Z",
+   "data": {
+    "email": "info@stoliowebsolutions.com",
+    "group": "services",
+    "hours": "",
+    "kind": "AI software- en website development",
+    "phone": "+597 7568905",
+    "place": "Paramaribo",
+    "replaces": "",
+    "street": "Nieuwcharlesburg 45b",
+    "whatsapp": "+597 7568905"
+   },
+   "ends": null,
+   "id": "i7td3bi25dka",
+   "kind": "company",
+   "lang": "all",
+   "sort": 0,
+   "source": null,
+   "starts": null,
+   "title": "Stolio web solutions",
+   "title_en": null,
+   "updated_at": "2026-11-18T19:52:07Z",
+   "url": "https://stoliowebsolutions.com"
+  },
   {
    "body": "Een software bedrijf dat sinds 2006 actief is en zich richt op het leveren van digitale diensten aan bedrijven, ondernemers en organisaties in Suriname. Het bedrijf biedt onder andere professionele websites, webapplicaties, SEO, logo- en grafisch ontwerp, AI-oplossingen, bedrijfsautomatisering en dronevideografie aan. DuLamari helpt klanten om hun online zichtbaarheid te vergroten, een professionele uitstraling te creëren en hun bedrijfsprocessen efficiënter te maken met behulp van moderne technologie.",
    "body_en": null,

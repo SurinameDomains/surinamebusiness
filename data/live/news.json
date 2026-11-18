@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-18T17:41:36+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Suriname telt 41 procent meer agrarische bedrijven",
+   "url": "https://www.dbsuriname.com/2026/11/18/suriname-telt-41-procent-meer-agrarische-bedrijven/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-18T14:43:44+00:00",
+   "source": "Suriname Herald",
+   "title": "Barbados wil bijzondere band met Suriname: meer toerisme, handel en culturele uitwisseling",
+   "url": "https://www.srherald.com/suriname/2026/11/18/barbados-wil-bijzondere-band-met-suriname-meer-toerisme-handel-en-culturele-uitwisseling/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-18T11:55:00+00:00",
    "source": "Starnieuws",
    "title": "Aantal agrarische bedrijven in Suriname met 41 procent gegroeid",
@@ -97,6 +111,13 @@
    "source": "Suriname Herald",
    "title": "Canada ziet zakelijke kansen in Suriname en wil economische samenwerking uitbreiden",
    "url": "https://www.srherald.com/suriname/2026/11/16/canada-ziet-zakelijke-kansen-in-suriname-en-wil-economische-samenwerking-uitbreiden/"
+  },
+  {
+   "econ": true,
+   "published": "2026-11-17T00:11:52+00:00",
+   "source": "de Ware Tijd",
+   "title": "Fitch kent Suriname ‘B-‘ rating toe met positieve vooruitzichten",
+   "url": "https://dwtonline.com/fitch-kent-suriname-b-rating-toe-met-positieve-vooruitzichten/"
   },
   {
    "econ": false,
@@ -398,30 +419,9 @@
    "source": "Starnieuws",
    "title": "S&P verhoogt kredietwaardigheid Suriname, maar waarschuwt voor zwakke instituties",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94801"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T23:50:00+00:00",
-   "source": "Starnieuws",
-   "title": "Het binnenland stikt onder chemische stoffen voor goudwinning",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94670"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T20:35:00+00:00",
-   "source": "Starnieuws",
-   "title": "Brunswijk heeft geen rol meer bij ordening goudsector",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94792"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-09T19:00:36+00:00",
-   "source": "Suriname Herald",
-   "title": "23-jarige verdachte opgepakt na dodelijke schietpartij bij Republic Bank",
-   "url": "https://www.srherald.com/suriname/2026/11/09/23-jarige-verdachte-opgepakt-na-dodelijke-schietpartij-bij-republic-bank/"
   }
  ],
- "fetched_at": "2026-11-18T12:58:14+00:00",
+ "fetched_at": "2026-11-18T21:22:52+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-18T12:58:13+00:00",
+   "fetched_at": "2026-11-18T21:22:51+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 14,
-   "fetched_at": "2026-11-18T12:58:11+00:00",
+   "fetched_at": "2026-11-18T21:22:49+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-18T12:58:12+00:00",
+   "fetched_at": "2026-11-18T21:22:50+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-18T12:58:13+00:00",
+   "fetched_at": "2026-11-18T21:22:51+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-18T12:58:12+00:00",
+   "fetched_at": "2026-11-18T21:22:50+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-18T12:58:14+00:00",
+   "fetched_at": "2026-11-18T21:22:52+00:00",
    "ok": true
   }
  }
