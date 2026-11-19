@@ -1,32 +1,6 @@
 {
- "fetched_at": "2026-11-19T11:30:30+00:00",
+ "fetched_at": "2026-11-19T19:37:51+00:00",
  "notices": [
-  {
-   "date": "2026-11-16",
-   "kind": "planned",
-   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=ccea037f369841af9e83dc028c55d338",
-   "slots": [
-    {
-     "areas": "ETMEDORAWEG Z(ZIJSTR. WANICAWEG) EN GENOROBINWEGEN (ZIJSTR. WANICAWEG).",
-     "date": "2026-11-16",
-     "district": "Wanica",
-     "from": "08:00",
-     "to": "17:00"
-    }
-   ],
-   "text": "",
-   "title": "Gepland onderhoud maandag 16 november 2026",
-   "url": "https://nvebs.com/nieuws/1651/gepland-onderhoud-maandag-16-november-2026"
-  },
-  {
-   "date": "2026-11-19",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE COMMISSARIS THURKOWWEG TUSSEN JOZEF KARAMAT-ALIWEG EN PRONKWEG, GEDEELTE COMMISSARIS THURKOWWEG TUSSEN KASIMBEGWEG EN WILHELMINASTRAAT, GEDEELTE COMMISARIS ROBLESWEG TUSSEN WILHELMINASTRAAT EN HOOFDWEG MARIENBURG,TIMORWEG, PRONKWEG, BAKASROISIWEG, NIEUW-AMSTERDAM, VOORBURG, MARIENBURG, DEVISIEWEG, BRIGADE GENERAALWEG, KETANWEG, SUIKERRIETWEG, HOOFWEG MARIENBURG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud donderdag 19 november 2026",
-   "url": "https://nvebs.com/nieuws/1654/gepland-onderhoud-donderdag-19-november-2026"
-  },
   {
    "date": "2026-11-20",
    "kind": "planned",
@@ -37,13 +11,40 @@
    "url": "https://nvebs.com/nieuws/1656/gepland-onderhoud-vrijdag-20-november-2026"
   },
   {
-   "date": "2026-11-24",
+   "date": "2026-11-21",
    "kind": "planned",
    "map": "",
    "slots": [],
-   "text": "GEDEELTE BAKKIEWEG TUSSEN AGENORIAWEG EN HABIBWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud dinsdag 24 november 2026",
-   "url": "https://nvebs.com/nieuws/1655/gepland-onderhoud-dinsdag-24-november-2026"
+   "text": "GEDEELTE OOST-WEST VERBINDING TUSSEN HOOFDWEG MARIENBURG EN ABDOELLAKHAN HUSSAINWEG, KAPPASTRAAT, BAMIESTRAAT, WANTONSTRAAT, BRUINESUIKERSTRAAT, MAISSUIKERSTRAAT, ABDOELLAKHAN HUSSAINWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED, GEHEEL PANDIT TILAKDHARIWEG, WALLERWEG, TJE TJEWEG, PAK S. RAKIMIWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED, KROONENBURG, MON SOUCIS, CONSTANTIA, ALLIANCE EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud zaterdag 21 november 2026",
+   "url": "https://nvebs.com/nieuws/1657/gepland-onderhoud-zaterdag-21-november-2026"
+  },
+  {
+   "date": "2026-11-22",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE SIR WINSTON CHURCHILLWEG TUSSEN SAROJA RAGHOEBARWEG EN RAMNARAIN OEMRAWWEG, GEDEELTE PANDIT PALTAN TEWARIEWEG TUSSEN AITKANTIWEG EN SIR WINSTON CHURCHILLWEG, OGANE, BOWLINGSTRAAT, SUJAFIWEG, WEG NAAR SHELL EMPLACEMENT, TAMJAKOEWEG, RAMNARAIN OEMRAWWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED, GEDEELTE DR. SOPHIE REDMONDSTRAAT TUSSEN RODE KRUISLAAN EN CELINASTRAAT, GEDEELTE VAN IDSINGASTRAAT TUSSEN VERLENGDE HOOGESTRAAT EN DR. SOPHIE REDMONDSTRAAT, GEDEELTE ABRAHAM P.H. SAMSONSTRAAT TUSSEN FLUSTRAAT EN HERMAN D. BENJAMINSTRAAT, ORANJELAAN, CELINASTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN DIT GEBIED.",
+   "title": "Gepland onderhoud zondag 22 november 2026",
+   "url": "https://nvebs.com/nieuws/1658/gepland-onderhoud-zondag-22-november-2026"
+  },
+  {
+   "date": "2026-11-26",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE WELGELEGENSTRAAT TUSSEN KWATTAWEG EN OKERSTRAAT, KOMKOMMERSTRAAT, TOMAATSTRAAT, ABADOESTRAAT, PENTASTRAAT, ANTONSTRAAT, MISPELSTRAAT, GEMBERSTRAAT, PATATASTRAAT, KASABASTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud donderdag 26 november 2026",
+   "url": "https://nvebs.com/nieuws/1659/gepland-onderhoud-donderdag-26-november-2026"
+  },
+  {
+   "date": "2026-11-27",
+   "kind": "planned",
+   "map": "",
+   "slots": [],
+   "text": "GEDEELTE HELENA CHRISTINAWEG TUSSEN INDIRA GANDHIWEG EN NOAHWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+   "title": "Gepland onderhoud vrijdag 27 november 2026",
+   "url": "https://nvebs.com/nieuws/1660/gepland-onderhoud-vrijdag-27-november-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

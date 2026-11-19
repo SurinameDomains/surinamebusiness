@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-19T18:35:05+00:00",
+   "source": "Dagblad Suriname",
+   "title": "“Directoraat Belastingen moet capaciteit gericht inzetten”",
+   "url": "https://www.dbsuriname.com/2026/11/19/directoraat-belastingen-moet-capaciteit-gericht-inzetten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-19T17:14:42+00:00",
+   "source": "Dagblad Suriname",
+   "title": "30 jaar cel voor doodschieten ondernemer in Nickerie",
+   "url": "https://www.dbsuriname.com/2026/11/19/30-jaar-cel-voor-doodschieten-ondernemer-in-nickerie/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-19T15:55:00+00:00",
+   "source": "Starnieuws",
+   "title": "Trump, Xi en Putin zoeken gezamenlijke koers voor wereldveiligheid",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94937"
+  },
+  {
+   "econ": false,
    "published": "2026-11-19T02:26:50+00:00",
    "source": "de Ware Tijd",
    "title": "Xi pleit voor open handel en regionale samenwerking",
@@ -398,30 +419,9 @@
    "source": "Suriname Herald",
    "title": "China boekt handelsoverschot van US$ 1,04 biljoen: export van AI-chips schiet omhoog",
    "url": "https://www.srherald.com/economie/2026/11/10/china-boekt-handelsoverschot-van-us-104-biljoen-export-van-ai-chips-schiet-omhoog/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-10T11:23:36+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Ratingbureau Standard & Poor’s verhoogt kredietwaardigheid Suriname",
-   "url": "https://www.dbsuriname.com/2026/11/10/ratingbureau-standard-poors-verhoogt-kredietwaardigheid-suriname/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-10T10:50:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Standard & Poor’s verhoogt kredietwaardigheid Suriname van CCC+ naar B-",
-   "url": "https://dwtonline.com/standard-poors-verhoogt-kredietwaardigheid-suriname-van-ccc-naar-b/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-10T08:55:18+00:00",
-   "source": "Suriname Herald",
-   "title": "S&P verhoogt kredietwaardigheid Suriname: groeiverwachting naar 36 procent in oliejaren",
-   "url": "https://www.srherald.com/suriname/2026/11/10/sp-verhoogt-kredietwaardigheid-suriname-groeiverwachting-naar-36-procent-in-oliejaren/"
   }
  ],
- "fetched_at": "2026-11-19T11:30:21+00:00",
+ "fetched_at": "2026-11-19T19:37:38+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-19T11:30:20+00:00",
+   "fetched_at": "2026-11-19T19:37:36+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-19T11:30:18+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-19T19:37:33+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-19T11:30:20+00:00",
+   "fetched_at": "2026-11-19T19:37:35+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T11:30:20+00:00",
+   "fetched_at": "2026-11-19T19:37:37+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-19T11:30:19+00:00",
+   "fetched_at": "2026-11-19T19:37:35+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T11:30:21+00:00",
+   "fetched_at": "2026-11-19T19:37:38+00:00",
    "ok": true
   }
  }
