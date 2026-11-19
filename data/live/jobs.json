@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-19T02:47:57+00:00",
+ "fetched_at": "2026-11-19T11:30:18+00:00",
  "items": [
   {
    "employer": "Ministerie van Landbouw, Veeteelt en Visserij",
@@ -132,54 +132,44 @@
    "source": "TotalEnergies",
    "title": "Drilling & Wells Engineer",
    "url": "https://jobs.totalenergies.com/careers/JobDetail/Drilling-Wells-Engineer/83653"
-  },
-  {
-   "deadline": null,
-   "employer": "TotalEnergies EP Suriname",
-   "id": "te-83484",
-   "location": "Suriname",
-   "published": "2026-08-20",
-   "source": "TotalEnergies",
-   "title": "GIS Data Analyst",
-   "url": "https://jobs.totalenergies.com/careers/JobDetail/GIS-Data-Analyst/83484"
   }
  ],
  "ok": true,
  "sources": {
   "Newmont": {
    "count": 6,
-   "fetched_at": "2026-11-19T02:47:47+00:00",
+   "fetched_at": "2026-11-19T11:30:08+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-19T02:47:45+00:00",
+   "fetched_at": "2026-11-19T11:30:06+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-19T02:47:52+00:00",
+   "fetched_at": "2026-11-19T11:30:13+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-19T02:47:57+00:00",
+   "fetched_at": "2026-11-19T11:30:18+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-19T02:47:53+00:00",
+   "fetched_at": "2026-11-19T11:30:13+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 0,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-19T02:47:53+00:00",
+   "failed_at": "2026-11-19T11:30:14+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-19T02:47:55+00:00",
+   "fetched_at": "2026-11-19T11:30:15+00:00",
    "ok": true
   }
  }

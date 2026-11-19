@@ -421,7 +421,7 @@
    "url": "https://www.srherald.com/suriname/2026/11/10/sp-verhoogt-kredietwaardigheid-suriname-groeiverwachting-naar-36-procent-in-oliejaren/"
   }
  ],
- "fetched_at": "2026-11-19T02:48:00+00:00",
+ "fetched_at": "2026-11-19T11:30:21+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-19T02:47:59+00:00",
+   "fetched_at": "2026-11-19T11:30:20+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-19T02:47:57+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-19T11:30:18+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-19T02:47:59+00:00",
+   "fetched_at": "2026-11-19T11:30:20+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T02:47:59+00:00",
+   "fetched_at": "2026-11-19T11:30:20+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-19T02:47:58+00:00",
+   "fetched_at": "2026-11-19T11:30:19+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T02:48:00+00:00",
+   "fetched_at": "2026-11-19T11:30:21+00:00",
    "ok": true
   }
  }
