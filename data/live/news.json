@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-19T23:07:04+00:00",
+   "source": "Suriname Herald",
+   "title": "Belastingdienst haalt al SRD 8,7 miljard aan btw binnen, maar mist kennis voor oliesector",
+   "url": "https://www.srherald.com/suriname/2026/11/19/belastingdienst-haalt-al-srd-87-miljard-aan-btw-binnen-maar-mist-kennis-voor-oliesector/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-19T18:35:05+00:00",
    "source": "Dagblad Suriname",
    "title": "“Directoraat Belastingen moet capaciteit gericht inzetten”",
@@ -412,17 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "EZOTI raadpleegt stakeholders over hervorming Wet Bedrijven en Beroepen",
    "url": "https://www.dbsuriname.com/2026/11/10/ezoti-raadpleegt-stakeholders-over-hervorming-wet-bedrijven-en-beroepen/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-10T11:54:38+00:00",
-   "source": "Suriname Herald",
-   "title": "China boekt handelsoverschot van US$ 1,04 biljoen: export van AI-chips schiet omhoog",
-   "url": "https://www.srherald.com/economie/2026/11/10/china-boekt-handelsoverschot-van-us-104-biljoen-export-van-ai-chips-schiet-omhoog/"
   }
  ],
- "fetched_at": "2026-11-19T19:37:38+00:00",
+ "fetched_at": "2026-11-20T01:27:18+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-19T23:07:04+00:00",
+   "source": "Suriname Herald",
+   "title": "Belastingdienst haalt al SRD 8,7 miljard aan btw binnen, maar mist kennis voor oliesector",
+   "url": "https://www.srherald.com/suriname/2026/11/19/belastingdienst-haalt-al-srd-87-miljard-aan-btw-binnen-maar-mist-kennis-voor-oliesector/"
+  },
   {
    "econ": false,
    "published": "2026-11-18T01:54:51+00:00",
@@ -695,44 +702,37 @@
    "source": "Starnieuws",
    "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94509"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-23T22:04:33+00:00",
-   "source": "Suriname Herald",
-   "title": "Olieprijs schiet boven US$ 117: druk op Surinaams brandstofprijsplafond neemt toe",
-   "url": "https://www.srherald.com/economie/2026/10/23/olieprijs-schiet-boven-us-117-druk-op-surinaams-brandstofprijsplafond-neemt-toe/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-19T19:37:36+00:00",
+   "fetched_at": "2026-11-20T01:27:16+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-19T19:37:33+00:00",
+   "fetched_at": "2026-11-20T01:27:14+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-19T19:37:35+00:00",
+   "fetched_at": "2026-11-20T01:27:16+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T19:37:37+00:00",
+   "fetched_at": "2026-11-20T01:27:17+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-19T19:37:35+00:00",
+   "fetched_at": "2026-11-20T01:27:15+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-19T19:37:38+00:00",
+   "fetched_at": "2026-11-20T01:27:18+00:00",
    "ok": true
   }
  }

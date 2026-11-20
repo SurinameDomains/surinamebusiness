@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-19T19:37:17+00:00",
+ "fetched_at": "2026-11-20T01:27:01+00:00",
  "items": [
   {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
@@ -349,22 +349,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-19T19:37:17+00:00",
+   "fetched_at": "2026-11-20T01:27:01+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 50,
-   "fetched_at": "2026-11-19T19:37:17+00:00",
+   "fetched_at": "2026-11-20T01:27:00+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-19T19:37:17+00:00",
+   "fetched_at": "2026-11-20T01:27:00+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-19T19:37:16+00:00",
+   "fetched_at": "2026-11-20T01:26:59+00:00",
    "ok": true
   }
  }
