@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-20T01:27:01+00:00",
+ "fetched_at": "2026-11-20T09:09:16+00:00",
  "items": [
   {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
@@ -265,17 +265,6 @@
    "url": "https://gov.sr/aanbestedingen/het-vervangen-verfraaien-en-bedrijfsklaar-opleveren-van-een-tweetal-vris-voor-de-afdeling-verkeersmonitoring-en-digitale-techniek-van-het-directoraat-veiligheid-en-mobiliteit/"
   },
   {
-   "buyer": "Fiscal Support Program to Regain Growth",
-   "deadline": "2026-11-19",
-   "id": "idb-39220",
-   "kind": "Goods",
-   "lang": "en",
-   "published": "2026-10-05",
-   "source": "IDB",
-   "title": "Purchase of High-Performance Server Hardware for DoTC",
-   "url": "https://idbdocs.iadb.org/wsdocs/getdocument.aspx?docnum=EZIDB0000489-1922759013-1154"
-  },
-  {
    "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
    "deadline": null,
    "id": "gov-162604",
@@ -349,22 +338,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-20T01:27:01+00:00",
+   "fetched_at": "2026-11-20T09:09:16+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 50,
-   "fetched_at": "2026-11-20T01:27:00+00:00",
+   "fetched_at": "2026-11-20T09:09:16+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-20T01:27:00+00:00",
+   "fetched_at": "2026-11-20T09:09:16+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-20T01:26:59+00:00",
+   "fetched_at": "2026-11-20T09:09:15+00:00",
    "ok": true
   }
  }

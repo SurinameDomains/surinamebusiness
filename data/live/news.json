@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-20T09:01:01+00:00",
+   "source": "Suriname Herald",
+   "title": "Staatsolie controleert oliekosten streng om verlies van Surinaamse inkomsten te voorkomen",
+   "url": "https://www.srherald.com/suriname/2026/11/20/staatsolie-controleert-oliekosten-streng-om-verlies-van-surinaamse-inkomsten-te-voorkomen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-20T03:02:06+00:00",
+   "source": "Suriname Herald",
+   "title": "Petronas mogelijk rond Onafhankelijkheidsdag met investeringsbesluit voor gasproject Blok 52",
+   "url": "https://www.srherald.com/suriname/2026/11/20/petronas-mogelijk-rond-onafhankelijkheidsdag-met-investeringsbesluit-voor-gasproject-blok-52/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-19T23:07:04+00:00",
    "source": "Suriname Herald",
    "title": "Belastingdienst haalt al SRD 8,7 miljard aan btw binnen, maar mist kennis voor oliesector",
@@ -405,24 +419,24 @@
    "source": "Dagblad Suriname",
    "title": "Graafschade aan glasvezelverbinding treft klanten van Telesur",
    "url": "https://www.dbsuriname.com/2026/11/10/graafschade-aan-glasvezelverbinding-treft-klanten-van-telesur/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-10T22:37:00+00:00",
-   "source": "Starnieuws",
-   "title": "Graafschade legt Telesur-diensten voor 20.000 klanten plat",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94815"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-10T15:16:25+00:00",
-   "source": "Dagblad Suriname",
-   "title": "EZOTI raadpleegt stakeholders over hervorming Wet Bedrijven en Beroepen",
-   "url": "https://www.dbsuriname.com/2026/11/10/ezoti-raadpleegt-stakeholders-over-hervorming-wet-bedrijven-en-beroepen/"
   }
  ],
- "fetched_at": "2026-11-20T01:27:18+00:00",
+ "fetched_at": "2026-11-20T09:09:31+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-20T09:01:01+00:00",
+   "source": "Suriname Herald",
+   "title": "Staatsolie controleert oliekosten streng om verlies van Surinaamse inkomsten te voorkomen",
+   "url": "https://www.srherald.com/suriname/2026/11/20/staatsolie-controleert-oliekosten-streng-om-verlies-van-surinaamse-inkomsten-te-voorkomen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-20T03:02:06+00:00",
+   "source": "Suriname Herald",
+   "title": "Petronas mogelijk rond Onafhankelijkheidsdag met investeringsbesluit voor gasproject Blok 52",
+   "url": "https://www.srherald.com/suriname/2026/11/20/petronas-mogelijk-rond-onafhankelijkheidsdag-met-investeringsbesluit-voor-gasproject-blok-52/"
+  },
   {
    "econ": false,
    "published": "2026-11-19T23:07:04+00:00",
@@ -688,51 +702,37 @@
    "source": "Suriname Herald",
    "title": "Bankiersvereniging: Suriname moet financiële sector versterken vóór komst olie-inkomsten",
    "url": "https://www.srherald.com/suriname/2026/10/24/bankiersvereniging-suriname-moet-financiele-sector-versterken-voor-komst-olie-inkomsten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T23:26:00+00:00",
-   "source": "Starnieuws",
-   "title": "Milieudeskundigen ingezet bij offshoreonderzoek in Blok 58",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94515"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-24T11:43:00+00:00",
-   "source": "Starnieuws",
-   "title": "Staatsolie als agent van de Staat: macht zonder tegenmacht",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94509"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-20T01:27:16+00:00",
+   "fetched_at": "2026-11-20T09:09:30+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-20T01:27:14+00:00",
+   "fetched_at": "2026-11-20T09:09:28+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-20T01:27:16+00:00",
+   "fetched_at": "2026-11-20T09:09:29+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T01:27:17+00:00",
+   "fetched_at": "2026-11-20T09:09:30+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-20T01:27:15+00:00",
+   "fetched_at": "2026-11-20T09:09:29+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T01:27:18+00:00",
+   "fetched_at": "2026-11-20T09:09:31+00:00",
    "ok": true
   }
  }
