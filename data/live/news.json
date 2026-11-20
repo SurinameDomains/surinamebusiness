@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-20T18:30:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "PALU-ondervoorzitter Ramnandanlal: “Leningen kunnen het begrotingstekort kleiner doen lijken”",
+   "url": "https://www.dbsuriname.com/2026/11/20/palu-ondervoorzitter-ramnandanlal-leningen-kunnen-het-begrotingstekort-kleiner-doen-lijken/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-20T15:06:50+00:00",
    "source": "Suriname Herald",
    "title": "Staatsolie: Suriname kan vanaf 2029 jaarlijks tot US$ 3 miljard aan olie-inkomsten ontvangen",
@@ -412,16 +419,9 @@
    "source": "Starnieuws",
    "title": "Afonsoewa en Gajadien willen bankieren zonder internet mogelijk maken",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94827"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T01:11:08+00:00",
-   "source": "Suriname Herald",
-   "title": "Matawai eist meer ruimte van Zijin voor goudwinning: “Laat ons ons gebied zelf ontwikkelen”",
-   "url": "https://www.srherald.com/suriname/2026/11/11/matawai-eist-meer-ruimte-van-zijin-voor-goudwinning-laat-ons-ons-gebied-zelf-ontwikkelen/"
   }
  ],
- "fetched_at": "2026-11-20T18:00:21+00:00",
+ "fetched_at": "2026-11-20T23:58:07+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-20T18:00:19+00:00",
+   "fetched_at": "2026-11-20T23:58:06+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 16,
-   "fetched_at": "2026-11-20T18:00:18+00:00",
+   "fetched_at": "2026-11-20T23:58:03+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-20T18:00:19+00:00",
+   "fetched_at": "2026-11-20T23:58:05+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T18:00:20+00:00",
+   "fetched_at": "2026-11-20T23:58:06+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-20T18:00:19+00:00",
+   "fetched_at": "2026-11-20T23:58:05+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T18:00:21+00:00",
+   "fetched_at": "2026-11-20T23:58:07+00:00",
    "ok": true
   }
  }
