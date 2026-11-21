@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-21T06:05:00+00:00",
+   "source": "Starnieuws",
+   "title": "COP31 loopt uit in extra tijd na impasse over fossiele brandstoffen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94960"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Petronas-CEO naar Suriname: investeringsbesluit Sloanea-gasveld Blok 52 in zicht",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94957"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T01:21:00+00:00",
+   "source": "Starnieuws",
+   "title": "Projekta: Mensenrechten mogen niet wachten op olie- en gasinkomsten",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94962"
+  },
+  {
+   "econ": false,
    "published": "2026-11-20T18:30:00+00:00",
    "source": "Dagblad Suriname",
    "title": "PALU-ondervoorzitter Ramnandanlal: “Leningen kunnen het begrotingstekort kleiner doen lijken”",
@@ -398,31 +419,38 @@
    "source": "Dagblad Suriname",
    "title": "EBS: Noodzakelijke werkzaamheden te Afobaka",
    "url": "https://www.dbsuriname.com/2026/11/12/ebs-noodzakelijke-werkzaamheden-te-afobaka/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T11:19:22+00:00",
-   "source": "Suriname Herald",
-   "title": "Regering wil Surinamers uit armoede helpen met werk en ondernemerschap",
-   "url": "https://www.srherald.com/suriname/2026/11/12/regering-wil-surinamers-uit-armoede-helpen-met-werk-en-ondernemerschap/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T11:01:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "BESCHOUWING — Rijst, de Hollandse ziekte en waarom Vietnam Nickerie niet gaat redden",
-   "url": "https://dwtonline.com/beschouwing-rijst-de-hollandse-ziekte-en-waarom-vietnam-nickerie-niet-gaat-redden/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T10:27:00+00:00",
-   "source": "Starnieuws",
-   "title": "Afonsoewa en Gajadien willen bankieren zonder internet mogelijk maken",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94827"
   }
  ],
- "fetched_at": "2026-11-20T23:58:07+00:00",
+ "fetched_at": "2026-11-21T06:58:05+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-21T03:00:17+00:00",
+   "source": "Suriname Herald",
+   "title": "Jagesar: olierijkdom kan Suriname welvarender maken, maar ook het leven fors duurder",
+   "url": "https://www.srherald.com/suriname/2026/11/21/jagesar-olierijkdom-kan-suriname-welvarender-maken-maar-ook-het-leven-fors-duurder/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T03:00:00+00:00",
+   "source": "Starnieuws",
+   "title": "Petronas-CEO naar Suriname: investeringsbesluit Sloanea-gasveld Blok 52 in zicht",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94957"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T02:01:36+00:00",
+   "source": "Suriname Herald",
+   "title": "Unicef: Suriname moet olierijkdom omzetten in betere toekomst voor kinderen",
+   "url": "https://www.srherald.com/suriname/2026/11/20/unicef-suriname-moet-olierijkdom-omzetten-in-betere-toekomst-voor-kinderen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T01:21:00+00:00",
+   "source": "Starnieuws",
+   "title": "Projekta: Mensenrechten mogen niet wachten op olie- en gasinkomsten",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94962"
+  },
   {
    "econ": false,
    "published": "2026-11-20T15:06:50+00:00",
@@ -674,65 +702,37 @@
    "source": "Suriname Herald",
    "title": "VS willen meer investeren in Guyanese olie- en gassector",
    "url": "https://www.srherald.com/buitenland/2026/10/25/vs-willen-meer-investeren-in-guyanese-olie-en-gassector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T16:12:33+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Banken vragen betere voorbereiding op oliegeld",
-   "url": "https://www.dbsuriname.com/2026/10/25/banken-vragen-betere-voorbereiding-op-oliegeld/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T16:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Vriendin slaat door: pepperspray en hete olie op vriend",
-   "url": "https://dwtonline.com/vriendin-slaat-door-pepperspray-en-hete-olie-op-vriend/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T12:17:52+00:00",
-   "source": "Dagblad Suriname",
-   "title": "22-jarige vrouw giet hete olie over vriend na ruzie om telefoonberichten",
-   "url": "https://www.dbsuriname.com/2026/10/25/22-jarige-vrouw-giet-hete-olie-over-vriend-na-ruzie-om-telefoonberichten/"
-  },
-  {
-   "econ": true,
-   "published": "2026-10-25T09:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "SBF wil dat ondernemers profiteren van kansen olie- en gassector",
-   "url": "https://dwtonline.com/sbf-wil-dat-ondernemers-profiteren-van-kansen-olie-en-gassector/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-20T23:58:06+00:00",
+   "fetched_at": "2026-11-21T06:58:04+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-20T23:58:03+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-21T06:58:03+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-20T23:58:05+00:00",
+   "fetched_at": "2026-11-21T06:58:03+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T23:58:06+00:00",
+   "fetched_at": "2026-11-21T06:58:04+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-20T23:58:05+00:00",
+   "fetched_at": "2026-11-21T06:58:03+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-20T23:58:07+00:00",
+   "fetched_at": "2026-11-21T06:58:05+00:00",
    "ok": true
   }
  }

@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-20T23:58:03+00:00",
+ "fetched_at": "2026-11-21T06:58:02+00:00",
  "items": [
   {
    "employer": "Ministerie van Landbouw, Veeteelt en Visserij",
@@ -48,16 +48,6 @@
   {
    "deadline": null,
    "employer": "Newmont Suriname",
-   "id": "nm-45088",
-   "location": "Paramaribo",
-   "published": "2026-11-13",
-   "source": "Newmont",
-   "title": "Advisor, People Case Management",
-   "url": "https://jobs.newmont.com/us/en/job/45088"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
    "id": "nm-45584",
    "location": "Paramaribo",
    "published": "2026-11-12",
@@ -74,16 +64,6 @@
    "source": "Newmont",
    "title": "Supervisor, Near Mine Exploration Geologist - Suriname",
    "url": "https://jobs.newmont.com/us/en/job/45166"
-  },
-  {
-   "deadline": null,
-   "employer": "Newmont Suriname",
-   "id": "nm-45290",
-   "location": "Paramaribo",
-   "published": "2026-11-10",
-   "source": "Newmont",
-   "title": "Maintenance Technician I",
-   "url": "https://jobs.newmont.com/us/en/job/45290"
   },
   {
    "deadline": null,
@@ -137,39 +117,39 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 6,
-   "fetched_at": "2026-11-20T23:57:54+00:00",
+   "count": 4,
+   "fetched_at": "2026-11-21T06:57:55+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-20T23:57:52+00:00",
+   "fetched_at": "2026-11-21T06:57:54+00:00",
    "ok": true
   },
   "TotalEnergies": {
    "count": 6,
-   "fetched_at": "2026-11-20T23:57:59+00:00",
+   "fetched_at": "2026-11-21T06:58:00+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-20T23:58:03+00:00",
+   "fetched_at": "2026-11-21T06:58:02+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-20T23:57:59+00:00",
+   "fetched_at": "2026-11-21T06:58:00+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 0,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-20T23:58:00+00:00",
+   "failed_at": "2026-11-21T06:58:00+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-20T23:58:01+00:00",
+   "fetched_at": "2026-11-21T06:58:01+00:00",
    "ok": true
   }
  }
