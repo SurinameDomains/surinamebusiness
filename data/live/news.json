@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-21T13:01:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Biza-ambtenaar aangehouden voor salarisfraude met persoonsgegevens",
+   "url": "https://dwtonline.com/ambtenaar-aangehouden-voor-salarisfraude-met-persoonsgegevens/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T11:30:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Belastingdienst haalt BTW doelen, bereidt zich voor op olie en gas",
+   "url": "https://dwtonline.com/belastingdienst-haalt-btw-doelen-bereidt-zich-voor-op-olie-en-gas/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T11:19:11+00:00",
+   "source": "Suriname Herald",
+   "title": "Schalkwijk: Suriname kan honderden miljoenen aan rente besparen met hogere kredietrating",
+   "url": "https://www.srherald.com/suriname/2026/11/21/schalkwijk-suriname-kan-honderden-miljoenen-aan-rente-besparen-met-hogere-kredietrating/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-21T06:05:00+00:00",
    "source": "Starnieuws",
    "title": "COP31 loopt uit in extra tijd na impasse over fossiele brandstoffen",
@@ -398,31 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "Hervormingen inzake betere kredietmogelijkheden tot bedrijfsfinanciering",
    "url": "https://www.dbsuriname.com/2026/11/12/hervormingen-inzake-betere-kredietmogelijkheden-tot-bedrijfsfinanciering/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T15:08:19+00:00",
-   "source": "Suriname Herald",
-   "title": "Gajadien wil digitale ID aan bankdiensten koppelen",
-   "url": "https://www.srherald.com/suriname/2026/11/12/gajadien-wil-digitale-id-aan-bankdiensten-koppelen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T14:29:37+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Waterproductiestation SWM te La Liberte buiten bedrijf",
-   "url": "https://www.dbsuriname.com/2026/11/12/waterproductiestation-swm-te-la-liberte-buiten-bedrijf/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T14:00:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka",
-   "url": "https://www.dbsuriname.com/2026/11/12/ebs-noodzakelijke-werkzaamheden-te-afobaka/"
   }
  ],
- "fetched_at": "2026-11-21T06:58:05+00:00",
+ "fetched_at": "2026-11-21T15:18:11+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-21T11:30:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Belastingdienst haalt BTW doelen, bereidt zich voor op olie en gas",
+   "url": "https://dwtonline.com/belastingdienst-haalt-btw-doelen-bereidt-zich-voor-op-olie-en-gas/"
+  },
   {
    "econ": false,
    "published": "2026-11-21T03:00:17+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Jaloezie eindigt in ziekenhuisopname: vrouw gooit hete olie over vriend",
    "url": "https://www.srherald.com/suriname/2026/10/25/jaloezie-eindigt-in-ziekenhuisopname-vrouw-gooit-hete-olie-over-vriend/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T16:45:07+00:00",
-   "source": "Suriname Herald",
-   "title": "VS willen meer investeren in Guyanese olie- en gassector",
-   "url": "https://www.srherald.com/buitenland/2026/10/25/vs-willen-meer-investeren-in-guyanese-olie-en-gassector/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-21T06:58:04+00:00",
+   "fetched_at": "2026-11-21T15:18:10+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-21T06:58:03+00:00",
+   "count": 13,
+   "fetched_at": "2026-11-21T15:18:08+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-21T06:58:03+00:00",
+   "fetched_at": "2026-11-21T15:18:09+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-21T06:58:04+00:00",
+   "fetched_at": "2026-11-21T15:18:10+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-21T06:58:03+00:00",
+   "fetched_at": "2026-11-21T15:18:09+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-21T06:58:05+00:00",
+   "fetched_at": "2026-11-21T15:18:11+00:00",
    "ok": true
   }
  }

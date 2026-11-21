@@ -1,4 +1,6 @@
 {
+ "error": "HTTP Error 521: <none>",
+ "failed_at": "2026-11-21T15:18:07+00:00",
  "fetched_at": "2026-11-21T06:58:02+00:00",
  "items": [
   {
@@ -114,7 +116,7 @@
    "url": "https://jobs.totalenergies.com/careers/JobDetail/Drilling-Wells-Engineer/83653"
   }
  ],
- "ok": true,
+ "ok": false,
  "sources": {
   "Newmont": {
    "count": 4,
