@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-22T01:17:34+00:00",
+ "fetched_at": "2026-11-22T08:47:49+00:00",
  "items": [
   {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
@@ -323,37 +323,27 @@
    "source": "gov.sr",
    "title": "Het onderhouden van de binnenstad Paramaribo in weekenden en op nationale Vrije- en Feestdagen ten behoeve van het Directoraat Openbaar Groen en Afvalbeheer",
    "url": "https://gov.sr/aanbestedingen/het-onderhouden-van-de-binnenstad-paramaribo-in-weekenden-en-op-nationale-vrije-en-feestdagen-ten-behoeve-van-het-directoraat-openbaar-groen-en-afvalbeheer/"
-  },
-  {
-   "buyer": "Ministerie van Openbare Werken & Ruimtelijke Ordening",
-   "deadline": null,
-   "id": "gov-161903",
-   "lang": "nl",
-   "published": "2026-09-07",
-   "source": "gov.sr",
-   "title": "Het vervangen, installeren en bedrijfsklaar opleveren van een viertal verkeersregelinginstallaties (VRI’s) op de wegstrekking Henck arronstraat voor de afdeling Verkeersmonitoring en Digitale Techniek",
-   "url": "https://gov.sr/aanbestedingen/het-vervangen-installeren-en-bedrijfsklaar-opleveren-van-een-viertal-verkeersregelinginstallaties-vris-op-de-wegstrekking-henck-arronstraat-voor-de-afdeling-verkeersmonitoring-en-digitale-technie/"
   }
  ],
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-22T01:17:34+00:00",
+   "fetched_at": "2026-11-22T08:47:49+00:00",
    "ok": true
   },
   "Staatsolie": {
    "count": 50,
-   "fetched_at": "2026-11-22T01:17:33+00:00",
+   "fetched_at": "2026-11-22T08:47:48+00:00",
    "ok": true
   },
   "World Bank": {
    "count": 17,
-   "fetched_at": "2026-11-22T01:17:33+00:00",
+   "fetched_at": "2026-11-22T08:47:48+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-22T01:17:33+00:00",
+   "fetched_at": "2026-11-22T08:47:48+00:00",
    "ok": true
   }
  }

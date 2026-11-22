@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-22T04:47:37+00:00",
+   "source": "Suriname Herald",
+   "title": "AKMOS: criminaliteit kost ondernemers steeds meer geld, regering luistert te weinig",
+   "url": "https://www.srherald.com/suriname/2026/11/22/akmos-criminaliteit-kost-ondernemers-steeds-meer-geld-regering-luistert-te-weinig/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-22T04:07:00+00:00",
+   "source": "Starnieuws",
+   "title": "Caribische centrale banken werken aan sneller regionaal betalingsverkeer",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94974"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-22T03:04:46+00:00",
+   "source": "Suriname Herald",
+   "title": "Van Dijk-Silos: Suriname onvoldoende voorbereid op olie-inkomsten en risico verscherpt financieel toezicht",
+   "url": "https://www.srherald.com/suriname/2026/11/22/van-dijk-silos-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-risico-verscherpt-financieel-toezicht/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-22T03:01:00+00:00",
+   "source": "Starnieuws",
+   "title": "Sleur steunt Simons in mennonietenkwestie, Blokland verdedigt landbouwproject",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94969"
+  },
+  {
+   "econ": false,
    "published": "2026-11-21T23:17:35+00:00",
    "source": "Suriname Herald",
    "title": "Beroepsonderwijs moet beter aansluiten op arbeidsmarkt: bedrijfsleven krijgt adviesrol",
@@ -36,7 +64,7 @@
    "url": "https://dwtonline.com/ambtenaar-aangehouden-voor-salarisfraude-met-persoonsgegevens/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-21T11:30:00+00:00",
    "source": "de Ware Tijd",
    "title": "Belastingdienst haalt BTW doelen, bereidt zich voor op olie en gas",
@@ -391,38 +419,17 @@
    "source": "Suriname Herald",
    "title": "Wijnerman: als het aan Financiën ligt, komen er geen loonsverhogingen voor ambtenaren",
    "url": "https://www.srherald.com/suriname/2026/11/15/wijnerman-als-het-aan-financien-ligt-komen-er-geen-loonsverhogingen-voor-ambtenaren/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-15T01:28:00+00:00",
-   "source": "Starnieuws",
-   "title": "Lebidoti vraagt aandacht voor onderwijs, energievoorziening en renovatie dorpsgebouwen",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94869"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-14T21:50:53+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Verdachte oplichting Chinese goudondernemer in Paramaribo opgepakt in Nickerie",
-   "url": "https://www.dbsuriname.com/2026/11/14/verdachte-oplichting-chinese-goudondernemer-in-paramaribo-opgepakt-in-nickerie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-13T15:28:00+00:00",
-   "source": "Starnieuws",
-   "title": "Wereldwijde Microsoft-storing ontregelt bedrijven en overheden",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94851"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-13T03:00:00+00:00",
-   "source": "Starnieuws",
-   "title": "Regering stelt nieuwe salarisschalen en graden voor leerkrachten vast",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94844"
   }
  ],
- "fetched_at": "2026-11-22T01:17:51+00:00",
+ "fetched_at": "2026-11-22T08:48:05+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-22T03:04:46+00:00",
+   "source": "Suriname Herald",
+   "title": "Van Dijk-Silos: Suriname onvoldoende voorbereid op olie-inkomsten en risico verscherpt financieel toezicht",
+   "url": "https://www.srherald.com/suriname/2026/11/22/van-dijk-silos-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-risico-verscherpt-financieel-toezicht/"
+  },
   {
    "econ": false,
    "published": "2026-11-21T23:09:10+00:00",
@@ -438,7 +445,7 @@
    "url": "https://www.srherald.com/suriname/2026/11/21/suriname-zoekt-qatarese-investeerders-voor-olie-infrastructuur-en-woningbouw/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-21T11:30:00+00:00",
    "source": "de Ware Tijd",
    "title": "Belastingdienst haalt BTW doelen, bereidt zich voor op olie en gas",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
    "url": "https://www.srherald.com/suriname/2026/10/28/plein-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-aanpak-corruptie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-26T17:00:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Olie en de honden",
-   "url": "https://dwtonline.com/olie-en-de-honden/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-22T01:17:49+00:00",
+   "fetched_at": "2026-11-22T08:48:03+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-11-22T01:17:47+00:00",
+   "fetched_at": "2026-11-22T08:48:01+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-22T01:17:48+00:00",
+   "fetched_at": "2026-11-22T08:48:03+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-22T01:17:50+00:00",
+   "fetched_at": "2026-11-22T08:48:04+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-22T01:17:48+00:00",
+   "fetched_at": "2026-11-22T08:48:03+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-22T01:17:51+00:00",
+   "fetched_at": "2026-11-22T08:48:05+00:00",
    "ok": true
   }
  }
