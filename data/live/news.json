@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-21T23:17:35+00:00",
+   "source": "Suriname Herald",
+   "title": "Beroepsonderwijs moet beter aansluiten op arbeidsmarkt: bedrijfsleven krijgt adviesrol",
+   "url": "https://www.srherald.com/suriname/2026/11/21/beroepsonderwijs-moet-beter-aansluiten-op-arbeidsmarkt-bedrijfsleven-krijgt-adviesrol/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-21T22:50:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Apec-top: Handelsbarrières verminderen, digitale samenwerking versterken",
+   "url": "https://dwtonline.com/apec-top-handelsbarrieres-verminderen-digitale-samenwerking-versterken/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-21T20:06:21+00:00",
    "source": "Suriname Herald",
    "title": "Suriname zoekt Qatarese investeerders voor olie, infrastructuur en woningbouw",
@@ -405,24 +419,17 @@
    "source": "Starnieuws",
    "title": "Regering stelt nieuwe salarisschalen en graden voor leerkrachten vast",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94844"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T21:46:00+00:00",
-   "source": "Starnieuws",
-   "title": "LVV investeert ruim SRD 82 miljoen in laboratorium voor plantgezondheid",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94834"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-12T18:09:43+00:00",
-   "source": "Suriname Herald",
-   "title": "KPS raamt miljardenbehoefte voor tien jaar, precieze begroting blijft uit",
-   "url": "https://www.srherald.com/suriname/2026/11/12/kps-raamt-miljardenbehoefte-voor-tien-jaar-precieze-begroting-blijft-uit/"
   }
  ],
- "fetched_at": "2026-11-21T21:06:55+00:00",
+ "fetched_at": "2026-11-22T01:17:51+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-21T23:09:10+00:00",
+   "source": "Suriname Herald",
+   "title": "Scholieren stellen president Simons vragen over criminaliteit en kansen in oliesector",
+   "url": "https://www.srherald.com/suriname/2026/11/21/scholieren-stellen-president-simons-vragen-over-criminaliteit-en-kansen-in-oliesector/"
+  },
   {
    "econ": false,
    "published": "2026-11-21T20:06:21+00:00",
@@ -695,44 +702,37 @@
    "source": "de Ware Tijd",
    "title": "Olie en de honden",
    "url": "https://dwtonline.com/olie-en-de-honden/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-25T21:36:51+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Marine Le Pen wil opnieuw naar olie zoeken in Frankrijk",
-   "url": "https://www.dbsuriname.com/2026/10/25/marine-le-pen-wil-opnieuw-naar-olie-zoeken-in-frankrijk/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-21T21:06:54+00:00",
+   "fetched_at": "2026-11-22T01:17:49+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-11-21T21:06:52+00:00",
+   "fetched_at": "2026-11-22T01:17:47+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-21T21:06:53+00:00",
+   "fetched_at": "2026-11-22T01:17:48+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-21T21:06:54+00:00",
+   "fetched_at": "2026-11-22T01:17:50+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-21T21:06:53+00:00",
+   "fetched_at": "2026-11-22T01:17:48+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-21T21:06:55+00:00",
+   "fetched_at": "2026-11-22T01:17:51+00:00",
    "ok": true
   }
  }

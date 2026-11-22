@@ -1,15 +1,6 @@
 {
- "fetched_at": "2026-11-21T21:07:10+00:00",
+ "fetched_at": "2026-11-22T01:18:03+00:00",
  "notices": [
-  {
-   "date": "2026-11-21",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE OOST-WEST VERBINDING TUSSEN HOOFDWEG MARIENBURG EN ABDOELLAKHAN HUSSAINWEG, KAPPASTRAAT, BAMIESTRAAT, WANTONSTRAAT, BRUINESUIKERSTRAAT, MAISSUIKERSTRAAT, ABDOELLAKHAN HUSSAINWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED, GEHEEL PANDIT TILAKDHARIWEG, WALLERWEG, TJE TJEWEG, PAK S. RAKIMIWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED, KROONENBURG, MON SOUCIS, CONSTANTIA, ALLIANCE EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud zaterdag 21 november 2026",
-   "url": "https://nvebs.com/nieuws/1657/gepland-onderhoud-zaterdag-21-november-2026"
-  },
   {
    "date": "2026-11-22",
    "kind": "planned",
@@ -45,6 +36,15 @@
    "text": "GEDEELTE HELENA CHRISTINAWEG TUSSEN INDIRA GANDHIWEG EN NOAHWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
    "title": "Gepland onderhoud vrijdag 27 november 2026",
    "url": "https://nvebs.com/nieuws/1660/gepland-onderhoud-vrijdag-27-november-2026"
+  },
+  {
+   "date": "",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "De N.V. EnergieBedrijvenSuriname (N.V. EBS) maakt bekend dat in de perioden van vrijdag 13 november tot en met maandag 16 november 2026 en vrijdag 20 november tot en met maandag 23 november 2026 noodzakelijke werkzaamheden zullen worden uitgevoerd te Afobaka. De gezamelijke opwekcapaciteit van de Opwek Centrales zal, gedurende de aangegeven periode, niet voldoende zijn om te allen tijde aan de totale vermogensvraag te voldoen. Hierdoor zal het noodzakelijk zijn om gedurende de middag- en avonduren meerdere gebieden tijdelijk af te schakelen. Dit zal plaatsvinden door middel van geplande loadshedding. Klanten in de desbetreffende gebieden, dienen rekening te houden met een onderbreking van de",
+   "title": "Noodzakelijke werkzaamheden te afobakka-geplande loadshedding",
+   "url": "https://nvebs.com/nieuws/1649/noodzakelijke-werkzaamheden-te-afobakka-geplande-loadshedding"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
