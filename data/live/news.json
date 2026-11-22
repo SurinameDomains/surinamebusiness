@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-22T17:50:00+00:00",
+   "source": "Starnieuws",
+   "title": "COP31 eindigt zonder klimaatakkoord na onenigheid over fossiele brandstoffen",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94982"
+  },
+  {
+   "econ": false,
    "published": "2026-11-22T14:58:50+00:00",
    "source": "Suriname Herald",
    "title": "Suriname wil US$ 500 miljoen investeren in industrie en lokale bedrijven versterken",
@@ -412,16 +419,9 @@
    "source": "de Ware Tijd",
    "title": "Standard & Poor’s hoeft ons de les niet voor te komen lezen",
    "url": "https://dwtonline.com/standard-poors-hoeft-ons-de-les-niet-voor-te-komen-lezen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-15T12:51:29+00:00",
-   "source": "Suriname Herald",
-   "title": "Telesur wil dorpen in binnenland voorzien van sneller internet",
-   "url": "https://www.srherald.com/suriname/2026/11/15/telesur-wil-dorpen-in-binnenland-voorzien-van-sneller-internet/"
   }
  ],
- "fetched_at": "2026-11-22T17:05:37+00:00",
+ "fetched_at": "2026-11-22T22:28:05+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,33 +707,35 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-22T17:05:35+00:00",
+   "fetched_at": "2026-11-22T22:28:05+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-11-22T17:05:33+00:00",
+   "fetched_at": "2026-11-22T22:27:57+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-22T17:05:34+00:00",
+   "fetched_at": "2026-11-22T22:28:04+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-22T17:05:35+00:00",
+   "fetched_at": "2026-11-22T22:28:05+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-22T17:05:34+00:00",
+   "fetched_at": "2026-11-22T22:28:04+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
+   "error": "HTTP Error 500: Internal Server Error",
+   "failed_at": "2026-11-22T22:28:05+00:00",
    "fetched_at": "2026-11-22T17:05:36+00:00",
-   "ok": true
+   "ok": false
   }
  }
 }
