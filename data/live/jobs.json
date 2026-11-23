@@ -1,4 +1,6 @@
 {
+ "error": "The read operation timed out",
+ "failed_at": "2026-11-23T03:06:34+00:00",
  "fetched_at": "2026-11-22T22:27:57+00:00",
  "items": [
   {
@@ -114,7 +116,7 @@
    "url": "https://jobs.totalenergies.com/careers/JobDetail/Drilling-Wells-Engineer/83653"
   }
  ],
- "ok": true,
+ "ok": false,
  "sources": {
   "Newmont": {
    "count": 4,

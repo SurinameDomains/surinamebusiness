@@ -2,6 +2,20 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-23T02:35:23+00:00",
+   "source": "de Ware Tijd",
+   "title": "Wereldbank: tekort aan financiering kleine bedrijven loopt op tot US$ 4 biljoen",
+   "url": "https://dwtonline.com/wereldbank-tekort-aan-financiering-kleine-bedrijven-loopt-op-tot-us-4-biljoen/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-22T23:50:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Jones wil inhouding salaris bij te laat komen in DNA",
+   "url": "https://www.dbsuriname.com/2026/11/22/jones-wil-inhouding-salaris-bij-te-laat-komen-in-dna/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-22T17:50:00+00:00",
    "source": "Starnieuws",
    "title": "COP31 eindigt zonder klimaatakkoord na onenigheid over fossiele brandstoffen",
@@ -64,7 +78,7 @@
    "url": "https://www.srherald.com/suriname/2026/11/21/beroepsonderwijs-moet-beter-aansluiten-op-arbeidsmarkt-bedrijfsleven-krijgt-adviesrol/"
   },
   {
-   "econ": false,
+   "econ": true,
    "published": "2026-11-21T22:50:00+00:00",
    "source": "de Ware Tijd",
    "title": "Apec-top: Handelsbarrières verminderen, digitale samenwerking versterken",
@@ -405,23 +419,9 @@
    "source": "Suriname Herald",
    "title": "SAB wil productie uitbreiden met nieuwe installatie na 60 jaar ondernemerschap",
    "url": "https://www.srherald.com/suriname/2026/11/15/sab-wil-productie-uitbreiden-met-nieuwe-installatie-na-60-jaar-ondernemerschap/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-15T14:00:00+00:00",
-   "source": "Dagblad Suriname",
-   "title": "EBS: Noodzakelijke werkzaamheden te Afobaka – Geplande loadshedding",
-   "url": "https://www.dbsuriname.com/2026/11/15/ebs-noodzakelijke-werkzaamheden-te-afobaka-geplande-loadshedding-3/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-15T13:08:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Standard & Poor’s hoeft ons de les niet voor te komen lezen",
-   "url": "https://dwtonline.com/standard-poors-hoeft-ons-de-les-niet-voor-te-komen-lezen/"
   }
  ],
- "fetched_at": "2026-11-22T22:28:05+00:00",
+ "fetched_at": "2026-11-23T03:06:37+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,35 +707,33 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-22T22:28:05+00:00",
+   "fetched_at": "2026-11-23T03:06:36+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 13,
-   "fetched_at": "2026-11-22T22:27:57+00:00",
+   "fetched_at": "2026-11-23T03:06:34+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-22T22:28:04+00:00",
+   "fetched_at": "2026-11-23T03:06:35+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-22T22:28:05+00:00",
+   "fetched_at": "2026-11-23T03:06:36+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-22T22:28:04+00:00",
+   "fetched_at": "2026-11-23T03:06:35+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "error": "HTTP Error 500: Internal Server Error",
-   "failed_at": "2026-11-22T22:28:05+00:00",
-   "fetched_at": "2026-11-22T17:05:36+00:00",
-   "ok": false
+   "fetched_at": "2026-11-23T03:06:37+00:00",
+   "ok": true
   }
  }
 }
