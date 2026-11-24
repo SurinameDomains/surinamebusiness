@@ -2,6 +2,27 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-23T23:55:57+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Belastingdienst zet met HUMUS Consultancy belangrijke stap naar transformatie HRM",
+   "url": "https://www.dbsuriname.com/2026/11/23/belastingdienst-zet-met-humus-consultancy-belangrijke-stap-naar-transformatie-hrm/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-23T23:03:14+00:00",
+   "source": "Suriname Herald",
+   "title": "Grassalco gaat Barbados helpen landbouwproductie te verhogen met Surinaamse expertise",
+   "url": "https://www.srherald.com/suriname/2026/11/23/grassalco-gaat-barbados-helpen-landbouwproductie-te-verhogen-met-surinaamse-expertise/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-23T22:06:00+00:00",
+   "source": "Starnieuws",
+   "title": "Wanneer wordt Suriname ook economisch vrij?",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94964"
+  },
+  {
+   "econ": false,
    "published": "2026-11-23T04:44:36+00:00",
    "source": "Suriname Herald",
    "title": "Slechte weg remt toerisme en bevoorrading in Kabalebo",
@@ -398,30 +419,9 @@
    "source": "Suriname Herald",
    "title": "Onderzoek Poeketie: zonder goed onderhoud dreigen zonne-energieprojecten in binnenland te mislukken",
    "url": "https://www.srherald.com/suriname/2026/11/16/onderzoek-poeketie-zonder-goed-onderhoud-dreigen-zonne-energieprojecten-in-binnenland-te-mislukken/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-16T08:54:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Shenzhen maakt zich klaar voor Apec-top",
-   "url": "https://dwtonline.com/shenzhen-maakt-zich-klaar-voor-apec-top/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-16T04:44:09+00:00",
-   "source": "Suriname Herald",
-   "title": "Asabina: nog geen antwoord op prijskaartje ruimteagentschap",
-   "url": "https://www.srherald.com/suriname/2026/11/16/asabina-nog-geen-antwoord-op-prijskaartje-ruimteagentschap/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-16T00:24:58+00:00",
-   "source": "Suriname Herald",
-   "title": "Bromfietser overleden op Bouterse Highway; goudzoeker vermist in Tomatu",
-   "url": "https://www.srherald.com/suriname/2026/11/15/bromfietser-overleden-op-bouterse-highway-goudzoeker-vermist-in-tomatu/"
   }
  ],
- "fetched_at": "2026-11-23T12:31:01+00:00",
+ "fetched_at": "2026-11-24T00:20:14+00:00",
  "oil": [
   {
    "econ": false,
@@ -707,32 +707,32 @@
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-23T12:31:00+00:00",
+   "fetched_at": "2026-11-24T00:20:12+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-23T12:30:59+00:00",
+   "count": 15,
+   "fetched_at": "2026-11-24T00:20:10+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-23T12:30:59+00:00",
+   "fetched_at": "2026-11-24T00:20:12+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-23T12:31:00+00:00",
+   "fetched_at": "2026-11-24T00:20:13+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-23T12:30:59+00:00",
+   "fetched_at": "2026-11-24T00:20:12+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-23T12:31:01+00:00",
+   "fetched_at": "2026-11-24T00:20:14+00:00",
    "ok": true
   }
  }
