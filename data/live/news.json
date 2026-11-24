@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-24T20:34:21+00:00",
+   "source": "Dagblad Suriname",
+   "title": "KPS ontvangt 10 auto’s van Staatsolie, Grassalco en Telesur",
+   "url": "https://www.dbsuriname.com/2026/11/24/kps-ontvangt-10-autos-van-staatsolie-grassalco-en-telesur/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T20:28:21+00:00",
+   "source": "Suriname Herald",
+   "title": "Van stroom tot dienstauto’s: Guyanese oud-presidenten krijgen meer op kosten van de belastingbetaler",
+   "url": "https://www.srherald.com/buitenland/2026/11/24/van-stroom-tot-dienstautos-guyanese-oud-presidenten-krijgen-meer-op-kosten-van-de-belastingbetaler/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T15:00:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Legerwapens in goudvelden",
+   "url": "https://dwtonline.com/legerwapens-in-goudvelden/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T10:50:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Sleur: ‘Europa belemmert met maatregelen tegen China de energietransitie’",
+   "url": "https://dwtonline.com/sleur-europa-belemmert-met-maatregelen-tegen-china-de-energietransitie/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-24T03:00:00+00:00",
    "source": "de Ware Tijd",
    "title": "President en ministers bespreken prijsstijgingen; ECD wordt beter uitgerust",
@@ -391,38 +419,24 @@
    "source": "Suriname Herald",
    "title": "Lokalentekort hield leerlingen thuis: Staatsolie breidt VOJ Koewarasan uit",
    "url": "https://www.srherald.com/suriname/2026/11/17/lokalentekort-hield-leerlingen-thuis-staatsolie-breidt-voj-koewarasan-uit/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T09:53:00+00:00",
-   "source": "Starnieuws",
-   "title": "Olie en mijnbouw leveren miljarden op, maar transparantie blijft aandachtspunt",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94904"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T03:01:00+00:00",
-   "source": "Starnieuws",
-   "title": "Surinames kredietwaardigheid: van vertrouwen naar crisis en herstel",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94906"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T02:05:12+00:00",
-   "source": "Suriname Herald",
-   "title": "Canada ziet zakelijke kansen in Suriname en wil economische samenwerking uitbreiden",
-   "url": "https://www.srherald.com/suriname/2026/11/16/canada-ziet-zakelijke-kansen-in-suriname-en-wil-economische-samenwerking-uitbreiden/"
-  },
-  {
-   "econ": true,
-   "published": "2026-11-17T00:11:52+00:00",
-   "source": "de Ware Tijd",
-   "title": "Fitch kent Suriname ‘B-‘ rating toe met positieve vooruitzichten",
-   "url": "https://dwtonline.com/fitch-kent-suriname-b-rating-toe-met-positieve-vooruitzichten/"
   }
  ],
- "fetched_at": "2026-11-24T10:24:11+00:00",
+ "fetched_at": "2026-11-24T20:52:01+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-24T20:34:21+00:00",
+   "source": "Dagblad Suriname",
+   "title": "KPS ontvangt 10 auto’s van Staatsolie, Grassalco en Telesur",
+   "url": "https://www.dbsuriname.com/2026/11/24/kps-ontvangt-10-autos-van-staatsolie-grassalco-en-telesur/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T13:38:55+00:00",
+   "source": "Suriname Herald",
+   "title": "PALU vreest dat Surinaamse oliemiljarden bij kleine groep belanden",
+   "url": "https://www.srherald.com/suriname/2026/11/24/palu-vreest-dat-surinaamse-oliemiljarden-bij-kleine-groep-belanden/"
+  },
   {
    "econ": false,
    "published": "2026-11-22T03:04:46+00:00",
@@ -688,51 +702,37 @@
    "source": "Starnieuws",
    "title": "Notaris Autar: Surinaamse juristen moeten klaar zijn voor oliecontracten en AI",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94606"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-29T23:46:00+00:00",
-   "source": "Starnieuws",
-   "title": "Wat blijft over als de olie op is?",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94603"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-28T09:18:59+00:00",
-   "source": "Suriname Herald",
-   "title": "Plein: Suriname onvoldoende voorbereid op olie-inkomsten en aanpak corruptie",
-   "url": "https://www.srherald.com/suriname/2026/10/28/plein-suriname-onvoldoende-voorbereid-op-olie-inkomsten-en-aanpak-corruptie/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-24T10:24:10+00:00",
+   "fetched_at": "2026-11-24T20:52:00+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 15,
-   "fetched_at": "2026-11-24T10:24:08+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-24T20:51:58+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-24T10:24:09+00:00",
+   "fetched_at": "2026-11-24T20:51:59+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-24T10:24:10+00:00",
+   "fetched_at": "2026-11-24T20:52:00+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-24T10:24:09+00:00",
+   "fetched_at": "2026-11-24T20:51:59+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-24T10:24:11+00:00",
+   "fetched_at": "2026-11-24T20:52:01+00:00",
    "ok": true
   }
  }
