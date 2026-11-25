@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-25T14:55:56+00:00",
+ "fetched_at": "2026-11-25T23:36:18+00:00",
  "notices": [
   {
    "date": "2026-11-26",
@@ -17,15 +17,6 @@
    "text": "",
    "title": "Gepland onderhoud donderdag 26 november 2026",
    "url": "https://nvebs.com/nieuws/1662/gepland-onderhoud-donderdag-26-november-2026"
-  },
-  {
-   "date": "2026-11-26",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE WELGELEGENSTRAAT TUSSEN KWATTAWEG EN OKERSTRAAT, KOMKOMMERSTRAAT, TOMAATSTRAAT, ABADOESTRAAT, PENTASTRAAT, ANTONSTRAAT, MISPELSTRAAT, GEMBERSTRAAT, PATATASTRAAT, KASABASTRAAT EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud donderdag 26 november 2026",
-   "url": "https://nvebs.com/nieuws/1659/gepland-onderhoud-donderdag-26-november-2026"
   },
   {
    "date": "2026-11-27",
@@ -47,6 +38,23 @@
   {
    "date": "2026-11-27",
    "kind": "planned",
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=dc2189dc56f04ce7a9d6643030d15095",
+   "slots": [
+    {
+     "areas": "MANASSEZEGENWEG, GOEDEZORGWEG, GOEDE GEVINGENWEG, CLAUDIA WENSWEG, BOVEN VERWACHTINGWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
+     "date": "2026-11-27",
+     "district": "Paramaribo",
+     "from": "08:30",
+     "to": "12:30"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud vrijdag 27 november 2026",
+   "url": "https://nvebs.com/nieuws/1663/gepland-onderhoud-vrijdag-27-november-2026"
+  },
+  {
+   "date": "2026-11-27",
+   "kind": "planned",
    "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=48abe7de20844a21b84644b972d52d19",
    "slots": [
     {
@@ -62,13 +70,21 @@
    "url": "https://nvebs.com/nieuws/1661/gepland-onderhoud-vrijdag-27-november-2026"
   },
   {
-   "date": "2026-11-27",
+   "date": "2026-11-28",
    "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE HELENA CHRISTINAWEG TUSSEN INDIRA GANDHIWEG EN NOAHWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud vrijdag 27 november 2026",
-   "url": "https://nvebs.com/nieuws/1660/gepland-onderhoud-vrijdag-27-november-2026"
+   "map": "https://gisenterprise.ebs.sr/portal/apps/experiencebuilder/experience/?id=0ad39ef76e484b1d88a546c9c0273fea",
+   "slots": [
+    {
+     "areas": "GEDEELTE KRAKKAWEG TUSSEN CABENDADORP EN AVOBAKAWEG, GEDEELTE AVOBAKAWEG TUSSEN KRAKKAWEG EN WEG NAAR BABUNHOL EN ALLE ZIJWEGEN DIE VOORKOMEN IN DEZE GEBIEDEN.",
+     "date": "2026-11-28",
+     "district": "Para/ Brokopondo",
+     "from": "08:00",
+     "to": "15:00"
+    }
+   ],
+   "text": "",
+   "title": "Gepland onderhoud zaterdag 28 november 2026",
+   "url": "https://nvebs.com/nieuws/1664/gepland-onderhoud-zaterdag-28-november-2026"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"
