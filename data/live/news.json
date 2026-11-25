@@ -2,6 +2,41 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-25T14:39:00+00:00",
+   "source": "Dagblad Suriname",
+   "title": "DNA neemt twee belastingwetten aan",
+   "url": "https://www.dbsuriname.com/2026/11/25/dna-neemt-twee-belastingwetten-aan/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-25T11:28:00+00:00",
+   "source": "Starnieuws",
+   "title": "NDP roept op tot nationale eenheid en economische zelfstandigheid",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95030"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-25T10:56:00+00:00",
+   "source": "Starnieuws",
+   "title": "DNA neemt Algemene Wet Belastingen en Invorderingswet aan",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95021"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-25T08:54:00+00:00",
+   "source": "de Ware Tijd",
+   "title": "Hervorming belastingstelsel heeft wettelijke basis na aanname wetten",
+   "url": "https://dwtonline.com/hervorming-belastingstelsel-heeft-wettelijke-basis-na-aanname-wetten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-25T07:25:00+00:00",
+   "source": "Starnieuws",
+   "title": "Telesur, Staatsolie en Grassalco schenken tien voertuigen aan politie",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95026"
+  },
+  {
+   "econ": false,
    "published": "2026-11-25T01:52:18+00:00",
    "source": "Suriname Herald",
    "title": "Suriname en Ierland verkennen samenwerking op gebied van landbouw en regionale ontwikkeling",
@@ -384,45 +419,17 @@
    "source": "Starnieuws",
    "title": "COP31: verdeeldheid over fossiele brandstoffen en klimaatfinanciering",
    "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94916"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-18T01:54:51+00:00",
-   "source": "Suriname Herald",
-   "title": "Zes nieuwe ambassadeurs bij president Simons: olie, energie en handel bieden kansen voor samenwerking",
-   "url": "https://www.srherald.com/suriname/2026/11/17/zes-nieuwe-ambassadeurs-bij-president-simons-olie-energie-en-handel-bieden-kansen-voor-samenwerking/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T21:37:00+00:00",
-   "source": "Starnieuws",
-   "title": "VS scherpt toezicht op AI-chips aan, ook Brazilië onder nieuwe exportregels",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94909"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T20:10:37+00:00",
-   "source": "Suriname Herald",
-   "title": "Suriname en Barbados willen toerisme en culturele uitwisseling versterken",
-   "url": "https://www.srherald.com/suriname/2026/11/17/suriname-en-barbados-willen-toerisme-en-culturele-uitwisseling-versterken/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T19:31:21+00:00",
-   "source": "Dagblad Suriname",
-   "title": "Amntenaren Brokopondo riskeren salarisblokkade",
-   "url": "https://www.dbsuriname.com/2026/11/17/amntenaren-brokopondo-riskeren-salarisblokkade/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T17:00:15+00:00",
-   "source": "de Ware Tijd",
-   "title": "Goud maakt meer kapot dan je lief is",
-   "url": "https://dwtonline.com/goud-maakt-meer-kapot-dan-je-lief-is/"
   }
  ],
- "fetched_at": "2026-11-25T04:07:55+00:00",
+ "fetched_at": "2026-11-25T14:55:43+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-25T07:25:00+00:00",
+   "source": "Starnieuws",
+   "title": "Telesur, Staatsolie en Grassalco schenken tien voertuigen aan politie",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95026"
+  },
   {
    "econ": false,
    "published": "2026-11-25T01:53:00+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "GranMorgu-project op schema, eerste olie in 2028 blijft haalbaar",
    "url": "https://www.srherald.com/suriname/2026/10/30/granmorgu-project-op-schema-eerste-olie-in-2028-blijft-haalbaar/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T11:17:06+00:00",
-   "source": "Suriname Herald",
-   "title": "Notaris Autar: Surinaamse juristen moeten klaar zijn voor miljardeninvesteringen in olie- en gassector",
-   "url": "https://www.srherald.com/suriname/2026/10/30/notaris-autar-surinaamse-juristen-moeten-klaar-zijn-voor-miljardeninvesteringen-in-olie-en-gassector/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-25T04:07:54+00:00",
+   "fetched_at": "2026-11-25T14:55:42+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 16,
-   "fetched_at": "2026-11-25T04:07:52+00:00",
+   "count": 20,
+   "fetched_at": "2026-11-25T14:55:40+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-25T04:07:54+00:00",
+   "fetched_at": "2026-11-25T14:55:41+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-25T04:07:54+00:00",
+   "fetched_at": "2026-11-25T14:55:42+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-25T04:07:53+00:00",
+   "fetched_at": "2026-11-25T14:55:41+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-25T04:07:55+00:00",
+   "fetched_at": "2026-11-25T14:55:43+00:00",
    "ok": true
   }
  }
