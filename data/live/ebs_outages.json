@@ -1,15 +1,6 @@
 {
- "fetched_at": "2026-11-24T20:52:12+00:00",
+ "fetched_at": "2026-11-25T04:08:05+00:00",
  "notices": [
-  {
-   "date": "2026-11-24",
-   "kind": "planned",
-   "map": "",
-   "slots": [],
-   "text": "GEDEELTE BAKKIEWEG TUSSEN AGENORIAWEG EN HABIBWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
-   "title": "Gepland onderhoud dinsdag 24 november 2026",
-   "url": "https://nvebs.com/nieuws/1655/gepland-onderhoud-dinsdag-24-november-2026"
-  },
   {
    "date": "2026-11-26",
    "kind": "planned",
@@ -61,6 +52,15 @@
    "text": "GEDEELTE HELENA CHRISTINAWEG TUSSEN INDIRA GANDHIWEG EN NOAHWEG EN ALLE ZIJWEGEN DIE VOORKOMEN IN DIT GEBIED.",
    "title": "Gepland onderhoud vrijdag 27 november 2026",
    "url": "https://nvebs.com/nieuws/1660/gepland-onderhoud-vrijdag-27-november-2026"
+  },
+  {
+   "date": "",
+   "kind": "notice",
+   "map": "",
+   "slots": [],
+   "text": "Registreer uw mobielnummer en ontvang een SMS zodra uw stroomrekening of factuur beschikbaar is. Registreren kan:",
+   "title": "Blijf op de hoogte van uw stroomrekening!",
+   "url": "https://nvebs.com/nieuws/1561/blijf-op-de-hoogte-van-uw-stroomrekening"
   }
  ],
  "source": "https://nvebs.com/elektriciteit/stroom-onderbrekingen"

@@ -2,6 +2,34 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-25T01:52:18+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname en Ierland verkennen samenwerking op gebied van landbouw en regionale ontwikkeling",
+   "url": "https://www.srherald.com/suriname/2026/11/24/suriname-en-ierland-verkennen-samenwerking-op-gebied-van-landbouw-en-regionale-ontwikkeling/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-25T00:47:20+00:00",
+   "source": "Suriname Herald",
+   "title": "Zestien nieuwe deurwaarders beëdigd bij Belastingdienst",
+   "url": "https://www.srherald.com/suriname/2026/11/24/zestien-nieuwe-deurwaarders-beedigd-bij-belastingdienst/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T23:27:00+00:00",
+   "source": "Starnieuws",
+   "title": "Belastingdienst begint HRM-hervorming met nadruk op personeel en leiderschap",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95005"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-24T21:08:30+00:00",
+   "source": "Suriname Herald",
+   "title": "Simons wil strengere prijscontroles in winkels: ECD krijgt extra voertuigen",
+   "url": "https://www.srherald.com/suriname/2026/11/24/simons-wil-strengere-prijscontroles-in-winkels-ecd-krijgt-extra-voertuigen/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-24T20:34:21+00:00",
    "source": "Dagblad Suriname",
    "title": "KPS ontvangt 10 auto’s van Staatsolie, Grassalco en Telesur",
@@ -391,38 +419,17 @@
    "source": "de Ware Tijd",
    "title": "Goud maakt meer kapot dan je lief is",
    "url": "https://dwtonline.com/goud-maakt-meer-kapot-dan-je-lief-is/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T16:18:55+00:00",
-   "source": "Suriname Herald",
-   "title": "Ambtenaren Brokopondo riskeren salarisblokkade bij aanhoudend verzuim",
-   "url": "https://www.srherald.com/suriname/2026/11/17/ambtenaren-brokopondo-riskeren-salarisblokkade-bij-aanhoudend-verzuim/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T15:41:00+00:00",
-   "source": "Starnieuws",
-   "title": "Canada wil economische samenwerking met Suriname uitbreiden",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94903"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T15:00:12+00:00",
-   "source": "Suriname Herald",
-   "title": "Debipersad: betere kredietwaardigheid betekent niet dat Suriname financieel uit de problemen is",
-   "url": "https://www.srherald.com/suriname/2026/11/17/debipersad-betere-kredietwaardigheid-betekent-niet-dat-suriname-financieel-uit-de-problemen-is/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-17T11:25:16+00:00",
-   "source": "Suriname Herald",
-   "title": "Lokalentekort hield leerlingen thuis: Staatsolie breidt VOJ Koewarasan uit",
-   "url": "https://www.srherald.com/suriname/2026/11/17/lokalentekort-hield-leerlingen-thuis-staatsolie-breidt-voj-koewarasan-uit/"
   }
  ],
- "fetched_at": "2026-11-24T20:52:01+00:00",
+ "fetched_at": "2026-11-25T04:07:55+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-25T01:53:00+00:00",
+   "source": "Starnieuws",
+   "title": "Local Content: voor wie bouwen we eigenlijk aan de toekomst?",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95011"
+  },
   {
    "econ": false,
    "published": "2026-11-24T20:34:21+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Notaris Autar: Surinaamse juristen moeten klaar zijn voor miljardeninvesteringen in olie- en gassector",
    "url": "https://www.srherald.com/suriname/2026/10/30/notaris-autar-surinaamse-juristen-moeten-klaar-zijn-voor-miljardeninvesteringen-in-olie-en-gassector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T01:42:00+00:00",
-   "source": "Starnieuws",
-   "title": "Notaris Autar: Surinaamse juristen moeten klaar zijn voor oliecontracten en AI",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94606"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-24T20:52:00+00:00",
+   "fetched_at": "2026-11-25T04:07:54+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 14,
-   "fetched_at": "2026-11-24T20:51:58+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-25T04:07:52+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-24T20:51:59+00:00",
+   "fetched_at": "2026-11-25T04:07:54+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-24T20:52:00+00:00",
+   "fetched_at": "2026-11-25T04:07:54+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-24T20:51:59+00:00",
+   "fetched_at": "2026-11-25T04:07:53+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-24T20:52:01+00:00",
+   "fetched_at": "2026-11-25T04:07:55+00:00",
    "ok": true
   }
  }

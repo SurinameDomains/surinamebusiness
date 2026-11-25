@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-11-24T20:51:58+00:00",
+ "fetched_at": "2026-11-25T04:07:52+00:00",
  "items": [
+  {
+   "deadline": null,
+   "employer": "Newmont Suriname",
+   "id": "nm-45685",
+   "location": "Paramaribo",
+   "published": "2026-11-24",
+   "source": "Newmont",
+   "title": "Specialist, People Business Partners Suriname",
+   "url": "https://jobs.newmont.com/us/en/job/45685"
+  },
   {
    "deadline": null,
    "employer": "Newmont Suriname",
@@ -68,16 +78,6 @@
   {
    "deadline": null,
    "employer": "TotalEnergies EP Suriname",
-   "id": "te-86105",
-   "location": "Suriname",
-   "published": "2026-11-10",
-   "source": "TotalEnergies",
-   "title": "Physical Stock Controller",
-   "url": "https://jobs.totalenergies.com/careers/JobDetail/Physical-Stock-Controller/86105"
-  },
-  {
-   "deadline": null,
-   "employer": "TotalEnergies EP Suriname",
    "id": "te-85976",
    "location": "Suriname",
    "published": "2026-11-05",
@@ -117,39 +117,39 @@
  "ok": true,
  "sources": {
   "Newmont": {
-   "count": 4,
-   "fetched_at": "2026-11-24T20:51:49+00:00",
+   "count": 5,
+   "fetched_at": "2026-11-25T04:07:43+00:00",
    "ok": true
   },
   "Suriname Business": {
    "count": 0,
-   "fetched_at": "2026-11-24T20:51:47+00:00",
+   "fetched_at": "2026-11-25T04:07:42+00:00",
    "ok": true
   },
   "TotalEnergies": {
-   "count": 6,
-   "fetched_at": "2026-11-24T20:51:53+00:00",
+   "count": 5,
+   "fetched_at": "2026-11-25T04:07:48+00:00",
    "ok": true
   },
   "UN Careers": {
    "count": 0,
-   "fetched_at": "2026-11-24T20:51:58+00:00",
+   "fetched_at": "2026-11-25T04:07:52+00:00",
    "ok": true
   },
   "UNDP": {
    "count": 0,
-   "fetched_at": "2026-11-24T20:51:54+00:00",
+   "fetched_at": "2026-11-25T04:07:49+00:00",
    "ok": true
   },
   "UNICEF": {
    "count": 0,
    "error": "HTTP Error 404: Not Found",
-   "failed_at": "2026-11-24T20:51:54+00:00",
+   "failed_at": "2026-11-25T04:07:50+00:00",
    "ok": false
   },
   "US Embassy": {
    "count": 0,
-   "fetched_at": "2026-11-24T20:51:56+00:00",
+   "fetched_at": "2026-11-25T04:07:50+00:00",
    "ok": true
   }
  }
