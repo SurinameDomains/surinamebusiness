@@ -2,6 +2,48 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-26T15:25:03+00:00",
+   "source": "Suriname Herald",
+   "title": "Staatsolie ziet na investeringsbesluit ruimte voor twee nieuwe offshoreprojecten",
+   "url": "https://www.srherald.com/suriname/2026/11/26/staatsolie-ziet-na-investeringsbesluit-ruimte-voor-twee-nieuwe-offshoreprojecten/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-26T14:06:40+00:00",
+   "source": "Suriname Herald",
+   "title": "Suriname sluit vijfjarig akkoord met VN voor economische groei en betere leefomstandigheden",
+   "url": "https://www.srherald.com/suriname/2026/11/26/suriname-sluit-vijfjarig-akkoord-met-vn-voor-economische-groei-en-betere-leefomstandigheden/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-26T13:03:45+00:00",
+   "source": "Dagblad Suriname",
+   "title": "Politie kan weer tanken na stopzetting brandstoflevering",
+   "url": "https://www.dbsuriname.com/2026/11/26/politie-kan-weer-tanken-na-stopzetting-brandstoflevering/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-26T13:00:28+00:00",
+   "source": "Suriname Herald",
+   "title": "Soeropawiro: geen primair bos beschikbaar voor grootschalige landbouw",
+   "url": "https://www.srherald.com/suriname/2026/11/26/soeropawiro-geen-primair-bos-beschikbaar-voor-grootschalige-landbouw/"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-26T09:52:00+00:00",
+   "source": "Starnieuws",
+   "title": "Suriname sluit zich aan bij gezondheidsalliantie PAHO, Wereldbank en IDB",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95038"
+  },
+  {
+   "econ": false,
+   "published": "2026-11-26T06:11:03+00:00",
+   "source": "Suriname Herald",
+   "title": "Trump verrast Brazilië met nieuwe importheffingen op vliegtuigen en suiker",
+   "url": "https://www.srherald.com/buitenland/2026/11/26/trump-verrast-brazilie-met-nieuwe-importheffingen-op-vliegtuigen-en-suiker/"
+  },
+  {
+   "econ": false,
    "published": "2026-11-26T01:48:00+00:00",
    "source": "Starnieuws",
    "title": "VN waarschuwt Suriname voor groeiende ongelijkheid door olie-inkomsten",
@@ -377,52 +419,17 @@
    "source": "Suriname Herald",
    "title": "Belastingdienst haalt al SRD 8,7 miljard aan btw binnen, maar mist kennis voor oliesector",
    "url": "https://www.srherald.com/suriname/2026/11/19/belastingdienst-haalt-al-srd-87-miljard-aan-btw-binnen-maar-mist-kennis-voor-oliesector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-19T18:35:05+00:00",
-   "source": "Dagblad Suriname",
-   "title": "“Directoraat Belastingen moet capaciteit gericht inzetten”",
-   "url": "https://www.dbsuriname.com/2026/11/19/directoraat-belastingen-moet-capaciteit-gericht-inzetten/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-19T17:14:42+00:00",
-   "source": "Dagblad Suriname",
-   "title": "30 jaar cel voor doodschieten ondernemer in Nickerie",
-   "url": "https://www.dbsuriname.com/2026/11/19/30-jaar-cel-voor-doodschieten-ondernemer-in-nickerie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-19T15:55:00+00:00",
-   "source": "Starnieuws",
-   "title": "Trump, Xi en Putin zoeken gezamenlijke koers voor wereldveiligheid",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94937"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-19T02:26:50+00:00",
-   "source": "de Ware Tijd",
-   "title": "Xi pleit voor open handel en regionale samenwerking",
-   "url": "https://dwtonline.com/xi-pleit-voor-open-handel-en-regionale-samenwerking/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-19T02:04:43+00:00",
-   "source": "Suriname Herald",
-   "title": "Suriname en Zimbabwe verkennen samenwerking voor meer landbouwproductie",
-   "url": "https://www.srherald.com/suriname/2026/11/18/suriname-en-zimbabwe-verkennen-samenwerking-voor-meer-landbouwproductie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-18T22:17:37+00:00",
-   "source": "Suriname Herald",
-   "title": "NMA bezorgd over gebruik Jin Chan in goudsector: personeel en geld tekort voor toezicht",
-   "url": "https://www.srherald.com/suriname/2026/11/18/nma-bezorgd-over-gebruik-jin-chan-in-goudsector-personeel-en-geld-tekort-voor-toezicht/"
   }
  ],
- "fetched_at": "2026-11-26T05:28:37+00:00",
+ "fetched_at": "2026-11-26T15:45:20+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-26T15:25:03+00:00",
+   "source": "Suriname Herald",
+   "title": "Staatsolie ziet na investeringsbesluit ruimte voor twee nieuwe offshoreprojecten",
+   "url": "https://www.srherald.com/suriname/2026/11/26/staatsolie-ziet-na-investeringsbesluit-ruimte-voor-twee-nieuwe-offshoreprojecten/"
+  },
   {
    "econ": false,
    "published": "2026-11-26T01:48:00+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Guyana trekt circa US$ 1 miljard aan haveninvesteringen dankzij groei oliesector",
    "url": "https://www.srherald.com/economie/2026/10/31/guyana-trekt-circa-us-1-miljard-aan-haveninvesteringen-dankzij-groei-oliesector/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T23:33:00+00:00",
-   "source": "de Ware Tijd",
-   "title": "Krakers Sunny Point blok 2 doen beklag over ‘ernstige intimidatie’",
-   "url": "https://dwtonline.com/krakers-sunny-point-blok-2-doen-beklag-over-ernstige-intimidatie/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-26T05:28:36+00:00",
+   "fetched_at": "2026-11-26T15:45:18+00:00",
    "ok": true
   },
   "Starnieuws": {
-   "count": 18,
-   "fetched_at": "2026-11-26T05:28:34+00:00",
+   "count": 16,
+   "fetched_at": "2026-11-26T15:45:16+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-26T05:28:35+00:00",
+   "fetched_at": "2026-11-26T15:45:18+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-26T05:28:36+00:00",
+   "fetched_at": "2026-11-26T15:45:19+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-26T05:28:35+00:00",
+   "fetched_at": "2026-11-26T15:45:18+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-26T05:28:37+00:00",
+   "fetched_at": "2026-11-26T15:45:20+00:00",
    "ok": true
   }
  }
