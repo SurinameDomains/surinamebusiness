@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-26T01:48:00+00:00",
+   "source": "Starnieuws",
+   "title": "VN waarschuwt Suriname voor groeiende ongelijkheid door olie-inkomsten",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95028"
+  },
+  {
+   "econ": false,
    "published": "2026-11-25T22:53:00+00:00",
    "source": "Starnieuws",
    "title": "Surinames verarmde Srefidensi huldigt olie- en gaseldorado",
@@ -412,17 +419,17 @@
    "source": "Suriname Herald",
    "title": "NMA bezorgd over gebruik Jin Chan in goudsector: personeel en geld tekort voor toezicht",
    "url": "https://www.srherald.com/suriname/2026/11/18/nma-bezorgd-over-gebruik-jin-chan-in-goudsector-personeel-en-geld-tekort-voor-toezicht/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-18T21:43:00+00:00",
-   "source": "Starnieuws",
-   "title": "NMA en goudcommissie richten aandacht op risico's Jin Chan en gebrekkig toezicht",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94924"
   }
  ],
- "fetched_at": "2026-11-25T23:36:00+00:00",
+ "fetched_at": "2026-11-26T05:28:37+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-26T01:48:00+00:00",
+   "source": "Starnieuws",
+   "title": "VN waarschuwt Suriname voor groeiende ongelijkheid door olie-inkomsten",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95028"
+  },
   {
    "econ": false,
    "published": "2026-11-25T22:53:00+00:00",
@@ -695,44 +702,37 @@
    "source": "de Ware Tijd",
    "title": "Krakers Sunny Point blok 2 doen beklag over ‘ernstige intimidatie’",
    "url": "https://dwtonline.com/krakers-sunny-point-blok-2-doen-beklag-over-ernstige-intimidatie/"
-  },
-  {
-   "econ": false,
-   "published": "2026-10-30T19:52:00+00:00",
-   "source": "Starnieuws",
-   "title": "Guyana overschrijdt mijlpalen in olieproductie, vier projecten leveren ruim één miljard vaten",
-   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/94628"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-25T23:35:58+00:00",
+   "fetched_at": "2026-11-26T05:28:36+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 18,
-   "fetched_at": "2026-11-25T23:35:56+00:00",
+   "fetched_at": "2026-11-26T05:28:34+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-25T23:35:58+00:00",
+   "fetched_at": "2026-11-26T05:28:35+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-25T23:35:59+00:00",
+   "fetched_at": "2026-11-26T05:28:36+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-25T23:35:58+00:00",
+   "fetched_at": "2026-11-26T05:28:35+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-25T23:36:00+00:00",
+   "fetched_at": "2026-11-26T05:28:37+00:00",
    "ok": true
   }
  }
