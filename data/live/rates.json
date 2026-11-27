@@ -4,12 +4,12 @@
   "buy": 40.3,
   "sell": 41.0
  },
- "fetched_at": "2026-11-27T09:03:05+00:00",
+ "fetched_at": "2026-11-27T18:54:17+00:00",
  "source": "Central Money Exchange (CME)",
  "source_url": "https://www.cme.sr/",
- "updated_time": "06:03 AM",
+ "updated_time": "03:54 PM",
  "usd": {
-  "buy": 37.3,
-  "sell": 37.45
+  "buy": 37.25,
+  "sell": 37.4
  }
 }

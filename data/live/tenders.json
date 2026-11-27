@@ -1,6 +1,16 @@
 {
- "fetched_at": "2026-11-27T09:03:13+00:00",
+ "fetched_at": "2026-11-27T18:54:21+00:00",
  "items": [
+  {
+   "buyer": "Staatsolie Maatschappij Suriname N.V.",
+   "deadline": "2026-12-08",
+   "id": "so-en-procurement-opportunities-rumas-foundation",
+   "lang": "en",
+   "published": "2026-11-23",
+   "source": "Staatsolie",
+   "title": "Request for Expression of Interest for Renovation and Paintwork at the training center of RUMAS Foundation",
+   "url": "https://www.staatsolie.com/en/procurement-opportunities/rumas-foundation/"
+  },
   {
    "buyer": "Staatsolie Maatschappij Suriname N.V.",
    "deadline": "2026-12-04",
@@ -328,22 +338,22 @@
  "sources": {
   "IDB": {
    "count": 33,
-   "fetched_at": "2026-11-27T09:03:13+00:00",
+   "fetched_at": "2026-11-27T18:54:21+00:00",
    "ok": true
   },
   "Staatsolie": {
-   "count": 50,
-   "fetched_at": "2026-11-27T09:03:12+00:00",
+   "count": 51,
+   "fetched_at": "2026-11-27T18:54:20+00:00",
    "ok": true
   },
   "World Bank": {
-   "count": 15,
-   "fetched_at": "2026-11-27T09:03:12+00:00",
+   "count": 14,
+   "fetched_at": "2026-11-27T18:54:20+00:00",
    "ok": true
   },
   "gov.sr": {
    "count": 60,
-   "fetched_at": "2026-11-27T09:03:12+00:00",
+   "fetched_at": "2026-11-27T18:54:20+00:00",
    "ok": true
   }
  }
