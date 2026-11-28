@@ -2,6 +2,13 @@
  "business": [
   {
    "econ": false,
+   "published": "2026-11-27T21:54:00+00:00",
+   "source": "Starnieuws",
+   "title": "De aanneming van de AWB en bijzondere opsporing in belastingzaken",
+   "url": "https://www.starnieuws.com/index.php/welcome/index/nieuwsitem/95063"
+  },
+  {
+   "econ": false,
    "published": "2026-11-27T16:49:00+00:00",
    "source": "Suriname Herald",
    "title": "Inbrekers kraken kluis goudopkoopbedrijf aan Ringweg-Zuid: vermoedelijk US$ 100.000 buitgemaakt",
@@ -412,17 +419,17 @@
    "source": "Dagblad Suriname",
    "title": "Belastingdienst zet met HUMUS Consultancy belangrijke stap naar transformatie HRM",
    "url": "https://www.dbsuriname.com/2026/11/23/belastingdienst-zet-met-humus-consultancy-belangrijke-stap-naar-transformatie-hrm/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-23T23:03:14+00:00",
-   "source": "Suriname Herald",
-   "title": "Grassalco gaat Barbados helpen landbouwproductie te verhogen met Surinaamse expertise",
-   "url": "https://www.srherald.com/suriname/2026/11/23/grassalco-gaat-barbados-helpen-landbouwproductie-te-verhogen-met-surinaamse-expertise/"
   }
  ],
- "fetched_at": "2026-11-27T18:54:34+00:00",
+ "fetched_at": "2026-11-28T01:56:10+00:00",
  "oil": [
+  {
+   "econ": false,
+   "published": "2026-11-27T20:02:34+00:00",
+   "source": "Suriname Herald",
+   "title": "Jagesar: Suriname heeft inkomsten uit Blok 52 eigenlijk niet meer nodig",
+   "url": "https://www.srherald.com/suriname/2026/11/27/jagesar-suriname-heeft-inkomsten-uit-blok-52-eigenlijk-niet-meer-nodig/"
+  },
   {
    "econ": false,
    "published": "2026-11-27T16:06:01+00:00",
@@ -695,44 +702,37 @@
    "source": "Suriname Herald",
    "title": "Staatsolie controleert oliekosten streng om verlies van Surinaamse inkomsten te voorkomen",
    "url": "https://www.srherald.com/suriname/2026/11/20/staatsolie-controleert-oliekosten-streng-om-verlies-van-surinaamse-inkomsten-te-voorkomen/"
-  },
-  {
-   "econ": false,
-   "published": "2026-11-20T03:02:06+00:00",
-   "source": "Suriname Herald",
-   "title": "Petronas mogelijk rond Onafhankelijkheidsdag met investeringsbesluit voor gasproject Blok 52",
-   "url": "https://www.srherald.com/suriname/2026/11/20/petronas-mogelijk-rond-onafhankelijkheidsdag-met-investeringsbesluit-voor-gasproject-blok-52/"
   }
  ],
  "sources": {
   "Dagblad Suriname": {
    "count": 10,
-   "fetched_at": "2026-11-27T18:54:33+00:00",
+   "fetched_at": "2026-11-28T01:56:08+00:00",
    "ok": true
   },
   "Starnieuws": {
    "count": 15,
-   "fetched_at": "2026-11-27T18:54:31+00:00",
+   "fetched_at": "2026-11-28T01:56:06+00:00",
    "ok": true
   },
   "Suriname Herald": {
    "count": 10,
-   "fetched_at": "2026-11-27T18:54:32+00:00",
+   "fetched_at": "2026-11-28T01:56:07+00:00",
    "ok": true
   },
   "Suriname Herald economie": {
    "count": 10,
-   "fetched_at": "2026-11-27T18:54:33+00:00",
+   "fetched_at": "2026-11-28T01:56:08+00:00",
    "ok": true
   },
   "de Ware Tijd": {
    "count": 10,
-   "fetched_at": "2026-11-27T18:54:32+00:00",
+   "fetched_at": "2026-11-28T01:56:07+00:00",
    "ok": true
   },
   "de Ware Tijd economie": {
    "count": 10,
-   "fetched_at": "2026-11-27T18:54:34+00:00",
+   "fetched_at": "2026-11-28T01:56:10+00:00",
    "ok": true
   }
  }
